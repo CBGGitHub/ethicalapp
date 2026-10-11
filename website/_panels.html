@@ -1,0 +1,146 @@
+<!-- Source of the online tools' panels. make_tool_pages.py puts each one on its own page. Edit here, then run:
+     .venv\Scripts\python website\make_tool_pages.py -->
+      <!-- ============ PDF merge ============ -->
+      <section class="tool-panel" id="pdf-merge" role="tabpanel" hidden>
+        <h2>Merge PDFs</h2>
+        <p class="tool-desc">Put several PDFs together into one. Use the arrows to change the order.</p>
+        <div class="drop" data-accept=".pdf,application/pdf" data-multiple><strong>Drop PDFs here</strong>or click to choose files<input type="file"></div>
+        <ul class="files"></ul>
+        <div class="opts"><label>File name<input type="text" name="out" value="merged.pdf"></label></div>
+        <div class="run-row"><button class="btn btn-primary" data-run>Merge</button><span class="status"></span></div>
+        <div class="results"></div>
+      </section>
+
+      <!-- ============ PDF split ============ -->
+      <section class="tool-panel" id="pdf-split" role="tabpanel" hidden>
+        <h2>Split or extract pages</h2>
+        <p class="tool-desc">Take some pages out into a new PDF, or split every page into its own file.</p>
+        <div class="drop" data-accept=".pdf,application/pdf"><strong>Drop a PDF here</strong>or click to choose a file<input type="file"></div>
+        <ul class="files"></ul>
+        <div class="opts">
+          <label>What to do<select name="mode">
+            <option value="extract">Pages below → one new PDF</option>
+            <option value="ranges">Each range below → its own PDF</option>
+            <option value="each">Every page → its own PDF</option>
+          </select></label>
+          <label>Pages<input type="text" name="pages" placeholder="e.g. 1-3, 5, 8-"></label>
+        </div>
+        <div class="run-row"><button class="btn btn-primary" data-run>Split</button><span class="status"></span></div>
+        <div class="results"></div>
+      </section>
+
+      <!-- ============ PDF rotate ============ -->
+      <section class="tool-panel" id="pdf-rotate" role="tabpanel" hidden>
+        <h2>Rotate pages</h2>
+        <p class="tool-desc">Turn sideways or upside-down scans the right way round.</p>
+        <div class="drop" data-accept=".pdf,application/pdf"><strong>Drop a PDF here</strong>or click to choose a file<input type="file"></div>
+        <ul class="files"></ul>
+        <div class="opts">
+          <label>Turn<select name="angle"><option value="90">90° right</option><option value="270">90° left</option><option value="180">180°</option></select></label>
+          <label>Pages<input type="text" name="pages" placeholder="all pages"></label>
+        </div>
+        <div class="run-row"><button class="btn btn-primary" data-run>Rotate</button><span class="status"></span></div>
+        <div class="results"></div>
+      </section>
+
+      <!-- ============ images -> PDF ============ -->
+      <section class="tool-panel" id="pdf-from-images" role="tabpanel" hidden>
+        <h2>Pictures → PDF</h2>
+        <p class="tool-desc">Turn photos or scans into one PDF – one picture per page, in this order.</p>
+        <div class="drop" data-accept="image/*" data-multiple><strong>Drop pictures here</strong>JPG, PNG, WebP, GIF, BMP<input type="file"></div>
+        <ul class="files"></ul>
+        <div class="opts">
+          <label>Page size<select name="size"><option value="fit">Same as the picture</option><option value="a4">A4</option><option value="letter">Letter</option></select></label>
+          <label>Margin<select name="margin"><option value="0">None</option><option value="18" selected>Small</option><option value="40">Large</option></select></label>
+          <label>File name<input type="text" name="out" value="pictures.pdf"></label>
+        </div>
+        <div class="run-row"><button class="btn btn-primary" data-run>Make PDF</button><span class="status"></span></div>
+        <div class="results"></div>
+      </section>
+
+      <!-- ============ PDF -> images ============ -->
+      <section class="tool-panel" id="pdf-to-images" role="tabpanel" hidden>
+        <h2>PDF → pictures</h2>
+        <p class="tool-desc">Save each page as a picture.</p>
+        <div class="drop" data-accept=".pdf,application/pdf"><strong>Drop a PDF here</strong>or click to choose a file<input type="file"></div>
+        <ul class="files"></ul>
+        <div class="opts">
+          <label>Format<select name="format"><option value="png">PNG (sharpest)</option><option value="jpeg">JPG (smaller)</option></select></label>
+          <label>Quality<select name="dpi"><option value="72">Screen (72 dpi)</option><option value="150" selected>Good (150 dpi)</option><option value="300">Print (300 dpi)</option></select></label>
+          <label>Pages<input type="text" name="pages" placeholder="all pages"></label>
+        </div>
+        <div class="run-row"><button class="btn btn-primary" data-run>Convert</button><div class="progress"><div></div></div><span class="status"></span></div>
+        <div class="results"></div>
+      </section>
+
+      <!-- ============ images ============ -->
+      <section class="tool-panel" id="image-convert" role="tabpanel" hidden>
+        <h2>Convert, resize &amp; compress pictures</h2>
+        <p class="tool-desc">Change the format, make pictures smaller for email or the web, or shrink the file size. Also removes hidden
+          photo data such as GPS location.</p>
+        <div class="drop" data-accept="image/*" data-multiple><strong>Drop pictures here</strong>JPG, PNG, WebP, GIF, BMP, AVIF<input type="file"></div>
+        <ul class="files"></ul>
+        <div class="opts">
+          <label>Save as<select name="format"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></label>
+          <label>Quality (JPG/WebP)<select name="quality"><option value="0.92">High</option><option value="0.82" selected>Good</option><option value="0.68">Small file</option><option value="0.5">Smallest</option></select></label>
+          <label>Longest side<select name="max"><option value="0">Keep size</option><option value="3840">3840 px (4K)</option><option value="1920">1920 px (HD)</option><option value="1280">1280 px</option><option value="800">800 px</option></select></label>
+        </div>
+        <div class="run-row"><button class="btn btn-primary" data-run>Convert</button><div class="progress"><div></div></div><span class="status"></span></div>
+        <div class="results"></div>
+      </section>
+
+      <!-- ============ media convert ============ -->
+      <section class="tool-panel" id="media-convert" role="tabpanel" hidden>
+        <h2>Convert audio or video</h2>
+        <p class="tool-desc">For example <code>.wav → .mp3</code>, <code>.mov → .mp4</code>, a video's sound → <code>.mp3</code>, or a short clip → <code>.gif</code>.</p>
+        <div class="drop" data-accept="audio/*,video/*,.mkv,.flac,.m4a,.ogg,.opus,.avi,.wmv,.wma,.mts" data-multiple><strong>Drop audio or video here</strong>or click to choose files<input type="file"></div>
+        <ul class="files"></ul>
+        <div class="opts">
+          <label>Convert to<select name="to">
+            <optgroup label="Audio"><option value="mp3">MP3</option><option value="m4a">M4A (AAC)</option><option value="wav">WAV</option><option value="ogg">OGG</option><option value="flac">FLAC</option></optgroup>
+            <optgroup label="Video"><option value="mp4">MP4 (plays everywhere)</option><option value="webm">WebM</option><option value="gif">GIF (no sound)</option></optgroup>
+          </select></label>
+        </div>
+        <div class="run-row"><button class="btn btn-primary" data-run>Convert</button><div class="progress"><div></div></div><span class="status"></span></div>
+        <div class="results"></div>
+        <p class="tip">The converter (about 32 MB) loads the first time you use it. Video takes longer in a browser than in the
+          <a href="index.html#app-converter">desktop Converter</a>, which is also better for files over 1 GB.</p>
+      </section>
+
+      <!-- ============ media compress ============ -->
+      <section class="tool-panel" id="media-compress" role="tabpanel" hidden>
+        <h2>Make a video smaller</h2>
+        <p class="tool-desc">Shrink a video so you can email it or send it in a chat.</p>
+        <div class="drop" data-accept="video/*,.mkv,.avi,.wmv,.mts"><strong>Drop a video here</strong>or click to choose a file<input type="file"></div>
+        <ul class="files"></ul>
+        <div class="opts">
+          <label>How small<select name="level"><option value="1">A bit smaller (best quality)</option><option value="2" selected>Balanced</option><option value="3">Much smaller</option></select></label>
+          <label>Picture size<select name="height"><option value="0">Keep</option><option value="1080">1080p</option><option value="720" selected>720p</option><option value="480">480p</option></select></label>
+        </div>
+        <div class="run-row"><button class="btn btn-primary" data-run>Compress</button><div class="progress"><div></div></div><span class="status"></span></div>
+        <div class="results"></div>
+        <p class="tip">Compressing video in a browser is slow – a few minutes of video can take several minutes. The
+          <a href="index.html#app-converter">desktop Converter</a> is many times faster.</p>
+      </section>
+
+      <!-- ============ zip ============ -->
+      <section class="tool-panel" id="zip" role="tabpanel" hidden>
+        <h2>Make a .zip</h2>
+        <p class="tool-desc">Pack several files into one .zip to send them together.</p>
+        <div class="drop" data-multiple><strong>Drop files here</strong>or click to choose files<input type="file"></div>
+        <ul class="files"></ul>
+        <div class="opts"><label>File name<input type="text" name="out" value="files.zip"></label></div>
+        <div class="run-row"><button class="btn btn-primary" data-run>Make zip</button><span class="status"></span></div>
+        <div class="results"></div>
+      </section>
+
+      <!-- ============ unzip ============ -->
+      <section class="tool-panel" id="unzip" role="tabpanel" hidden>
+        <h2>Open a .zip</h2>
+        <p class="tool-desc">See what's inside a .zip and save the files you need.</p>
+        <div class="drop" data-accept=".zip,application/zip"><strong>Drop a .zip here</strong>or click to choose a file<input type="file"></div>
+        <ul class="files"></ul>
+        <div class="run-row"><button class="btn btn-primary" data-run>Open</button><span class="status"></span></div>
+        <div class="results"></div>
+        <p class="tip">For .7z and .rar, and for password-protected PDFs, use the <a href="index.html#download">desktop apps</a>.</p>
+      </section>

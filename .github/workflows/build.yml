@@ -1,0 +1,44 @@
+# Builds the EthicalApp installer on GitHub's own Windows computers, straight from this public code,
+# so anyone can verify what's inside.
+# Runs when you push a version tag (e.g. `git tag v1.0.1` + `git push --tags`) or by hand: Actions -> Build installer -> Run workflow.
+name: Build installer
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+
+      - name: Install Python packages
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Install Inno Setup (makes the setup .exe)
+        run: choco install innosetup -y --no-progress
+
+      - name: Build the installer
+        run: python installer/build.py
+
+      - name: Upload the installer and source zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: EthicalApp-installer
+          path: |
+            dist/EthicalApp-Setup-*.exe
+            dist/EthicalApp-Source-*.zip
+          if-no-files-found: error

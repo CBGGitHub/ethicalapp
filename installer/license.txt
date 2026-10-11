@@ -1,0 +1,17 @@
+EthicalApp - licence and notices
+
+EthicalApp is free to use and to share.
+
+It is built on free, open-source components, each under its own licence. The full list and the licence texts are installed in the "licenses" folder (see THIRD-PARTY-NOTICES.txt). The most important ones:
+
+  * PyMuPDF / MuPDF (PDF engine) ............ GNU Affero General Public License v3 (AGPL-3.0)
+  * FFmpeg (audio/video conversion) ......... GNU General Public License v3 (GPL-3.0)
+  * Qt / PySide6 (user interface) ........... GNU Lesser General Public License v3 (LGPL-3.0)
+  * py7zr (7z archives) ..................... GNU Lesser General Public License v2.1
+  * Python, python-docx, python-pptx, openpyxl, Pillow, NumPy, SciPy, psd-tools, yt-dlp, Deno, the MCP SDK and others ........................... permissive licences (PSF, MIT, BSD, Unlicense)
+
+Because of the AGPL and GPL components, whenever you give EthicalApp to someone else you must also make the corresponding source code available to them. The complete source code of EthicalApp is installed in the "source" folder, so sharing the installed folder or this installer together with that source satisfies this.
+
+If your version includes the video link downloader: it is meant for content you have the right to download (your own uploads or videos the creator allows, e.g. Creative Commons). Many websites' terms - including YouTube's - do not allow downloading, and copyright still applies. You are responsible for how you use it.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE. Keep backups of important files. 

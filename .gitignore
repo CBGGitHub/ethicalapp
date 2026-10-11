@@ -1,0 +1,17 @@
+.venv/
+build/
+dist/
+__pycache__/
+*.pyc
+installer/EthicalSuite.iss
+website/downloads/
+Tools needed.txt
+
+# private project notes - stay on this PC only
+CLAUDE.md
+PROGRESS.md
+RELEASE.md
+# private: publishing helpers and hosting notes
+website/prepare_upload.py
+website/README.md
+website/.htaccess

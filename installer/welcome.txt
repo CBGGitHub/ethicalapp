@@ -1,0 +1,22 @@
+Welcome to EthicalApp
+
+Free desktop apps for everyday work - our own versions of the tools people use every day:
+
+  * Ethical PDF Editor          - view, edit text, annotate, fill forms, sign, merge and split PDFs
+  * Ethical Document Editor     - write documents; opens and saves Word (.docx) files
+  * Ethical Spreadsheet Editor  - spreadsheets with 143 formulas and charts; Excel (.xlsx) files
+  * Ethical Presentation Editor - slide decks and slideshows; PowerPoint (.pptx) files
+  * Ethical Photo Editor        - layered photo editing; Photoshop (.psd), PNG, JPG and more
+  * Ethical Converter           - convert and compress audio, video, pictures and documents; zip/unzip
+  * Ethical Database            - tables, forms, queries, relationships and reports
+  * Ethical Sticky Notes        - notes and to-do lists that stay on your desktop
+  * Ethical Snip                - screenshots you can mark up (with a shortcut key of your choice)
+  * Ethical Planner             - reminders (like daily supplements) and a calendar that pop up on time
+  * Ethical Guide               - a searchable user guide (press F1 in any app)
+
+On the next pages you can choose which apps to install, add desktop shortcuts, add right-click "Open with Ethical ..." menu entries, and optionally connect the apps to Claude (an AI assistant) so it can use them for you.
+
+Good to know:
+  * No administrator password needed - EthicalApp installs just for your user account.
+  * Nothing is installed outside the EthicalApp folder apart from shortcuts and the optional right-click entries, and everything is removed again by the uninstaller (Settings > Apps > EthicalApp).
+  * Your files stay on your computer. The apps work offline and never upload or collect anything.

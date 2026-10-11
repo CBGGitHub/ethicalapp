@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; worker-src 'self' blob:; connect-src 'self' blob: data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Privacy – EthicalApp</title>
+<meta name="description" content="EthicalApp collects nothing. The apps work offline and the online tools run in your browser – your files are never uploaded.">
+<link rel="icon" href="assets/img/favicon-32.png" type="image/png">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="" width="32" height="32"><span data-site="name">EthicalApp</span></a>
+    <button class="theme-btn menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#apps">Apps</a><a href="tools.html">Free tools</a><a href="index.html#faq">FAQ</a>
+      <button class="theme-btn" type="button" aria-label="Switch theme">☾</button>
+      <a class="btn btn-primary btn-small" href="index.html#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap prose">
+  <h1>Privacy</h1>
+  <p class="muted">Last updated: 11 October 2026</p>
+
+  <div class="card" style="background:var(--brand-soft);border-color:transparent">
+    <h3 style="margin-top:0">The short version</h3>
+    <p><b>We don't collect anything.</b> No accounts, no analytics, no cookies, no ads, no tracking. Your files never leave your device –
+      not from the desktop apps, and not from the online tools on this website.</p>
+  </div>
+
+  <h2>The desktop apps</h2>
+  <ul>
+    <li>The apps run completely on your computer and work without internet.</li>
+    <li>Your documents, spreadsheets, PDFs, pictures and databases are opened and saved only on your computer. They are never uploaded to us or anyone else.</li>
+    <li>The apps don't send usage statistics, crash reports or any other data (“telemetry”), and they don't check for updates in the background.</li>
+    <li>Settings (like recent files or your preferred zoom) are stored only on your computer.</li>
+  </ul>
+  <p>The apps only use the internet when <b>you</b> start something that needs it:</p>
+  <ul>
+    <li><b>Converter → Download from Link</b> (if included in your version) contacts the website whose link you paste, to download that file.</li>
+    <li><b>Converter → Update Downloader</b> downloads the newest version of the download component from the Python Package Index (pypi.org).</li>
+    <li>Clicking a web link (for example to this website) opens it in your browser.</li>
+  </ul>
+
+  <h2>The optional AI connection (Claude)</h2>
+  <p>The installer has an option, <b>off by default</b>, that lets Claude – an AI assistant made by Anthropic – use the apps for you, in
+    Claude Desktop or Claude Code. If you turn it on and ask Claude to work with a file, the parts of the file that Claude reads become
+    part of your conversation with Claude and are processed by Anthropic under
+    <a href="https://www.anthropic.com/legal/privacy" rel="noopener">Anthropic's privacy policy</a>. We never see or receive any of it.
+    If you don't turn this option on, nothing is shared with any AI service. You can switch it off any time: remove the “ethical-suite” connector in Claude's settings,
+    or uninstall EthicalApp (which removes the connection too).</p>
+
+  <h2>This website and the online tools</h2>
+  <ul>
+    <li><b>Files you use in the online tools are processed inside your own browser.</b> They are never uploaded – the website has no server
+      that could receive them. The results are made on your device, and everything is gone when you close the page. You can even disconnect
+      from the internet after the page has loaded and the tools keep working.</li>
+    <li>No cookies, no analytics, no advertising, and no third-party scripts or fonts. Everything the site needs is served from this site.</li>
+    <li>Your choice of light or dark mode is remembered in your own browser's storage. It never leaves your device.</li>
+    <li>Like every website, the hosting provider that delivers these pages may keep standard technical logs (such as IP address, time and the page
+      requested) for security and to keep the service running. We don't use these to track or identify visitors.</li>
+  </ul>
+
+  <h2>Support payments</h2>
+  <p>Support payments are handled by our payment provider (Stripe) on its own secure page – we never see your card details. We receive the
+    information needed to record the payment and send a receipt, such as your name, email address and the amount. We use it only for that
+    and for our accounting obligations, and we never sell or share it. Stripe's handling of your data is described in
+    <a href="https://stripe.com/privacy" rel="noopener">Stripe's privacy policy</a>.</p>
+
+  <h2>Emails</h2>
+  <p>If you email us, we use your email only to reply to you, and delete it when it's no longer needed.</p>
+
+  <h2>Your rights</h2>
+  <p>Because we don't collect personal data from the apps or the website, there's usually nothing for us to show, change or delete. For
+    payment records or emails, contact us and we'll help<span data-hide-empty>: <a href="#" data-email></a></span>.</p>
+
+  <h2>Changes</h2>
+  <p>If this ever changes, we'll update this page and the date at the top before the change happens. We'll never start collecting data
+    quietly.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><b data-site="name">EthicalApp</b> · free and open source (AGPL-3.0)<div data-hide-empty>Made by <span data-studio></span></div></div>
+    <nav aria-label="Footer"><a href="index.html">Home</a><a href="tools.html">Free tools</a><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a><a href="licenses.html">Licences</a></nav>
+  </div>
+</footer>
+</body>
+</html>

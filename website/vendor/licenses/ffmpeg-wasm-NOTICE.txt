@@ -1,0 +1,31 @@
+ffmpeg.wasm (used by the online audio/video tools)
+==================================================
+
+@ffmpeg/ffmpeg 0.12.15 and @ffmpeg/util 0.12.2 (vendor/ffmpeg, vendor/ffmpeg-util)
+  Licence: MIT - Copyright (c) 2019 Jerome Wu
+  Source: https://github.com/ffmpegwasm/ffmpeg.wasm
+
+@ffmpeg/core 0.12.10 (vendor/ffmpeg-core: ffmpeg-core.js, ffmpeg-core.wasm)
+  FFmpeg compiled to WebAssembly together with libx264, libvpx, LAME, libvorbis and other libraries.
+  Licence: GPL-2.0-or-later (see GPL-2.0 text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
+  Corresponding source code and build scripts:
+    https://github.com/ffmpegwasm/ffmpeg.wasm/tree/v0.12.10   (build scripts, Dockerfile)
+    https://ffmpeg.org/download.html                           (FFmpeg source)
+  The files are distributed unmodified, exactly as published on npm (@ffmpeg/core@0.12.10). ffmpeg-core.wasm is
+  stored as two halves (ffmpeg-core.wasm.part1 + .part2, because some web hosts limit file sizes); the browser
+  joins them back into the identical original file.
+
+MIT License (for @ffmpeg/ffmpeg and @ffmpeg/util)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

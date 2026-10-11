@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4B8BB4"/><stop offset="1" stop-color="#1E5D86"/></linearGradient></defs>
+  <rect x="8" y="12" width="240" height="240" rx="56" fill="#000000" opacity="0.18"/>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#g)"/>
+  <rect x="8" y="8" width="240" height="120.0" rx="56" fill="#FFFFFF" opacity="0.07"/>
+  <path d="M80 40 H150 L196 86 V206 Q196 216 186 216 H80 Q70 216 70 206 V50 Q70 40 80 40 Z" fill="#FFFFFF"/><path d="M150 40 V76 Q150 86 160 86 H196 Z" fill="#9CBFD6"/><rect x="85" y="104" width="96" height="10" rx="5" fill="#2471A3"/><rect x="85" y="128" width="96" height="10" rx="5" fill="#2471A3"/><rect x="85" y="152" width="96" height="10" rx="5" fill="#2471A3"/><rect x="85" y="176" width="64" height="10" rx="5" fill="#2471A3"/>
+  <circle cx="204" cy="204" r="38" fill="#FFFFFF"/><circle cx="204" cy="204" r="31" fill="#2E7D32"/><g transform="translate(178.5 178.5) scale(0.2)"><path d="M70 186 C 62 112 112 58 196 58 C 198 142 146 196 70 186 Z" fill="#FFFFFF"/></g>
+</svg>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; worker-src 'self' blob:; connect-src 'self' blob: data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Licences – EthicalApp</title>
+<meta name="description" content="EthicalApp is open source under the AGPL-3.0. Open-source components and their licences.">
+<link rel="icon" href="assets/img/favicon-32.png" type="image/png">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="" width="32" height="32"><span data-site="name">EthicalApp</span></a>
+    <button class="theme-btn menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#apps">Apps</a><a href="tools.html">Free tools</a><a href="index.html#faq">FAQ</a>
+      <button class="theme-btn" type="button" aria-label="Switch theme">☾</button>
+      <a class="btn btn-primary btn-small" href="index.html#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap prose">
+  <h1>Licences</h1>
+
+  <h2 id="suite">EthicalApp</h2>
+  <p>EthicalApp is free software: you can redistribute it and/or modify it under the terms of the
+    <a href="https://www.gnu.org/licenses/agpl-3.0.html" rel="noopener">GNU Affero General Public License, version 3</a>, as published by the
+    Free Software Foundation. It is distributed in the hope that it will be useful, but <b>without any warranty</b>; without even the implied warranty of
+    merchantability or fitness for a particular purpose. The licence text is in the <code>LICENSE</code> file of the source code and in the
+    <code>licenses</code> folder of every installation.</p>
+  <p>The complete source code is included with every installation (<code>source</code> folder)<span data-hide-empty> and is available
+    <a href="#" data-source>online</a></span>.</p>
+
+  <h2>Components in the desktop apps</h2>
+  <div class="table-scroll">
+  <table class="compare">
+    <thead><tr><th>Component</th><th>Used for</th><th>Licence</th></tr></thead>
+    <tbody>
+      <tr><td>Python</td><td>The programming language the apps are written in</td><td>PSF License</td></tr>
+      <tr><td>Qt / PySide6</td><td>Windows, menus, text, printing, charts</td><td>LGPL-3.0</td></tr>
+      <tr><td>PyMuPDF / MuPDF</td><td>Reading and editing PDFs</td><td>AGPL-3.0</td></tr>
+      <tr><td>FFmpeg</td><td>Audio and video conversion</td><td>GPL-3.0</td></tr>
+      <tr><td>python-docx, python-pptx, openpyxl</td><td>Word, PowerPoint and Excel files</td><td>MIT</td></tr>
+      <tr><td>Pillow, NumPy, SciPy</td><td>Pictures and image filters</td><td>MIT-CMU, BSD-3-Clause</td></tr>
+      <tr><td>psd-tools</td><td>Photoshop files</td><td>MIT</td></tr>
+      <tr><td>py7zr</td><td>7z archives</td><td>LGPL-2.1</td></tr>
+      <tr><td>pyodbc</td><td>Importing Access databases</td><td>MIT</td></tr>
+      <tr><td>yt-dlp, Deno</td><td>Downloading from links (if included)</td><td>Unlicense, MIT</td></tr>
+      <tr><td>MCP Python SDK, pydantic</td><td>The optional AI (Claude) connection</td><td>MIT</td></tr>
+      <tr><td>lxml, XlsxWriter</td><td>Office file internals</td><td>BSD</td></tr>
+      <tr><td>SQLite</td><td>Databases</td><td>Public domain</td></tr>
+      <tr><td>Inno Setup</td><td>The installer</td><td>Inno Setup License</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="muted">The full list with version numbers and every licence text is in the <code>licenses</code> folder of the installation
+    (<code>THIRD-PARTY-NOTICES.txt</code>).</p>
+
+  <h2>Components in the online tools</h2>
+  <div class="table-scroll">
+  <table class="compare">
+    <thead><tr><th>Component</th><th>Used for</th><th>Licence</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://pdf-lib.js.org" rel="noopener">pdf-lib</a> 1.17.1</td><td>Merging, splitting, rotating PDFs; pictures → PDF</td><td><a href="vendor/licenses/pdf-lib-1.17.1-LICENSE.txt">MIT</a></td></tr>
+      <tr><td><a href="https://mozilla.github.io/pdf.js/" rel="noopener">PDF.js</a> 4.10.38</td><td>PDF → pictures</td><td><a href="vendor/licenses/pdfjs-dist-4.10.38-LICENSE.txt">Apache-2.0</a></td></tr>
+      <tr><td><a href="https://github.com/ffmpegwasm/ffmpeg.wasm" rel="noopener">ffmpeg.wasm</a> 0.12</td><td>Audio and video conversion</td><td><a href="vendor/licenses/ffmpeg-wasm-NOTICE.txt">MIT; core GPL-2.0-or-later</a></td></tr>
+      <tr><td><a href="https://github.com/101arrowz/fflate" rel="noopener">fflate</a> 0.8.2</td><td>Zip and unzip</td><td><a href="vendor/licenses/fflate-0.8.2-LICENSE.txt">MIT</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Trademarks</h2>
+  <p class="muted">Microsoft, Word, Excel, PowerPoint and Access are trademarks of Microsoft Corporation. Adobe, Photoshop and Acrobat are trademarks of
+    Adobe Inc. Claude is a trademark of Anthropic. EthicalApp isn't affiliated with or endorsed by them.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><b data-site="name">EthicalApp</b> · free and open source (AGPL-3.0)<div data-hide-empty>Made by <span data-studio></span></div></div>
+    <nav aria-label="Footer"><a href="index.html">Home</a><a href="tools.html">Free tools</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="licenses.html" aria-current="page">Licences</a></nav>
+  </div>
+</footer>
+</body>
+</html>
