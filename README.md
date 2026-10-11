@@ -23,27 +23,28 @@ no tracking.** Made by [CraftingBenchGames](https://craftingbenchgames.com/).
 | **Ethical Planner** | Reminders and calendar events that pop up on time, with Done/Snooze |
 
 Press **F1** in any app for the searchable offline user guide. Optional: connect the apps to **Claude** (AI
-assistant) so it can use them for you – the installer offers this, or run `Connect to Claude.bat` from source.
+assistant) so it can use them for you – the installer offers this.
 
 ## Install
 Download the installer from <https://ethicalapp.org> – no admin password needed, choose which apps you want,
 uninstall any time from Settings → Apps. Windows may show "Windows protected your PC" for a new program: click
 **More info → Run anyway**. You can check the download is genuine with the SHA-256 fingerprint shown on the site.
 
-## Build from source
-1. Install **Python 3.12 or newer** from <https://www.python.org/downloads/> (tick **"Add python.exe to PATH"**).
-2. Double-click **`setup.bat`** – it installs the libraries, adds right-click "Open with Ethical …" entries and an
-   "EthicalApp" Start Menu folder. Then start any app from the Start Menu or its `.bat` file.
-3. Installer: `.venv\Scripts\python installer\build.py` (needs Inno Setup 6:
-   `winget install JRSoftware.InnoSetup --scope user`) → `dist\EthicalApp-Setup-<version>.exe`.
-   GitHub Actions builds the same installer from this repository (`.github/workflows/build.yml`).
+## Build the installer from source
+1. Install **Python 3.14** and **Inno Setup 6** (`winget install JRSoftware.InnoSetup`).
+2. In this folder:
+   ```
+   python -m venv .venv
+   .venv\Scripts\python -m pip install -r requirements.txt
+   .venv\Scripts\python installer\build.py
+   ```
+3. The installer appears in `dist\EthicalApp-Setup-<version>.exe`.
 
-The website lives in `website/` (static; preview with `.venv\Scripts\python website\serve.py`) – see
-`website/README.md`.
+GitHub Actions builds the same installer from this repository (`.github/workflows/build.yml`).
 
 ## Licence
 **AGPL-3.0** (`LICENSE`). EthicalApp is built on open-source components (Qt/PySide6, PyMuPDF, FFmpeg, python-docx,
 openpyxl, python-pptx, Pillow and more) – their licences are in `licenses/` and listed in each installation's
 `licenses` folder. Not affiliated with Microsoft or Adobe.
 
-To undo the right-click entries of a source install: `.venv\Scripts\python apps\register_windows.py --remove`
+

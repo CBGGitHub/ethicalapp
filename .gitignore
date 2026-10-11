@@ -15,3 +15,6 @@ RELEASE.md
 website/prepare_upload.py
 website/README.md
 website/.htaccess
+# kept on this PC only - not needed to build the installer
+*.bat
+website/

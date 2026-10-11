@@ -137,8 +137,9 @@ def copy_extras():
                     ignore=shutil.ignore_patterns("__pycache__", "*.bmp", "EthicalSuite.iss"))   # .iss is generated (has local paths)
     os.makedirs(os.path.join(src, "branding"), exist_ok=True)
     shutil.copy2(os.path.join(ROOT, "branding", "make_icons.py"), os.path.join(src, "branding"))
-    for f in ("LICENSE", "README.md", "requirements.txt", "setup.bat"):      # (PROGRESS/CLAUDE/RELEASE.md are private notes)
+    for f in ("LICENSE", "README.md", "requirements.txt"):
         shutil.copy2(os.path.join(ROOT, f), src)
+    shutil.copytree(os.path.join(ROOT, ".github"), os.path.join(src, ".github"))
     shutil.copytree(os.path.join(ROOT, "licenses"), os.path.join(src, "licenses"))
     write_licenses()
 
