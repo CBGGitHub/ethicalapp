@@ -42,6 +42,22 @@ uninstall any time from Settings → Apps. Windows may show "Windows protected y
 
 GitHub Actions builds the same installer from this repository (`.github/workflows/build.yml`).
 
+## Code signing policy
+Free code signing provided by [SignPath.io](https://about.signpath.io), certificate by
+[SignPath Foundation](https://signpath.org).
+
+- Only installers built by this repository's GitHub Actions workflow (`.github/workflows/build.yml`), from the
+  source code published here, are signed. Nothing built anywhere else is signed.
+- **Committers and reviewers:** [CraftingBenchGames (@CBGGitHub)](https://github.com/CBGGitHub)
+- **Approvers:** [CraftingBenchGames (@CBGGitHub)](https://github.com/CBGGitHub) – every signing request is approved
+  by hand before a release.
+
+**Privacy:** EthicalApp will not transfer any information to other networked systems unless specifically requested by
+the user or the person installing or operating it. Files are opened, edited and saved only on your own computer.
+There is no telemetry, tracking or automatic update check. The optional connection to Claude (an AI assistant) is
+off by default; when the user turns it on and asks Claude to work with a file, that content is handled by Claude
+under Anthropic's privacy policy. See also <https://ethicalapp.org/privacy>.
+
 ## Licence
 **AGPL-3.0** (`LICENSE`). EthicalApp is built on open-source components (Qt/PySide6, PyMuPDF, FFmpeg, python-docx,
 openpyxl, python-pptx, Pillow and more) – their licences are in `licenses/` and listed in each installation's
