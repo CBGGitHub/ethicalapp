@@ -1,0 +1,4875 @@
+{
+"\n\nTip: check the field types in Design View.": [
+"base_app.py:1798"
+],
+"\nNext: {v} – {v2} {v3}": [
+"planner_app.py:888"
+],
+"   Alt+click to pick the source point": [
+"photo_app.py:699"
+],
+"   Click to add text (click an existing text layer to edit it)": [
+"photo_app.py:732"
+],
+"   Click: foreground colour   Alt+click: background colour": [
+"photo_app.py:736"
+],
+"   Drag to move the layer (or the selected pixels). Arrow keys nudge.": [
+"photo_app.py:734"
+],
+"   Drawn on a new layer": [
+"photo_app.py:723"
+],
+"   Shift = add, Alt = subtract": [
+"photo_app.py:708"
+],
+"  (+{v} more)": [
+"converter_app.py:359"
+],
+"  Also show fields from related tables:": [
+"base_app.py:743"
+],
+"  Combine  ": [
+"converter_app.py:411"
+],
+"  Compress (make smaller)  ": [
+"converter_app.py:410"
+],
+"  Convert  ": [
+"converter_app.py:409"
+],
+"  New record": [
+"base_app.py:497"
+],
+"  No records": [
+"base_app.py:497"
+],
+"  Page {page} of {v}  ": [
+"word_processor.py:888",
+"word_processor.py:914"
+],
+"  Record {v} of {n}": [
+"base_app.py:497"
+],
+"  Slide {v} of {v2}  ": [
+"slides_app.py:1328"
+],
+"  Zip / Unzip  ": [
+"converter_app.py:412"
+],
+"  {width} × {height} px  ": [
+"photo_app.py:875"
+],
+"  {words:,} words  ": [
+"word_processor.py:908"
+],
+"  ·  missed": [
+"planner_app.py:393"
+],
+"  ·  sorted by {sort_col}": [
+"base_app.py:326"
+],
+"  ✂ Trim video  ": [
+"converter_app.py:415"
+],
+"  ⬇ Download from Link  ": [
+"converter_app.py:419"
+],
+" (first 5,000 shown)": [
+"base_app.py:922"
+],
+" Colour ": [
+"pdf_editor.py:507"
+],
+" Fill ": [
+"slides_app.py:1040"
+],
+" Font size ": [
+"pdf_editor.py:518"
+],
+" Highlight ": [
+"pdf_editor.py:510"
+],
+" Outline ": [
+"slides_app.py:1044"
+],
+" Page ": [
+"pdf_editor.py:473"
+],
+" Width ": [
+"pdf_editor.py:513"
+],
+" and all its repeats?": [
+"planner_app.py:363",
+"planner_app.py:704"
+],
+" dpi": [
+"converter_app.py:547"
+],
+" in": [
+"word_processor.py:256",
+"word_processor.py:274"
+],
+" in {secs:.0f}s": [
+"converter_app.py:985"
+],
+" px": [
+"photo_app.py:1579",
+"photo_app.py:1641",
+"photo_app.py:286"
+],
+" px wide": [
+"converter_app.py:543"
+],
+" · scanned clean": [
+"converter_app.py:355"
+],
+"\"{q}\" not found": [
+"pdf_editor.py:1335"
+],
+"&About": [
+"base_app.py:1390",
+"converter_app.py:487",
+"pdf_editor.py:449"
+],
+"&Actual Pixels (100%)": [
+"photo_app.py:626"
+],
+"&Actual Size": [
+"pdf_editor.py:421"
+],
+"&Adjustments": [
+"photo_app.py:570"
+],
+"&Align on Slide": [
+"slides_app.py:947"
+],
+"&Alignment": [
+"sheets_app.py:818"
+],
+"&All": [
+"photo_app.py:608"
+],
+"&Arrange": [
+"slides_app.py:941"
+],
+"&Bold": [
+"sheets_app.py:804",
+"slides_app.py:919",
+"word_processor.py:493"
+],
+"&Borders": [
+"sheets_app.py:827"
+],
+"&Bullets": [
+"slides_app.py:932",
+"word_processor.py:521"
+],
+"&Canvas Size...": [
+"photo_app.py:577"
+],
+"&Centre": [
+"slides_app.py:926",
+"word_processor.py:515"
+],
+"&Chart...": [
+"sheets_app.py:792"
+],
+"&Clear List": [
+"converter_app.py:476"
+],
+"&Close Database": [
+"base_app.py:1377"
+],
+"&Colour Range (all similar colours)...": [
+"photo_app.py:612"
+],
+"&Columns": [
+"sheets_app.py:800"
+],
+"&Combine Files into PDF...": [
+"pdf_editor.py:394"
+],
+"&Compact && Repair": [
+"base_app.py:1387"
+],
+"&Copy": [
+"photo_app.py:558",
+"sheets_app.py:768",
+"slides_app.py:890"
+],
+"&Copy Selected Text": [
+"pdf_editor.py:411"
+],
+"&Create": [
+"base_app.py:1379"
+],
+"&Data": [
+"sheets_app.py:839"
+],
+"&Database": [
+"base_app.py:1384"
+],
+"&Date and Time": [
+"word_processor.py:489"
+],
+"&Decrease Indent": [
+"word_processor.py:534"
+],
+"&Define Name...": [
+"sheets_app.py:845"
+],
+"&Delete": [
+"sheets_app.py:797"
+],
+"&Delete Selected Annotation": [
+"pdf_editor.py:412"
+],
+"&Delete Slide": [
+"slides_app.py:900"
+],
+"&Deselect": [
+"photo_app.py:609"
+],
+"&Design": [
+"slides_app.py:958"
+],
+"&Duplicate": [
+"slides_app.py:892"
+],
+"&Duplicate / Copy Selection to New Layer": [
+"photo_app.py:592"
+],
+"&Edit": [
+"pdf_editor.py:407",
+"photo_app.py:552",
+"sheets_app.py:763"
+],
+"&Export": [
+"pdf_editor.py:398"
+],
+"&Export As (PNG, JPG, WebP...)...": [
+"photo_app.py:548"
+],
+"&Export Table/Query…": [
+"base_app.py:1375"
+],
+"&Extract Selected Pages...": [
+"pdf_editor.py:441"
+],
+"&Feather...": [
+"photo_app.py:616"
+],
+"&File": [
+"base_app.py:1369",
+"converter_app.py:473",
+"pdf_editor.py:390"
+],
+"&Fill with Foreground": [
+"photo_app.py:563"
+],
+"&Find and Replace...": [
+"sheets_app.py:780",
+"word_processor.py:480"
+],
+"&Find...": [
+"pdf_editor.py:414"
+],
+"&Fit on Screen": [
+"photo_app.py:625"
+],
+"&Flatten Image": [
+"photo_app.py:587"
+],
+"&Form for Current Table": [
+"base_app.py:1383"
+],
+"&Function...": [
+"sheets_app.py:794"
+],
+"&Functions List": [
+"sheets_app.py:859"
+],
+"&Go To...": [
+"sheets_app.py:782"
+],
+"&Gridlines": [
+"sheets_app.py:848"
+],
+"&Grow...": [
+"photo_app.py:614"
+],
+"&Help": [
+"base_app.py:1388",
+"converter_app.py:482",
+"pdf_editor.py:446"
+],
+"&Hide / Show Slide": [
+"slides_app.py:901"
+],
+"&Hide Columns": [
+"sheets_app.py:835"
+],
+"&Highlight Colour...": [
+"word_processor.py:504"
+],
+"&Image": [
+"photo_app.py:569"
+],
+"&Image Size...": [
+"photo_app.py:576"
+],
+"&Import (Excel, CSV, Access)…": [
+"base_app.py:1374"
+],
+"&Increase Indent": [
+"word_processor.py:533"
+],
+"&Insert": [
+"sheets_app.py:784",
+"slides_app.py:906",
+"word_processor.py:484"
+],
+"&Inverse": [
+"photo_app.py:610"
+],
+"&Italic": [
+"sheets_app.py:805",
+"slides_app.py:920",
+"word_processor.py:495"
+],
+"&Justify": [
+"slides_app.py:928",
+"word_processor.py:516"
+],
+"&Keyboard Shortcuts": [
+"photo_app.py:634"
+],
+"&Layer": [
+"photo_app.py:589"
+],
+"&Layer Pixels": [
+"photo_app.py:611"
+],
+"&Link...": [
+"word_processor.py:487"
+],
+"&Merge && Centre": [
+"sheets_app.py:825"
+],
+"&Merge Cells": [
+"word_processor.py:556"
+],
+"&Merge Down": [
+"photo_app.py:600"
+],
+"&New": [
+"sheets_app.py:751",
+"slides_app.py:870",
+"word_processor.py:455"
+],
+"&New Blank PDF": [
+"pdf_editor.py:391"
+],
+"&New Database…": [
+"base_app.py:1370"
+],
+"&New Layer": [
+"photo_app.py:591"
+],
+"&New Slide": [
+"slides_app.py:897"
+],
+"&New...": [
+"photo_app.py:540"
+],
+"&Number Format": [
+"sheets_app.py:809"
+],
+"&Numbering": [
+"slides_app.py:933",
+"word_processor.py:523"
+],
+"&Open...": [
+"pdf_editor.py:393",
+"photo_app.py:541",
+"sheets_app.py:752"
+],
+"&Open…": [
+"base_app.py:1371"
+],
+"&Pages": [
+"pdf_editor.py:429"
+],
+"&Paragraph": [
+"word_processor.py:511"
+],
+"&Paste": [
+"sheets_app.py:769",
+"slides_app.py:891",
+"word_processor.py:476"
+],
+"&Paste as New Layer": [
+"photo_app.py:560"
+],
+"&Picture...": [
+"sheets_app.py:793",
+"slides_app.py:908",
+"word_processor.py:485"
+],
+"&Place Image as Layer...": [
+"photo_app.py:544"
+],
+"&Print...": [
+"pdf_editor.py:403",
+"sheets_app.py:759",
+"slides_app.py:879"
+],
+"&Query…": [
+"base_app.py:1381"
+],
+"&Redo": [
+"pdf_editor.py:409",
+"photo_app.py:554",
+"sheets_app.py:765"
+],
+"&Relationships…": [
+"base_app.py:1385"
+],
+"&Remove Highlight": [
+"word_processor.py:505"
+],
+"&Rename Layer...": [
+"photo_app.py:595"
+],
+"&Report…": [
+"base_app.py:1382"
+],
+"&Rotate Canvas": [
+"photo_app.py:578"
+],
+"&Row Height...": [
+"sheets_app.py:833"
+],
+"&Rows": [
+"sheets_app.py:799"
+],
+"&SQL Console": [
+"base_app.py:1386"
+],
+"&Save": [
+"pdf_editor.py:396",
+"photo_app.py:546",
+"sheets_app.py:756"
+],
+"&Select": [
+"photo_app.py:607"
+],
+"&Shape": [
+"slides_app.py:909"
+],
+"&Sheet": [
+"sheets_app.py:791",
+"sheets_app.py:801"
+],
+"&Shrink...": [
+"photo_app.py:615"
+],
+"&Slide": [
+"slides_app.py:896"
+],
+"&Sort...": [
+"sheets_app.py:842"
+],
+"&Split Cell": [
+"word_processor.py:557"
+],
+"&Split into Single Pages...": [
+"pdf_editor.py:442"
+],
+"&Strikethrough": [
+"sheets_app.py:807",
+"word_processor.py:497"
+],
+"&Stroke Selection...": [
+"photo_app.py:565"
+],
+"&Table...": [
+"word_processor.py:486"
+],
+"&Table…": [
+"base_app.py:1380"
+],
+"&Text Box": [
+"slides_app.py:907"
+],
+"&Theme (apply to all slides)": [
+"slides_app.py:959"
+],
+"&Trim Transparent Edges": [
+"photo_app.py:586"
+],
+"&Underline": [
+"sheets_app.py:806",
+"slides_app.py:921",
+"word_processor.py:496"
+],
+"&Undo": [
+"pdf_editor.py:408",
+"photo_app.py:553",
+"sheets_app.py:764"
+],
+"&Vertical Alignment": [
+"slides_app.py:929"
+],
+"&View": [
+"pdf_editor.py:418",
+"photo_app.py:622",
+"sheets_app.py:847"
+],
+"&What can it convert?": [
+"converter_app.py:484"
+],
+"&Wrap Text": [
+"sheets_app.py:824"
+],
+"&Zoom": [
+"sheets_app.py:850"
+],
+"'s birthday": [
+"planner_app.py:45"
+],
+"'{v}' isn't a valid cell reference.": [
+"sheets_app.py:1343"
+],
+"(New)": [
+"base_app.py:494"
+],
+"(cascade delete)": [
+"base_app.py:1180"
+],
+"(choose…)": [
+"converter_app.py:747"
+],
+"(filtered)": [
+"base_app.py:323"
+],
+"(none)": [
+"sheets_app.py:1849"
+],
+"(not an archive)": [
+"converter_app.py:734"
+],
+"(nothing to convert)": [
+"converter_app.py:710"
+],
+"({saved}% smaller)": [
+"converter_app.py:966"
+],
+"+  New note": [
+"sticky_notes.py:654"
+],
+", {failed} failed": [
+"converter_app.py:985"
+],
+".\n\n{APP_NAME} can't keep these yet - they will be missing if you save over the original file. Use File > Save As to save a separate copy.": [
+"sheets_app.py:1052"
+],
+".\n\n{APP_NAME} can't show or keep these yet - they will be missing if you save over the original. Use File > Save As to keep the original file unchanged.": [
+"slides_app.py:1137"
+],
+".\nSave anyway? (Choose No to use Save As instead.)": [
+"sheets_app.py:1063"
+],
+".\nSave anyway? (No = Save As instead.)": [
+"slides_app.py:1148"
+],
+"0 of {total_jobs}": [
+"converter_app.py:918"
+],
+"1 day": [
+"planner_app.py:448"
+],
+"1 day before": [
+"planner_app.py:35",
+"planner_core.py:160"
+],
+"1 hour": [
+"planner_app.py:36",
+"planner_app.py:38",
+"planner_app.py:450"
+],
+"1 hour before": [
+"planner_app.py:34",
+"planner_core.py:162"
+],
+"1 week before": [
+"planner_app.py:35"
+],
+"1. List": [
+"slides_app.py:1038",
+"word_processor.py:639"
+],
+"10 minutes": [
+"planner_app.py:38"
+],
+"10 minutes before": [
+"planner_app.py:33"
+],
+"12-hour (8:00 PM)": [
+"planner_app.py:501"
+],
+"15 minutes": [
+"planner_app.py:36"
+],
+"15 minutes before": [
+"planner_app.py:34"
+],
+"1½ hours": [
+"planner_app.py:36"
+],
+"2 days before": [
+"planner_app.py:35"
+],
+"2 hours": [
+"planner_app.py:37"
+],
+"2 hours before": [
+"planner_app.py:34"
+],
+"24-hour (20:00)": [
+"planner_app.py:501"
+],
+"3 hours": [
+"planner_app.py:37",
+"planner_app.py:38"
+],
+"30 minutes": [
+"planner_app.py:36",
+"planner_app.py:38"
+],
+"30 minutes before": [
+"planner_app.py:34"
+],
+"4 hours": [
+"planner_app.py:37"
+],
+"45 minutes": [
+"planner_app.py:36"
+],
+"4K 3840×2160": [
+"photo_app.py:271"
+],
+"5 minutes": [
+"planner_app.py:38"
+],
+"5 minutes before": [
+"planner_app.py:33"
+],
+"8 hours": [
+"planner_app.py:37"
+],
+"90° Clockwise": [
+"photo_app.py:579"
+],
+"90° Counter-clockwise": [
+"photo_app.py:580"
+],
+"90° left": [
+"trim_tab.py:106"
+],
+"90° right": [
+"trim_tab.py:106"
+],
+"<a href='#'>Pin to taskbar or Start…</a>": [
+"suite_launcher.py:164"
+],
+"<a href='{SUPPORT_URL}' style='color:#C62828; text-decoration:none'>♥ Support EthicalApp</a><span style='color:palette(placeholder-text)'> – free forever, kept going by people who chip in</span>": [
+"suite_launcher.py:139"
+],
+"<b>Create a new database</b>": [
+"base_app.py:1290"
+],
+"<b>Next up</b><br><span style='color:#5B6370'>Nothing in the next week.</span>": [
+"planner_app.py:662"
+],
+"<b>Next up</b><br>{v}<br><span style='color:#5B6370'>{when} at {v2}</span>": [
+"planner_app.py:660"
+],
+"<b>Recent</b>": [
+"base_app.py:1314"
+],
+"<b>{APP_NAME}</b><br>Part of {SUITE_NAME}.": [
+"pdf_editor.py:450",
+"photo_app.py:635",
+"sheets_app.py:861"
+],
+"<b>{APP_NAME}</b><br>Part of {SUITE_NAME}.<br><br>Audio and video conversion uses <a href='https://ffmpeg.org'>FFmpeg</a> (free software, GPL licence).": [
+"converter_app.py:489"
+],
+"<b>{APP_NAME}</b><br>Part of {SUITE_NAME}.<br><br>Databases are standard SQLite files.": [
+"base_app.py:1391"
+],
+"<b>{v}</b><br>{v2} · {v3}×{v4}": [
+"trim_tab.py:147"
+],
+"<b>📌 Keep EthicalApp handy</b><br><b>Taskbar:</b> right-click the EthicalApp icon on the taskbar (bottom of the screen) → <b>Pin to taskbar</b>.<br><b>Start:</b> click Start, find <b>EthicalApp</b> in the list, right-click it → <b>Pin to Start</b>.": [
+"suite_launcher.py:90"
+],
+"<div style='font-size:22px; font-weight:700; color:#2E7D32'>{SUITE_NAME}</div><div style='font-size:12px'>Pick an app, or drop a file here to open it.</div>": [
+"suite_launcher.py:76"
+],
+"<div style='font-size:22px;font-weight:600'>Take a snip</div><div style='color:palette(placeholder-text)'>Choose what to capture. {how}</div>": [
+"snip_app.py:880"
+],
+"<span style='font-size:30px; font-weight:600; color:{ACCENT}'>Ethical Database</span><br><span style='color:#666; font-size:14px'>Keep lists and records organised: contacts, stock, orders, tasks — anything.</span>": [
+"base_app.py:1285"
+],
+"A PDF needs at least one page.": [
+"pdf_editor.py:1363"
+],
+"A presentation needs at least one slide.": [
+"slides_app.py:1395"
+],
+"A workbook needs at least one sheet.": [
+"sheets_app.py:2063"
+],
+"A → Z / smallest first": [
+"sheets_app.py:1852"
+],
+"A4 (210 x 297 mm)": [
+"word_processor.py:38"
+],
+"A4 @ 300 dpi": [
+"photo_app.py:273"
+],
+"A4 Paper": [
+"slides_app.py:1953"
+],
+"A5 (148 x 210 mm)": [
+"word_processor.py:38"
+],
+"AUDIO (mp3, wav, flac, m4a, ogg, opus, aiff, wma…) → MP3, WAV, FLAC, M4A, OGG, OPUS, AIFF, WMA, or an MP4 video with a picture.\n\nVIDEO (mp4, mkv, mov, avi, webm, wmv, flv…) → MP4 (H.264 / H.265), MKV, WebM, MOV, AVI, WMV, animated GIF, or just the sound (MP3, WAV, M4A, FLAC).\n\nPICTURES (png, jpg, webp, bmp, gif, tiff, ico, psd) → PNG, JPG, WebP, BMP, GIF, TIFF, ICO, PDF.\n\nDOCUMENTS: PDF → pictures, Word or text · Word → PDF, text, HTML, Markdown, ODT · PowerPoint → PDF or pictures · Excel → CSV · CSV → Excel · text/Markdown/HTML → PDF or Word.\n\nCOMPRESS makes any of these smaller. COMBINE joins pictures/PDFs into one PDF, or audio/videos into one. ZIP / UNZIP packs or unpacks .zip, .7z, .tar.gz and more.": [
+"converter_app.py:998"
+],
+"Accounting": [
+"sheets_app.py:38"
+],
+"Add": [
+"snip_app.py:337"
+],
+"Add &Files…": [
+"converter_app.py:474"
+],
+"Add All Fields": [
+"base_app.py:760"
+],
+"Add F&older…": [
+"converter_app.py:475"
+],
+"Add Field": [
+"base_app.py:622"
+],
+"Add Files…": [
+"converter_app.py:399"
+],
+"Add Folder…": [
+"converter_app.py:399"
+],
+"Add Noise": [
+"photo_core.py:400"
+],
+"Add Space &After Paragraph": [
+"word_processor.py:540"
+],
+"Add Space &Before Paragraph": [
+"word_processor.py:539"
+],
+"Add Text": [
+"pdf_editor.py:1074",
+"pdf_editor.py:37"
+],
+"Add a record (or type in the ✱ row)": [
+"base_app.py:294"
+],
+"Add a relationship (one parent record ↔ many child records)": [
+"base_app.py:1132"
+],
+"Add files": [
+"converter_app.py:647"
+],
+"Add finished downloads to the file list (to convert / compress)": [
+"converter_app.py:173"
+],
+"Add folder": [
+"converter_app.py:653"
+],
+"Add some files first (drag them into the list).": [
+"converter_app.py:834"
+],
+"Add {v}": [
+"photo_app.py:1897"
+],
+"Address:": [
+"word_processor.py:1320"
+],
+"Alert": [
+"planner_app.py:256"
+],
+"Align &Left": [
+"slides_app.py:925",
+"word_processor.py:515"
+],
+"Align &Right": [
+"slides_app.py:927",
+"word_processor.py:516"
+],
+"Align:": [
+"photo_app.py:340"
+],
+"All Borders": [
+"sheets_app.py:828"
+],
+"All day": [
+"planner_app.py:184",
+"planner_app.py:433",
+"planner_app.py:90"
+],
+"All files": [
+"base_app.py:27",
+"photo_app.py:1936",
+"photo_app.py:1959"
+],
+"All notes…": [
+"sticky_notes.py:586",
+"sticky_notes.py:896"
+],
+"All supported": [
+"word_processor.py:30"
+],
+"Also": [
+"planner_app.py:257"
+],
+"Alt+click on the picture first to choose what to copy from.": [
+"photo_app.py:1016"
+],
+"Amount": [
+"photo_core.py:400",
+"photo_core.py:402"
+],
+"Amount %": [
+"photo_core.py:397"
+],
+"An image needs at least one layer.": [
+"photo_app.py:1762"
+],
+"Anchor:": [
+"photo_app.py:1648"
+],
+"Angle": [
+"photo_core.py:395"
+],
+"Annotation colour": [
+"pdf_editor.py:1125"
+],
+"Apply Crop (Enter)": [
+"photo_app.py:725"
+],
+"Apply fill colour": [
+"sheets_app.py:912"
+],
+"Apply font colour": [
+"sheets_app.py:907"
+],
+"Apply highlight": [
+"word_processor.py:630"
+],
+"Apply text colour": [
+"slides_app.py:1032",
+"word_processor.py:624"
+],
+"Arbitrary...": [
+"photo_app.py:582"
+],
+"Archive name:": [
+"converter_app.py:609"
+],
+"Arrow": [
+"pdf_editor.py:46",
+"photo_app.py:720",
+"slides_app.py:914"
+],
+"Arrow Pentagon": [
+"slides_app.py:44"
+],
+"As &Word Document (.docx)...": [
+"pdf_editor.py:400"
+],
+"As Plain &Text (.txt)...": [
+"pdf_editor.py:401"
+],
+"Ascending": [
+"base_app.py:863"
+],
+"At the time": [
+"planner_app.py:33",
+"planner_core.py:158"
+],
+"Audio files → one audio file (MP3)": [
+"converter_app.py:584"
+],
+"Audio quality:": [
+"converter_app.py:523"
+],
+"Auto Contrast": [
+"photo_core.py:427"
+],
+"AutoFit Column &Width": [
+"sheets_app.py:834"
+],
+"AutoNumber": [
+"base_core.py:18"
+],
+"AutoSum": [
+"sheets_app.py:872"
+],
+"Average": [
+"base_app.py:1110",
+"base_app.py:867"
+],
+"Average: {average}": [
+"sheets_app.py:1317"
+],
+"Back": [
+"slides_app.py:1049"
+],
+"Background &Picture...": [
+"slides_app.py:964"
+],
+"Background Colour for &All Slides...": [
+"slides_app.py:963"
+],
+"Background Picture": [
+"slides_app.py:1935"
+],
+"Background colour": [
+"photo_app.py:420",
+"slides_app.py:1924"
+],
+"Background:": [
+"photo_app.py:294"
+],
+"Balanced": [
+"convert_core.py:192",
+"converter_app.py:562"
+],
+"Bar": [
+"sheets_app.py:527"
+],
+"Bigger Text": [
+"slides_app.py:922"
+],
+"Bigger text": [
+"word_processor.py:604"
+],
+"Bins out": [
+"planner_app.py:44"
+],
+"Birthday": [
+"planner_app.py:45"
+],
+"Black": [
+"photo_app.py:288"
+],
+"Black & White": [
+"photo_core.py:426"
+],
+"Black background": [
+"converter_app.py:534"
+],
+"Blank": [
+"slides_app.py:347"
+],
+"Blank database": [
+"base_app.py:1292"
+],
+"Blush": [
+"slides_app.py:38"
+],
+"Bold": [
+"pdf_editor.py:132",
+"photo_app.py:317"
+],
+"Bold (Ctrl+B)": [
+"sticky_notes.py:345"
+],
+"Borders": [
+"sheets_app.py:934"
+],
+"Bottom": [
+"photo_app.py:1644",
+"sheets_app.py:822",
+"slides_app.py:930"
+],
+"Bottom Border": [
+"sheets_app.py:829"
+],
+"Bottom-left": [
+"photo_app.py:1644"
+],
+"Bottom-right": [
+"photo_app.py:1644"
+],
+"Brightness": [
+"photo_core.py:409"
+],
+"Brightness/Contrast": [
+"photo_core.py:409"
+],
+"Bring &Forward": [
+"slides_app.py:943"
+],
+"Bring to &Front": [
+"slides_app.py:942"
+],
+"Browse…": [
+"converter_app.py:430"
+],
+"Brush": [
+"photo_app.py:28",
+"photo_core.py:405"
+],
+"Bullet list (Ctrl+Shift+L)": [
+"sticky_notes.py:349"
+],
+"C&lear Formatting": [
+"word_processor.py:506"
+],
+"C&lear Selection Pixels": [
+"photo_app.py:561"
+],
+"C&omment...": [
+"sheets_app.py:795"
+],
+"CSV (one per sheet)": [
+"convert_core.py:44"
+],
+"CSV - current sheet only": [
+"sheets_app.py:35"
+],
+"Can't convert this file to that format.": [
+"convert_core.py:763"
+],
+"Can't use that output folder:\n{ex}": [
+"converter_app.py:839"
+],
+"Cancel": [
+"converter_app.py:202",
+"converter_app.py:443",
+"planner_app.py:277"
+],
+"Cancel (Esc)": [
+"photo_app.py:728",
+"snip_app.py:107"
+],
+"Cancelled": [
+"converter_app.py:311",
+"converter_app.py:932"
+],
+"Cancelled - ": [
+"converter_app.py:984"
+],
+"Cancelled.": [
+"trim_tab.py:258"
+],
+"Canvas Size": [
+"photo_app.py:1636"
+],
+"Canvas size": [
+"photo_app.py:1672"
+],
+"Cell &Shading...": [
+"word_processor.py:558"
+],
+"Cell shading": [
+"word_processor.py:1300"
+],
+"Cell size": [
+"photo_core.py:401"
+],
+"Centre": [
+"photo_app.py:1643",
+"photo_app.py:322",
+"sheets_app.py:819"
+],
+"Change Ca&se: UPPER": [
+"word_processor.py:507"
+],
+"Change Case: Title": [
+"word_processor.py:509"
+],
+"Change Case: lower": [
+"word_processor.py:508"
+],
+"Change Colour...": [
+"pdf_editor.py:987"
+],
+"Change the shortcut…": [
+"snip_app.py:858"
+],
+"Changes are saved automatically.": [
+"base_app.py:1471"
+],
+"Changing the size or rotating always uses Exact.": [
+"trim_tab.py:112"
+],
+"Charcoal": [
+"slides_app.py:37"
+],
+"Chart": [
+"sheets_app.py:525"
+],
+"Checking…": [
+"converter_app.py:259"
+],
+"Chevron": [
+"slides_app.py:44"
+],
+"Child table (the “many”):": [
+"base_app.py:1145"
+],
+"Choose files to combine (in order)": [
+"pdf_editor.py:1435"
+],
+"Choose image...": [
+"pdf_editor.py:223"
+],
+"Choose the snips folder…": [
+"snip_app.py:859"
+],
+"Choose two different tables.": [
+"base_app.py:1190"
+],
+"Choose what to import": [
+"base_app.py:1763"
+],
+"Circle": [
+"word_processor.py:526"
+],
+"Clear": [
+"converter_app.py:400",
+"pdf_editor.py:212",
+"photo_app.py:1908"
+],
+"Clear &All": [
+"sheets_app.py:774"
+],
+"Clear &Contents": [
+"sheets_app.py:772"
+],
+"Clear &Formats": [
+"sheets_app.py:773"
+],
+"Clear Contents": [
+"sheets_app.py:2340"
+],
+"Clear centre %": [
+"photo_core.py:402"
+],
+"Click a line of existing text to change it": [
+"pdf_editor.py:36"
+],
+"Click here to take a snip.": [
+"snip_app.py:1322"
+],
+"Click or drag to insert an image": [
+"pdf_editor.py:49"
+],
+"Click the box and press the keys you want to use to start a snip from anywhere\n(for example Ctrl+Alt+S – handy if your keyboard has no PrtScn key):": [
+"snip_app.py:1155"
+],
+"Click to add a sticky note": [
+"pdf_editor.py:41"
+],
+"Click to add speaker notes": [
+"slides_app.py:828"
+],
+"Click to add subtitle": [
+"slides_app.py:338"
+],
+"Click to add text": [
+"slides_app.py:332",
+"slides_app.py:343"
+],
+"Click to add title": [
+"slides_app.py:329"
+],
+"Click to change the keyboard shortcut that takes a snip from anywhere": [
+"snip_app.py:689"
+],
+"Click to place a text box": [
+"pdf_editor.py:37"
+],
+"Click to place your signature": [
+"pdf_editor.py:50"
+],
+"Clock": [
+"planner_app.py:499"
+],
+"Clone Stamp": [
+"photo_app.py:29"
+],
+"Clone source set - now paint where you want to copy to": [
+"photo_app.py:1012"
+],
+"Close": [
+"sheets_app.py:577",
+"word_processor.py:336"
+],
+"Close note (it's kept - reopen it from the tray icon or All notes)": [
+"sticky_notes.py:330"
+],
+"Color Balance": [
+"photo_core.py:418"
+],
+"Color Burn": [
+"photo_core.py:24"
+],
+"Color Dodge": [
+"photo_core.py:23"
+],
+"Colour": [
+"photo_app.py:336",
+"planner_app.py:263",
+"snip_app.py:796"
+],
+"Colour Range": [
+"photo_app.py:935"
+],
+"Colour and more": [
+"sticky_notes.py:328"
+],
+"Colour range": [
+"photo_app.py:944"
+],
+"Colour:": [
+"pdf_editor.py:150"
+],
+"Colours": [
+"photo_app.py:716"
+],
+"Column": [
+"sheets_app.py:527"
+],
+"Column &Width...": [
+"sheets_app.py:832"
+],
+"Column Width": [
+"sheets_app.py:1538"
+],
+"Column {name}": [
+"sheets_app.py:1847"
+],
+"Columns &Left": [
+"sheets_app.py:788"
+],
+"Columns &Right": [
+"sheets_app.py:789"
+],
+"Columns:": [
+"slides_app.py:1722",
+"word_processor.py:1240"
+],
+"Combine:": [
+"converter_app.py:587"
+],
+"Combined": [
+"converter_app.py:875"
+],
+"Comment": [
+"sheets_app.py:1987"
+],
+"Comment (leave empty to delete):": [
+"sheets_app.py:1987"
+],
+"Contacts": [
+"base_app.py:1292"
+],
+"Contiguous": [
+"photo_app.py:704",
+"photo_app.py:711"
+],
+"Contrast": [
+"photo_core.py:410"
+],
+"Convert to": [
+"converter_app.py:78"
+],
+"Convert, compress, trim and zip": [
+"suite_launcher.py:29"
+],
+"Converter": [
+"suite_launcher.py:29"
+],
+"Cool ↔ Warm": [
+"photo_core.py:421"
+],
+"Copied": [
+"pdf_editor.py:1316",
+"photo_app.py:1879",
+"sheets_app.py:1713"
+],
+"Copied – paste it anywhere with Ctrl+V.": [
+"snip_app.py:983"
+],
+"Copy": [
+"base_app.py:388",
+"pdf_editor.py:991",
+"sheets_app.py:2334"
+],
+"Copy &Merged": [
+"photo_app.py:559"
+],
+"Copy to the clipboard (Ctrl+C)": [
+"snip_app.py:834"
+],
+"Could not create the database:\n{ex}": [
+"base_app.py:1489"
+],
+"Could not open file:\n{ex}": [
+"pdf_editor.py:578"
+],
+"Could not open the database:\n{ex}": [
+"base_app.py:1460"
+],
+"Could not open the file:\n{ex}": [
+"sheets_app.py:1043",
+"slides_app.py:1129",
+"word_processor.py:719"
+],
+"Could not open the image:\n{ex}": [
+"photo_app.py:1948",
+"photo_app.py:1964"
+],
+"Could not read signature image": [
+"pdf_editor.py:1276"
+],
+"Could not save - the file may be open in another program.": [
+"photo_app.py:2015",
+"sheets_app.py:1091",
+"slides_app.py:1173"
+],
+"Could not save:\n{ex}": [
+"pdf_editor.py:627",
+"photo_app.py:2018",
+"sheets_app.py:1094"
+],
+"Couldn't add the relationship": [
+"base_app.py:1196"
+],
+"Couldn't build the report: {ex}": [
+"base_app.py:985"
+],
+"Couldn't delete": [
+"base_app.py:1631",
+"base_app.py:217"
+],
+"Couldn't import {n}": [
+"base_app.py:1793"
+],
+"Couldn't open {name}": [
+"base_app.py:1666"
+],
+"Couldn't read that image.": [
+"sheets_app.py:2144",
+"slides_app.py:1705",
+"word_processor.py:1196"
+],
+"Couldn't read the file:\n{ex}": [
+"base_app.py:1755"
+],
+"Couldn't remove the relationship": [
+"base_app.py:1208"
+],
+"Couldn't rename": [
+"base_app.py:1617"
+],
+"Couldn't save": [
+"base_app.py:201"
+],
+"Couldn't save notes: {ex}": [
+"sticky_notes.py:772"
+],
+"Couldn't save the query": [
+"base_app.py:932"
+],
+"Couldn't save the record": [
+"base_app.py:554"
+],
+"Couldn't save the table": [
+"base_app.py:710"
+],
+"Couldn't save {path}.": [
+"snip_app.py:997"
+],
+"Count": [
+"base_app.py:1110",
+"base_app.py:867"
+],
+"Count: {count}": [
+"sheets_app.py:1315"
+],
+"Cr&op to Selection": [
+"photo_app.py:585"
+],
+"Create &Signature...": [
+"pdf_editor.py:416"
+],
+"Create Database": [
+"base_app.py:1474"
+],
+"Create PDF from Images": [
+"pdf_editor.py:1423"
+],
+"Create Signature": [
+"pdf_editor.py:207"
+],
+"Create a table first.": [
+"base_app.py:1689"
+],
+"Criteria": [
+"base_app.py:766"
+],
+"Criteria examples:  >100   <=#2026-12-31#   Like \"A*\"   Between 1 And 50   Is Null   \"London\" Or \"Paris\"   Yes": [
+"base_app.py:772"
+],
+"Crop": [
+"photo_app.py:1501",
+"photo_app.py:27",
+"snip_app.py:386"
+],
+"Ctrl+E — merge down    Ctrl+T — transform    Delete — clear selected pixels": [
+"photo_app.py:2070"
+],
+"Ctrl+J — duplicate layer / copy selection to layer": [
+"photo_app.py:2069"
+],
+"Ctrl+Z / Ctrl+Shift+Z — undo / redo    Ctrl+D — deselect": [
+"photo_app.py:2068"
+],
+"Cu&t": [
+"photo_app.py:557",
+"sheets_app.py:767",
+"slides_app.py:889"
+],
+"Currency": [
+"base_core.py:18",
+"sheets_app.py:37",
+"sheets_app.py:922"
+],
+"Custom": [
+"photo_app.py:271",
+"word_processor.py:251"
+],
+"Custom Number Format": [
+"sheets_app.py:1429"
+],
+"Custom...": [
+"sheets_app.py:814"
+],
+"Customers & Orders": [
+"base_app.py:1295"
+],
+"Customers, products, orders with totals and a report": [
+"base_app.py:1295"
+],
+"Cut": [
+"sheets_app.py:2333",
+"trim_tab.py:98"
+],
+"Cut - select where to paste": [
+"sheets_app.py:1713"
+],
+"Cut Selection to New Layer": [
+"photo_app.py:593"
+],
+"Cut to layer": [
+"photo_app.py:1757"
+],
+"Cyan ↔ Red": [
+"photo_core.py:418"
+],
+"D&uplicate Slide": [
+"slides_app.py:899"
+],
+"Daily supplements": [
+"planner_app.py:40"
+],
+"Darken": [
+"photo_core.py:21"
+],
+"Data Type": [
+"base_app.py:616"
+],
+"Data files (*.csv *.txt *.xlsx *.accdb *.mdb)": [
+"base_app.py:1730"
+],
+"Data files (*.csv *.txt *.xlsx *.accdb *.mdb);;All files (*)": [
+"base_app.py:1723"
+],
+"Data range:": [
+"sheets_app.py:541"
+],
+"Database": [
+"base_app.py:1481",
+"suite_launcher.py:30"
+],
+"Database checked and compacted.": [
+"base_app.py:1520"
+],
+"Datasheet": [
+"base_app.py:472",
+"base_app.py:475"
+],
+"Date": [
+"base_core.py:19"
+],
+"Date & Time": [
+"base_core.py:19"
+],
+"De&lete": [
+"slides_app.py:893"
+],
+"De&lete Layer": [
+"photo_app.py:594"
+],
+"De&lete Selected Pages": [
+"pdf_editor.py:444"
+],
+"Decimal Number": [
+"base_core.py:18"
+],
+"Decrease D&ecimals": [
+"sheets_app.py:816"
+],
+"Decrease decimals": [
+"sheets_app.py:926"
+],
+"Default Value": [
+"base_app.py:617"
+],
+"Default black/white (D)": [
+"photo_app.py:480"
+],
+"Define Name": [
+"sheets_app.py:1978"
+],
+"Degrees (clockwise):": [
+"photo_app.py:1694"
+],
+"Degrees:": [
+"slides_app.py:1879"
+],
+"Delay": [
+"snip_app.py:758"
+],
+"Delete": [
+"base_app.py:295",
+"base_app.py:472",
+"sticky_notes.py:673"
+],
+"Delete &Table": [
+"word_processor.py:554"
+],
+"Delete Chart": [
+"sheets_app.py:480"
+],
+"Delete Colu&mn": [
+"word_processor.py:553"
+],
+"Delete Picture": [
+"sheets_app.py:518"
+],
+"Delete Record(s)": [
+"base_app.py:391"
+],
+"Delete Ro&w": [
+"word_processor.py:552"
+],
+"Delete Slide": [
+"slides_app.py:1364"
+],
+"Delete layer": [
+"photo_app.py:1766",
+"photo_app.py:517"
+],
+"Delete note\tCtrl+D": [
+"sticky_notes.py:587"
+],
+"Delete note (Ctrl+D)": [
+"sticky_notes.py:356"
+],
+"Delete sheet '{name}'?": [
+"sheets_app.py:2065"
+],
+"Delete the selected records": [
+"base_app.py:295"
+],
+"Delete the {what} “{name}”? This can't be undone.": [
+"base_app.py:1622"
+],
+"Delete this": [
+"planner_app.py:363"
+],
+"Delete this note?\n\nYou can get it back with “Restore deleted note”.": [
+"sticky_notes.py:718"
+],
+"Delete this record? This can't be undone.": [
+"base_app.py:584"
+],
+"Delete {v} page(s)?": [
+"pdf_editor.py:1365"
+],
+"Delete {v} record(s)? This can't be undone.": [
+"base_app.py:373"
+],
+"Delete “{v}”": [
+"planner_app.py:703"
+],
+"Deleted {n} record(s)": [
+"base_app.py:377"
+],
+"Delete…": [
+"planner_app.py:720"
+],
+"Deleting a parent also deletes its children (cascade delete)": [
+"base_app.py:1140"
+],
+"Descending": [
+"base_app.py:1051",
+"base_app.py:863"
+],
+"Deselect": [
+"photo_app.py:911"
+],
+"Design": [
+"base_app.py:776"
+],
+"Design View": [
+"base_app.py:1589"
+],
+"Diamond": [
+"slides_app.py:41"
+],
+"Difference": [
+"photo_core.py:27"
+],
+"Disc": [
+"word_processor.py:526"
+],
+"Dismiss": [
+"planner_app.py:398"
+],
+"Distance": [
+"photo_core.py:395"
+],
+"Do:": [
+"converter_app.py:608"
+],
+"Document": [
+"word_processor.py:919"
+],
+"Document Editor": [
+"suite_launcher.py:25"
+],
+"Don't rotate": [
+"trim_tab.py:106"
+],
+"Done ({total_changes} total changes this session).": [
+"base_app.py:908"
+],
+"Down Arrow": [
+"slides_app.py:43"
+],
+"Drag files or folders here\n\nor click  “Add Files…”\n\nAudio · Video · Pictures · PDF · Word · PowerPoint · Excel · Zip": [
+"converter_app.py:113"
+],
+"Drag over text to highlight it": [
+"pdf_editor.py:38"
+],
+"Drag over text to strike it out": [
+"pdf_editor.py:40"
+],
+"Drag over text to underline it": [
+"pdf_editor.py:39"
+],
+"Drag to draw a line": [
+"pdf_editor.py:45"
+],
+"Drag to draw a rectangle": [
+"pdf_editor.py:43"
+],
+"Drag to draw an arrow": [
+"pdf_editor.py:46"
+],
+"Drag to draw an ellipse": [
+"pdf_editor.py:44"
+],
+"Drag to paint over content with white": [
+"pdf_editor.py:47"
+],
+"Drag to permanently remove content (black box)": [
+"pdf_editor.py:48"
+],
+"Drag to snip an area": [
+"snip_app.py:169"
+],
+"Draw": [
+"pdf_editor.py:218",
+"pdf_editor.py:42",
+"snip_app.py:579"
+],
+"Draw around what you want to snip": [
+"snip_app.py:169"
+],
+"Draw your signature with the mouse:": [
+"pdf_editor.py:215"
+],
+"Drink a glass of water": [
+"planner_app.py:42"
+],
+"Drink water": [
+"planner_app.py:42"
+],
+"Drop shadow": [
+"photo_app.py:327"
+],
+"Duplicate": [
+"sheets_app.py:2006"
+],
+"Duplicate Slide": [
+"slides_app.py:1363"
+],
+"Duplicate layer": [
+"photo_app.py:1757",
+"photo_app.py:514"
+],
+"E&xit": [
+"base_app.py:1378",
+"converter_app.py:476",
+"pdf_editor.py:405"
+],
+"Each file can also have its own format in the “Convert to” column.": [
+"converter_app.py:509"
+],
+"Each one becomes a table:": [
+"base_app.py:1775"
+],
+"Edit ": [
+"planner_app.py:140",
+"planner_app.py:300"
+],
+"Edit &Text Layer...": [
+"photo_app.py:596"
+],
+"Edit Chart...": [
+"sheets_app.py:479"
+],
+"Edit Note": [
+"pdf_editor.py:1090"
+],
+"Edit Query (SQL)": [
+"base_app.py:1589"
+],
+"Edit Report…": [
+"base_app.py:970"
+],
+"Edit Text": [
+"pdf_editor.py:1229",
+"pdf_editor.py:36"
+],
+"Edit Text Box": [
+"pdf_editor.py:1108"
+],
+"Edit Text...": [
+"pdf_editor.py:986"
+],
+"Edit text": [
+"photo_app.py:1488"
+],
+"Edit, sign, fill and organise PDFs": [
+"suite_launcher.py:24"
+],
+"Edit…": [
+"planner_app.py:713"
+],
+"Ellipse": [
+"pdf_editor.py:44",
+"photo_app.py:719",
+"slides_app.py:40"
+],
+"Ellipse Select": [
+"photo_app.py:26"
+],
+"Ellipse select": [
+"photo_app.py:1086"
+],
+"Emboss": [
+"photo_core.py:403"
+],
+"End": [
+"trim_tab.py:89"
+],
+"End here ⇥": [
+"trim_tab.py:82"
+],
+"End of slide show. Click or press Esc to exit.": [
+"slides_app.py:734"
+],
+"Eraser": [
+"photo_app.py:28"
+],
+"Esc to cancel": [
+"snip_app.py:170"
+],
+"Ethical Database / SQLite database": [
+"base_app.py:27"
+],
+"Ethical Planner": [
+"planner_app.py:393"
+],
+"Ethical {name}: {desc}": [
+"suite_launcher.py:117"
+],
+"Event": [
+"planner_app.py:146"
+],
+"Every day": [
+"planner_core.py:28"
+],
+"Every month": [
+"planner_core.py:29"
+],
+"Every week": [
+"planner_core.py:28"
+],
+"Every week on {days}": [
+"planner_core.py:147"
+],
+"Every weekday (Mon–Fri)": [
+"planner_core.py:28"
+],
+"Every year": [
+"planner_core.py:29"
+],
+"Every {n} days": [
+"planner_core.py:149"
+],
+"Every {n} months": [
+"planner_core.py:149"
+],
+"Every {n} weeks on {days}": [
+"planner_core.py:147"
+],
+"Every {n} years": [
+"planner_core.py:149"
+],
+"Exact – cuts on the exact frame (slower)": [
+"trim_tab.py:97"
+],
+"Excel (.xlsx)": [
+"convert_core.py:45"
+],
+"Excel - all tables & queries": [
+"base_app.py:1813"
+],
+"Excel workbook": [
+"base_app.py:1813",
+"sheets_app.py:33",
+"sheets_app.py:35"
+],
+"Exclusion": [
+"photo_core.py:28"
+],
+"Export": [
+"base_app.py:1406",
+"base_app.py:1810"
+],
+"Export As": [
+"photo_app.py:1988"
+],
+"Export Images": [
+"pdf_editor.py:1481",
+"pdf_editor.py:1484"
+],
+"Export PDF…": [
+"base_app.py:970"
+],
+"Export Report as PDF": [
+"base_app.py:1012"
+],
+"Export Sheet as PDF": [
+"sheets_app.py:2305"
+],
+"Export Slides as &Images...": [
+"slides_app.py:878"
+],
+"Export Text": [
+"pdf_editor.py:1494"
+],
+"Export as &PDF...": [
+"sheets_app.py:758",
+"slides_app.py:877",
+"word_processor.py:462"
+],
+"Export as PDF": [
+"slides_app.py:1991",
+"word_processor.py:831"
+],
+"Export failed": [
+"base_app.py:1838"
+],
+"Export failed:\n{ex}": [
+"pdf_editor.py:1533"
+],
+"Export to Word": [
+"pdf_editor.py:1503"
+],
+"Export {name}": [
+"base_app.py:1815"
+],
+"Exported to {f}": [
+"pdf_editor.py:1537"
+],
+"Exported {f}": [
+"base_app.py:1019",
+"sheets_app.py:2315",
+"slides_app.py:2010"
+],
+"Exported {n:,} record(s) to {f}": [
+"base_app.py:1840"
+],
+"Exported {page_count} images to {folder}": [
+"pdf_editor.py:1491"
+],
+"Export…": [
+"base_app.py:1592"
+],
+"Exposure": [
+"photo_core.py:417"
+],
+"Exposure (stops)": [
+"photo_core.py:417"
+],
+"Extract": [
+"converter_app.py:734"
+],
+"Extract (unpack)": [
+"convert_core.py:72"
+],
+"Extract (unpack) the archives in the list": [
+"converter_app.py:606"
+],
+"Extract supports .zip, .7z, .tar, .tar.gz/.tgz, .tar.bz2, .tar.xz, .gz, .bz2, .xz": [
+"converter_app.py:611"
+],
+"Eyedropper": [
+"photo_app.py:29"
+],
+"F&ormat": [
+"sheets_app.py:803",
+"slides_app.py:918",
+"word_processor.py:492"
+],
+"FLAC (audio only)": [
+"convert_core.py:31"
+],
+"FLAC (lossless)": [
+"convert_core.py:25"
+],
+"Fast – no quality loss (cuts at the nearest keyframe)": [
+"trim_tab.py:96"
+],
+"Feather": [
+"photo_app.py:707"
+],
+"Field": [
+"base_app.py:766",
+"pdf_editor.py:1286"
+],
+"Field Name": [
+"base_app.py:616"
+],
+"Fields (tick and drag to order):": [
+"base_app.py:1063"
+],
+"Fil&ter": [
+"photo_app.py:618"
+],
+"File": [
+"converter_app.py:78",
+"snip_app.py:829",
+"word_processor.py:568"
+],
+"Files are joined in the order of the list. Use ▲ ▼ to reorder.": [
+"converter_app.py:589"
+],
+"Files are still being converted. Stop and quit?": [
+"converter_app.py:1009"
+],
+"Fill": [
+"photo_app.py:1366",
+"sheets_app.py:911"
+],
+"Fill &Down": [
+"sheets_app.py:776"
+],
+"Fill &Right": [
+"sheets_app.py:777"
+],
+"Fill &Series": [
+"sheets_app.py:778"
+],
+"Fill (foreground)": [
+"photo_app.py:721"
+],
+"Fill Field": [
+"pdf_editor.py:1295",
+"pdf_editor.py:1301",
+"pdf_editor.py:1303"
+],
+"Fill colour": [
+"sheets_app.py:909"
+],
+"Fill with &Background": [
+"photo_app.py:564"
+],
+"Filter by Selection": [
+"base_app.py:296",
+"base_app.py:385"
+],
+"Find &Next": [
+"word_processor.py:481"
+],
+"Find Edges": [
+"photo_core.py:404"
+],
+"Find Next": [
+"sheets_app.py:576",
+"word_processor.py:335"
+],
+"Find and Replace": [
+"sheets_app.py:564",
+"word_processor.py:323"
+],
+"Find text...": [
+"pdf_editor.py:482"
+],
+"Find:": [
+"sheets_app.py:570",
+"word_processor.py:329"
+],
+"Find…": [
+"base_app.py:468"
+],
+"Finished - ": [
+"converter_app.py:984"
+],
+"First row = series names, first column = categories.": [
+"sheets_app.py:542"
+],
+"Fit &Width": [
+"pdf_editor.py:422"
+],
+"Flatten": [
+"photo_app.py:1725"
+],
+"Flip Canvas &Horizontal": [
+"photo_app.py:583"
+],
+"Flip Canvas &Vertical": [
+"photo_app.py:584"
+],
+"Flip Horizontal": [
+"slides_app.py:955"
+],
+"Flip Layer Horizontal": [
+"photo_app.py:603"
+],
+"Flip Layer Vertical": [
+"photo_app.py:604"
+],
+"Flip Vertical": [
+"slides_app.py:956"
+],
+"Flip horizontal": [
+"photo_app.py:1706"
+],
+"Flip layer": [
+"photo_app.py:1814"
+],
+"Flip vertical": [
+"photo_app.py:1706"
+],
+"Fold to title": [
+"sticky_notes.py:574"
+],
+"Folder for the page images": [
+"pdf_editor.py:1478"
+],
+"Folder for the single pages": [
+"pdf_editor.py:1465"
+],
+"Folder for the slide images": [
+"slides_app.py:2013"
+],
+"Font colour": [
+"sheets_app.py:904"
+],
+"Font:": [
+"pdf_editor.py:139",
+"photo_app.py:331"
+],
+"Footer:": [
+"word_processor.py:293"
+],
+"Foreground colour": [
+"photo_app.py:288",
+"photo_app.py:419"
+],
+"Foreground → Background": [
+"photo_app.py:716"
+],
+"Foreground → Transparent": [
+"photo_app.py:716"
+],
+"Forest": [
+"slides_app.py:34"
+],
+"Form": [
+"base_app.py:1400",
+"base_app.py:1680"
+],
+"Form View": [
+"base_app.py:1588",
+"base_app.py:297"
+],
+"Form for:": [
+"base_app.py:1680"
+],
+"Format": [
+"slides_app.py:1006"
+],
+"Format code (e.g. #,##0.00, 0.0%, yyyy-mm-dd, \"$\"0.00):": [
+"sheets_app.py:1430"
+],
+"Format:": [
+"pdf_editor.py:1481"
+],
+"Format: Custom Number Format...": [
+"sheets_app.py:2346"
+],
+"Formatting": [
+"sheets_app.py:879",
+"word_processor.py:583"
+],
+"Free &Transform (scale/rotate)...": [
+"photo_app.py:567"
+],
+"Free Transform": [
+"photo_app.py:1828"
+],
+"Free-form": [
+"snip_app.py:40"
+],
+"Freehand drawing": [
+"pdf_editor.py:42"
+],
+"From &Beginning": [
+"slides_app.py:967"
+],
+"From &Current Slide": [
+"slides_app.py:968"
+],
+"Front": [
+"slides_app.py:1048"
+],
+"Full screen": [
+"snip_app.py:39"
+],
+"Function:": [
+"sheets_app.py:1956"
+],
+"GIF (animated)": [
+"convert_core.py:29"
+],
+"GIF size:": [
+"converter_app.py:551"
+],
+"Gamma": [
+"photo_core.py:417"
+],
+"Gaussian Blur": [
+"photo_core.py:394"
+],
+"General": [
+"sheets_app.py:37"
+],
+"Gradient": [
+"photo_app.py:1409",
+"photo_app.py:29"
+],
+"Green ↔ Magenta": [
+"photo_core.py:422"
+],
+"Group By": [
+"base_app.py:867"
+],
+"Group by:": [
+"base_app.py:1064"
+],
+"Guide": [
+"suite_launcher.py:34"
+],
+"HD 1920×1080": [
+"photo_app.py:271"
+],
+"Hand (pan)": [
+"photo_app.py:30"
+],
+"Hard Light": [
+"photo_core.py:26"
+],
+"Hardness": [
+"photo_app.py:696"
+],
+"Header:": [
+"word_processor.py:292"
+],
+"Heading 1": [
+"word_processor.py:36"
+],
+"Heading 2": [
+"word_processor.py:36"
+],
+"Heading 3": [
+"word_processor.py:36"
+],
+"Heading 4": [
+"word_processor.py:36"
+],
+"Height (pixels):": [
+"sheets_app.py:1549"
+],
+"Height:": [
+"photo_app.py:1611",
+"photo_app.py:1647",
+"photo_app.py:1841"
+],
+"Help": [
+"planner_app.py:876",
+"snip_app.py:1310",
+"sticky_notes.py:903"
+],
+"Help\tF1": [
+"planner_app.py:509",
+"snip_app.py:861",
+"sticky_notes.py:589"
+],
+"Hexagon": [
+"slides_app.py:42"
+],
+"Hide": [
+"suite_launcher.py:96"
+],
+"Hide / Show Slide": [
+"slides_app.py:1365"
+],
+"Hide R&ows": [
+"sheets_app.py:836"
+],
+"Hide all notes": [
+"sticky_notes.py:895"
+],
+"Hide duplicate rows": [
+"base_app.py:751"
+],
+"Hide layer": [
+"photo_app.py:859"
+],
+"High quality": [
+"convert_core.py:192"
+],
+"Highlight": [
+"pdf_editor.py:38",
+"word_processor.py:629"
+],
+"Highlight Form &Fields": [
+"pdf_editor.py:424"
+],
+"Highlight colour": [
+"pdf_editor.py:511",
+"word_processor.py:978"
+],
+"Highlight colour (click the pen to apply)": [
+"word_processor.py:627"
+],
+"History": [
+"photo_app.py:529"
+],
+"Horizontal &Line": [
+"word_processor.py:490"
+],
+"How to use every app (F1)": [
+"suite_launcher.py:34"
+],
+"Hue": [
+"photo_core.py:414"
+],
+"Hue/Saturation": [
+"photo_core.py:414"
+],
+"ICO (icon)": [
+"convert_core.py:33"
+],
+"ISO date": [
+"sheets_app.py:40"
+],
+"Icon 512×512": [
+"photo_app.py:274"
+],
+"Image": [
+"pdf_editor.py:229",
+"pdf_editor.py:49"
+],
+"Image Size": [
+"photo_app.py:1574"
+],
+"Image size": [
+"photo_app.py:1630"
+],
+"Images": [
+"photo_app.py:1936",
+"photo_app.py:1959"
+],
+"Images (*.png *.jpg *.jpeg *.bmp *.gif *.tif *.tiff)": [
+"pdf_editor.py:1187",
+"pdf_editor.py:1416",
+"pdf_editor.py:1424"
+],
+"Images (*.png *.jpg *.jpeg *.bmp)": [
+"pdf_editor.py:239",
+"slides_app.py:1936"
+],
+"Images (*.png *.jpg *.jpeg *.gif *.bmp *.webp *.tif *.tiff)": [
+"word_processor.py:1192"
+],
+"Images (*.png *.jpg *.jpeg *.gif *.bmp)": [
+"sheets_app.py:2138",
+"slides_app.py:1698"
+],
+"Images (*.png *.jpg *.jpeg *.webp *.bmp)": [
+"converter_app.py:640"
+],
+"Import": [
+"base_app.py:1405",
+"base_app.py:1722"
+],
+"Import from Excel / CSV / Access into a new database…": [
+"base_app.py:1308"
+],
+"Import into a new database": [
+"base_app.py:1729"
+],
+"Imported:\n": [
+"base_app.py:1797"
+],
+"Included": [
+"converter_app.py:913"
+],
+"Increase &Decimals": [
+"sheets_app.py:815"
+],
+"Increase decimals": [
+"sheets_app.py:925"
+],
+"Indent ►": [
+"word_processor.py:643"
+],
+"Input black": [
+"photo_core.py:411"
+],
+"Input white": [
+"photo_core.py:411"
+],
+"Insert &Blank Page": [
+"pdf_editor.py:437"
+],
+"Insert &Image as Page...": [
+"pdf_editor.py:439"
+],
+"Insert Column &Left": [
+"word_processor.py:549"
+],
+"Insert Column &Right": [
+"word_processor.py:550"
+],
+"Insert Function": [
+"sheets_app.py:1956"
+],
+"Insert Image": [
+"pdf_editor.py:1186"
+],
+"Insert Images as Pages": [
+"pdf_editor.py:1415"
+],
+"Insert Link": [
+"word_processor.py:1315"
+],
+"Insert Pages From": [
+"pdf_editor.py:1391"
+],
+"Insert Pages from &File...": [
+"pdf_editor.py:438"
+],
+"Insert Picture": [
+"sheets_app.py:2137",
+"slides_app.py:1697",
+"word_processor.py:1191"
+],
+"Insert Row &Above": [
+"word_processor.py:547"
+],
+"Insert Row &Below": [
+"word_processor.py:548"
+],
+"Insert Sheet": [
+"sheets_app.py:2004"
+],
+"Insert Table": [
+"slides_app.py:1714",
+"word_processor.py:1231"
+],
+"Insert function": [
+"sheets_app.py:688"
+],
+"Insert/Edit Comment...": [
+"sheets_app.py:2345"
+],
+"Instagram post 1080×1080": [
+"photo_app.py:272"
+],
+"Instagram story 1080×1920": [
+"photo_app.py:272"
+],
+"Inventory": [
+"base_app.py:1294"
+],
+"Inverse selection": [
+"photo_app.py:920"
+],
+"Invert": [
+"photo_core.py:426"
+],
+"Italic": [
+"pdf_editor.py:134",
+"photo_app.py:317"
+],
+"Italic (Ctrl+I)": [
+"sticky_notes.py:346"
+],
+"JPG images (one per page)": [
+"convert_core.py:35"
+],
+"Join": [
+"converter_app.py:733"
+],
+"Jump to today (Ctrl+T)": [
+"planner_app.py:483"
+],
+"Justify": [
+"word_processor.py:634"
+],
+"Keep on top of other windows": [
+"sticky_notes.py:326",
+"sticky_notes.py:570"
+],
+"Keep original size": [
+"converter_app.py:517",
+"converter_app.py:530"
+],
+"Keep proportions": [
+"photo_app.py:1584",
+"photo_app.py:1836"
+],
+"Keep the size": [
+"trim_tab.py:101"
+],
+"Keeping {v} → {v2}  ({v3})": [
+"trim_tab.py:205"
+],
+"Keyboard Shortcuts": [
+"photo_app.py:2071"
+],
+"Landscape": [
+"word_processor.py:258"
+],
+"Landscape (wide reports)": [
+"base_app.py:1053"
+],
+"Language for all Ethical apps": [
+"suite_launcher.py:149"
+],
+"Lasso": [
+"photo_app.py:1092",
+"photo_app.py:27"
+],
+"Lasts": [
+"planner_app.py:197"
+],
+"Layer via copy": [
+"photo_app.py:1751"
+],
+"Layer via cut": [
+"photo_app.py:1751"
+],
+"Layer {n}": [
+"photo_app.py:1731"
+],
+"Layers": [
+"photo_app.py:486"
+],
+"Layers, filters and retouching (.psd)": [
+"suite_launcher.py:28"
+],
+"Left": [
+"photo_app.py:1643",
+"photo_app.py:322",
+"sheets_app.py:819"
+],
+"Left Arrow": [
+"slides_app.py:43"
+],
+"Legal (8.5 x 14 in)": [
+"word_processor.py:37"
+],
+"Letter (8.5 x 11 in)": [
+"word_processor.py:37"
+],
+"Letter @ 300 dpi": [
+"photo_app.py:274"
+],
+"Level": [
+"photo_core.py:423"
+],
+"Levels": [
+"photo_core.py:411",
+"photo_core.py:424"
+],
+"Light": [
+"converter_app.py:561"
+],
+"Lighten": [
+"photo_core.py:22"
+],
+"Lightness": [
+"photo_core.py:415"
+],
+"Line": [
+"pdf_editor.py:45",
+"photo_app.py:719",
+"sheets_app.py:527"
+],
+"Line &Spacing": [
+"word_processor.py:536"
+],
+"Line and text size": [
+"snip_app.py:817"
+],
+"Linear": [
+"photo_app.py:715"
+],
+"Linear Dodge (Add)": [
+"photo_core.py:29"
+],
+"Link": [
+"word_processor.py:579"
+],
+"List St&yle": [
+"word_processor.py:525"
+],
+"Long Text": [
+"base_core.py:18"
+],
+"Long date": [
+"sheets_app.py:40"
+],
+"Look up the titles without downloading": [
+"converter_app.py:141"
+],
+"M4A (audio only)": [
+"convert_core.py:30"
+],
+"MP3 (audio only)": [
+"convert_core.py:30"
+],
+"MP4 (H.265, smaller)": [
+"convert_core.py:28"
+],
+"MP4 video (audio + picture)": [
+"convert_core.py:27"
+],
+"Magenta ↔ Green": [
+"photo_core.py:419"
+],
+"Magic Wand": [
+"photo_app.py:27"
+],
+"Magic wand": [
+"photo_app.py:1034"
+],
+"Main": [
+"base_app.py:1394",
+"pdf_editor.py:452",
+"sheets_app.py:863"
+],
+"Main table:": [
+"base_app.py:738"
+],
+"Margins:": [
+"word_processor.py:291"
+],
+"Mark done": [
+"planner_app.py:716"
+],
+"Markdown (.md)": [
+"convert_core.py:37"
+],
+"Match case": [
+"sheets_app.py:566",
+"word_processor.py:326"
+],
+"Match entire cell": [
+"sheets_app.py:567"
+],
+"Match {v} of {v2}": [
+"pdf_editor.py:1345"
+],
+"Max": [
+"base_app.py:867"
+],
+"Medium": [
+"snip_app.py:42"
+],
+"Medium ▾": [
+"snip_app.py:816"
+],
+"Merge": [
+"sheets_app.py:920"
+],
+"Merge & Centre": [
+"sheets_app.py:920"
+],
+"Merge &Visible": [
+"photo_app.py:601"
+],
+"Merge down": [
+"photo_app.py:1800",
+"photo_app.py:517"
+],
+"Merge visible": [
+"photo_app.py:1808"
+],
+"Merged": [
+"photo_app.py:1806"
+],
+"Merging keeps only the top-left value. Continue?": [
+"sheets_app.py:1500"
+],
+"Middle": [
+"sheets_app.py:822",
+"slides_app.py:930",
+"slides_app.py:949"
+],
+"Midnight": [
+"slides_app.py:32"
+],
+"Midtones (gamma)": [
+"photo_core.py:412"
+],
+"Min": [
+"base_app.py:867"
+],
+"Mode": [
+"photo_app.py:701"
+],
+"More colours": [
+"snip_app.py:802"
+],
+"Motion Blur": [
+"photo_core.py:395"
+],
+"Move": [
+"photo_app.py:1314",
+"photo_app.py:26",
+"snip_app.py:368"
+],
+"Move Down": [
+"slides_app.py:1367"
+],
+"Move Layer &Up": [
+"photo_app.py:598"
+],
+"Move Layer D&own": [
+"photo_app.py:599"
+],
+"Move Page &Down": [
+"pdf_editor.py:435"
+],
+"Move Page &Up": [
+"pdf_editor.py:434"
+],
+"Move Slide &Up": [
+"slides_app.py:903"
+],
+"Move Slide Do&wn": [
+"slides_app.py:904"
+],
+"Move Up": [
+"slides_app.py:1366"
+],
+"Move down": [
+"converter_app.py:592",
+"photo_app.py:516"
+],
+"Move layer": [
+"photo_app.py:1781"
+],
+"Move up": [
+"converter_app.py:592",
+"photo_app.py:515"
+],
+"Multiply": [
+"photo_core.py:18"
+],
+"My Downloads folder": [
+"converter_app.py:622"
+],
+"My data has headers": [
+"sheets_app.py:1834"
+],
+"Name for {ref}:": [
+"sheets_app.py:1978"
+],
+"Name:": [
+"photo_app.py:1770"
+],
+"Never": [
+"planner_core.py:28"
+],
+"New": [
+"base_app.py:1397",
+"base_app.py:471",
+"photo_app.py:760"
+],
+"New ": [
+"planner_app.py:140",
+"planner_app.py:300"
+],
+"New Database": [
+"base_app.py:1496"
+],
+"New Image": [
+"photo_app.py:278"
+],
+"New PDF from &Images...": [
+"pdf_editor.py:392"
+],
+"New Presentation": [
+"slides_app.py:1105"
+],
+"New Query": [
+"base_app.py:1691"
+],
+"New Query…": [
+"base_app.py:1602"
+],
+"New Record": [
+"base_app.py:294",
+"base_app.py:390"
+],
+"New Report from This…": [
+"base_app.py:1591"
+],
+"New Report…": [
+"base_app.py:1603"
+],
+"New Slide": [
+"slides_app.py:988"
+],
+"New Slide (same layout)": [
+"slides_app.py:898"
+],
+"New Table": [
+"base_app.py:1685"
+],
+"New Table…": [
+"base_app.py:1601"
+],
+"New event": [
+"planner_app.py:873"
+],
+"New event (Ctrl+E)": [
+"planner_app.py:481"
+],
+"New file name:": [
+"converter_app.py:588"
+],
+"New layer": [
+"photo_app.py:1733",
+"photo_app.py:514"
+],
+"New name:": [
+"base_app.py:1607"
+],
+"New note": [
+"sticky_notes.py:893"
+],
+"New note\tCtrl+N": [
+"sticky_notes.py:585"
+],
+"New note (Ctrl+N)": [
+"sticky_notes.py:321"
+],
+"New reminder": [
+"planner_app.py:872"
+],
+"New reminder (Ctrl+N)": [
+"planner_app.py:480"
+],
+"New sheet": [
+"sheets_app.py:709"
+],
+"New snip": [
+"snip_app.py:1232",
+"snip_app.py:1304"
+],
+"New snip (Ctrl+N) – the arrow chooses the kind and a delay": [
+"snip_app.py:746"
+],
+"Next": [
+"pdf_editor.py:488"
+],
+"Next: Space, →, ↓, Page Down, Enter, click\nPrevious: ←, ↑, Page Up, Backspace, right-click\nBlack screen: B    White screen: W\nFirst/last: Home / End    Exit: Esc": [
+"slides_app.py:972"
+],
+"No Border": [
+"sheets_app.py:829"
+],
+"No Fill": [
+"sheets_app.py:914",
+"slides_app.py:936"
+],
+"No Outline": [
+"slides_app.py:938"
+],
+"No alert": [
+"planner_app.py:33"
+],
+"No data found in that file.": [
+"base_app.py:1758"
+],
+"No delay": [
+"snip_app.py:761"
+],
+"No duplicate rows found.": [
+"sheets_app.py:1917"
+],
+"No installed Ethical app opens:\n": [
+"suite_launcher.py:217"
+],
+"No notes match your search.": [
+"sticky_notes.py:704"
+],
+"No notes yet – click “+ New note”.": [
+"sticky_notes.py:704"
+],
+"No second alert": [
+"planner_app.py:253"
+],
+"No shortcut": [
+"snip_app.py:1166"
+],
+"No shortcut set – use New snip or the tray icon (⋯ → Change the shortcut to add one).": [
+"snip_app.py:1227"
+],
+"No tables yet.": [
+"base_app.py:1233"
+],
+"No text there - click directly on a line of text": [
+"pdf_editor.py:1213"
+],
+"No video yet": [
+"trim_tab.py:54"
+],
+"None of the files in the list can be combined that way.": [
+"converter_app.py:881"
+],
+"Normal": [
+"photo_core.py:17",
+"word_processor.py:36"
+],
+"Not done": [
+"planner_app.py:716"
+],
+"Not done yet": [
+"planner_app.py:636"
+],
+"Not found": [
+"base_app.py:601"
+],
+"Not found.": [
+"sheets_app.py:619",
+"word_processor.py:363"
+],
+"Not installed: {apps}. Run the EthicalApp setup again to add them.": [
+"suite_launcher.py:132"
+],
+"Not now": [
+"planner_app.py:914"
+],
+"Note": [
+"pdf_editor.py:41"
+],
+"Note:": [
+"pdf_editor.py:1090",
+"pdf_editor.py:1177"
+],
+"Note: this file uses {things}. These can't be edited here yet; the layers' pixels were loaded.": [
+"photo_app.py:1954"
+],
+"Notes": [
+"planner_app.py:268"
+],
+"Notes (optional)": [
+"planner_app.py:266"
+],
+"Notes are saved automatically on this PC. Double-click a note to open it.": [
+"sticky_notes.py:679"
+],
+"Nothing to combine - add images or PDFs.": [
+"convert_core.py:726"
+],
+"Number": [
+"sheets_app.py:37"
+],
+"Number field": [
+"base_app.py:1056"
+],
+"Numbers, formulas and charts (.xlsx)": [
+"suite_launcher.py:26"
+],
+"OGG Vorbis": [
+"convert_core.py:26"
+],
+"OK": [
+"planner_app.py:418",
+"snip_app.py:1171"
+],
+"Ocean": [
+"slides_app.py:36"
+],
+"Octagon": [
+"slides_app.py:42"
+],
+"Office": [
+"slides_app.py:31"
+],
+"Oil Paint": [
+"photo_core.py:405"
+],
+"Opacity": [
+"photo_app.py:496",
+"photo_app.py:697",
+"photo_app.py:713"
+],
+"Open": [
+"base_app.py:1398",
+"base_app.py:1587",
+"base_app.py:1597"
+],
+"Open &Recent": [
+"photo_app.py:542",
+"sheets_app.py:753",
+"slides_app.py:872"
+],
+"Open Database": [
+"base_app.py:1501"
+],
+"Open Ethical Planner": [
+"planner_app.py:874"
+],
+"Open Ethical Snip": [
+"snip_app.py:1308"
+],
+"Open Link": [
+"word_processor.py:238"
+],
+"Open PDF": [
+"pdf_editor.py:566"
+],
+"Open a file": [
+"suite_launcher.py:220"
+],
+"Open a file…": [
+"suite_launcher.py:79"
+],
+"Open a picture": [
+"snip_app.py:941"
+],
+"Open a picture…\tCtrl+O": [
+"snip_app.py:843"
+],
+"Open a video": [
+"trim_tab.py:137"
+],
+"Open in Form View": [
+"base_app.py:392"
+],
+"Open in Photo Editor": [
+"snip_app.py:838"
+],
+"Open the folder when finished": [
+"converter_app.py:432"
+],
+"Open the guide": [
+"suite_common.py:181"
+],
+"Open the snips folder": [
+"snip_app.py:1309",
+"snip_app.py:845"
+],
+"OpenDocument (.odt)": [
+"convert_core.py:38"
+],
+"OpenDocument text": [
+"word_processor.py:33"
+],
+"Opened {v} – mark it up, then Save as…": [
+"snip_app.py:951"
+],
+"Opening in Ethical Photo Editor…": [
+"snip_app.py:1032"
+],
+"Opens a secure payment page in your browser. Totally optional.": [
+"suite_launcher.py:143"
+],
+"Opens the file in the Ethical app that handles its type (Ctrl+O)": [
+"suite_launcher.py:80"
+],
+"Outline &Width...": [
+"slides_app.py:939"
+],
+"Outline (background)": [
+"photo_app.py:722"
+],
+"Outline (px):": [
+"photo_app.py:345"
+],
+"Outline Width": [
+"slides_app.py:1653"
+],
+"Outline colour": [
+"photo_app.py:326",
+"slides_app.py:1647"
+],
+"Output black": [
+"photo_core.py:412"
+],
+"Output white": [
+"photo_core.py:413"
+],
+"Outside Borders": [
+"sheets_app.py:828"
+],
+"Overlay": [
+"photo_core.py:20"
+],
+"PDF Editor": [
+"suite_launcher.py:24"
+],
+"PDF files (*.pdf)": [
+"base_app.py:1013",
+"pdf_editor.py:1391",
+"pdf_editor.py:1454"
+],
+"PDF files (*.pdf);;All files (*)": [
+"pdf_editor.py:566"
+],
+"PDF report": [
+"base_app.py:1814"
+],
+"PDF → images:": [
+"converter_app.py:552"
+],
+"PDFs and images (*.pdf *.png *.jpg *.jpeg *.bmp *.tif *.tiff)": [
+"pdf_editor.py:1436"
+],
+"PNG (*.png);;JPEG (*.jpg);;WebP (*.webp);;TIFF (*.tif);;BMP (*.bmp);;GIF (*.gif);;Icon (*.ico);;PDF (*.pdf)": [
+"photo_app.py:1989"
+],
+"PNG images (one per page)": [
+"convert_core.py:35"
+],
+"PNG images (one per slide)": [
+"convert_core.py:43"
+],
+"PNG picture (*.png);;JPG picture (*.jpg);;WebP picture (*.webp);;BMP picture (*.bmp)": [
+"snip_app.py:1018"
+],
+"Pack": [
+"converter_app.py:733"
+],
+"Pack all files into one 7z (smaller)": [
+"converter_app.py:605"
+],
+"Pack all files into one ZIP": [
+"converter_app.py:605"
+],
+"Page &Break": [
+"word_processor.py:488"
+],
+"Page Set&up...": [
+"word_processor.py:464"
+],
+"Page Setup": [
+"word_processor.py:249"
+],
+"Pages": [
+"pdf_editor.py:364"
+],
+"Pages as &Images (PNG/JPG)...": [
+"pdf_editor.py:399"
+],
+"Paint Bucket": [
+"photo_app.py:28"
+],
+"Paint bucket": [
+"photo_app.py:1338"
+],
+"Paper size:": [
+"word_processor.py:284"
+],
+"Parallelogram": [
+"slides_app.py:44"
+],
+"Parent table (the “one”):": [
+"base_app.py:1141"
+],
+"Paste": [
+"sheets_app.py:2335"
+],
+"Paste &Values Only": [
+"sheets_app.py:770"
+],
+"Paste Values Only": [
+"sheets_app.py:2336"
+],
+"Paste a link first.": [
+"converter_app.py:285"
+],
+"Paste a picture\tCtrl+V": [
+"snip_app.py:844"
+],
+"Paste as Plain &Text": [
+"word_processor.py:477"
+],
+"Paste one or more links here, one per line — e.g.\nhttps://www.youtube.com/watch?v=…\nhttps://x.com/…/status/…\nhttps://vimeo.com/…": [
+"converter_app.py:134"
+],
+"Pasted": [
+"photo_app.py:1890"
+],
+"Pen / text colour": [
+"pdf_editor.py:508"
+],
+"Pentagon": [
+"slides_app.py:42"
+],
+"People, phone numbers, emails, birthdays": [
+"base_app.py:1292"
+],
+"Percent": [
+"sheets_app.py:39",
+"sheets_app.py:923"
+],
+"Percent 0.00": [
+"sheets_app.py:39"
+],
+"Photo Editor": [
+"suite_launcher.py:28"
+],
+"Photoshop PSD - keeps layers (*.psd);;OpenRaster - keeps layers (*.ora);;PNG (*.png);;JPEG (*.jpg);;WebP (*.webp);;TIFF (*.tif);;BMP (*.bmp);;GIF (*.gif);;Icon (*.ico);;PDF (*.pdf)": [
+"photo_app.py:1978"
+],
+"Pick the keys that take a snip from anywhere – e.g. Ctrl+Alt+S if your keyboard has no PrtScn key": [
+"snip_app.py:713"
+],
+"Picture": [
+"word_processor.py:578"
+],
+"Picture for audio → MP4:": [
+"converter_app.py:550"
+],
+"Picture for the video": [
+"converter_app.py:640"
+],
+"Picture max size:": [
+"converter_app.py:549"
+],
+"Picture quality:": [
+"converter_app.py:548"
+],
+"Pictures (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)": [
+"snip_app.py:942"
+],
+"Pictures and PDFs → one PDF": [
+"converter_app.py:584"
+],
+"Pie": [
+"sheets_app.py:527"
+],
+"Pixelate": [
+"photo_core.py:401",
+"snip_app.py:603"
+],
+"Pixels:": [
+"photo_app.py:949"
+],
+"Place Image": [
+"photo_app.py:1959"
+],
+"Plain text": [
+"word_processor.py:31",
+"word_processor.py:34"
+],
+"Planner": [
+"planner_app.py:476",
+"suite_launcher.py:33"
+],
+"Play a sound with reminders": [
+"planner_app.py:495"
+],
+"Please type what the reminder or event is.": [
+"planner_app.py:343"
+],
+"Plus": [
+"slides_app.py:45"
+],
+"Posterize": [
+"photo_core.py:424"
+],
+"PowerPoint (*.pptx)": [
+"slides_app.py:1158"
+],
+"PowerPoint (*.pptx);;All files (*)": [
+"slides_app.py:1113"
+],
+"Presentation Editor": [
+"suite_launcher.py:27"
+],
+"Preset:": [
+"photo_app.py:291"
+],
+"Press Enter or double-click to crop, Esc to cancel": [
+"photo_app.py:1097"
+],
+"Press {key} any time to take a snip.": [
+"snip_app.py:1321"
+],
+"Press {label} anywhere to snip.": [
+"snip_app.py:1225"
+],
+"Prev": [
+"pdf_editor.py:487"
+],
+"Preview": [
+"photo_app.py:260"
+],
+"Previous": [
+"pdf_editor.py:486"
+],
+"Print Pre&view...": [
+"word_processor.py:465"
+],
+"Print Preview": [
+"base_app.py:969"
+],
+"Print…": [
+"base_app.py:969"
+],
+"Problems were found: {ok}": [
+"base_app.py:1521"
+],
+"Products, categories, stock levels": [
+"base_app.py:1294"
+],
+"Put the bins out": [
+"planner_app.py:44"
+],
+"Put the cursor inside a table first.": [
+"word_processor.py:1267"
+],
+"Quality": [
+"photo_app.py:2010"
+],
+"Quality (1-100):": [
+"photo_app.py:2010"
+],
+"Queries": [
+"base_app.py:1555"
+],
+"Query": [
+"base_app.py:1400"
+],
+"Query name:": [
+"base_app.py:926"
+],
+"Quick start:": [
+"planner_app.py:158"
+],
+"Quit Ethical Planner": [
+"planner_app.py:510",
+"planner_app.py:877"
+],
+"Quit Ethical Planner?\n\nReminders won't pop up until you open Planner again.": [
+"planner_app.py:923"
+],
+"Quit Ethical Snip": [
+"snip_app.py:1312",
+"snip_app.py:862"
+],
+"Quit Sticky Notes": [
+"sticky_notes.py:905"
+],
+"Radial": [
+"photo_app.py:715"
+],
+"Radius": [
+"photo_core.py:394",
+"photo_core.py:397"
+],
+"Range: {v}:{v2}": [
+"sheets_app.py:1838"
+],
+"Re-encode smaller": [
+"convert_core.py:794"
+],
+"Re-encode smaller (MP4)": [
+"convert_core.py:794"
+],
+"Ready": [
+"converter_app.py:440",
+"converter_app.py:784",
+"snip_app.py:694"
+],
+"Ready ({v})": [
+"converter_app.py:280"
+],
+"Record saved": [
+"base_app.py:557"
+],
+"Rectangle": [
+"pdf_editor.py:43",
+"photo_app.py:719",
+"slides_app.py:40"
+],
+"Rectangle Select": [
+"photo_app.py:26"
+],
+"Rectangle select": [
+"photo_app.py:1086"
+],
+"Redact": [
+"pdf_editor.py:48"
+],
+"Redo": [
+"photo_app.py:555"
+],
+"Reduce Noise (Median)": [
+"photo_core.py:398"
+],
+"Refresh": [
+"base_app.py:298",
+"base_app.py:971"
+],
+"Relationships": [
+"base_app.py:1127",
+"base_app.py:1401"
+],
+"Reminder": [
+"planner_app.py:146"
+],
+"Reminders and a calendar that pop up on time": [
+"suite_launcher.py:33"
+],
+"Reminders can only pop up while Planner is running. It waits quietly in the tray and uses almost no memory. You can change this later in ⋯.": [
+"planner_app.py:911"
+],
+"Reminders pop up even when this window is closed – Planner keeps running in the tray (bottom-right of the taskbar).": [
+"planner_app.py:530"
+],
+"Remove": [
+"converter_app.py:400"
+],
+"Remove &Duplicates": [
+"sheets_app.py:843"
+],
+"Remove Field": [
+"base_app.py:623"
+],
+"Remove Filter": [
+"base_app.py:297",
+"base_app.py:386"
+],
+"Remove Link": [
+"word_processor.py:239"
+],
+"Remove Paragraph Spacing": [
+"word_processor.py:541"
+],
+"Remove the field “{name}” and all its data?": [
+"base_app.py:670"
+],
+"Remove the sound": [
+"trim_tab.py:110"
+],
+"Removed {removed} duplicate row(s).": [
+"sheets_app.py:1929"
+],
+"Rename": [
+"base_app.py:1607"
+],
+"Rename Layer": [
+"photo_app.py:1770"
+],
+"Rename Sheet": [
+"sheets_app.py:2040"
+],
+"Rename layer": [
+"photo_app.py:1773"
+],
+"Rename...": [
+"sheets_app.py:2005"
+],
+"Rename…": [
+"base_app.py:1594"
+],
+"Rep&lace...": [
+"sheets_app.py:781",
+"word_processor.py:482"
+],
+"Repeat": [
+"planner_app.py:205"
+],
+"Replace": [
+"sheets_app.py:576",
+"word_processor.py:335"
+],
+"Replace All": [
+"sheets_app.py:577",
+"word_processor.py:336"
+],
+"Replace with:": [
+"word_processor.py:330"
+],
+"Replace:": [
+"sheets_app.py:571"
+],
+"Replaced {n} cell(s).": [
+"sheets_app.py:645"
+],
+"Replaced {n} occurrence(s).": [
+"word_processor.py:395"
+],
+"Report": [
+"base_app.py:1012",
+"base_app.py:1042",
+"base_app.py:1401"
+],
+"Report name:": [
+"base_app.py:1028"
+],
+"Reports": [
+"base_app.py:1556"
+],
+"Required": [
+"base_app.py:616"
+],
+"Resize Image": [
+"word_processor.py:1218"
+],
+"Resize Image...": [
+"word_processor.py:233"
+],
+"Resize Picture": [
+"sheets_app.py:2165"
+],
+"Resize Picture...": [
+"sheets_app.py:517"
+],
+"Resolution (DPI):": [
+"pdf_editor.py:1484"
+],
+"Resolution (dpi):": [
+"photo_app.py:1613"
+],
+"Restart EthicalApp now to use the new language?\nApps that are already open change the next time you start them.": [
+"suite_launcher.py:177"
+],
+"Restore deleted note": [
+"sticky_notes.py:674",
+"sticky_notes.py:897"
+],
+"Result": [
+"converter_app.py:78"
+],
+"Right": [
+"photo_app.py:1643",
+"photo_app.py:322",
+"sheets_app.py:819"
+],
+"Right Arrow": [
+"slides_app.py:43"
+],
+"Right Triangle": [
+"slides_app.py:41"
+],
+"Rotate": [
+"trim_tab.py:108"
+],
+"Rotate &Left": [
+"pdf_editor.py:432"
+],
+"Rotate &Right": [
+"pdf_editor.py:431"
+],
+"Rotate Canvas": [
+"photo_app.py:1694"
+],
+"Rotate Layer 90°": [
+"photo_app.py:605"
+],
+"Rotate Left 90°": [
+"slides_app.py:953"
+],
+"Rotate Right 90°": [
+"slides_app.py:952"
+],
+"Rotate layer": [
+"photo_app.py:1822"
+],
+"Rotate {deg}°": [
+"photo_app.py:1691",
+"photo_app.py:1701"
+],
+"Rotate:": [
+"photo_app.py:1843"
+],
+"Rotation": [
+"slides_app.py:1879"
+],
+"Rotation...": [
+"slides_app.py:954"
+],
+"Rounded Rectangle": [
+"photo_app.py:719",
+"slides_app.py:40"
+],
+"Row Height": [
+"sheets_app.py:1549"
+],
+"Rows &Above": [
+"sheets_app.py:786"
+],
+"Rows &Below": [
+"sheets_app.py:787"
+],
+"Rows:": [
+"slides_app.py:1721",
+"word_processor.py:1239"
+],
+"Run": [
+"base_app.py:788"
+],
+"SELECT * FROM \"Customers\" WHERE \"City\" = 'London'": [
+"base_app.py:780"
+],
+"SQL": [
+"base_app.py:781"
+],
+"SQL Console": [
+"base_app.py:1696"
+],
+"Same as Windows": [
+"suite_launcher.py:154"
+],
+"Same folder as each file": [
+"converter_app.py:425",
+"converter_app.py:622"
+],
+"Sample all layers": [
+"photo_app.py:705",
+"photo_app.py:712"
+],
+"Saturation": [
+"photo_core.py:414"
+],
+"Save": [
+"base_app.py:471",
+"planner_app.py:279"
+],
+"Save &As...": [
+"pdf_editor.py:397",
+"photo_app.py:547",
+"sheets_app.py:757"
+],
+"Save (Ctrl+S)": [
+"snip_app.py:836"
+],
+"Save As": [
+"photo_app.py:1977",
+"sheets_app.py:1074",
+"slides_app.py:1158"
+],
+"Save Extracted Pages": [
+"pdf_editor.py:1453"
+],
+"Save PDF As": [
+"pdf_editor.py:606"
+],
+"Save Query": [
+"base_app.py:926"
+],
+"Save Query…": [
+"base_app.py:788"
+],
+"Save Report": [
+"base_app.py:1028"
+],
+"Save Report…": [
+"base_app.py:971"
+],
+"Save a &Copy As…": [
+"base_app.py:1372"
+],
+"Save as…": [
+"snip_app.py:837"
+],
+"Save changes to this document?": [
+"pdf_editor.py:540",
+"word_processor.py:673"
+],
+"Save changes to this image?": [
+"photo_app.py:1914"
+],
+"Save changes to this presentation?": [
+"slides_app.py:1090"
+],
+"Save changes to this workbook?": [
+"sheets_app.py:1005"
+],
+"Save results to": [
+"converter_app.py:423",
+"converter_app.py:634"
+],
+"Save snip": [
+"snip_app.py:1017"
+],
+"Save snips in": [
+"snip_app.py:1249"
+],
+"Save the changed record in {source}?": [
+"base_app.py:1527"
+],
+"Save the changed record?": [
+"base_app.py:1648"
+],
+"Save the changes to this snip first?": [
+"snip_app.py:1038"
+],
+"Saved a copy to {f}": [
+"base_app.py:1515"
+],
+"Saved query {name}": [
+"base_app.py:937"
+],
+"Saved table {name}": [
+"base_app.py:715"
+],
+"Saved {page_count} files to {folder}": [
+"pdf_editor.py:1474"
+],
+"Saved {path}": [
+"pdf_editor.py:632",
+"photo_app.py:2025",
+"sheets_app.py:1101"
+],
+"Saved {v} images to {folder}": [
+"slides_app.py:2019"
+],
+"Saved {v} page(s) to {f}": [
+"pdf_editor.py:1462"
+],
+"Saving over the original will remove: ": [
+"sheets_app.py:1062",
+"slides_app.py:1147"
+],
+"Scale:": [
+"photo_app.py:1609"
+],
+"Scientific": [
+"sheets_app.py:41"
+],
+"Screen": [
+"photo_core.py:19"
+],
+"Screenshots you can mark up – with your own shortcut key": [
+"suite_launcher.py:32"
+],
+"Search all fields…": [
+"base_app.py:287"
+],
+"Search all sheets": [
+"sheets_app.py:568"
+],
+"Search notes…": [
+"sticky_notes.py:663"
+],
+"Section Header": [
+"slides_app.py:340"
+],
+"Select": [
+"pdf_editor.py:35"
+],
+"Select &All": [
+"slides_app.py:894",
+"word_processor.py:478"
+],
+"Select / move annotations, select text, fill form fields": [
+"pdf_editor.py:35"
+],
+"Select all": [
+"photo_app.py:905"
+],
+"Select every pixel similar to the foreground colour.\nTolerance:": [
+"photo_app.py:935"
+],
+"Select layer pixels": [
+"photo_app.py:932"
+],
+"Select the data first, including a header row and a label column (e.g. A1:C6), then choose Insert > Chart.": [
+"sheets_app.py:2109"
+],
+"Selection": [
+"word_processor.py:919"
+],
+"Send &Backward": [
+"slides_app.py:944"
+],
+"Send to Bac&k": [
+"slides_app.py:945"
+],
+"Sepia": [
+"photo_core.py:426"
+],
+"Set all files to:": [
+"converter_app.py:508"
+],
+"Set {n} file(s) to {t}": [
+"converter_app.py:764"
+],
+"Shade first row as header": [
+"word_processor.py:1237"
+],
+"Shape": [
+"photo_app.py:30",
+"photo_app.py:719"
+],
+"Shape &Fill Colour...": [
+"slides_app.py:935"
+],
+"Shape &Outline Colour...": [
+"slides_app.py:937"
+],
+"Shape fill": [
+"slides_app.py:1041",
+"slides_app.py:1640"
+],
+"Shape outline": [
+"slides_app.py:1045"
+],
+"Shapes": [
+"slides_app.py:996"
+],
+"Sharpen": [
+"photo_core.py:396"
+],
+"Sheet name:": [
+"sheets_app.py:2040"
+],
+"Sheet names can't contain [ ] : * ? / \\ and max 31 characters.": [
+"sheets_app.py:2045"
+],
+"Short Text": [
+"base_core.py:18"
+],
+"Short date": [
+"sheets_app.py:39"
+],
+"Show": [
+"base_app.py:766"
+],
+"Show all notes": [
+"sticky_notes.py:658",
+"sticky_notes.py:894"
+],
+"Show data from:": [
+"base_app.py:1061"
+],
+"Show layer": [
+"photo_app.py:859"
+],
+"Show only records with this value": [
+"base_app.py:296"
+],
+"Show page numbers (bottom right)": [
+"word_processor.py:281"
+],
+"Shrink PDF": [
+"convert_core.py:798"
+],
+"Shrink pictures inside": [
+"convert_core.py:800"
+],
+"Sign": [
+"pdf_editor.py:50"
+],
+"Signature image": [
+"pdf_editor.py:238"
+],
+"Signature ready - click on a page to place it": [
+"pdf_editor.py:1252"
+],
+"Size": [
+"converter_app.py:78",
+"photo_app.py:695",
+"photo_core.py:399"
+],
+"Size (% of current):": [
+"sheets_app.py:2165"
+],
+"Size (% of original):": [
+"word_processor.py:1218"
+],
+"Size (px):": [
+"photo_app.py:332"
+],
+"Size:": [
+"pdf_editor.py:140",
+"slides_app.py:1956",
+"word_processor.py:289"
+],
+"Skip just this one": [
+"planner_app.py:718"
+],
+"Skipped - not an archive": [
+"converter_app.py:899"
+],
+"Skipped - nothing to convert": [
+"converter_app.py:859"
+],
+"Slate": [
+"slides_app.py:33"
+],
+"Slide &Background Colour...": [
+"slides_app.py:962"
+],
+"Slide &Size...": [
+"slides_app.py:881"
+],
+"Slide S&how": [
+"slides_app.py:966"
+],
+"Slide Show": [
+"slides_app.py:713"
+],
+"Slide Show &Keys": [
+"slides_app.py:971"
+],
+"Slide Size": [
+"slides_app.py:1956"
+],
+"Slides and slideshows (.pptx)": [
+"suite_launcher.py:27"
+],
+"Small file": [
+"convert_core.py:192"
+],
+"Smaller Text": [
+"slides_app.py:923"
+],
+"Smaller picture": [
+"convert_core.py:796"
+],
+"Smaller text": [
+"word_processor.py:605"
+],
+"Snip": [
+"snip_app.py:739",
+"suite_launcher.py:32"
+],
+"Snip ": [
+"snip_app.py:1295"
+],
+"Snip is still running here.": [
+"snip_app.py:1323"
+],
+"Snip shortcut": [
+"snip_app.py:1152"
+],
+"Snipping in {delay} seconds…": [
+"snip_app.py:1270"
+],
+"Snooze": [
+"planner_app.py:422"
+],
+"Soft Light": [
+"photo_core.py:25"
+],
+"Sort": [
+"base_app.py:766",
+"sheets_app.py:1833"
+],
+"Sort A → Z": [
+"sheets_app.py:2342",
+"sheets_app.py:840"
+],
+"Sort Z → A": [
+"sheets_app.py:2343",
+"sheets_app.py:841"
+],
+"Sort by:": [
+"base_app.py:1068",
+"sheets_app.py:1856"
+],
+"Space + drag — pan    Ctrl + wheel — zoom": [
+"photo_app.py:2067"
+],
+"Spreadsheet Editor": [
+"suite_launcher.py:26"
+],
+"Spreadsheets": [
+"sheets_app.py:33"
+],
+"Square": [
+"word_processor.py:527"
+],
+"Square 1:1": [
+"slides_app.py:1953"
+],
+"Standard 4:3": [
+"slides_app.py:1953"
+],
+"Star": [
+"slides_app.py:42"
+],
+"Start": [
+"trim_tab.py:86"
+],
+"Start from scratch": [
+"base_app.py:1292"
+],
+"Start from:": [
+"base_app.py:1496"
+],
+"Start when Windows starts": [
+"snip_app.py:854",
+"sticky_notes.py:899"
+],
+"Start when Windows starts (so reminders always pop up)": [
+"planner_app.py:491"
+],
+"Starting…": [
+"converter_app.py:323"
+],
+"Starts {when} (in {time})": [
+"planner_app.py:441"
+],
+"Status": [
+"converter_app.py:78"
+],
+"Sticky Note": [
+"pdf_editor.py:1177"
+],
+"Sticky Notes": [
+"suite_launcher.py:31"
+],
+"Stop repeating after": [
+"planner_app.py:234"
+],
+"Strikeout": [
+"pdf_editor.py:40"
+],
+"Strikethrough (Ctrl+T)": [
+"sticky_notes.py:348"
+],
+"Stroke": [
+"photo_app.py:1371",
+"photo_app.py:1382"
+],
+"Strong": [
+"converter_app.py:563"
+],
+"Style:": [
+"pdf_editor.py:146",
+"photo_app.py:339"
+],
+"Su&perscript": [
+"word_processor.py:498"
+],
+"Subs&cript": [
+"word_processor.py:500"
+],
+"Sum": [
+"base_app.py:1110",
+"base_app.py:867"
+],
+"Sum the numbers above or to the left": [
+"sheets_app.py:872"
+],
+"Sum: {sum}": [
+"sheets_app.py:1318"
+],
+"Sunset": [
+"slides_app.py:35"
+],
+"Supported files": [
+"suite_launcher.py:221"
+],
+"Swap colours (X)": [
+"photo_app.py:475"
+],
+"T&able": [
+"word_processor.py:543"
+],
+"T&able...": [
+"slides_app.py:916"
+],
+"Table": [
+"base_app.py:1400"
+],
+"Table name:": [
+"base_app.py:611"
+],
+"Tables": [
+"base_app.py:1555"
+],
+"Tables, forms, queries and reports": [
+"suite_launcher.py:30"
+],
+"Take a note…\n\nTip: type [] and a space for a to-do checkbox": [
+"sticky_notes.py:336"
+],
+"Take supplements": [
+"planner_app.py:40"
+],
+"Tasks": [
+"base_app.py:1293"
+],
+"Temperature/Tint": [
+"photo_core.py:421"
+],
+"Test a reminder pop-up (with sound)": [
+"planner_app.py:507"
+],
+"Text": [
+"photo_app.py:1472",
+"photo_app.py:30",
+"photo_app.py:309"
+],
+"Text &Colour...": [
+"word_processor.py:503"
+],
+"Text (.txt)": [
+"convert_core.py:36",
+"convert_core.py:37",
+"convert_core.py:41"
+],
+"Text colour": [
+"pdf_editor.py:131",
+"photo_app.py:320",
+"slides_app.py:1030"
+],
+"Text colour (click the A to apply)": [
+"word_processor.py:621"
+],
+"Text files (*.txt)": [
+"pdf_editor.py:1494"
+],
+"Text selected - press Ctrl+C to copy": [
+"pdf_editor.py:946"
+],
+"Text size": [
+"sticky_notes.py:576"
+],
+"Text to show:": [
+"word_processor.py:1319"
+],
+"That didn't work": [
+"base_app.py:42"
+],
+"That didn't work:\n{ex}": [
+"pdf_editor.py:968"
+],
+"That file couldn't be opened as a picture.": [
+"snip_app.py:948"
+],
+"That key can't be used on its own. Add Ctrl, Alt or the Windows key (F-keys and PrtScn also work alone).": [
+"snip_app.py:1190"
+],
+"That value is already used in another record, but this field must be unique.": [
+"base_app.py:34"
+],
+"The old .ppt format isn't supported. Please save it as .pptx first.": [
+"slides_app.py:1121"
+],
+"The old .xls format isn't supported yet. Please save it as .xlsx first.": [
+"sheets_app.py:1038"
+],
+"The query has a problem": [
+"base_app.py:916"
+],
+"The selected layer is hidden - show it first.": [
+"photo_app.py:994"
+],
+"The selected layer isn't a text layer.": [
+"photo_app.py:1477"
+],
+"The {ext} format isn't supported yet.\nSupported: .docx, .html, .md, .txt": [
+"word_processor.py:704"
+],
+"Theme:": [
+"slides_app.py:1105"
+],
+"Then by:": [
+"sheets_app.py:1856"
+],
+"There are no deleted notes to restore.": [
+"sticky_notes.py:848"
+],
+"There's already a sheet with that name.": [
+"sheets_app.py:2048"
+],
+"There's already something called {name}.": [
+"base_app.py:706"
+],
+"There's no picture on the clipboard.": [
+"photo_app.py:1888",
+"snip_app.py:957"
+],
+"There's nothing to do for these files.": [
+"converter_app.py:901"
+],
+"These saved queries no longer work because of the change and need updating: ": [
+"base_app.py:722"
+],
+"Thick": [
+"snip_app.py:42"
+],
+"Thick Outside": [
+"sheets_app.py:828"
+],
+"Thin": [
+"snip_app.py:42"
+],
+"This PDF is password protected.\nPassword:": [
+"pdf_editor.py:583"
+],
+"This field is required - please fill it in.": [
+"base_app.py:33"
+],
+"This file couldn't be made noticeably smaller.": [
+"converter_app.py:961"
+],
+"This file has no sound to convert.": [
+"convert_core.py:232"
+],
+"This file has no video picture.": [
+"convert_core.py:241"
+],
+"This folder:": [
+"converter_app.py:426"
+],
+"This is a {first} statement that changes data or the database design. Run it?": [
+"base_app.py:903"
+],
+"This isn't an Ethical Database / SQLite database file.": [
+"base_app.py:1456"
+],
+"This presentation contains ": [
+"slides_app.py:1137"
+],
+"This workbook contains ": [
+"sheets_app.py:1052"
+],
+"This would break a relationship: the related record doesn't exist, or other records still depend on this one.": [
+"base_app.py:35"
+],
+"Thousands separator": [
+"sheets_app.py:924"
+],
+"Threshold": [
+"photo_core.py:423"
+],
+"Time": [
+"sheets_app.py:40"
+],
+"Tip: every table should have an AutoNumber ID. Defaults: type a value, or DATE() for today's date. Relationships between tables: Database → Relationships.": [
+"base_app.py:633"
+],
+"Title": [
+"word_processor.py:36"
+],
+"Title Only": [
+"slides_app.py:346"
+],
+"Title Slide": [
+"slides_app.py:335"
+],
+"Title and Content": [
+"slides_app.py:339"
+],
+"Title:": [
+"base_app.py:1062",
+"sheets_app.py:540"
+],
+"To-do checkboxes (Ctrl+Shift+C)": [
+"sticky_notes.py:350"
+],
+"To-do list with due dates and priorities": [
+"base_app.py:1293"
+],
+"To-do notes on your desktop": [
+"suite_launcher.py:31"
+],
+"Today": [
+"planner_app.py:440",
+"planner_app.py:483",
+"planner_app.py:99"
+],
+"Today and coming up": [
+"planner_app.py:602"
+],
+"Tolerance": [
+"photo_app.py:703",
+"photo_app.py:710"
+],
+"Tomorrow": [
+"planner_app.py:101"
+],
+"Tomorrow morning": [
+"planner_app.py:38"
+],
+"Tool Options": [
+"photo_app.py:425"
+],
+"Tools": [
+"pdf_editor.py:491",
+"photo_app.py:451"
+],
+"Top": [
+"photo_app.py:1643",
+"sheets_app.py:822",
+"slides_app.py:930"
+],
+"Top and Bottom": [
+"sheets_app.py:829"
+],
+"Top-left": [
+"photo_app.py:1643"
+],
+"Top-right": [
+"photo_app.py:1643"
+],
+"Total": [
+"base_app.py:1056",
+"base_app.py:766"
+],
+"Totals (group and add up)": [
+"base_app.py:749"
+],
+"Totals:": [
+"base_app.py:1069"
+],
+"Transform": [
+"photo_app.py:1860"
+],
+"Transparent": [
+"photo_app.py:288"
+],
+"Trapezoid": [
+"slides_app.py:45"
+],
+"Triangle": [
+"slides_app.py:41"
+],
+"Trim video": [
+"trim_tab.py:144",
+"trim_tab.py:256"
+],
+"Two Content": [
+"slides_app.py:344"
+],
+"Type": [
+"converter_app.py:78",
+"photo_app.py:715"
+],
+"Type a value or a formula like =SUM(A1:A10)": [
+"sheets_app.py:684"
+],
+"Type:": [
+"sheets_app.py:539"
+],
+"U&nmerge": [
+"sheets_app.py:826"
+],
+"Underline": [
+"pdf_editor.py:39"
+],
+"Underline (Ctrl+U)": [
+"sticky_notes.py:347"
+],
+"Unfold": [
+"sticky_notes.py:574"
+],
+"Unhide &All": [
+"sheets_app.py:837"
+],
+"Unique": [
+"base_app.py:616"
+],
+"Unsupported archive type.": [
+"convert_core.py:670"
+],
+"Unsupported file type.": [
+"base_app.py:1753"
+],
+"Unsupported file type: {ext}": [
+"sheets_app.py:1040"
+],
+"Unsupported image": [
+"pdf_editor.py:1193"
+],
+"Untitled": [
+"pdf_editor.py:653",
+"photo_app.py:1987",
+"photo_app.py:868"
+],
+"Up Arrow": [
+"slides_app.py:43"
+],
+"Update Downloader": [
+"converter_app.py:199"
+],
+"Updating the downloader…": [
+"converter_app.py:373"
+],
+"Use Ctrl+PrtScn": [
+"snip_app.py:1165"
+],
+"Use a picture of your signature (PNG with transparency works best):": [
+"pdf_editor.py:225"
+],
+"Use the frame on the slider as the end": [
+"trim_tab.py:83"
+],
+"Use the frame on the slider as the start": [
+"trim_tab.py:80"
+],
+"Use this picture on all slides?": [
+"slides_app.py:1941"
+],
+"User &Guide": [
+"suite_common.py:187"
+],
+"Vibrance": [
+"photo_core.py:416"
+],
+"Video quality:": [
+"converter_app.py:521"
+],
+"Video size:": [
+"converter_app.py:522"
+],
+"Videos": [
+"trim_tab.py:14"
+],
+"Videos → one video (MP4)": [
+"converter_app.py:585"
+],
+"Videos → smaller MP4 (H.264, can lower the resolution) · Audio → lower bitrate (WAV/FLAC become MP3) · Pictures → smaller JPG/PNG/WebP · PDFs → shrinks pictures & fonts · Word/Excel/PowerPoint → shrinks the pictures inside · Anything else → zipped (Strong uses 7z).": [
+"converter_app.py:571"
+],
+"Vignette": [
+"photo_core.py:402"
+],
+"Virus scan: Microsoft Defender not available on this PC": [
+"converter_app.py:172"
+],
+"Virus-scan every download with Microsoft Defender": [
+"converter_app.py:167"
+],
+"WAV (audio only)": [
+"convert_core.py:30"
+],
+"Waiting": [
+"converter_app.py:250",
+"converter_app.py:695",
+"converter_app.py:851"
+],
+"Warning: circular reference - a formula refers to itself.": [
+"sheets_app.py:1177"
+],
+"Was due {when}": [
+"planner_app.py:437"
+],
+"Web page": [
+"word_processor.py:34"
+],
+"Web page (.html)": [
+"convert_core.py:37",
+"convert_core.py:40"
+],
+"Web pages": [
+"word_processor.py:31"
+],
+"Websites change often - updating keeps downloads working": [
+"converter_app.py:200"
+],
+"What": [
+"planner_app.py:171"
+],
+"What can it convert?": [
+"converter_app.py:997"
+],
+"What to export:": [
+"base_app.py:1810"
+],
+"When": [
+"planner_app.py:191"
+],
+"Where": [
+"base_app.py:867"
+],
+"White": [
+"photo_app.py:288"
+],
+"Whiteout": [
+"pdf_editor.py:47"
+],
+"Whole Number": [
+"base_core.py:18"
+],
+"Whole number": [
+"sheets_app.py:41"
+],
+"Whole playlist / channel list (max 200)": [
+"converter_app.py:162"
+],
+"Whole words only": [
+"word_processor.py:327"
+],
+"Widescreen 16:9": [
+"slides_app.py:1953"
+],
+"Width (pixels):": [
+"sheets_app.py:1538"
+],
+"Width (points):": [
+"slides_app.py:1653"
+],
+"Width (px):": [
+"photo_app.py:1371"
+],
+"Width:": [
+"photo_app.py:1610",
+"photo_app.py:1646",
+"photo_app.py:1840"
+],
+"Window": [
+"snip_app.py:39"
+],
+"Word &Count...": [
+"word_processor.py:561"
+],
+"Word (.docx)": [
+"convert_core.py:35",
+"convert_core.py:39",
+"convert_core.py:40"
+],
+"Word Count": [
+"word_processor.py:921"
+],
+"Word document": [
+"word_processor.py:33"
+],
+"Word documents": [
+"word_processor.py:30"
+],
+"Word documents (*.docx)": [
+"pdf_editor.py:1503"
+],
+"Working…": [
+"converter_app.py:912"
+],
+"Wrap": [
+"sheets_app.py:919"
+],
+"Write letters and reports (.docx)": [
+"suite_launcher.py:25"
+],
+"YYYY-MM-DD or 'today'": [
+"base_app.py:248",
+"base_app.py:442"
+],
+"Yellow ↔ Blue": [
+"photo_core.py:420"
+],
+"Yes, start with Windows": [
+"planner_app.py:913"
+],
+"Yes/No": [
+"base_core.py:19"
+],
+"Yesterday": [
+"planner_app.py:103"
+],
+"You can also open a picture (Ctrl+O), paste one (Ctrl+V) or drop one here to mark it up.": [
+"snip_app.py:730"
+],
+"You can get it back with “Restore deleted note” in the tray icon menu.": [
+"sticky_notes.py:602"
+],
+"YouTube thumbnail 1280×720": [
+"photo_app.py:273"
+],
+"Z → A / largest first": [
+"sheets_app.py:1852"
+],
+"Zip it": [
+"convert_core.py:801",
+"converter_app.py:732"
+],
+"Zoom &In": [
+"pdf_editor.py:419",
+"photo_app.py:623",
+"sheets_app.py:853"
+],
+"Zoom &Out": [
+"pdf_editor.py:420",
+"photo_app.py:624",
+"sheets_app.py:854"
+],
+"Zoom (Alt = out)": [
+"photo_app.py:31"
+],
+"Zoom {v}%": [
+"sheets_app.py:1597"
+],
+"[ / ] — brush size    X — swap colours": [
+"photo_app.py:2067"
+],
+"adjustment layers": [
+"photo_core.py:546"
+],
+"and": [
+"base_app.py:1482"
+],
+"best quality, a bit smaller": [
+"converter_app.py:561"
+],
+"days": [
+"planner_app.py:216"
+],
+"e.g. Customers": [
+"base_app.py:613"
+],
+"e.g. Take supplements": [
+"planner_app.py:170"
+],
+"every": [
+"planner_app.py:210"
+],
+"field that points to the parent:": [
+"base_app.py:1147"
+],
+"good quality, much smaller": [
+"converter_app.py:562"
+],
+"kept original (no new file)": [
+"converter_app.py:960"
+],
+"key field:": [
+"base_app.py:1143"
+],
+"layer effects (shadows, strokes…)": [
+"photo_core.py:550"
+],
+"on": [
+"planner_app.py:231"
+],
+"query": [
+"base_app.py:1621"
+],
+"read-only query results": [
+"base_app.py:324"
+],
+"report": [
+"base_app.py:1621"
+],
+"saved to {path}": [
+"snip_app.py:1291"
+],
+"smallest file, lower quality": [
+"converter_app.py:563"
+],
+"table and all its records": [
+"base_app.py:1621"
+],
+"text layers (kept as pictures)": [
+"photo_core.py:560"
+],
+"today": [
+"planner_app.py:658"
+],
+"tomorrow": [
+"planner_app.py:435",
+"planner_app.py:658"
+],
+"until {date}": [
+"planner_core.py:152"
+],
+"{APP_NAME} – all notes": [
+"sticky_notes.py:649"
+],
+"{APP_NAME} – {label} to snip": [
+"snip_app.py:1231"
+],
+"{SUITE_NAME} — starting {v}…": [
+"suite_launcher.py:199"
+],
+"{day} – all day": [
+"planner_app.py:440"
+],
+"{done_jobs} of {total_jobs}": [
+"converter_app.py:963",
+"converter_app.py:974"
+],
+"{href}\nCtrl+Click to open": [
+"word_processor.py:207"
+],
+"{label} is used by another program – choose another shortcut in ⋯ → Change the shortcut.": [
+"snip_app.py:1220"
+],
+"{name} (Design)": [
+"base_app.py:717"
+],
+"{name} (Form)": [
+"base_app.py:1672"
+],
+"{name} (Query)": [
+"base_app.py:1691",
+"base_app.py:935"
+],
+"{name} (Report)": [
+"base_app.py:1033",
+"base_app.py:1702"
+],
+"{n}  ({v} rows)": [
+"base_app.py:1766"
+],
+"{n} days": [
+"planner_app.py:448"
+],
+"{n} days before": [
+"planner_core.py:160"
+],
+"{n} files": [
+"converter_app.py:968"
+],
+"{n} hours": [
+"planner_app.py:450"
+],
+"{n} hours before": [
+"planner_core.py:162"
+],
+"{n} minutes": [
+"planner_app.py:451"
+],
+"{n} minutes before": [
+"planner_core.py:163"
+],
+"{ok} done": [
+"converter_app.py:985"
+],
+"{secs} seconds": [
+"snip_app.py:761"
+],
+"{s} shape": [
+"photo_app.py:1448"
+],
+"{table} (Design)": [
+"base_app.py:1685"
+],
+"{table}: {count:,} records": [
+"base_app.py:1791"
+],
+"{total:,} record(s){filt}{ro}": [
+"base_app.py:325"
+],
+"{v:,} row(s)": [
+"base_app.py:922"
+],
+"{v} (Report)": [
+"base_app.py:1710"
+],
+"{v} doesn't look like a video.": [
+"trim_tab.py:144"
+],
+"{v} file(s) · {v2}": [
+"converter_app.py:806"
+],
+"{v} files can't keep layers - the picture will be flattened in the saved file (your layers stay here). Continue?": [
+"photo_app.py:2003"
+],
+"{v} selection": [
+"photo_app.py:955"
+],
+"{v} supported functions": [
+"sheets_app.py:1966"
+],
+"{weekday} {day} {month}": [
+"planner_app.py:113"
+],
+"{weekday}, {day} {month}": [
+"planner_app.py:108"
+],
+"{weekday}, {day} {month} {year}": [
+"planner_app.py:107"
+],
+"{where}\n\nPages: {v}\nWords: {v2:,}\nCharacters (with spaces): {v3:,}\nCharacters (no spaces): {v4:,}\nParagraphs: {v5:,}": [
+"word_processor.py:922"
+],
+"— not included": [
+"converter_app.py:913"
+],
+"• List": [
+"slides_app.py:1037",
+"word_processor.py:638"
+],
+"…or drop a video here.": [
+"trim_tab.py:50"
+],
+"⇤ Start here": [
+"trim_tab.py:79"
+],
+"⌨  Change shortcut…": [
+"snip_app.py:712"
+],
+"⌨ Set a shortcut…": [
+"snip_app.py:882"
+],
+"⌨ Shortcut: {label}": [
+"snip_app.py:882"
+],
+"⏰  New reminder": [
+"planner_app.py:480"
+],
+"▶  Start": [
+"converter_app.py:446"
+],
+"▶ Present": [
+"slides_app.py:1003"
+],
+"◄ Indent": [
+"word_processor.py:642"
+],
+"⚠ The end must be after the start.": [
+"trim_tab.py:202"
+],
+"✂  New snip": [
+"snip_app.py:745"
+],
+"✂  Save trimmed video": [
+"trim_tab.py:123"
+],
+"✓  Done": [
+"planner_app.py:418"
+],
+"✓ Saved {v} ({v2})": [
+"trim_tab.py:250"
+],
+"✔ Already small": [
+"converter_app.py:959"
+],
+"✔ Done": [
+"converter_app.py:355",
+"converter_app.py:932"
+],
+"✔ Included": [
+"converter_app.py:945"
+],
+"✖ Remove": [
+"base_app.py:758"
+],
+"✖ Remove Selected Relationship": [
+"base_app.py:1153"
+],
+"⧉ Copy": [
+"snip_app.py:833"
+],
+"⬇  Download": [
+"converter_app.py:205"
+],
+"＋ Add Field": [
+"base_app.py:756"
+],
+"＋ Add Relationship": [
+"base_app.py:1150"
+],
+"💾 Save": [
+"snip_app.py:835"
+],
+"💾 Save Table": [
+"base_app.py:629"
+],
+"📂  Open a video…": [
+"trim_tab.py:47"
+],
+"📂 Open a database…": [
+"base_app.py:1305"
+],
+"📅  New event": [
+"planner_app.py:481"
+],
+"📋 Paste": [
+"converter_app.py:138"
+],
+"🔎 Check Links": [
+"converter_app.py:140"
+],
+"🛡 Safety: only web links; files are quarantined, must be genuine audio/video (programs, archives and web pages are blocked), then virus-scanned before they're saved. Nothing downloaded is ever opened or run.<br>⚖ Only download videos you have the right to — your own, or ones the creator allows (e.g. Creative Commons). Many sites' terms, including YouTube's, don't allow downloading.": [
+"converter_app.py:191"
+]
+}

@@ -29,15 +29,17 @@ from PySide6.QtWidgets import (QApplication, QColorDialog, QDialog, QFileDialog,
 
 import snip_core as core  # noqa: E402
 from suite_common import icon_path, launch_command, make_app, open_guide, start_detached  # noqa: E402
+from i18n import N_, tr  # noqa: E402
 
 APP_NAME = "Ethical Snip"
 SERVER_NAME = "EthicalSnip-" + os.environ.get("USERNAME", "user")
 RUN_KEY = r"Software\Microsoft\Windows\CurrentVersion\Run"
 RUN_VALUE = "EthicalSuite.Snip"
 HOTKEY_ID = 0xE51
-MODES = [("rect", "Rectangle", "▭"), ("window", "Window", "🗔"), ("screen", "Full screen", "🖵"), ("free", "Free-form", "✎")]
+MODES = [("rect", tr("Rectangle"), "▭"), ("window", tr("Window"), "🗔"), ("screen", tr("Full screen"), "🖵"),
+         ("free", tr("Free-form"), "✎")]
 COLORS = ["#E53935", "#FDD835", "#43A047", "#1E88E5", "#212121", "#FFFFFF"]
-WIDTHS = {"Thin": 3, "Medium": 6, "Thick": 11}
+WIDTHS = {N_("Thin"): 3, N_("Medium"): 6, N_("Thick"): 11}
 
 
 def settings():
@@ -102,7 +104,7 @@ class Overlay(QWidget):
             self.mode_buttons[key] = b
         x = QToolButton(self.bar)
         x.setText("✕")
-        x.setToolTip("Cancel (Esc)")
+        x.setToolTip(tr("Cancel (Esc)"))
         x.clicked.connect(self.session.cancel)
         lay.addWidget(x)
         self.bar.adjustSize()
@@ -164,8 +166,8 @@ class Overlay(QWidget):
             f = QFont("Segoe UI")
             f.setPixelSize(15)
             p.setFont(f)
-            hint = "Drag to snip an area" if mode == "rect" else "Draw around what you want to snip"
-            p.drawText(self.rect().adjusted(0, 70, 0, 0), Qt.AlignHCenter | Qt.AlignTop, hint + "   ·   Esc to cancel")
+            hint = tr("Drag to snip an area") if mode == "rect" else tr("Draw around what you want to snip")
+            p.drawText(self.rect().adjusted(0, 70, 0, 0), Qt.AlignHCenter | Qt.AlignTop, hint + "   ·   " + tr("Esc to cancel"))
 
     # ---- mouse
     def _update_hover(self, pos):
@@ -331,8 +333,8 @@ def arrow_path(a, b, width):
 
 
 class AddItems(QUndoCommand):
-    def __init__(self, scene, items, text="Add", already=True):
-        super().__init__(text)
+    def __init__(self, scene, items, text=None, already=True):
+        super().__init__(text or tr("Add"))
         self.scene, self.items, self.first = scene, items, already
 
     def redo(self):
@@ -363,7 +365,7 @@ class RemoveItems(QUndoCommand):
 
 class MoveItems(QUndoCommand):
     def __init__(self, moves):
-        super().__init__("Move")
+        super().__init__(tr("Move"))
         self.moves = moves                       # [(item, old_pos, new_pos)]
         self.first = True
 
@@ -381,7 +383,7 @@ class MoveItems(QUndoCommand):
 
 class CropCommand(QUndoCommand):
     def __init__(self, canvas, old, new):
-        super().__init__("Crop")
+        super().__init__(tr("Crop"))
         self.canvas, self.old, self.new = canvas, QRectF(old), QRectF(new)
 
     def redo(self):
@@ -574,7 +576,7 @@ class Canvas(QGraphicsView):
             if isinstance(item, QGraphicsRectItem) and (item.rect().width() < 3 or item.rect().height() < 3):
                 self.scene_.removeItem(item)
                 return
-            self.undo.push(AddItems(self.scene_, [item], "Draw"))
+            self.undo.push(AddItems(self.scene_, [item], tr("Draw")))
             self.changed.emit()
         elif self.temp_rect is not None:
             r, self.temp_rect = self.temp_rect.intersected(self.crop), None
@@ -598,7 +600,7 @@ class Canvas(QGraphicsView):
         big = small.scaled(rr.size(), Qt.IgnoreAspectRatio, Qt.FastTransformation)
         item = QGraphicsPixmapItem(QPixmap.fromImage(big))
         item.setPos(rr.topLeft())
-        self._add(item, "Pixelate")
+        self._add(item, tr("Pixelate"))
 
     def new_text(self, pt):
         item = QGraphicsTextItem()
@@ -609,7 +611,7 @@ class Canvas(QGraphicsView):
         item.setDefaultTextColor(self.color)
         item.setTextInteractionFlags(Qt.TextEditorInteraction)
         item.setPos(pt - QPointF(2, f.pixelSize() * 0.7))
-        self._add(item, "Text")
+        self._add(item, tr("Text"))
         item.setFocus()
         item.document().contentsChanged.connect(self.changed.emit)
 
@@ -684,12 +686,12 @@ class SnipWindow(QMainWindow):
         self.key_status = QPushButton("")
         self.key_status.setFlat(True)
         self.key_status.setCursor(Qt.PointingHandCursor)
-        self.key_status.setToolTip("Click to change the keyboard shortcut that takes a snip from anywhere")
+        self.key_status.setToolTip(tr("Click to change the keyboard shortcut that takes a snip from anywhere"))
         self.key_status.clicked.connect(lambda: self.ctl.change_hotkey())
         self.statusBar().addPermanentWidget(self.key_status)
         self.update_hotkey_texts("")
         self._toolbars()
-        self.statusBar().showMessage("Ready")
+        self.statusBar().showMessage(tr("Ready"))
         self._update_enabled()
 
     # ---- layout
@@ -707,8 +709,9 @@ class SnipWindow(QMainWindow):
         lay.addWidget(t)
         krow = QHBoxLayout()
         krow.addStretch(1)
-        self.key_btn = QPushButton("⌨  Change shortcut…")
-        self.key_btn.setToolTip("Pick the keys that take a snip from anywhere – e.g. Ctrl+Alt+S if your keyboard has no PrtScn key")
+        self.key_btn = QPushButton(tr("⌨  Change shortcut…"))
+        self.key_btn.setToolTip(tr("Pick the keys that take a snip from anywhere – e.g. Ctrl+Alt+S if your "
+                                   "keyboard has no PrtScn key"))
         self.key_btn.clicked.connect(lambda: self.ctl.change_hotkey())
         krow.addWidget(self.key_btn)
         krow.addStretch(1)
@@ -724,7 +727,7 @@ class SnipWindow(QMainWindow):
         row.addStretch(1)
         lay.addSpacing(10)
         lay.addLayout(row)
-        hint = QLabel("You can also open a picture (Ctrl+O), paste one (Ctrl+V) or drop one here to mark it up.")
+        hint = QLabel(tr("You can also open a picture (Ctrl+O), paste one (Ctrl+V) or drop one here to mark it up."))
         hint.setAlignment(Qt.AlignCenter)
         hint.setStyleSheet("color: palette(placeholder-text);")
         lay.addSpacing(8)
@@ -733,14 +736,14 @@ class SnipWindow(QMainWindow):
         return w
 
     def _toolbars(self):
-        tb = QToolBar("Snip")
+        tb = QToolBar(tr("Snip"))
         tb.setMovable(False)
         tb.setIconSize(QSize(18, 18))
         tb.setToolButtonStyle(Qt.ToolButtonTextOnly)
         self.addToolBar(tb)
         self.new_btn = QToolButton()
-        self.new_btn.setText("✂  New snip")
-        self.new_btn.setToolTip("New snip (Ctrl+N) – the arrow chooses the kind and a delay")
+        self.new_btn.setText(tr("✂  New snip"))
+        self.new_btn.setToolTip(tr("New snip (Ctrl+N) – the arrow chooses the kind and a delay"))
         self.new_btn.setPopupMode(QToolButton.MenuButtonPopup)
         self.new_btn.clicked.connect(lambda: self.ctl.start_snip())
         m = QMenu(self)
@@ -752,10 +755,10 @@ class SnipWindow(QMainWindow):
             a.triggered.connect(lambda _=False, k=key: settings().setValue("mode", k))
             self.mode_group.addAction(a)
         m.addSeparator()
-        dm = m.addMenu("Delay")
+        dm = m.addMenu(tr("Delay"))
         dg = QActionGroup(self)
         for secs in (0, 3, 5, 10):
-            a = dm.addAction("No delay" if not secs else f"{secs} seconds")
+            a = dm.addAction(tr("No delay") if not secs else tr("{secs} seconds").format(secs=secs))
             a.setCheckable(True)
             a.setChecked(secs == setting("delay", 0))
             a.triggered.connect(lambda _=False, s=secs: settings().setValue("delay", s))
@@ -790,13 +793,13 @@ class SnipWindow(QMainWindow):
         for c in COLORS:
             b = QToolButton()
             b.setFixedSize(22, 22)
-            b.setToolTip("Colour")
+            b.setToolTip(tr("Colour"))
             b.clicked.connect(lambda _=False, col=c: self.set_color(QColor(col)))
             tb.addWidget(b)
             self.color_buttons.append((b, c))
         more = QToolButton()
         more.setText("…")
-        more.setToolTip("More colours")
+        more.setToolTip(tr("More colours"))
         more.clicked.connect(self.pick_color)
         tb.addWidget(more)
         self.width_btn = QToolButton()
@@ -804,14 +807,14 @@ class SnipWindow(QMainWindow):
         wm = QMenu(self)
         wg = QActionGroup(self)
         for name, px in WIDTHS.items():
-            a = wm.addAction(name)
+            a = wm.addAction(tr(name))
             a.setCheckable(True)
             a.setChecked(name == "Medium")
             a.triggered.connect(lambda _=False, n=name, p=px: self.set_width(n, p))
             wg.addAction(a)
         self.width_btn.setMenu(wm)
-        self.width_btn.setText("Medium ▾")
-        self.width_btn.setToolTip("Line and text size")
+        self.width_btn.setText(tr("Medium ▾"))
+        self.width_btn.setToolTip(tr("Line and text size"))
         tb.addWidget(self.width_btn)
         tb.addSeparator()
 
@@ -823,23 +826,23 @@ class SnipWindow(QMainWindow):
         tb.addAction(self.redo_action)
         tb.addSeparator()
 
-        right = QToolBar("File")
+        right = QToolBar(tr("File"))
         right.setMovable(False)
         right.setToolButtonStyle(Qt.ToolButtonTextOnly)
         self.addToolBar(right)
-        self.copy_action = right.addAction("⧉ Copy", self.copy)
-        self.copy_action.setToolTip("Copy to the clipboard (Ctrl+C)")
-        self.save_action = right.addAction("💾 Save", self.save)
-        self.save_action.setToolTip("Save (Ctrl+S)")
-        self.saveas_action = right.addAction("Save as…", self.save_as)
-        self.photo_action = right.addAction("Open in Photo Editor", self.open_in_photo)
+        self.copy_action = right.addAction(tr("⧉ Copy"), self.copy)
+        self.copy_action.setToolTip(tr("Copy to the clipboard (Ctrl+C)"))
+        self.save_action = right.addAction(tr("💾 Save"), self.save)
+        self.save_action.setToolTip(tr("Save (Ctrl+S)"))
+        self.saveas_action = right.addAction(tr("Save as…"), self.save_as)
+        self.photo_action = right.addAction(tr("Open in Photo Editor"), self.open_in_photo)
         menu_btn = QToolButton()
         menu_btn.setText("⋯")
         menu_btn.setPopupMode(QToolButton.InstantPopup)
         mm = QMenu(self)
-        mm.addAction("Open a picture…\tCtrl+O", self.open_file)
-        mm.addAction("Paste a picture\tCtrl+V", self.paste)
-        mm.addAction("Open the snips folder", self.ctl.open_folder)
+        mm.addAction(tr("Open a picture…\tCtrl+O"), self.open_file)
+        mm.addAction(tr("Paste a picture\tCtrl+V"), self.paste)
+        mm.addAction(tr("Open the snips folder"), self.ctl.open_folder)
         mm.addSeparator()
         for key, label, default in (("auto_copy", "Copy every snip to the clipboard", True),
                                     ("auto_save", "Save every snip automatically (Pictures\\Ethical Snips)", True),
@@ -848,15 +851,15 @@ class SnipWindow(QMainWindow):
             a.setCheckable(True)
             a.setChecked(setting(key, default))
             a.triggered.connect(lambda on, k=key: settings().setValue(k, on))
-        self.autostart_action = mm.addAction("Start when Windows starts")
+        self.autostart_action = mm.addAction(tr("Start when Windows starts"))
         self.autostart_action.setCheckable(True)
         self.autostart_action.setChecked(autostart_enabled())
         self.autostart_action.triggered.connect(set_autostart)
-        mm.addAction("Change the shortcut…", self.ctl.change_hotkey)
-        mm.addAction("Choose the snips folder…", self.ctl.choose_folder)
+        mm.addAction(tr("Change the shortcut…"), self.ctl.change_hotkey)
+        mm.addAction(tr("Choose the snips folder…"), self.ctl.choose_folder)
         mm.addSeparator()
-        mm.addAction("Help\tF1", lambda: open_guide("snip"))
-        mm.addAction("Quit Ethical Snip", self.ctl.quit)
+        mm.addAction(tr("Help\tF1"), lambda: open_guide("snip"))
+        mm.addAction(tr("Quit Ethical Snip"), self.ctl.quit)
         menu_btn.setMenu(mm)
         right.addWidget(menu_btn)
 
@@ -874,9 +877,9 @@ class SnipWindow(QMainWindow):
     def update_hotkey_texts(self, label):
         how = (f"Or press <b>{label}</b> anywhere, any time." if label
                else "No keyboard shortcut yet – click “Change shortcut…” to pick one.")
-        self.empty_title.setText("<div style='font-size:22px;font-weight:600'>Take a snip</div>"
-                                 f"<div style='color:palette(placeholder-text)'>Choose what to capture. {how}</div>")
-        self.key_status.setText(f"⌨ Shortcut: {label}" if label else "⌨ Set a shortcut…")
+        self.empty_title.setText(tr("<div style='font-size:22px;font-weight:600'>Take a snip</div><div "
+                                    "style='color:palette(placeholder-text)'>Choose what to capture. {how}</div>").format(how=how))
+        self.key_status.setText(tr("⌨ Shortcut: {label}").format(label=label) if label else tr("⌨ Set a shortcut…"))
 
     # ---- state
     def _set_saved(self, saved):
@@ -910,13 +913,13 @@ class SnipWindow(QMainWindow):
             f.setDefaultTextColor(c)
 
     def pick_color(self):
-        c = QColorDialog.getColor(self.canvas.color, self, "Colour")
+        c = QColorDialog.getColor(self.canvas.color, self, tr("Colour"))
         if c.isValid():
             self.set_color(c)
 
     def set_width(self, name, px):
         self.canvas.width_px = px
-        self.width_btn.setText(f"{name} ▾")
+        self.width_btn.setText(f"{tr(name)} ▾")
 
     # ---- loading pictures
     def load_image(self, img, dpr=1.0, path=None):
@@ -935,22 +938,23 @@ class SnipWindow(QMainWindow):
 
     def open_file(self, path=None):
         if not path:
-            path, _ = QFileDialog.getOpenFileName(self, "Open a picture", self.ctl.folder(),
-                                                  "Pictures (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)")
+            path, _ = QFileDialog.getOpenFileName(self, tr("Open a picture"), self.ctl.folder(),
+                                                  tr("Pictures (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif "
+                                                     "*.tiff);;All files (*)"))
         if not path:
             return
         img = QImage(path)
         if img.isNull():
-            QMessageBox.warning(self, APP_NAME, "That file couldn't be opened as a picture.")
+            QMessageBox.warning(self, APP_NAME, tr("That file couldn't be opened as a picture."))
             return
         if self.load_image(img, 1.0, None):
-            self.statusBar().showMessage(f"Opened {os.path.basename(path)} – mark it up, then Save as…", 6000)
+            self.statusBar().showMessage(tr("Opened {v} – mark it up, then Save as…").format(v=os.path.basename(path)), 6000)
         self.show_window()
 
     def paste(self):
         img = QApplication.clipboard().image()
         if img.isNull():
-            self.statusBar().showMessage("There's no picture on the clipboard.", 4000)
+            self.statusBar().showMessage(tr("There's no picture on the clipboard."), 4000)
             return
         self.load_image(img, 1.0, None)
 
@@ -976,7 +980,7 @@ class SnipWindow(QMainWindow):
         if not self.has_image():
             return
         QApplication.clipboard().setImage(self.canvas.render_image())
-        self.statusBar().showMessage("Copied – paste it anywhere with Ctrl+V.", 5000)
+        self.statusBar().showMessage(tr("Copied – paste it anywhere with Ctrl+V."), 5000)
 
     def _write(self, path):
         img = self.canvas.render_image()
@@ -990,13 +994,13 @@ class SnipWindow(QMainWindow):
             img = flat
         os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
         if not img.save(path, quality=92):
-            QMessageBox.warning(self, APP_NAME, f"Couldn't save {path}.")
+            QMessageBox.warning(self, APP_NAME, tr("Couldn't save {path}.").format(path=path))
             return False
         self.path = path
         self.saved_once = True
         self.undo.setClean()
         self._set_saved(True)
-        self.statusBar().showMessage(f"Saved {path}", 6000)
+        self.statusBar().showMessage(tr("Saved {path}").format(path=path), 6000)
         return True
 
     def save(self):
@@ -1010,8 +1014,9 @@ class SnipWindow(QMainWindow):
         if not self.has_image():
             return False
         start = self.path or core.new_file_name(self.ctl.folder())
-        path, _ = QFileDialog.getSaveFileName(self, "Save snip", start,
-                                              "PNG picture (*.png);;JPG picture (*.jpg);;WebP picture (*.webp);;BMP picture (*.bmp)")
+        path, _ = QFileDialog.getSaveFileName(self, tr("Save snip"), start,
+                                              tr("PNG picture (*.png);;JPG picture (*.jpg);;WebP picture "
+                                                 "(*.webp);;BMP picture (*.bmp)"))
         return self._write(path) if path else False
 
     def open_in_photo(self):
@@ -1024,13 +1029,13 @@ class SnipWindow(QMainWindow):
             os.makedirs(os.path.dirname(path), exist_ok=True)
             self.canvas.render_image().save(path)
         start_detached(launch_command("photo", path))
-        self.statusBar().showMessage("Opening in Ethical Photo Editor…", 4000)
+        self.statusBar().showMessage(tr("Opening in Ethical Photo Editor…"), 4000)
 
     def maybe_keep_changes(self):
         """Ask before throwing away marks that haven't been saved. Returns False to cancel."""
         if not self.has_image() or self.undo.isClean() or self.undo.count() == 0:
             return True
-        r = QMessageBox.question(self, APP_NAME, "Save the changes to this snip first?",
+        r = QMessageBox.question(self, APP_NAME, tr("Save the changes to this snip first?"),
                                  QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel, QMessageBox.Save)
         if r == QMessageBox.Cancel:
             return False
@@ -1144,11 +1149,11 @@ class HotkeyDialog(QDialog):
     """Pick the keyboard shortcut that starts a snip from anywhere."""
     def __init__(self, parent, current):
         super().__init__(parent)
-        self.setWindowTitle("Snip shortcut")
+        self.setWindowTitle(tr("Snip shortcut"))
         self.result_text = current
         lay = QVBoxLayout(self)
-        lay.addWidget(QLabel("Click the box and press the keys you want to use to start a snip from anywhere\n"
-                             "(for example Ctrl+Alt+S – handy if your keyboard has no PrtScn key):"))
+        lay.addWidget(QLabel(tr("Click the box and press the keys you want to use to start a snip from "
+                                "anywhere\n(for example Ctrl+Alt+S – handy if your keyboard has no PrtScn key):")))
         self.edit = QKeySequenceEdit(QKeySequence(current) if current else QKeySequence())
         self.edit.setMaximumSequenceLength(1)
         lay.addWidget(self.edit)
@@ -1157,16 +1162,16 @@ class HotkeyDialog(QDialog):
         self.msg.setWordWrap(True)
         lay.addWidget(self.msg)
         row = QHBoxLayout()
-        for label, fn in (("Use Ctrl+PrtScn", lambda: self.edit.setKeySequence(QKeySequence(DEFAULT_HOTKEY))),
-                          ("No shortcut", self._none)):
+        for label, fn in ((tr("Use Ctrl+PrtScn"), lambda: self.edit.setKeySequence(QKeySequence(DEFAULT_HOTKEY))),
+                          (tr("No shortcut"), self._none)):
             b = QPushButton(label)
             b.clicked.connect(fn)
             row.addWidget(b)
         row.addStretch(1)
-        ok = QPushButton("OK")
+        ok = QPushButton(tr("OK"))
         ok.setDefault(True)
         ok.clicked.connect(self._ok)
-        cancel = QPushButton("Cancel")
+        cancel = QPushButton(tr("Cancel"))
         cancel.clicked.connect(self.reject)
         row.addWidget(ok)
         row.addWidget(cancel)
@@ -1182,8 +1187,8 @@ class HotkeyDialog(QDialog):
             self._none()
             return
         if hotkey_to_win(text) is None:
-            self.msg.setText("That key can't be used on its own. Add Ctrl, Alt or the Windows key "
-                             "(F-keys and PrtScn also work alone).")
+            self.msg.setText(tr("That key can't be used on its own. Add Ctrl, Alt or the Windows key (F-keys and "
+                                "PrtScn also work alone)."))
             return
         self.result_text = text
         self.accept()
@@ -1212,18 +1217,19 @@ class SnipApp:
         self.hotkey_ok = register_hotkey(int(self.window.winId()), text) if text else False
         label = hotkey_label(text)
         if text and not self.hotkey_ok:
-            msg = f"{label} is used by another program – choose another shortcut in ⋯ → Change the shortcut."
+            msg = tr("{label} is used by another program – choose another shortcut in ⋯ → Change the shortcut.").format(
+                label=label)
             if not quiet:
                 QMessageBox.warning(self.window, APP_NAME, msg)
         elif self.hotkey_ok:
-            msg = f"Press {label} anywhere to snip."
+            msg = tr("Press {label} anywhere to snip.").format(label=label)
         else:
-            msg = "No shortcut set – use New snip or the tray icon (⋯ → Change the shortcut to add one)."
+            msg = tr("No shortcut set – use New snip or the tray icon (⋯ → Change the shortcut to add one).")
         self.window.statusBar().showMessage(msg)
         self.window.update_hotkey_texts(self.hotkey_text())
         if self.tray:
-            self.tray.setToolTip(f"{APP_NAME} – {label} to snip" if self.hotkey_ok else APP_NAME)
-            self.tray_new.setText("New snip" + (f"\t{label}" if self.hotkey_ok else ""))
+            self.tray.setToolTip(tr("{APP_NAME} – {label} to snip").format(APP_NAME=APP_NAME, label=label) if self.hotkey_ok else APP_NAME)
+            self.tray_new.setText(tr("New snip") + (f"\t{label}" if self.hotkey_ok else ""))
         return self.hotkey_ok
 
     def change_hotkey(self):
@@ -1240,7 +1246,7 @@ class SnipApp:
         return setting("folder", "") or core.default_folder()
 
     def choose_folder(self):
-        f = QFileDialog.getExistingDirectory(self.window, "Save snips in", self.folder())
+        f = QFileDialog.getExistingDirectory(self.window, tr("Save snips in"), self.folder())
         if f:
             settings().setValue("folder", f)
 
@@ -1261,7 +1267,8 @@ class SnipApp:
         self.session = SnipSession(mode, self._snipped, self._cancelled)
         # give the window time to disappear (and the user time to set things up, if delayed)
         if delay and self.tray:
-            self.tray.showMessage(APP_NAME, f"Snipping in {delay} seconds…", QSystemTrayIcon.Information, 1500)
+            self.tray.showMessage(APP_NAME, tr("Snipping in {delay} seconds…").format(delay=delay),
+                                  QSystemTrayIcon.Information, 1500)
         QTimer.singleShot(max(220, delay * 1000), self.session.begin)
 
     def _cancelled(self):
@@ -1281,11 +1288,11 @@ class SnipApp:
             os.makedirs(os.path.dirname(path), exist_ok=True)
             if img.save(path):
                 saved_path = path
-                notes.append(f"saved to {path}")
+                notes.append(tr("saved to {path}").format(path=path))
         self.window.load_image(img, dpr, saved_path)
         self.window.show_window()
         if notes:
-            self.window.statusBar().showMessage("Snip " + " and ".join(notes) + ".", 8000)
+            self.window.statusBar().showMessage(tr("Snip ") + " and ".join(notes) + ".", 8000)
 
     # ---- tray
     def _make_tray(self):
@@ -1294,15 +1301,15 @@ class SnipApp:
         self.tray = QSystemTrayIcon(QIcon(icon_path("snip")), self.app)
         self.tray.setToolTip(APP_NAME)
         m = QMenu()
-        self.tray_new = m.addAction("New snip", lambda: self.start_snip())
+        self.tray_new = m.addAction(tr("New snip"), lambda: self.start_snip())
         for key, name, glyph in MODES:
             m.addAction(f"    {glyph}  {name}", lambda k=key: self.start_snip(k))
         m.addSeparator()
-        m.addAction("Open Ethical Snip", self.window.show_window)
-        m.addAction("Open the snips folder", self.open_folder)
-        m.addAction("Help", lambda: open_guide("snip"))
+        m.addAction(tr("Open Ethical Snip"), self.window.show_window)
+        m.addAction(tr("Open the snips folder"), self.open_folder)
+        m.addAction(tr("Help"), lambda: open_guide("snip"))
         m.addSeparator()
-        m.addAction("Quit Ethical Snip", self.quit)
+        m.addAction(tr("Quit Ethical Snip"), self.quit)
         self.tray_menu = m
         self.tray.setContextMenu(m)
         self.tray.activated.connect(lambda r: self.window.show_window() if r == QSystemTrayIcon.Trigger else None)
@@ -1311,8 +1318,9 @@ class SnipApp:
     def tray_tip(self):
         if not setting("tray_tip_shown", False) and self.tray:
             settings().setValue("tray_tip_shown", True)
-            how = f"Press {self.hotkey_text()} any time to take a snip." if self.hotkey_ok else "Click here to take a snip."
-            self.tray.showMessage(APP_NAME, "Snip is still running here. " + how, QSystemTrayIcon.Information, 5000)
+            how = (tr("Press {key} any time to take a snip.").format(key=self.hotkey_text()) if self.hotkey_ok
+                   else tr("Click here to take a snip."))
+            self.tray.showMessage(APP_NAME, tr("Snip is still running here.") + " " + how, QSystemTrayIcon.Information, 5000)
 
     def quit(self):
         ctypes.windll.user32.UnregisterHotKey(wintypes.HWND(int(self.window.winId())), HOTKEY_ID)

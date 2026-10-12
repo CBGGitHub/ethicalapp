@@ -18,6 +18,7 @@ import convert_core as cc  # noqa: E402
 import download_core as dc  # noqa: E402
 from suite_common import SETTINGS_ORG, SUITE_NAME, make_app  # noqa: E402
 from suite_common import add_guide_action  # noqa: E402
+from i18n import N_, add_items, tr  # noqa: E402
 
 APP_NAME = "Ethical Converter"
 COL_FILE, COL_TYPE, COL_SIZE, COL_TARGET, COL_STATUS, COL_RESULT = range(6)
@@ -74,7 +75,7 @@ class FileTable(QTableWidget):
     def __init__(self, win):
         super().__init__(0, 6)
         self.win = win
-        self.setHorizontalHeaderLabels(["File", "Type", "Size", "Convert to", "Status", "Result"])
+        self.setHorizontalHeaderLabels([tr("File"), tr("Type"), tr("Size"), tr("Convert to"), tr("Status"), tr("Result")])
         hh = self.horizontalHeader()
         hh.setSectionResizeMode(COL_FILE, QHeaderView.Stretch)
         for c, w in ((COL_TYPE, 80), (COL_SIZE, 80), (COL_TARGET, 230), (COL_STATUS, 170), (COL_RESULT, 140)):
@@ -109,8 +110,8 @@ class FileTable(QTableWidget):
             f.setPointSize(14)
             p.setFont(f)
             p.drawText(self.viewport().rect(), Qt.AlignCenter,
-                       "Drag files or folders here\n\nor click  “Add Files…”\n\n"
-                       "Audio · Video · Pictures · PDF · Word · PowerPoint · Excel · Zip")
+                       tr("Drag files or folders here\n\nor click  “Add Files…”\n\n"
+                          "Audio · Video · Pictures · PDF · Word · PowerPoint · Excel · Zip"))
 
 
 class DownloadTab(QWidget):
@@ -130,14 +131,14 @@ class DownloadTab(QWidget):
         self.info_ready.connect(self._on_info)
 
         self.links = QPlainTextEdit()
-        self.links.setPlaceholderText("Paste one or more links here, one per line — e.g.\n"
-                                      "https://www.youtube.com/watch?v=…\nhttps://x.com/…/status/…\nhttps://vimeo.com/…")
+        self.links.setPlaceholderText(tr("Paste one or more links here, one per line — "
+                                         "e.g.\nhttps://www.youtube.com/watch?v=…\nhttps://x.com/…/status/…\nhttps://vimeo.com/…"))
         self.links.setMaximumHeight(90)
         lrow = QHBoxLayout()
-        paste = QPushButton("📋 Paste")
+        paste = QPushButton(tr("📋 Paste"))
         paste.clicked.connect(self._paste)
-        check = QPushButton("🔎 Check Links")
-        check.setToolTip("Look up the titles without downloading")
+        check = QPushButton(tr("🔎 Check Links"))
+        check.setToolTip(tr("Look up the titles without downloading"))
         check.clicked.connect(self.check_links)
         lrow.addWidget(paste)
         lrow.addWidget(check)
@@ -158,18 +159,18 @@ class DownloadTab(QWidget):
                          ("Audio format:", self.audio_fmt)):
             opts.addWidget(QLabel(label))
             opts.addWidget(w)
-        self.playlist = QCheckBox("Whole playlist / channel list (max 200)")
+        self.playlist = QCheckBox(tr("Whole playlist / channel list (max 200)"))
         opts.addWidget(self.playlist)
         opts.addStretch()
 
         safe = QHBoxLayout()
-        self.scan = QCheckBox("Virus-scan every download with Microsoft Defender")
+        self.scan = QCheckBox(tr("Virus-scan every download with Microsoft Defender"))
         self.scan.setChecked(True)
         if not dc.defender_path():
             self.scan.setChecked(False)
             self.scan.setEnabled(False)
-            self.scan.setText("Virus scan: Microsoft Defender not available on this PC")
-        self.add_to_list = QCheckBox("Add finished downloads to the file list (to convert / compress)")
+            self.scan.setText(tr("Virus scan: Microsoft Defender not available on this PC"))
+        self.add_to_list = QCheckBox(tr("Add finished downloads to the file list (to convert / compress)"))
         safe.addWidget(self.scan)
         safe.addWidget(self.add_to_list)
         safe.addStretch()
@@ -187,21 +188,21 @@ class DownloadTab(QWidget):
         self.table.setSelectionBehavior(QAbstractItemView.SelectRows)
 
         btns = QHBoxLayout()
-        note = QLabel("🛡 Safety: only web links; files are quarantined, must be genuine audio/video (programs, "
-                      "archives and web pages are blocked), then virus-scanned before they're saved. Nothing downloaded "
-                      "is ever opened or run.<br>⚖ Only download videos you have the right to — your own, or ones "
-                      "the creator allows (e.g. Creative Commons). Many sites' terms, including YouTube's, don't "
-                      "allow downloading.")
+        note = QLabel(tr("🛡 Safety: only web links; files are quarantined, must be genuine audio/video (programs, "
+                         "archives and web pages are blocked), then virus-scanned before they're saved. Nothing "
+                         "downloaded is ever opened or run.<br>⚖ Only download videos you have the right to — your "
+                         "own, or ones the creator allows (e.g. Creative Commons). Many sites' terms, including "
+                         "YouTube's, don't allow downloading."))
         note.setWordWrap(True)
         note.setTextFormat(Qt.RichText)
         note.setStyleSheet("color: #555; font-size: 12px;")
-        upd = QPushButton("Update Downloader")
-        upd.setToolTip("Websites change often - updating keeps downloads working")
+        upd = QPushButton(tr("Update Downloader"))
+        upd.setToolTip(tr("Websites change often - updating keeps downloads working"))
         upd.clicked.connect(self.update_downloader)
-        self.cancel_btn = QPushButton("Cancel")
+        self.cancel_btn = QPushButton(tr("Cancel"))
         self.cancel_btn.setEnabled(False)
         self.cancel_btn.clicked.connect(self.cancel.set)
-        self.go = QPushButton("⬇  Download")
+        self.go = QPushButton(tr("⬇  Download"))
         self.go.setMinimumHeight(40)
         self.go.setMinimumWidth(160)
         self.go.setStyleSheet("QPushButton { background: #1565c0; color: white; font-size: 15px; font-weight: bold;"
@@ -246,7 +247,7 @@ class DownloadTab(QWidget):
             self.table.setItem(r, 0, QTableWidgetItem(u))
             self.table.setItem(r, 1, QTableWidgetItem(""))
             bar = QProgressBar()
-            bar.setFormat("Waiting")
+            bar.setFormat(tr("Waiting"))
             bar.setValue(0)
             self.table.setCellWidget(r, 2, bar)
             self.table.setItem(r, 3, QTableWidgetItem(""))
@@ -255,7 +256,7 @@ class DownloadTab(QWidget):
     def check_links(self):
         urls = self._fill_rows()
         for r, u in enumerate(urls):
-            self.table.cellWidget(r, 2).setFormat("Checking…")
+            self.table.cellWidget(r, 2).setFormat(tr("Checking…"))
             threading.Thread(target=self._info_worker, args=(r, u), daemon=True).start()
 
     def _info_worker(self, r, u):
@@ -276,12 +277,12 @@ class DownloadTab(QWidget):
         extra = f" · {int(dur) // 60}:{int(dur) % 60:02d}" if dur else ""
         extra += f" · {info['count']} videos" if info.get("playlist") else ""
         self.table.item(r, 1).setText(f"{info['title']}" + (f"  —  {info['uploader']}" if info['uploader'] else "") + extra)
-        bar.setFormat(f"Ready ({info['site']})")
+        bar.setFormat(tr("Ready ({v})").format(v=info['site']))
 
     def start(self):
         urls = self._urls()
         if not urls:
-            QMessageBox.information(self, APP_NAME, "Paste a link first.")
+            QMessageBox.information(self, APP_NAME, tr("Paste a link first."))
             return
         if self.table.rowCount() != len(urls) or any(self.table.item(r, 0).text() != u for r, u in enumerate(urls)):
             self._fill_rows()
@@ -307,7 +308,7 @@ class DownloadTab(QWidget):
             self.cancel_btn.setEnabled(False)
             if self.cancel.is_set():
                 for r, _ in self.queue:
-                    self.table.cellWidget(r, 2).setFormat("Cancelled")
+                    self.table.cellWidget(r, 2).setFormat(tr("Cancelled"))
                 self.queue = []
             if self.saved_all:
                 if self.add_to_list.isChecked():
@@ -319,7 +320,7 @@ class DownloadTab(QWidget):
                         pass
             return
         r, u = self.queue.pop(0)
-        self.table.cellWidget(r, 2).setFormat("Starting…")
+        self.table.cellWidget(r, 2).setFormat(tr("Starting…"))
         threading.Thread(target=self._worker, args=(r, u), daemon=True).start()
 
     def _worker(self, r, u):
@@ -351,25 +352,25 @@ class DownloadTab(QWidget):
         if ok:
             bar.setValue(100)
             scanned = self.kw["scan"] and "Defender scan unavailable" not in notes
-            bar.setFormat("✔ Done" + (" · scanned clean" if scanned else ""))
+            bar.setFormat(tr("✔ Done") + (tr(" · scanned clean") if scanned else ""))
             bar.setStyleSheet("QProgressBar::chunk { background: #43a047; }")
             blocked = [n for n in notes if n != "Defender scan unavailable"]
             item = self.table.item(r, 3)
-            item.setText(os.path.basename(saved[0]) + (f"  (+{len(saved) - 1} more)" if len(saved) > 1 else ""))
+            item.setText(os.path.basename(saved[0]) + (tr("  (+{v} more)").format(v=len(saved) - 1) if len(saved) > 1 else ""))
             item.setToolTip("\n".join(saved + blocked))
             if not self.table.item(r, 1).text():
                 self.table.item(r, 1).setText(os.path.splitext(os.path.basename(saved[0]))[0])
             self.saved_all.extend(saved)
         else:
             bar.setValue(0)
-            bar.setFormat(("✖ " if msg != "Cancelled" else "") + msg[:150])
+            bar.setFormat(("✖ " if msg != "Cancelled" else "") + tr(msg)[:150])
             bar.setToolTip(msg)
             bar.setStyleSheet("QProgressBar { color: #b71c1c; }")
         QTimer.singleShot(0, self._next)
 
     def update_downloader(self):
         self.go.setEnabled(False)
-        self.win.statusBar().showMessage("Updating the downloader…")
+        self.win.statusBar().showMessage(tr("Updating the downloader…"))
 
         def work():
             ok, msg = dc.update_downloader()
@@ -395,8 +396,8 @@ class ConverterWindow(QMainWindow):
 
         self.table = FileTable(self)
         top = QHBoxLayout()
-        for text, slot in (("Add Files…", self.add_files_dialog), ("Add Folder…", self.add_folder_dialog),
-                           ("Remove", self.remove_selected), ("Clear", self.clear)):
+        for text, slot in ((tr("Add Files…"), self.add_files_dialog), (tr("Add Folder…"), self.add_folder_dialog),
+                           (tr("Remove"), self.remove_selected), (tr("Clear"), self.clear)):
             b = QPushButton(text)
             b.clicked.connect(slot)
             top.addWidget(b)
@@ -405,30 +406,30 @@ class ConverterWindow(QMainWindow):
         top.addWidget(self.count_label)
 
         self.tabs = QTabWidget()
-        self.tabs.addTab(self._convert_tab(), "  Convert  ")
-        self.tabs.addTab(self._compress_tab(), "  Compress (make smaller)  ")
-        self.tabs.addTab(self._combine_tab(), "  Combine  ")
-        self.tabs.addTab(self._archive_tab(), "  Zip / Unzip  ")
+        self.tabs.addTab(self._convert_tab(), tr("  Convert  "))
+        self.tabs.addTab(self._compress_tab(), tr("  Compress (make smaller)  "))
+        self.tabs.addTab(self._combine_tab(), tr("  Combine  "))
+        self.tabs.addTab(self._archive_tab(), tr("  Zip / Unzip  "))
         from trim_tab import TrimTab     # tabs 0-3 are the list-based jobs; the ones after have their own page
         self.trim_tab = TrimTab(self)
-        self.tabs.addTab(self.trim_tab, "  ✂ Trim video  ")
+        self.tabs.addTab(self.trim_tab, tr("  ✂ Trim video  "))
         self.download_tab = None
         if dc.available():   # public builds don't include the downloader
             self.download_tab = DownloadTab(self)
-            self.tabs.addTab(self.download_tab, "  ⬇ Download from Link  ")
+            self.tabs.addTab(self.download_tab, tr("  ⬇ Download from Link  "))
         self.tabs.currentChanged.connect(lambda _: self._refresh_rows())
         self.tabs.currentChanged.connect(self._tab_switched)
 
-        out = QGroupBox("Save results to")
+        out = QGroupBox(tr("Save results to"))
         ol = QHBoxLayout(out)
-        self.same_folder = QRadioButton("Same folder as each file")
-        self.other_folder = QRadioButton("This folder:")
+        self.same_folder = QRadioButton(tr("Same folder as each file"))
+        self.other_folder = QRadioButton(tr("This folder:"))
         self.same_folder.setChecked(self.settings.value("out_mode", "same") == "same")
         self.other_folder.setChecked(not self.same_folder.isChecked())
         self.folder_edit = QLineEdit(self.settings.value("out_folder", os.path.join(os.path.expanduser("~"), "Desktop")))
-        browse = QPushButton("Browse…")
+        browse = QPushButton(tr("Browse…"))
         browse.clicked.connect(self._pick_folder)
-        self.open_when_done = QCheckBox("Open the folder when finished")
+        self.open_when_done = QCheckBox(tr("Open the folder when finished"))
         self.open_when_done.setChecked(self.settings.value("open_done", "true") == "true")
         for w in (self.same_folder, self.other_folder, self.folder_edit, browse, self.open_when_done):
             ol.addWidget(w)
@@ -436,13 +437,13 @@ class ConverterWindow(QMainWindow):
         bottom = QHBoxLayout()
         self.overall = QProgressBar()
         self.overall.setTextVisible(True)
-        self.overall.setFormat("Ready")
+        self.overall.setFormat(tr("Ready"))
         self.overall.setValue(0)
         bottom.addWidget(self.overall, 1)
-        self.cancel_btn = QPushButton("Cancel")
+        self.cancel_btn = QPushButton(tr("Cancel"))
         self.cancel_btn.setEnabled(False)
         self.cancel_btn.clicked.connect(self.runner.stop)
-        self.start_btn = QPushButton("▶  Start")
+        self.start_btn = QPushButton(tr("▶  Start"))
         self.start_btn.setMinimumHeight(40)
         self.start_btn.setMinimumWidth(160)
         self.start_btn.setStyleSheet("QPushButton { background: #2e7d32; color: white; font-size: 15px; font-weight: bold;"
@@ -469,23 +470,24 @@ class ConverterWindow(QMainWindow):
         self.setCentralWidget(central)
 
         mb = self.menuBar()
-        f = mb.addMenu("&File")
-        for text, slot, sc in (("Add &Files…", self.add_files_dialog, "Ctrl+O"), ("Add F&older…", self.add_folder_dialog, None),
-                               ("&Clear List", self.clear, None), ("E&xit", self.close, None)):
+        f = mb.addMenu(tr("&File"))
+        for text, slot, sc in ((tr("Add &Files…"), self.add_files_dialog, "Ctrl+O"),
+                               (tr("Add F&older…"), self.add_folder_dialog, None),
+                               (tr("&Clear List"), self.clear, None), (tr("E&xit"), self.close, None)):
             a = QAction(text, self)
             a.triggered.connect(slot)
             if sc:
                 a.setShortcut(QKeySequence(sc))
             f.addAction(a)
-        h = mb.addMenu("&Help")
+        h = mb.addMenu(tr("&Help"))
         add_guide_action(self, h, "conv-basics")
-        a = QAction("&What can it convert?", self)
+        a = QAction(tr("&What can it convert?"), self)
         a.triggered.connect(self.show_help)
         h.addAction(a)
-        a = QAction("&About", self)
+        a = QAction(tr("&About"), self)
         a.triggered.connect(lambda: QMessageBox.about(
-            self, APP_NAME, f"<b>{APP_NAME}</b><br>Part of {SUITE_NAME}.<br><br>Audio and video conversion uses "
-            "<a href='https://ffmpeg.org'>FFmpeg</a> (free software, GPL licence)."))
+            self, APP_NAME, tr("<b>{APP_NAME}</b><br>Part of {SUITE_NAME}.<br><br>Audio and video conversion uses "
+                               "<a href='https://ffmpeg.org'>FFmpeg</a> (free software, GPL licence).").format(APP_NAME=APP_NAME, SUITE_NAME=SUITE_NAME)))
         h.addAction(a)
         self.del_action = QAction(self)
         self.del_action.setShortcut(QKeySequence.Delete)
@@ -503,33 +505,33 @@ class ConverterWindow(QMainWindow):
         self.set_all = QComboBox()
         self.set_all.setMinimumWidth(260)
         self.set_all.activated.connect(lambda _: self._apply_set_all())
-        left.addRow("Set all files to:", self.set_all)
-        hint = QLabel("Each file can also have its own format in the “Convert to” column.")
+        left.addRow(tr("Set all files to:"), self.set_all)
+        hint = QLabel(tr("Each file can also have its own format in the “Convert to” column."))
         hint.setStyleSheet("color: #666;")
         left.addRow(hint)
         g.addLayout(left, 1)
         mid = QFormLayout()
         self.video_quality = QComboBox()
-        self.video_quality.addItems(list(cc.VIDEO_QUALITY))
-        self.video_quality.setCurrentText("Balanced")
+        add_items(self.video_quality, cc.VIDEO_QUALITY, "Balanced")
         self.max_height = QComboBox()
-        self.max_height.addItems(["Keep original size", "4K (2160p)", "1080p", "720p", "480p", "360p"])
+        add_items(self.max_height, [N_("Keep original size"), "4K (2160p)", "1080p", "720p", "480p", "360p"])
         self.audio_bitrate = QComboBox()
         self.audio_bitrate.addItems(cc.AUDIO_BITRATES)
         self.audio_bitrate.setCurrentText("192k")
-        mid.addRow("Video quality:", self.video_quality)
-        mid.addRow("Video size:", self.max_height)
-        mid.addRow("Audio quality:", self.audio_bitrate)
+        mid.addRow(tr("Video quality:"), self.video_quality)
+        mid.addRow(tr("Video size:"), self.max_height)
+        mid.addRow(tr("Audio quality:"), self.audio_bitrate)
         g.addLayout(mid, 1)
         right = QFormLayout()
         self.image_quality = QSpinBox()
         self.image_quality.setRange(1, 100)
         self.image_quality.setValue(90)
         self.image_max = QComboBox()
-        self.image_max.addItems(["Keep original size", "3840 px", "2560 px", "1920 px", "1280 px", "800 px", "512 px", "256 px"])
+        add_items(self.image_max, [N_("Keep original size"), "3840 px", "2560 px", "1920 px", "1280 px", "800 px",
+                                   "512 px", "256 px"])
         pic_row = QHBoxLayout()
         self.picture_edit = QLineEdit()
-        self.picture_edit.setPlaceholderText("Black background")
+        self.picture_edit.setPlaceholderText(tr("Black background"))
         pb = QToolButton()
         pb.setText("…")
         pb.clicked.connect(self._pick_picture)
@@ -538,16 +540,16 @@ class ConverterWindow(QMainWindow):
         self.gif_width = QSpinBox()
         self.gif_width.setRange(64, 1920)
         self.gif_width.setValue(480)
-        self.gif_width.setSuffix(" px wide")
+        self.gif_width.setSuffix(tr(" px wide"))
         self.pdf_dpi = QSpinBox()
         self.pdf_dpi.setRange(50, 600)
         self.pdf_dpi.setValue(150)
-        self.pdf_dpi.setSuffix(" dpi")
-        right.addRow("Picture quality:", self.image_quality)
-        right.addRow("Picture max size:", self.image_max)
-        right.addRow("Picture for audio → MP4:", pic_row)
-        right.addRow("GIF size:", self.gif_width)
-        right.addRow("PDF → images:", self.pdf_dpi)
+        self.pdf_dpi.setSuffix(tr(" dpi"))
+        right.addRow(tr("Picture quality:"), self.image_quality)
+        right.addRow(tr("Picture max size:"), self.image_max)
+        right.addRow(tr("Picture for audio → MP4:"), pic_row)
+        right.addRow(tr("GIF size:"), self.gif_width)
+        right.addRow(tr("PDF → images:"), self.pdf_dpi)
         g.addLayout(right, 1)
         return w
 
@@ -556,9 +558,9 @@ class ConverterWindow(QMainWindow):
         v = QVBoxLayout(w)
         row = QHBoxLayout()
         self.level_group = QButtonGroup(self)
-        for i, (name, desc) in enumerate((("Light", "best quality, a bit smaller"),
-                                          ("Balanced", "good quality, much smaller"),
-                                          ("Strong", "smallest file, lower quality")), start=1):
+        for i, (name, desc) in enumerate(((tr("Light"), tr("best quality, a bit smaller")),
+                                          (tr("Balanced"), tr("good quality, much smaller")),
+                                          (tr("Strong"), tr("smallest file, lower quality"))), start=1):
             rb = QRadioButton(f"{name} — {desc}")
             self.level_group.addButton(rb, i)
             row.addWidget(rb)
@@ -566,9 +568,10 @@ class ConverterWindow(QMainWindow):
                 rb.setChecked(True)
         row.addStretch()
         v.addLayout(row)
-        info = QLabel("Videos → smaller MP4 (H.264, can lower the resolution) · Audio → lower bitrate (WAV/FLAC become MP3) · "
-                      "Pictures → smaller JPG/PNG/WebP · PDFs → shrinks pictures & fonts · Word/Excel/PowerPoint → "
-                      "shrinks the pictures inside · Anything else → zipped (Strong uses 7z).")
+        info = QLabel(tr("Videos → smaller MP4 (H.264, can lower the resolution) · Audio → lower bitrate (WAV/FLAC "
+                         "become MP3) · Pictures → smaller JPG/PNG/WebP · PDFs → shrinks pictures & fonts · "
+                         "Word/Excel/PowerPoint → shrinks the pictures inside · Anything else → zipped (Strong "
+                         "uses 7z)."))
         info.setWordWrap(True)
         info.setStyleSheet("color: #555;")
         v.addWidget(info)
@@ -578,15 +581,15 @@ class ConverterWindow(QMainWindow):
         w = QWidget()
         f = QFormLayout(w)
         self.combine_kind = QComboBox()
-        self.combine_kind.addItems(["Pictures and PDFs → one PDF", "Audio files → one audio file (MP3)",
-                                    "Videos → one video (MP4)"])
+        self.combine_kind.addItems([tr("Pictures and PDFs → one PDF"), tr("Audio files → one audio file (MP3)"),
+                                    tr("Videos → one video (MP4)")])
         self.combine_name = QLineEdit("Combined")
-        f.addRow("Combine:", self.combine_kind)
-        f.addRow("New file name:", self.combine_name)
-        hint = QLabel("Files are joined in the order of the list. Use ▲ ▼ to reorder.")
+        f.addRow(tr("Combine:"), self.combine_kind)
+        f.addRow(tr("New file name:"), self.combine_name)
+        hint = QLabel(tr("Files are joined in the order of the list. Use ▲ ▼ to reorder."))
         hint.setStyleSheet("color: #666;")
         row = QHBoxLayout()
-        for text, d in (("▲ Move up", -1), ("▼ Move down", 1)):
+        for text, d in (("▲ " + tr("Move up"), -1), ("▼ " + tr("Move down"), 1)):
             b = QPushButton(text)
             b.clicked.connect(lambda _=False, d=d: self.move_row(d))
             row.addWidget(b)
@@ -599,13 +602,13 @@ class ConverterWindow(QMainWindow):
         w = QWidget()
         f = QFormLayout(w)
         self.archive_mode = QComboBox()
-        self.archive_mode.addItems(["Pack all files into one ZIP", "Pack all files into one 7z (smaller)",
-                                    "Extract (unpack) the archives in the list"])
+        self.archive_mode.addItems([tr("Pack all files into one ZIP"), tr("Pack all files into one 7z (smaller)"),
+                                    tr("Extract (unpack) the archives in the list")])
         self.archive_name = QLineEdit("Archive")
-        f.addRow("Do:", self.archive_mode)
-        f.addRow("Archive name:", self.archive_name)
+        f.addRow(tr("Do:"), self.archive_mode)
+        f.addRow(tr("Archive name:"), self.archive_name)
         self.archive_mode.currentIndexChanged.connect(lambda _: self._refresh_rows())
-        hint = QLabel("Extract supports .zip, .7z, .tar, .tar.gz/.tgz, .tar.bz2, .tar.xz, .gz, .bz2, .xz")
+        hint = QLabel(tr("Extract supports .zip, .7z, .tar, .tar.gz/.tgz, .tar.bz2, .tar.xz, .gz, .bz2, .xz"))
         hint.setStyleSheet("color: #666;")
         f.addRow(hint)
         return w
@@ -616,7 +619,7 @@ class ConverterWindow(QMainWindow):
         self.files_box.setVisible(not own_page)
         self.bottom_box.setVisible(not own_page)
         self.main_layout.setStretchFactor(self.tabs, 1 if own_page else 0)
-        self.same_folder.setText("My Downloads folder" if downloading else "Same folder as each file")
+        self.same_folder.setText(tr("My Downloads folder") if downloading else tr("Same folder as each file"))
 
     def download_folder(self):
         """Downloads go to the chosen folder, or the user's Downloads folder."""
@@ -628,25 +631,26 @@ class ConverterWindow(QMainWindow):
         return d
 
     def _pick_folder(self):
-        d = QFileDialog.getExistingDirectory(self, "Save results to", self.folder_edit.text())
+        d = QFileDialog.getExistingDirectory(self, tr("Save results to"), self.folder_edit.text())
         if d:
             self.folder_edit.setText(d)
             self.other_folder.setChecked(True)
 
     def _pick_picture(self):
-        f, _ = QFileDialog.getOpenFileName(self, "Picture for the video", "", "Images (*.png *.jpg *.jpeg *.webp *.bmp)")
+        f, _ = QFileDialog.getOpenFileName(self, tr("Picture for the video"), "", tr("Images (*.png *.jpg *.jpeg *.webp "
+                                                                                 "*.bmp)"))
         if f:
             self.picture_edit.setText(f)
 
     # ------------------------------------------------------------ file list
     def add_files_dialog(self):
-        files, _ = QFileDialog.getOpenFileNames(self, "Add files", self.settings.value("last_dir", ""))
+        files, _ = QFileDialog.getOpenFileNames(self, tr("Add files"), self.settings.value("last_dir", ""))
         if files:
             self.settings.setValue("last_dir", os.path.dirname(files[0]))
             self.add_paths(files)
 
     def add_folder_dialog(self):
-        d = QFileDialog.getExistingDirectory(self, "Add folder", self.settings.value("last_dir", ""))
+        d = QFileDialog.getExistingDirectory(self, tr("Add folder"), self.settings.value("last_dir", ""))
         if d:
             self.add_paths([d])
 
@@ -688,7 +692,7 @@ class ConverterWindow(QMainWindow):
         self.table.setItem(row, COL_SIZE, QTableWidgetItem("" if is_dir else cc.human(size)))
         bar = QProgressBar()
         bar.setValue(0)
-        bar.setFormat("Waiting")
+        bar.setFormat(tr("Waiting"))
         bar.setTextVisible(True)
         self.table.setCellWidget(row, COL_STATUS, bar)
         self.table.setItem(row, COL_RESULT, QTableWidgetItem(""))
@@ -700,11 +704,13 @@ class ConverterWindow(QMainWindow):
         f = self.files[r]
         targets = {} if f["cat"] == "folder" else cc.targets_for(f["path"])
         combo = QComboBox()
-        combo.addItems(list(targets) or ["(nothing to convert)"])
-        if f["target"]:
-            combo.setCurrentText(f["target"])
+        if targets:
+            add_items(combo, targets, f["target"])           # shown translated, kept as the English target name
+        else:
+            combo.addItem(tr("(nothing to convert)"))
         combo.setEnabled(bool(targets))
-        combo.currentTextChanged.connect(lambda t, f=f: f.__setitem__("target", t) if t in targets else None)
+        combo.currentIndexChanged.connect(
+            lambda i, f=f, c=combo: f.__setitem__("target", c.itemData(i)) if c.itemData(i) in targets else None)
         return combo
 
     def _refresh_rows(self):
@@ -723,13 +729,13 @@ class ConverterWindow(QMainWindow):
         else:
             if self.table.cellWidget(r, COL_TARGET) is not None:
                 self.table.removeCellWidget(r, COL_TARGET)
-            text = {1: cc.compress_kind(f["path"]) if f["cat"] != "folder" else "Zip it",
-                    2: "Join", 3: "Pack" if self.archive_mode.currentIndex() < 2 else
-                    ("Extract" if f["cat"] == "archive" else "(not an archive)")}[task]
+            text = {1: tr(cc.compress_kind(f["path"])) if f["cat"] != "folder" else tr("Zip it"),
+                    2: tr("Join"), 3: tr("Pack") if self.archive_mode.currentIndex() < 2 else
+                    (tr("Extract") if f["cat"] == "archive" else tr("(not an archive)"))}[task]
             self.table.setItem(r, COL_TARGET, QTableWidgetItem("   " + text))
 
     def _refresh_set_all(self):
-        cur = self.set_all.currentText()
+        cur = self.set_all.currentData()
         self.set_all.clear()
         seen = []
         for f in self.files:
@@ -738,14 +744,14 @@ class ConverterWindow(QMainWindow):
             for t in cc.targets_for(f["path"]):
                 if t not in seen:
                     seen.append(t)
-        self.set_all.addItem("(choose…)")
-        self.set_all.addItems(seen)
+        self.set_all.addItem(tr("(choose…)"), None)
+        add_items(self.set_all, seen)
         if cur in seen:
-            self.set_all.setCurrentText(cur)
+            self.set_all.setCurrentIndex(self.set_all.findData(cur))
 
     def _apply_set_all(self):
-        t = self.set_all.currentText()
-        if t == "(choose…)":
+        t = self.set_all.currentData()
+        if t is None:
             return
         n = 0
         for r, f in enumerate(self.files):
@@ -753,9 +759,9 @@ class ConverterWindow(QMainWindow):
                 f["target"] = t
                 combo = self.table.cellWidget(r, COL_TARGET)
                 if combo is not None:
-                    combo.setCurrentText(t)
+                    combo.setCurrentIndex(combo.findData(t))
                 n += 1
-        self.statusBar().showMessage(f"Set {n} file(s) to {t}", 4000)
+        self.statusBar().showMessage(tr("Set {n} file(s) to {t}").format(n=n, t=t), 4000)
 
     def remove_selected(self):
         if self.runner.running:
@@ -775,7 +781,7 @@ class ConverterWindow(QMainWindow):
         self._refresh_set_all()
         self._update_count()
         self.overall.setValue(0)
-        self.overall.setFormat("Ready")
+        self.overall.setFormat(tr("Ready"))
 
     def move_row(self, d):
         rows = sorted({i.row() for i in self.table.selectedIndexes()})
@@ -797,7 +803,7 @@ class ConverterWindow(QMainWindow):
 
     def _update_count(self):
         total = sum(f["size"] for f in self.files)
-        self.count_label.setText(f"{len(self.files)} file(s) · {cc.human(total)}" if self.files else "")
+        self.count_label.setText(tr("{v} file(s) · {v2}").format(v=len(self.files), v2=cc.human(total)) if self.files else "")
 
     def dragEnterEvent(self, e):
         if e.mimeData().hasUrls():
@@ -808,9 +814,9 @@ class ConverterWindow(QMainWindow):
 
     # ------------------------------------------------------------ running
     def _opts(self):
-        mh = self.max_height.currentText()
-        im = self.image_max.currentText()
-        return dict(video_quality=self.video_quality.currentText(),
+        mh = self.max_height.currentData()
+        im = self.image_max.currentData()
+        return dict(video_quality=self.video_quality.currentData(),
                     max_height={"4K (2160p)": 2160, "1080p": 1080, "720p": 720, "480p": 480, "360p": 360}.get(mh),
                     audio_bitrate=self.audio_bitrate.currentText(), image_quality=self.image_quality.value(),
                     image_max=int(im.split()[0]) if im[0].isdigit() else None, picture=self.picture_edit.text().strip(),
@@ -825,12 +831,12 @@ class ConverterWindow(QMainWindow):
 
     def start(self):
         if not self.files:
-            QMessageBox.information(self, APP_NAME, "Add some files first (drag them into the list).")
+            QMessageBox.information(self, APP_NAME, tr("Add some files first (drag them into the list)."))
             return
         try:
             folder = self._folder()
         except OSError as ex:
-            QMessageBox.warning(self, APP_NAME, f"Can't use that output folder:\n{ex}")
+            QMessageBox.warning(self, APP_NAME, tr("Can't use that output folder:\n{ex}").format(ex=ex))
             return
         self.settings.setValue("out_mode", "same" if self.same_folder.isChecked() else "other")
         self.settings.setValue("out_folder", self.folder_edit.text())
@@ -842,7 +848,7 @@ class ConverterWindow(QMainWindow):
         for r in range(self.table.rowCount()):
             bar = self.table.cellWidget(r, COL_STATUS)
             bar.setValue(0)
-            bar.setFormat("Waiting")
+            bar.setFormat(tr("Waiting"))
             bar.setStyleSheet("")
             self.table.item(r, COL_RESULT).setText("")
         files = [f["path"] for f in self.files]
@@ -850,7 +856,7 @@ class ConverterWindow(QMainWindow):
             for r, f in enumerate(self.files):
                 target = f["target"]
                 if not target:
-                    self._mark(r, False, "Skipped - nothing to convert")
+                    self._mark(r, False, tr("Skipped - nothing to convert"))
                     continue
                 jobs.append((r, lambda prog, cancel, p=f["path"], t=target: cc.run_convert(p, t, folder, opts, prog, cancel),
                              cc.needs_gui_thread(f["path"], "convert")))
@@ -866,13 +872,13 @@ class ConverterWindow(QMainWindow):
         elif task == 2:
             kind = self.combine_kind.currentIndex()
             ext = [".pdf", ".mp3", ".mp4"][kind]
-            name = (self.combine_name.text().strip() or "Combined") + ext
+            name = (self.combine_name.text().strip() or tr("Combined")) + ext
             dst = cc.unique_path(os.path.join(folder or os.path.dirname(files[0]), name))
             wanted = [("image", "document"), ("audio", "video"), ("video",)][kind]
             use = [p for p in files if cc.category(p) in wanted and (kind != 0 or cc.category(p) == "image"
                                                                        or p.lower().endswith(".pdf"))]
             if len(use) < 1:
-                QMessageBox.information(self, APP_NAME, "None of the files in the list can be combined that way.")
+                QMessageBox.information(self, APP_NAME, tr("None of the files in the list can be combined that way."))
                 return
             fn = cc.combine_pdf if kind == 0 else cc.join_media
             self.included = set(use)
@@ -890,9 +896,9 @@ class ConverterWindow(QMainWindow):
                     if f["cat"] == "archive":
                         jobs.append((r, lambda prog, cancel, p=f["path"]: cc.extract_archive(p, folder, prog, cancel), False))
                     else:
-                        self._mark(r, False, "Skipped - not an archive")
+                        self._mark(r, False, tr("Skipped - not an archive"))
         if not jobs:
-            QMessageBox.information(self, APP_NAME, "There's nothing to do for these files.")
+            QMessageBox.information(self, APP_NAME, tr("There's nothing to do for these files."))
             return
         self.total_jobs = len(jobs)
         self.done_jobs = 0
@@ -903,13 +909,13 @@ class ConverterWindow(QMainWindow):
             self.lead_row = jobs[0][0]
             for r, f in enumerate(self.files):
                 inc = f["path"] in self.included
-                self.table.cellWidget(r, COL_STATUS).setFormat("Working…" if r == self.lead_row else
-                                                               "Included" if inc else "— not included")
+                self.table.cellWidget(r, COL_STATUS).setFormat(tr("Working…") if r == self.lead_row else
+                                                               tr("Included") if inc else tr("— not included"))
         self.start_btn.setEnabled(False)
         self.cancel_btn.setEnabled(True)
         self.tabs.setEnabled(False)
         self.overall.setValue(0)
-        self.overall.setFormat(f"0 of {self.total_jobs}")
+        self.overall.setFormat(tr("0 of {total_jobs}").format(total_jobs=self.total_jobs))
         self.runner.start(jobs)
 
     def _on_progress(self, row, pct):
@@ -923,7 +929,7 @@ class ConverterWindow(QMainWindow):
     def _mark(self, row, ok, msg):
         bar = self.table.cellWidget(row, COL_STATUS)
         bar.setValue(100 if ok else 0)
-        bar.setFormat("✔ Done" if ok else ("✖ " + msg if msg not in ("Cancelled",) else "Cancelled"))
+        bar.setFormat(tr("✔ Done") if ok else ("✖ " + msg if msg not in ("Cancelled",) else tr("Cancelled")))
         bar.setToolTip(msg)
         bar.setStyleSheet("QProgressBar::chunk { background: #43a047; }" if ok else
                           "QProgressBar { color: #b71c1c; }")
@@ -936,7 +942,7 @@ class ConverterWindow(QMainWindow):
         if self.single_job and ok:
             for r, f in enumerate(self.files):
                 if r != row and f["path"] in self.included:
-                    self.table.cellWidget(r, COL_STATUS).setFormat("✔ Included")
+                    self.table.cellWidget(r, COL_STATUS).setFormat(tr("✔ Included"))
         if ok and outs:
             self.outputs.extend(outs)
             size = sum(os.path.getsize(o) for o in outs if os.path.isfile(o))
@@ -950,22 +956,22 @@ class ConverterWindow(QMainWindow):
                         if os.path.isfile(o):
                             os.remove(o)
                         self.outputs.remove(o)
-                    self.table.cellWidget(row, COL_STATUS).setFormat("✔ Already small")
-                    item.setText("kept original (no new file)")
-                    item.setToolTip("This file couldn't be made noticeably smaller.")
+                    self.table.cellWidget(row, COL_STATUS).setFormat(tr("✔ Already small"))
+                    item.setText(tr("kept original (no new file)"))
+                    item.setToolTip(tr("This file couldn't be made noticeably smaller."))
                     self.overall.setValue(int(self.done_jobs / max(self.total_jobs, 1) * 100))
-                    self.overall.setFormat(f"{self.done_jobs} of {self.total_jobs}")
+                    self.overall.setFormat(tr("{done_jobs} of {total_jobs}").format(done_jobs=self.done_jobs, total_jobs=self.total_jobs))
                     return
                 saved = int((1 - size / src_size) * 100)
-                text += f"  ({saved}% smaller)"
+                text += "  " + tr("({saved}% smaller)").format(saved=saved)
             if len(outs) > 1:
-                text += f"  · {len(outs)} files"
+                text += "  · " + tr("{n} files").format(n=len(outs))
             item.setText(text)
             item.setToolTip("\n".join(outs))
         elif not ok:
             self.table.item(row, COL_RESULT).setText("")
         self.overall.setValue(int(self.done_jobs / max(self.total_jobs, 1) * 100))
-        self.overall.setFormat(f"{self.done_jobs} of {self.total_jobs}")
+        self.overall.setFormat(tr("{done_jobs} of {total_jobs}").format(done_jobs=self.done_jobs, total_jobs=self.total_jobs))
 
     def _on_all_done(self):
         self.start_btn.setEnabled(True)
@@ -975,8 +981,8 @@ class ConverterWindow(QMainWindow):
         cancelled = self.runner.cancel.is_set()
         ok = self.done_jobs - self.failed
         self.overall.setValue(100 if not cancelled else self.overall.value())
-        self.overall.setFormat(("Cancelled - " if cancelled else "Finished - ") +
-                               f"{ok} done" + (f", {self.failed} failed" if self.failed else "") + f" in {secs:.0f}s")
+        self.overall.setFormat((tr("Cancelled - ") if cancelled else tr("Finished - ")) +
+                               tr("{ok} done").format(ok=ok) + (tr(", {failed} failed").format(failed=self.failed) if self.failed else "") + tr(" in {secs:.0f}s").format(secs=secs))
         if self.outputs and self.open_when_done.isChecked() and not cancelled:
             target = self.outputs[0]
             try:
@@ -988,20 +994,19 @@ class ConverterWindow(QMainWindow):
                 pass
 
     def show_help(self):
-        QMessageBox.information(self, "What can it convert?", (
-            "AUDIO (mp3, wav, flac, m4a, ogg, opus, aiff, wma…) → MP3, WAV, FLAC, M4A, OGG, OPUS, AIFF, WMA, "
-            "or an MP4 video with a picture.\n\n"
-            "VIDEO (mp4, mkv, mov, avi, webm, wmv, flv…) → MP4 (H.264 / H.265), MKV, WebM, MOV, AVI, WMV, animated GIF, "
-            "or just the sound (MP3, WAV, M4A, FLAC).\n\n"
-            "PICTURES (png, jpg, webp, bmp, gif, tiff, ico, psd) → PNG, JPG, WebP, BMP, GIF, TIFF, ICO, PDF.\n\n"
-            "DOCUMENTS: PDF → pictures, Word or text · Word → PDF, text, HTML, Markdown, ODT · PowerPoint → PDF or "
-            "pictures · Excel → CSV · CSV → Excel · text/Markdown/HTML → PDF or Word.\n\n"
-            "COMPRESS makes any of these smaller. COMBINE joins pictures/PDFs into one PDF, or audio/videos into one. "
-            "ZIP / UNZIP packs or unpacks .zip, .7z, .tar.gz and more."))
+        QMessageBox.information(self, tr("What can it convert?"), (
+            tr("AUDIO (mp3, wav, flac, m4a, ogg, opus, aiff, wma…) → MP3, WAV, FLAC, M4A, OGG, OPUS, AIFF, WMA, or "
+               "an MP4 video with a picture.\n\nVIDEO (mp4, mkv, mov, avi, webm, wmv, flv…) → MP4 (H.264 / H.265), "
+               "MKV, WebM, MOV, AVI, WMV, animated GIF, or just the sound (MP3, WAV, M4A, FLAC).\n\nPICTURES (png, "
+               "jpg, webp, bmp, gif, tiff, ico, psd) → PNG, JPG, WebP, BMP, GIF, TIFF, ICO, PDF.\n\nDOCUMENTS: PDF "
+               "→ pictures, Word or text · Word → PDF, text, HTML, Markdown, ODT · PowerPoint → PDF or pictures · "
+               "Excel → CSV · CSV → Excel · text/Markdown/HTML → PDF or Word.\n\nCOMPRESS makes any of these "
+               "smaller. COMBINE joins pictures/PDFs into one PDF, or audio/videos into one. ZIP / UNZIP packs or "
+               "unpacks .zip, .7z, .tar.gz and more.")))
 
     def closeEvent(self, e):
         if self.runner.running:
-            if QMessageBox.question(self, APP_NAME, "Files are still being converted. Stop and quit?") != QMessageBox.Yes:
+            if QMessageBox.question(self, APP_NAME, tr("Files are still being converted. Stop and quit?")) != QMessageBox.Yes:
                 e.ignore()
                 return
             self.runner.stop()

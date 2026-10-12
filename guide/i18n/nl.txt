@@ -1,0 +1,442 @@
+@ui
+guide_title: EthicalApp-handleiding
+search: Zoeken in de handleiding…  (druk op / )
+theme: Licht / donker
+footer: EthicalApp-handleiding · werkt offline
+result_one: 1 resultaat voor “{q}”
+result_many: {n} resultaten voor “{q}”
+nothing: Niets gevonden. Probeer minder of andere woorden — bijv. “pdf samenvoegen”, “som”, “laag”.
+english_only: Dit artikel is voorlopig alleen in het Engels beschikbaar.
+
+@sections
+start: Aan de slag
+pdf: Ethical PDF Editor
+write: Ethical Document Editor
+sheets: Ethical Spreadsheet Editor
+slides: Ethical Presentation Editor
+photo: Ethical Photo Editor
+conv: Ethical Converter
+base: Ethical Database
+sticky: Ethical Sticky Notes
+snip: Ethical Snip
+planner: Ethical Planner
+help: Hulp en naslag
+
+@@ welcome
+title: Welkom bij EthicalApp
+keywords: overzicht apps introductie begin
+---
+<p>EthicalApp is een gratis, zelfgemaakte verzameling desktop-apps voor Windows — onze eigen versies van de programma's
+die iedereen elke dag gebruikt. Ze openen en bewaren de <b>echte bestandsformaten</b> (Word, Excel, PowerPoint, PDF, Photoshop),
+dus je kunt bestanden met iedereen uitwisselen.</p>
+<div class="cards">
+<a class="card" href="#pdf-basics"><img src="../branding/icons/png/pdf_64.png" alt=""><b>Ethical PDF Editor</b><span>PDF's bekijken, tekst bewerken, aantekeningen maken, formulieren invullen, ondertekenen, samenvoegen en splitsen</span></a>
+<a class="card" href="#write-basics"><img src="../branding/icons/png/document_64.png" alt=""><b>Ethical Document Editor</b><span>Documenten — opent en bewaart Word-.docx</span></a>
+<a class="card" href="#sheets-basics"><img src="../branding/icons/png/spreadsheet_64.png" alt=""><b>Ethical Spreadsheet Editor</b><span>Spreadsheets met 143 formules en grafieken — Excel-.xlsx</span></a>
+<a class="card" href="#slides-basics"><img src="../branding/icons/png/presentation_64.png" alt=""><b>Ethical Presentation Editor</b><span>Presentaties en dia's — PowerPoint-.pptx</span></a>
+<a class="card" href="#photo-basics"><img src="../branding/icons/png/photo_64.png" alt=""><b>Ethical Photo Editor</b><span>Fotobewerker met lagen — Photoshop-.psd, PNG, JPG…</span></a>
+<a class="card" href="#conv-basics"><img src="../branding/icons/png/converter_64.png" alt=""><b>Ethical Converter</b><span>Audio, video, afbeeldingen, documenten converteren en comprimeren; zippen/uitpakken</span></a>
+<a class="card" href="#base-basics"><img src="../branding/icons/png/database_64.png" alt=""><b>Ethical Database</b><span>Databases: tabellen, formulieren, query's, relaties, rapporten</span></a>
+<a class="card" href="#stickies"><img src="../branding/icons/png/stickynotes_64.png" alt=""><b>Ethical Sticky Notes</b><span>Notities en takenlijsten die op je bureaublad blijven</span></a>
+<a class="card" href="#snip"><img src="../branding/icons/png/snip_64.png" alt=""><b>Ethical Snip</b><span>Schermafbeeldingen om op te tekenen — Ctrl+PrtScn</span></a>
+<a class="card" href="#planner"><img src="../branding/icons/png/planner_64.png" alt=""><b>Ethical Planner</b><span>Herinneringen en een agenda die je op tijd waarschuwen</span></a>
+</div>
+<h2>Snel aan de slag</h2>
+<ol><li>Eerste keer? Zie <a href="#setup">De apps installeren en starten</a>.</li>
+<li>Open <b>EthicalApp</b> vanuit het Startmenu of het bureaublad: één venster met al je apps. Klik op een app of sleep er een bestand op.
+Je kunt ook <b>met rechts op een bestand klikken → Openen met Ethical …</b> (zie <a href="#right-click">Rechtsklikmenu</a>).</li>
+<li>Druk in elke app op <kbd>F1</kbd> om deze handleiding op de pagina van die app te openen.</li>
+<li>Liever een andere taal? Klik op <b>🌐</b> onderaan het EthicalApp-venster (zie <a href="#language">De taal wijzigen</a>).</li>
+<li>Wil je dat een AI-assistent het werk doet? Zie <a href="#ai-claude">De apps gebruiken met AI (Claude)</a>.</li></ol>
+<div class="tip">Gebruik het zoekvak bovenaan (of druk op <kbd>/</kbd>) om alles te vinden — bijv. “zwart maken”, “VERT.ZOEKEN”, “overvloeimodus”, “video comprimeren”.</div>
+
+@@ setup
+title: De apps installeren en starten
+keywords: installeren installatie downloaden bijwerken verwijderen startmenu eerste keer
+---
+<h2>Installeren</h2>
+<ol><li>Download het installatieprogramma van <a href="https://ethicalapp.org">ethicalapp.org</a> en voer het uit. Je hebt geen beheerderswachtwoord nodig.</li>
+<li>Zegt Windows “Uw pc is beveiligd door Windows”, klik dan op <b>Meer informatie → Toch uitvoeren</b>. Dat zie je bij nieuwe programma's die nog niet bekend zijn; met de SHA-256-vingerafdruk op de website kun je controleren of de download echt is.</li>
+<li>Kies <b>Alles</b>, <b>Alleen kantoorapps</b>, of vink precies de apps aan die je wilt.</li>
+<li>Opties: snelkoppelingen op het bureaublad, items “Openen met Ethical …” in het rechtsklikmenu, Sticky Notes / Snip / Planner met Windows starten en <b>De gekozen apps met Claude verbinden</b> (zie <a href="#ai-claude">De apps gebruiken met AI</a>).</li>
+<li><b>Help me EthicalApp aan de taakbalk / Start vast te maken</b>: Windows laat programma's zichzelf niet vastmaken, dus het startvenster toont de twee klikken die nodig zijn (rechtsklik op het pictogram in de taakbalk → <b>Aan taakbalk vastmaken</b>; of rechtsklik in Start op <b>EthicalApp</b> → <b>Aan Start vastmaken</b>). De link <b>Aan taakbalk of Start vastmaken…</b> in het startvenster toont ze op elk moment opnieuw.</li></ol>
+<h2>Starten</h2>
+<p>Open <b>EthicalApp</b> (Startmenu of bureaublad) voor één venster met al je geïnstalleerde apps: klik op een tegel, gebruik <b>Een bestand openen…</b> (<kbd>Ctrl</kbd>+<kbd>O</kbd>) of sleep er bestanden op, en elk bestand opent in de juiste app. Elke app staat ook in <b>Start → EthicalApp</b>.</p>
+<h2>Bijwerken en verwijderen</h2>
+<p>Om bij te werken voer je een nieuwer installatieprogramma uit: het vervangt de oude versie en houdt je instellingen, notities en herinneringen. Alles verwijderen: <b>Instellingen → Apps → EthicalApp → Verwijderen</b> (je notities en herinneringen blijven op de pc voor het geval je opnieuw installeert).</p>
+<h2>Vanuit de broncode (ontwikkelaars)</h2>
+<p>Alle broncode is openbaar — zie <a href="#sharing">Broncode en zelf bouwen</a>.</p>
+
+@@ language
+title: De taal wijzigen
+keywords: taal vertaling nederlands engels language
+---
+<p>EthicalApp is beschikbaar in English, Español, Português (Brasil), Français, Deutsch, Italiano, Nederlands, Polski, Türkçe, Русский, Bahasa Indonesia, 日本語, 한국어 en 简体中文.</p>
+<ol><li>Open het <b>EthicalApp</b>-venster (Startmenu).</li>
+<li>Klik onderaan op <b>🌐</b> en kies een taal. <b>Zelfde als Windows</b> volgt de weergavetaal van Windows — dat is de standaard.</li>
+<li>Kies ervoor om EthicalApp opnieuw te starten. Apps die al open zijn, veranderen de volgende keer dat je ze start.</li></ol>
+<p>De keuze geldt voor alle Ethical-apps, deze handleiding en de dialoogvensters (Openen/Opslaan, kleuren). Ook datums volgen je taal.</p>
+<div class="tip">Je bestanden veranderen niet: een document blijft in de taal waarin je het schreef. Alleen de knoppen en menu's worden vertaald.</div>
+
+@@ right-click
+title: Rechtsklikmenu en standaard-apps
+keywords: openen met contextmenu standaardprogramma windows 11 meer opties weergeven verwijderen
+---
+<p>Als je de rechtsklikoptie in het installatieprogramma hebt aangevinkt, heeft het rechtsklikmenu van Windows deze items (alleen voor jouw account — geen beheerdersrechten nodig):</p>
+<table><tr><th>Rechtsklik op…</th><th>Je krijgt</th></tr>
+<tr><td>.pdf</td><td>Openen met Ethical PDF Editor</td></tr>
+<tr><td>.docx</td><td>Openen met Ethical Document Editor</td></tr>
+<tr><td>.xlsx, .csv</td><td>Openen met Ethical Spreadsheet Editor</td></tr>
+<tr><td>.pptx</td><td>Openen met Ethical Presentation Editor</td></tr>
+<tr><td>.psd .png .jpg .webp .bmp .gif .tif .ora</td><td>Openen met Ethical Photo Editor</td></tr>
+<tr><td>.db .sqlite .accdb .mdb</td><td>Openen met Ethical Database</td></tr>
+<tr><td>Elk bestand of elke map</td><td>Converteren / comprimeren met Ethical Converter</td></tr></table>
+<p>Selecteer meerdere bestanden, klik met rechts en kies het converteritem: ze komen allemaal in <b>één</b> convertervenster.</p>
+<h2>Een app de standaard maken</h2>
+<p>Rechtsklik op een bestand → <b>Openen met → Andere app kiezen</b> → kies de Ethical-app → vink <b>Altijd deze app gebruiken</b> aan.</p>
+<h2>Windows 11</h2><p>De items staan onder <b>Meer opties weergeven</b> (of houd <kbd>Shift</kbd> ingedrukt bij het rechtsklikken).</p>
+<h2>De items verwijderen</h2>
+<p>Voer het installatieprogramma opnieuw uit en vink de rechtsklikoptie uit, of verwijder EthicalApp — de items gaan dan mee.</p>
+
+@@ sharing
+title: Broncode en zelf bouwen
+keywords: broncode github open source bouwen ontwikkelaar aanpassen agpl delen
+---
+<p>EthicalApp is open source (AGPL-3.0). Alle broncode staat op GitHub: <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>, en bij elk installatieprogramma hoort een zip met de broncode op <a href="https://ethicalapp.org">ethicalapp.org</a>.</p>
+<h2>Delen met vrienden</h2>
+<p>Stuur ze de link naar <a href="https://ethicalapp.org">ethicalapp.org</a> — dat is altijd de nieuwste en veilige versie.</p>
+<h2>Het installatieprogramma uit de broncode bouwen</h2>
+<ol><li>Installeer <b>Python 3.14</b> en <b>Inno Setup 6</b>.</li>
+<li>In de map met de broncode: <code>python -m venv .venv</code>, daarna <code>.venv\\Scripts\\python -m pip install -r requirements.txt</code>.</li>
+<li>Start de apps direct (bijv. <code>.venv\\Scripts\\python apps\\suite_launcher.py</code>) of bouw het installatieprogramma met <code>.venv\\Scripts\\python installer\\build.py</code>.</li></ol>
+<h2>Wat er in de broncode zit</h2>
+<table><tr><th>Map</th><th>Waarvoor</th></tr>
+<tr><td><code>apps/</code></td><td>De code van elke app</td></tr>
+<tr><td><code>apps/locales/</code></td><td>De vertalingen (één bestand per taal)</td></tr>
+<tr><td><code>guide/</code></td><td>Deze handleiding (en <code>guide/i18n/</code> voor de vertalingen)</td></tr>
+<tr><td><code>branding/</code></td><td>Pictogrammen en geluiden</td></tr>
+<tr><td><code>installer/</code></td><td>Bouwt het Windows-installatieprogramma</td></tr>
+<tr><td><code>licenses/</code></td><td>Licenties van de opensource-onderdelen</td></tr></table>
+<p>Als je het aanpast en je versie deelt, vraagt de AGPL dat je ook je broncode deelt.</p>
+
+@@ compat
+title: Bestandscompatibiliteit in één oogopslag
+keywords: formaten docx xlsx pptx psd pdf compatibel verloren waarschuwing behouden
+---
+<table><tr><th>App</th><th>Opent</th><th>Bewaart</th><th>Nog niet behouden (waarschuwt je)</th></tr>
+<tr><td>PDF</td><td>.pdf (ook met wachtwoord)</td><td>.pdf, exporteert .docx/.txt/afbeeldingen</td><td>—</td></tr>
+<tr><td>Documenten</td><td>.docx .html .md .txt</td><td>.docx .odt .html .md .txt, PDF</td><td>voetnoten, opmerkingen, wijzigingen bijhouden, tekstvakken, zwevende afbeeldingen, kolommen</td></tr>
+<tr><td>Spreadsheets</td><td>.xlsx .xlsm .csv .tsv</td><td>.xlsx .csv, PDF</td><td>voorwaardelijke opmaak, keuzelijsten/gegevensvalidatie, draaitabellen, macro's, ongebruikelijke grafieken</td></tr>
+<tr><td>Presentaties</td><td>.pptx</td><td>.pptx, PDF, PNG</td><td>grafieken, SmartArt, video/audio, animaties en overgangen</td></tr>
+<tr><td>Database</td><td>.db/.sqlite (SQLite); importeert .xlsx, .csv, Access .accdb/.mdb*</td><td>.db; exporteert .xlsx, .csv, PDF</td><td>*Access-import heeft het gratis Access-stuurprogramma van Microsoft nodig; Access-formulieren, -rapporten en -macro's komen niet mee (alleen tabellen)</td></tr>
+<tr><td>Foto</td><td>.psd .png .jpg .webp .bmp .gif .tif .ico .ora</td><td>.psd (lagen) .ora (lagen), alle platte formaten, PDF</td><td>PSD-aanpassingslagen, laageffecten, maskers, slimme objecten (de pixels worden wel geladen)</td></tr></table>
+<div class="tip">Als een bestand iets bevat dat een app niet kan behouden, zegt de app dat bij het openen en vraagt het nog eens voordat je over het origineel opslaat. Gebruik <b>Bestand → Opslaan als</b> om het origineel ongemoeid te laten.</div>
+<p>Oude formaten (<code>.doc</code>, <code>.xls</code>, <code>.ppt</code>) worden niet ondersteund — open ze in het programma waarmee ze gemaakt zijn en sla ze eerst op in het moderne formaat met de “x”.</p>
+
+@@ pdf-basics
+title: PDF: openen, bekijken en tekst zoeken
+keywords: zoomen miniaturen pagina's paneel zoeken vinden wachtwoord
+---
+<p>Open een PDF met <b>Bestand → Openen</b> (<kbd>Ctrl</kbd>+<kbd>O</kbd>), door hem naar het venster te slepen, of met rechtsklik → <i>Openen met Ethical PDF Editor</i>. Bij PDF's met een wachtwoord wordt om het wachtwoord gevraagd.</p>
+<h2>Rondkijken</h2><ul>
+<li><b>Zoomen:</b> <kbd>Ctrl</kbd>+scrollwiel, het zoomvak, <i>Passend in breedte</i> (<kbd>Ctrl</kbd>+<kbd>1</kbd>), werkelijke grootte (<kbd>Ctrl</kbd>+<kbd>0</kbd>).</li>
+<li><b>Paneel Pagina's</b> (links): klik op een miniatuur om erheen te gaan. Selecteer er meerdere met <kbd>Ctrl</kbd>/<kbd>Shift</kbd> voor paginabewerkingen. Rechtsklik voor het menu Pagina's.</li>
+<li><b>Naar pagina:</b> typ een nummer in het vak Pagina.</li></ul>
+<h2>Tekst zoeken</h2><p>Typ in <b>Tekst zoeken…</b> en druk op <kbd>Enter</kbd>; <kbd>F3</kbd> / <b>Volgende</b> en <b>Vorige</b> lopen langs de resultaten (allemaal gemarkeerd, de huidige in oranje).</p>
+<h2>Tekst kopiëren</h2><p>Sleep met het gereedschap <b>Selecteren</b> over tekst en druk dan op <kbd>Ctrl</kbd>+<kbd>C</kbd>.</p>
+
+@@ pdf-edit-text
+title: PDF: bestaande tekst bewerken en tekst toevoegen
+keywords: tekst bewerken woorden wijzigen lettertype typfout tekst toevoegen
+---
+<h2>Tekst wijzigen die al in de PDF staat</h2><ol>
+<li>Kies het gereedschap <b>Tekst bewerken</b>.</li><li>Klik op de regel die je wilt wijzigen.</li>
+<li>Een venster toont de tekst van de regel, het lettertype, de grootte, vet/cursief en de kleur — wijzig wat je wilt en klik op OK.</li></ol>
+<p>De app herkent het lettertype van de PDF en kiest het overeenkomende lettertype op je pc (bijv. Calibri, Times New Roman). Staat het er niet op, dan gebruikt ze een vergelijkbaar lettertype.</p>
+<div class="warn">Bewerken gaat per regel. Gedraaide of verticale tekst kan niet worden bewerkt.</div>
+<h2>Nieuwe tekst toevoegen</h2><p>Kies <b>Tekst toevoegen</b>, klik waar de tekst moet komen, typ en kies een geïnstalleerd lettertype. Het wordt echte paginatekst — later kun je het wijzigen met <b>Tekst bewerken</b>.</p>
+
+@@ pdf-annotate
+title: PDF: markeren, notities, tekenen en vormen
+keywords: aantekeningen markeren onderstrepen doorhalen notitie tekenen pen rechthoek ellips pijl lijn afbeelding kleur
+---
+<table><tr><th>Gereedschap</th><th>Hoe</th></tr>
+<tr><td>Markeren / Onderstrepen / Doorhalen</td><td>Sleep over tekst. Markeren gebruikt de kleur van de <b>Markeerstift</b>; de andere de knop <b>Kleur</b>.</td></tr>
+<tr><td>Notitie</td><td>Klik om een plaknotitie te plaatsen en typ hem.</td></tr>
+<tr><td>Tekenen</td><td>Pen uit de vrije hand (kleur en breedte in de werkbalk).</td></tr>
+<tr><td>Rechthoek / Ellips / Lijn / Pijl</td><td>Sleep om te tekenen.</td></tr>
+<tr><td>Afbeelding</td><td>Klik (of sleep een vak) en kies een afbeelding.</td></tr></table>
+<h2>Aantekeningen later bewerken</h2><p>Schakel over naar <b>Selecteren</b>, dan:</p><ul>
+<li>sleep een aantekening om haar te verplaatsen; druk op <kbd>Delete</kbd> om haar te verwijderen;</li>
+<li>dubbelklik op een tekstvak of notitie om de tekst te bewerken;</li>
+<li>rechtsklik voor <i>Kleur wijzigen</i> / <i>Verwijderen</i>.</li></ul>
+<p>Elke wijziging kun je ongedaan maken met <kbd>Ctrl</kbd>+<kbd>Z</kbd>.</p>
+
+@@ pdf-forms-sign
+title: PDF: formulieren invullen en ondertekenen
+keywords: formulier veld selectievakje invullen ondertekenen handtekening tekenen
+---
+<h2>Formulieren</h2><p>Formuliervelden zijn lichtblauw gekleurd (uitzetten met <i>Beeld → Formuliervelden markeren</i>). Klik met het gereedschap <b>Selecteren</b> op een veld: tekstvelden vragen om tekst, selectievakjes worden aan- en uitgevinkt, keuzelijsten tonen hun keuzes.</p>
+<h2>Handtekeningen</h2><ol><li>Kies het gereedschap <b>Ondertekenen</b> (of <i>Bewerken → Handtekening maken</i>).</li>
+<li><b>Teken</b> je handtekening met de muis, of gebruik een afbeelding (tabblad <b>Afbeelding</b> — liefst een PNG met transparante achtergrond).</li>
+<li>Klik op de pagina om hem te plaatsen. Klik nog eens voor meer exemplaren. Verplaats hem later met <b>Selecteren</b>.</li></ol>
+
+@@ pdf-pages
+title: PDF: pagina's, samenvoegen en splitsen
+keywords: draaien verwijderen volgorde verplaatsen invoegen leeg samenvoegen combineren splitsen uitpakken pagina's afbeeldingen
+---
+<p>Alle paginaopdrachten staan in het menu <b>Pagina's</b> (ook via rechtsklik in het paneel Pagina's). Ze werken op de geselecteerde miniaturen, of op de huidige pagina.</p>
+<table><tr><th>Om</th><th>Gebruik</th></tr>
+<tr><td>Draaien</td><td>Rechtsom draaien <kbd>Ctrl</kbd>+<kbd>R</kbd> / linksom <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd></td></tr>
+<tr><td>Volgorde wijzigen</td><td>Pagina omhoog / omlaag</td></tr>
+<tr><td>Pagina's toevoegen</td><td>Lege pagina invoegen, Pagina's uit bestand invoegen (een andere PDF), Afbeelding als pagina invoegen</td></tr>
+<tr><td>Pagina's eruit halen</td><td>Geselecteerde pagina's uitpakken (bewaart ze als nieuwe PDF)</td></tr>
+<tr><td>Eén bestand per pagina</td><td>Splitsen in losse pagina's</td></tr>
+<tr><td>Verwijderen</td><td>Geselecteerde pagina's verwijderen</td></tr></table>
+<h2>Meerdere bestanden samenvoegen</h2><p><b>Bestand → Bestanden samenvoegen tot één PDF</b>: kies PDF's en afbeeldingen op volgorde; ze worden één nieuwe PDF. <b>Bestand → Nieuwe PDF van afbeeldingen</b> maakt van foto's of scans een PDF.</p>
+<div class="tip">De <a href="#conv-combine">Converter</a> kan afbeeldingen en PDF's ook in één keer samenvoegen.</div>
+
+@@ pdf-redact
+title: PDF: wit maken of zwart maken (informatie verbergen)
+keywords: zwart maken zwart vak verbergen verwijderen vertrouwelijk wit maken privacy veilig
+---
+<table><tr><th>Gereedschap</th><th>Wat het doet</th><th>Veilig voor geheimen?</th></tr>
+<tr><td><b>Wit maken</b></td><td>Schildert een wit vak over het gebied.</td><td>❌ De tekst eronder blijft in het bestand en kan worden gekopieerd.</td></tr>
+<tr><td><b>Zwart maken</b></td><td>Wist de tekst, afbeeldingen en tekeningen onder het vak voorgoed en vult het met zwart.</td><td>✅ Ja — de inhoud is weg.</td></tr></table>
+<div class="warn">Gebruik altijd <b>Zwart maken</b> voor wachtwoorden, rekeningnummers, adressen en dergelijke. Sla het resultaat op als nieuw bestand en bewaar het origineel veilig.</div>
+
+@@ pdf-export
+title: PDF: opslaan, exporteren en afdrukken
+keywords: opslaan exporteren word docx afbeeldingen png jpg tekst afdrukken
+---
+<ul><li><b>Opslaan</b> (<kbd>Ctrl</kbd>+<kbd>S</kbd>) / <b>Opslaan als</b>. Bij het opslaan blijven alleen de gebruikte letters van ingesloten lettertypen over, dus bestanden blijven klein.</li>
+<li><b>Bestand → Exporteren</b>: pagina's als PNG/JPG-afbeeldingen (kies de DPI), als Word-document (.docx — tekst, stijlen en afbeeldingen; niet de exacte opmaak) of als platte tekst.</li>
+<li><b>Bestand → Afdrukken</b> (<kbd>Ctrl</kbd>+<kbd>P</kbd>).</li></ul>
+
+@@ write-basics
+title: Documenten: de basis
+keywords: tekstverwerker document paginaweergave typen stijlen koppen standaard lettertypen
+---
+<p>Ethical Document Editor toont je document als echte pagina's — witte vellen met marges, precies zoals ze worden afgedrukt. De statusbalk toont op welke pagina je bent en het aantal woorden.</p>
+<h2>Stijlen</h2><p>Het eerste vak van de opmaakwerkbalk bepaalt de alineastijl: <b>Standaard, Titel, Kop 1–4</b>. Na een kop zorgt <kbd>Enter</kbd> dat je weer bij Standaard uitkomt, net als in Word. Koppen worden als echte Word-koppen opgeslagen.</p>
+<h2>Lettertypen</h2><p>Alle lettertypen op je pc zijn beschikbaar. Nieuwe documenten gebruiken Calibri 11 (of Arial als Calibri niet geïnstalleerd is).</p>
+<h2>Handige toetsen</h2><table>
+<tr><td>Vet / Cursief / Onderstrepen</td><td>${K("Ctrl B")} ${K("Ctrl I")} ${K("Ctrl U")}</td></tr>
+<tr><td>Tekst groter / kleiner</td><td>${K("Ctrl ]")} ${K("Ctrl [")}</td></tr>
+<tr><td>Links / centreren / rechts / uitvullen</td><td>${K("Ctrl L")} ${K("Ctrl E")} ${K("Ctrl R")} ${K("Ctrl J")}</td></tr>
+<tr><td>Zoeken en vervangen</td><td>${K("Ctrl F")} / ${K("Ctrl H")}</td></tr>
+<tr><td>Pagina-einde</td><td>${K("Ctrl Enter")}</td></tr>
+<tr><td>Opmaak wissen</td><td>${K("Ctrl Space")}</td></tr>
+<tr><td>Plakken zonder opmaak</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>Woorden tellen</td><td>${K("Ctrl Shift G")}</td></tr></table>
+
+@@ write-format
+title: Documenten: tekst, alinea's en lijsten opmaken
+keywords: vet kleur markeren superscript subscript regelafstand inspringen opsommingstekens nummering lijst tab
+---
+<h2>Tekst</h2><p>Lettertype, grootte, <b>B</b> <i>I</i> <u>U</u> <s>S</s>, superscript x², subscript x₂, tekstkleur (kies via het staaltje, pas toe met <b>A</b>), markeerstift, <i>Opmaak → Hoofdletters/kleine letters</i>, <i>Opmaak wissen</i>.</p>
+<h2>Alinea's</h2><p>Uitlijning, <i>Alinea → Regelafstand</i> (1.0–3.0), ruimte ervoor/erna, inspringing vergroten/verkleinen (<kbd>Ctrl</kbd>+<kbd>M</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>).</p>
+<h2>Lijsten</h2><ul>
+<li><b>• Lijst</b> / <b>1. Lijst</b> beginnen opsommingstekens of nummering; <i>Alinea → Lijststijl</i> heeft 8 stijlen (•, ○, ▪, 1., a., A., i., I.).</li>
+<li><kbd>Tab</kbd> aan het begin van een item maakt er een subitem van; <kbd>Shift</kbd>+<kbd>Tab</kbd> zet het terug.</li>
+<li><kbd>Enter</kbd> op een leeg item beëindigt de lijst; <kbd>Backspace</kbd> aan het begin haalt het opsommingsteken weg.</li></ul>
+
+@@ write-insert
+title: Documenten: afbeeldingen, tabellen en links
+keywords: invoegen afbeelding formaat tabel rijen kolommen samenvoegen arcering link hyperlink datum horizontale lijn
+---
+<h2>Afbeeldingen</h2><p><i>Invoegen → Afbeelding</i>, plakken met <kbd>Ctrl</kbd>+<kbd>V</kbd>, of sleep een afbeeldingsbestand erin. Rechtsklik op een afbeelding → <b>Formaat afbeelding wijzigen</b> om de grootte in % in te stellen.</p>
+<h2>Tabellen</h2><p><i>Invoegen → Tabel</i> (kies rijen/kolommen en eventueel een gearceerde koprij). In een tabel kun je met het menu <b>Tabel</b> of rechtsklik rijen en kolommen invoegen/verwijderen, geselecteerde cellen samenvoegen, cellen splitsen, een arcering toevoegen of de tabel verwijderen.</p>
+<h2>Links</h2><p>Selecteer tekst en druk op <kbd>Ctrl</kbd>+<kbd>K</kbd>. <kbd>Ctrl</kbd>+klik op een link om hem te openen. Rechtsklik → Link verwijderen.</p>
+<h2>Overig</h2><p>Pagina-einde (<kbd>Ctrl</kbd>+<kbd>Enter</kbd>), datum en tijd, horizontale lijn.</p>
+
+@@ write-pagesetup
+title: Documenten: pagina-instelling, kop- en voetteksten en paginanummers
+keywords: marges papierformaat a4 letter liggend koptekst voettekst paginanummers
+---
+<p><b>Bestand → Pagina-instelling</b>:</p><ul>
+<li>Papier: Letter, Legal, A4, A5 of een eigen formaat; <b>Liggend</b>.</li>
+<li>Marges (boven, onder, links, rechts) in inches.</li>
+<li>Tekst van de <b>koptekst</b> (gecentreerd boven op elke pagina), <b>voettekst</b> (linksonder), <b>paginanummers</b> (rechtsonder).</li></ul>
+<p>Ze worden in de .docx opgeslagen, dus Word toont ze ook.</p>
+
+@@ write-files
+title: Documenten: bestanden, Word-compatibiliteit, PDF en afdrukken
+keywords: docx opslaan openen odt html markdown txt pdf exporteren afdrukken afdrukvoorbeeld compatibiliteit
+---
+<p><b>Opent:</b> .docx, .html, .md, .txt. <b>Bewaart:</b> .docx (standaard), .odt, .html, .md, .txt. <b>Exporteren als PDF</b> houdt echte, selecteerbare tekst. <b>Afdrukken</b> en <b>Afdrukvoorbeeld</b> komen overeen met de paginaweergave.</p>
+<h2>Wat heen en terug gaat met Word</h2><p>Koppen en Titel, lettertypen (ook themalettertypen), groottes, vet/cursief/onderstrepen/doorhalen, kleuren, markering, uitlijning, inspringing, afstanden, pagina-einden, opsommingen en nummering (genest), tabellen (samengevoegde cellen, breedtes, arcering), afbeeldingen, links, paginaformaat en marges, kop- en voettekst en paginanummers.</p>
+<p><b>Nog niet:</b> voetnoten, opmerkingen, wijzigingen bijhouden, tekstvakken, zwevende afbeeldingen (met tekstomloop), kolommen, meerdere secties. Zoomen en spellingcontrole zijn er nog niet.</p>
+
+@@ sheets-basics
+title: Spreadsheets: de basis
+keywords: spreadsheet cel typen enter tab verplaatsen formulebalk naamvak tabbladen werkbladen status som
+---
+<h2>Het venster</h2><ul>
+<li><b>Naamvak</b> (linksboven): toont de huidige cel; typ <code>B12</code>, <code>A1:C20</code>, <code>Sheet2!A1</code> of een benoemd bereik en druk op Enter om erheen te gaan (<kbd>Ctrl</kbd>+<kbd>G</kbd>).</li>
+<li><b>fx / formulebalk</b>: toont en bewerkt wat er echt in de cel staat (bijv. de formule).</li>
+<li><b>Werkbladtabs</b> (onderaan): <b>+</b> voegt een werkblad toe; dubbelklik om de naam te wijzigen; rechtsklik om te dupliceren/verwijderen; sleep om de volgorde te wijzigen.</li>
+<li><b>Statusbalk</b>: selecteer een paar getallen om hun som, gemiddelde en aantal te zien.</li></ul>
+<h2>Waarden typen</h2><table><tr><th>Typ</th><th>Je krijgt</th></tr>
+<tr><td><code>1234.5</code> / <code>1,234</code></td><td>getal (met duizendtalnotatie)</td></tr>
+<tr><td><code>$5</code> / <code>25%</code></td><td>valuta / percentage</td></tr>
+<tr><td><code>2026-10-11</code>, <code>10/11/2026</code>, <code>Oct 11, 2026</code></td><td>datum</td></tr>
+<tr><td><code>9:30</code>, <code>9:30 PM</code></td><td>tijd</td></tr>
+<tr><td><code>TRUE</code> / <code>FALSE</code></td><td>waar/onwaar-waarde</td></tr>
+<tr><td><code>'007</code></td><td>tekst precies zoals getypt (de ' is verborgen)</td></tr>
+<tr><td><code>=A1*2</code></td><td>een formule</td></tr></table>
+<h2>Verplaatsen</h2><table>
+<tr><td>${K("Enter")} / ${K("Shift Enter")}</td><td>omlaag / omhoog</td></tr><tr><td>${K("Tab")} / ${K("Shift Tab")}</td><td>rechts / links</td></tr>
+<tr><td>${K("Ctrl Arrow")}</td><td>naar de rand van de gegevens springen</td></tr><tr><td>${K("Ctrl Shift Arrow")}</td><td>tot de rand selecteren</td></tr>
+<tr><td>${K("F2")} of dubbelklik</td><td>de cel bewerken</td></tr><tr><td>${K("Delete")}</td><td>inhoud wissen</td></tr></table>
+
+@@ sheets-formulas
+title: Spreadsheets: formules en verwijzingen
+keywords: formule verwijzing absoluut relatief $ dollar ander werkblad benoemd bereik fout deel/0 verw naam n/b kringverwijzing autosom
+---
+<p>Een formule begint met <code>=</code>: <code>=B2*C2</code>, <code>=SUM(D2:D20)</code>, <code>=IF(A1&gt;10,"big","small")</code>.</p>
+<h2>Operatoren</h2><p><code>+ - * /</code>, <code>^</code> (macht), <code>%</code> (procent), <code>&amp;</code> (tekst samenvoegen), <code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code>.</p>
+<h2>Verwijzingen</h2><table>
+<tr><td><code>A1</code></td><td>een cel — past zich aan als je haar kopieert</td></tr>
+<tr><td><code>$A$1</code> / <code>A$1</code> / <code>$A1</code></td><td>absolute (vaste) kolom en/of rij — verandert niet bij kopiëren</td></tr>
+<tr><td><code>A1:C10</code></td><td>een blok cellen</td></tr><tr><td><code>B:B</code></td><td>een hele kolom</td></tr>
+<tr><td><code>'My Sheet'!A1</code></td><td>een cel op een ander werkblad</td></tr>
+<tr><td><code>Prices</code></td><td>een benoemd bereik (<i>Gegevens → Naam definiëren</i>)</td></tr>
+<tr><td><code>{1,2;3,4}</code></td><td>een matrixconstante</td></tr></table>
+<p>Kopiëren/plakken, omlaag doorvoeren (<kbd>Ctrl</kbd>+<kbd>D</kbd>) en naar rechts doorvoeren (<kbd>Ctrl</kbd>+<kbd>R</kbd>) passen verwijzingen aan zoals Excel. Rijen/kolommen invoegen of verwijderen werkt alle formules bij; verwijzingen naar verwijderde cellen worden <code>#REF!</code>.</p>
+<h2>Sneltoetsen</h2><ul><li><b>AutoSom</b> (<kbd>Alt</kbd>+<kbd>=</kbd>) schrijft <code>=SUM(…)</code> voor de getallen erboven of links ervan.</li>
+<li><b>Functie…</b> (<kbd>Shift</kbd>+<kbd>F3</kbd>) voegt een functienaam in; <i>Help → Functielijst</i> toont ze allemaal.</li></ul>
+<h2>Fouten</h2><table>
+<tr><td><code>#DIV/0!</code></td><td>delen door nul</td></tr><tr><td><code>#VALUE!</code></td><td>verkeerd soort waarde (bijv. tekst in een berekening)</td></tr>
+<tr><td><code>#REF!</code></td><td>de cel waarnaar het verwees is verwijderd</td></tr><tr><td><code>#NAME?</code></td><td>onbekende functie of naam</td></tr>
+<tr><td><code>#N/A</code></td><td>de zoekfunctie vond niets</td></tr><tr><td><code>#NUM!</code></td><td>onmogelijk getal</td></tr>
+<tr><td><code>#CIRC!</code></td><td>kringverwijzing — de formule hangt van zichzelf af</td></tr></table>
+<div class="tip">Gebruikt een Excel-werkmap een functie die Ethical Spreadsheet Editor nog niet kent, dan toont hij de laatste waarde die Excel berekende in plaats van een fout.</div>
+<p>Functies typ je met hun Engelse naam (SUM, IF, VLOOKUP…), net zoals ze in Excel-bestanden staan.</p>
+
+@@ sheets-functions
+title: Spreadsheets: functielijst (143 functies)
+keywords: functies lijst som gemiddelde aantal als vert.zoeken xlookup index vergelijken som.als aantal.als tekst datum afronden betaling
+---
+<table><tr><th>Groep</th><th>Functies</th></tr>
+<tr><td>Totalen en statistiek</td><td>SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, COUNTBLANK, PRODUCT, MEDIAN, MODE, STDEV(.S/.P), VAR(.S/.P), LARGE, SMALL, RANK, SUMPRODUCT</td></tr>
+<tr><td>Voorwaardelijk</td><td>SUMIF, SUMIFS, COUNTIF, COUNTIFS, AVERAGEIF, AVERAGEIFS, MAXIFS, MINIFS</td></tr>
+<tr><td>Logisch</td><td>IF, IFS, IFERROR, IFNA, SWITCH, CHOOSE, AND, OR, NOT, XOR, TRUE, FALSE</td></tr>
+<tr><td>Zoeken</td><td>VLOOKUP, HLOOKUP, XLOOKUP, INDEX, MATCH, ROW, COLUMN, ROWS, COLUMNS</td></tr>
+<tr><td>Wiskunde</td><td>ROUND, ROUNDUP, ROUNDDOWN, TRUNC, INT, ABS, SQRT, POWER, MOD, EXP, LN, LOG, LOG10, SIGN, PI, RAND, RANDBETWEEN, CEILING, FLOOR, EVEN, ODD, FACT, DEGREES, RADIANS, SIN, COS, TAN, ASIN, ACOS, ATAN, ATAN2</td></tr>
+<tr><td>Tekst</td><td>CONCATENATE, CONCAT, TEXTJOIN, LEFT, RIGHT, MID, LEN, UPPER, LOWER, PROPER, TRIM, CLEAN, FIND, SEARCH, SUBSTITUTE, REPLACE, REPT, EXACT, CHAR, CODE, VALUE, TEXT, FIXED, DOLLAR, T, N</td></tr>
+<tr><td>Datum en tijd</td><td>TODAY, NOW, DATE, TIME, YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, WEEKDAY, DAYS, DATEDIF, EDATE, EOMONTH, DATEVALUE</td></tr>
+<tr><td>Controles</td><td>ISBLANK, ISNUMBER, ISTEXT, ISNONTEXT, ISLOGICAL, ISERROR, ISERR, ISNA, ISEVEN, ISODD, NA</td></tr>
+<tr><td>Financieel</td><td>PMT, FV, PV, NPV</td></tr></table>
+<h2>Voorbeelden</h2><table>
+<tr><td><code>=VLOOKUP("Apples",A2:C50,3,FALSE)</code></td><td>zoek “Apples” in kolom A en geef kolom C terug</td></tr>
+<tr><td><code>=XLOOKUP(F2,A:A,C:C,"not found")</code></td><td>moderne zoekfunctie met een terugvalwaarde</td></tr>
+<tr><td><code>=INDEX(B2:B50,MATCH(F2,A2:A50,0))</code></td><td>zoeken in elke richting</td></tr>
+<tr><td><code>=SUMIF(B:B,"&gt;100",C:C)</code></td><td>tel C op waar B groter is dan 100</td></tr>
+<tr><td><code>=COUNTIF(A:A,"app*")</code></td><td>tel cellen die met “app” beginnen</td></tr>
+<tr><td><code>=TEXT(TODAY(),"dddd, mmmm d")</code></td><td>vandaag als tekst, bijv. “Sunday, October 11”</td></tr>
+<tr><td><code>=PMT(5%/12,360,-200000)</code></td><td>maandbedrag van een hypotheek over 30 jaar</td></tr>
+<tr><td><code>=IFERROR(A1/B1,0)</code></td><td>0 in plaats van een fout</td></tr></table>
+
+@@ sheets-format
+title: Spreadsheets: opmaak en getalnotaties
+keywords: notatie getal valuta procent datum decimalen eigen code vet opvulling kleur rand samenvoegen terugloop uitlijnen kolombreedte rijhoogte verbergen
+---
+<h2>Celstijlen</h2><p>Lettertype, grootte, <b>B I U S</b>, tekstkleur, <b>opvul</b>kleur (en <b>Geen opvulling</b>), uitlijning (links/midden/rechts, boven/midden/onder), <b>tekstterugloop</b>, <b>Samenvoegen en centreren</b>, <b>Randen</b> (alle, buiten, dik, onder, boven en onder, geen).</p>
+<h2>Getalnotaties</h2><p>Werkbalk: <b>$</b> valuta, <b>%</b>, <b>,</b> duizendtallen, <b>.0+ / .0-</b> decimalen, of de lijst met notaties (Standaard, Getal, Valuta, Financieel, Percentage, datums, tijd, Wetenschappelijk, Tekst). <i>Opmaak → Getalnotatie → Aangepast…</i> accepteert Excel-notatiecodes:</p>
+<table><tr><th>Code</th><th>12345.678 wordt weergegeven als</th></tr>
+<tr><td><code>#,##0.00</code></td><td>12,345.68</td></tr><tr><td><code>$#,##0</code></td><td>$12,346</td></tr>
+<tr><td><code>0.0%</code></td><td>1234567.8% (vermenigvuldigt met 100)</td></tr><tr><td><code>0.00E+00</code></td><td>1.23E+04</td></tr>
+<tr><td><code>000000</code></td><td>012346</td></tr><tr><td><code>#,##0;(#,##0)</code></td><td>negatieve getallen tussen haakjes</td></tr>
+<tr><td><code>0.0 "kg"</code></td><td>12345.7 kg</td></tr>
+<tr><td><code>yyyy-mm-dd</code>, <code>mmm d, yyyy</code>, <code>dddd</code></td><td>datumstijlen</td></tr>
+<tr><td><code>h:mm AM/PM</code></td><td>tijd</td></tr></table>
+<p><code>########</code> in een cel betekent dat het getal niet past — maak de kolom breder.</p>
+<h2>Kolommen en rijen</h2><p>Sleep de randen van de koppen, of gebruik <i>Opmaak → Kolombreedte / Rijhoogte / Kolombreedte automatisch aanpassen / Verbergen / Alles zichtbaar maken</i>.</p>
+
+@@ sheets-data
+title: Spreadsheets: gegevens sorteren, doorvoeren, kopiëren en bewerken
+keywords: sorteren oplopend aflopend dubbele waarden verwijderen reeks doorvoeren kopiëren plakken waarden knippen rijen kolommen invoegen verwijderen zoeken vervangen opmerking
+---
+<h2>Sorteren</h2><p><b>Sorteren A→Z / Z→A</b> sorteert je gegevens op de huidige kolom (koppen worden herkend). <i>Gegevens → Sorteren…</i> sorteert op maximaal 3 kolommen. Lege cellen komen altijd onderaan.</p>
+<h2>Doorvoeren</h2><ul><li><kbd>Ctrl</kbd>+<kbd>D</kbd> omlaag doorvoeren / <kbd>Ctrl</kbd>+<kbd>R</kbd> naar rechts doorvoeren — kopieert de eerste cel (formules passen zich aan).</li>
+<li><i>Bewerken → Reeks doorvoeren</i>: typ 1 en 2 (of 5 en 10, of een datum) in de eerste cellen, selecteer het bereik en het patroon gaat verder.</li></ul>
+<h2>Kopiëren en plakken</h2><p>Formules passen zich aan als je ze plakt. <b>Alleen waarden plakken</b> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>) plakt resultaten in plaats van formules. Eén cel kopiëren naar een geselecteerd blok vult het hele blok. Tekst die je uit andere programma's kopieert (gescheiden door tabs) wordt over cellen verdeeld.</p>
+<h2>Meer</h2><ul><li>Rijen en kolommen invoegen / verwijderen (menu of rechtsklik).</li>
+<li><i>Gegevens → Dubbele waarden verwijderen</i>.</li><li>Zoeken en vervangen (<kbd>Ctrl</kbd>+<kbd>F</kbd>), ook in alle werkbladen.</li>
+<li>Opmerkingen (<kbd>Shift</kbd>+<kbd>F2</kbd>) — aangegeven met een rood hoekje; ga er met de muis over om ze te lezen.</li></ul>
+
+@@ sheets-charts
+title: Spreadsheets: grafieken en afbeeldingen
+keywords: grafiek kolom staaf lijn cirkel afbeelding invoegen verplaatsen
+---
+<ol><li>Selecteer je gegevens <b>inclusief</b> een koprij en een kolom met labels — bijv. maanden in kolom A, omzet in B en C.</li>
+<li><b>Invoegen → Grafiek…</b> (of de knop <b>Grafiek</b>): kies Kolom, Staaf, Lijn of Cirkel en een titel.</li></ol>
+<p>Grafieken werken zich bij als de getallen veranderen. Sleep om ze te verplaatsen; rechtsklik → Grafiek bewerken / Grafiek verwijderen.</p>
+<p><b>Invoegen → Afbeelding…</b> voegt een afbeelding toe; sleep om te verplaatsen; rechtsklik → Formaat wijzigen / Verwijderen.</p>
+<p>Grafieken en afbeeldingen worden in de .xlsx opgeslagen en openen in Excel.</p>
+
+@@ sheets-files
+title: Spreadsheets: bestanden, Excel-compatibiliteit, PDF en afdrukken
+keywords: xlsx xlsm csv tsv opslaan openen excel compatibiliteit waarschuwing afdrukken pdf
+---
+<p><b>Opent:</b> .xlsx, .xlsm (opgeslagen als .xlsx zonder macro's), .csv/.tsv. <b>Bewaart:</b> .xlsx, of .csv (alleen het huidige werkblad).</p>
+<p><b>Behouden:</b> waarden, formules, lettertypen, kleuren, opvullingen, randen, getalnotaties, uitlijning, tekstterugloop, samengevoegde cellen, kolombreedtes, rijhoogtes, verborgen rijen/kolommen, opmerkingen, benoemde bereiken, meerdere werkbladen, grafieken (kolom/staaf/lijn/cirkel), afbeeldingen.</p>
+<p><b>Nog niet behouden</b> (waarschuwt bij openen en voor het overschrijven): voorwaardelijke opmaak, gegevensvalidatie/keuzelijsten, draaitabellen, macro's, ongebruikelijke grafiektypen. Blokkeringen blijven in het bestand maar worden op het scherm niet getoond.</p>
+<p><b>Exporteren als PDF / Afdrukken</b> passen alle kolommen in de paginabreedte.</p>
+<div class="tip">Heel grote werkmappen (meer dan 100.000 formules) worden traag — elke formule wordt na elke wijziging opnieuw berekend.</div>
+
+@@ slides-basics
+title: Presentaties: de basis
+keywords: presentatie dia paneel indeling nieuwe dia tijdelijke aanduiding notities dupliceren verbergen volgorde
+---
+<ul><li><b>Links:</b> miniaturen van de dia's — klik om te openen, sleep om de volgorde te wijzigen, rechtsklik om te dupliceren, te verwijderen, te verbergen of te verplaatsen.</li>
+<li><b>Midden:</b> de dia. <kbd>Ctrl</kbd>+scrollwiel zoomt.</li><li><b>Onder:</b> notities van de spreker voor de huidige dia.</li></ul>
+<h2>Dia's toevoegen</h2><p><b>Nieuwe dia</b> (<kbd>Ctrl</kbd>+<kbd>M</kbd>) voegt een dia toe na de huidige; met het pijltje ernaast kies je een indeling:
+Titeldia, Titel en inhoud, Sectiekop, Twee inhoudsblokken, Alleen titel, Leeg. Presentaties uit PowerPoint bieden hun eigen indelingen.</p>
+<p>Grijze, gestippelde vakken met “Klik om een titel/tekst toe te voegen” zijn tijdelijke aanduidingen — klik en typ. Zijn ze leeg, dan verschijnen ze niet in de voorstelling of de PDF.</p>
+<p><b>Verborgen</b> dia's (Dia → Verbergen / weergeven) worden overgeslagen tijdens de voorstelling en bij het exporteren.</p>
+
+@@ slides-objects
+title: Presentaties: tekst, vormen, afbeeldingen en tabellen
+keywords: tekstvak vorm afbeelding tabel verplaatsen formaat draaien spiegelen schikken naar voren naar achteren uitlijnen opsommingstekens opvulling omtrek
+---
+<h2>Invoegen</h2><p><b>Tekstvak</b>, <b>Afbeelding</b> (of plak / sleep een afbeelding), <b>Vormen</b> (19 vormen, lijn, pijl), <b>Tabel</b>.</p>
+<h2>Met objecten werken</h2><table>
+<tr><td>Selecteren</td><td>klik (sleep een vak op een lege plek om er meerdere te selecteren)</td></tr>
+<tr><td>Verplaatsen</td><td>slepen, of pijltoetsen (${K("Shift Arrow")} = 10 px)</td></tr>
+<tr><td>Formaat wijzigen</td><td>sleep de witte grepen (afbeeldingen houden hun verhouding; houd ${K("Shift")} ingedrukt om die te wijzigen)</td></tr>
+<tr><td>Tekst bewerken</td><td>dubbelklik, druk op ${K("F2")}/${K("Enter")} of begin gewoon te typen; ${K("Esc")} om te stoppen</td></tr>
+<tr><td>Verwijderen / dupliceren</td><td>${K("Delete")} / ${K("Ctrl D")}</td></tr>
+<tr><td>Naar voren / naar achteren</td><td>menu Schikken of de knoppen Voor/Achter</td></tr>
+<tr><td>Uitlijnen op de dia, draaien, spiegelen</td><td>menu Schikken</td></tr></table>
+<h2>Opmaak</h2><p>Tekst: lettertype, grootte, A+/A−, B/I/U, kleur, uitlijning, verticale uitlijning (menu Opmaak), opsommingstekens en nummering. Vormen: <b>opvul</b>- en <b>omtrek</b>kleur, omtrekdikte, geen opvulling / geen omtrek.</p>
+
+@@ slides-design
+title: Presentaties: thema's, achtergronden en diagrootte
+keywords: thema ontwerp achtergrond kleur afbeelding diagrootte breedbeeld 4:3
+---
+<p><b>Ontwerp → Thema</b> past een van de 8 thema's toe (Office, Middernacht, Leisteen, Bos, Zonsondergang, Oceaan, Antraciet, Blos) op alle dia's: achtergrond, kleuren en lettertypen van titel en tekst.</p>
+<p><b>Ontwerp → Achtergrondkleur dia</b> (deze dia), <b>Achtergrondkleur voor alle dia's</b>, <b>Achtergrondafbeelding</b>.</p>
+<p><b>Bestand → Diagrootte</b>: Breedbeeld 16:9, Standaard 4:3, A4, Vierkant — de inhoud wordt geschaald zodat hij past.</p>
+<p>Met <b>Bestand → Nieuw</b> kies je een thema voor een nieuwe presentatie.</p>
+
+@@ slides-present
+title: Presentaties: een voorstelling geven
+keywords: presenteren voorstelling f5 volledig scherm toetsen zwart scherm volgende vorige
+---
+<p><b>F5</b> begint bij de eerste dia, <b>Shift+F5</b> bij de huidige (of de knop <b>▶ Presenteren</b>).</p>
+<table><tr><th>Om</th><th>Toetsen</th></tr>
+<tr><td>Volgende dia</td><td>${K("Space")} ${K("→")} ${K("↓")} ${K("Page_Down")} ${K("Enter")}, linkermuisknop, scrollwiel</td></tr>
+<tr><td>Vorige dia</td><td>${K("←")} ${K("↑")} ${K("Page_Up")} ${K("Backspace")}, rechtermuisknop</td></tr>
+<tr><td>Eerste / laatste</td><td>${K("Home")} / ${K("End")}</td></tr>
+<tr><td>Zwart / wit scherm</td><td>${K("B")} / ${K("W")}</td></tr>
+<tr><td>Stoppen</td><td>${K("Esc")}</td></tr></table>
+
+@@ slides-files
+title: Presentaties: bestanden, PowerPoint-compatibiliteit en exporteren
+keywords: pptx powerpoint opslaan openen exporteren pdf png afbeeldingen afdrukken model indeling
+---
+<p><b>Opent en bewaart .pptx.</b> Geïmporteerde presentaties zien eruit zoals in PowerPoint: de app leest de diamodellen en indelingen van de presentatie (themakleuren, lettertypen, achtergronden, logo's, opsommingsstijlen). Bij het opslaan blijven de oorspronkelijke modellen, indelingen en het thema behouden, zodat het in PowerPoint goed blijft.</p>
+<p><b>Exporteren:</b> PDF (scherp, met selecteerbare tekst), PNG-afbeeldingen (1920 px breed), Afdrukken.</p>
+<p><b>Nog niet behouden:</b> grafieken, SmartArt, video/audio, animaties en overgangen (waarschuwt je). Verloopvullingen worden als één kleur getoond. De presentatieweergave voor de spreker en spellingcontrole zijn er nog niet.</p>

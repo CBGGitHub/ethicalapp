@@ -1,0 +1,513 @@
+@@ photo-basics
+title: Fotoğraflar: temel bilgiler
+keywords: fotoğraf düzenleyici aç yeni yakınlaştır kaydır katmanlar geçmiş arayüz
+---
+<ul><li><b>Solda:</b> araçlar ile ön plan/arka plan renkleri (⇄ değiştir = ${K("X")}, ◩ varsayılan siyah/beyaz = ${K("D")}).</li>
+<li><b>Üstte:</b> geçerli aracın seçenekleri (boyut, opaklık, tolerans…).</li>
+<li><b>Sağda:</b> <b>Katmanlar</b> ve <b>Geçmiş</b> (geri dönmek için bir adıma tıklayın).</li></ul>
+<h2>Gezinme</h2><p><kbd>Ctrl</kbd>+tekerlek yakınlaştırır (fare konumunda), tekerlek kaydırır, <kbd>Boşluk</kbd>+sürükleme veya orta tuşla sürükleme görünümü kaydırır, <kbd>Ctrl</kbd>+<kbd>0</kbd> sığdır, <kbd>Ctrl</kbd>+<kbd>1</kbd> %100. Çok yakınlaştırınca piksel ızgarası görünür.</p>
+<h2>Yeni resim</h2><p><b>Dosya → Yeni</b>'de hazır boyutlar (HD, 4K, Instagram, YouTube küçük resmi, A4…) ve arka plan seçimi (beyaz, saydam, siyah, renk) vardır.</p>
+<p>Geri al/yinele: <kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> (30 adım).</p>
+
+@@ photo-tools
+title: Fotoğraflar: araçlar
+keywords: araçlar fırça silgi boya kovası degrade klon damgası damlalık kırp taşı sihirli değnek kement seçim el yakınlaştırma kısayol
+---
+<table><tr><th>Tuş</th><th>Araç</th><th>Kullanım</th></tr>
+<tr><td>${K("V")}</td><td>Taşı</td><td>Katmanı (veya yalnızca seçili pikselleri) sürükleyin. Ok tuşları biraz kaydırır.</td></tr>
+<tr><td>${K("M")}</td><td>Dikdörtgen / elips seçim</td><td>Sürükleyin. ${K("Shift")} ekler, ${K("Alt")} çıkarır. Yumuşatma seçeneği.</td></tr>
+<tr><td>${K("L")}</td><td>Kement</td><td>Bir alanın çevresini serbestçe çizin.</td></tr>
+<tr><td>${K("W")}</td><td>Sihirli değnek</td><td>Benzer renkleri seçmek için tıklayın (tolerans, bitişik, tüm katmanları örnekle).</td></tr>
+<tr><td>${K("C")}</td><td>Kırp</td><td>Sürükleyin, sonra ${K("Enter")} veya çift tıklama. ${K("Esc")} iptal eder.</td></tr>
+<tr><td>${K("B")}</td><td>Fırça</td><td>Boyut, sertlik (yumuşak/sert kenar), opaklık. ${K("[")} ${K("]")} boyutu değiştirir.</td></tr>
+<tr><td>${K("E")}</td><td>Silgi</td><td>Saydamlığa kadar siler.</td></tr>
+<tr><td>${K("G")}</td><td>Boya kovası</td><td>Birbirine bağlı benzer renkleri doldurur.</td></tr>
+<tr><td></td><td>Degrade</td><td>Bir çizgi sürükleyin: doğrusal veya dairesel, arka plan rengine ya da saydama.</td></tr>
+<tr><td>${K("S")}</td><td>Klon damgası</td><td>Kaynağa ${K("Alt")}+tıklayın, sonra kopyalamak için boyayın (lekeleri gidermek için ideal).</td></tr>
+<tr><td>${K("I")}</td><td>Damlalık</td><td>Tıklama: ön plan rengini alır. ${K("Alt")}+tıklama: arka plan.</td></tr>
+<tr><td>${K("T")}</td><td>Metin</td><td>Metin eklemek için tıklayın; düzenlemek için mevcut bir metin katmanına tıklayın.</td></tr>
+<tr><td>${K("U")}</td><td>Şekil</td><td>Dikdörtgen, yuvarlatılmış, elips, çizgi, ok — yeni bir katmanda. ${K("Shift")} = kare/daire.</td></tr>
+<tr><td>${K("H")}</td><td>El</td><td>Görünümü kaydırır.</td></tr><tr><td>${K("Z")}</td><td>Yakınlaştırma</td><td>Yakınlaştırmak için tıklayın, uzaklaştırmak için ${K("Alt")}+tıklayın.</td></tr></table>
+<p>Boyama, doldurma, degradeler, filtreler ve ayarlamalar yalnızca <b>geçerli katmanın</b> <b>seçili alanında</b> (seçim varsa) etki eder.</p>
+
+@@ photo-selections
+title: Fotoğraflar: seçimler
+keywords: tümünü seç seçimi kaldır ters çevir yumuşat genişlet daralt renk aralığı katman pikselleri kes kopyala karıncalar
+---
+<p>Seçim, boyadığınız veya düzenlediğiniz yeri sınırlar. “Yürüyen karıncalar” olarak görünür.</p>
+<table><tr><td>Tümünü seç / seçimi kaldır / ters çevir</td><td>${K("Ctrl A")} / ${K("Ctrl D")} / ${K("Ctrl Shift I")}</td></tr>
+<tr><td>Ekleme / çıkarma</td><td>seçerken ${K("Shift")} / ${K("Alt")} tuşunu basılı tutun veya Modu seçin</td></tr>
+<tr><td>Yumuşak kenar</td><td>Seç → Yumuşat (${K("Shift F6")})</td></tr>
+<tr><td>Daha büyük / küçük</td><td>Seç → Genişlet / Daralt</td></tr>
+<tr><td>Bir rengin tüm pikselleri</td><td>Seç → Renk aralığı (ön plan rengini kullanır)</td></tr>
+<tr><td>Bir katmanın görünür pikselleri</td><td>Seç → Katman pikselleri</td></tr></table>
+<h2>Seçimle neler yapabilirsiniz</h2><ul>
+<li><kbd>Delete</kbd> temizler; <i>Düzen → Doldur</i> (<kbd>Alt</kbd>+<kbd>Backspace</kbd>) / Kontur.</li>
+<li><kbd>Ctrl</kbd>+<kbd>J</kbd> yeni bir katmana kopyalar, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd> yeni bir katmana keser.</li>
+<li><kbd>Ctrl</kbd>+<kbd>T</kbd> ölçekler/döndürür; <i>Resim → Seçime kırp</i>.</li>
+<li>Kopyala / Birleştirilmiş kopyala / Yapıştır (yeni katman olarak).</li></ul>
+
+@@ photo-layers
+title: Fotoğraflar: katmanlar ve karışım modları
+keywords: katman yeni çoğalt birleştir düzleştir opaklık karışım modu çarp ekran kaplama gizle yeniden adlandır sıra
+---
+<p>Katmanlar üst üste yığılmış sayfalardır: üsttekiler alttakileri örter. <b>Katmanlar</b> paneli onları yukarıdan aşağıya gösterir.</p>
+<ul><li>Onay kutusu = göster/gizle. Çift tıklama = yeniden adlandır. Sırayı ▲ ▼ ile değiştirin.</li>
+<li>Düğmeler: ＋ yeni, ⧉ çoğalt, ▲▼ taşı, ⤓ aşağıyla birleştir (<kbd>Ctrl</kbd>+<kbd>E</kbd>), 🗑 sil.</li>
+<li>Listenin üstündeki <b>Opaklık</b> ve <b>karışım modu</b> kutuları geçerli katmana uygulanır.</li>
+<li>Katman menüsü: görünenleri birleştir, katmanı çevir/döndür, metin katmanını düzenle. Resim menüsü: resmi düzleştir.</li></ul>
+<h2>Karışım modları</h2><table>
+<tr><td>Çarp</td><td>koyulaştırır — gölgeler ve çizimleri rengin üzerine yerleştirmek için ideal</td></tr>
+<tr><td>Ekran / Doğrusal soldurma (ekle)</td><td>açar — parlamalar, ışık efektleri</td></tr>
+<tr><td>Kaplama / Yumuşak ışık / Sert ışık</td><td>kontrast ve doku katar</td></tr>
+<tr><td>Koyulaştır / Açıklaştır</td><td>daha koyu / daha açık pikseli tutar</td></tr>
+<tr><td>Renk soldurma / Renk yanması</td><td>güçlü açma / koyulaştırma</td></tr>
+<tr><td>Fark / Dışlama</td><td>alttaki katmana göre ters çevirir — efektler, resim karşılaştırma</td></tr></table>
+<p>Katmanlar her boyutta olabilir ve tuvalin dışına taşabilir — taşırken asla piksel kaybolmaz.</p>
+
+@@ photo-adjust
+title: Fotoğraflar: ayarlamalar ve filtreler
+keywords: parlaklık kontrast düzeyler ton doygunluk canlılık pozlama renk dengesi sıcaklık siyah beyaz sepya ters çevir eşik posterleştir bulanıklaştır keskinleştir parazit pikselleştir vinyet kabartma
+---
+<h2>Resim → Ayarlamalar</h2><p>Hepsinde canlı <b>Önizleme</b>'li kaydırıcılar vardır:</p>
+<table><tr><td>Parlaklık/kontrast</td><td>soluk fotoğraflar için hızlı düzeltme</td></tr>
+<tr><td>Düzeyler</td><td>siyah nokta, beyaz nokta ve orta tonları (gama) ayarlayın</td></tr>
+<tr><td>Ton/doygunluk</td><td>renkleri kaydırır, güçlendirir/zayıflatır, açar/koyulaştırır</td></tr>
+<tr><td>Canlılık</td><td>soluk renkleri canlı olanlardan daha çok güçlendirir (ten doğal kalır)</td></tr>
+<tr><td>Pozlama</td><td>fotoğraf makinesinin pozlamasını değiştirmek gibi (durak)</td></tr>
+<tr><td>Renk dengesi / Sıcaklık-renk tonu</td><td>renk kaymalarını düzeltir — daha sıcak, daha soğuk, daha yeşil…</td></tr>
+<tr><td>Eşik / Posterleştir</td><td>saf siyah beyaz / daha az renk düzeyi</td></tr></table>
+<p>Tek tıkla: Ters çevir, Siyah beyaz, Sepya, Otomatik kontrast.</p>
+<h2>Filtre menüsü</h2><p>Gauss bulanıklığı, Hareket bulanıklığı, Keskinleştir, Paraziti azalt, Parazit ekle, Pikselleştir, Vinyet, Kabartma, Kenarları bul, Yağlı boya.</p>
+<div class="tip">Arka planı bulanıklaştırmak için: nesneyi seçin (Sihirli değnek / Kement), <i>Seç → Ters çevir</i>, <i>Seç → Yumuşat</i> 10 px, ardından <i>Filtre → Gauss bulanıklığı</i>.</div>
+
+@@ photo-text-shapes
+title: Fotoğraflar: metin ve şekiller
+keywords: metin yazı tipi kontur gölge düzenle şekil dikdörtgen elips ok çizgi
+---
+<h2>Metin</h2><p>Metin aracı (${K("T")}) → tıklayın → yazın. Herhangi bir yazı tipini, boyutu (px), kalın/italik, rengi, hizalamayı, bir <b>kontur</b> (kalınlık + renk) ve bir <b>alt gölge</b> seçin.
+Her metnin kendi katmanı vardır (<b>T</b> ile işaretli). Sonra değiştirmek için: Metin aracı → metne tıklayın veya <i>Katman → Metin katmanını düzenle</i>.</p>
+<div class="warn">Bir metin katmanını yeniden boyutlandırmak, döndürmek veya çevirmek onu normal bir resim katmanına dönüştürür (artık metin olarak düzenlenemez).</div>
+<h2>Şekiller</h2><p>Şekil aracı (${K("U")}): Dikdörtgen, Yuvarlatılmış dikdörtgen, Elips, Çizgi veya Ok seçin. Dolgu ön plan rengini, kontur arka plan rengini kullanır (genişliği ayarlayın, 0 = yok). Mükemmel kare/daire için ${K("Shift")} tuşunu basılı tutun. Her şekil yeni bir katmana gider.</p>
+
+@@ photo-files
+title: Fotoğraflar: Photoshop dosyaları, kaydetme ve dışa aktarma
+keywords: psd photoshop kaydet dışa aktar png jpg webp kalite ora katmanlar düzleştir tiff ico pdf
+---
+<h2>Photoshop (.psd)</h2><p>PSD'leri katmanlarıyla açar: adlar, konumlar, opaklık, karışım modları, gizli katmanlar (gruplar katmanlarına açılır). Photoshop'ta açılan <b>katmanlı PSD kaydeder</b>.</p>
+<p>Düzenlenemeyenler: ayarlama katmanları, katman efektleri (gölgeler, konturlar…), maskeler, akıllı nesneler — mümkün olduğunda pikselleri yüklenir ve size bildirilir. Photoshop metin katmanları resim olarak gelir.</p>
+<h2>Kaydetme</h2><table><tr><th>Biçim</th><th>Katmanları korur mu?</th><th>Şunun için iyi</th></tr>
+<tr><td>.psd</td><td>✅</td><td>Photoshop kullanıcılarıyla paylaşmak, çalışmanızı saklamak</td></tr>
+<tr><td>.ora (OpenRaster)</td><td>✅ (+ düzenlenebilir metin)</td><td>çalışmanızı açık bir biçimde saklamak</td></tr>
+<tr><td>.png</td><td>❌</td><td>grafikler, ekran görüntüleri, saydamlık</td></tr>
+<tr><td>.jpg</td><td>❌</td><td>fotoğraflar (1–100 kalite sorar)</td></tr>
+<tr><td>.webp</td><td>❌</td><td>web — küçük dosyalar</td></tr>
+<tr><td>.tif / .bmp / .gif / .ico / .pdf</td><td>❌</td><td>baskı / eski yazılımlar / simgeler / belgeler</td></tr></table>
+<p><b>Dosya → Farklı dışa aktar</b>, üzerinde çalıştığınız dosyayı değiştirmeden düzleştirilmiş bir kopya kaydeder.</p>
+
+@@ conv-basics
+title: Dönüştürücü: nasıl kullanılır
+keywords: dönüştürücü dosya ekle sürükle klasör hedef başlat iptal sağ tıklama toplu
+---
+<ol><li><b>Dosya ekleyin:</b> dosyaları veya bütün klasörleri listeye sürükleyin, <b>Dosya ekle…/Klasör ekle…</b> kullanın veya Dosya Gezgini'nde dosyaları seçin → sağ tıklayın → <i>Ethical Converter ile dönüştür / sıkıştır</i>.</li>
+<li>Sekmelerle <b>bir iş seçin</b>: <a href="#conv-formats">Dönüştür</a>, <a href="#conv-compress">Sıkıştır</a>, <a href="#conv-combine">Birleştir</a>, <a href="#conv-combine">Zip / Ayıkla</a> — veya çevrimiçi videoları kaydetmek için <a href="#conv-download">⬇ Bağlantıdan indir</a>.</li>
+<li><b>Dönüştür</b>'de her dosyanın kendi <b>Şuna dönüştür</b> seçimi vardır; <b>Tüm dosyaları şuna ayarla</b>, o biçimi destekleyen her dosyayı değiştirir.</li>
+<li>Sonuçların nereye gideceğini seçin: <b>her dosyayla aynı klasör</b> veya <b>bu klasör</b>.</li>
+<li><b>▶ Başlat</b>'a basın. Her dosya ilerlemesini gösterir; <b>İptal</b> durdurur.</li></ol>
+<p>Özgün dosyalar asla değiştirilmez veya üzerine yazılmaz — yeni dosyalar kendi adlarını alır (örn. <code>video (compressed).mp4</code>, <code>photo (1).png</code>).</p>
+<p><kbd>Delete</kbd> seçili dosyaları listeden kaldırır.</p>
+
+@@ conv-formats
+title: Dönüştürücü: ne neye dönüşür
+keywords: biçimler ses video resim belge wav mp3 mp4 mkv webm gif flac m4a pdf docx pptx xlsx csv png jpg webp ico
+---
+<table><tr><th>Kaynak</th><th>Hedef</th></tr>
+<tr><td><b>Ses</b>: mp3 wav flac ogg m4a aac wma opus aiff amr ac3</td><td>MP3, WAV, FLAC (kayıpsız), M4A/AAC, OGG, OPUS, AIFF, WMA, <b>MP4 video</b> (ses + bir resim veya siyah ekran)</td></tr>
+<tr><td><b>Video</b>: mp4 mkv mov avi webm wmv flv m4v mpg 3gp ts…</td><td>MP4 (H.264), MP4 (H.265, daha küçük), MKV, WebM, MOV, AVI, WMV, hareketli GIF veya yalnızca ses: MP3, WAV, M4A, FLAC</td></tr>
+<tr><td><b>Resimler</b>: png jpg webp bmp gif tif ico psd tga</td><td>PNG, JPG, WebP, BMP, GIF, TIFF, ICO (çok boyutlu simge), PDF</td></tr>
+<tr><td>PDF</td><td>PNG veya JPG (sayfa başına bir tane), Word .docx, metin</td></tr>
+<tr><td>Word .docx</td><td>PDF, metin, HTML, Markdown, ODT</td></tr>
+<tr><td>PowerPoint .pptx</td><td>PDF, PNG (slayt başına bir tane)</td></tr>
+<tr><td>Excel .xlsx</td><td>CSV (sayfa başına bir tane)</td></tr><tr><td>CSV</td><td>Excel .xlsx</td></tr>
+<tr><td>.txt .md .html</td><td>PDF, Word .docx (ve HTML/metin)</td></tr>
+<tr><td>Arşivler: zip 7z tar tgz gz bz2 xz</td><td>Ayıkla (aç)</td></tr></table>
+<h2>Seçenekler (Dönüştür sekmesi)</h2><ul>
+<li><b>Video kalitesi</b> Yüksek / Dengeli / Küçük dosya, <b>Video boyutu</b> (koru, 4K, 1080p, 720p, 480p, 360p).</li>
+<li><b>Ses kalitesi</b> 64k–320k (192k iyi bir varsayılandır; 320k en iyi MP3'tür).</li>
+<li><b>Resim kalitesi</b> ve <b>en büyük boyut</b> (JPG/WebP için ve küçültmek için).</li>
+<li><b>Ses → MP4 için resim</b>: bir kapak resmi seçin, yoksa siyah ekran kullanılır.</li>
+<li><b>GIF boyutu</b> (genişlik) ve <b>PDF → resimler</b> çözünürlüğü (dpi).</li></ul>
+
+@@ conv-compress
+title: Dönüştürücü: sıkıştırma (dosyaları küçültme)
+keywords: sıkıştır küçült boyut azalt video ses pdf resimler word powerpoint excel zip 7z e-posta
+---
+<p><b>Hafif</b> (en iyi kalite), <b>Dengeli</b> veya <b>Güçlü</b> (en küçük) seçin.</p>
+<table><tr><th>Dosya</th><th>Ne olur</th></tr>
+<tr><td>Video</td><td>MP4 (H.264) olarak yeniden kodlanır; Dengeli 1080p ile, Güçlü 720p ile sınırlar</td></tr>
+<tr><td>Ses</td><td>daha düşük bit hızı (160k / 128k / 96k); WAV/FLAC/AIFF MP3 olur</td></tr>
+<tr><td>Resimler</td><td>daha küçük olarak yeniden kaydedilir (JPG/WebP kalitesi, daha az PNG rengi, isteğe bağlı 2560/1600 px'e küçültme)</td></tr>
+<tr><td>PDF</td><td>içindeki resimler küçültülüp yeniden sıkıştırılır, yazı tipleri hafifletilir, dosya temizlenir</td></tr>
+<tr><td>Word/Excel/PowerPoint</td><td>içindeki resimler küçültülür, ardından en yüksek sıkıştırmayla yeniden zip'lenir</td></tr>
+<tr><td>Diğer her şey</td><td>zip'lenir (Güçlü, daha küçük olan 7z'yi kullanır)</td></tr></table>
+<p>Sonuç sütunu her dosyanın ne kadar küçüldüğünü gösterir. Bir dosya fark edilir şekilde küçültülemiyorsa yeni dosya oluşturulmaz (“Zaten küçük”).</p>
+<div class="tip">Büyük bir videoyu e-postayla göndermek için <b>Güçlü</b> genellikle onu boyutunun küçük bir kısmına indirir ve telefonda hâlâ iyi görünür.</div>
+
+@@ conv-trim
+title: Dönüştürücü: video kırpma (ve döndürme, yeniden boyutlandırma, sessize alma)
+keywords: kırp kısalt video klip başlangıç bitiş döndür yan boyut 720p 1080p sessiz ses kaldır
+---
+<p><b>✂ Videoyu kırp</b> sekmesi bir videonun yalnızca istediğiniz bölümünü tutar.</p>
+<ol><li><b>📂 Video aç…</b> düğmesine tıklayın (veya sekmenin üzerine bir video bırakın).</li>
+<li>Kaydırıcıyı sürükleyin — resim o anı gösterir. <b>⇤ Burada başla</b>'ya tıklayın, ilerleyin, sonra <b>Burada bitir ⇥</b>. Ya da süreleri saniye olarak yazın.
+Alttaki satır neyi tuttuğunuzu söyler, örn. “Tutulacak: 0:12.0 → 1:05.5 (0:53.5)”.</li>
+<li>Nasıl kesileceğini seçin:<ul>
+<li><b>Hızlı</b> — anında ve kalite kaybı olmadan, ama kesim en yakın “anahtar kareye” düşer, bu yüzden birkaç saniye önce başlayabilir.</li>
+<li><b>Tam</b> — tam karede keser (video yeniden oluşturulur, bu yüzden biraz daha uzun sürer).</li></ul></li>
+<li>İsteğe bağlı: <b>Boyut</b> 1080p / 720p / 480p (daha küçük dosya), <b>Döndür</b> (yan çekilmiş telefon videolarını düzeltir), <b>Sesi kaldır</b>.
+Boyut ve döndürme her zaman Tam'ı kullanır.</li>
+<li><b>✂ Kırpılmış videoyu kaydet</b>'e tıklayın. Özgün dosyanın yanına “<i>ad</i> (trimmed)” olarak veya <b>Sonuçları şuraya kaydet</b> klasörüne kaydedilir.
+Özgün dosya değişmez.</li></ol>
+<p class="note">Yalnızca bütün videoları yeniden boyutlandırmak için (birçoğunu birden), <b>Dönüştür</b> sekmesindeki <b>Video boyutu</b> ayarını veya <b>Sıkıştır</b>'ı kullanın.</p>
+
+@@ conv-combine
+title: Dönüştürücü: birleştirme, zip'leme ve ayıklama
+keywords: birleştir bir araya getir pdf ses video zip 7z ayıkla aç arşiv
+---
+<h2>Birleştir sekmesi</h2><ul>
+<li><b>Resimler ve PDF'ler → tek PDF</b> (örn. taranmış sayfaları tek belgeye).</li>
+<li><b>Ses dosyaları → tek MP3</b> (art arda).</li><li><b>Videolar → tek MP4</b>.</li></ul>
+<p>Dosyalar liste sırasına göre birleştirilir — ▲ Yukarı taşı / ▼ Aşağı taşı kullanın. Yeni dosya için bir ad yazın.</p>
+<h2>Zip / Ayıkla sekmesi</h2><ul>
+<li><b>Tüm dosyaları tek bir ZIP'e koy</b> (her yerde çalışır) veya <b>7z</b> (daha küçük; açmak için 7-Zip veya benzeri gerekir). Klasörler yapısını korur.</li>
+<li><b>Ayıkla</b>, .zip, .7z, .tar, .tar.gz/.tgz, .tar.bz2, .tar.xz, .gz, .bz2, .xz dosyalarını arşivin adını taşıyan bir klasöre açar.</li></ul>
+<p>.rar dosyaları henüz ayıklanamaz.</p>
+
+@@ conv-download
+title: Dönüştürücü: bağlantılardan video indirme
+keywords: indir indirme youtube twitter x tiktok instagram vimeo bağlantı url video ses mp3 oynatma listesi güvenlik virüs
+---
+<p class="note"><b>Her sürümde yok:</b> EthicalApp'in herkese açık indirmesi bu özelliği içermez. Yalnızca <code>installer\build.py --with-downloader</code> ile derlenen kişisel sürümlerde veya kaynak koddan çalıştırırken bulunur.</p>
+<p><b>⬇ Bağlantıdan indir</b> sekmesi YouTube, X/Twitter, TikTok, Instagram, Vimeo, Facebook, Reddit, SoundCloud ve binden fazla başka siteden videoları veya seslerini kaydeder.</p>
+<ol><li>Bir veya daha fazla bağlantı yapıştırın (satır başına bir tane) — <b>📋 Yapıştır</b> düğmesi kopyaladığınızı yapıştırır.</li>
+<li>İsteğe bağlı: <b>🔎 Bağlantıları denetle</b> önce her birinin başlığını, kanalını ve süresini gösterir.</li>
+<li><b>Video</b> (kalite 360p–4K; <b>MP4</b> her yerde oynar, <b>En iyi kalite</b> MKV kaydeder) veya <b>Yalnızca ses</b> (MP3, M4A, OPUS, WAV, FLAC) seçin.</li>
+<li>Bir oynatma listesindeki her videoyu almak için <b>Tüm oynatma listesi</b>'ni işaretleyin (200'e kadar).</li>
+<li><b>⬇ İndir</b>'e basın. Dosyalar “Sonuçları şuraya kaydet” klasörüne (veya <b>İndirilenler</b> klasörünüze) gider.</li></ol>
+<p>Hemen dönüştürmek veya sıkıştırmak için <b>Biten indirmeleri dosya listesine ekle</b>'yi işaretleyin (örn. indirip GIF yapın).</p>
+<h2>🛡 Yerleşik güvenlik</h2><ul>
+<li>Yalnızca normal web bağlantıları kabul edilir — bilgisayarınızdaki veya ev ağınızdaki dosyalara bağlantılar reddedilir.</li>
+<li>İndirmeler önce özel bir <b>karantina</b> klasörüne gider.</li>
+<li>Karantinadan yalnızca ses/video dosya türleri çıkabilir — programlar (.exe, betikler), arşivler, belgeler ve web sayfaları, video gibi görünseler bile <b>engellenir ve silinir</b>.</li>
+<li>FFmpeg her dosyayı açarak gerçekten ses veya video içerdiğini kanıtlar.</li>
+<li><b>Microsoft Defender</b> her dosyayı kaydedilmeden önce tarar; işaretlenen her şey silinir.</li>
+<li>Uygulama indirdiği hiçbir şeyi asla açmaz veya çalıştırmaz.</li></ul>
+<div class="warn">⚖ Yalnızca indirme izniniz olan videoları indirin — kendi yüklemeleriniz veya sahibinin indirmeye izin verdiği videolar (örn. Creative Commons). YouTube dahil birçok sitenin koşulları indirmeye izin vermez ve telif hakkı geçerliliğini korur.</div>
+<h2>İndirmeler çalışmayı bırakırsa</h2><p>Web siteleri sık sık değişir. <b>İndiriciyi güncelle</b>'ye basın (internet gerekir), sonra Dönüştürücü'yü yeniden başlatın.
+Özel, yalnızca üyelere açık, yaş sınırlı veya bölgenizde engellenmiş videolar indirilemez.</p>
+
+@@ base-basics
+title: Veritabanı: veritabanı nedir ve nasıl başlanır
+keywords: veritabanı access sqlite başla şablon yeni aç tablo kayıt alan gezinti bölmesi otomatik kayıt
+---
+<p>Veritabanı, şeylerin listelerini — kişiler, ürünler, siparişler, görevler — <b>tablolarda</b> tutar. Her satır bir
+<b>kayıttır</b> (bir müşteri), her sütun bir <b>alandır</b> (ad, e-posta…). Elektronik tablodan farklı olarak tablolar
+<a href="#base-relationships">bağlanabilir</a> (bir sipariş bir müşteriye aittir), <a href="#base-queries">sorgularla</a> soru sorabilir
+ve <a href="#base-reports">raporlar</a> yazdırabilirsiniz.</p>
+<h2>Başlarken</h2><p>Başlangıç sayfası <b>Boş veritabanı</b> veya örnek veriler içeren hazır bir şablon sunar:
+<b>Kişiler</b>, <b>Görevler</b>, <b>Envanter</b> (düşük stok sorgusuyla), <b>Müşteriler ve siparişler</b> (bağlı tablolar, sipariş toplamları sorgusu ve bir rapor).
+Ayrıca bir veritabanı açabilir veya Excel/CSV/Access'i doğrudan yeni bir veritabanına aktarabilirsiniz.</p>
+<h2>Pencere</h2><ul>
+<li><b>Solda:</b> gezinti bölmesi — Tablolar, Sorgular, Raporlar. Açmak için çift tıklayın; Tasarım görünümü, Form görünümü, Yeniden adlandır, Sil, Dışa aktar, Yeni rapor için sağ tıklayın.</li>
+<li><b>Sağda:</b> açtığınız her şey için bir sekme.</li></ul>
+<div class="tip">Veriler için Kaydet düğmesi yoktur — <b>her değişiklik anında kaydedilir</b>, tıpkı Access gibi. Yedekler için <i>Dosya → Kopyasını farklı kaydet</i>'i kullanın.</div>
+<p>Bir veritabanı tek bir <b>.db</b> dosyasıdır (birçok başka programın da açabildiği standart SQLite biçimi).</p>
+
+@@ base-tables
+title: Veritabanı: tablo tasarlama ve alan türleri
+keywords: tasarım görünümü tablo alan tür otomatik sayı metin sayı para birimi tarih evet hayır gerekli benzersiz varsayılan yeniden adlandır
+---
+<p><b>Oluştur → Tablo</b> (veya değiştirmek için bir tabloya sağ tıklayın → <b>Tasarım görünümü</b>). Tasarımcıdaki her satır bir alandır:</p>
+<table><tr><th>Tür</th><th>Kullanım</th></tr>
+<tr><td>Otomatik Sayı</td><td>kendini numaralayan bir kimlik (1, 2, 3…) — her tablonun bir tane olmalı</td></tr>
+<tr><td>Kısa metin / Uzun metin</td><td>adlar, kodlar / notlar, açıklamalar</td></tr>
+<tr><td>Tam sayı / Ondalık sayı</td><td>miktarlar / ölçümler</td></tr>
+<tr><td>Para birimi</td><td>para ($1,234.50 olarak gösterilir)</td></tr>
+<tr><td>Tarih / Tarih ve saat</td><td>2026-10-11, 10/11/2026 veya <code>today</code> yazın</td></tr>
+<tr><td>Evet/Hayır</td><td>bir onay kutusu</td></tr></table>
+<ul><li><b>Gerekli</b> — alan boş bırakılamaz. <b>Benzersiz</b> — iki kayıt aynı değere sahip olamaz (örn. ürün kodu, e-posta).</li>
+<li><b>Varsayılan değer</b> — yeni kayıtlara doldurulur; <code>DATE()</code> bugün demektir.</li>
+<li>Alanları istediğiniz zaman yeniden adlandırın, sıralayın (▲▼), ekleyin veya kaldırın ve <b>Tabloyu kaydet</b>'e basın — mevcut veriler korunur ve yeniden adlandırılan bir alanı kullanan kayıtlı sorgular otomatik güncellenir.</li></ul>
+
+@@ base-data
+title: Veritabanı: veri girme ve bulma (veri sayfası ve form)
+keywords: veri sayfası form görünümü yeni kayıt sil ara filtrele sırala düzenle arama
+---
+<h2>Veri sayfası görünümü</h2><p>Bir elektronik tablo gibi açılır. Bir hücreye tıklayıp yazın; kaydetmek için <kbd>Enter</kbd>'a basın.</p><ul>
+<li><b>Yeni kayıt:</b> <b>✱</b> işaretli en alt satıra yazın veya <b>＋ Yeni kayıt</b>'a basın.</li>
+<li><b>Silme:</b> kayıtları seçin → <b>✖ Sil</b>.</li>
+<li><b>Sıralama:</b> bir sütun başlığına tıklayın (ters çevirmek için yeniden).</li>
+<li><b>Tüm alanlarda ara</b> kutusu yazarken filtreler. <b>Seçime göre filtrele</b> yalnızca geçerli hücrenin değerine sahip kayıtları gösterir; <b>Filtreyi kaldır</b> yeniden hepsini gösterir.</li>
+<li>Evet/Hayır alanları onay kutularıdır. Başka bir tabloya bağlı alanlar (örn. siparişin müşterisi) kimlik numaraları yerine <b>adlardan oluşan bir açılır liste</b> gösterir.</li></ul>
+<h2>Form görünümü</h2><p>Bir seferde tek kayıt, her alan için bir kutu — uzun kayıtları yazmak için daha rahat.
+Gezinmek için ⏮ ◀ ▶ ⏭, <b>＋ Yeni</b>, <b>💾 Kaydet</b>, <b>✖ Sil</b> ve <b>Bul…</b> kullanın. Başka bir kayda geçmek değişikliklerinizi kaydeder.</p>
+<p>Bir şey kaydedilemezse açık bir neden görürsünüz — örn. gerekli bir alan boş, benzersiz bir değer zaten kullanılıyor veya bağlı kayıt yok.</p>
+
+@@ base-queries
+title: Veritabanı: sorgular (verilerinize soru sorma)
+keywords: sorgu tasarım ölçütler sırala toplamlar toplam say grupla sql görünüm birleştirme ilişkili
+---
+<p><b>Oluştur → Sorgu</b>. Sorgu alanları seçer, kayıtları filtreler ve sıralar — örn. “bu ay gönderilen tüm siparişler, en yenisi önce”. Kayıtlı sorgular <b>Sorgular</b> altında görünür ve her zaman güncel verileri gösterir.</p>
+<h2>Tasarım sekmesi</h2><ol>
+<li><b>Ana tabloyu</b> seçin. Alanlarını da kullanmak için <b>ilişkili tabloları</b> işaretleyin (bunun için bir <a href="#base-relationships">ilişki</a> gerekir).</li>
+<li><b>＋ Alan ekle</b> (veya <b>Tüm alanları ekle</b>), sonra her biri için: <b>Göster</b>, <b>Sırala</b> ve <b>Ölçütler</b>.</li>
+<li>Sonuçları görmek için <b>▶ Çalıştır</b>; saklamak için <b>💾 Sorguyu kaydet…</b>.</li></ol>
+<h2>Ölçüt örnekleri</h2><table>
+<tr><td><code>&gt;100</code>, <code>&lt;=50</code>, <code>&lt;&gt;0</code></td><td>karşılaştırmalar</td></tr>
+<tr><td><code>"London"</code> veya <code>London</code></td><td>tam olarak bu</td></tr>
+<tr><td><code>"London" Or "Paris"</code></td><td>ikisinden biri</td></tr>
+<tr><td><code>Like "A*"</code></td><td>A ile başlar (<code>*</code> = her şey, <code>?</code> = tek karakter)</td></tr>
+<tr><td><code>Between 1 And 50</code></td><td>bir aralık</td></tr>
+<tr><td><code>&gt;=#2026-01-01#</code></td><td>tarihler (# işaretleri arasında)</td></tr>
+<tr><td><code>Is Null</code> / <code>Is Not Null</code></td><td>boş / boş değil</td></tr>
+<tr><td><code>Yes</code> / <code>No</code></td><td>Evet/Hayır alanları</td></tr></table>
+<h2>Toplamlar</h2><p>Gruplamak ve toplamak için <b>Toplamlar</b>'ı işaretleyin — örn. Müşteriye göre grupla, Miktarın toplamı. Toplam/Sayı üzerindeki ölçütler toplamlara uygulanır.</p>
+<h2>SQL sekmesi</h2><p>Sorguyu SQL olarak gösterir (veritabanlarının standart dili) — doğrudan düzenleyebilirsiniz. <i>Veritabanı → SQL konsolu</i> her türlü SQL'i çalıştırır; verileri değiştiren komutlar önce sorar.</p>
+
+@@ base-relationships
+title: Veritabanı: ilişkiler (tabloları bağlama)
+keywords: ilişki bağlantı yabancı anahtar bire çok üst alt basamaklı silme diyagram
+---
+<p>İlişki, “her <b>alt</b> kayıt bir <b>üst</b> kayda aittir” der — her sipariş bir müşteriye, her ürün bir kategoriye.</p>
+<ol><li>Alt tabloya üst kaydın kimliğini tutacak bir <b>Tam sayı</b> alanı ekleyin (örn. Siparişler'de <i>Customer ID</i>).</li>
+<li><b>Veritabanı → İlişkiler</b>: üst tabloyu ve kimliğini, alt tabloyu ve onun “gösteren” alanını seçin, ardından <b>＋ İlişki ekle</b>.</li></ol>
+<p>Elde ettikleriniz:</p><ul>
+<li>Alt alan, veri sayfalarında ve formlarda <b>üst kayıt adlarından oluşan bir açılır liste</b> gösterir.</li>
+<li>Kayıtlar var olmayan bir üst kaydı gösteremez ve alt kayıtları olan bir üst kayıt yanlışlıkla silinemez…</li>
+<li>…<b>basamaklı silme</b>'yi işaretlemediyseniz: o zaman üst kaydı silmek alt kayıtlarını da siler (örn. bir siparişi silmek kalemlerini siler).</li>
+<li>Sorgular bağlı tablolardaki alanları birleştirebilir.</li></ul>
+<p>Pencere, bağlı alanlar arasında çizgiler bulunan (1 ── ∞) tüm tabloların bir diyagramını gösterir.</p>
+
+@@ base-reports
+title: Veritabanı: raporlar ve yazdırma
+keywords: rapor yazdır pdf grupla toplamlar toplam ortalama başlık yatay
+---
+<p><b>Oluştur → Rapor</b> (veya tabloya/sorguya sağ tıklayın → Yeni rapor). Seçin:</p><ul>
+<li><b>veriler</b> (herhangi bir tablo veya sorgu) ve bir <b>başlık</b>;</li>
+<li>hangi <b>alanların</b> gösterileceği (işaretleyin ve sırayı değiştirmek için sürükleyin);</li>
+<li>bir alana göre <b>Grupla</b> (örn. müşteri başına bir bölüm) ve <b>Sırala</b>;</li>
+<li>sayı alanları için <b>Toplamlar</b> — Toplam, Ortalama veya Sayı (grup başına ve genel);</li>
+<li>geniş raporlar için <b>Yatay</b>.</li></ul>
+<p>Ardından <b>Yazdır</b>, <b>Baskı önizleme</b> veya <b>PDF dışa aktar</b>. <b>Raporu kaydet</b> onu <b>Raporlar</b> altında saklar — her zaman güncel verileri gösterir.</p>
+
+@@ base-import
+title: Veritabanı: içe ve dışa aktarma (Excel, CSV, Access)
+keywords: içe aktar dışa aktar excel xlsx csv access accdb mdb sürücü yedek kopya sıkıştır onar
+---
+<h2>İçe aktarma</h2><p><b>Dosya → İçe aktar</b> (veya bir dosyayı pencereye sürükleyin): <b>Excel .xlsx</b> (her sayfa → bir tablo), <b>CSV</b> veya <b>Access .accdb/.mdb</b> (her tablo).
+İlk satır alan adları olur ve alan türleri (sayı, para birimi, tarih, Evet/Hayır, metin) otomatik algılanır — sonra Tasarım görünümünde kontrol edin.
+Başlangıç sayfasından doğrudan yeni bir veritabanına aktarabilirsiniz.</p>
+<div class="warn"><b>Access dosyaları</b> için Microsoft'un ücretsiz <b>Access Database Engine 2016 Redistributable (64 bit)</b> paketinin yüklü olması gerekir (microsoft.com'dan indirilir). Yalnızca tablolar ve verileri gelir — Access formları, raporları ve makroları gelmez.</div>
+<h2>Dışa aktarma</h2><p><b>Dosya → Dışa aktar</b> (veya sağ tıklayın → Dışa aktar): bir tabloyu veya sorguyu <b>Excel</b>'e, <b>tüm tabloları ve sorguları</b> tek bir Excel dosyasına (her biri bir sayfa), <b>CSV</b>'ye veya bir <b>PDF</b> raporuna.</p>
+<h2>Dosyanın bakımı</h2><ul><li><b>Dosya → Kopyasını farklı kaydet</b> — açıkken bile güvenli bir yedek.</li>
+<li><b>Veritabanı → Sıkıştır ve onar</b> — dosyayı denetler ve çok sayıda silmeden sonra küçültür.</li></ul>
+
+@@ stickies
+title: Yapışkan notlar: masaüstünüzde notlar ve yapılacaklar listeleri
+keywords: yapışkan notlar notlar yapılacaklar görev listesi anımsatıcı masaüstü post-it bildirim alanı başlangıç
+---
+<p><b>Ethical Sticky Notes</b> masaüstünüze küçük notlar koyar — yapılacaklar listeleri, telefon numaraları ve anımsatıcılar için harika.
+Her şey siz yazarken kendiliğinden, yalnızca bu bilgisayarda kaydedilir.</p>
+<h2>Temel bilgiler</h2><ul>
+<li><b>Yeni not:</b> herhangi bir notta <b>+</b>'ya tıklayın, ${K("Ctrl N")}'ye basın veya bildirim alanı simgesini (görev çubuğunun sağ altında) kullanın → <b>Yeni not</b>.</li>
+<li>Bir notu üst çubuğundan sürükleyerek <b>taşıyın</b>. Bir kenarı veya köşeyi sürükleyerek <b>yeniden boyutlandırın</b>.</li>
+<li>Bir notu başlığına kadar <b>daraltın</b>: üst çubuğa çift tıklayın (genişletmek için yeniden).</li>
+<li><b>Renk:</b> <b>⋯</b> → 8 renkten birini seçin. <b>Metin boyutu:</b> <b>⋯</b> → Metin boyutu.</li>
+<li><b>Her zaman üstte:</b> notun diğer pencerelerin üstünde kalması için <b>📌</b>'a tıklayın.</li>
+<li><b>✕ notu kapatır</b> ama saklar. Notları bildirim alanı simgesi → <b>Tüm notları göster</b> (veya simgeye tıklamanız yeterli) ya da <b>Tüm notlar…</b> ile geri getirin.</li></ul>
+<h2>Yapılacaklar listeleri</h2><ul>
+<li>Onay kutusu için satır başında <kbd>[</kbd><kbd>]</kbd> ve bir boşluk yazın (veya <b>☑</b> / ${K("Ctrl Shift C")}'ye tıklayın).</li>
+<li>İşaretlemek için kutuya tıklayın — öğenin üstü çizilir. İşareti kaldırmak için yeniden tıklayın.</li>
+<li><kbd>Enter</kbd> sonraki öğeyi oluşturur; boş bir öğede <kbd>Enter</kbd> listeyi bitirir. Bir öğenin başında <kbd>Backspace</kbd> onu yeniden metne çevirir.</li>
+<li>Madde işareti için <kbd>-</kbd> ve bir boşluk yazın (veya <b>•</b> / ${K("Ctrl Shift L")}).</li></ul>
+<h2>Biçimlendirme</h2><p>Alt çubuğu görmek için notun içine tıklayın: <b>B</b> ${K("Ctrl B")}, <i>I</i> ${K("Ctrl I")}, <u>U</u> ${K("Ctrl U")},
+<s>S</s> ${K("Ctrl T")}. Yapıştırılan metin, nota uyması için biçimsiz gelir.</p>
+<h2>Notları bulma ve silme</h2><ul>
+<li><b>Tüm notlar…</b> (bildirim alanı simgesi veya <b>⋯</b>) her notu bir arama kutusuyla listeler — açmak için çift tıklayın.</li>
+<li><b>Sil</b>: notun alt çubuğundaki 🗑 veya ${K("Ctrl D")}. Yanlışlıkla mı sildiniz? Bildirim alanı simgesi → <b>Silinen notu geri yükle</b> (son 30 not saklanır).</li></ul>
+<h2>Windows ile başlatma</h2><p>Bildirim alanı simgesi → <b>Windows ile başlat</b> (veya yükleyicide işaretleyin); notlarınız her oturum açışınızda geri gelir.
+Uygulamayı tamamen kapatmak için: bildirim alanı simgesi → <b>Yapışkan Notlar'dan çık</b> — notlarınız korunur.</p>
+<h2>Notlar nerede</h2><p><code>%APPDATA%\\Ethical Suite\\Sticky Notes\\notes.json</code> içinde (artı bir yedek kopya, <code>notes.json.bak</code>). Asla
+yüklenmezler. EthicalApp'i kaldırmak bu dosyayı korur, böylece yeniden yüklerseniz notlarınız hâlâ oradadır. Notlarınızı başka bir bilgisayara taşımak için bu dosyayı kopyalayın.</p>
+<h2>Yapay zekâ ile</h2><p>EthicalApp'i Claude'a bağladıysanız “cumartesi işleri için masaüstüme bir yapılacaklar notu koy” veya
+“<i>dişçiyi ara</i>'yı işaretle” gibi şeyler söyleyebilirsiniz — not bir iki saniye içinde ekranda değişir.</p>
+<h2>Kısayollar</h2><p>${K("Ctrl N")} yeni not · ${K("Ctrl D")} sil · ${K("Ctrl W")} kapat · ${K("Ctrl B")}/${K("Ctrl I")}/${K("Ctrl U")}/${K("Ctrl T")} kalın/italik/altı çizili/üstü çizili ·
+${K("Ctrl Shift C")} onay kutuları · ${K("Ctrl Shift L")} madde işaretleri · ${K("F1")} bu kılavuz</p>
+
+@@ planner
+title: Planner: anımsatıcılar ve takvim
+keywords: planlayıcı anımsatıcı anımsatıcılar takvim etkinlik alarm takviye hap ilaç her gün tekrarla bildirim ertele doğum günü randevu
+---
+<p><b>Ethical Planner</b> size işleri zamanında hatırlatır — “her gün 8:00'de takviyeleri al”, “yarın 14:30'da dişçi”,
+“annemin doğum günü” — ekranın köşesinde beliren bir kartla.</p>
+<h2>Anımsatıcılar ve etkinlikler</h2><ul>
+<li><b>⏰ Yeni anımsatıcı</b> (${K("Ctrl N")}) <i>yaptığınız</i> şeyler içindir: açılır pencerede <b>Tamam</b> düğmesi vardır ve listede işaretleyebilirsiniz.</li>
+<li><b>📅 Yeni etkinlik</b> (${K("Ctrl E")}) <i>gerçekleşen</i> şeyler içindir: randevular, doğum günleri. Önceden uyarı alırsınız (varsayılan olarak 15 dakika).</li>
+<li><b>Hızlı başlangıç</b> altındaki düğmeler yaygın olanları doldurur: günlük takviyeler, su içmek, çöp gecesi, bir doğum günü.</li>
+<li>O güne etkinlik eklemek için takvimde bir güne çift tıklayın.</li></ul>
+<h2>Tekrarlama</h2><p><b>Tekrarla:</b> her gün, her iş günü (Pzt–Cum), her hafta (günleri işaretleyin, örn. Pzt/Çar/Cum), her ay veya her yıl —
+ve “her N” (her 2 günde, her 3 haftada…). <b>Şu tarihten sonra tekrarlamayı durdur</b> bir bitiş tarihi belirler. Ayın 31'indeki aylık anımsatıcı, daha kısa aylarda son güne denk gelir.</p>
+<h2>Uyarılar ve açılır pencere</h2><ul>
+<li><b>Uyarı</b>'yı seçin (zamanında, 5/10/15/30 dakika, 1–2 saat, 1–2 gün veya bir hafta önce) ve isterseniz ikinci bir tane (<b>Ayrıca</b>), örn. bir gün önce <i>ve</i> bir saat önce.</li>
+<li>Tüm gün süren öğeler 09:00'da uyarır (uyarı süresi düşülerek).</li>
+<li>Kart, <b>Tamam</b>/<b>OK</b>, <b>Ertele</b> (5 dakika … yarın sabah) veya ✕'e tıklayana kadar kalır. Windows Odak yardımı açıkken de görünür.</li>
+<li>Bilgisayar kapalı veya uykuda mıydı? Son 12 saatte kaçırdıklarınız bir sonraki sefere <i>kaçırıldı</i> olarak işaretlenmiş şekilde görünür.</li>
+<li>Her uyarı yumuşak bir zil çalar (Planner'ın kendi sesi, bu yüzden Windows bildirim sesleri kapalıyken bile çalışır). Deneyin: <b>⋯ → Bir anımsatıcı penceresini test et</b>. Sesi <b>⋯</b> altında açıp kapatın.</li>
+<li><b>Saat:</b> saatler bilgisayarınızın saatini izler. <b>⋯ → Saat → 12 saat (8:00 PM)</b> veya <b>24 saat (20:00)</b> seçin – varsayılan olarak Planner, Windows'un kullandığını kullanır.</li></ul>
+<h2>Liste</h2><ul>
+<li>Seçili günü ve sonraki 6 günü gösterir. İleriye bakmak için takvimde bir tarihe tıklayın; <b>Bugün</b> (${K("Ctrl T")}) geri döner.</li>
+<li>Bir anımsatıcıyı o gün için yapıldı olarak işaretlemek için kutuyu işaretleyin (üstü çizilir). Geciken öğeler kırmızıdır.</li>
+<li>Bir öğeye sağ tıklayın: Düzenle, Yapıldı / Yapılmadı olarak işaretle, <b>Yalnızca bunu atla</b> (tekrarlanan öğe için), Sil.</li>
+<li>Takvimdeki kalın günlerde etkinlikler veya daha seyrek anımsatıcılar vardır. <b>Sıradaki</b> bir sonraki uyarıyı gösterir.</li></ul>
+<h2>Açık bırakma</h2><p>Anımsatıcılar yalnızca Planner çalışırken görünebilir, bu yüzden pencereyi kapatmak onu bildirim alanında bırakır (görev çubuğunun sağ altı).
+İlk açılışta <b>Windows ile başlatılıp başlatılmayacağını</b> sorar — evet deyin (veya yükleyicide ya da <b>⋯</b> altında işaretleyin). Bildirim alanı menüsündeki <b>Ethical Planner'dan çık</b> onu durdurur.</p>
+<h2>Nerede saklanır</h2><p><code>%APPDATA%\\Ethical Suite\\Planner\\planner.json</code> (artı bir yedek). Asla yüklenmez; kaldırma işlemi onu korur.</p>
+<h2>Yapay zekâ ile</h2><p>Planner'ı Claude'a bağladıysanız: “her gün 8'de vitaminlerimi hatırlat”, “bu hafta neler var?”,
+“haplarımı aldım” (işaretler), “dişçiyi perşembe saat 3'e taşı”.</p>
+
+@@ snip
+title: Snip: işaretlenebilir ekran görüntüleri
+keywords: ekran görüntüsü ekran yakalama print screen ekran alıntısı aracı kırp ok vurgula pikselleştir bulanıklaştır gizle
+---
+<p><b>Ethical Snip</b> ekranınızın bir resmini çeker — tamamını, bir pencereyi veya yalnızca seçtiğiniz kısmı — ve kopyalamadan
+veya kaydetmeden önce üzerine çizim yapmanıza izin verir.</p>
+<h2>Ekran görüntüsü alma</h2><ul>
+<li>Herhangi bir yerde ${K("Ctrl PrtScn")}'ye basın (Snip çalışırken — görev çubuğunun sağ altındaki bildirim alanında bekler), <b>✂ Yeni ekran görüntüsü</b>'ne (${K("Ctrl N")}) tıklayın veya bildirim alanı simgesini kullanın.</li>
+<li>Ekran donar ve kararır. Üstten seçin: <b>Dikdörtgen</b> (bir alan sürükleyin), <b>Pencere</b> (bir pencereye tıklayın), <b>Tam ekran</b> (tıklayın) veya <b>Serbest biçim</b> (bir şeyin etrafını çizin).
+Tuşlar: <kbd>R</kbd> <kbd>W</kbd> <kbd>S</kbd> <kbd>F</kbd>. <kbd>Esc</kbd> veya sağ tıklama iptal eder.</li>
+<li><b>Gecikme:</b> Yeni ekran görüntüsü'nün yanındaki ok → Gecikme → 3, 5 veya 10 saniye; önce bir menü açabilmek için.</li>
+<li>Her ekran görüntüsü <b>kopyalanır</b> (bir sohbete veya e-postaya ${K("Ctrl V")} ile yapıştırın) ve <code>Pictures\\Ethical Snips</code> içine <b>kaydedilir</b>. İkisi de <b>⋯</b> altında kapatılabilir.</li></ul>
+<h2>İşaretleme</h2><ul>
+<li><b>Kalem</b> <kbd>P</kbd>, <b>Vurgula</b> <kbd>H</kbd>, <b>Ok</b> <kbd>A</kbd>, <b>Kutu</b> <kbd>R</kbd> (kare için <kbd>Shift</kbd>'i basılı tutun), <b>Metin</b> <kbd>T</kbd> (tıklayın, sonra yazın).</li>
+<li><b>Pikselleştir</b> <kbd>X</kbd>: resmi paylaşmadan önce gizlemek için adların, adreslerin veya parolaların üzerinde sürükleyin.</li>
+<li><b>Kırp</b> <kbd>C</kbd>: tutmak istediğiniz kısmın etrafında sürükleyin.</li>
+<li>Araç çubuğundan bir renk ve kalınlık (İnce / Orta / Kalın) seçin. <b>Seç</b> <kbd>V</kbd> işaretleri taşımanızı veya silmenizi (<kbd>Delete</kbd>) sağlar.</li>
+<li>${K("Ctrl Z")} geri al, ${K("Ctrl Y")} yinele. Yakınlaştırma: ${K("Ctrl +")} / ${K("Ctrl -")} / ${K("Ctrl 0")} veya ${K("Ctrl")} + tekerlek.</li></ul>
+<h2>Kopyalama, kaydetme, paylaşma</h2><ul>
+<li><b>Kopyala</b> (${K("Ctrl C")}) işaretlenmiş resmi kopyalar. <b>Kaydet</b> (${K("Ctrl S")}) kayıtlı ekran görüntüsünü günceller; <b>Farklı kaydet…</b> bir ad ve PNG, JPG, WebP veya BMP seçer.</li>
+<li>Daha büyük düzenlemeler için (katmanlar, filtreler, metin efektleri) <b>Fotoğraf Düzenleyici'de aç</b>.</li>
+<li>Snip başka herhangi bir resmi de işaretler: <b>⋯ → Resim aç</b> (${K("Ctrl O")}), bir tane yapıştırın (${K("Ctrl V")}) veya bir dosyayı pencereye sürükleyin.</li></ul>
+<h2>Ayarlar (⋯ menüsü)</h2><p>Her ekran görüntüsünü kopyala · Her ekran görüntüsünü otomatik kaydet · ${K("Ctrl PrtScn")} için bildirim alanında çalışmaya devam et ·
+Windows ile başlat · Kısayolu değiştir · Ekran görüntüleri klasörünü seç. Pencereyi kapatmak Snip'i bildirim alanında bırakır; <b>Ethical Snip'ten çık</b> onu tamamen kapatır.</p>
+<h2>Kısayolu değiştirme</h2><p>PrtScn tuşunuz yok mu (birçok dizüstü)? Ya da başka bir program onu zaten kullanıyor mu? Snip'in başlangıç ekranında <b>⌨ Kısayolu değiştir…</b>'e tıklayın (veya sağ altta gösterilen kısayola ya da <b>⋯ → Kısayolu değiştir…</b>), kutuya tıklayın ve istediğiniz tuşlara basın — örneğin ${K("Ctrl Alt S")}. ${K("Ctrl")}, ${K("Alt")} veya Windows tuşu gerekir (F tuşları tek başına çalışır). ${K("Ctrl Shift S")} (Farklı kaydet) gibi başka programların kullandığı kısayollardan kaçının. Durum çubuğu etkin kısayolu gösterir veya başka bir programın onu zaten aldığını söyler.</p>
+<h2>Yapay zekâ ile</h2><p>Snip'i Claude'a bağladıysanız “Excel penceresinin ekran görüntüsünü al ve masaüstüme kaydet” diyebilirsiniz. Claude
+yalnızca siz istediğinizde ekran görüntüsü alır ve resimler bilgisayarınıza kaydedilir.</p>
+
+@@ ai-claude
+title: Uygulamaları yapay zekâ (Claude) ile kullanma
+keywords: yapay zekâ ai claude mcp asistan otomatikleştir bağla araçlar sohbet code desktop
+---
+<p>EthicalApp bir <b>MCP sunucusu</b> içerir — yapay zekâ asistanı <b>Claude</b>'un (Claude Code veya Claude Desktop) uygulamaları sizin için kullanmasını sağlayan bir bağlayıcı. Kendi sözlerinizle istemeniz yeterli, örneğin:</p>
+<ul><li>“notlarım.md dosyamı düzgün biçimlendirilmiş bir Word belgesine dönüştür.”</li>
+<li>“bütçe.xlsx'i oku, %10 beklenmedik giderler satırı ve bir pasta grafiği ekle.”</li>
+<li>“Okyanus temasıyla yaz planımız hakkında 6 slaytlık bir sunu yap ve aç.”</li>
+<li>“sözleşme.pdf'deki tüm telefon numaralarını karart.” · “Bu PDF formunu bilgilerimle doldur.”</li>
+<li>“Bu fotoğrafların hepsini 1080 px'e küçült ve logo metnimizi ekle.” · “Bu videoyu MP3'e dönüştür.”</li>
+<li>“Kitap koleksiyonumun bir veritabanını oluştur ve yazara göre gruplanmış bir rapor ver.”</li></ul>
+<h2>Bağlama</h2><ol><li>Yükleyicide <b>Seçilen uygulamaları Claude'a bağla</b>'yı işaretleyin (değiştirmek için yükleyiciyi istediğiniz zaman yeniden çalıştırın).</li>
+<li>Otomatik olarak <b>Claude Code</b>'a ve yüklüyse <b>Claude Desktop</b>'a bağlanır (ardından Claude Desktop'ı yeniden başlatın).</li>
+<li>Kullanıcı kılavuzu her zaman dahildir, böylece Claude işlerin nasıl yürüdüğünü kontrol edebilir.</li></ol>
+<p>Bağlantıyı kesmek için yükleyiciyi yeniden çalıştırıp işareti kaldırın veya EthicalApp'i kaldırın.</p>
+<h2>Claude neler yapabilir (yaklaşık 65 araç)</h2><table>
+<tr><td>PDF</td><td>metni ve bilgileri okuma, birleştirme, bölme, sayfaları ayıklama/silme/döndürme, metin veya resim ekleme, metin bulup değiştirme, kalıcı karartma, formları listeleme ve doldurma</td></tr>
+<tr><td>Belgeler</td><td>.docx'i Markdown olarak okuma, Markdown'dan belge oluşturma (başlıklar, listeler, tablolar), ekleme, bul ve değiştir</td></tr>
+<tr><td>Elektronik tablolar</td><td>hücreleri okuma (değerler veya formüller), hücre ve formül yazma, aralıkları biçimlendirme, grafik ve sayfa ekleme, herhangi bir formülü hesaplama</td></tr>
+<tr><td>Sunular</td><td>sunuları okuma, temalar/madde işaretleri/notlar/resimlerle oluşturma, mevcut bir sunuya slayt ekleme</td></tr>
+<tr><td>Fotoğraflar</td><td>bilgi ve katmanlar, yeniden boyutlandırma, kırpma, döndürme, çevirme, tüm ayarlamalar ve filtreler, metin, tuval boyutu</td></tr>
+<tr><td>Dönüştürücü</td><td>desteklenen her dosyayı dönüştürme, sıkıştırma, birleştirme, zip/ayıklama, medya bilgisi, bağlantılardan indirme (aynı güvenlik denetimleriyle)</td></tr>
+<tr><td>Veritabanı</td><td>genel bakış, salt okunur SQL sorguları, değişiklikler, veritabanı/tablo oluşturma, kayıt ekleme, ilişkiler, kayıtlı sorgular, içe/dışa aktarma, PDF raporları</td></tr>
+<tr><td>Yapışkan notlar</td><td>masaüstünüzdeki notları listeleme, okuma, ekleme, değiştirme ve işaretleme</td></tr>
+<tr><td>Snip</td><td>pencereleri listeleme ve istediğinizde ekran görüntüsü alma</td></tr>
+<tr><td>Planner</td><td>anımsatıcıları ve etkinlikleri listeleme, ekleme, değiştirme ve tamamlama</td></tr>
+<tr><td>Her zaman</td><td>bu kılavuzu arama ve okuma, görebilmeniz için bir dosyayı doğru Ethical uygulamasında açma</td></tr></table>
+<h2>Güvenlik</h2><ul><li>Claude bilgisayarınızdaki dosyalarla yalnızca bu araçlar üzerinden çalışır; Claude bunları kullanmadan önce sorar (Claude ayarlarınıza bağlı olarak).</li>
+<li>Siz üzerine yazmasını istemedikçe değişiklikler <b>yeni kopyalar</b> olarak kaydedilir (örn. “report (edited).pdf”); siz söylemedikçe yeni dosyalar mevcut dosyaların yerine geçmez.</li>
+<li>Değişiklik aracı kullanılmadıkça veritabanı sorguları salt okunurdur; ilişki kuralları yine geçerlidir.</li></ul>
+
+@@ shortcuts
+title: Tüm klavye kısayolları
+keywords: klavye kısayolları tuşlar kısayol tuşları
+---
+<h2>Her uygulama</h2><table><tr><td>Yeni / Aç / Kaydet / Farklı kaydet</td><td>${K("Ctrl N")} ${K("Ctrl O")} ${K("Ctrl S")} ${K("Ctrl Shift S")}</td></tr>
+<tr><td>Geri al / Yinele</td><td>${K("Ctrl Z")} / ${K("Ctrl Y")}</td></tr><tr><td>Yazdır</td><td>${K("Ctrl P")}</td></tr>
+<tr><td>Bul</td><td>${K("Ctrl F")}</td></tr><tr><td>Bu kılavuz</td><td>${K("F1")}</td></tr></table>
+<h2>Ethical PDF Editor</h2><table><tr><td>Yakınlaştır / uzaklaştır / gerçek boyut / genişliğe sığdır</td><td>${K("Ctrl =")} ${K("Ctrl -")} ${K("Ctrl 0")} ${K("Ctrl 1")}</td></tr>
+<tr><td>Sonrakini / öncekini bul</td><td>${K("F3")} / ${K("Shift F3")}</td></tr><tr><td>Sayfayı sağa / sola döndür</td><td>${K("Ctrl R")} / ${K("Ctrl Shift R")}</td></tr>
+<tr><td>Seçili metni kopyala / notu sil</td><td>${K("Ctrl C")} / ${K("Delete")}</td></tr></table>
+<h2>Ethical Document Editor</h2><p>Bkz. <a href="#write-basics">Belgeler: temel bilgiler</a>.</p>
+<h2>Ethical Spreadsheet Editor</h2><table><tr><td>Git</td><td>${K("Ctrl G")}</td></tr><tr><td>Aşağı / sağa doldur</td><td>${K("Ctrl D")} / ${K("Ctrl R")}</td></tr>
+<tr><td>Otomatik Toplam / işlev ekle</td><td>${K("Alt =")} / ${K("Shift F3")}</td></tr><tr><td>Değerleri yapıştır</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>Satır ekle / satır sil</td><td>${K("Ctrl Shift =")} / ${K("Ctrl -")}</td></tr><tr><td>Yeni sayfa</td><td>${K("Shift F11")}</td></tr>
+<tr><td>Açıklama</td><td>${K("Shift F2")}</td></tr><tr><td>Üstü çizili</td><td>${K("Ctrl 5")}</td></tr></table>
+<h2>Ethical Presentation Editor</h2><table><tr><td>Yeni slayt</td><td>${K("Ctrl M")}</td></tr><tr><td>Baştan / geçerli slayttan sun</td><td>${K("F5")} / ${K("Shift F5")}</td></tr>
+<tr><td>Nesneyi çoğalt</td><td>${K("Ctrl D")}</td></tr><tr><td>En öne getir / en arkaya gönder</td><td>${K("Ctrl Shift ]")} / ${K("Ctrl Shift [")}</td></tr></table>
+<h2>Ethical Database</h2><table><tr><td>Yeni veritabanı / aç</td><td>${K("Ctrl N")} / ${K("Ctrl O")}</td></tr>
+<tr><td>Yeni tablo / sorgu / rapor</td><td>${K("Ctrl Shift T")} / ${K("Ctrl Shift Q")} / ${K("Ctrl Shift R")}</td></tr></table>
+<h2>Ethical Photo Editor</h2><p>Bkz. <a href="#photo-tools">Fotoğraflar: araçlar</a> ve <a href="#photo-selections">seçimler</a>. Ayrıca ${K("Ctrl J")} çoğalt/katmana kopyala, ${K("Ctrl E")} aşağıyla birleştir, ${K("Ctrl T")} dönüştür, ${K("Ctrl Shift N")} yeni katman, ${K("Ctrl Alt I")} resim boyutu, ${K("Ctrl Alt C")} tuval boyutu.</p>
+
+@@ troubleshooting
+title: Sorun giderme ve SSS
+keywords: sorun hata çalışmıyor açılmıyor çökme eksik sağ tıklama yazı tipi ffmpeg virüsten koruma yavaş doc xls ppt dil
+---
+<h3>Bir uygulama açılmıyor</h3>
+<p>Yükleyiciyi <a href="https://ethicalapp.org">ethicalapp.org</a> adresinden yeniden çalıştırın — kurulumu onarır ve ayarlarınızı, notlarınızı ve anımsatıcılarınızı korur.</p>
+<h3>Yüklerken “Windows bilgisayarınızı korudu”</h3><p><b>Ek bilgi → Yine de çalıştır</b>'a tıklayın. Windows bunu henüz tanımadığı yeni programlarda gösterir. Gerçek olduğundan emin olmak istiyorsanız indirmenin SHA-256 parmak izini web sitesinde kontrol edin.</p>
+<h3>Sağ tıklama öğeleri eksik</h3><p>Yükleyiciyi yeniden çalıştırıp sağ tıklama seçeneğini işaretleyin. Windows 11'de <b>Daha fazla seçenek göster</b> altına bakın.</p>
+<h3>“Desteklenmeyen dosya türü” / eski Office dosyaları</h3><p>.doc, .xls ve .ppt desteklenmez — önce .docx/.xlsx/.pptx olarak kaydedin. .rar arşivleri ayıklanamaz.</p>
+<h3>Metin özgün dosyadan farklı görünüyor</h3><p>Yazı tipleri bilgisayarınızdan gelir. Bir belge sizde olmayan bir yazı tipini kullanıyorsa benzeri kullanılır. Yazı tipini yükleyip yeniden açın.</p>
+<h3>Excel/PowerPoint dosyasını kaydettikten sonra bir şey eksik</h3><p>Bkz. <a href="#compat">Dosya uyumluluğu</a> — uygulama koruyamadığı şeyler hakkında uyarır. Özgün dosyayı saklayın ve Farklı kaydet'i kullanın.</p>
+<h3>Bir video dönüştürme başarısız oldu</h3><p>Hata mesajı FFmpeg'den gelir. Yaygın nedenler: dosya bozuk veya hâlâ iniyor, sesi yok (ses biçimleri için) veya görüntüsü yok (video biçimleri için). Önce MP4 (H.264) deneyin — neredeyse her şeyle çalışır.</p>
+<h3>Virüsten koruma uyarısı</h3><p>Bazı virüsten koruma programları daha önce görmedikleri yeni programlara şüpheyle yaklaşır. EthicalApp'in tüm kaynak kodu <a href="https://github.com/CBGGitHub/ethicalapp">GitHub</a>'da herkese açıktır ve web sitesi her indirmenin parmak izini gösterir.</p>
+<h3>Uygulamalar yanlış dilde</h3><p>EthicalApp penceresinin altındaki <b>🌐</b> düğmesine tıklayın — bkz. <a href="#language">Dili değiştirme</a>.</p>
+<h3>Yavaş</h3><p>Devasa elektronik tablolar (100.000'den fazla formül), çok katmanlı çok büyük fotoğraflar ve uzun 4K videolar daha uzun sürer. Dönüştürücü her dosyanın ilerlemesini gösterir.</p>
+
+@@ glossary
+title: Sözlük
+keywords: sözlük terimler anlam tanım bit hızı crf codec kayıpsız kayıplı dpi katman karışım yer tutucu asıl
+---
+<table>
+<tr><td><b>Bit hızı</b></td><td>Ses/videonun saniyede kullandığı veri miktarı (örn. 192k). Daha yüksek = daha iyi kalite, daha büyük dosya.</td></tr>
+<tr><td><b>Karışım modu</b></td><td>Bir katmanın altındaki katmanlarla nasıl karıştığı (Çarp, Ekran…).</td></tr>
+<tr><td><b>Codec</b></td><td>Ses/videoyu sıkıştırma yöntemi (H.264, H.265, AAC, MP3…).</td></tr>
+<tr><td><b>CRF</b></td><td>Video kalitesi ayarı: daha düşük = daha iyi kalite, daha büyük dosya.</td></tr>
+<tr><td><b>DPI</b></td><td>İnç başına nokta — yazdırırken veya PDF'leri resme dönüştürürken çözünürlük.</td></tr>
+<tr><td><b>Yumuşatma</b></td><td>Bir seçimdeki yumuşak, kademeli kenar.</td></tr>
+<tr><td><b>Düzleştirme</b></td><td>Tüm katmanları tek bir resimde birleştirmek.</td></tr>
+<tr><td><b>Katman</b></td><td>Birlikte bir resim oluşturan saydam sayfa yığınındaki bir sayfa.</td></tr>
+<tr><td><b>Kayıpsız</b></td><td>Kalite kaybı olmadan sıkıştırma (PNG, FLAC, ZIP). <b>Kayıplı</b>, yer kazanmak için ayrıntıları atar (JPG, MP3, MP4).</td></tr>
+<tr><td><b>Asıl / düzen</b></td><td>PowerPoint dosyalarında gerçek slaytlara arka planlarını, yazı tiplerini ve logoyu veren gizli tasarım slaytları.</td></tr>
+<tr><td><b>Adlandırılmış aralık</b></td><td>Bir elektronik tablodaki hücreleri temsil eden bir ad (<code>Prices</code> gibi).</td></tr>
+<tr><td><b>Yer tutucu</b></td><td>Bir slayttaki boş “… eklemek için tıklayın” kutusu.</td></tr>
+<tr><td><b>Karartma</b></td><td>İçeriği bir PDF'den kalıcı olarak kaldırmak.</td></tr>
+<tr><td><b>Tolerans</b></td><td>Bir rengin ne kadar farklı olup yine de “benzer” sayılabileceği (sihirli değnek, boya kovası).</td></tr></table>
+
+@@ licenses
+title: Teşekkürler ve lisanslar
+keywords: lisans teşekkürler açık kaynak ffmpeg qt pyside pymupdf gpl agpl lgpl mit
+---
+<p>EthicalApp'in kendi kodu bu proje için yazılmıştır. Şu ücretsiz, açık kaynak parçalar üzerine kuruludur:</p>
+<table><tr><th>Parça</th><th>Kullanım amacı</th><th>Lisans</th></tr>
+<tr><td>Python</td><td>programlama dili</td><td>PSF</td></tr>
+<tr><td>Qt / PySide6</td><td>pencereler, metin düzeni, yazdırma, grafikler</td><td>LGPL v3</td></tr>
+<tr><td>PyMuPDF (MuPDF)</td><td>PDF okuma/yazma</td><td>AGPL v3</td></tr>
+<tr><td>FFmpeg (imageio-ffmpeg aracılığıyla)</td><td>ses ve video dönüştürme</td><td>GPL v3 (bu derleme)</td></tr>
+<tr><td>python-docx, python-pptx, openpyxl</td><td>Word, PowerPoint ve Excel dosyaları</td><td>MIT</td></tr>
+<tr><td>Pillow</td><td>resimler</td><td>MIT-CMU (HPND)</td></tr>
+<tr><td>NumPy, SciPy</td><td>resim hesaplamaları</td><td>BSD</td></tr>
+<tr><td>psd-tools</td><td>Photoshop dosyalarını okuma</td><td>MIT</td></tr>
+<tr><td>py7zr</td><td>7z arşivleri</td><td>LGPL v2.1</td></tr>
+<tr><td>SQLite (Python'a dahil)</td><td>Ethical Database veritabanları</td><td>Kamu malı</td></tr>
+<tr><td>pyodbc</td><td>Access dosyalarını içe aktarma</td><td>MIT</td></tr>
+<tr><td>yt-dlp, Deno (yalnızca kişisel sürümler)</td><td>bağlantılardan video indirme</td><td>Unlicense / MIT</td></tr>
+<tr><td>MCP Python SDK</td><td>yapay zekâ (Claude) bağlayıcısı</td><td>MIT</td></tr></table>
+<p>EthicalApp'in kendisi <b>AGPL-3.0</b> lisanslıdır. Tam lisans metinleri kurulumunuzdaki <code>licenses</code> klasöründedir ve kaynak kodu <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a> adresindedir. Microsoft veya Adobe ile bağlantılı değildir.</p>

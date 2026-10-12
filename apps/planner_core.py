@@ -18,14 +18,15 @@ import os
 import time
 import uuid
 from datetime import date, datetime, timedelta
+from i18n import N_, day_name, tr
 
 FOLDER = os.path.join(os.environ.get("APPDATA") or os.path.expanduser("~"), "Ethical Suite", "Planner")
 FILE = os.path.join(FOLDER, "planner.json")
 STATE = os.path.join(FOLDER, "planner_state.json")
 ALL_DAY_ALERT_HOUR = 9           # all-day items alert at 9:00 (minus their alert offset)
 
-REPEATS = {"none": "Never", "daily": "Every day", "weekdays": "Every weekday (Mon–Fri)", "weekly": "Every week",
-           "monthly": "Every month", "yearly": "Every year"}
+REPEATS = {"none": N_("Never"), "daily": N_("Every day"), "weekdays": N_("Every weekday (Mon–Fri)"), "weekly": N_("Every week"),
+           "monthly": N_("Every month"), "yearly": N_("Every year")}
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 COLORS = {"blue": "#3F51B5", "green": "#2E7D32", "orange": "#EF6C00", "red": "#C62828", "purple": "#7B1FA2",
           "teal": "#00897B", "gray": "#546E7A"}
@@ -142,23 +143,24 @@ def describe_repeat(item):
         return ""
     if rep == "weekly":
         days = item.get("days") or [parse_dt(item["start"]).weekday()]
-        txt = ("Every week" if n == 1 else f"Every {n} weeks") + " on " + ", ".join(DAY_NAMES[d] for d in sorted(days))
+        names = ", ".join(day_name(d, short=True) for d in sorted(days))
+        txt = (tr("Every week on {days}") if n == 1 else tr("Every {n} weeks on {days}")).format(n=n, days=names)
     elif n > 1 and rep in ("daily", "monthly", "yearly"):
-        txt = f"Every {n} " + {"daily": "days", "monthly": "months", "yearly": "years"}[rep]
+        txt = {"daily": tr("Every {n} days"), "monthly": tr("Every {n} months"), "yearly": tr("Every {n} years")}[rep].format(n=n)
     else:
-        txt = REPEATS.get(rep, rep)
-    return txt + (f" until {until}" if until else "")
+        txt = tr(REPEATS.get(rep, rep))
+    return txt + (" " + tr("until {date}").format(date=until) if until else "")
 
 
 def describe_alert(minutes):
     m = int(minutes)
     if m == 0:
-        return "At the time"
+        return tr("At the time")
     if m % 1440 == 0:
-        return f"{m // 1440} day{'s' if m >= 2880 else ''} before"
+        return tr("1 day before") if m == 1440 else tr("{n} days before").format(n=m // 1440)
     if m % 60 == 0:
-        return f"{m // 60} hour{'s' if m >= 120 else ''} before"
-    return f"{m} minutes before"
+        return tr("1 hour before") if m == 60 else tr("{n} hours before").format(n=m // 60)
+    return tr("{n} minutes before").format(n=m)
 
 
 # ---------------------------------------------------------------- files

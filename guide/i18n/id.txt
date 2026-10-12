@@ -1,0 +1,442 @@
+@ui
+guide_title: Panduan EthicalApp
+search: Cari di panduan…  (tekan / )
+theme: Terang / gelap
+footer: Panduan EthicalApp · berfungsi tanpa internet
+result_one: 1 hasil untuk “{q}”
+result_many: {n} hasil untuk “{q}”
+nothing: Tidak ada yang ditemukan. Coba kata yang lebih sedikit atau berbeda — mis. “gabung pdf”, “jumlah”, “lapisan”.
+english_only: Artikel ini untuk sementara hanya tersedia dalam bahasa Inggris.
+
+@sections
+start: Memulai
+pdf: Ethical PDF Editor
+write: Ethical Document Editor
+sheets: Ethical Spreadsheet Editor
+slides: Ethical Presentation Editor
+photo: Ethical Photo Editor
+conv: Ethical Converter
+base: Ethical Database
+sticky: Ethical Sticky Notes
+snip: Ethical Snip
+planner: Ethical Planner
+help: Bantuan dan referensi
+
+@@ welcome
+title: Selamat datang di EthicalApp
+keywords: ikhtisar aplikasi pengantar mulai
+---
+<p>EthicalApp adalah kumpulan aplikasi desktop buatan sendiri yang gratis untuk Windows — versi kami sendiri dari alat
+yang dipakai semua orang setiap hari. Aplikasinya membuka dan menyimpan <b>format file asli</b> (Word, Excel, PowerPoint, PDF, Photoshop),
+jadi Anda bisa bertukar file dengan siapa saja.</p>
+<div class="cards">
+<a class="card" href="#pdf-basics"><img src="../branding/icons/png/pdf_64.png" alt=""><b>Ethical PDF Editor</b><span>Lihat, edit teks, beri anotasi, isi formulir, tanda tangani, gabung, dan pisahkan PDF</span></a>
+<a class="card" href="#write-basics"><img src="../branding/icons/png/document_64.png" alt=""><b>Ethical Document Editor</b><span>Dokumen — membuka dan menyimpan .docx Word</span></a>
+<a class="card" href="#sheets-basics"><img src="../branding/icons/png/spreadsheet_64.png" alt=""><b>Ethical Spreadsheet Editor</b><span>Lembar kerja dengan 143 rumus dan bagan — .xlsx Excel</span></a>
+<a class="card" href="#slides-basics"><img src="../branding/icons/png/presentation_64.png" alt=""><b>Ethical Presentation Editor</b><span>Presentasi dan slide — .pptx PowerPoint</span></a>
+<a class="card" href="#photo-basics"><img src="../branding/icons/png/photo_64.png" alt=""><b>Ethical Photo Editor</b><span>Editor foto berlapis — .psd Photoshop, PNG, JPG…</span></a>
+<a class="card" href="#conv-basics"><img src="../branding/icons/png/converter_64.png" alt=""><b>Ethical Converter</b><span>Konversi dan kompres audio, video, gambar, dokumen; zip/ekstrak</span></a>
+<a class="card" href="#base-basics"><img src="../branding/icons/png/database_64.png" alt=""><b>Ethical Database</b><span>Basis data: tabel, formulir, kueri, relasi, laporan</span></a>
+<a class="card" href="#stickies"><img src="../branding/icons/png/stickynotes_64.png" alt=""><b>Ethical Sticky Notes</b><span>Catatan dan daftar tugas yang tetap di desktop Anda</span></a>
+<a class="card" href="#snip"><img src="../branding/icons/png/snip_64.png" alt=""><b>Ethical Snip</b><span>Tangkapan layar untuk diberi tanda — Ctrl+PrtScn</span></a>
+<a class="card" href="#planner"><img src="../branding/icons/png/planner_64.png" alt=""><b>Ethical Planner</b><span>Pengingat dan kalender yang memberi tahu tepat waktu</span></a>
+</div>
+<h2>Mulai cepat</h2>
+<ol><li>Pertama kali? Lihat <a href="#setup">Memasang dan menjalankan aplikasi</a>.</li>
+<li>Buka <b>EthicalApp</b> dari menu Start atau desktop: satu jendela berisi semua aplikasi Anda. Klik salah satunya atau jatuhkan file ke atasnya.
+Anda juga bisa <b>klik kanan file → Buka dengan Ethical …</b> (lihat <a href="#right-click">Menu klik kanan</a>).</li>
+<li>Tekan <kbd>F1</kbd> di aplikasi mana pun untuk membuka panduan ini di halaman aplikasi tersebut.</li>
+<li>Ingin bahasa lain? Klik <b>🌐</b> di bagian bawah jendela EthicalApp (lihat <a href="#language">Mengganti bahasa</a>).</li>
+<li>Ingin asisten AI yang mengerjakannya? Lihat <a href="#ai-claude">Memakai aplikasi dengan AI (Claude)</a>.</li></ol>
+<div class="tip">Gunakan kotak pencarian di atas (atau tekan <kbd>/</kbd>) untuk menemukan apa saja — mis. “sensor”, “VLOOKUP”, “mode campuran”, “kompres video”.</div>
+
+@@ setup
+title: Memasang dan menjalankan aplikasi
+keywords: pasang instal penginstal unduh perbarui hapus menu start pertama kali
+---
+<h2>Memasang</h2>
+<ol><li>Unduh penginstal dari <a href="https://ethicalapp.org">ethicalapp.org</a> lalu jalankan. Tidak perlu kata sandi administrator.</li>
+<li>Jika Windows menampilkan “Windows melindungi PC Anda”, klik <b>Info selengkapnya → Tetap jalankan</b>. Ini muncul untuk program baru yang belum banyak dikenal; Anda bisa memastikan unduhan asli dengan sidik jari SHA-256 di situs web.</li>
+<li>Pilih <b>Semua</b>, <b>Hanya aplikasi kantor</b>, atau centang tepat aplikasi yang Anda inginkan.</li>
+<li>Opsi: pintasan desktop, item “Buka dengan Ethical …” di menu klik kanan, memulai Sticky Notes / Snip / Planner bersama Windows, dan <b>Hubungkan aplikasi pilihan ke Claude</b> (lihat <a href="#ai-claude">Memakai aplikasi dengan AI</a>).</li>
+<li><b>Bantu saya menyematkan EthicalApp ke taskbar / Start</b>: Windows tidak mengizinkan program menyematkan dirinya sendiri, jadi peluncur menunjukkan dua klik yang dibutuhkan (klik kanan ikonnya di taskbar → <b>Sematkan ke taskbar</b>; atau di Start klik kanan <b>EthicalApp</b> → <b>Sematkan ke Mulai</b>). Tautan <b>Sematkan ke taskbar atau Start…</b> di peluncur menampilkannya lagi kapan saja.</li></ol>
+<h2>Menjalankan</h2>
+<p>Buka <b>EthicalApp</b> (menu Start atau desktop) untuk satu jendela berisi semua aplikasi yang terpasang: klik sebuah ubin, gunakan <b>Buka file…</b> (<kbd>Ctrl</kbd>+<kbd>O</kbd>), atau jatuhkan file ke atasnya, dan masing-masing terbuka di aplikasi yang tepat. Setiap aplikasi juga ada di <b>Start → EthicalApp</b>.</p>
+<h2>Memperbarui dan menghapus</h2>
+<p>Untuk memperbarui, jalankan penginstal yang lebih baru: ia menggantikan versi lama dan menyimpan pengaturan, catatan, dan pengingat Anda. Untuk menghapus semuanya: <b>Pengaturan → Aplikasi → EthicalApp → Copot</b> (catatan dan pengingat tetap di PC untuk berjaga-jaga jika Anda memasang ulang).</p>
+<h2>Dari kode sumber (pengembang)</h2>
+<p>Semua kode sumber terbuka untuk umum — lihat <a href="#sharing">Kode sumber dan membangunnya sendiri</a>.</p>
+
+@@ language
+title: Mengganti bahasa
+keywords: bahasa terjemahan indonesia inggris language
+---
+<p>EthicalApp tersedia dalam English, Español, Português (Brasil), Français, Deutsch, Italiano, Nederlands, Polski, Türkçe, Русский, Bahasa Indonesia, 日本語, 한국어, dan 简体中文.</p>
+<ol><li>Buka jendela <b>EthicalApp</b> (menu Start).</li>
+<li>Klik <b>🌐</b> di bagian bawah lalu pilih bahasa. <b>Sama seperti Windows</b> mengikuti bahasa tampilan Windows — itu bawaannya.</li>
+<li>Setujui untuk memulai ulang EthicalApp. Aplikasi yang sudah terbuka berubah saat berikutnya Anda menjalankannya.</li></ol>
+<p>Pilihan ini berlaku untuk semua aplikasi Ethical, panduan ini, dan kotak dialog (Buka/Simpan, warna). Tanggal juga mengikuti bahasa Anda.</p>
+<div class="tip">File Anda tidak berubah: dokumen tetap dalam bahasa saat ditulis. Hanya tombol dan menu yang diterjemahkan.</div>
+
+@@ right-click
+title: Menu klik kanan dan aplikasi bawaan
+keywords: buka dengan menu konteks program bawaan windows 11 tampilkan opsi lainnya hapus
+---
+<p>Jika Anda mencentang opsi klik kanan di penginstal, menu klik kanan Windows memiliki item ini (hanya untuk akun Anda — tanpa hak administrator):</p>
+<table><tr><th>Klik kanan…</th><th>Anda mendapatkan</th></tr>
+<tr><td>.pdf</td><td>Buka dengan Ethical PDF Editor</td></tr>
+<tr><td>.docx</td><td>Buka dengan Ethical Document Editor</td></tr>
+<tr><td>.xlsx, .csv</td><td>Buka dengan Ethical Spreadsheet Editor</td></tr>
+<tr><td>.pptx</td><td>Buka dengan Ethical Presentation Editor</td></tr>
+<tr><td>.psd .png .jpg .webp .bmp .gif .tif .ora</td><td>Buka dengan Ethical Photo Editor</td></tr>
+<tr><td>.db .sqlite .accdb .mdb</td><td>Buka dengan Ethical Database</td></tr>
+<tr><td>File atau folder apa pun</td><td>Konversi / kompres dengan Ethical Converter</td></tr></table>
+<p>Pilih beberapa file, klik kanan, lalu pilih item konverter: semuanya masuk ke <b>satu</b> jendela konverter.</p>
+<h2>Menjadikan aplikasi sebagai bawaan</h2>
+<p>Klik kanan file → <b>Buka dengan → Pilih aplikasi lain</b> → pilih aplikasi Ethical → centang <b>Selalu gunakan aplikasi ini</b>.</p>
+<h2>Windows 11</h2><p>Itemnya ada di bawah <b>Tampilkan opsi lainnya</b> (atau tahan <kbd>Shift</kbd> saat klik kanan).</p>
+<h2>Menghapus item</h2>
+<p>Jalankan penginstal lagi dan hapus centang opsi klik kanan, atau copot EthicalApp — itemnya ikut hilang.</p>
+
+@@ sharing
+title: Kode sumber dan membangunnya sendiri
+keywords: kode sumber github sumber terbuka build pengembang ubah agpl bagikan
+---
+<p>EthicalApp bersifat sumber terbuka (AGPL-3.0). Semua kode sumber ada di GitHub: <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>, dan setiap penginstal memiliki zip kode sumbernya di <a href="https://ethicalapp.org">ethicalapp.org</a>.</p>
+<h2>Berbagi dengan teman</h2>
+<p>Kirimkan tautan ke <a href="https://ethicalapp.org">ethicalapp.org</a> — selalu versi terbaru dan aman.</p>
+<h2>Membangun penginstal dari kode sumber</h2>
+<ol><li>Pasang <b>Python 3.14</b> dan <b>Inno Setup 6</b>.</li>
+<li>Di folder kode sumber: <code>python -m venv .venv</code>, lalu <code>.venv\\Scripts\\python -m pip install -r requirements.txt</code>.</li>
+<li>Jalankan aplikasi langsung (mis. <code>.venv\\Scripts\\python apps\\suite_launcher.py</code>) atau bangun penginstal dengan <code>.venv\\Scripts\\python installer\\build.py</code>.</li></ol>
+<h2>Isi kode sumber</h2>
+<table><tr><th>Folder</th><th>Kegunaan</th></tr>
+<tr><td><code>apps/</code></td><td>Kode setiap aplikasi</td></tr>
+<tr><td><code>apps/locales/</code></td><td>Terjemahan (satu file per bahasa)</td></tr>
+<tr><td><code>guide/</code></td><td>Panduan ini (dan <code>guide/i18n/</code> untuk terjemahannya)</td></tr>
+<tr><td><code>branding/</code></td><td>Ikon dan suara</td></tr>
+<tr><td><code>installer/</code></td><td>Membangun penginstal Windows</td></tr>
+<tr><td><code>licenses/</code></td><td>Lisensi komponen sumber terbuka</td></tr></table>
+<p>Jika Anda mengubahnya dan membagikan versi Anda, AGPL meminta Anda juga membagikan kode sumber Anda.</p>
+
+@@ compat
+title: Sekilas kompatibilitas file
+keywords: format docx xlsx pptx psd pdf kompatibel hilang peringatan dipertahankan
+---
+<table><tr><th>Aplikasi</th><th>Membuka</th><th>Menyimpan</th><th>Belum dipertahankan (akan memperingatkan)</th></tr>
+<tr><td>PDF</td><td>.pdf (termasuk yang dilindungi kata sandi)</td><td>.pdf, ekspor .docx/.txt/gambar</td><td>—</td></tr>
+<tr><td>Dokumen</td><td>.docx .html .md .txt</td><td>.docx .odt .html .md .txt, PDF</td><td>catatan kaki, komentar, pelacakan perubahan, kotak teks, gambar mengambang, kolom</td></tr>
+<tr><td>Lembar kerja</td><td>.xlsx .xlsm .csv .tsv</td><td>.xlsx .csv, PDF</td><td>pemformatan bersyarat, daftar tarik-turun/validasi data, tabel pivot, makro, bagan yang tidak umum</td></tr>
+<tr><td>Presentasi</td><td>.pptx</td><td>.pptx, PDF, PNG</td><td>bagan, SmartArt, video/audio, animasi dan transisi</td></tr>
+<tr><td>Basis data</td><td>.db/.sqlite (SQLite); impor .xlsx, .csv, Access .accdb/.mdb*</td><td>.db; ekspor .xlsx, .csv, PDF</td><td>*Impor Access membutuhkan driver Access gratis dari Microsoft; formulir, laporan, dan makro Access tidak ikut (hanya tabel)</td></tr>
+<tr><td>Foto</td><td>.psd .png .jpg .webp .bmp .gif .tif .ico .ora</td><td>.psd (lapisan) .ora (lapisan), semua format datar, PDF</td><td>lapisan penyesuaian PSD, efek lapisan, masker, objek cerdas (pikselnya dimuat)</td></tr></table>
+<div class="tip">Jika file berisi sesuatu yang tidak bisa dipertahankan aplikasi, aplikasi memberi tahu saat membukanya dan bertanya lagi sebelum Anda menyimpan menimpa aslinya. Gunakan <b>File → Simpan sebagai</b> agar aslinya tidak tersentuh.</div>
+<p>Format lama (<code>.doc</code>, <code>.xls</code>, <code>.ppt</code>) tidak didukung — buka di program pembuatnya lalu simpan dulu dalam format modern ber-“x”.</p>
+
+@@ pdf-basics
+title: PDF: membuka, melihat, dan mencari teks
+keywords: perbesar gambar mini halaman panel cari temukan kata sandi
+---
+<p>Buka PDF dengan <b>File → Buka</b> (<kbd>Ctrl</kbd>+<kbd>O</kbd>), dengan menyeretnya ke jendela, atau klik kanan → <i>Buka dengan Ethical PDF Editor</i>. PDF yang dilindungi kata sandi akan meminta kata sandinya.</p>
+<h2>Berkeliling</h2><ul>
+<li><b>Zoom:</b> <kbd>Ctrl</kbd>+roda mouse, kotak zoom, <i>Sesuaikan lebar</i> (<kbd>Ctrl</kbd>+<kbd>1</kbd>), ukuran sebenarnya (<kbd>Ctrl</kbd>+<kbd>0</kbd>).</li>
+<li><b>Panel Halaman</b> (kiri): klik gambar mini untuk melompat ke sana. Pilih beberapa dengan <kbd>Ctrl</kbd>/<kbd>Shift</kbd> untuk operasi halaman. Klik kanan untuk menu Halaman.</li>
+<li><b>Ke halaman:</b> ketik nomor di kotak Halaman.</li></ul>
+<h2>Mencari teks</h2><p>Ketik di <b>Cari teks…</b> lalu tekan <kbd>Enter</kbd>; <kbd>F3</kbd> / <b>Berikutnya</b> dan <b>Sebelumnya</b> menelusuri hasil (semua disorot, yang aktif berwarna oranye).</p>
+<h2>Menyalin teks</h2><p>Dengan alat <b>Pilih</b>, seret di atas teks, lalu <kbd>Ctrl</kbd>+<kbd>C</kbd>.</p>
+
+@@ pdf-edit-text
+title: PDF: mengedit teks yang ada dan menambah teks
+keywords: edit teks ubah kata font salah ketik tambah teks
+---
+<h2>Mengubah teks yang sudah ada di PDF</h2><ol>
+<li>Pilih alat <b>Edit teks</b>.</li><li>Klik baris yang ingin diubah.</li>
+<li>Sebuah kotak menampilkan teks baris, font, ukuran, tebal/miring, dan warnanya — ubah yang Anda mau lalu klik OK.</li></ol>
+<p>Aplikasi mengenali font PDF dan memilih font yang sesuai yang terpasang di PC Anda (mis. Calibri, Times New Roman). Jika tidak terpasang, dipakai font yang mirip.</p>
+<div class="warn">Pengeditan berlaku per baris. Teks yang diputar atau vertikal tidak bisa diedit.</div>
+<h2>Menambah teks baru</h2><p>Pilih <b>Tambah teks</b>, klik tempatnya, ketik, dan pilih font apa pun yang terpasang. Teks itu menjadi teks halaman sungguhan — nanti bisa diubah dengan <b>Edit teks</b>.</p>
+
+@@ pdf-annotate
+title: PDF: sorotan, catatan, menggambar, dan bentuk
+keywords: anotasi sorot garis bawah coret catatan gambar pena persegi panjang elips panah garis gambar warna
+---
+<table><tr><th>Alat</th><th>Caranya</th></tr>
+<tr><td>Sorot / Garis bawah / Coret</td><td>Seret di atas teks. Sorot memakai warna <b>Penyorot</b>; yang lain memakai tombol <b>Warna</b>.</td></tr>
+<tr><td>Catatan</td><td>Klik untuk menempelkan catatan lalu ketik isinya.</td></tr>
+<tr><td>Gambar bebas</td><td>Pena tangan bebas (warna dan tebal di bilah alat).</td></tr>
+<tr><td>Persegi panjang / Elips / Garis / Panah</td><td>Seret untuk menggambar.</td></tr>
+<tr><td>Gambar</td><td>Klik (atau seret kotak) lalu pilih gambar.</td></tr></table>
+<h2>Mengedit anotasi nanti</h2><p>Beralih ke <b>Pilih</b>, lalu:</p><ul>
+<li>seret anotasi untuk memindahkannya; tekan <kbd>Delete</kbd> untuk menghapusnya;</li>
+<li>klik dua kali kotak teks atau catatan untuk mengedit teksnya;</li>
+<li>klik kanan untuk <i>Ubah warna</i> / <i>Hapus</i>.</li></ul>
+<p>Setiap perubahan bisa dibatalkan dengan <kbd>Ctrl</kbd>+<kbd>Z</kbd>.</p>
+
+@@ pdf-forms-sign
+title: PDF: mengisi formulir dan menandatangani
+keywords: formulir isian kotak centang isi tanda tangan tanda tangani gambar
+---
+<h2>Formulir</h2><p>Isian formulir diwarnai biru muda (matikan lewat <i>Tampilan → Sorot isian formulir</i>). Dengan alat <b>Pilih</b>, klik sebuah isian: isian teks meminta teks, kotak centang bisa dicentang dan dihapus centangnya, daftar tarik-turun menampilkan pilihannya.</p>
+<h2>Tanda tangan</h2><ol><li>Pilih alat <b>Tanda tangan</b> (atau <i>Edit → Buat tanda tangan</i>).</li>
+<li><b>Gambar</b> tanda tangan dengan mouse, atau pakai gambar (tab <b>Gambar</b> — sebaiknya PNG berlatar transparan).</li>
+<li>Klik halaman untuk menempatkannya. Klik lagi untuk salinan lain. Pindahkan nanti dengan <b>Pilih</b>.</li></ol>
+
+@@ pdf-pages
+title: PDF: halaman, menggabung, dan memisah
+keywords: putar hapus urutkan pindah sisipkan kosong gabung satukan pisahkan ekstrak halaman gambar
+---
+<p>Semua perintah halaman ada di menu <b>Halaman</b> (juga klik kanan di panel Halaman). Perintah berlaku untuk gambar mini yang dipilih, atau halaman saat ini.</p>
+<table><tr><th>Untuk</th><th>Gunakan</th></tr>
+<tr><td>Memutar</td><td>Putar ke kanan <kbd>Ctrl</kbd>+<kbd>R</kbd> / ke kiri <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd></td></tr>
+<tr><td>Mengubah urutan</td><td>Pindah halaman ke atas / ke bawah</td></tr>
+<tr><td>Menambah halaman</td><td>Sisipkan halaman kosong, Sisipkan halaman dari file (PDF lain), Sisipkan gambar sebagai halaman</td></tr>
+<tr><td>Mengeluarkan halaman</td><td>Ekstrak halaman terpilih (menyimpannya sebagai PDF baru)</td></tr>
+<tr><td>Satu file per halaman</td><td>Pisahkan menjadi halaman tunggal</td></tr>
+<tr><td>Menghapus</td><td>Hapus halaman terpilih</td></tr></table>
+<h2>Menggabungkan beberapa file</h2><p><b>File → Gabungkan file menjadi satu PDF</b>: pilih PDF dan gambar secara berurutan; semuanya menjadi satu PDF baru. <b>File → PDF baru dari gambar</b> mengubah foto atau hasil pindaian menjadi PDF.</p>
+<div class="tip"><a href="#conv-combine">Konverter</a> juga bisa menggabungkan gambar dan PDF sekaligus dalam jumlah banyak.</div>
+
+@@ pdf-redact
+title: PDF: tutup putih atau sensor (menyembunyikan informasi)
+keywords: sensor kotak hitam sembunyikan hapus rahasia tutup putih privasi aman
+---
+<table><tr><th>Alat</th><th>Fungsinya</th><th>Aman untuk rahasia?</th></tr>
+<tr><td><b>Tutup putih</b></td><td>Melukis kotak putih di atas area.</td><td>❌ Teks di bawahnya tetap ada di file dan bisa disalin.</td></tr>
+<tr><td><b>Sensor</b></td><td>Menghapus permanen teks, gambar, dan coretan di bawah kotak lalu mengisinya dengan hitam.</td><td>✅ Ya — isinya hilang.</td></tr></table>
+<div class="warn">Selalu gunakan <b>Sensor</b> untuk kata sandi, nomor rekening, alamat, dan sejenisnya. Simpan hasilnya sebagai file baru dan simpan aslinya di tempat aman.</div>
+
+@@ pdf-export
+title: PDF: menyimpan, mengekspor, dan mencetak
+keywords: simpan ekspor word docx gambar png jpg teks cetak
+---
+<ul><li><b>Simpan</b> (<kbd>Ctrl</kbd>+<kbd>S</kbd>) / <b>Simpan sebagai</b>. Saat menyimpan, hanya huruf yang dipakai dari font tertanam yang disimpan, jadi file tetap kecil.</li>
+<li><b>File → Ekspor</b>: halaman sebagai gambar PNG/JPG (pilih DPI), sebagai dokumen Word (.docx — teks, gaya, dan gambar; bukan tata letak persis), atau sebagai teks biasa.</li>
+<li><b>File → Cetak</b> (<kbd>Ctrl</kbd>+<kbd>P</kbd>).</li></ul>
+
+@@ write-basics
+title: Dokumen: dasar-dasar
+keywords: pengolah kata dokumen tampilan halaman mengetik gaya judul normal font
+---
+<p>Ethical Document Editor menampilkan dokumen Anda sebagai halaman sungguhan — lembar putih dengan margin, persis seperti saat dicetak. Bilah status menunjukkan halaman tempat Anda berada dan jumlah kata.</p>
+<h2>Gaya</h2><p>Kotak pertama di bilah format menentukan gaya paragraf: <b>Normal, Judul, Judul 1–4</b>. Menekan <kbd>Enter</kbd> setelah judul kembali ke Normal, seperti di Word. Judul disimpan sebagai judul Word yang sebenarnya.</p>
+<h2>Font</h2><p>Semua font di PC Anda tersedia. Dokumen baru memakai Calibri 11 (atau Arial jika Calibri tidak terpasang).</p>
+<h2>Tombol berguna</h2><table>
+<tr><td>Tebal / Miring / Garis bawah</td><td>${K("Ctrl B")} ${K("Ctrl I")} ${K("Ctrl U")}</td></tr>
+<tr><td>Teks lebih besar / lebih kecil</td><td>${K("Ctrl ]")} ${K("Ctrl [")}</td></tr>
+<tr><td>Rata kiri / tengah / kanan / kiri-kanan</td><td>${K("Ctrl L")} ${K("Ctrl E")} ${K("Ctrl R")} ${K("Ctrl J")}</td></tr>
+<tr><td>Cari dan ganti</td><td>${K("Ctrl F")} / ${K("Ctrl H")}</td></tr>
+<tr><td>Pemisah halaman</td><td>${K("Ctrl Enter")}</td></tr>
+<tr><td>Hapus format</td><td>${K("Ctrl Space")}</td></tr>
+<tr><td>Tempel tanpa format</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>Jumlah kata</td><td>${K("Ctrl Shift G")}</td></tr></table>
+
+@@ write-format
+title: Dokumen: memformat teks, paragraf, dan daftar
+keywords: tebal warna sorotan superskrip subskrip spasi baris inden poin penomoran daftar tab
+---
+<h2>Teks</h2><p>Font, ukuran, <b>B</b> <i>I</i> <u>U</u> <s>S</s>, superskrip x², subskrip x₂, warna teks (pilih dari contoh, terapkan dengan <b>A</b>), sorotan, <i>Format → Ubah huruf besar/kecil</i>, <i>Hapus format</i>.</p>
+<h2>Paragraf</h2><p>Perataan, <i>Paragraf → Spasi baris</i> (1.0–3.0), spasi sebelum/sesudah, tambah/kurangi inden (<kbd>Ctrl</kbd>+<kbd>M</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>).</p>
+<h2>Daftar</h2><ul>
+<li><b>• Daftar</b> / <b>1. Daftar</b> memulai poin atau penomoran; <i>Paragraf → Gaya daftar</i> memiliki 8 gaya (•, ○, ▪, 1., a., A., i., I.).</li>
+<li><kbd>Tab</kbd> di awal butir menjadikannya sub-butir; <kbd>Shift</kbd>+<kbd>Tab</kbd> mengembalikannya.</li>
+<li><kbd>Enter</kbd> pada butir kosong mengakhiri daftar; <kbd>Backspace</kbd> di awal menghapus poinnya.</li></ul>
+
+@@ write-insert
+title: Dokumen: gambar, tabel, dan tautan
+keywords: sisipkan gambar ubah ukuran tabel baris kolom gabung arsiran tautan hyperlink tanggal garis horizontal
+---
+<h2>Gambar</h2><p><i>Sisipkan → Gambar</i>, tempel dengan <kbd>Ctrl</kbd>+<kbd>V</kbd>, atau seret file gambar ke dalam. Klik kanan gambar → <b>Ubah ukuran gambar</b> untuk mengatur ukurannya dalam %.</p>
+<h2>Tabel</h2><p><i>Sisipkan → Tabel</i> (pilih baris/kolom dan, jika mau, baris judul berarsir). Di dalam tabel, menu <b>Tabel</b> atau klik kanan memungkinkan Anda menyisipkan/menghapus baris dan kolom, menggabungkan sel terpilih, memisahkan sel, menambah arsiran, atau menghapus tabel.</p>
+<h2>Tautan</h2><p>Pilih teks lalu tekan <kbd>Ctrl</kbd>+<kbd>K</kbd>. <kbd>Ctrl</kbd>+klik tautan untuk membukanya. Klik kanan → Hapus tautan.</p>
+<h2>Lainnya</h2><p>Pemisah halaman (<kbd>Ctrl</kbd>+<kbd>Enter</kbd>), tanggal dan waktu, garis horizontal.</p>
+
+@@ write-pagesetup
+title: Dokumen: pengaturan halaman, header, footer, dan nomor halaman
+keywords: margin ukuran kertas a4 letter lanskap header footer nomor halaman
+---
+<p><b>File → Pengaturan halaman</b>:</p><ul>
+<li>Kertas: Letter, Legal, A4, A5 atau ukuran khusus; <b>Lanskap</b>.</li>
+<li>Margin (atas, bawah, kiri, kanan) dalam inci.</li>
+<li>Teks <b>header</b> (di tengah atas setiap halaman), <b>footer</b> (kiri bawah), <b>nomor halaman</b> (kanan bawah).</li></ul>
+<p>Semuanya disimpan dalam .docx, jadi Word juga menampilkannya.</p>
+
+@@ write-files
+title: Dokumen: file, kompatibilitas Word, PDF, dan mencetak
+keywords: docx simpan buka odt html markdown txt pdf ekspor cetak pratinjau cetak kompatibilitas
+---
+<p><b>Membuka:</b> .docx, .html, .md, .txt. <b>Menyimpan:</b> .docx (bawaan), .odt, .html, .md, .txt. <b>Ekspor sebagai PDF</b> mempertahankan teks asli yang bisa dipilih. <b>Cetak</b> dan <b>Pratinjau cetak</b> sesuai dengan tampilan halaman.</p>
+<h2>Yang bolak-balik dengan Word</h2><p>Judul dan Judul utama, font (termasuk font tema), ukuran, tebal/miring/garis bawah/coret, warna, sorotan, perataan, inden, spasi, pemisah halaman, poin dan penomoran (bertingkat), tabel (sel tergabung, lebar, arsiran), gambar, tautan, ukuran halaman dan margin, teks header/footer dan nomor halaman.</p>
+<p><b>Belum:</b> catatan kaki, komentar, pelacakan perubahan, kotak teks, gambar mengambang (dengan bungkus teks), kolom, beberapa bagian. Belum ada zoom maupun pemeriksa ejaan.</p>
+
+@@ sheets-basics
+title: Lembar kerja: dasar-dasar
+keywords: lembar kerja sel mengetik enter tab bergerak bilah rumus kotak nama tab lembar status jumlah
+---
+<h2>Jendela</h2><ul>
+<li><b>Kotak nama</b> (kiri atas): menunjukkan sel saat ini; ketik <code>B12</code>, <code>A1:C20</code>, <code>Sheet2!A1</code>, atau rentang bernama lalu tekan Enter untuk ke sana (<kbd>Ctrl</kbd>+<kbd>G</kbd>).</li>
+<li><b>fx / bilah rumus</b>: menampilkan dan mengedit isi sel yang sebenarnya (mis. rumusnya).</li>
+<li><b>Tab lembar</b> (bawah): <b>+</b> menambah lembar; klik dua kali untuk mengganti nama; klik kanan untuk menggandakan/menghapus; seret untuk mengubah urutan.</li>
+<li><b>Bilah status</b>: pilih beberapa angka untuk melihat jumlah, rata-rata, dan banyaknya.</li></ul>
+<h2>Mengetik nilai</h2><table><tr><th>Ketik</th><th>Hasilnya</th></tr>
+<tr><td><code>1234.5</code> / <code>1,234</code></td><td>angka (dengan pemisah ribuan)</td></tr>
+<tr><td><code>$5</code> / <code>25%</code></td><td>mata uang / persen</td></tr>
+<tr><td><code>2026-10-11</code>, <code>10/11/2026</code>, <code>Oct 11, 2026</code></td><td>tanggal</td></tr>
+<tr><td><code>9:30</code>, <code>9:30 PM</code></td><td>waktu</td></tr>
+<tr><td><code>TRUE</code> / <code>FALSE</code></td><td>nilai benar/salah</td></tr>
+<tr><td><code>'007</code></td><td>teks persis seperti diketik (' disembunyikan)</td></tr>
+<tr><td><code>=A1*2</code></td><td>sebuah rumus</td></tr></table>
+<h2>Bergerak</h2><table>
+<tr><td>${K("Enter")} / ${K("Shift Enter")}</td><td>bawah / atas</td></tr><tr><td>${K("Tab")} / ${K("Shift Tab")}</td><td>kanan / kiri</td></tr>
+<tr><td>${K("Ctrl Arrow")}</td><td>lompat ke tepi data</td></tr><tr><td>${K("Ctrl Shift Arrow")}</td><td>pilih sampai tepi</td></tr>
+<tr><td>${K("F2")} atau klik dua kali</td><td>edit sel</td></tr><tr><td>${K("Delete")}</td><td>hapus isi</td></tr></table>
+
+@@ sheets-formulas
+title: Lembar kerja: rumus dan referensi
+keywords: rumus referensi absolut relatif $ dolar lembar lain rentang bernama galat div/0 ref name n/a melingkar jumlah otomatis
+---
+<p>Rumus diawali <code>=</code>: <code>=B2*C2</code>, <code>=SUM(D2:D20)</code>, <code>=IF(A1&gt;10,"big","small")</code>.</p>
+<h2>Operator</h2><p><code>+ - * /</code>, <code>^</code> (pangkat), <code>%</code> (persen), <code>&amp;</code> (gabung teks), <code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code>.</p>
+<h2>Referensi</h2><table>
+<tr><td><code>A1</code></td><td>satu sel — menyesuaikan saat Anda menyalinnya</td></tr>
+<tr><td><code>$A$1</code> / <code>A$1</code> / <code>$A1</code></td><td>kolom dan/atau baris absolut (tetap) — tidak berubah saat disalin</td></tr>
+<tr><td><code>A1:C10</code></td><td>sekelompok sel</td></tr><tr><td><code>B:B</code></td><td>seluruh kolom</td></tr>
+<tr><td><code>'My Sheet'!A1</code></td><td>sel di lembar lain</td></tr>
+<tr><td><code>Prices</code></td><td>rentang bernama (<i>Data → Tentukan nama</i>)</td></tr>
+<tr><td><code>{1,2;3,4}</code></td><td>konstanta larik</td></tr></table>
+<p>Salin/tempel, isi ke bawah (<kbd>Ctrl</kbd>+<kbd>D</kbd>), dan isi ke kanan (<kbd>Ctrl</kbd>+<kbd>R</kbd>) menyesuaikan referensi seperti Excel. Menyisipkan atau menghapus baris/kolom memperbarui semua rumus; referensi ke sel yang dihapus menjadi <code>#REF!</code>.</p>
+<h2>Pintasan</h2><ul><li><b>Jumlah Otomatis</b> (<kbd>Alt</kbd>+<kbd>=</kbd>) menulis <code>=SUM(…)</code> untuk angka di atas atau di kiri.</li>
+<li><b>Fungsi…</b> (<kbd>Shift</kbd>+<kbd>F3</kbd>) menyisipkan nama fungsi; <i>Bantuan → Daftar fungsi</i> menampilkan semuanya.</li></ul>
+<h2>Galat</h2><table>
+<tr><td><code>#DIV/0!</code></td><td>pembagian dengan nol</td></tr><tr><td><code>#VALUE!</code></td><td>jenis nilai salah (mis. teks dalam perhitungan)</td></tr>
+<tr><td><code>#REF!</code></td><td>sel yang dirujuknya telah dihapus</td></tr><tr><td><code>#NAME?</code></td><td>fungsi atau nama tidak dikenal</td></tr>
+<tr><td><code>#N/A</code></td><td>pencarian tidak menemukan apa pun</td></tr><tr><td><code>#NUM!</code></td><td>angka mustahil</td></tr>
+<tr><td><code>#CIRC!</code></td><td>referensi melingkar — rumus bergantung pada dirinya sendiri</td></tr></table>
+<div class="tip">Jika buku kerja Excel memakai fungsi yang belum dikenal Ethical Spreadsheet Editor, ditampilkan nilai terakhir yang dihitung Excel, bukan galat.</div>
+<p>Fungsi diketik dengan nama bahasa Inggrisnya (SUM, IF, VLOOKUP…), sama seperti di dalam file Excel.</p>
+
+@@ sheets-functions
+title: Lembar kerja: daftar fungsi (143 fungsi)
+keywords: fungsi daftar jumlah rata-rata hitung jika vlookup xlookup index match sumif countif teks tanggal bulatkan cicilan
+---
+<table><tr><th>Kelompok</th><th>Fungsi</th></tr>
+<tr><td>Total dan statistik</td><td>SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, COUNTBLANK, PRODUCT, MEDIAN, MODE, STDEV(.S/.P), VAR(.S/.P), LARGE, SMALL, RANK, SUMPRODUCT</td></tr>
+<tr><td>Bersyarat</td><td>SUMIF, SUMIFS, COUNTIF, COUNTIFS, AVERAGEIF, AVERAGEIFS, MAXIFS, MINIFS</td></tr>
+<tr><td>Logika</td><td>IF, IFS, IFERROR, IFNA, SWITCH, CHOOSE, AND, OR, NOT, XOR, TRUE, FALSE</td></tr>
+<tr><td>Pencarian</td><td>VLOOKUP, HLOOKUP, XLOOKUP, INDEX, MATCH, ROW, COLUMN, ROWS, COLUMNS</td></tr>
+<tr><td>Matematika</td><td>ROUND, ROUNDUP, ROUNDDOWN, TRUNC, INT, ABS, SQRT, POWER, MOD, EXP, LN, LOG, LOG10, SIGN, PI, RAND, RANDBETWEEN, CEILING, FLOOR, EVEN, ODD, FACT, DEGREES, RADIANS, SIN, COS, TAN, ASIN, ACOS, ATAN, ATAN2</td></tr>
+<tr><td>Teks</td><td>CONCATENATE, CONCAT, TEXTJOIN, LEFT, RIGHT, MID, LEN, UPPER, LOWER, PROPER, TRIM, CLEAN, FIND, SEARCH, SUBSTITUTE, REPLACE, REPT, EXACT, CHAR, CODE, VALUE, TEXT, FIXED, DOLLAR, T, N</td></tr>
+<tr><td>Tanggal dan waktu</td><td>TODAY, NOW, DATE, TIME, YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, WEEKDAY, DAYS, DATEDIF, EDATE, EOMONTH, DATEVALUE</td></tr>
+<tr><td>Pemeriksaan</td><td>ISBLANK, ISNUMBER, ISTEXT, ISNONTEXT, ISLOGICAL, ISERROR, ISERR, ISNA, ISEVEN, ISODD, NA</td></tr>
+<tr><td>Keuangan</td><td>PMT, FV, PV, NPV</td></tr></table>
+<h2>Contoh</h2><table>
+<tr><td><code>=VLOOKUP("Apples",A2:C50,3,FALSE)</code></td><td>cari “Apples” di kolom A dan kembalikan kolom C</td></tr>
+<tr><td><code>=XLOOKUP(F2,A:A,C:C,"not found")</code></td><td>pencarian modern dengan nilai cadangan</td></tr>
+<tr><td><code>=INDEX(B2:B50,MATCH(F2,A2:A50,0))</code></td><td>pencarian ke arah mana pun</td></tr>
+<tr><td><code>=SUMIF(B:B,"&gt;100",C:C)</code></td><td>jumlahkan C di mana B lebih dari 100</td></tr>
+<tr><td><code>=COUNTIF(A:A,"app*")</code></td><td>hitung sel yang diawali “app”</td></tr>
+<tr><td><code>=TEXT(TODAY(),"dddd, mmmm d")</code></td><td>hari ini sebagai teks, mis. “Sunday, October 11”</td></tr>
+<tr><td><code>=PMT(5%/12,360,-200000)</code></td><td>cicilan bulanan KPR 30 tahun</td></tr>
+<tr><td><code>=IFERROR(A1/B1,0)</code></td><td>0 sebagai ganti galat</td></tr></table>
+
+@@ sheets-format
+title: Lembar kerja: format dan format angka
+keywords: format angka mata uang persen tanggal desimal kode khusus tebal isian warna batas gabung bungkus teks rata lebar kolom tinggi baris sembunyikan
+---
+<h2>Gaya sel</h2><p>Font, ukuran, <b>B I U S</b>, warna font, warna <b>isian</b> (dan <b>Tanpa isian</b>), perataan (kiri/tengah/kanan, atas/tengah/bawah), <b>bungkus</b> teks, <b>Gabung dan tengahkan</b>, <b>Batas</b> (semua, luar, tebal, bawah, atas dan bawah, tanpa).</p>
+<h2>Format angka</h2><p>Bilah alat: <b>$</b> mata uang, <b>%</b>, <b>,</b> ribuan, <b>.0+ / .0-</b> desimal, atau daftar format (Umum, Angka, Mata uang, Akuntansi, Persentase, tanggal, waktu, Ilmiah, Teks). <i>Format → Format angka → Khusus…</i> menerima kode format Excel:</p>
+<table><tr><th>Kode</th><th>12345.678 tampil sebagai</th></tr>
+<tr><td><code>#,##0.00</code></td><td>12,345.68</td></tr><tr><td><code>$#,##0</code></td><td>$12,346</td></tr>
+<tr><td><code>0.0%</code></td><td>1234567.8% (dikali 100)</td></tr><tr><td><code>0.00E+00</code></td><td>1.23E+04</td></tr>
+<tr><td><code>000000</code></td><td>012346</td></tr><tr><td><code>#,##0;(#,##0)</code></td><td>angka negatif dalam kurung</td></tr>
+<tr><td><code>0.0 "kg"</code></td><td>12345.7 kg</td></tr>
+<tr><td><code>yyyy-mm-dd</code>, <code>mmm d, yyyy</code>, <code>dddd</code></td><td>gaya tanggal</td></tr>
+<tr><td><code>h:mm AM/PM</code></td><td>waktu</td></tr></table>
+<p><code>########</code> di sel berarti angkanya tidak muat — lebarkan kolomnya.</p>
+<h2>Kolom dan baris</h2><p>Seret tepi judul, atau gunakan <i>Format → Lebar kolom / Tinggi baris / Paskan otomatis lebar kolom / Sembunyikan / Tampilkan semua</i>.</p>
+
+@@ sheets-data
+title: Lembar kerja: mengurutkan, mengisi, menyalin, dan mengedit data
+keywords: urutkan naik turun hapus duplikat isi seri salin tempel nilai potong sisipkan hapus baris kolom cari ganti komentar
+---
+<h2>Mengurutkan</h2><p><b>Urutkan A→Z / Z→A</b> mengurutkan data menurut kolom saat ini (judul dikenali). <i>Data → Urutkan…</i> mengurutkan menurut hingga 3 kolom. Sel kosong selalu ke paling bawah.</p>
+<h2>Mengisi</h2><ul><li><kbd>Ctrl</kbd>+<kbd>D</kbd> isi ke bawah / <kbd>Ctrl</kbd>+<kbd>R</kbd> isi ke kanan — menyalin sel pertama (rumus menyesuaikan).</li>
+<li><i>Edit → Isi seri</i>: ketik 1 dan 2 (atau 5 dan 10, atau tanggal) di sel pertama, pilih rentangnya, dan polanya berlanjut.</li></ul>
+<h2>Salin dan tempel</h2><p>Rumus menyesuaikan saat ditempel. <b>Tempel nilai saja</b> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>) menempel hasilnya, bukan rumusnya. Menyalin satu sel ke blok terpilih mengisi seluruh blok. Teks yang disalin dari program lain (dipisah tab) dibagi ke sel-sel.</p>
+<h2>Lainnya</h2><ul><li>Sisipkan / hapus baris dan kolom (menu atau klik kanan).</li>
+<li><i>Data → Hapus duplikat</i>.</li><li>Cari dan ganti (<kbd>Ctrl</kbd>+<kbd>F</kbd>), termasuk di semua lembar.</li>
+<li>Komentar (<kbd>Shift</kbd>+<kbd>F2</kbd>) — ditandai sudut merah; arahkan mouse untuk membacanya.</li></ul>
+
+@@ sheets-charts
+title: Lembar kerja: bagan dan gambar
+keywords: bagan kolom batang garis pai gambar sisipkan pindah
+---
+<ol><li>Pilih data Anda <b>beserta</b> baris judul dan kolom label — mis. bulan di kolom A, penjualan di B dan C.</li>
+<li><b>Sisipkan → Bagan…</b> (atau tombol <b>Bagan</b>): pilih Kolom, Batang, Garis, atau Pai dan judulnya.</li></ol>
+<p>Bagan diperbarui saat angkanya berubah. Seret untuk memindahkan; klik kanan → Edit bagan / Hapus bagan.</p>
+<p><b>Sisipkan → Gambar…</b> menambah gambar; seret untuk memindahkan; klik kanan → Ubah ukuran / Hapus.</p>
+<p>Bagan dan gambar disimpan ke .xlsx dan terbuka di Excel.</p>
+
+@@ sheets-files
+title: Lembar kerja: file, kompatibilitas Excel, PDF, dan mencetak
+keywords: xlsx xlsm csv tsv simpan buka excel kompatibilitas peringatan cetak pdf
+---
+<p><b>Membuka:</b> .xlsx, .xlsm (disimpan sebagai .xlsx tanpa makro), .csv/.tsv. <b>Menyimpan:</b> .xlsx, atau .csv (hanya lembar saat ini).</p>
+<p><b>Dipertahankan:</b> nilai, rumus, font, warna, isian, batas, format angka, perataan, bungkus teks, sel tergabung, lebar kolom, tinggi baris, baris/kolom tersembunyi, komentar, rentang bernama, beberapa lembar, bagan (kolom/batang/garis/pai), gambar.</p>
+<p><b>Belum dipertahankan</b> (memperingatkan saat membuka dan sebelum menimpa): pemformatan bersyarat, validasi data/daftar tarik-turun, tabel pivot, makro, jenis bagan yang tidak umum. Panel beku tetap ada di file tetapi tidak ditampilkan di layar.</p>
+<p><b>Ekspor sebagai PDF / Cetak</b> menyesuaikan semua kolom dengan lebar halaman.</p>
+<div class="tip">Buku kerja yang sangat besar (lebih dari 100.000 rumus) akan terasa lambat — setiap rumus dihitung ulang setelah setiap perubahan.</div>
+
+@@ slides-basics
+title: Presentasi: dasar-dasar
+keywords: presentasi slide panel tata letak slide baru tempat penampung catatan gandakan sembunyikan urutkan
+---
+<ul><li><b>Kiri:</b> gambar mini slide — klik untuk membuka, seret untuk mengubah urutan, klik kanan untuk menggandakan, menghapus, menyembunyikan, atau memindahkan.</li>
+<li><b>Tengah:</b> slidenya. <kbd>Ctrl</kbd>+roda mouse untuk zoom.</li><li><b>Bawah:</b> catatan pembicara untuk slide saat ini.</li></ul>
+<h2>Menambah slide</h2><p><b>Slide baru</b> (<kbd>Ctrl</kbd>+<kbd>M</kbd>) menambah slide setelah slide saat ini; panah di sebelahnya memilih tata letak:
+Slide Judul, Judul dan Konten, Header Bagian, Dua Konten, Hanya Judul, Kosong. Presentasi yang dibuka dari PowerPoint menawarkan tata letaknya sendiri.</p>
+<p>Kotak abu-abu bergaris putus dengan tulisan “Klik untuk menambah judul/teks” adalah tempat penampung — klik dan ketik. Yang kosong tidak muncul dalam tayangan atau PDF.</p>
+<p>Slide <b>tersembunyi</b> (Slide → Sembunyikan / tampilkan) dilewati saat tayangan dan ekspor.</p>
+
+@@ slides-objects
+title: Presentasi: teks, bentuk, gambar, dan tabel
+keywords: kotak teks bentuk gambar tabel pindah ubah ukuran putar balik atur ke depan ke belakang ratakan poin isian garis luar
+---
+<h2>Menyisipkan</h2><p><b>Kotak teks</b>, <b>Gambar</b> (atau tempel / seret gambar), <b>Bentuk</b> (19 bentuk, garis, panah), <b>Tabel</b>.</p>
+<h2>Bekerja dengan objek</h2><table>
+<tr><td>Memilih</td><td>klik (seret kotak di tempat kosong untuk memilih beberapa)</td></tr>
+<tr><td>Memindahkan</td><td>seret, atau tombol panah (${K("Shift Arrow")} = 10 px)</td></tr>
+<tr><td>Mengubah ukuran</td><td>seret pegangan putih (gambar mempertahankan proporsinya; tahan ${K("Shift")} untuk mengubahnya)</td></tr>
+<tr><td>Mengedit teks</td><td>klik dua kali, tekan ${K("F2")}/${K("Enter")}, atau langsung mengetik; ${K("Esc")} untuk selesai</td></tr>
+<tr><td>Menghapus / menggandakan</td><td>${K("Delete")} / ${K("Ctrl D")}</td></tr>
+<tr><td>Ke depan / ke belakang</td><td>menu Atur atau tombol Depan/Belakang</td></tr>
+<tr><td>Meratakan ke slide, memutar, membalik</td><td>menu Atur</td></tr></table>
+<h2>Format</h2><p>Teks: font, ukuran, A+/A−, B/I/U, warna, perataan, perataan vertikal (menu Format), poin dan penomoran. Bentuk: warna <b>isian</b> dan <b>garis luar</b>, tebal garis luar, tanpa isian / tanpa garis luar.</p>
+
+@@ slides-design
+title: Presentasi: tema, latar belakang, dan ukuran slide
+keywords: tema desain latar belakang warna gambar ukuran slide layar lebar 4:3
+---
+<p><b>Desain → Tema</b> menerapkan salah satu dari 8 tema (Office, Tengah Malam, Batu Tulis, Hutan, Matahari Terbenam, Samudra, Arang, Merona) ke semua slide: latar belakang, warna dan font judul serta teks.</p>
+<p><b>Desain → Warna latar slide</b> (slide ini), <b>Warna latar untuk semua slide</b>, <b>Gambar latar</b>.</p>
+<p><b>File → Ukuran slide</b>: Layar lebar 16:9, Standar 4:3, A4, Persegi — isinya diskalakan agar muat.</p>
+<p><b>File → Baru</b> memungkinkan Anda memilih tema untuk presentasi baru.</p>
+
+@@ slides-present
+title: Presentasi: menayangkan
+keywords: presentasikan tayangan f5 layar penuh tombol layar hitam berikutnya sebelumnya
+---
+<p><b>F5</b> mulai dari slide pertama, <b>Shift+F5</b> dari slide saat ini (atau tombol <b>▶ Presentasikan</b>).</p>
+<table><tr><th>Untuk</th><th>Tombol</th></tr>
+<tr><td>Slide berikutnya</td><td>${K("Space")} ${K("→")} ${K("↓")} ${K("Page_Down")} ${K("Enter")}, klik kiri, roda mouse</td></tr>
+<tr><td>Slide sebelumnya</td><td>${K("←")} ${K("↑")} ${K("Page_Up")} ${K("Backspace")}, klik kanan</td></tr>
+<tr><td>Pertama / terakhir</td><td>${K("Home")} / ${K("End")}</td></tr>
+<tr><td>Layar hitam / putih</td><td>${K("B")} / ${K("W")}</td></tr>
+<tr><td>Keluar</td><td>${K("Esc")}</td></tr></table>
+
+@@ slides-files
+title: Presentasi: file, kompatibilitas PowerPoint, dan ekspor
+keywords: pptx powerpoint simpan buka ekspor pdf png gambar cetak master tata letak
+---
+<p><b>Membuka dan menyimpan .pptx.</b> Presentasi yang diimpor tampil seperti di PowerPoint: aplikasi membaca master slide dan tata letak presentasi (warna tema, font, latar belakang, logo, gaya poin). Saat disimpan, master, tata letak, dan tema aslinya dipertahankan, jadi tetap tampil benar di PowerPoint.</p>
+<p><b>Ekspor:</b> PDF (tajam, dengan teks yang bisa dipilih), gambar PNG (lebar 1920 px), Cetak.</p>
+<p><b>Belum dipertahankan:</b> bagan, SmartArt, video/audio, animasi dan transisi (akan memperingatkan). Isian gradien tampil satu warna. Belum ada tampilan penyaji maupun pemeriksa ejaan.</p>

@@ -24,22 +24,26 @@ from PySide6.QtWidgets import (QApplication, QButtonGroup, QCalendarWidget, QChe
 
 import planner_core as core  # noqa: E402
 from suite_common import icon_path, launch_command, make_app, open_guide  # noqa: E402
+from i18n import day_name, month_name, tr  # noqa: E402
 
 APP_NAME = "Ethical Planner"
 SERVER_NAME = "EthicalPlanner-" + os.environ.get("USERNAME", "user")
 RUN_KEY = r"Software\Microsoft\Windows\CurrentVersion\Run"
 RUN_VALUE = "EthicalSuite.Planner"
-ALERTS = [(None, "No alert"), (0, "At the time"), (5, "5 minutes before"), (10, "10 minutes before"),
-          (15, "15 minutes before"), (30, "30 minutes before"), (60, "1 hour before"), (120, "2 hours before"),
-          (1440, "1 day before"), (2880, "2 days before"), (10080, "1 week before")]
-DURATIONS = [(15, "15 minutes"), (30, "30 minutes"), (45, "45 minutes"), (60, "1 hour"), (90, "1½ hours"),
-             (120, "2 hours"), (180, "3 hours"), (240, "4 hours"), (480, "8 hours")]
-SNOOZES = [(5, "5 minutes"), (10, "10 minutes"), (30, "30 minutes"), (60, "1 hour"), (180, "3 hours"), (-1, "Tomorrow morning")]
+ALERTS = [(None, tr("No alert")), (0, tr("At the time")), (5, tr("5 minutes before")), (10, tr("10 minutes before")),
+          (15, tr("15 minutes before")), (30, tr("30 minutes before")), (60, tr("1 hour before")), (120, tr("2 hours before")),
+          (1440, tr("1 day before")), (2880, tr("2 days before")), (10080, tr("1 week before"))]
+DURATIONS = [(15, tr("15 minutes")), (30, tr("30 minutes")), (45, tr("45 minutes")), (60, tr("1 hour")), (90, tr("1½ hours")),
+             (120, tr("2 hours")), (180, tr("3 hours")), (240, tr("4 hours")), (480, tr("8 hours"))]
+SNOOZES = [(5, tr("5 minutes")), (10, tr("10 minutes")), (30, tr("30 minutes")), (60, tr("1 hour")), (180, tr("3 hours")), (-1, tr("Tomorrow morning"))]
 PRESETS = [  # label, fields
-    ("💊 Daily supplements", dict(kind="reminder", title="Take supplements", time="08:00", repeat="daily", color="green")),
-    ("💧 Drink water", dict(kind="reminder", title="Drink a glass of water", time="11:00", repeat="daily", color="teal")),
-    ("🗑 Bins out", dict(kind="reminder", title="Put the bins out", time="19:00", repeat="weekly", color="gray")),
-    ("🎂 Birthday", dict(kind="event", title="'s birthday", all_day=True, repeat="yearly", color="purple", alerts=[1440, 0])),
+    ("💊 " + tr("Daily supplements"), dict(kind="reminder", title=tr("Take supplements"), time="08:00", repeat="daily",
+                                           color="green")),
+    ("💧 " + tr("Drink water"), dict(kind="reminder", title=tr("Drink a glass of water"), time="11:00", repeat="daily",
+                                     color="teal")),
+    ("🗑 " + tr("Bins out"), dict(kind="reminder", title=tr("Put the bins out"), time="19:00", repeat="weekly", color="gray")),
+    ("🎂 " + tr("Birthday"), dict(kind="event", title=tr("'s birthday"), all_day=True, repeat="yearly", color="purple",
+                                  alerts=[1440, 0])),
 ]
 
 
@@ -83,7 +87,7 @@ def play_chime():
 
 def when_text(item, occ):
     if item.get("all_day"):
-        return "All day"
+        return tr("All day")
     if item.get("kind") == "event" and item.get("duration"):
         return f"{time_text(occ)}–{time_text(occ + timedelta(minutes=int(item['duration'])))}"
     return time_text(occ)
@@ -92,14 +96,22 @@ def when_text(item, occ):
 def day_title(d):
     today = date.today()
     if d == today:
-        prefix = "Today"
+        prefix = tr("Today")
     elif d == today + timedelta(days=1):
-        prefix = "Tomorrow"
+        prefix = tr("Tomorrow")
     elif d == today - timedelta(days=1):
-        prefix = "Yesterday"
+        prefix = tr("Yesterday")
     else:
-        prefix = d.strftime("%A")
-    return f"{prefix}, {d.strftime('%d %B').lstrip('0')}" + (f" {d.year}" if d.year != today.year else "")
+        prefix = day_name(d.weekday())
+    if d.year != today.year:
+        return tr("{weekday}, {day} {month} {year}").format(weekday=prefix, day=d.day, month=month_name(d.month), year=d.year)
+    return tr("{weekday}, {day} {month}").format(weekday=prefix, day=d.day, month=month_name(d.month))
+
+
+def short_date(d):
+    """e.g. "Mon 13 Oct" in the user's language."""
+    return tr("{weekday} {day} {month}").format(weekday=day_name(d.weekday(), True), day=d.day,
+                                                month=month_name(d.month, True))
 
 
 def dot_icon(color, done=False):
@@ -125,13 +137,13 @@ class ItemDialog(QDialog):
         self.item = dict(item) if item else core.new_item(kind=kind)
         self.deleted = False
         editing = item is not None
-        self.setWindowTitle(("Edit " if editing else "New ") + self.item["kind"])
+        self.setWindowTitle((tr("Edit ") if editing else tr("New ")) + self.item["kind"])
         self.setMinimumWidth(460)
         lay = QVBoxLayout(self)
 
         kinds = QHBoxLayout()
         self.kind_group = QButtonGroup(self)
-        for k, label in (("reminder", "⏰  Reminder"), ("event", "📅  Event")):
+        for k, label in (("reminder", "⏰  " + tr("Reminder")), ("event", "📅  " + tr("Event"))):
             b = QPushButton(label)
             b.setCheckable(True)
             b.setChecked(self.item["kind"] == k)
@@ -143,7 +155,7 @@ class ItemDialog(QDialog):
 
         if not editing:
             pre = QHBoxLayout()
-            pre.addWidget(QLabel("Quick start:"))
+            pre.addWidget(QLabel(tr("Quick start:")))
             for label, fields in PRESETS:
                 b = QToolButton()
                 b.setText(label)
@@ -155,8 +167,8 @@ class ItemDialog(QDialog):
 
         form = QFormLayout()
         self.title = QLineEdit(self.item["title"])
-        self.title.setPlaceholderText("e.g. Take supplements")
-        form.addRow("What", self.title)
+        self.title.setPlaceholderText(tr("e.g. Take supplements"))
+        form.addRow(tr("What"), self.title)
 
         start = core.parse_dt(self.item["start"])
         if not editing:
@@ -169,39 +181,39 @@ class ItemDialog(QDialog):
         self.date.setDisplayFormat("ddd d MMM yyyy")
         self.time = QTimeEdit(QTime(start.hour, start.minute))
         self.time.setDisplayFormat("h:mm AP" if use_12h() else "HH:mm")
-        self.all_day = QCheckBox("All day")
+        self.all_day = QCheckBox(tr("All day"))
         self.all_day.setChecked(bool(self.item.get("all_day")))
         self.all_day.toggled.connect(self._refresh)
         row.addWidget(self.date)
         row.addWidget(self.time)
         row.addWidget(self.all_day)
         row.addStretch(1)
-        form.addRow("When", row)
+        form.addRow(tr("When"), row)
 
         self.duration = QComboBox()
         for m, label in DURATIONS:
             self.duration.addItem(label, m)
         self._select(self.duration, int(self.item.get("duration") or 60))
-        self.duration_label = QLabel("Lasts")
+        self.duration_label = QLabel(tr("Lasts"))
         form.addRow(self.duration_label, self.duration)
 
         self.repeat = QComboBox()
         for k, label in core.REPEATS.items():
-            self.repeat.addItem(label, k)
+            self.repeat.addItem(tr(label), k)
         self._select(self.repeat, self.item.get("repeat", "none"))
         self.repeat.currentIndexChanged.connect(self._refresh)
-        form.addRow("Repeat", self.repeat)
+        form.addRow(tr("Repeat"), self.repeat)
 
         self.every_row = QWidget()
         er = QHBoxLayout(self.every_row)
         er.setContentsMargins(0, 0, 0, 0)
-        er.addWidget(QLabel("every"))
+        er.addWidget(QLabel(tr("every")))
         self.interval = QSpinBox()
         self.interval.setRange(1, 365)
         self.interval.setValue(int(self.item.get("interval") or 1))
         self.interval.valueChanged.connect(self._refresh)
         er.addWidget(self.interval)
-        self.unit = QLabel("days")
+        self.unit = QLabel(tr("days"))
         er.addWidget(self.unit)
         er.addStretch(1)
         form.addRow("", self.every_row)
@@ -211,15 +223,15 @@ class ItemDialog(QDialog):
         dr.setContentsMargins(0, 0, 0, 0)
         self.day_boxes = []
         days = self.item.get("days") or [start.weekday()]
-        for i, name in enumerate(core.DAY_NAMES):
-            cb = QCheckBox(name)
+        for i in range(7):
+            cb = QCheckBox(day_name(i, short=True))
             cb.setChecked(i in days)
             dr.addWidget(cb)
             self.day_boxes.append(cb)
-        form.addRow("on", self.days_row)
+        form.addRow(tr("on"), self.days_row)
 
         until_row = QHBoxLayout()
-        self.until_on = QCheckBox("Stop repeating after")
+        self.until_on = QCheckBox(tr("Stop repeating after"))
         self.until = QDateEdit(qdate(date.fromisoformat(self.item["until"])) if self.item.get("until")
                                else qdate(date.today() + timedelta(days=90)))
         self.until.setCalendarPopup(True)
@@ -238,22 +250,22 @@ class ItemDialog(QDialog):
         self.alert2 = QComboBox()
         for m, label in ALERTS:
             self.alert1.addItem(label, m)
-            self.alert2.addItem(label if m is not None else "No second alert", m)
+            self.alert2.addItem(label if m is not None else tr("No second alert"), m)
         self._select(self.alert1, alerts[0] if alerts else None)
         self._select(self.alert2, alerts[1] if len(alerts) > 1 else None)
-        form.addRow("Alert", self.alert1)
-        form.addRow("Also", self.alert2)
+        form.addRow(tr("Alert"), self.alert1)
+        form.addRow(tr("Also"), self.alert2)
 
         self.color = QComboBox()
         for name, hexc in core.COLORS.items():
             self.color.addItem(dot_icon(name), name.title(), name)
         self._select(self.color, self.item.get("color", "blue"))
-        form.addRow("Colour", self.color)
+        form.addRow(tr("Colour"), self.color)
 
         self.notes = QPlainTextEdit(self.item.get("notes", ""))
-        self.notes.setPlaceholderText("Notes (optional)")
+        self.notes.setPlaceholderText(tr("Notes (optional)"))
         self.notes.setMaximumHeight(70)
-        form.addRow("Notes", self.notes)
+        form.addRow(tr("Notes"), self.notes)
         lay.addLayout(form)
 
         buttons = QHBoxLayout()
@@ -262,9 +274,9 @@ class ItemDialog(QDialog):
             delete.clicked.connect(self._delete)
             buttons.addWidget(delete)
         buttons.addStretch(1)
-        cancel = QPushButton("Cancel")
+        cancel = QPushButton(tr("Cancel"))
         cancel.clicked.connect(self.reject)
-        save = QPushButton("Save")
+        save = QPushButton(tr("Save"))
         save.setDefault(True)
         save.clicked.connect(self._save)
         buttons.addWidget(cancel)
@@ -285,7 +297,7 @@ class ItemDialog(QDialog):
     def _kind_changed(self):
         k = self._kind()
         self.item["kind"] = k
-        self.setWindowTitle(("Edit " if self.item.get("title") else "New ") + k)
+        self.setWindowTitle((tr("Edit ") if self.item.get("title") else tr("New ")) + k)
         if self.alert1.currentData() in (0, 15):
             self._select(self.alert1, 0 if k == "reminder" else 15)
         self._refresh()
@@ -328,7 +340,7 @@ class ItemDialog(QDialog):
     def _save(self):
         title = self.title.text().strip()
         if not title or title.startswith("'"):
-            QMessageBox.information(self, APP_NAME, "Please type what the reminder or event is.")
+            QMessageBox.information(self, APP_NAME, tr("Please type what the reminder or event is."))
             self.title.setFocus()
             return
         d = self.date.date().toPython()
@@ -348,7 +360,7 @@ class ItemDialog(QDialog):
 
     def _delete(self):
         rep = self.item.get("repeat", "none") != "none"
-        if QMessageBox.question(self, APP_NAME, "Delete this" + (" and all its repeats?" if rep else "?")) == QMessageBox.Yes:
+        if QMessageBox.question(self, APP_NAME, tr("Delete this") + (tr(" and all its repeats?") if rep else "?")) == QMessageBox.Yes:
             self.deleted = True
             self.accept()
 
@@ -378,12 +390,12 @@ class ReminderPopup(QWidget):
         icon = QLabel()
         icon.setPixmap(QIcon(icon_path("planner")).pixmap(20, 20))
         top.addWidget(icon)
-        app_label = QLabel("Ethical Planner" + ("  ·  missed" if missed else ""))
+        app_label = QLabel(tr("Ethical Planner") + (tr("  ·  missed") if missed else ""))
         app_label.setObjectName("sub")
         top.addWidget(app_label, 1)
         x = QToolButton()
         x.setText("✕")
-        x.setToolTip("Dismiss")
+        x.setToolTip(tr("Dismiss"))
         x.clicked.connect(self.close)
         top.addWidget(x)
         lay.addLayout(top)
@@ -403,11 +415,11 @@ class ReminderPopup(QWidget):
             n.setWordWrap(True)
             lay.addWidget(n)
         row = QHBoxLayout()
-        main = QPushButton("✓  Done" if item["kind"] == "reminder" else "OK")
+        main = QPushButton(tr("✓  Done") if item["kind"] == "reminder" else tr("OK"))
         main.setObjectName("main")
         main.clicked.connect(self._done)
         row.addWidget(main)
-        snooze = QPushButton("Snooze")
+        snooze = QPushButton(tr("Snooze"))
         sm = QMenu(snooze)
         for m, label in SNOOZES:
             sm.addAction(label, lambda mm=m: self._snooze(mm))
@@ -418,16 +430,25 @@ class ReminderPopup(QWidget):
 
     def _subtitle(self, missed):
         occ = self.occ
-        when = "All day" if self.item.get("all_day") else time_text(occ)
+        when = tr("All day") if self.item.get("all_day") else time_text(occ)
         d = occ.date()
-        day = "" if d == date.today() else ("tomorrow " if d == date.today() + timedelta(days=1) else d.strftime("%a %d %b "))
+        day = ("" if d == date.today() else tr("tomorrow") if d == date.today() + timedelta(days=1) else short_date(d))
         if missed:
-            return f"Was due {day}{when}"
+            return tr("Was due {when}").format(when=(day + " " + when).strip())
         if self.minutes and self.item["kind"] == "event":
-            return f"Starts {day}at {when} ({core.describe_alert(self.minutes).replace(' before', '')} from now)" \
-                if not self.item.get("all_day") else f"{day.strip().title() or 'Today'} – all day"
+            if self.item.get("all_day"):
+                return tr("{day} – all day").format(day=day or tr("Today"))
+            return tr("Starts {when} (in {time})").format(when=(day + " " + when).strip(), time=self._in_text(self.minutes))
         rep = core.describe_repeat(self.item)
-        return f"{day}{when}" + (f"  ·  {rep}" if rep else "")
+        return (day + " " + when).strip() + (f"  ·  {rep}" if rep else "")
+
+    @staticmethod
+    def _in_text(m):
+        if m % 1440 == 0:
+            return tr("1 day") if m == 1440 else tr("{n} days").format(n=m // 1440)
+        if m % 60 == 0:
+            return tr("1 hour") if m == 60 else tr("{n} hours").format(n=m // 60)
+        return tr("{n} minutes").format(n=m)
 
     def _done(self):
         if self.item["kind"] == "reminder":
@@ -452,14 +473,14 @@ class PlannerWindow(QMainWindow):
         self.setWindowTitle(APP_NAME)
         self.setWindowIcon(QIcon(icon_path("planner")))
         self.resize(980, 640)
-        tb = QToolBar("Planner")
+        tb = QToolBar(tr("Planner"))
         tb.setMovable(False)
         tb.setToolButtonStyle(Qt.ToolButtonTextOnly)
         self.addToolBar(tb)
-        tb.addAction("⏰  New reminder", lambda: self.edit(None, "reminder")).setToolTip("New reminder (Ctrl+N)")
-        tb.addAction("📅  New event", lambda: self.edit(None, "event")).setToolTip("New event (Ctrl+E)")
+        tb.addAction(tr("⏰  New reminder"), lambda: self.edit(None, "reminder")).setToolTip(tr("New reminder (Ctrl+N)"))
+        tb.addAction(tr("📅  New event"), lambda: self.edit(None, "event")).setToolTip(tr("New event (Ctrl+E)"))
         tb.addSeparator()
-        tb.addAction("Today", self.go_today).setToolTip("Jump to today (Ctrl+T)")
+        tb.addAction(tr("Today"), self.go_today).setToolTip(tr("Jump to today (Ctrl+T)"))
         spacer = QWidget()
         spacer.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
         tb.addWidget(spacer)
@@ -467,26 +488,26 @@ class PlannerWindow(QMainWindow):
         more.setText("⋯")
         more.setPopupMode(QToolButton.InstantPopup)
         m = QMenu(self)
-        self.autostart_action = m.addAction("Start when Windows starts (so reminders always pop up)")
+        self.autostart_action = m.addAction(tr("Start when Windows starts (so reminders always pop up)"))
         self.autostart_action.setCheckable(True)
         self.autostart_action.setChecked(autostart_enabled())
         self.autostart_action.triggered.connect(self.ctl.set_autostart)
-        self.sound_action = m.addAction("Play a sound with reminders")
+        self.sound_action = m.addAction(tr("Play a sound with reminders"))
         self.sound_action.setCheckable(True)
         self.sound_action.setChecked(settings().value("sound", True) in (True, "true"))
         self.sound_action.triggered.connect(lambda on: settings().setValue("sound", on))
-        clock = m.addMenu("Clock")
+        clock = m.addMenu(tr("Clock"))
         grp = QActionGroup(clock)
-        for key, label in (("12", "12-hour (8:00 PM)"), ("24", "24-hour (20:00)")):
+        for key, label in (("12", tr("12-hour (8:00 PM)")), ("24", tr("24-hour (20:00)"))):
             a = clock.addAction(label)
             a.setCheckable(True)
             a.setChecked(use_12h() == (key == "12"))
             a.triggered.connect(lambda _=False, k=key: self._set_clock(k))
             grp.addAction(a)
-        m.addAction("Test a reminder pop-up (with sound)", self.ctl.test_popup)
+        m.addAction(tr("Test a reminder pop-up (with sound)"), self.ctl.test_popup)
         m.addSeparator()
-        m.addAction("Help\tF1", lambda: open_guide("planner"))
-        m.addAction("Quit Ethical Planner", self.ctl.quit)
+        m.addAction(tr("Help\tF1"), lambda: open_guide("planner"))
+        m.addAction(tr("Quit Ethical Planner"), self.ctl.quit)
         more.setMenu(m)
         tb.addWidget(more)
 
@@ -506,8 +527,8 @@ class PlannerWindow(QMainWindow):
         self.next_label.setStyleSheet("padding: 8px; background: palette(alternate-base); border-radius: 6px;")
         ll.addWidget(self.next_label)
         ll.addStretch(1)
-        hint = QLabel("Reminders pop up even when this window is closed – Planner keeps running in the tray "
-                      "(bottom-right of the taskbar).")
+        hint = QLabel(tr("Reminders pop up even when this window is closed – Planner keeps running in the tray "
+                         "(bottom-right of the taskbar)."))
         hint.setWordWrap(True)
         hint.setStyleSheet("color: palette(placeholder-text); font-size: 11px;")
         ll.addWidget(hint)
@@ -578,7 +599,7 @@ class PlannerWindow(QMainWindow):
 
     def refresh_agenda(self):
         first = self.cal.selectedDate().toPython()
-        self.heading.setText(day_title(first) if first != date.today() else "Today and coming up")
+        self.heading.setText(day_title(first) if first != date.today() else tr("Today and coming up"))
         start = datetime.combine(first, datetime.min.time())
         end = start + timedelta(days=7)
         rows = core.agenda(self.ctl.items, start, end)
@@ -612,7 +633,7 @@ class PlannerWindow(QMainWindow):
                     row.setForeground(c, QColor("#9AA0A6"))
             elif it["kind"] == "reminder" and occ < now and not it.get("all_day"):
                 row.setForeground(0, QColor("#C62828"))
-                row.setToolTip(0, "Not done yet")
+                row.setToolTip(0, tr("Not done yet"))
             row.setFont(1, f)
             row.setForeground(2, QColor("#80868B"))
             tip = it.get("notes") or ""
@@ -634,11 +655,12 @@ class PlannerWindow(QMainWindow):
         nxt = self.ctl.next_alert()
         if nxt:
             at, it, occ = nxt
-            when = "today" if at.date() == date.today() else ("tomorrow" if at.date() == date.today() + timedelta(days=1)
-                                                               else at.strftime("%a %d %b"))
-            self.next_label.setText(f"<b>Next up</b><br>{it['title']}<br><span style='color:#5B6370'>{when} at {time_text(at)}</span>")
+            when = tr("today") if at.date() == date.today() else (tr("tomorrow") if at.date() == date.today() + timedelta(days=1)
+                                                                  else short_date(at.date()))
+            self.next_label.setText(tr("<b>Next up</b><br>{v}<br><span style='color:#5B6370'>{when} at {v2}</span>").format(v=it['title'], when=when, v2=time_text(at)))
         else:
-            self.next_label.setText("<b>Next up</b><br><span style='color:#5B6370'>Nothing in the next week.</span>")
+            self.next_label.setText(tr("<b>Next up</b><br><span style='color:#5B6370'>Nothing in the next "
+                                       "week.</span>"))
 
     # ---- actions
     def go_today(self):
@@ -678,8 +700,8 @@ class PlannerWindow(QMainWindow):
 
     def _delete_current(self):
         item, _ = self._row(self.tree.currentItem())
-        if item and QMessageBox.question(self, APP_NAME, f"Delete “{item['title']}”" +
-                                         (" and all its repeats?" if item.get("repeat") != "none" else "?")) == QMessageBox.Yes:
+        if item and QMessageBox.question(self, APP_NAME, tr("Delete “{v}”").format(v=item['title']) +
+                                         (tr(" and all its repeats?") if item.get("repeat") != "none" else "?")) == QMessageBox.Yes:
             self.ctl.delete(item["id"])
 
     def row_menu(self, pos):
@@ -688,14 +710,14 @@ class PlannerWindow(QMainWindow):
         if not item:
             return
         m = QMenu(self)
-        m.addAction("Edit…", lambda: self.edit(item))
+        m.addAction(tr("Edit…"), lambda: self.edit(item))
         if item["kind"] == "reminder":
             done = core.is_done(item, occ)
-            m.addAction("Not done" if done else "Mark done", lambda: self.ctl.set_done(item["id"], occ, not done))
+            m.addAction(tr("Not done") if done else tr("Mark done"), lambda: self.ctl.set_done(item["id"], occ, not done))
         if item.get("repeat") != "none":
-            m.addAction("Skip just this one", lambda: self.ctl.skip(item["id"], occ))
+            m.addAction(tr("Skip just this one"), lambda: self.ctl.skip(item["id"], occ))
         m.addSeparator()
-        m.addAction("Delete…", self._delete_current)
+        m.addAction(tr("Delete…"), self._delete_current)
         m.exec(self.tree.viewport().mapToGlobal(pos))
 
     def closeEvent(self, e):
@@ -847,12 +869,12 @@ class PlannerApp:
             return
         self.tray = QSystemTrayIcon(QIcon(icon_path("planner")), self.app)
         m = QMenu()
-        m.addAction("New reminder", lambda: (self.show_window(), self.window.edit(None, "reminder")))
-        m.addAction("New event", lambda: (self.show_window(), self.window.edit(None, "event")))
-        m.addAction("Open Ethical Planner", self.show_window)
+        m.addAction(tr("New reminder"), lambda: (self.show_window(), self.window.edit(None, "reminder")))
+        m.addAction(tr("New event"), lambda: (self.show_window(), self.window.edit(None, "event")))
+        m.addAction(tr("Open Ethical Planner"), self.show_window)
         m.addSeparator()
-        m.addAction("Help", lambda: open_guide("planner"))
-        m.addAction("Quit Ethical Planner", self.quit)
+        m.addAction(tr("Help"), lambda: open_guide("planner"))
+        m.addAction(tr("Quit Ethical Planner"), self.quit)
         self.tray_menu = m
         self.tray.setContextMenu(m)
         self.tray.activated.connect(lambda r: self.show_window() if r == QSystemTrayIcon.Trigger else None)
@@ -863,7 +885,7 @@ class PlannerApp:
         if not self.tray:
             return
         nxt = self.next_alert(2)
-        self.tray.setToolTip(APP_NAME + (f"\nNext: {nxt[1]['title']} – {nxt[0].strftime('%a')} {time_text(nxt[0])}" if nxt else ""))
+        self.tray.setToolTip(APP_NAME + (tr("\nNext: {v} – {v2} {v3}").format(v=nxt[1]['title'], v2=day_name(nxt[0].weekday(), True), v3=time_text(nxt[0])) if nxt else ""))
 
     def tray_tip(self):
         s = settings()
@@ -886,10 +908,10 @@ class PlannerApp:
         box = QMessageBox(QMessageBox.Question, APP_NAME,
                           "Start Ethical Planner when Windows starts?",
                           QMessageBox.Yes | QMessageBox.No, self.window)
-        box.setInformativeText("Reminders can only pop up while Planner is running. It waits quietly in the tray "
-                               "and uses almost no memory. You can change this later in ⋯.")
-        box.button(QMessageBox.Yes).setText("Yes, start with Windows")
-        box.button(QMessageBox.No).setText("Not now")
+        box.setInformativeText(tr("Reminders can only pop up while Planner is running. It waits quietly in the "
+                                  "tray and uses almost no memory. You can change this later in ⋯."))
+        box.button(QMessageBox.Yes).setText(tr("Yes, start with Windows"))
+        box.button(QMessageBox.No).setText(tr("Not now"))
         if box.exec() == QMessageBox.Yes:
             self.set_autostart(True)
 
@@ -898,8 +920,8 @@ class PlannerApp:
         self.window.autostart_action.setChecked(autostart_enabled())
 
     def quit(self):
-        if QMessageBox.question(self.window, APP_NAME, "Quit Ethical Planner?\n\nReminders won't pop up until you "
-                                "open Planner again.") != QMessageBox.Yes:
+        if QMessageBox.question(self.window, APP_NAME, tr("Quit Ethical Planner?\n\nReminders won't pop up until "
+                                                          "you open Planner again.")) != QMessageBox.Yes:
             return
         if self.tray:
             self.tray.hide()

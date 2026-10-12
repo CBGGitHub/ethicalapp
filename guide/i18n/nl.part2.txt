@@ -1,0 +1,513 @@
+@@ photo-basics
+title: Foto's: de basis
+keywords: fotobewerker openen nieuw zoomen pannen lagen geschiedenis interface
+---
+<ul><li><b>Links:</b> gereedschappen en voorgrond-/achtergrondkleur (⇄ omwisselen = ${K("X")}, ◩ standaard zwart/wit = ${K("D")}).</li>
+<li><b>Boven:</b> opties van het huidige gereedschap (grootte, dekking, tolerantie…).</li>
+<li><b>Rechts:</b> <b>Lagen</b> en <b>Geschiedenis</b> (klik op een stap om ernaar terug te gaan).</li></ul>
+<h2>Rondkijken</h2><p><kbd>Ctrl</kbd>+scrollwiel zoomt (bij de muis), scrollwiel scrolt, <kbd>Spatie</kbd>+slepen of slepen met de middelste muisknop verschuift de weergave, <kbd>Ctrl</kbd>+<kbd>0</kbd> passend, <kbd>Ctrl</kbd>+<kbd>1</kbd> 100%. Ver ingezoomd zie je een pixelraster.</p>
+<h2>Nieuwe afbeelding</h2><p><b>Bestand → Nieuw</b> heeft voorinstellingen (HD, 4K, Instagram, YouTube-miniatuur, A4…) en een keuze voor de achtergrond (wit, transparant, zwart, kleur).</p>
+<p>Ongedaan maken/opnieuw: <kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> (30 stappen).</p>
+
+@@ photo-tools
+title: Foto's: de gereedschappen
+keywords: gereedschappen penseel gum emmer verloop kloonstempel pipet bijsnijden verplaatsen toverstaf lasso selectie hand zoom sneltoets
+---
+<table><tr><th>Toets</th><th>Gereedschap</th><th>Gebruik</th></tr>
+<tr><td>${K("V")}</td><td>Verplaatsen</td><td>Sleep de laag (of alleen de geselecteerde pixels). Pijltoetsen verplaatsen een klein stukje.</td></tr>
+<tr><td>${K("M")}</td><td>Rechthoek-/ellipsselectie</td><td>Slepen. ${K("Shift")} voegt toe, ${K("Alt")} trekt af. Optie doezelaar.</td></tr>
+<tr><td>${K("L")}</td><td>Lasso</td><td>Teken uit de vrije hand rond een gebied.</td></tr>
+<tr><td>${K("W")}</td><td>Toverstaf</td><td>Klik om vergelijkbare kleuren te selecteren (tolerantie, aaneengesloten, alle lagen gebruiken).</td></tr>
+<tr><td>${K("C")}</td><td>Bijsnijden</td><td>Slepen, dan ${K("Enter")} of dubbelklik. ${K("Esc")} annuleert.</td></tr>
+<tr><td>${K("B")}</td><td>Penseel</td><td>Grootte, hardheid (zachte/harde rand), dekking. ${K("[")} ${K("]")} wijzigen de grootte.</td></tr>
+<tr><td>${K("E")}</td><td>Gum</td><td>Gumt tot transparant.</td></tr>
+<tr><td>${K("G")}</td><td>Emmer</td><td>Vult vergelijkbare, aaneengesloten kleuren.</td></tr>
+<tr><td></td><td>Verloop</td><td>Sleep een lijn: lineair of radiaal, naar de achtergrondkleur of naar transparant.</td></tr>
+<tr><td>${K("S")}</td><td>Kloonstempel</td><td>${K("Alt")}+klik op de bron, schilder dan om haar te kopiëren (ideaal om vlekjes weg te halen).</td></tr>
+<tr><td>${K("I")}</td><td>Pipet</td><td>Klik: voorgrondkleur oppikken. ${K("Alt")}+klik: achtergrond.</td></tr>
+<tr><td>${K("T")}</td><td>Tekst</td><td>Klik om tekst toe te voegen; klik op een bestaande tekstlaag om haar te bewerken.</td></tr>
+<tr><td>${K("U")}</td><td>Vorm</td><td>Rechthoek, afgerond, ellips, lijn, pijl — op een nieuwe laag. ${K("Shift")} = vierkant/cirkel.</td></tr>
+<tr><td>${K("H")}</td><td>Hand</td><td>De weergave verschuiven.</td></tr><tr><td>${K("Z")}</td><td>Zoom</td><td>Klik om in te zoomen, ${K("Alt")}+klik om uit te zoomen.</td></tr></table>
+<p>Schilderen, vullen, verlopen, filters en aanpassingen werken alleen binnen het <b>geselecteerde gebied</b> (als er een selectie is) van de <b>huidige laag</b>.</p>
+
+@@ photo-selections
+title: Foto's: selecties
+keywords: alles selecteren deselecteren omkeren doezelen uitbreiden slinken kleurbereik laagpixels knippen kopiëren mieren
+---
+<p>Een selectie beperkt waar je schildert of bewerkt. Je ziet haar als “marcherende mieren”.</p>
+<table><tr><td>Alles selecteren / deselecteren / omkeren</td><td>${K("Ctrl A")} / ${K("Ctrl D")} / ${K("Ctrl Shift I")}</td></tr>
+<tr><td>Toevoegen / aftrekken</td><td>houd ${K("Shift")} / ${K("Alt")} ingedrukt tijdens het selecteren, of kies de modus</td></tr>
+<tr><td>Zachte rand</td><td>Selecteren → Doezelen (${K("Shift F6")})</td></tr>
+<tr><td>Groter / kleiner</td><td>Selecteren → Uitbreiden / Slinken</td></tr>
+<tr><td>Alle pixels van één kleur</td><td>Selecteren → Kleurbereik (gebruikt de voorgrondkleur)</td></tr>
+<tr><td>De zichtbare pixels van een laag</td><td>Selecteren → Laagpixels</td></tr></table>
+<h2>Wat je met een selectie kunt doen</h2><ul>
+<li><kbd>Delete</kbd> wist haar; <i>Bewerken → Vullen</i> (<kbd>Alt</kbd>+<kbd>Backspace</kbd>) / Omlijnen.</li>
+<li><kbd>Ctrl</kbd>+<kbd>J</kbd> kopieert haar naar een nieuwe laag, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd> knipt haar naar een nieuwe laag.</li>
+<li><kbd>Ctrl</kbd>+<kbd>T</kbd> schaalt/draait haar; <i>Afbeelding → Bijsnijden tot selectie</i>.</li>
+<li>Kopiëren / Samengevoegd kopiëren / Plakken (als nieuwe laag).</li></ul>
+
+@@ photo-layers
+title: Foto's: lagen en overvloeimodi
+keywords: laag nieuw dupliceren samenvoegen afvlakken dekking overvloeimodus vermenigvuldigen bleken bedekken verbergen naam wijzigen volgorde
+---
+<p>Lagen zijn gestapelde vellen: de bovenste bedekken de onderste. Het paneel <b>Lagen</b> toont ze van boven naar beneden.</p>
+<ul><li>Vakje = tonen/verbergen. Dubbelklik = naam wijzigen. Volgorde wijzigen met ▲ ▼.</li>
+<li>Knoppen: ＋ nieuw, ⧉ dupliceren, ▲▼ verplaatsen, ⤓ omlaag samenvoegen (<kbd>Ctrl</kbd>+<kbd>E</kbd>), 🗑 verwijderen.</li>
+<li>De vakken <b>Dekking</b> en <b>overvloeimodus</b> boven de lijst gelden voor de huidige laag.</li>
+<li>Menu Laag: zichtbare samenvoegen, laag spiegelen/draaien, tekstlaag bewerken. Menu Afbeelding: afbeelding afvlakken.</li></ul>
+<h2>Overvloeimodi</h2><table>
+<tr><td>Vermenigvuldigen</td><td>maakt donkerder — ideaal voor schaduwen en om lijnwerk over kleur te leggen</td></tr>
+<tr><td>Bleken / Lineair tegenhouden (toevoegen)</td><td>maakt lichter — gloed, lichteffecten</td></tr>
+<tr><td>Bedekken / Zacht licht / Hard licht</td><td>voegt contrast en structuur toe</td></tr>
+<tr><td>Donkerder / Lichter</td><td>houdt de donkerdere / lichtere pixel</td></tr>
+<tr><td>Kleur tegenhouden / Kleur doordrukken</td><td>sterk lichter / donkerder maken</td></tr>
+<tr><td>Verschil / Uitsluiting</td><td>keert om op basis van de laag eronder — effecten, afbeeldingen vergelijken</td></tr></table>
+<p>Lagen kunnen elke grootte hebben en buiten het canvas uitsteken — bij het verplaatsen gaan nooit pixels verloren.</p>
+
+@@ photo-adjust
+title: Foto's: aanpassingen en filters
+keywords: helderheid contrast niveaus kleurtoon verzadiging levendigheid belichting kleurbalans temperatuur zwart-wit sepia omkeren drempel posteriseren vervagen verscherpen ruis pixelvorming vignet reliëf
+---
+<h2>Afbeelding → Aanpassingen</h2><p>Allemaal met schuifregelaars en een live <b>Voorvertoning</b>:</p>
+<table><tr><td>Helderheid/contrast</td><td>snelle oplossing voor flauwe foto's</td></tr>
+<tr><td>Niveaus</td><td>zwartpunt, witpunt en middentonen (gamma) instellen</td></tr>
+<tr><td>Kleurtoon/verzadiging</td><td>kleuren verschuiven, sterker/zwakker maken, lichter/donkerder maken</td></tr>
+<tr><td>Levendigheid</td><td>versterkt fletse kleuren meer dan felle (huid blijft natuurlijk)</td></tr>
+<tr><td>Belichting</td><td>alsof je de belichting van de camera wijzigt (stops)</td></tr>
+<tr><td>Kleurbalans / Temperatuur-tint</td><td>kleurzwemen corrigeren — warmer, koeler, groener…</td></tr>
+<tr><td>Drempel / Posteriseren</td><td>puur zwart-wit / minder kleurniveaus</td></tr></table>
+<p>Met één klik: Omkeren, Zwart-wit, Sepia, Automatisch contrast.</p>
+<h2>Menu Filter</h2><p>Gaussiaans vervagen, Bewegingsonscherpte, Verscherpen, Ruis verminderen, Ruis toevoegen, Pixelvorming, Vignet, Reliëf, Randen zoeken, Olieverf.</p>
+<div class="tip">De achtergrond vervagen: selecteer het onderwerp (Toverstaf / Lasso), <i>Selecteren → Omkeren</i>, <i>Selecteren → Doezelen</i> 10 px, dan <i>Filter → Gaussiaans vervagen</i>.</div>
+
+@@ photo-text-shapes
+title: Foto's: tekst en vormen
+keywords: tekst lettertype omlijning schaduw bewerken vorm rechthoek ellips pijl lijn
+---
+<h2>Tekst</h2><p>Tekstgereedschap (${K("T")}) → klikken → typen. Kies elk lettertype, grootte (px), vet/cursief, kleur, uitlijning, een <b>omlijning</b> (dikte + kleur) en een <b>slagschaduw</b>.
+Elke tekst krijgt een eigen laag (gemarkeerd met <b>T</b>). Later wijzigen: tekstgereedschap → klik op de tekst, of <i>Laag → Tekstlaag bewerken</i>.</p>
+<div class="warn">Het formaat wijzigen, draaien of spiegelen van een tekstlaag maakt er een gewone afbeeldingslaag van (niet meer als tekst te bewerken).</div>
+<h2>Vormen</h2><p>Vormgereedschap (${K("U")}): kies Rechthoek, Afgeronde rechthoek, Ellips, Lijn of Pijl. De opvulling gebruikt de voorgrondkleur, de omlijning de achtergrondkleur (stel de breedte in, 0 = geen). Houd ${K("Shift")} ingedrukt voor perfecte vierkanten/cirkels. Elke vorm komt op een nieuwe laag.</p>
+
+@@ photo-files
+title: Foto's: Photoshop-bestanden, opslaan en exporteren
+keywords: psd photoshop opslaan exporteren png jpg webp kwaliteit ora lagen afvlakken tiff ico pdf
+---
+<h2>Photoshop (.psd)</h2><p>Opent PSD's met hun lagen: namen, posities, dekking, overvloeimodi, verborgen lagen (groepen worden afgevlakt tot hun lagen). <b>Bewaart PSD met lagen</b>, die in Photoshop openen.</p>
+<p>Niet bewerkbaar: aanpassingslagen, laageffecten (schaduwen, lijnen…), maskers, slimme objecten — hun pixels worden waar mogelijk geladen en je krijgt een melding. Photoshop-tekstlagen komen binnen als afbeeldingen.</p>
+<h2>Opslaan</h2><table><tr><th>Formaat</th><th>Houdt lagen?</th><th>Goed voor</th></tr>
+<tr><td>.psd</td><td>✅</td><td>delen met Photoshop-gebruikers, je werk bewaren</td></tr>
+<tr><td>.ora (OpenRaster)</td><td>✅ (+ bewerkbare tekst)</td><td>je werk bewaren in een open formaat</td></tr>
+<tr><td>.png</td><td>❌</td><td>afbeeldingen, schermafbeeldingen, transparantie</td></tr>
+<tr><td>.jpg</td><td>❌</td><td>foto's (vraagt kwaliteit 1–100)</td></tr>
+<tr><td>.webp</td><td>❌</td><td>web — kleine bestanden</td></tr>
+<tr><td>.tif / .bmp / .gif / .ico / .pdf</td><td>❌</td><td>drukwerk / oude software / pictogrammen / documenten</td></tr></table>
+<p><b>Bestand → Exporteren als</b> bewaart een afgevlakte kopie zonder het bestand waaraan je werkt te veranderen.</p>
+
+@@ conv-basics
+title: Converter: zo werkt het
+keywords: converter bestanden toevoegen slepen map bestemming starten annuleren rechtsklik batch
+---
+<ol><li><b>Bestanden toevoegen:</b> sleep bestanden of hele mappen naar de lijst, gebruik <b>Bestanden toevoegen…/Map toevoegen…</b>, of selecteer bestanden in Verkenner → rechtsklik → <i>Converteren / comprimeren met Ethical Converter</i>.</li>
+<li><b>Kies een taak</b> met de tabbladen: <a href="#conv-formats">Converteren</a>, <a href="#conv-compress">Comprimeren</a>, <a href="#conv-combine">Samenvoegen</a>, <a href="#conv-combine">Zippen / uitpakken</a> — of <a href="#conv-download">⬇ Downloaden via link</a> om online video's op te slaan.</li>
+<li>Bij <b>Converteren</b> heeft elk bestand een eigen keuze <b>Converteren naar</b>; <b>Alle bestanden instellen op</b> wijzigt elk bestand dat dat formaat ondersteunt.</li>
+<li>Kies waar de resultaten heen gaan: <b>dezelfde map als elk bestand</b> of <b>deze map</b>.</li>
+<li>Druk op <b>▶ Starten</b>. Elk bestand toont zijn voortgang; <b>Annuleren</b> stopt.</li></ol>
+<p>Originelen worden nooit gewijzigd of overschreven — nieuwe bestanden krijgen een eigen naam (bijv. <code>video (compressed).mp4</code>, <code>photo (1).png</code>).</p>
+<p><kbd>Delete</kbd> haalt de geselecteerde bestanden uit de lijst.</p>
+
+@@ conv-formats
+title: Converter: wat wordt wat
+keywords: formaten audio video afbeelding document wav mp3 mp4 mkv webm gif flac m4a pdf docx pptx xlsx csv png jpg webp ico
+---
+<table><tr><th>Van</th><th>Naar</th></tr>
+<tr><td><b>Audio</b>: mp3 wav flac ogg m4a aac wma opus aiff amr ac3</td><td>MP3, WAV, FLAC (verliesvrij), M4A/AAC, OGG, OPUS, AIFF, WMA, <b>MP4-video</b> (geluid + een afbeelding of zwart scherm)</td></tr>
+<tr><td><b>Video</b>: mp4 mkv mov avi webm wmv flv m4v mpg 3gp ts…</td><td>MP4 (H.264), MP4 (H.265, kleiner), MKV, WebM, MOV, AVI, WMV, geanimeerde GIF, of alleen het geluid: MP3, WAV, M4A, FLAC</td></tr>
+<tr><td><b>Afbeeldingen</b>: png jpg webp bmp gif tif ico psd tga</td><td>PNG, JPG, WebP, BMP, GIF, TIFF, ICO (pictogram met meerdere formaten), PDF</td></tr>
+<tr><td>PDF</td><td>PNG of JPG (één per pagina), Word .docx, tekst</td></tr>
+<tr><td>Word .docx</td><td>PDF, tekst, HTML, Markdown, ODT</td></tr>
+<tr><td>PowerPoint .pptx</td><td>PDF, PNG (één per dia)</td></tr>
+<tr><td>Excel .xlsx</td><td>CSV (één per werkblad)</td></tr><tr><td>CSV</td><td>Excel .xlsx</td></tr>
+<tr><td>.txt .md .html</td><td>PDF, Word .docx (en HTML/tekst)</td></tr>
+<tr><td>Archieven: zip 7z tar tgz gz bz2 xz</td><td>Uitpakken</td></tr></table>
+<h2>Opties (tabblad Converteren)</h2><ul>
+<li><b>Videokwaliteit</b> Hoog / Gebalanceerd / Klein bestand, <b>Videoformaat</b> (behouden, 4K, 1080p, 720p, 480p, 360p).</li>
+<li><b>Audiokwaliteit</b> 64k–320k (192k is een goede standaard; 320k is de beste MP3).</li>
+<li><b>Afbeeldingskwaliteit</b> en <b>maximale grootte</b> (voor JPG/WebP en om te verkleinen).</li>
+<li><b>Afbeelding voor audio → MP4</b>: kies een hoesafbeelding, anders wordt een zwart scherm gebruikt.</li>
+<li><b>GIF-grootte</b> (breedte) en resolutie voor <b>PDF → afbeeldingen</b> (dpi).</li></ul>
+
+@@ conv-compress
+title: Converter: comprimeren (bestanden kleiner maken)
+keywords: comprimeren kleiner verkleinen grootte video audio pdf afbeeldingen word powerpoint excel zip 7z e-mail
+---
+<p>Kies <b>Licht</b> (beste kwaliteit), <b>Gebalanceerd</b> of <b>Sterk</b> (kleinst).</p>
+<table><tr><th>Bestand</th><th>Wat er gebeurt</th></tr>
+<tr><td>Video</td><td>opnieuw gecodeerd als MP4 (H.264); Gebalanceerd beperkt tot 1080p, Sterk tot 720p</td></tr>
+<tr><td>Audio</td><td>lagere bitrate (160k / 128k / 96k); WAV/FLAC/AIFF worden MP3</td></tr>
+<tr><td>Afbeeldingen</td><td>kleiner opnieuw opgeslagen (JPG/WebP-kwaliteit, minder PNG-kleuren, eventueel verkleind tot 2560/1600 px)</td></tr>
+<tr><td>PDF</td><td>afbeeldingen erin worden verkleind en opnieuw gecomprimeerd, lettertypen ingekort, het bestand opgeschoond</td></tr>
+<tr><td>Word/Excel/PowerPoint</td><td>de afbeeldingen erin worden verkleind, daarna wordt het met maximale compressie opnieuw gezipt</td></tr>
+<tr><td>Al het andere</td><td>gezipt (Sterk gebruikt 7z, dat kleiner is)</td></tr></table>
+<p>De kolom Resultaat toont hoeveel kleiner elk bestand werd. Kan een bestand niet merkbaar kleiner, dan wordt er geen nieuw bestand gemaakt (“Al klein”).</p>
+<div class="tip">Om een grote video te mailen maakt <b>Sterk</b> hem meestal een fractie van de grootte, en op een telefoon ziet hij er nog goed uit.</div>
+
+@@ conv-trim
+title: Converter: video's inkorten (en draaien, verkleinen, dempen)
+keywords: inkorten knippen video clip begin einde draaien zijwaarts formaat 720p 1080p dempen geluid verwijderen audio
+---
+<p>Het tabblad <b>✂ Video inkorten</b> houdt alleen het deel van een video dat je wilt.</p>
+<ol><li>Klik op <b>📂 Een video openen…</b> (of sleep er een op het tabblad).</li>
+<li>Sleep de schuifregelaar — het beeld toont dat moment. Klik op <b>⇤ Hier beginnen</b>, ga verder, dan <b>Hier eindigen ⇥</b>. Of typ de tijden in seconden.
+De regel eronder zegt wat je houdt, bijv. “Bewaart 0:12.0 → 1:05.5 (0:53.5)”.</li>
+<li>Kies hoe er geknipt wordt:<ul>
+<li><b>Snel</b> — direct en zonder kwaliteitsverlies, maar de knip valt op het dichtstbijzijnde “sleutelbeeld”, dus hij kan een paar seconden eerder beginnen.</li>
+<li><b>Exact</b> — knipt op het exacte beeld (de video wordt opnieuw gemaakt, dus het duurt wat langer).</li></ul></li>
+<li>Optioneel: <b>Formaat</b> 1080p / 720p / 480p (kleiner bestand), <b>Draaien</b> (voor telefoonvideo's die zijwaarts zijn opgenomen), <b>Geluid verwijderen</b>.
+Formaat en draaien gebruiken altijd Exact.</li>
+<li>Klik op <b>✂ Ingekorte video opslaan</b>. Hij wordt opgeslagen als “<i>naam</i> (trimmed)” naast het origineel, of in de map bij <b>Resultaten opslaan in</b>.
+Het origineel blijft ongewijzigd.</li></ol>
+<p class="note">Om alleen het formaat van hele video's te wijzigen (veel tegelijk), gebruik je de instelling <b>Videoformaat</b> op het tabblad <b>Converteren</b>, of <b>Comprimeren</b>.</p>
+
+@@ conv-combine
+title: Converter: samenvoegen, zippen en uitpakken
+keywords: samenvoegen combineren pdf audio video zip 7z uitpakken archief
+---
+<h2>Tabblad Samenvoegen</h2><ul>
+<li><b>Afbeeldingen en PDF's → één PDF</b> (bijv. gescande pagina's tot één document).</li>
+<li><b>Audiobestanden → één MP3</b> (achter elkaar).</li><li><b>Video's → één MP4</b>.</li></ul>
+<p>Bestanden worden samengevoegd in de volgorde van de lijst — gebruik ▲ Omhoog / ▼ Omlaag. Typ een naam voor het nieuwe bestand.</p>
+<h2>Tabblad Zippen / uitpakken</h2><ul>
+<li><b>Alle bestanden in één ZIP stoppen</b> (werkt overal) of <b>7z</b> (kleiner; je hebt 7-Zip of iets dergelijks nodig om het te openen). Mappen behouden hun structuur.</li>
+<li><b>Uitpakken</b> pakt .zip, .7z, .tar, .tar.gz/.tgz, .tar.bz2, .tar.xz, .gz, .bz2, .xz uit in een map met de naam van het archief.</li></ul>
+<p>.rar-bestanden kunnen nog niet worden uitgepakt.</p>
+
+@@ conv-download
+title: Converter: video's downloaden via links
+keywords: downloaden download youtube twitter x tiktok instagram vimeo link url video audio mp3 afspeellijst veiligheid virus
+---
+<p class="note"><b>Niet in elke versie:</b> de openbare download van EthicalApp bevat deze functie niet. Hij zit alleen in persoonlijke versies die zijn gebouwd met <code>installer\build.py --with-downloader</code> of als je vanuit de broncode start.</p>
+<p>Het tabblad <b>⬇ Downloaden via link</b> bewaart video's of hun geluid van YouTube, X/Twitter, TikTok, Instagram, Vimeo, Facebook, Reddit, SoundCloud en meer dan duizend andere sites.</p>
+<ol><li>Plak een of meer links (één per regel) — de knop <b>📋 Plakken</b> plakt wat je hebt gekopieerd.</li>
+<li>Optioneel: <b>🔎 Links controleren</b> toont eerst de titel, het kanaal en de lengte van elke video.</li>
+<li>Kies <b>Video</b> (kwaliteit 360p–4K; <b>MP4</b> speelt overal af, <b>Beste kwaliteit</b> bewaart MKV) of <b>Alleen audio</b> (MP3, M4A, OPUS, WAV, FLAC).</li>
+<li>Vink <b>Hele afspeellijst</b> aan om elke video van een afspeellijst te halen (tot 200).</li>
+<li>Druk op <b>⬇ Downloaden</b>. Bestanden komen in de map bij “Resultaten opslaan in” (of je map <b>Downloads</b>).</li></ol>
+<p>Vink <b>Voltooide downloads aan de bestandslijst toevoegen</b> aan om ze direct te converteren of te comprimeren (bijv. downloaden en dan een GIF maken).</p>
+<h2>🛡 Ingebouwde veiligheid</h2><ul>
+<li>Alleen gewone weblinks worden geaccepteerd — links naar bestanden op je pc of je thuisnetwerk worden geweigerd.</li>
+<li>Downloads komen eerst in een privé <b>quarantaine</b>map.</li>
+<li>Alleen audio-/videobestandstypen mogen de quarantaine verlaten — programma's (.exe, scripts), archieven, documenten en webpagina's worden <b>geblokkeerd en verwijderd</b>, ook als ze zich als video voordoen.</li>
+<li>FFmpeg opent elk bestand om te bewijzen dat het echt audio of video bevat.</li>
+<li><b>Microsoft Defender</b> scant elk bestand voordat het wordt opgeslagen; alles wat gemarkeerd wordt, wordt verwijderd.</li>
+<li>De app opent of start nooit iets wat is gedownload.</li></ul>
+<div class="warn">⚖ Download alleen video's die je mag downloaden — je eigen uploads, of video's waarvan de maker downloaden toestaat (bijv. Creative Commons). De voorwaarden van veel sites, waaronder YouTube, staan downloaden niet toe, en het auteursrecht blijft gelden.</div>
+<h2>Als downloaden niet meer lukt</h2><p>Websites veranderen vaak. Druk op <b>Downloader bijwerken</b> (internet nodig) en start de Converter opnieuw.
+Privévideo's, video's alleen voor leden, met leeftijdsbeperking of geblokkeerd in jouw regio kunnen niet worden gedownload.</p>
+
+@@ base-basics
+title: Database: wat een database is en hoe je begint
+keywords: database access sqlite beginnen sjabloon nieuw openen tabel record veld navigatievenster automatisch opslaan
+---
+<p>Een database bewaart lijsten — contacten, producten, bestellingen, taken — in <b>tabellen</b>. Elke rij is een
+<b>record</b> (één klant), elke kolom een <b>veld</b> (naam, e-mail…). Anders dan in een spreadsheet kun je tabellen
+<a href="#base-relationships">koppelen</a> (een bestelling hoort bij een klant), en kun je vragen stellen met
+<a href="#base-queries">query's</a> en <a href="#base-reports">rapporten</a> afdrukken.</p>
+<h2>Beginnen</h2><p>De startpagina biedt een <b>Lege database</b> of een kant-en-klaar sjabloon met voorbeeldgegevens:
+<b>Contacten</b>, <b>Taken</b>, <b>Voorraad</b> (met een query voor lage voorraad), <b>Klanten en bestellingen</b> (gekoppelde tabellen, een query met besteltotalen en een rapport).
+Je kunt ook een database openen of Excel/CSV/Access direct in een nieuwe importeren.</p>
+<h2>Het venster</h2><ul>
+<li><b>Links:</b> het navigatievenster — Tabellen, Query's, Rapporten. Dubbelklik om te openen; rechtsklik voor Ontwerpweergave, Formulierweergave, Naam wijzigen, Verwijderen, Exporteren, Nieuw rapport.</li>
+<li><b>Rechts:</b> een tabblad voor alles wat je opent.</li></ul>
+<div class="tip">Er is geen opslaanknop voor gegevens — <b>elke wijziging wordt direct opgeslagen</b>, net als in Access. Gebruik <i>Bestand → Kopie opslaan als</i> voor back-ups.</div>
+<p>Een database is één <b>.db</b>-bestand (het standaardformaat SQLite, dat veel andere programma's ook kunnen openen).</p>
+
+@@ base-tables
+title: Database: tabellen ontwerpen en veldtypen
+keywords: ontwerpweergave tabel veld type autonummering tekst getal valuta datum ja nee verplicht uniek standaard naam wijzigen
+---
+<p><b>Maken → Tabel</b> (of rechtsklik op een tabel → <b>Ontwerpweergave</b> om haar te wijzigen). Elke rij in het ontwerp is een veld:</p>
+<table><tr><th>Type</th><th>Voor</th></tr>
+<tr><td>AutoNummering</td><td>een ID die zichzelf nummert (1, 2, 3…) — elke tabel hoort er een te hebben</td></tr>
+<tr><td>Korte tekst / Lange tekst</td><td>namen, codes / notities, beschrijvingen</td></tr>
+<tr><td>Geheel getal / Decimaal getal</td><td>aantallen / metingen</td></tr>
+<tr><td>Valuta</td><td>geld (weergegeven als $1,234.50)</td></tr>
+<tr><td>Datum / Datum en tijd</td><td>typ 2026-10-11, 10/11/2026 of <code>today</code></td></tr>
+<tr><td>Ja/Nee</td><td>een selectievakje</td></tr></table>
+<ul><li><b>Verplicht</b> — het veld mag niet leeg blijven. <b>Uniek</b> — geen twee records mogen dezelfde waarde hebben (bijv. artikelnummer, e-mail).</li>
+<li><b>Standaardwaarde</b> — wordt ingevuld bij nieuwe records; <code>DATE()</code> betekent vandaag.</li>
+<li>Wijzig namen, volgorde (▲▼), voeg velden toe of verwijder ze wanneer je wilt en druk op <b>Tabel opslaan</b> — bestaande gegevens blijven bewaard, en opgeslagen query's die een hernoemd veld gebruiken worden automatisch bijgewerkt.</li></ul>
+
+@@ base-data
+title: Database: gegevens invoeren en vinden (gegevensblad en formulier)
+keywords: gegevensblad formulierweergave nieuw record verwijderen zoeken filteren sorteren bewerken opzoeken
+---
+<h2>Gegevensbladweergave</h2><p>Opent als een spreadsheet. Klik in een cel en typ; druk op <kbd>Enter</kbd> om op te slaan.</p><ul>
+<li><b>Nieuw record:</b> typ in de onderste rij met <b>✱</b>, of druk op <b>＋ Nieuw record</b>.</li>
+<li><b>Verwijderen:</b> selecteer records → <b>✖ Verwijderen</b>.</li>
+<li><b>Sorteren:</b> klik op een kolomkop (nog eens om om te keren).</li>
+<li>Het vak <b>Alle velden doorzoeken</b> filtert terwijl je typt. <b>Filteren op selectie</b> toont alleen records met de waarde van de huidige cel; <b>Filter verwijderen</b> toont weer alles.</li>
+<li>Ja/Nee-velden zijn selectievakjes. Velden die aan een andere tabel zijn gekoppeld (bijv. de klant van een bestelling) tonen een <b>keuzelijst met namen</b> in plaats van ID-nummers.</li></ul>
+<h2>Formulierweergave</h2><p>Eén record tegelijk, met één vak per veld — fijner voor lange records.
+Gebruik ⏮ ◀ ▶ ⏭ om te bladeren, <b>＋ Nieuw</b>, <b>💾 Opslaan</b>, <b>✖ Verwijderen</b> en <b>Zoeken…</b>. Ga je naar een ander record, dan worden je wijzigingen opgeslagen.</p>
+<p>Kan iets niet worden opgeslagen, dan krijg je een duidelijke reden — bijv. een verplicht veld is leeg, een unieke waarde is al in gebruik of een gekoppeld record bestaat niet.</p>
+
+@@ base-queries
+title: Database: query's (vragen stellen aan je gegevens)
+keywords: query ontwerp criteria sorteren totalen som aantal groeperen sql weergave join gekoppeld
+---
+<p><b>Maken → Query</b>. Een query kiest velden, filtert records en sorteert ze — bijv. “alle bestellingen die deze maand zijn verzonden, nieuwste eerst”. Opgeslagen query's staan onder <b>Query's</b> en tonen altijd de actuele gegevens.</p>
+<h2>Tabblad Ontwerp</h2><ol>
+<li>Kies de <b>hoofdtabel</b>. Vink <b>gekoppelde tabellen</b> aan om ook hun velden te gebruiken (daarvoor is een <a href="#base-relationships">relatie</a> nodig).</li>
+<li><b>＋ Veld toevoegen</b> (of <b>Alle velden toevoegen</b>), dan per veld: <b>Weergeven</b>, <b>Sorteren</b> en <b>Criteria</b>.</li>
+<li><b>▶ Uitvoeren</b> toont de resultaten; <b>💾 Query opslaan…</b> bewaart haar.</li></ol>
+<h2>Voorbeelden van criteria</h2><table>
+<tr><td><code>&gt;100</code>, <code>&lt;=50</code>, <code>&lt;&gt;0</code></td><td>vergelijkingen</td></tr>
+<tr><td><code>"London"</code> of <code>London</code></td><td>precies dit</td></tr>
+<tr><td><code>"London" Or "Paris"</code></td><td>een van beide</td></tr>
+<tr><td><code>Like "A*"</code></td><td>begint met A (<code>*</code> = alles, <code>?</code> = één teken)</td></tr>
+<tr><td><code>Between 1 And 50</code></td><td>een bereik</td></tr>
+<tr><td><code>&gt;=#2026-01-01#</code></td><td>datums (tussen #-tekens)</td></tr>
+<tr><td><code>Is Null</code> / <code>Is Not Null</code></td><td>leeg / niet leeg</td></tr>
+<tr><td><code>Yes</code> / <code>No</code></td><td>Ja/Nee-velden</td></tr></table>
+<h2>Totalen</h2><p>Vink <b>Totalen</b> aan om te groeperen en op te tellen — bijv. groeperen op klant, som van aantal. Criteria op een som/aantal gelden voor de totalen.</p>
+<h2>Tabblad SQL</h2><p>Toont de query als SQL (de standaardtaal voor databases) — je kunt hem direct bewerken. <i>Database → SQL-console</i> voert willekeurige SQL uit; opdrachten die gegevens wijzigen vragen eerst om bevestiging.</p>
+
+@@ base-relationships
+title: Database: relaties (tabellen koppelen)
+keywords: relatie koppeling refererende sleutel een-op-veel bovenliggend onderliggend trapsgewijs verwijderen diagram
+---
+<p>Een relatie zegt “elk <b>onderliggend</b> record hoort bij één <b>bovenliggend</b> record” — elke bestelling bij één klant, elk product bij één categorie.</p>
+<ol><li>Geef de onderliggende tabel een veld van het type <b>Geheel getal</b> dat de ID van het bovenliggende record bevat (bijv. <i>Customer ID</i> in Bestellingen).</li>
+<li><b>Database → Relaties</b>: kies de bovenliggende tabel en haar ID, de onderliggende tabel en haar verwijzingsveld, en <b>＋ Relatie toevoegen</b>.</li></ol>
+<p>Wat je krijgt:</p><ul>
+<li>Het onderliggende veld toont een <b>keuzelijst met namen van bovenliggende records</b> in gegevensbladen en formulieren.</li>
+<li>Records kunnen niet verwijzen naar een bovenliggend record dat niet bestaat, en een bovenliggend record met onderliggende records kan niet per ongeluk worden verwijderd…</li>
+<li>…tenzij je <b>trapsgewijs verwijderen</b> hebt aangevinkt: dan verwijdert het verwijderen van het bovenliggende record ook de onderliggende (bijv. een bestelling verwijderen verwijdert haar regels).</li>
+<li>Query's kunnen velden uit gekoppelde tabellen combineren.</li></ul>
+<p>Het venster toont een diagram van alle tabellen met lijnen tussen gekoppelde velden (1 ── ∞).</p>
+
+@@ base-reports
+title: Database: rapporten en afdrukken
+keywords: rapport afdrukken pdf groeperen totalen som gemiddelde titel liggend
+---
+<p><b>Maken → Rapport</b> (of rechtsklik op een tabel/query → Nieuw rapport). Kies:</p><ul>
+<li>de <b>gegevens</b> (elke tabel of query) en een <b>titel</b>;</li>
+<li>welke <b>velden</b> je toont (aanvinken en slepen om de volgorde te wijzigen);</li>
+<li><b>Groeperen op</b> een veld (bijv. een sectie per klant) en <b>Sorteren op</b>;</li>
+<li><b>Totalen</b> voor getalvelden — Som, Gemiddelde of Aantal (per groep en in totaal);</li>
+<li><b>Liggend</b> voor brede rapporten.</li></ul>
+<p>Dan <b>Afdrukken</b>, <b>Afdrukvoorbeeld</b> of <b>PDF exporteren</b>. <b>Rapport opslaan</b> bewaart het onder <b>Rapporten</b> — het toont altijd de actuele gegevens.</p>
+
+@@ base-import
+title: Database: importeren en exporteren (Excel, CSV, Access)
+keywords: importeren exporteren excel xlsx csv access accdb mdb stuurprogramma back-up kopie comprimeren herstellen
+---
+<h2>Importeren</h2><p><b>Bestand → Importeren</b> (of sleep een bestand naar het venster): <b>Excel .xlsx</b> (elk werkblad → een tabel), <b>CSV</b> of <b>Access .accdb/.mdb</b> (elke tabel).
+De eerste rij wordt de veldnamen, en veldtypen (getal, valuta, datum, Ja/Nee, tekst) worden automatisch herkend — controleer ze daarna in de Ontwerpweergave.
+Vanaf de startpagina kun je direct in een nieuwe database importeren.</p>
+<div class="warn"><b>Access-bestanden</b> hebben de gratis <b>Access Database Engine 2016 Redistributable (64-bits)</b> van Microsoft nodig (download op microsoft.com). Alleen tabellen en hun gegevens komen mee — geen Access-formulieren, -rapporten of -macro's.</div>
+<h2>Exporteren</h2><p><b>Bestand → Exporteren</b> (of rechtsklik → Exporteren): een tabel of query naar <b>Excel</b>, <b>alle tabellen en query's</b> naar één Excel-bestand (één werkblad per stuk), <b>CSV</b> of een <b>PDF</b>-rapport.</p>
+<h2>Het bestand onderhouden</h2><ul><li><b>Bestand → Kopie opslaan als</b> — een veilige back-up, ook als de database open is.</li>
+<li><b>Database → Comprimeren en herstellen</b> — controleert het bestand en maakt het kleiner na veel verwijderingen.</li></ul>
+
+@@ stickies
+title: Plaknotities: notities en takenlijsten op je bureaublad
+keywords: plaknotities notities taken takenlijst herinnering bureaublad post-it systeemvak opstarten
+---
+<p><b>Ethical Sticky Notes</b> zet kleine notities op je bureaublad — ideaal voor takenlijsten, telefoonnummers en herinneringen.
+Alles wordt vanzelf opgeslagen terwijl je typt, alleen op deze pc.</p>
+<h2>De basis</h2><ul>
+<li><b>Nieuwe notitie:</b> klik op <b>+</b> in een notitie, druk op ${K("Ctrl N")}, of gebruik het pictogram in het systeemvak (rechtsonder in de taakbalk) → <b>Nieuwe notitie</b>.</li>
+<li><b>Verplaats</b> een notitie door de bovenste balk te slepen. <b>Formaat wijzigen</b>: sleep een rand of hoek.</li>
+<li><b>Samenvouwen</b> tot de titel: dubbelklik op de bovenste balk (nog eens om uit te vouwen).</li>
+<li><b>Kleur:</b> <b>⋯</b> → kies een van 8 kleuren. <b>Tekstgrootte:</b> <b>⋯</b> → Tekstgrootte.</li>
+<li><b>Altijd bovenop:</b> klik op <b>📌</b> zodat de notitie boven andere vensters blijft.</li>
+<li><b>✕ sluit</b> de notitie maar bewaart haar. Haal notities terug via het systeemvakpictogram → <b>Alle notities tonen</b> (of klik gewoon op het pictogram), of <b>Alle notities…</b>.</li></ul>
+<h2>Takenlijsten</h2><ul>
+<li>Typ <kbd>[</kbd><kbd>]</kbd> en een spatie aan het begin van een regel (of klik op <b>☑</b> / ${K("Ctrl Shift C")}) voor een selectievakje.</li>
+<li>Klik op een vakje om het af te vinken — het item wordt doorgestreept. Klik nog eens om het vinkje weg te halen.</li>
+<li><kbd>Enter</kbd> maakt het volgende item; <kbd>Enter</kbd> op een leeg item beëindigt de lijst. <kbd>Backspace</kbd> aan het begin van een item maakt er weer tekst van.</li>
+<li>Typ <kbd>-</kbd> en een spatie voor een opsomming (of <b>•</b> / ${K("Ctrl Shift L")}).</li></ul>
+<h2>Opmaak</h2><p>Klik in een notitie om de onderste balk te zien: <b>B</b> ${K("Ctrl B")}, <i>I</i> ${K("Ctrl I")}, <u>U</u> ${K("Ctrl U")},
+<s>S</s> ${K("Ctrl T")}. Geplakte tekst komt zonder opmaak binnen, zodat hij bij de notitie past.</p>
+<h2>Notities vinden en verwijderen</h2><ul>
+<li><b>Alle notities…</b> (systeemvakpictogram of <b>⋯</b>) toont elke notitie met een zoekvak — dubbelklik om er een te openen.</li>
+<li><b>Verwijderen</b>: 🗑 in de onderste balk van de notitie of ${K("Ctrl D")}. Per ongeluk verwijderd? Systeemvakpictogram → <b>Verwijderde notitie herstellen</b> (de laatste 30 worden bewaard).</li></ul>
+<h2>Met Windows starten</h2><p>Systeemvakpictogram → <b>Starten met Windows</b> (of vink het aan in het installatieprogramma), dan zijn je notities er elke keer dat je inlogt.
+De app helemaal sluiten: systeemvakpictogram → <b>Plaknotities afsluiten</b> — je notities blijven bewaard.</p>
+<h2>Waar de notities staan</h2><p>In <code>%APPDATA%\\Ethical Suite\\Sticky Notes\\notes.json</code> (plus een reservekopie, <code>notes.json.bak</code>). Ze worden nooit
+geüpload. Bij het verwijderen van EthicalApp blijft dit bestand staan, dus je notities zijn er nog als je opnieuw installeert. Wil je je notities naar een andere pc verhuizen, kopieer dan dat bestand.</p>
+<h2>Met AI</h2><p>Als je EthicalApp met Claude hebt verbonden, kun je dingen zeggen als “zet een takennotitie voor de boodschappen van zaterdag op mijn bureaublad” of
+“vink <i>tandarts bellen</i> af” — de notitie verandert binnen een paar seconden op het scherm.</p>
+<h2>Sneltoetsen</h2><p>${K("Ctrl N")} nieuwe notitie · ${K("Ctrl D")} verwijderen · ${K("Ctrl W")} sluiten · ${K("Ctrl B")}/${K("Ctrl I")}/${K("Ctrl U")}/${K("Ctrl T")} vet/cursief/onderstrepen/doorhalen ·
+${K("Ctrl Shift C")} selectievakjes · ${K("Ctrl Shift L")} opsomming · ${K("F1")} deze handleiding</p>
+
+@@ planner
+title: Planner: herinneringen en een agenda
+keywords: planner herinnering herinneringen agenda afspraak wekker supplementen pillen medicijnen dagelijks herhalen melding sluimeren verjaardag
+---
+<p><b>Ethical Planner</b> herinnert je op tijd aan dingen — “elke dag om 8:00 supplementen nemen”, “tandarts morgen om 14:30”,
+“mama's verjaardag” — met een kaartje dat in de hoek van het scherm verschijnt.</p>
+<h2>Herinneringen en afspraken</h2><ul>
+<li><b>⏰ Nieuwe herinnering</b> (${K("Ctrl N")}) is voor dingen die je <i>doet</i>: het venster heeft een knop <b>Gedaan</b> en je kunt het in de lijst afvinken.</li>
+<li><b>📅 Nieuwe afspraak</b> (${K("Ctrl E")}) is voor dingen die <i>gebeuren</i>: afspraken, verjaardagen. Je krijgt vooraf een waarschuwing (standaard 15 minuten).</li>
+<li>De knoppen onder <b>Snel beginnen</b> vullen veelvoorkomende in: dagelijkse supplementen, water drinken, vuilnisavond, een verjaardag.</li>
+<li>Dubbelklik op een dag in de agenda om een afspraak op die dag toe te voegen.</li></ul>
+<h2>Herhalen</h2><p><b>Herhalen:</b> elke dag, elke werkdag (ma–vr), elke week (vink dagen aan, bijv. ma/wo/vr), elke maand of elk jaar —
+en “elke N” (elke 2 dagen, elke 3 weken…). <b>Stoppen met herhalen na</b> stelt een einddatum in. Een maandelijkse herinnering op de 31e valt in kortere maanden op de laatste dag.</p>
+<h2>Waarschuwingen en het venster</h2><ul>
+<li>Kies de <b>Waarschuwing</b> (op het tijdstip, 5/10/15/30 minuten, 1–2 uur, 1–2 dagen of een week vooraf) en eventueel een tweede (<b>Ook</b>), bijv. een dag vooraf <i>en</i> een uur vooraf.</li>
+<li>Items voor de hele dag waarschuwen om 09:00 (min de tijd vooraf).</li>
+<li>Het kaartje blijft tot je op <b>Gedaan</b>/<b>OK</b>, <b>Sluimeren</b> (5 minuten … morgenochtend) of ✕ klikt. Het verschijnt ook als Niet storen van Windows aan staat.</li>
+<li>Stond de pc uit of in slaapstand? Wat je de afgelopen 12 uur hebt gemist, verschijnt de volgende keer, gemarkeerd als <i>gemist</i>.</li>
+<li>Elke waarschuwing speelt een zacht belletje (het eigen geluid van Planner, dus het werkt ook als de meldingsgeluiden van Windows uit staan). Probeer het: <b>⋯ → Een herinneringsvenster testen</b>. Geluid aan/uit onder <b>⋯</b>.</li>
+<li><b>Klok:</b> tijden volgen de klok van je pc. Kies <b>⋯ → Klok → 12-uursklok (8:00 PM)</b> of <b>24-uursklok (20:00)</b> – standaard doet Planner wat Windows gebruikt.</li></ul>
+<h2>De lijst</h2><ul>
+<li>Toont de gekozen dag en de 6 dagen erna. Klik op een datum in de agenda om vooruit te kijken; <b>Vandaag</b> (${K("Ctrl T")}) springt terug.</li>
+<li>Vink het vakje aan om een herinnering voor die dag als gedaan te markeren (ze wordt doorgestreept). Achterstallige zijn rood.</li>
+<li>Rechtsklik op een item: Bewerken, Markeren als gedaan / niet gedaan, <b>Alleen deze overslaan</b> (bij een herhaald item), Verwijderen.</li>
+<li>Vetgedrukte dagen in de agenda hebben afspraken of minder frequente herinneringen. <b>Binnenkort</b> toont de volgende waarschuwing.</li></ul>
+<h2>Laten draaien</h2><p>Herinneringen kunnen alleen verschijnen terwijl Planner draait, dus bij het sluiten van het venster blijft hij in het systeemvak (rechtsonder in de taakbalk).
+De eerste keer vraagt hij of hij <b>met Windows moet starten</b> — zeg ja (of vink het aan in het installatieprogramma of onder <b>⋯</b>). <b>Ethical Planner afsluiten</b> in het systeemvakmenu stopt hem.</p>
+<h2>Waar het wordt bewaard</h2><p><code>%APPDATA%\\Ethical Suite\\Planner\\planner.json</code> (plus een back-up). Wordt nooit geüpload; bij verwijderen blijft het bewaard.</p>
+<h2>Met AI</h2><p>Als je Planner met Claude hebt verbonden: “herinner me elke dag om 8 aan mijn vitamines”, “wat staat er deze week op de planning?”,
+“ik heb mijn pillen genomen” (vinkt het af), “verzet de tandarts naar donderdag om 3 uur”.</p>
+
+@@ snip
+title: Snip: schermafbeeldingen om op te tekenen
+keywords: schermafbeelding screenshot printscreen knipprogramma bijsnijden pijl markeren pixelvorming vervagen verbergen
+---
+<p><b>Ethical Snip</b> maakt een afbeelding van je scherm — het hele scherm, een venster of alleen het deel dat je kiest — en laat je
+erop tekenen voordat je het kopieert of opslaat.</p>
+<h2>Een schermafbeelding maken</h2><ul>
+<li>Druk overal op ${K("Ctrl PrtScn")} (zolang Snip draait — het wacht in het systeemvak, rechtsonder in de taakbalk), klik op <b>✂ Nieuwe schermafbeelding</b> (${K("Ctrl N")}) of gebruik het systeemvakpictogram.</li>
+<li>Het scherm bevriest en wordt donkerder. Kies bovenaan: <b>Rechthoek</b> (sleep een gebied), <b>Venster</b> (klik op een venster), <b>Volledig scherm</b> (klik) of <b>Vrije vorm</b> (teken rond iets).
+Toetsen: <kbd>R</kbd> <kbd>W</kbd> <kbd>S</kbd> <kbd>F</kbd>. <kbd>Esc</kbd> of rechtsklik annuleert.</li>
+<li><b>Vertraging:</b> het pijltje naast Nieuwe schermafbeelding → Vertraging → 3, 5 of 10 seconden, om eerst een menu te openen.</li>
+<li>Elke schermafbeelding wordt <b>gekopieerd</b> (plak met ${K("Ctrl V")} in een chat of e-mail) en <b>opgeslagen</b> in <code>Pictures\\Ethical Snips</code>. Beide kun je uitzetten onder <b>⋯</b>.</li></ul>
+<h2>Erop tekenen</h2><ul>
+<li><b>Pen</b> <kbd>P</kbd>, <b>Markeren</b> <kbd>H</kbd>, <b>Pijl</b> <kbd>A</kbd>, <b>Kader</b> <kbd>R</kbd> (houd <kbd>Shift</kbd> ingedrukt voor een vierkant), <b>Tekst</b> <kbd>T</kbd> (klik en typ).</li>
+<li><b>Pixelvorming</b> <kbd>X</kbd>: sleep over namen, adressen of wachtwoorden om ze te verbergen voordat je de afbeelding deelt.</li>
+<li><b>Bijsnijden</b> <kbd>C</kbd>: sleep rond het deel dat je wilt houden.</li>
+<li>Kies een kleur en dikte (Dun / Middel / Dik) in de werkbalk. Met <b>Selecteren</b> <kbd>V</kbd> verplaats je markeringen of verwijder je ze (<kbd>Delete</kbd>).</li>
+<li>${K("Ctrl Z")} ongedaan maken, ${K("Ctrl Y")} opnieuw. Zoom: ${K("Ctrl +")} / ${K("Ctrl -")} / ${K("Ctrl 0")} of ${K("Ctrl")} + scrollwiel.</li></ul>
+<h2>Kopiëren, opslaan, delen</h2><ul>
+<li><b>Kopiëren</b> (${K("Ctrl C")}) kopieert de bewerkte afbeelding. <b>Opslaan</b> (${K("Ctrl S")}) werkt de opgeslagen schermafbeelding bij; <b>Opslaan als…</b> kiest een naam en PNG, JPG, WebP of BMP.</li>
+<li><b>Openen in Fotobewerker</b> voor grotere bewerkingen (lagen, filters, teksteffecten).</li>
+<li>Snip bewerkt ook elke andere afbeelding: <b>⋯ → Een afbeelding openen</b> (${K("Ctrl O")}), plak er een (${K("Ctrl V")}) of sleep een bestand naar het venster.</li></ul>
+<h2>Instellingen (menu ⋯)</h2><p>Elke schermafbeelding kopiëren · Elke schermafbeelding automatisch opslaan · In het systeemvak blijven voor ${K("Ctrl PrtScn")} ·
+Starten met Windows · Sneltoets wijzigen · Map voor schermafbeeldingen kiezen. Bij het sluiten van het venster blijft Snip in het systeemvak; <b>Ethical Snip afsluiten</b> sluit het helemaal.</p>
+<h2>De sneltoets wijzigen</h2><p>Geen PrtScn-toets (veel laptops)? Of gebruikt een ander programma hem al? Klik op het startscherm van Snip op <b>⌨ Sneltoets wijzigen…</b> (of op de sneltoets rechtsonder, of <b>⋯ → Sneltoets wijzigen…</b>), klik in het vak en druk op de toetsen die je wilt — bijvoorbeeld ${K("Ctrl Alt S")}. Er moet ${K("Ctrl")}, ${K("Alt")} of de Windows-toets bij (F-toetsen werken los). Vermijd sneltoetsen die andere programma's gebruiken, zoals ${K("Ctrl Shift S")} (Opslaan als). De statusbalk toont de actieve sneltoets, of zegt het als een ander programma hem al heeft.</p>
+<h2>Met AI</h2><p>Als je Snip met Claude hebt verbonden, kun je vragen: “maak een schermafbeelding van het Excel-venster en sla die op mijn bureaublad op”. Claude maakt
+alleen schermafbeeldingen als je erom vraagt, en de afbeeldingen worden op je pc opgeslagen.</p>
+
+@@ ai-claude
+title: De apps gebruiken met AI (Claude)
+keywords: ai claude mcp assistent automatiseren verbinden gereedschappen chat code desktop
+---
+<p>EthicalApp bevat een <b>MCP-server</b> — een koppeling waarmee de AI-assistent <b>Claude</b> (Claude Code of Claude Desktop) de apps voor je kan bedienen. Je vraagt het gewoon in je eigen woorden, bijvoorbeeld:</p>
+<ul><li>“Maak van mijn aantekeningen.md een netjes opgemaakt Word-document.”</li>
+<li>“Lees begroting.xlsx, voeg een regel met 10% onvoorzien toe en een cirkeldiagram.”</li>
+<li>“Maak een presentatie van 6 dia's over ons zomerplan met het thema Oceaan en open hem.”</li>
+<li>“Maak alle telefoonnummers in contract.pdf zwart.” · “Vul dit PDF-formulier in met mijn gegevens.”</li>
+<li>“Verklein al deze foto's tot 1080 px en voeg onze logotekst toe.” · “Zet deze video om naar MP3.”</li>
+<li>“Maak een database van mijn boekencollectie en geef me een rapport gegroepeerd op auteur.”</li></ul>
+<h2>Verbinden</h2><ol><li>Vink in het installatieprogramma <b>De gekozen apps met Claude verbinden</b> aan (voer het installatieprogramma op elk moment opnieuw uit om dat te wijzigen).</li>
+<li>Het verbindt automatisch met <b>Claude Code</b>, en met <b>Claude Desktop</b> als dat geïnstalleerd is (start Claude Desktop daarna opnieuw).</li>
+<li>De handleiding wordt altijd meegeleverd, zodat Claude kan nakijken hoe dingen werken.</li></ol>
+<p>Om de verbinding te verbreken voer je het installatieprogramma opnieuw uit en vink je het uit, of verwijder je EthicalApp.</p>
+<h2>Wat Claude kan (ongeveer 65 gereedschappen)</h2><table>
+<tr><td>PDF</td><td>tekst en info lezen, samenvoegen, splitsen, pagina's uitpakken/verwijderen/draaien, tekst of afbeeldingen toevoegen, tekst zoeken en vervangen, voorgoed zwart maken, formulieren tonen en invullen</td></tr>
+<tr><td>Documenten</td><td>een .docx als Markdown lezen, documenten maken uit Markdown (koppen, lijsten, tabellen), toevoegen, zoeken en vervangen</td></tr>
+<tr><td>Spreadsheets</td><td>cellen lezen (waarden of formules), cellen en formules schrijven, bereiken opmaken, grafieken en werkbladen toevoegen, elke formule berekenen</td></tr>
+<tr><td>Presentaties</td><td>presentaties lezen, maken met thema's/opsommingen/notities/afbeeldingen, dia's aan een bestaande toevoegen</td></tr>
+<tr><td>Foto's</td><td>info en lagen, formaat wijzigen, bijsnijden, draaien, spiegelen, alle aanpassingen en filters, tekst, canvasgrootte</td></tr>
+<tr><td>Converter</td><td>elk ondersteund bestand converteren, comprimeren, samenvoegen, zippen/uitpakken, media-info, downloaden via links (met dezelfde veiligheidscontroles)</td></tr>
+<tr><td>Database</td><td>overzicht, alleen-lezen SQL-query's, wijzigingen, databases/tabellen maken, records invoegen, relaties, opgeslagen query's, importeren/exporteren, PDF-rapporten</td></tr>
+<tr><td>Plaknotities</td><td>notities op je bureaublad tonen, lezen, toevoegen, wijzigen en afvinken</td></tr>
+<tr><td>Snip</td><td>vensters tonen en een schermafbeelding maken als je erom vraagt</td></tr>
+<tr><td>Planner</td><td>herinneringen en afspraken tonen, toevoegen, wijzigen en afronden</td></tr>
+<tr><td>Altijd</td><td>deze handleiding doorzoeken en lezen, een bestand in de juiste Ethical-app openen zodat je het ziet</td></tr></table>
+<h2>Veiligheid</h2><ul><li>Claude werkt alleen via deze gereedschappen met bestanden op je pc; Claude vraagt toestemming voordat ze worden gebruikt (afhankelijk van je Claude-instellingen).</li>
+<li>Wijzigingen worden als <b>nieuwe kopieën</b> opgeslagen (bijv. “report (edited).pdf”), tenzij je vraagt om te overschrijven; nieuwe bestanden vervangen nooit bestaande, tenzij je dat zegt.</li>
+<li>Databasequery's zijn alleen-lezen, tenzij het wijzigingsgereedschap wordt gebruikt; de regels van relaties blijven gelden.</li></ul>
+
+@@ shortcuts
+title: Alle sneltoetsen
+keywords: sneltoetsen toetscombinaties toetsen
+---
+<h2>Elke app</h2><table><tr><td>Nieuw / Openen / Opslaan / Opslaan als</td><td>${K("Ctrl N")} ${K("Ctrl O")} ${K("Ctrl S")} ${K("Ctrl Shift S")}</td></tr>
+<tr><td>Ongedaan maken / Opnieuw</td><td>${K("Ctrl Z")} / ${K("Ctrl Y")}</td></tr><tr><td>Afdrukken</td><td>${K("Ctrl P")}</td></tr>
+<tr><td>Zoeken</td><td>${K("Ctrl F")}</td></tr><tr><td>Deze handleiding</td><td>${K("F1")}</td></tr></table>
+<h2>Ethical PDF Editor</h2><table><tr><td>Inzoomen / uitzoomen / werkelijke grootte / passend in breedte</td><td>${K("Ctrl =")} ${K("Ctrl -")} ${K("Ctrl 0")} ${K("Ctrl 1")}</td></tr>
+<tr><td>Volgende / vorige zoeken</td><td>${K("F3")} / ${K("Shift F3")}</td></tr><tr><td>Pagina rechtsom / linksom draaien</td><td>${K("Ctrl R")} / ${K("Ctrl Shift R")}</td></tr>
+<tr><td>Geselecteerde tekst kopiëren / aantekening verwijderen</td><td>${K("Ctrl C")} / ${K("Delete")}</td></tr></table>
+<h2>Ethical Document Editor</h2><p>Zie <a href="#write-basics">Documenten: de basis</a>.</p>
+<h2>Ethical Spreadsheet Editor</h2><table><tr><td>Ga naar</td><td>${K("Ctrl G")}</td></tr><tr><td>Omlaag / naar rechts doorvoeren</td><td>${K("Ctrl D")} / ${K("Ctrl R")}</td></tr>
+<tr><td>AutoSom / functie invoegen</td><td>${K("Alt =")} / ${K("Shift F3")}</td></tr><tr><td>Waarden plakken</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>Rijen invoegen / rijen verwijderen</td><td>${K("Ctrl Shift =")} / ${K("Ctrl -")}</td></tr><tr><td>Nieuw werkblad</td><td>${K("Shift F11")}</td></tr>
+<tr><td>Opmerking</td><td>${K("Shift F2")}</td></tr><tr><td>Doorhalen</td><td>${K("Ctrl 5")}</td></tr></table>
+<h2>Ethical Presentation Editor</h2><table><tr><td>Nieuwe dia</td><td>${K("Ctrl M")}</td></tr><tr><td>Vanaf het begin / vanaf de huidige presenteren</td><td>${K("F5")} / ${K("Shift F5")}</td></tr>
+<tr><td>Object dupliceren</td><td>${K("Ctrl D")}</td></tr><tr><td>Naar voorgrond / naar achtergrond</td><td>${K("Ctrl Shift ]")} / ${K("Ctrl Shift [")}</td></tr></table>
+<h2>Ethical Database</h2><table><tr><td>Nieuwe database / openen</td><td>${K("Ctrl N")} / ${K("Ctrl O")}</td></tr>
+<tr><td>Nieuwe tabel / query / nieuw rapport</td><td>${K("Ctrl Shift T")} / ${K("Ctrl Shift Q")} / ${K("Ctrl Shift R")}</td></tr></table>
+<h2>Ethical Photo Editor</h2><p>Zie <a href="#photo-tools">Foto's: de gereedschappen</a> en <a href="#photo-selections">selecties</a>. Plus ${K("Ctrl J")} dupliceren/naar laag kopiëren, ${K("Ctrl E")} omlaag samenvoegen, ${K("Ctrl T")} transformeren, ${K("Ctrl Shift N")} nieuwe laag, ${K("Ctrl Alt I")} afbeeldingsgrootte, ${K("Ctrl Alt C")} canvasgrootte.</p>
+
+@@ troubleshooting
+title: Problemen oplossen en veelgestelde vragen
+keywords: probleem fout werkt niet start niet crash ontbreekt rechtsklik lettertype ffmpeg antivirus traag doc xls ppt taal
+---
+<h3>Een app start niet</h3>
+<p>Voer het installatieprogramma van <a href="https://ethicalapp.org">ethicalapp.org</a> opnieuw uit — het herstelt de installatie en houdt je instellingen, notities en herinneringen.</p>
+<h3>“Uw pc is beveiligd door Windows” bij het installeren</h3><p>Klik op <b>Meer informatie → Toch uitvoeren</b>. Windows toont dit bij nieuwe programma's die het nog niet kent. Controleer de SHA-256-vingerafdruk van de download op de website als je zeker wilt weten dat hij echt is.</p>
+<h3>De rechtsklikitems ontbreken</h3><p>Voer het installatieprogramma opnieuw uit en vink de rechtsklikoptie aan. Kijk in Windows 11 onder <b>Meer opties weergeven</b>.</p>
+<h3>“Bestandstype niet ondersteund” / oude Office-bestanden</h3><p>.doc, .xls en .ppt worden niet ondersteund — sla ze eerst op als .docx/.xlsx/.pptx. .rar-archieven kunnen niet worden uitgepakt.</p>
+<h3>De tekst ziet er anders uit dan het origineel</h3><p>Lettertypen komen van je pc. Gebruikt een document een lettertype dat je niet hebt, dan wordt een vergelijkbaar lettertype gebruikt. Installeer het lettertype en open opnieuw.</p>
+<h3>Er ontbreekt iets na het opslaan van een Excel-/PowerPoint-bestand</h3><p>Zie <a href="#compat">Bestandscompatibiliteit</a> — de app waarschuwt voor dingen die ze niet kan behouden. Bewaar het origineel en gebruik Opslaan als.</p>
+<h3>Een videoconversie is mislukt</h3><p>De foutmelding komt van FFmpeg. Veelvoorkomende oorzaken: het bestand is beschadigd of nog aan het downloaden, het heeft geen geluid (bij audioformaten) of geen beeld (bij videoformaten). Probeer eerst MP4 (H.264) — dat werkt met bijna alles.</p>
+<h3>Waarschuwing van het antivirusprogramma</h3><p>Sommige antivirusprogramma's zijn wantrouwig tegenover nieuwe programma's die ze nooit eerder zagen. Alle broncode van EthicalApp is openbaar op <a href="https://github.com/CBGGitHub/ethicalapp">GitHub</a>, en de website toont de vingerafdruk van elke download.</p>
+<h3>De apps zijn in de verkeerde taal</h3><p>Klik op <b>🌐</b> onderaan het EthicalApp-venster — zie <a href="#language">De taal wijzigen</a>.</p>
+<h3>Het is traag</h3><p>Enorme spreadsheets (meer dan 100.000 formules), heel grote foto's met veel lagen en lange 4K-video's duren langer. De Converter toont de voortgang van elk bestand.</p>
+
+@@ glossary
+title: Woordenlijst
+keywords: woordenlijst begrippen betekenis definitie bitrate crf codec verliesvrij lossy dpi laag overvloeimodus tijdelijke aanduiding model
+---
+<table>
+<tr><td><b>Bitrate</b></td><td>Hoeveel gegevens per seconde audio/video gebruikt (bijv. 192k). Hoger = betere kwaliteit, groter bestand.</td></tr>
+<tr><td><b>Overvloeimodus</b></td><td>Hoe een laag mengt met de lagen eronder (Vermenigvuldigen, Bleken…).</td></tr>
+<tr><td><b>Codec</b></td><td>De methode om audio/video te comprimeren (H.264, H.265, AAC, MP3…).</td></tr>
+<tr><td><b>CRF</b></td><td>Instelling voor videokwaliteit: lager = betere kwaliteit, groter bestand.</td></tr>
+<tr><td><b>DPI</b></td><td>Punten per inch — de resolutie bij het afdrukken of bij het omzetten van PDF's naar afbeeldingen.</td></tr>
+<tr><td><b>Doezelen</b></td><td>Een zachte, geleidelijke rand aan een selectie.</td></tr>
+<tr><td><b>Afvlakken</b></td><td>Alle lagen samenvoegen tot één afbeelding.</td></tr>
+<tr><td><b>Laag</b></td><td>Eén vel in een stapel doorzichtige vellen die samen een afbeelding vormen.</td></tr>
+<tr><td><b>Verliesvrij</b></td><td>Compressie zonder kwaliteitsverlies (PNG, FLAC, ZIP). <b>Met verlies</b> gooit details weg om ruimte te besparen (JPG, MP3, MP4).</td></tr>
+<tr><td><b>Model / indeling</b></td><td>In PowerPoint-bestanden de verborgen ontwerpdia's die de echte dia's hun achtergrond, lettertypen en logo geven.</td></tr>
+<tr><td><b>Benoemd bereik</b></td><td>Een naam (zoals <code>Prices</code>) die staat voor cellen in een spreadsheet.</td></tr>
+<tr><td><b>Tijdelijke aanduiding</b></td><td>Een leeg vak “Klik om … toe te voegen” op een dia.</td></tr>
+<tr><td><b>Zwart maken</b></td><td>Inhoud voorgoed uit een PDF verwijderen.</td></tr>
+<tr><td><b>Tolerantie</b></td><td>Hoeveel een kleur mag afwijken en toch als “vergelijkbaar” telt (toverstaf, emmer).</td></tr></table>
+
+@@ licenses
+title: Dankbetuiging en licenties
+keywords: licentie dankbetuiging open source ffmpeg qt pyside pymupdf gpl agpl lgpl mit
+---
+<p>De eigen code van EthicalApp is voor dit project geschreven. Ze bouwt voort op deze gratis opensource-onderdelen:</p>
+<table><tr><th>Onderdeel</th><th>Gebruikt voor</th><th>Licentie</th></tr>
+<tr><td>Python</td><td>de programmeertaal</td><td>PSF</td></tr>
+<tr><td>Qt / PySide6</td><td>vensters, tekstopmaak, afdrukken, grafieken</td><td>LGPL v3</td></tr>
+<tr><td>PyMuPDF (MuPDF)</td><td>PDF lezen/schrijven</td><td>AGPL v3</td></tr>
+<tr><td>FFmpeg (via imageio-ffmpeg)</td><td>audio- en videoconversie</td><td>GPL v3 (deze build)</td></tr>
+<tr><td>python-docx, python-pptx, openpyxl</td><td>Word-, PowerPoint- en Excel-bestanden</td><td>MIT</td></tr>
+<tr><td>Pillow</td><td>afbeeldingen</td><td>MIT-CMU (HPND)</td></tr>
+<tr><td>NumPy, SciPy</td><td>afbeeldingsberekeningen</td><td>BSD</td></tr>
+<tr><td>psd-tools</td><td>Photoshop-bestanden lezen</td><td>MIT</td></tr>
+<tr><td>py7zr</td><td>7z-archieven</td><td>LGPL v2.1</td></tr>
+<tr><td>SQLite (in Python)</td><td>databases van Ethical Database</td><td>Publiek domein</td></tr>
+<tr><td>pyodbc</td><td>Access-bestanden importeren</td><td>MIT</td></tr>
+<tr><td>yt-dlp, Deno (alleen persoonlijke versies)</td><td>video's downloaden via links</td><td>Unlicense / MIT</td></tr>
+<tr><td>MCP Python SDK</td><td>de AI-koppeling (Claude)</td><td>MIT</td></tr></table>
+<p>EthicalApp zelf valt onder de <b>AGPL-3.0</b>. De volledige licentieteksten staan in de map <code>licenses</code> van je installatie, en de broncode staat op <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>. Niet verbonden aan Microsoft of Adobe.</p>

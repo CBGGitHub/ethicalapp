@@ -1,0 +1,442 @@
+@ui
+guide_title: EthicalApp Kılavuzu
+search: Kılavuzda ara…  (/ tuşuna basın)
+theme: Açık / koyu
+footer: EthicalApp Kılavuzu · çevrimdışı çalışır
+result_one: “{q}” için 1 sonuç
+result_many: “{q}” için {n} sonuç
+nothing: Hiçbir şey bulunamadı. Daha az veya farklı kelimeler deneyin — örn. “pdf birleştir”, “toplam”, “katman”.
+english_only: Bu makale şimdilik yalnızca İngilizce olarak mevcut.
+
+@sections
+start: Başlarken
+pdf: Ethical PDF Editor
+write: Ethical Document Editor
+sheets: Ethical Spreadsheet Editor
+slides: Ethical Presentation Editor
+photo: Ethical Photo Editor
+conv: Ethical Converter
+base: Ethical Database
+sticky: Ethical Sticky Notes
+snip: Ethical Snip
+planner: Ethical Planner
+help: Yardım ve başvuru
+
+@@ welcome
+title: EthicalApp'e hoş geldiniz
+keywords: genel bakış uygulamalar giriş başlangıç
+---
+<p>EthicalApp, Windows için ücretsiz, ev yapımı bir masaüstü uygulamaları paketidir — herkesin her gün kullandığı
+araçların kendi sürümlerimiz. <b>Gerçek dosya biçimlerini</b> (Word, Excel, PowerPoint, PDF, Photoshop) açar ve kaydeder,
+böylece herkesle dosya paylaşabilirsiniz.</p>
+<div class="cards">
+<a class="card" href="#pdf-basics"><img src="../branding/icons/png/pdf_64.png" alt=""><b>Ethical PDF Editor</b><span>PDF'leri görüntüleyin, metni düzenleyin, not ekleyin, form doldurun, imzalayın, birleştirin ve bölün</span></a>
+<a class="card" href="#write-basics"><img src="../branding/icons/png/document_64.png" alt=""><b>Ethical Document Editor</b><span>Belgeler — Word .docx dosyalarını açar ve kaydeder</span></a>
+<a class="card" href="#sheets-basics"><img src="../branding/icons/png/spreadsheet_64.png" alt=""><b>Ethical Spreadsheet Editor</b><span>143 formül ve grafikli elektronik tablolar — Excel .xlsx</span></a>
+<a class="card" href="#slides-basics"><img src="../branding/icons/png/presentation_64.png" alt=""><b>Ethical Presentation Editor</b><span>Sunular ve slaytlar — PowerPoint .pptx</span></a>
+<a class="card" href="#photo-basics"><img src="../branding/icons/png/photo_64.png" alt=""><b>Ethical Photo Editor</b><span>Katmanlı fotoğraf düzenleyici — Photoshop .psd, PNG, JPG…</span></a>
+<a class="card" href="#conv-basics"><img src="../branding/icons/png/converter_64.png" alt=""><b>Ethical Converter</b><span>Ses, video, resim ve belgeleri dönüştürün ve sıkıştırın; zip/ayıkla</span></a>
+<a class="card" href="#base-basics"><img src="../branding/icons/png/database_64.png" alt=""><b>Ethical Database</b><span>Veritabanları: tablolar, formlar, sorgular, ilişkiler, raporlar</span></a>
+<a class="card" href="#stickies"><img src="../branding/icons/png/stickynotes_64.png" alt=""><b>Ethical Sticky Notes</b><span>Masaüstünüzde kalan notlar ve yapılacaklar listeleri</span></a>
+<a class="card" href="#snip"><img src="../branding/icons/png/snip_64.png" alt=""><b>Ethical Snip</b><span>Üzerine işaret koyabileceğiniz ekran görüntüleri — Ctrl+PrtScn</span></a>
+<a class="card" href="#planner"><img src="../branding/icons/png/planner_64.png" alt=""><b>Ethical Planner</b><span>Zamanında uyaran anımsatıcılar ve takvim</span></a>
+</div>
+<h2>Hızlı başlangıç</h2>
+<ol><li>İlk kez mi? <a href="#setup">Uygulamaları yükleme ve başlatma</a> bölümüne bakın.</li>
+<li>Başlat menüsünden veya masaüstünden <b>EthicalApp</b>'i açın: tüm uygulamalarınız tek bir pencerede. Birine tıklayın veya üzerine bir dosya bırakın.
+Ayrıca <b>bir dosyaya sağ tıklayıp → Ethical … ile aç</b> seçeneğini kullanabilirsiniz (bkz. <a href="#right-click">Sağ tıklama menüsü</a>).</li>
+<li>Herhangi bir uygulamada <kbd>F1</kbd> tuşuna basarak bu kılavuzu o uygulamanın sayfasında açın.</li>
+<li>Başka bir dil mi istiyorsunuz? EthicalApp penceresinin altındaki <b>🌐</b> düğmesine tıklayın (bkz. <a href="#language">Dili değiştirme</a>).</li>
+<li>İşi bir yapay zekâ asistanının yapmasını mı istiyorsunuz? Bkz. <a href="#ai-claude">Uygulamaları yapay zekâ (Claude) ile kullanma</a>.</li></ol>
+<div class="tip">Her şeyi bulmak için üstteki arama kutusunu kullanın (veya <kbd>/</kbd> tuşuna basın) — örn. “karartma”, “DÜŞEYARA”, “karışım modu”, “video sıkıştır”.</div>
+
+@@ setup
+title: Uygulamaları yükleme ve başlatma
+keywords: yükle kurulum yükleyici indir güncelle kaldır başlat menüsü ilk kez
+---
+<h2>Yükleme</h2>
+<ol><li>Yükleyiciyi <a href="https://ethicalapp.org">ethicalapp.org</a> adresinden indirip çalıştırın. Yönetici parolası gerekmez.</li>
+<li>Windows “Windows bilgisayarınızı korudu” derse <b>Ek bilgi → Yine de çalıştır</b>'a tıklayın. Bu uyarı henüz pek tanınmayan yeni programlarda görünür; indirmenin gerçek olduğunu web sitesindeki SHA-256 parmak iziyle doğrulayabilirsiniz.</li>
+<li><b>Hepsi</b>, <b>Yalnızca ofis uygulamaları</b>'nı seçin veya tam olarak istediğiniz uygulamaları işaretleyin.</li>
+<li>Seçenekler: masaüstü kısayolları, sağ tıklama menüsünde “Ethical … ile aç” öğeleri, Sticky Notes / Snip / Planner'ı Windows ile başlatma ve <b>Seçilen uygulamaları Claude'a bağla</b> (bkz. <a href="#ai-claude">Uygulamaları yapay zekâ ile kullanma</a>).</li>
+<li><b>EthicalApp'i görev çubuğuna / Başlat'a sabitlememe yardım et</b>: Windows programların kendilerini sabitlemesine izin vermez, bu yüzden başlatıcı gereken iki tıklamayı gösterir (görev çubuğundaki simgesine sağ tıklayın → <b>Görev çubuğuna sabitle</b>; veya Başlat'ta <b>EthicalApp</b>'e sağ tıklayın → <b>Başlangıç'a sabitle</b>). Başlatıcıdaki <b>Görev çubuğuna veya Başlat'a sabitle…</b> bağlantısı bunları istediğiniz zaman yeniden gösterir.</li></ol>
+<h2>Başlatma</h2>
+<p>Yüklü tüm uygulamalarınızın bulunduğu tek bir pencere için <b>EthicalApp</b>'i açın (Başlat menüsü veya masaüstü): bir kutucuğa tıklayın, <b>Dosya aç…</b> (<kbd>Ctrl</kbd>+<kbd>O</kbd>) kullanın veya dosyaları üzerine bırakın; her biri doğru uygulamada açılır. Her uygulama ayrıca <b>Başlat → EthicalApp</b> altında bulunur.</p>
+<h2>Güncelleme ve kaldırma</h2>
+<p>Güncellemek için daha yeni bir yükleyiciyi çalıştırın: eski sürümün yerine geçer ve ayarlarınızı, notlarınızı ve anımsatıcılarınızı korur. Her şeyi kaldırmak için: <b>Ayarlar → Uygulamalar → EthicalApp → Kaldır</b> (yeniden yüklerseniz diye notlarınız ve anımsatıcılarınız bilgisayarda kalır).</p>
+<h2>Kaynak koddan (geliştiriciler)</h2>
+<p>Tüm kaynak kodu herkese açıktır — bkz. <a href="#sharing">Kaynak kodu ve kendiniz derleme</a>.</p>
+
+@@ language
+title: Dili değiştirme
+keywords: dil çeviri türkçe ingilizce language
+---
+<p>EthicalApp şu dillerde mevcuttur: English, Español, Português (Brasil), Français, Deutsch, Italiano, Nederlands, Polski, Türkçe, Русский, Bahasa Indonesia, 日本語, 한국어 ve 简体中文.</p>
+<ol><li><b>EthicalApp</b> penceresini açın (Başlat menüsü).</li>
+<li>Alttaki <b>🌐</b> düğmesine tıklayıp bir dil seçin. <b>Windows ile aynı</b>, Windows görüntüleme dilini izler — varsayılan budur.</li>
+<li>EthicalApp'i yeniden başlatmayı kabul edin. Zaten açık olan uygulamalar bir sonraki başlatışınızda değişir.</li></ol>
+<p>Seçim tüm Ethical uygulamalarına, bu kılavuza ve iletişim kutularına (Aç/Kaydet, renkler) uygulanır. Tarihler de dilinize uyar.</p>
+<div class="tip">Dosyalarınız değişmez: bir belge, yazıldığı dilde kalır. Yalnızca düğmeler ve menüler çevrilir.</div>
+
+@@ right-click
+title: Sağ tıklama menüsü ve varsayılan uygulamalar
+keywords: birlikte aç bağlam menüsü varsayılan program windows 11 daha fazla seçenek göster kaldır
+---
+<p>Yükleyicide sağ tıklama seçeneğini işaretlediyseniz, Windows sağ tıklama menüsünde şu öğeler bulunur (yalnızca sizin hesabınız için — yönetici hakkı gerekmez):</p>
+<table><tr><th>Sağ tıklanan…</th><th>Gördüğünüz</th></tr>
+<tr><td>.pdf</td><td>Ethical PDF Editor ile aç</td></tr>
+<tr><td>.docx</td><td>Ethical Document Editor ile aç</td></tr>
+<tr><td>.xlsx, .csv</td><td>Ethical Spreadsheet Editor ile aç</td></tr>
+<tr><td>.pptx</td><td>Ethical Presentation Editor ile aç</td></tr>
+<tr><td>.psd .png .jpg .webp .bmp .gif .tif .ora</td><td>Ethical Photo Editor ile aç</td></tr>
+<tr><td>.db .sqlite .accdb .mdb</td><td>Ethical Database ile aç</td></tr>
+<tr><td>Herhangi bir dosya veya klasör</td><td>Ethical Converter ile dönüştür / sıkıştır</td></tr></table>
+<p>Birkaç dosya seçip sağ tıklayın ve dönüştürücü öğesini seçin: hepsi <b>tek bir</b> dönüştürücü penceresine gider.</p>
+<h2>Bir uygulamayı varsayılan yapma</h2>
+<p>Dosyaya sağ tıklayın → <b>Birlikte aç → Başka bir uygulama seç</b> → Ethical uygulamasını seçin → <b>Her zaman bu uygulamayı kullan</b>'ı işaretleyin.</p>
+<h2>Windows 11</h2><p>Öğeler <b>Daha fazla seçenek göster</b> altındadır (veya sağ tıklarken <kbd>Shift</kbd> tuşunu basılı tutun).</p>
+<h2>Öğeleri kaldırma</h2>
+<p>Yükleyiciyi yeniden çalıştırıp sağ tıklama seçeneğinin işaretini kaldırın veya EthicalApp'i kaldırın — öğeler de onunla birlikte gider.</p>
+
+@@ sharing
+title: Kaynak kodu ve kendiniz derleme
+keywords: kaynak kodu github açık kaynak derleme geliştirici değiştirme agpl paylaşma
+---
+<p>EthicalApp açık kaynaktır (AGPL-3.0). Tüm kaynak kodu GitHub'dadır: <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a> ve her yükleyicinin kaynak kodu <a href="https://ethicalapp.org">ethicalapp.org</a> adresinde bir zip olarak bulunur.</p>
+<h2>Arkadaşlarla paylaşma</h2>
+<p>Onlara <a href="https://ethicalapp.org">ethicalapp.org</a> bağlantısını gönderin — her zaman en yeni ve güvenli sürümdür.</p>
+<h2>Yükleyiciyi kaynak koddan derleme</h2>
+<ol><li><b>Python 3.14</b> ve <b>Inno Setup 6</b>'yı yükleyin.</li>
+<li>Kaynak klasöründe: <code>python -m venv .venv</code>, ardından <code>.venv\\Scripts\\python -m pip install -r requirements.txt</code>.</li>
+<li>Uygulamaları doğrudan çalıştırın (örn. <code>.venv\\Scripts\\python apps\\suite_launcher.py</code>) veya yükleyiciyi <code>.venv\\Scripts\\python installer\\build.py</code> ile derleyin.</li></ol>
+<h2>Kaynak kodunda neler var</h2>
+<table><tr><th>Klasör</th><th>Ne için</th></tr>
+<tr><td><code>apps/</code></td><td>Her uygulamanın kodu</td></tr>
+<tr><td><code>apps/locales/</code></td><td>Çeviriler (dil başına bir dosya)</td></tr>
+<tr><td><code>guide/</code></td><td>Bu kılavuz (çevirileri için <code>guide/i18n/</code>)</td></tr>
+<tr><td><code>branding/</code></td><td>Simgeler ve sesler</td></tr>
+<tr><td><code>installer/</code></td><td>Windows yükleyicisini oluşturur</td></tr>
+<tr><td><code>licenses/</code></td><td>Açık kaynak parçaların lisansları</td></tr></table>
+<p>Değiştirip kendi sürümünüzü paylaşırsanız, AGPL kaynak kodunuzu da paylaşmanızı ister.</p>
+
+@@ compat
+title: Bir bakışta dosya uyumluluğu
+keywords: biçimler docx xlsx pptx psd pdf uyumlu kayıp uyarı korunur
+---
+<table><tr><th>Uygulama</th><th>Açar</th><th>Kaydeder</th><th>Henüz korunmaz (sizi uyarır)</th></tr>
+<tr><td>PDF</td><td>.pdf (parolalı olanlar dahil)</td><td>.pdf, .docx/.txt/resim olarak dışa aktarır</td><td>—</td></tr>
+<tr><td>Belgeler</td><td>.docx .html .md .txt</td><td>.docx .odt .html .md .txt, PDF</td><td>dipnotlar, açıklamalar, değişiklik izleme, metin kutuları, kayan resimler, sütunlar</td></tr>
+<tr><td>Elektronik tablolar</td><td>.xlsx .xlsm .csv .tsv</td><td>.xlsx .csv, PDF</td><td>koşullu biçimlendirme, açılır listeler/veri doğrulama, özet tablolar, makrolar, alışılmadık grafikler</td></tr>
+<tr><td>Sunular</td><td>.pptx</td><td>.pptx, PDF, PNG</td><td>grafikler, SmartArt, video/ses, animasyonlar ve geçişler</td></tr>
+<tr><td>Veritabanı</td><td>.db/.sqlite (SQLite); .xlsx, .csv, Access .accdb/.mdb* içe aktarır</td><td>.db; .xlsx, .csv, PDF dışa aktarır</td><td>*Access içe aktarma için Microsoft'un ücretsiz Access sürücüsü gerekir; Access formları, raporları ve makroları aktarılmaz (yalnızca tablolar)</td></tr>
+<tr><td>Fotoğraf</td><td>.psd .png .jpg .webp .bmp .gif .tif .ico .ora</td><td>.psd (katmanlar) .ora (katmanlar), tüm düz biçimler, PDF</td><td>PSD ayarlama katmanları, katman efektleri, maskeler, akıllı nesneler (pikseller yüklenir)</td></tr></table>
+<div class="tip">Bir dosyada uygulamanın koruyamayacağı bir şey varsa, açarken bunu söyler ve özgün dosyanın üzerine kaydetmeden önce yeniden sorar. Özgün dosyaya dokunmamak için <b>Dosya → Farklı kaydet</b>'i kullanın.</div>
+<p>Eski biçimler (<code>.doc</code>, <code>.xls</code>, <code>.ppt</code>) desteklenmez — onları oluşturan programda açın ve önce “x”li modern biçimde kaydedin.</p>
+
+@@ pdf-basics
+title: PDF: açma, görüntüleme ve metin arama
+keywords: yakınlaştır küçük resimler sayfalar paneli ara bul parola
+---
+<p>Bir PDF'yi <b>Dosya → Aç</b> (<kbd>Ctrl</kbd>+<kbd>O</kbd>) ile, pencereye sürükleyerek veya sağ tıklayıp → <i>Ethical PDF Editor ile aç</i> ile açın. Parolalı PDF'ler parolayı sorar.</p>
+<h2>Gezinme</h2><ul>
+<li><b>Yakınlaştırma:</b> <kbd>Ctrl</kbd>+fare tekerleği, yakınlaştırma kutusu, <i>Genişliğe sığdır</i> (<kbd>Ctrl</kbd>+<kbd>1</kbd>), gerçek boyut (<kbd>Ctrl</kbd>+<kbd>0</kbd>).</li>
+<li><b>Sayfalar paneli</b> (solda): oraya gitmek için bir küçük resme tıklayın. Sayfa işlemleri için <kbd>Ctrl</kbd>/<kbd>Shift</kbd> ile birden fazla seçin. Sayfalar menüsü için sağ tıklayın.</li>
+<li><b>Sayfaya git:</b> Sayfa kutusuna bir numara yazın.</li></ul>
+<h2>Metin arama</h2><p><b>Metin bul…</b> kutusuna yazıp <kbd>Enter</kbd>'a basın; <kbd>F3</kbd> / <b>Sonraki</b> ve <b>Önceki</b> sonuçlar arasında gezinir (hepsi vurgulanır, geçerli olan turuncu).</p>
+<h2>Metin kopyalama</h2><p><b>Seç</b> aracıyla metnin üzerinde sürükleyin, ardından <kbd>Ctrl</kbd>+<kbd>C</kbd>.</p>
+
+@@ pdf-edit-text
+title: PDF: mevcut metni düzenleme ve metin ekleme
+keywords: metni düzenle kelimeleri değiştir yazı tipi yazım hatası metin ekle
+---
+<h2>PDF'de zaten olan metni değiştirme</h2><ol>
+<li><b>Metni düzenle</b> aracını seçin.</li><li>Değiştirmek istediğiniz satıra tıklayın.</li>
+<li>Bir pencere satırın metnini, yazı tipini, boyutunu, kalın/italik durumunu ve rengini gösterir — istediğinizi değiştirip Tamam'a tıklayın.</li></ol>
+<p>Uygulama PDF'nin yazı tipini tanır ve bilgisayarınızda yüklü olan eşleşen yazı tipini seçer (örn. Calibri, Times New Roman). Yüklü değilse benzer bir yazı tipi kullanır.</p>
+<div class="warn">Düzenleme bir seferde bir satır çalışır. Döndürülmüş veya dikey metin düzenlenemez.</div>
+<h2>Yeni metin ekleme</h2><p><b>Metin ekle</b>'yi seçin, metnin gideceği yere tıklayın, yazın ve yüklü herhangi bir yazı tipini seçin. Gerçek sayfa metni olur — daha sonra <b>Metni düzenle</b> ile değiştirebilirsiniz.</p>
+
+@@ pdf-annotate
+title: PDF: vurgulama, notlar, çizim ve şekiller
+keywords: not ekle vurgula altını çiz üstünü çiz not çiz kalem dikdörtgen elips ok çizgi resim renk
+---
+<table><tr><th>Araç</th><th>Nasıl</th></tr>
+<tr><td>Vurgula / Altını çiz / Üstünü çiz</td><td>Metnin üzerinde sürükleyin. Vurgula, <b>Vurgulayıcı</b> rengini kullanır; diğerleri <b>Renk</b> düğmesini.</td></tr>
+<tr><td>Not</td><td>Yapışkan not koymak için tıklayın ve yazın.</td></tr>
+<tr><td>Çiz</td><td>Serbest kalem (renk ve kalınlık araç çubuğunda).</td></tr>
+<tr><td>Dikdörtgen / Elips / Çizgi / Ok</td><td>Çizmek için sürükleyin.</td></tr>
+<tr><td>Resim</td><td>Tıklayın (veya bir kutu sürükleyin) ve bir resim seçin.</td></tr></table>
+<h2>Notları sonradan düzenleme</h2><p><b>Seç</b>'e geçin, ardından:</p><ul>
+<li>taşımak için bir notu sürükleyin; kaldırmak için <kbd>Delete</kbd>'e basın;</li>
+<li>metnini düzenlemek için bir metin kutusuna veya nota çift tıklayın;</li>
+<li><i>Rengi değiştir</i> / <i>Sil</i> için sağ tıklayın.</li></ul>
+<p>Her değişiklik <kbd>Ctrl</kbd>+<kbd>Z</kbd> ile geri alınabilir.</p>
+
+@@ pdf-forms-sign
+title: PDF: form doldurma ve imzalama
+keywords: form alan onay kutusu doldur imzala imza çiz
+---
+<h2>Formlar</h2><p>Form alanları açık maviye boyanır (<i>Görünüm → Form alanlarını vurgula</i> ile kapatın). <b>Seç</b> aracıyla bir alana tıklayın: metin alanları metin ister, onay kutuları işaretlenir/kaldırılır, açılır listeler seçenekleri gösterir.</p>
+<h2>İmzalar</h2><ol><li><b>İmzala</b> aracını seçin (veya <i>Düzen → İmza oluştur</i>).</li>
+<li>İmzanızı fareyle <b>çizin</b> veya bir resim kullanın (<b>Resim</b> sekmesi — tercihen saydam arka planlı bir PNG).</li>
+<li>Yerleştirmek için sayfaya tıklayın. Başka kopyalar için yeniden tıklayın. Daha sonra <b>Seç</b> ile taşıyın.</li></ol>
+
+@@ pdf-pages
+title: PDF: sayfalar, birleştirme ve bölme
+keywords: döndür sil sırala taşı ekle boş birleştir bölme ayıkla sayfalar resimler
+---
+<p>Tüm sayfa komutları <b>Sayfalar</b> menüsündedir (Sayfalar panelinde sağ tıklayarak da). Seçili küçük resimlere veya geçerli sayfaya uygulanırlar.</p>
+<table><tr><th>Amaç</th><th>Kullanın</th></tr>
+<tr><td>Döndürme</td><td>Sağa döndür <kbd>Ctrl</kbd>+<kbd>R</kbd> / sola <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd></td></tr>
+<tr><td>Sırayı değiştirme</td><td>Sayfayı yukarı / aşağı taşı</td></tr>
+<tr><td>Sayfa ekleme</td><td>Boş sayfa ekle, Dosyadan sayfa ekle (başka bir PDF), Resmi sayfa olarak ekle</td></tr>
+<tr><td>Sayfaları çıkarma</td><td>Seçili sayfaları ayıkla (yeni bir PDF olarak kaydeder)</td></tr>
+<tr><td>Sayfa başına bir dosya</td><td>Tek tek sayfalara böl</td></tr>
+<tr><td>Silme</td><td>Seçili sayfaları sil</td></tr></table>
+<h2>Birkaç dosyayı birleştirme</h2><p><b>Dosya → Dosyaları tek PDF'de birleştir</b>: PDF'leri ve resimleri sırayla seçin; tek bir yeni PDF olurlar. <b>Dosya → Resimlerden yeni PDF</b> fotoğrafları veya taramaları PDF'ye dönüştürür.</p>
+<div class="tip"><a href="#conv-combine">Dönüştürücü</a> da resimleri ve PDF'leri toplu olarak birleştirebilir.</div>
+
+@@ pdf-redact
+title: PDF: beyazla örtme ve karartma (bilgiyi gizleme)
+keywords: karartma siyah kutu gizle kaldır gizli beyazla ört gizlilik güvenli
+---
+<table><tr><th>Araç</th><th>Ne yapar</th><th>Sırlar için güvenli mi?</th></tr>
+<tr><td><b>Beyazla ört</b></td><td>Alanın üzerine beyaz bir kutu boyar.</td><td>❌ Altındaki metin dosyada kalır ve kopyalanabilir.</td></tr>
+<tr><td><b>Karart</b></td><td>Kutunun altındaki metni, resimleri ve çizimleri kalıcı olarak siler ve siyahla doldurur.</td><td>✅ Evet — içerik yok olur.</td></tr></table>
+<div class="warn">Parolalar, hesap numaraları, adresler ve benzerleri için her zaman <b>Karart</b>'ı kullanın. Sonucu yeni bir dosya olarak kaydedin ve özgün dosyayı güvende tutun.</div>
+
+@@ pdf-export
+title: PDF: kaydetme, dışa aktarma ve yazdırma
+keywords: kaydet dışa aktar word docx resimler png jpg metin yazdır
+---
+<ul><li><b>Kaydet</b> (<kbd>Ctrl</kbd>+<kbd>S</kbd>) / <b>Farklı kaydet</b>. Kaydederken gömülü yazı tiplerinin yalnızca kullanılan harfleri tutulur, böylece dosyalar küçük kalır.</li>
+<li><b>Dosya → Dışa aktar</b>: sayfaları PNG/JPG resim olarak (DPI seçin), Word belgesi olarak (.docx — metin, stiller ve resimler; tam düzen değil) veya düz metin olarak.</li>
+<li><b>Dosya → Yazdır</b> (<kbd>Ctrl</kbd>+<kbd>P</kbd>).</li></ul>
+
+@@ write-basics
+title: Belgeler: temel bilgiler
+keywords: kelime işlemci belge sayfa görünümü yazma stiller başlıklar normal yazı tipleri
+---
+<p>Ethical Document Editor, belgenizi gerçek sayfalar olarak gösterir — kenar boşluklu beyaz sayfalar, tam yazdırılacağı gibi. Durum çubuğu hangi sayfada olduğunuzu ve kelime sayısını gösterir.</p>
+<h2>Stiller</h2><p>Biçimlendirme çubuğundaki ilk kutu paragraf stilini ayarlar: <b>Normal, Konu Başlığı, Başlık 1–4</b>. Bir başlıktan sonra <kbd>Enter</kbd>'a basmak Word'deki gibi Normal'e döner. Başlıklar gerçek Word başlıkları olarak kaydedilir.</p>
+<h2>Yazı tipleri</h2><p>Bilgisayarınızdaki tüm yazı tipleri kullanılabilir. Yeni belgeler Calibri 11 kullanır (Calibri yüklü değilse Arial).</p>
+<h2>Kullanışlı tuşlar</h2><table>
+<tr><td>Kalın / İtalik / Altı çizili</td><td>${K("Ctrl B")} ${K("Ctrl I")} ${K("Ctrl U")}</td></tr>
+<tr><td>Metni büyüt / küçült</td><td>${K("Ctrl ]")} ${K("Ctrl [")}</td></tr>
+<tr><td>Sola / ortaya / sağa hizala / iki yana yasla</td><td>${K("Ctrl L")} ${K("Ctrl E")} ${K("Ctrl R")} ${K("Ctrl J")}</td></tr>
+<tr><td>Bul ve değiştir</td><td>${K("Ctrl F")} / ${K("Ctrl H")}</td></tr>
+<tr><td>Sayfa sonu</td><td>${K("Ctrl Enter")}</td></tr>
+<tr><td>Biçimlendirmeyi temizle</td><td>${K("Ctrl Space")}</td></tr>
+<tr><td>Biçimlendirmeden yapıştır</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>Sözcük sayısı</td><td>${K("Ctrl Shift G")}</td></tr></table>
+
+@@ write-format
+title: Belgeler: metin, paragraf ve liste biçimlendirme
+keywords: kalın renk vurgu üst simge alt simge satır aralığı girinti madde işaretleri numaralandırma liste sekme
+---
+<h2>Metin</h2><p>Yazı tipi, boyut, <b>B</b> <i>I</i> <u>U</u> <s>S</s>, üst simge x², alt simge x₂, metin rengi (örnekten seçin, <b>A</b> ile uygulayın), vurgu, <i>Biçim → Büyük/küçük harf</i>, <i>Biçimlendirmeyi temizle</i>.</p>
+<h2>Paragraflar</h2><p>Hizalama, <i>Paragraf → Satır aralığı</i> (1.0–3.0), önce/sonra boşluk, girintiyi artır/azalt (<kbd>Ctrl</kbd>+<kbd>M</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>).</p>
+<h2>Listeler</h2><ul>
+<li><b>• Liste</b> / <b>1. Liste</b> madde işaretlerini veya numaralandırmayı başlatır; <i>Paragraf → Liste stili</i>'nde 8 stil vardır (•, ○, ▪, 1., a., A., i., I.).</li>
+<li>Bir öğenin başında <kbd>Tab</kbd> onu alt öğe yapar; <kbd>Shift</kbd>+<kbd>Tab</kbd> geri alır.</li>
+<li>Boş bir öğede <kbd>Enter</kbd> listeyi bitirir; başta <kbd>Backspace</kbd> madde işaretini kaldırır.</li></ul>
+
+@@ write-insert
+title: Belgeler: resimler, tablolar ve bağlantılar
+keywords: ekle resim yeniden boyutlandır tablo satırlar sütunlar birleştir gölgelendirme bağlantı köprü tarih yatay çizgi
+---
+<h2>Resimler</h2><p><i>Ekle → Resim</i>, <kbd>Ctrl</kbd>+<kbd>V</kbd> ile yapıştırın veya bir resim dosyasını sürükleyin. Boyutunu % olarak ayarlamak için resme sağ tıklayın → <b>Resmi yeniden boyutlandır</b>.</p>
+<h2>Tablolar</h2><p><i>Ekle → Tablo</i> (satır/sütun ve isteğe bağlı gölgeli üst bilgi satırı seçin). Bir tablonun içinde <b>Tablo</b> menüsü veya sağ tıklama ile satır ve sütun ekleyip silebilir, seçili hücreleri birleştirebilir, hücreleri bölebilir, gölgelendirme ekleyebilir veya tabloyu silebilirsiniz.</p>
+<h2>Bağlantılar</h2><p>Metni seçip <kbd>Ctrl</kbd>+<kbd>K</kbd>'ya basın. Açmak için bağlantıya <kbd>Ctrl</kbd>+tıklayın. Sağ tıklayın → Bağlantıyı kaldır.</p>
+<h2>Diğer</h2><p>Sayfa sonu (<kbd>Ctrl</kbd>+<kbd>Enter</kbd>), tarih ve saat, yatay çizgi.</p>
+
+@@ write-pagesetup
+title: Belgeler: sayfa yapısı, üst bilgi, alt bilgi ve sayfa numaraları
+keywords: kenar boşlukları kâğıt boyutu a4 letter yatay üst bilgi alt bilgi sayfa numaraları
+---
+<p><b>Dosya → Sayfa yapısı</b>:</p><ul>
+<li>Kâğıt: Letter, Legal, A4, A5 veya özel boyut; <b>Yatay</b>.</li>
+<li>Kenar boşlukları (üst, alt, sol, sağ) inç olarak.</li>
+<li><b>Üst bilgi</b> metni (her sayfanın üstünde ortalı), <b>alt bilgi</b> (sol altta), <b>sayfa numaraları</b> (sağ altta).</li></ul>
+<p>.docx dosyasına kaydedilirler, böylece Word de onları gösterir.</p>
+
+@@ write-files
+title: Belgeler: dosyalar, Word uyumluluğu, PDF ve yazdırma
+keywords: docx kaydet aç odt html markdown txt pdf dışa aktar yazdır baskı önizleme uyumluluk
+---
+<p><b>Açar:</b> .docx, .html, .md, .txt. <b>Kaydeder:</b> .docx (varsayılan), .odt, .html, .md, .txt. <b>PDF olarak dışa aktar</b>, seçilebilir gerçek metni korur. <b>Yazdır</b> ve <b>Baskı önizleme</b> sayfa görünümüyle eşleşir.</p>
+<h2>Word'e/Word'den neler aktarılır</h2><p>Başlıklar ve Konu Başlığı, yazı tipleri (tema yazı tipleri dahil), boyutlar, kalın/italik/altı çizili/üstü çizili, renkler, vurgu, hizalama, girintiler, aralıklar, sayfa sonları, madde işaretleri ve numaralandırma (iç içe), tablolar (birleştirilmiş hücreler, genişlikler, gölgelendirme), resimler, bağlantılar, sayfa boyutu ve kenar boşlukları, üst/alt bilgi metni ve sayfa numaraları.</p>
+<p><b>Henüz değil:</b> dipnotlar, açıklamalar, değişiklik izleme, metin kutuları, kayan resimler (metin kaydırmalı), sütunlar, birden çok bölüm. Henüz yakınlaştırma ve yazım denetimi yoktur.</p>
+
+@@ sheets-basics
+title: Elektronik tablolar: temel bilgiler
+keywords: elektronik tablo hücre yazma enter tab gezinme formül çubuğu ad kutusu sayfa sekmeleri sayfalar durum toplam
+---
+<h2>Pencere</h2><ul>
+<li><b>Ad kutusu</b> (sol üstte): geçerli hücreyi gösterir; oraya gitmek için <code>B12</code>, <code>A1:C20</code>, <code>Sheet2!A1</code> veya adlandırılmış bir aralık yazıp Enter'a basın (<kbd>Ctrl</kbd>+<kbd>G</kbd>).</li>
+<li><b>fx / formül çubuğu</b>: hücrede gerçekte ne olduğunu (örn. formülü) gösterir ve düzenler.</li>
+<li><b>Sayfa sekmeleri</b> (altta): <b>+</b> sayfa ekler; yeniden adlandırmak için çift tıklayın; çoğaltmak/silmek için sağ tıklayın; sırayı değiştirmek için sürükleyin.</li>
+<li><b>Durum çubuğu</b>: toplamlarını, ortalamalarını ve sayılarını görmek için birkaç sayı seçin.</li></ul>
+<h2>Değer yazma</h2><table><tr><th>Yazın</th><th>Elde edilen</th></tr>
+<tr><td><code>1234.5</code> / <code>1,234</code></td><td>sayı (binlik ayırıcıyla)</td></tr>
+<tr><td><code>$5</code> / <code>25%</code></td><td>para birimi / yüzde</td></tr>
+<tr><td><code>2026-10-11</code>, <code>10/11/2026</code>, <code>Oct 11, 2026</code></td><td>tarih</td></tr>
+<tr><td><code>9:30</code>, <code>9:30 PM</code></td><td>saat</td></tr>
+<tr><td><code>TRUE</code> / <code>FALSE</code></td><td>doğru/yanlış değeri</td></tr>
+<tr><td><code>'007</code></td><td>tam yazıldığı gibi metin (' gizlenir)</td></tr>
+<tr><td><code>=A1*2</code></td><td>bir formül</td></tr></table>
+<h2>Gezinme</h2><table>
+<tr><td>${K("Enter")} / ${K("Shift Enter")}</td><td>aşağı / yukarı</td></tr><tr><td>${K("Tab")} / ${K("Shift Tab")}</td><td>sağa / sola</td></tr>
+<tr><td>${K("Ctrl Arrow")}</td><td>verilerin kenarına atla</td></tr><tr><td>${K("Ctrl Shift Arrow")}</td><td>kenara kadar seç</td></tr>
+<tr><td>${K("F2")} veya çift tıklama</td><td>hücreyi düzenle</td></tr><tr><td>${K("Delete")}</td><td>içeriği temizle</td></tr></table>
+
+@@ sheets-formulas
+title: Elektronik tablolar: formüller ve başvurular
+keywords: formül başvuru mutlak göreli $ dolar başka sayfa adlandırılmış aralık hata sıfıra bölme başv ad yok döngüsel otomatik toplam
+---
+<p>Formül <code>=</code> ile başlar: <code>=B2*C2</code>, <code>=SUM(D2:D20)</code>, <code>=IF(A1&gt;10,"big","small")</code>.</p>
+<h2>İşleçler</h2><p><code>+ - * /</code>, <code>^</code> (üs), <code>%</code> (yüzde), <code>&amp;</code> (metin birleştir), <code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code>.</p>
+<h2>Başvurular</h2><table>
+<tr><td><code>A1</code></td><td>tek hücre — kopyaladığınızda uyarlanır</td></tr>
+<tr><td><code>$A$1</code> / <code>A$1</code> / <code>$A1</code></td><td>mutlak (sabit) sütun ve/veya satır — kopyalarken değişmez</td></tr>
+<tr><td><code>A1:C10</code></td><td>bir hücre bloğu</td></tr><tr><td><code>B:B</code></td><td>bütün bir sütun</td></tr>
+<tr><td><code>'My Sheet'!A1</code></td><td>başka bir sayfadaki hücre</td></tr>
+<tr><td><code>Prices</code></td><td>adlandırılmış aralık (<i>Veri → Ad tanımla</i>)</td></tr>
+<tr><td><code>{1,2;3,4}</code></td><td>dizi sabiti</td></tr></table>
+<p>Kopyala/yapıştır, aşağı doldur (<kbd>Ctrl</kbd>+<kbd>D</kbd>) ve sağa doldur (<kbd>Ctrl</kbd>+<kbd>R</kbd>) başvuruları Excel gibi uyarlar. Satır/sütun eklemek veya silmek tüm formülleri günceller; silinen hücrelere başvurular <code>#REF!</code> olur.</p>
+<h2>Kısayollar</h2><ul><li><b>Otomatik Toplam</b> (<kbd>Alt</kbd>+<kbd>=</kbd>) yukarıdaki veya soldaki sayılar için <code>=SUM(…)</code> yazar.</li>
+<li><b>İşlev…</b> (<kbd>Shift</kbd>+<kbd>F3</kbd>) bir işlev adı ekler; <i>Yardım → İşlev listesi</i> hepsini gösterir.</li></ul>
+<h2>Hatalar</h2><table>
+<tr><td><code>#DIV/0!</code></td><td>sıfıra bölme</td></tr><tr><td><code>#VALUE!</code></td><td>yanlış türde değer (örn. hesaplamada metin)</td></tr>
+<tr><td><code>#REF!</code></td><td>başvurduğu hücre silindi</td></tr><tr><td><code>#NAME?</code></td><td>bilinmeyen işlev veya ad</td></tr>
+<tr><td><code>#N/A</code></td><td>arama hiçbir şey bulamadı</td></tr><tr><td><code>#NUM!</code></td><td>imkânsız sayı</td></tr>
+<tr><td><code>#CIRC!</code></td><td>döngüsel başvuru — formül kendisine bağlı</td></tr></table>
+<div class="tip">Bir Excel çalışma kitabı Ethical Spreadsheet Editor'ın henüz bilmediği bir işlev kullanıyorsa, hata yerine Excel'in hesapladığı son değeri gösterir.</div>
+<p>İşlevler İngilizce adlarıyla yazılır (SUM, IF, VLOOKUP…), tıpkı Excel dosyalarının içinde olduğu gibi.</p>
+
+@@ sheets-functions
+title: Elektronik tablolar: işlev listesi (143 işlev)
+keywords: işlevler liste toplam ortalama say eğer düşeyara xlookup indis kaçıncı etopla eğersay metin tarih yuvarla taksit
+---
+<table><tr><th>Grup</th><th>İşlevler</th></tr>
+<tr><td>Toplamlar ve istatistik</td><td>SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, COUNTBLANK, PRODUCT, MEDIAN, MODE, STDEV(.S/.P), VAR(.S/.P), LARGE, SMALL, RANK, SUMPRODUCT</td></tr>
+<tr><td>Koşullu</td><td>SUMIF, SUMIFS, COUNTIF, COUNTIFS, AVERAGEIF, AVERAGEIFS, MAXIFS, MINIFS</td></tr>
+<tr><td>Mantıksal</td><td>IF, IFS, IFERROR, IFNA, SWITCH, CHOOSE, AND, OR, NOT, XOR, TRUE, FALSE</td></tr>
+<tr><td>Arama</td><td>VLOOKUP, HLOOKUP, XLOOKUP, INDEX, MATCH, ROW, COLUMN, ROWS, COLUMNS</td></tr>
+<tr><td>Matematik</td><td>ROUND, ROUNDUP, ROUNDDOWN, TRUNC, INT, ABS, SQRT, POWER, MOD, EXP, LN, LOG, LOG10, SIGN, PI, RAND, RANDBETWEEN, CEILING, FLOOR, EVEN, ODD, FACT, DEGREES, RADIANS, SIN, COS, TAN, ASIN, ACOS, ATAN, ATAN2</td></tr>
+<tr><td>Metin</td><td>CONCATENATE, CONCAT, TEXTJOIN, LEFT, RIGHT, MID, LEN, UPPER, LOWER, PROPER, TRIM, CLEAN, FIND, SEARCH, SUBSTITUTE, REPLACE, REPT, EXACT, CHAR, CODE, VALUE, TEXT, FIXED, DOLLAR, T, N</td></tr>
+<tr><td>Tarih ve saat</td><td>TODAY, NOW, DATE, TIME, YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, WEEKDAY, DAYS, DATEDIF, EDATE, EOMONTH, DATEVALUE</td></tr>
+<tr><td>Denetimler</td><td>ISBLANK, ISNUMBER, ISTEXT, ISNONTEXT, ISLOGICAL, ISERROR, ISERR, ISNA, ISEVEN, ISODD, NA</td></tr>
+<tr><td>Finans</td><td>PMT, FV, PV, NPV</td></tr></table>
+<h2>Örnekler</h2><table>
+<tr><td><code>=VLOOKUP("Apples",A2:C50,3,FALSE)</code></td><td>A sütununda “Apples”ı bul ve C sütununu döndür</td></tr>
+<tr><td><code>=XLOOKUP(F2,A:A,C:C,"not found")</code></td><td>yedek değerli modern arama</td></tr>
+<tr><td><code>=INDEX(B2:B50,MATCH(F2,A2:A50,0))</code></td><td>her yönde arama</td></tr>
+<tr><td><code>=SUMIF(B:B,"&gt;100",C:C)</code></td><td>B'nin 100'den büyük olduğu yerlerde C'yi topla</td></tr>
+<tr><td><code>=COUNTIF(A:A,"app*")</code></td><td>“app” ile başlayan hücreleri say</td></tr>
+<tr><td><code>=TEXT(TODAY(),"dddd, mmmm d")</code></td><td>bugünü metin olarak, örn. “Sunday, October 11”</td></tr>
+<tr><td><code>=PMT(5%/12,360,-200000)</code></td><td>30 yıllık konut kredisinin aylık taksiti</td></tr>
+<tr><td><code>=IFERROR(A1/B1,0)</code></td><td>hata yerine 0</td></tr></table>
+
+@@ sheets-format
+title: Elektronik tablolar: biçimlendirme ve sayı biçimleri
+keywords: biçim sayı para birimi yüzde tarih ondalık özel kod kalın dolgu renk kenarlık birleştir metni kaydır hizala sütun genişliği satır yüksekliği gizle
+---
+<h2>Hücre stilleri</h2><p>Yazı tipi, boyut, <b>B I U S</b>, yazı rengi, <b>dolgu</b> rengi (ve <b>Dolgu yok</b>), hizalama (sol/orta/sağ, üst/orta/alt), <b>metni kaydır</b>, <b>Birleştir ve ortala</b>, <b>Kenarlıklar</b> (tümü, dış, kalın, alt, üst ve alt, yok).</p>
+<h2>Sayı biçimleri</h2><p>Araç çubuğu: <b>$</b> para birimi, <b>%</b>, <b>,</b> binlik, <b>.0+ / .0-</b> ondalık veya biçim listesi (Genel, Sayı, Para Birimi, Muhasebe, Yüzde, tarihler, saat, Bilimsel, Metin). <i>Biçim → Sayı biçimi → Özel…</i> Excel biçim kodlarını kabul eder:</p>
+<table><tr><th>Kod</th><th>12345.678 şöyle görünür</th></tr>
+<tr><td><code>#,##0.00</code></td><td>12,345.68</td></tr><tr><td><code>$#,##0</code></td><td>$12,346</td></tr>
+<tr><td><code>0.0%</code></td><td>1234567.8% (100 ile çarpar)</td></tr><tr><td><code>0.00E+00</code></td><td>1.23E+04</td></tr>
+<tr><td><code>000000</code></td><td>012346</td></tr><tr><td><code>#,##0;(#,##0)</code></td><td>negatifler parantez içinde</td></tr>
+<tr><td><code>0.0 "kg"</code></td><td>12345.7 kg</td></tr>
+<tr><td><code>yyyy-mm-dd</code>, <code>mmm d, yyyy</code>, <code>dddd</code></td><td>tarih stilleri</td></tr>
+<tr><td><code>h:mm AM/PM</code></td><td>saat</td></tr></table>
+<p>Bir hücrede <code>########</code> sayının sığmadığı anlamına gelir — sütunu genişletin.</p>
+<h2>Sütunlar ve satırlar</h2><p>Başlık kenarlarını sürükleyin veya <i>Biçim → Sütun genişliği / Satır yüksekliği / Sütun genişliğini otomatik sığdır / Gizle / Tümünü göster</i>'i kullanın.</p>
+
+@@ sheets-data
+title: Elektronik tablolar: verileri sıralama, doldurma, kopyalama ve düzenleme
+keywords: sırala artan azalan yinelenenleri kaldır seri doldur kopyala yapıştır değerler kes satır sütun ekle sil bul değiştir açıklama
+---
+<h2>Sıralama</h2><p><b>A→Z / Z→A sırala</b> verilerinizi geçerli sütuna göre sıralar (başlıklar algılanır). <i>Veri → Sırala…</i> en fazla 3 sütuna göre sıralar. Boş hücreler her zaman en alta gider.</p>
+<h2>Doldurma</h2><ul><li><kbd>Ctrl</kbd>+<kbd>D</kbd> aşağı doldur / <kbd>Ctrl</kbd>+<kbd>R</kbd> sağa doldur — ilk hücreyi kopyalar (formüller uyarlanır).</li>
+<li><i>Düzen → Seri doldur</i>: ilk hücrelere 1 ve 2 (veya 5 ve 10 ya da bir tarih) yazın, aralığı seçin, desen devam etsin.</li></ul>
+<h2>Kopyalama ve yapıştırma</h2><p>Formüller yapıştırıldığında uyarlanır. <b>Yalnızca değerleri yapıştır</b> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>) formüller yerine sonuçları yapıştırır. Tek bir hücreyi seçili bir bloğa kopyalamak bloğun tamamını doldurur. Başka programlardan kopyalanan (sekmeyle ayrılmış) metin hücrelere bölünür.</p>
+<h2>Diğer</h2><ul><li>Satır ve sütun ekleme / silme (menü veya sağ tıklama).</li>
+<li><i>Veri → Yinelenenleri kaldır</i>.</li><li>Bul ve değiştir (<kbd>Ctrl</kbd>+<kbd>F</kbd>), tüm sayfalarda da.</li>
+<li>Açıklamalar (<kbd>Shift</kbd>+<kbd>F2</kbd>) — kırmızı bir köşeyle gösterilir; okumak için üzerine gelin.</li></ul>
+
+@@ sheets-charts
+title: Elektronik tablolar: grafikler ve resimler
+keywords: grafik sütun çubuk çizgi pasta resim ekle taşı
+---
+<ol><li>Verilerinizi bir başlık satırı ve bir etiket sütunu <b>dahil</b> seçin — örn. A sütununda aylar, B ve C'de satışlar.</li>
+<li><b>Ekle → Grafik…</b> (veya <b>Grafik</b> düğmesi): Sütun, Çubuk, Çizgi veya Pasta ve bir başlık seçin.</li></ol>
+<p>Grafikler sayılar değiştiğinde güncellenir. Taşımak için sürükleyin; sağ tıklayın → Grafiği düzenle / Grafiği sil.</p>
+<p><b>Ekle → Resim…</b> bir resim ekler; taşımak için sürükleyin; sağ tıklayın → Yeniden boyutlandır / Sil.</p>
+<p>Grafikler ve resimler .xlsx dosyasına kaydedilir ve Excel'de açılır.</p>
+
+@@ sheets-files
+title: Elektronik tablolar: dosyalar, Excel uyumluluğu, PDF ve yazdırma
+keywords: xlsx xlsm csv tsv kaydet aç excel uyumluluk uyarı yazdır pdf
+---
+<p><b>Açar:</b> .xlsx, .xlsm (makrosuz .xlsx olarak kaydedilir), .csv/.tsv. <b>Kaydeder:</b> .xlsx veya .csv (yalnızca geçerli sayfa).</p>
+<p><b>Korunanlar:</b> değerler, formüller, yazı tipleri, renkler, dolgular, kenarlıklar, sayı biçimleri, hizalama, metin kaydırma, birleştirilmiş hücreler, sütun genişlikleri, satır yükseklikleri, gizli satırlar/sütunlar, açıklamalar, adlandırılmış aralıklar, birden çok sayfa, grafikler (sütun/çubuk/çizgi/pasta), resimler.</p>
+<p><b>Henüz korunmayanlar</b> (açarken ve üzerine yazmadan önce uyarır): koşullu biçimlendirme, veri doğrulama/açılır listeler, özet tablolar, makrolar, alışılmadık grafik türleri. Dondurulmuş bölmeler dosyada kalır ama ekranda gösterilmez.</p>
+<p><b>PDF olarak dışa aktar / Yazdır</b> tüm sütunları sayfa genişliğine sığdırır.</p>
+<div class="tip">Çok büyük çalışma kitapları (100.000'den fazla formül) yavaş çalışır — her formül her değişiklikten sonra yeniden hesaplanır.</div>
+
+@@ slides-basics
+title: Sunular: temel bilgiler
+keywords: sunu slayt panel düzen yeni slayt yer tutucu notlar çoğalt gizle sırala
+---
+<ul><li><b>Solda:</b> slayt küçük resimleri — açmak için tıklayın, sırayı değiştirmek için sürükleyin, çoğaltmak, silmek, gizlemek veya taşımak için sağ tıklayın.</li>
+<li><b>Ortada:</b> slayt. <kbd>Ctrl</kbd>+fare tekerleği yakınlaştırır.</li><li><b>Altta:</b> geçerli slayt için konuşmacı notları.</li></ul>
+<h2>Slayt ekleme</h2><p><b>Yeni slayt</b> (<kbd>Ctrl</kbd>+<kbd>M</kbd>) geçerli slayttan sonra bir slayt ekler; yanındaki ok bir düzen seçer:
+Başlık Slaydı, Başlık ve İçerik, Bölüm Üst Bilgisi, İki İçerik, Yalnızca Başlık, Boş. PowerPoint'ten açılan sunular kendi düzenlerini sunar.</p>
+<p>“Başlık/metin eklemek için tıklayın” yazan gri kesikli kutular yer tutuculardır — tıklayıp yazın. Boş olanlar gösteride veya PDF'de görünmez.</p>
+<p><b>Gizli</b> slaytlar (Slayt → Gizle / göster) gösteri ve dışa aktarma sırasında atlanır.</p>
+
+@@ slides-objects
+title: Sunular: metin, şekiller, resimler ve tablolar
+keywords: metin kutusu şekil resim tablo taşı yeniden boyutlandır döndür çevir yerleştir öne getir arkaya gönder hizala madde işaretleri dolgu ana hat
+---
+<h2>Ekleme</h2><p><b>Metin kutusu</b>, <b>Resim</b> (veya bir resmi yapıştırın / sürükleyin), <b>Şekiller</b> (19 şekil, çizgi, ok), <b>Tablo</b>.</p>
+<h2>Nesnelerle çalışma</h2><table>
+<tr><td>Seçme</td><td>tıklayın (birkaçını seçmek için boş bir yerde kutu sürükleyin)</td></tr>
+<tr><td>Taşıma</td><td>sürükleyin veya ok tuşları (${K("Shift Arrow")} = 10 px)</td></tr>
+<tr><td>Yeniden boyutlandırma</td><td>beyaz tutamaçları sürükleyin (resimler oranlarını korur; değiştirmek için ${K("Shift")} tuşunu basılı tutun)</td></tr>
+<tr><td>Metni düzenleme</td><td>çift tıklayın, ${K("F2")}/${K("Enter")} tuşuna basın veya yazmaya başlayın; bitirmek için ${K("Esc")}</td></tr>
+<tr><td>Silme / çoğaltma</td><td>${K("Delete")} / ${K("Ctrl D")}</td></tr>
+<tr><td>Öne / arkaya</td><td>Yerleştir menüsü veya Ön/Arka düğmeleri</td></tr>
+<tr><td>Slayta hizalama, döndürme, çevirme</td><td>Yerleştir menüsü</td></tr></table>
+<h2>Biçimlendirme</h2><p>Metin: yazı tipi, boyut, A+/A−, B/I/U, renk, hizalama, dikey hizalama (Biçim menüsü), madde işaretleri ve numaralandırma. Şekiller: <b>dolgu</b> ve <b>ana hat</b> renkleri, ana hat kalınlığı, dolgu yok / ana hat yok.</p>
+
+@@ slides-design
+title: Sunular: temalar, arka planlar ve slayt boyutu
+keywords: tema tasarım arka plan renk resim slayt boyutu geniş ekran 4:3
+---
+<p><b>Tasarım → Tema</b> 8 temadan birini (Office, Gece Yarısı, Arduvaz, Orman, Gün Batımı, Okyanus, Kömür, Allık) tüm slaytlara uygular: arka plan, başlık ve metin renkleri ile yazı tipleri.</p>
+<p><b>Tasarım → Slayt arka plan rengi</b> (bu slayt), <b>Tüm slaytlar için arka plan rengi</b>, <b>Arka plan resmi</b>.</p>
+<p><b>Dosya → Slayt boyutu</b>: Geniş ekran 16:9, Standart 4:3, A4, Kare — içerik sığacak şekilde ölçeklenir.</p>
+<p><b>Dosya → Yeni</b>, yeni bir sunu için tema seçmenizi sağlar.</p>
+
+@@ slides-present
+title: Sunular: gösteri yapma
+keywords: sun gösteri f5 tam ekran tuşlar siyah ekran sonraki önceki
+---
+<p><b>F5</b> ilk slayttan, <b>Shift+F5</b> geçerli slayttan başlar (veya <b>▶ Sun</b> düğmesi).</p>
+<table><tr><th>Amaç</th><th>Tuşlar</th></tr>
+<tr><td>Sonraki slayt</td><td>${K("Space")} ${K("→")} ${K("↓")} ${K("Page_Down")} ${K("Enter")}, sol tıklama, fare tekerleği</td></tr>
+<tr><td>Önceki slayt</td><td>${K("←")} ${K("↑")} ${K("Page_Up")} ${K("Backspace")}, sağ tıklama</td></tr>
+<tr><td>İlk / son</td><td>${K("Home")} / ${K("End")}</td></tr>
+<tr><td>Siyah / beyaz ekran</td><td>${K("B")} / ${K("W")}</td></tr>
+<tr><td>Çıkış</td><td>${K("Esc")}</td></tr></table>
+
+@@ slides-files
+title: Sunular: dosyalar, PowerPoint uyumluluğu ve dışa aktarma
+keywords: pptx powerpoint kaydet aç dışa aktar pdf png resimler yazdır asıl düzen
+---
+<p><b>.pptx açar ve kaydeder.</b> İçe aktarılan sunular PowerPoint'teki gibi görünür: uygulama sununun slayt asıllarını ve düzenlerini okur (tema renkleri, yazı tipleri, arka planlar, logolar, madde işareti stilleri). Kaydederken özgün asıllar, düzenler ve tema korunur, böylece PowerPoint'te de düzgün görünmeye devam eder.</p>
+<p><b>Dışa aktarma:</b> PDF (keskin, seçilebilir metinli), PNG resimler (1920 px genişlik), Yazdır.</p>
+<p><b>Henüz korunmayanlar:</b> grafikler, SmartArt, video/ses, animasyonlar ve geçişler (sizi uyarır). Degrade dolgular tek renk olarak gösterilir. Henüz sunucu görünümü ve yazım denetimi yoktur.</p>

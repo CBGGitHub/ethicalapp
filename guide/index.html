@@ -87,6 +87,13 @@ footer { color: var(--muted); font-size: 13px; margin-top: 18px; }
 }
 @media print { header, nav, .nextprev { display: none; } main { padding: 0; } article { border: 0; } }
 </style>
+<script>
+// Language: ?lang=xx (the apps pass the language you chose in EthicalApp). Translations live in i18n/<lang>.js and
+// override the English articles below one by one - anything not translated yet stays in English.
+var K = s => s.split(" ").map(k => `<kbd>${k.replace(/_/g, " ")}</kbd>`).join("+");
+var GUIDE_LANG = (new URLSearchParams(location.search).get("lang") || "en").replace(/[^A-Za-z_]/g, "");
+if (GUIDE_LANG !== "en") document.write('<script src="i18n/' + GUIDE_LANG + '.js"><\/script>');
+</script>
 </head>
 <body>
 <header>
@@ -112,7 +119,6 @@ const SECTIONS = [
   ["help", "Help & reference", "var(--help)"],
 ];
 const SECTION_ICONS = { start: "suite", pdf: "pdf", write: "document", sheets: "spreadsheet", slides: "presentation", photo: "photo", conv: "converter", base: "database", sticky: "stickynotes", snip: "snip", planner: "planner", help: "guide" };
-const K = s => s.split(" ").map(k => `<kbd>${k.replace(/_/g, " ")}</kbd>`).join("+");
 const ARTICLES = [
 // ================================================================ GETTING STARTED
 { id: "welcome", section: "start", title: "Welcome to EthicalApp", keywords: "overview apps intro home",
@@ -132,47 +138,37 @@ so you can swap files with anyone.</p>
 <a class="card" href="#planner"><img src="../branding/icons/png/planner_64.png" alt=""><b>Ethical Planner</b><span>Reminders & a calendar that pop up on time</span></a>
 </div>
 <h2>Quick start</h2>
-<ol><li>First time on this PC? Follow <a href="#setup">Installing & starting the apps</a>.</li>
-<li>Start an app by double-clicking its <code>Ethical ….bat</code> file in the suite folder,
-or <b>right-click a file → Open with Ethical …</b> (see <a href="#right-click">Right-click menu</a>).</li>
+<ol><li>First time? See <a href="#setup">Installing & starting the apps</a>.</li>
+<li>Open <b>EthicalApp</b> from the Start menu or the desktop: one window with all your apps. Click one, or drop a file on it.
+You can also <b>right-click a file → Open with Ethical …</b> (see <a href="#right-click">Right-click menu</a>).</li>
 <li>Press <kbd>F1</kbd> in any app to open this guide on that app's page.</li>
+<li>Prefer another language? Click <b>🌐</b> at the bottom of the EthicalApp window (see <a href="#language">Changing the language</a>).</li>
 <li>Want an AI assistant to do the work? See <a href="#ai-claude">Using the apps with AI (Claude)</a>.</li></ol>
 <div class="tip">Use the search box at the top (or press <kbd>/</kbd>) to find anything — e.g. “redact”, “VLOOKUP”, “blend mode”, “compress video”.</div>` },
 
-{ id: "setup", section: "start", title: "Installing & starting the apps", keywords: "install python setup.bat venv launcher bat new pc first time",
-body: `<h2>The easy way: the installer</h2>
-<ol><li>Run <b>EthicalSuite-Setup-1.0.0.exe</b>. No Python and no administrator password needed.</li>
-<li>If Windows says “Windows protected your PC”, click <b>More info → Run anyway</b> (the installer isn't code-signed).</li>
+{ id: "setup", section: "start", title: "Installing & starting the apps", keywords: "install setup installer download update uninstall start menu launcher first time",
+body: `<h2>Install</h2>
+<ol><li>Download the installer from <a href="https://ethicalapp.org">ethicalapp.org</a> and run it. No administrator password needed.</li>
+<li>If Windows says “Windows protected your PC”, click <b>More info → Run anyway</b>. That message appears for new programs that aren't widely known yet; you can check that your download is genuine with the SHA-256 fingerprint shown on the website.</li>
 <li>Choose <b>Everything</b>, <b>Office apps only</b>, or tick exactly the apps you want.</li>
-<li>Options: desktop shortcuts, right-click “Open with Ethical …” entries, and <b>Connect the chosen apps to Claude</b> (see <a href="#ai-claude">Using the apps with AI</a>).</li>
-<li>Options also include <b>Help me pin EthicalApp to the taskbar / Start</b>: Windows doesn't let programs pin themselves, so the launcher opens with the two-click steps (right-click its taskbar icon → <b>Pin to taskbar</b>; or in Start right-click <b>EthicalApp</b> → <b>Pin to Start</b>). The launcher's <b>Pin to taskbar or Start…</b> link shows them again any time.</li>
-<li>Open <b>EthicalApp</b> (Start Menu, or the desktop) for one window with all your installed apps: click a tile, use <b>Open a file…</b> (Ctrl+O), or drop files on it and each opens in the right app. Or start the apps directly from <b>Start Menu → EthicalApp</b>. To remove everything: <b>Settings → Apps → EthicalApp → Uninstall</b>.</li></ol>
-<p>To update, just run a newer Setup file — it upgrades the installed version.</p>
-<h2>From source (developers): on a new PC or after copying the folder</h2>
-<ol><li>Install <b>Python 3.12 or newer</b> from <a href="https://www.python.org/downloads/">python.org</a>.
-On the first installer screen tick <b>“Add python.exe to PATH”</b>.</li>
-<li>Open the suite folder and double-click <code>setup.bat</code>. It creates a private Python environment
-(<code>.venv</code>), downloads the libraries the apps need, and adds the right-click menu entries. This takes a few minutes the first time.</li>
-<li>Start the apps from the <b>Start Menu → EthicalApp</b> folder (setup.bat creates it, with the app icons), or double-click any <code>Ethical ….bat</code> file.</li></ol>
-<p>Want them on the desktop too? Run <code>.venv\Scripts\python apps\make_shortcuts.py --desktop</code> (and <code>--remove</code> to take all shortcuts away).</p>
-<div class="warn">The <code>.bat</code> launchers only work after <code>setup.bat</code> has run on <i>that</i> PC — the <code>.venv</code> folder is tied to the computer it was made on.
-If an app suddenly won't start (e.g. after moving the folder), just run <code>setup.bat</code> again.</div>
-<h2>The launchers</h2>
-<table><tr><th>File</th><th>Starts</th></tr>
-<tr><td><code>Ethical PDF Editor.bat</code></td><td>PDF viewer & editor</td></tr>
-<tr><td><code>Ethical Document Editor.bat</code></td><td>Word processor</td></tr>
-<tr><td><code>Ethical Spreadsheet Editor.bat</code></td><td>Spreadsheets</td></tr>
-<tr><td><code>Ethical Presentation Editor.bat</code></td><td>Presentations</td></tr>
-<tr><td><code>Ethical Photo Editor.bat</code></td><td>Photo editor</td></tr>
-<tr><td><code>Ethical Converter.bat</code></td><td>File converter & compressor</td></tr>
-<tr><td><code>Ethical Database.bat</code></td><td>Databases</td></tr>
-<tr><td><code>Ethical Guide.bat</code></td><td>This guide</td></tr></table>
-<p>You can drag a file onto a launcher to open it, or make a desktop shortcut (right-click the .bat → <i>Send to → Desktop</i>).</p>
-<h2>Later: the installer</h2>
-<p>A proper installer is planned that won't need Python at all and lets you pick which apps to install.</p>` },
+<li>Options: desktop shortcuts, right-click “Open with Ethical …” entries, starting Sticky Notes / Snip / Planner with Windows, and <b>Connect the chosen apps to Claude</b> (see <a href="#ai-claude">Using the apps with AI</a>).</li>
+<li><b>Help me pin EthicalApp to the taskbar / Start</b>: Windows doesn't let programs pin themselves, so the launcher shows the two-click steps (right-click its taskbar icon → <b>Pin to taskbar</b>; or in Start right-click <b>EthicalApp</b> → <b>Pin to Start</b>). The launcher's <b>Pin to taskbar or Start…</b> link shows them again any time.</li></ol>
+<h2>Start</h2>
+<p>Open <b>EthicalApp</b> (Start menu or desktop) for one window with all your installed apps: click a tile, use <b>Open a file…</b> (<kbd>Ctrl</kbd>+<kbd>O</kbd>), or drop files on it and each opens in the right app. Every app is also in <b>Start → EthicalApp</b>.</p>
+<h2>Update & uninstall</h2>
+<p>To update, run a newer installer: it replaces the old version and keeps your settings, notes and reminders. To remove everything: <b>Settings → Apps → EthicalApp → Uninstall</b> (your notes and reminders stay on the PC in case you reinstall).</p>
+<h2>From source (developers)</h2>
+<p>The full source code is public — see <a href="#sharing">Source code & building it yourself</a>.</p>` },
+{ id: "language", section: "start", title: "Changing the language", keywords: "language english spanish french german translation translate idioma langue sprache",
+body: `<p>EthicalApp is available in English, Español, Português (Brasil), Français, Deutsch, Italiano, Nederlands, Polski, Türkçe, Русский, Bahasa Indonesia, 日本語, 한국어 and 简体中文.</p>
+<ol><li>Open the <b>EthicalApp</b> window (Start menu).</li>
+<li>Click <b>🌐</b> at the bottom and pick a language. <b>Same as Windows</b> follows your Windows display language — that's the default.</li>
+<li>Say yes to restart EthicalApp. Apps that are already open switch the next time you start them.</li></ol>
+<p>The choice applies to every Ethical app, this guide and the dialogs (Open/Save, colours). Dates use your language too.</p>
+<div class="tip">Your files don't change: a document you write stays in the language you wrote it in. Only the buttons and menus are translated.</div>` },
 
-{ id: "right-click", section: "start", title: "Right-click menu & default apps", keywords: "open with context menu registry default program windows 11 show more options remove",
-body: `<p><code>setup.bat</code> adds entries to the Windows right-click menu (for your user account only — no admin rights needed):</p>
+{ id: "right-click", section: "start", title: "Right-click menu & default apps", keywords: "open with context menu default program windows 11 show more options remove",
+body: `<p>If you ticked the right-click option in the installer, Windows' right-click menu gets these entries (for your user account only — no admin rights needed):</p>
 <table><tr><th>Right-click on…</th><th>You get</th></tr>
 <tr><td>.pdf</td><td>Open with Ethical PDF Editor</td></tr>
 <tr><td>.docx</td><td>Open with Ethical Document Editor</td></tr>
@@ -186,24 +182,25 @@ body: `<p><code>setup.bat</code> adds entries to the Windows right-click menu (f
 <p>Right-click a file → <b>Open with → Choose another app</b> → pick the Ethical app → tick <b>Always use this app</b>.</p>
 <h2>Windows 11</h2><p>The entries are under <b>Show more options</b> (or hold <kbd>Shift</kbd> while right-clicking).</p>
 <h2>Removing the entries</h2>
-<p>Open a Command Prompt in the suite folder and run:<br><code>.venv\\Scripts\\python apps\\register_windows.py --remove</code></p>` },
+<p>Run the installer again and untick the right-click option, or uninstall EthicalApp — the entries are removed with it.</p>` },
 
-{ id: "sharing", section: "start", title: "Sharing the folder & changing the apps", keywords: "friend share claude code CLAUDE.md PROGRESS.md modify customize develop",
-body: `<p>You can give the whole folder to someone else. They need to install Python and run <code>setup.bat</code> once (see <a href="#setup">Installing</a>).</p>
-<h2>Changing or adding features with Claude Code</h2>
-<p>The apps were built with Claude Code and are designed to be changed the same way:</p>
-<ol><li>Open the suite folder in Claude Code.</li>
-<li>Describe what you want (“add a dark mode to Ethical Document Editor”, “make the converter support .heic”…).</li>
-<li>Claude automatically reads <code>CLAUDE.md</code> (rules for working in the folder) and <code>PROGRESS.md</code>
-(the full plan, what's built, decisions and known limits), so it can continue where things were left.</li></ol>
-<h2>What's in the folder</h2>
-<table><tr><th>Item</th><th>Purpose</th></tr>
-<tr><td><code>README.md</code></td><td>Short intro for people</td></tr>
-<tr><td><code>CLAUDE.md</code></td><td>Instructions for Claude Code</td></tr>
-<tr><td><code>PROGRESS.md</code></td><td>Plan, status, decisions, change log</td></tr>
-<tr><td><code>apps/</code></td><td>The source code of every app</td></tr>
-<tr><td><code>guide/</code></td><td>This guide (a single HTML file)</td></tr>
-<tr><td><code>setup.bat</code>, <code>requirements.txt</code></td><td>Setup on a new PC</td></tr></table>` },
+{ id: "sharing", section: "start", title: "Source code & building it yourself", keywords: "source code github open source build developer modify agpl share",
+body: `<p>EthicalApp is open source (AGPL-3.0). The complete source code is on GitHub: <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>, and each installer ships the matching source as a zip on <a href="https://ethicalapp.org">ethicalapp.org</a>.</p>
+<h2>Sharing with friends</h2>
+<p>Just send them the link to <a href="https://ethicalapp.org">ethicalapp.org</a> — that's always the latest, safe version.</p>
+<h2>Building the installer from source</h2>
+<ol><li>Install <b>Python 3.14</b> and <b>Inno Setup 6</b>.</li>
+<li>In the source folder: <code>python -m venv .venv</code>, then <code>.venv\\Scripts\\python -m pip install -r requirements.txt</code>.</li>
+<li>Run the apps directly (e.g. <code>.venv\\Scripts\\python apps\\suite_launcher.py</code>) or build the installer with <code>.venv\\Scripts\\python installer\\build.py</code>.</li></ol>
+<h2>What's in the source</h2>
+<table><tr><th>Folder</th><th>Purpose</th></tr>
+<tr><td><code>apps/</code></td><td>The code of every app</td></tr>
+<tr><td><code>apps/locales/</code></td><td>The translations (one file per language)</td></tr>
+<tr><td><code>guide/</code></td><td>This guide (and <code>guide/i18n/</code> for its translations)</td></tr>
+<tr><td><code>branding/</code></td><td>Icons and sounds</td></tr>
+<tr><td><code>installer/</code></td><td>Builds the Windows installer</td></tr>
+<tr><td><code>licenses/</code></td><td>Licences of the open-source parts</td></tr></table>
+<p>If you change it and share your version, the AGPL asks you to share your source code too.</p>` },
 
 { id: "compat", section: "start", title: "File compatibility at a glance", keywords: "formats docx xlsx pptx psd pdf compatible lost warning keep",
 body: `<table><tr><th>App</th><th>Opens</th><th>Saves</th><th>Not kept yet (you're warned)</th></tr>
@@ -355,7 +352,8 @@ body: `<p>A formula starts with <code>=</code>: <code>=B2*C2</code>, <code>=SUM(
 <tr><td><code>#REF!</code></td><td>the cell it pointed to was deleted</td></tr><tr><td><code>#NAME?</code></td><td>unknown function or name</td></tr>
 <tr><td><code>#N/A</code></td><td>lookup found nothing</td></tr><tr><td><code>#NUM!</code></td><td>impossible number</td></tr>
 <tr><td><code>#CIRC!</code></td><td>circular reference — the formula depends on itself</td></tr></table>
-<div class="tip">If a workbook from Excel uses a function Ethical Spreadsheet Editor doesn't know yet, it shows the value Excel last calculated instead of an error.</div>` },
+<div class="tip">If a workbook from Excel uses a function Ethical Spreadsheet Editor doesn't know yet, it shows the value Excel last calculated instead of an error.</div>
+<p>Functions are written with their English names (SUM, IF, VLOOKUP…), the same as inside Excel files.</p>` },
 
 { id: "sheets-functions", section: "sheets", title: "Spreadsheets: function reference (143 functions)", keywords: "functions list sum average count if vlookup xlookup index match sumif countif text date round pmt",
 body: `<table><tr><th>Group</th><th>Functions</th></tr>
@@ -808,11 +806,11 @@ body: `<p>EthicalApp includes an <b>MCP server</b> — a connector that lets the
 <li>“Redact every phone number in contract.pdf.” · “Fill in this PDF form with my details.”</li>
 <li>“Resize all these photos to 1080 px and add our logo text.” · “Convert this video to MP3.”</li>
 <li>“Create a database of my book collection and give me a report grouped by author.”</li></ul>
-<h2>Connect it</h2><ol><li>Double-click <code>Connect to Claude.bat</code> in the suite folder.</li>
-<li>Choose which apps Claude may use (Enter = all). The user guide is always included so Claude can look up how things work.</li>
-<li>It connects to <b>Claude Code</b> automatically, and to <b>Claude Desktop</b> if installed (restart Claude Desktop afterwards).</li></ol>
-<p>To disconnect: <code>.venv\\Scripts\\python apps\\install_mcp.py --remove</code>.</p>
-<h2>What Claude can do (about 50 tools)</h2><table>
+<h2>Connect it</h2><ol><li>In the installer, tick <b>Connect the chosen apps to Claude</b> (run the installer again any time to change it).</li>
+<li>It connects to <b>Claude Code</b> automatically, and to <b>Claude Desktop</b> if it's installed (restart Claude Desktop afterwards).</li>
+<li>The user guide is always included so Claude can look up how things work.</li></ol>
+<p>To disconnect, run the installer again and untick the option, or uninstall EthicalApp.</p>
+<h2>What Claude can do (about 65 tools)</h2><table>
 <tr><td>PDF</td><td>read text & info, merge, split, extract/delete/rotate pages, add text or pictures, find & replace text, permanently redact, list & fill forms</td></tr>
 <tr><td>Documents</td><td>read a .docx as Markdown, create documents from Markdown (headings, lists, tables), append, find & replace</td></tr>
 <tr><td>Spreadsheets</td><td>read cells (values or formulas), write cells & formulas, format ranges, add charts and sheets, calculate any formula</td></tr>
@@ -820,6 +818,9 @@ body: `<p>EthicalApp includes an <b>MCP server</b> — a connector that lets the
 <tr><td>Photos</td><td>info & layers, resize, crop, rotate, flip, every adjustment & filter, text, canvas size</td></tr>
 <tr><td>Converter</td><td>convert any supported file, compress, combine, zip/unzip, media info, download from links (with the same safety checks)</td></tr>
 <tr><td>Database</td><td>overview, read-only SQL queries, changes, create databases/tables, insert records, relationships, saved queries, import/export, PDF reports</td></tr>
+<tr><td>Sticky Notes</td><td>list, read, add, change and tick off notes on your desktop</td></tr>
+<tr><td>Snip</td><td>list windows and take a screenshot when you ask</td></tr>
+<tr><td>Planner</td><td>list, add, change and complete reminders and events</td></tr>
 <tr><td>Always</td><td>search & read this guide, open a file in the matching Ethical app so you can see it</td></tr></table>
 <h2>Safety</h2><ul><li>Claude works on files on your PC only through these tools; Claude asks before using them (depending on your Claude settings).</li>
 <li>Edits are saved as <b>new copies</b> (e.g. “report (edited).pdf”) unless you ask to overwrite; new files never replace existing ones unless you say so.</li>
@@ -844,16 +845,16 @@ body: `<h2>Every app</h2><table><tr><td>New / Open / Save / Save As</td><td>${K(
 <h2>Ethical Photo Editor</h2><p>See <a href="#photo-tools">Photo: the tools</a> and <a href="#photo-selections">selections</a>. Also ${K("Ctrl J")} duplicate/copy to layer, ${K("Ctrl E")} merge down, ${K("Ctrl T")} transform, ${K("Ctrl Shift N")} new layer, ${K("Ctrl Alt I")} image size, ${K("Ctrl Alt C")} canvas size.</p>` },
 
 { id: "troubleshooting", section: "help", title: "Troubleshooting & FAQ", keywords: "problem error not working won't start crash missing right click font ffmpeg antivirus slow doc xls ppt",
-body: `<h3>An app won't start (nothing happens when I double-click the .bat)</h3>
-<p>Run <code>setup.bat</code> again — the <code>.venv</code> folder only works on the PC (and in the location) where it was made. Make sure Python is installed with “Add to PATH”.</p>
-<h3>My friend got the folder and nothing works</h3><p>They need Python + <code>setup.bat</code> once — see <a href="#setup">Installing</a>.</p>
-<h3>The right-click entries are missing</h3><p>Run <code>setup.bat</code> (it re-adds them). On Windows 11 look under <b>Show more options</b>.</p>
+body: `<h3>An app won't start</h3>
+<p>Run the installer from <a href="https://ethicalapp.org">ethicalapp.org</a> again — it repairs the installation and keeps your settings, notes and reminders.</p>
+<h3>“Windows protected your PC” when installing</h3><p>Click <b>More info → Run anyway</b>. Windows shows this for new programs it doesn't know yet. Check the download's SHA-256 fingerprint on the website if you want to be sure it's genuine.</p>
+<h3>The right-click entries are missing</h3><p>Run the installer again and tick the right-click option. On Windows 11 look under <b>Show more options</b>.</p>
 <h3>“Unsupported file type” / old Office files</h3><p>.doc, .xls and .ppt aren't supported — save them as .docx/.xlsx/.pptx first. .rar archives can't be extracted.</p>
 <h3>Text looks different from the original</h3><p>The fonts come from your PC. If a document uses a font you don't have, a look-alike is used. Install the font and reopen.</p>
 <h3>Something is missing after saving an Excel/PowerPoint file</h3><p>See <a href="#compat">File compatibility</a> — the app warns about features it can't keep. Keep the original and use Save As.</p>
 <h3>A video conversion failed</h3><p>The error message comes from FFmpeg. Common causes: the file is damaged or still downloading, it has no sound (for audio formats) or no picture (for video formats). Try MP4 (H.264) first — it works with almost everything.</p>
-<h3>A video link won't download</h3><p>Press <b>Update Downloader</b> in the Download tab and restart the converter — sites change often. Private, members-only, age-restricted or region-blocked videos can't be downloaded. See <a href="#conv-download">Downloading videos</a>.</p>
-<h3>Antivirus warning</h3><p>Some antivirus programs are suspicious of new, unsigned programs and scripts. The suite's full source code is in <code>apps/</code>.</p>
+<h3>Antivirus warning</h3><p>Some antivirus programs are suspicious of new programs they haven't seen before. EthicalApp's full source code is public on <a href="https://github.com/CBGGitHub/ethicalapp">GitHub</a>, and the website shows each download's fingerprint.</p>
+<h3>The apps are in the wrong language</h3><p>Click <b>🌐</b> at the bottom of the EthicalApp window — see <a href="#language">Changing the language</a>.</p>
 <h3>It feels slow</h3><p>Huge spreadsheets (100k+ formulas), very large photos with many layers, and long 4K videos take longer. The converter shows progress for each file.</p>` },
 
 { id: "glossary", section: "help", title: "Glossary", keywords: "glossary terms meaning definition bitrate crf codec lossless lossy dpi layer blend placeholder master",
@@ -887,11 +888,25 @@ body: `<p>EthicalApp's own code was written for this project. It's built on thes
 <tr><td>py7zr</td><td>7z archives</td><td>LGPL v2.1</td></tr>
 <tr><td>SQLite (built into Python)</td><td>Ethical Database databases</td><td>Public domain</td></tr>
 <tr><td>pyodbc</td><td>importing Access files</td><td>MIT</td></tr>
-<tr><td>yt-dlp (+ yt-dlp-ejs)</td><td>downloading videos from links</td><td>Unlicense (public domain)</td></tr>
-<tr><td>Deno</td><td>runs the scripts some video sites need</td><td>MIT</td></tr>
+<tr><td>yt-dlp, Deno (personal builds only)</td><td>downloading videos from links</td><td>Unlicense / MIT</td></tr>
 <tr><td>MCP Python SDK</td><td>the AI (Claude) connector</td><td>MIT</td></tr></table>
-<div class="warn">Because PyMuPDF is AGPL and this FFmpeg build is GPL, if you give the suite to others you should also give them the source code (the <code>apps/</code> folder — which you do when sharing the folder) and these licences. The planned installer will include the licence texts.</div>` },
+<p>EthicalApp itself is licensed under the <b>AGPL-3.0</b>. The full licence texts are in the <code>licenses</code> folder of your installation, and the source code is at <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>. Not affiliated with Microsoft or Adobe.</p>` },
 ];
+
+// ---------------------------------------------------------------- translation (see i18n/guide_i18n.py)
+const TR = window.GUIDE_TR || { ui: {}, sections: {}, articles: {} };
+const T = (key, en) => TR.ui[key] || en;
+for (const sec of SECTIONS) if (TR.sections[sec[0]]) sec[1] = TR.sections[sec[0]];
+for (const a of ARTICLES) {
+  const t = TR.articles[a.id];
+  if (t) { a.title = t.title || a.title; a.keywords = (t.keywords || "") + " " + a.keywords; a.body = t.body || a.body; }
+  else if (GUIDE_LANG !== "en") a.body = `<p class="tip">${T("english_only", "This article is only in English so far.")}</p>` + a.body;
+}
+if (GUIDE_LANG !== "en") document.documentElement.lang = GUIDE_LANG.replace("_", "-");
+document.getElementById("search").placeholder = T("search", "Search the guide…  (press / )");
+document.getElementById("theme-btn").title = T("theme", "Light / dark");
+if (TR.ui.guide_title) document.querySelector("header h1").innerHTML =
+  '<img src="../branding/icons/png/suite_64.png" alt="">' + TR.ui.guide_title.replace("EthicalApp", "<span>Ethical</span>App");
 
 // ---------------------------------------------------------------- app
 const byId = Object.fromEntries(ARTICLES.map(a => [a.id, a]));
@@ -914,10 +929,10 @@ function show(id) {
   const i = order.indexOf(a), prev = order[i - 1], next = order[i + 1];
   main.innerHTML = `<article><span class="tag" style="background:${sec[2]}">${sec[1]}</span><h1>${a.title}</h1>${a.body}
     <div class="nextprev">${prev ? `<a href="#${prev.id}">← ${prev.title}</a>` : "<span></span>"}${next ? `<a href="#${next.id}">${next.title} →</a>` : ""}</div></article>
-    <footer>EthicalApp Guide · works offline · edit <code>guide/index.html</code> to add topics</footer>`;
+    <footer>${T("footer", "EthicalApp Guide · works offline")}</footer>`;
   nav.querySelectorAll("a").forEach(el => el.classList.toggle("active", el.dataset.id === a.id));
   const act = nav.querySelector("a.active"); if (act) act.scrollIntoView({ block: "nearest" });
-  document.title = a.title + " — EthicalApp Guide";
+  document.title = a.title + " — " + T("guide_title", "EthicalApp Guide");
   window.scrollTo(0, 0);
   nav.classList.remove("open");
 }
@@ -942,9 +957,12 @@ function doSearch(q) {
     const s = (pos ? "…" : "") + a.text.slice(pos, pos + 200) + "…";
     return s.replace(/[<>&]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])).replace(re, "<mark>$1</mark>");
   };
-  main.innerHTML = `<article class="results"><h1>${scored.length} result${scored.length === 1 ? "" : "s"} for “${q.replace(/</g, "&lt;")}”</h1>` +
+  const qq = q.replace(/</g, "&lt;");
+  const head = scored.length === 1 ? T("result_one", "1 result for “{q}”").replace("{q}", qq)
+    : T("result_many", "{n} results for “{q}”").replace("{n}", scored.length).replace("{q}", qq);
+  main.innerHTML = `<article class="results"><h1>${head}</h1>` +
     (scored.length ? scored.map(({ a }) => `<div class="result"><a href="#${a.id}">${a.title.replace(re, "<mark>$1</mark>")}</a><div class="snip">${snip(a)}</div></div>`).join("")
-      : `<p>Nothing found. Try fewer or different words — e.g. “pdf merge”, “sum”, “layer”.</p>`) + "</article>";
+      : `<p>${T("nothing", "Nothing found. Try fewer or different words — e.g. “pdf merge”, “sum”, “layer”.")}</p>`) + "</article>";
 }
 
 function route() { show(decodeURIComponent(location.hash.slice(1)) || "welcome"); }

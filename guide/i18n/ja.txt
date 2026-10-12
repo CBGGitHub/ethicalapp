@@ -1,0 +1,442 @@
+@ui
+guide_title: EthicalApp ガイド
+search: ガイドを検索…（/ キー）
+theme: ライト / ダーク
+footer: EthicalApp ガイド · オフラインで使えます
+result_one: 「{q}」の検索結果: 1 件
+result_many: 「{q}」の検索結果: {n} 件
+nothing: 見つかりませんでした。言葉を減らすか、別の言葉で試してください — 例:「PDF 結合」「合計」「レイヤー」。
+english_only: この記事は今のところ英語版のみです。
+
+@sections
+start: はじめに
+pdf: Ethical PDF Editor
+write: Ethical Document Editor
+sheets: Ethical Spreadsheet Editor
+slides: Ethical Presentation Editor
+photo: Ethical Photo Editor
+conv: Ethical Converter
+base: Ethical Database
+sticky: Ethical Sticky Notes
+snip: Ethical Snip
+planner: Ethical Planner
+help: ヘルプとリファレンス
+
+@@ welcome
+title: EthicalApp へようこそ
+keywords: 概要 アプリ 紹介 はじめに
+---
+<p>EthicalApp は、Windows 用の無料の手作りデスクトップアプリ集です。誰もが毎日使うツールを、
+私たちが自分で作り直したものです。<b>本物のファイル形式</b>（Word、Excel、PowerPoint、PDF、Photoshop）を開いて保存できるので、
+誰とでもファイルをやり取りできます。</p>
+<div class="cards">
+<a class="card" href="#pdf-basics"><img src="../branding/icons/png/pdf_64.png" alt=""><b>Ethical PDF Editor</b><span>PDF の表示、テキスト編集、注釈、フォーム入力、署名、結合、分割</span></a>
+<a class="card" href="#write-basics"><img src="../branding/icons/png/document_64.png" alt=""><b>Ethical Document Editor</b><span>文書 — Word の .docx を開いて保存</span></a>
+<a class="card" href="#sheets-basics"><img src="../branding/icons/png/spreadsheet_64.png" alt=""><b>Ethical Spreadsheet Editor</b><span>143 種類の関数とグラフを備えた表計算 — Excel の .xlsx</span></a>
+<a class="card" href="#slides-basics"><img src="../branding/icons/png/presentation_64.png" alt=""><b>Ethical Presentation Editor</b><span>プレゼンテーションとスライド — PowerPoint の .pptx</span></a>
+<a class="card" href="#photo-basics"><img src="../branding/icons/png/photo_64.png" alt=""><b>Ethical Photo Editor</b><span>レイヤー対応の写真編集 — Photoshop の .psd、PNG、JPG…</span></a>
+<a class="card" href="#conv-basics"><img src="../branding/icons/png/converter_64.png" alt=""><b>Ethical Converter</b><span>音声・動画・画像・文書の変換と圧縮、ZIP 圧縮・展開</span></a>
+<a class="card" href="#base-basics"><img src="../branding/icons/png/database_64.png" alt=""><b>Ethical Database</b><span>データベース: テーブル、フォーム、クエリ、リレーションシップ、レポート</span></a>
+<a class="card" href="#stickies"><img src="../branding/icons/png/stickynotes_64.png" alt=""><b>Ethical Sticky Notes</b><span>デスクトップに貼っておけるメモと ToDo リスト</span></a>
+<a class="card" href="#snip"><img src="../branding/icons/png/snip_64.png" alt=""><b>Ethical Snip</b><span>書き込みできるスクリーンショット — Ctrl+PrtScn</span></a>
+<a class="card" href="#planner"><img src="../branding/icons/png/planner_64.png" alt=""><b>Ethical Planner</b><span>時間どおりに知らせてくれるリマインダーとカレンダー</span></a>
+</div>
+<h2>クイックスタート</h2>
+<ol><li>初めての方は <a href="#setup">アプリのインストールと起動</a> をご覧ください。</li>
+<li>スタート メニューまたはデスクトップから <b>EthicalApp</b> を開くと、すべてのアプリが 1 つのウィンドウにまとまっています。アプリをクリックするか、ファイルをドロップします。
+<b>ファイルを右クリック → Ethical … で開く</b> も使えます（<a href="#right-click">右クリック メニュー</a> を参照）。</li>
+<li>どのアプリでも <kbd>F1</kbd> を押すと、そのアプリのページでこのガイドが開きます。</li>
+<li>別の言語にしたいときは、EthicalApp ウィンドウの下にある <b>🌐</b> をクリックします（<a href="#language">言語の変更</a> を参照）。</li>
+<li>AI アシスタントに作業を任せたいときは <a href="#ai-claude">AI（Claude）でアプリを使う</a> をご覧ください。</li></ol>
+<div class="tip">上の検索ボックス（または <kbd>/</kbd> キー）で何でも探せます — 例:「墨消し」「VLOOKUP」「描画モード」「動画 圧縮」。</div>
+
+@@ setup
+title: アプリのインストールと起動
+keywords: インストール インストーラー ダウンロード 更新 アンインストール スタート メニュー 初めて
+---
+<h2>インストール</h2>
+<ol><li><a href="https://ethicalapp.org">ethicalapp.org</a> からインストーラーをダウンロードして実行します。管理者パスワードは不要です。</li>
+<li>Windows に「Windows によって PC が保護されました」と表示されたら、<b>詳細情報 → 実行</b> をクリックします。これはまだあまり知られていない新しいプログラムで表示されるものです。ダウンロードが本物かどうかは、Web サイトに載っている SHA-256 フィンガープリントで確認できます。</li>
+<li><b>すべて</b>、<b>オフィス アプリのみ</b> を選ぶか、必要なアプリだけにチェックを入れます。</li>
+<li>オプション: デスクトップ ショートカット、右クリック メニューの「Ethical … で開く」、Sticky Notes / Snip / Planner を Windows と一緒に起動、<b>選んだアプリを Claude に接続</b>（<a href="#ai-claude">AI でアプリを使う</a> を参照）。</li>
+<li><b>EthicalApp をタスクバー / スタートにピン留めするのを手伝う</b>: Windows ではプログラムが自分自身をピン留めできないため、ランチャーが必要な 2 回のクリックを案内します（タスクバーのアイコンを右クリック → <b>タスク バーにピン留めする</b>、またはスタートで <b>EthicalApp</b> を右クリック → <b>スタートにピン留めする</b>）。ランチャーの <b>タスクバーまたはスタートにピン留め…</b> リンクからいつでも再表示できます。</li></ol>
+<h2>起動</h2>
+<p><b>EthicalApp</b>（スタート メニューまたはデスクトップ）を開くと、インストールしたすべてのアプリが 1 つのウィンドウに並びます。タイルをクリックするか、<b>ファイルを開く…</b>（<kbd>Ctrl</kbd>+<kbd>O</kbd>）を使うか、ファイルをドロップすると、それぞれ適切なアプリで開きます。各アプリは <b>スタート → EthicalApp</b> にもあります。</p>
+<h2>更新とアンインストール</h2>
+<p>更新するには、新しいインストーラーを実行します。古いバージョンを置き換え、設定・メモ・リマインダーはそのまま残ります。すべて削除するには <b>設定 → アプリ → EthicalApp → アンインストール</b>（再インストールに備えて、メモとリマインダーは PC に残ります）。</p>
+<h2>ソース コードから（開発者向け）</h2>
+<p>ソース コードはすべて公開されています — <a href="#sharing">ソース コードと自分でビルドする方法</a> を参照してください。</p>
+
+@@ language
+title: 言語の変更
+keywords: 言語 翻訳 日本語 英語 language
+---
+<p>EthicalApp は English、Español、Português (Brasil)、Français、Deutsch、Italiano、Nederlands、Polski、Türkçe、Русский、Bahasa Indonesia、日本語、한국어、简体中文 で使えます。</p>
+<ol><li><b>EthicalApp</b> ウィンドウを開きます（スタート メニュー）。</li>
+<li>下にある <b>🌐</b> をクリックして言語を選びます。<b>Windows と同じ</b> は Windows の表示言語に従います — これが既定です。</li>
+<li>EthicalApp の再起動を承認します。すでに開いているアプリは、次に起動したときに切り替わります。</li></ol>
+<p>選んだ言語は、すべての Ethical アプリ、このガイド、ダイアログ（開く/保存、色）に適用されます。日付もその言語で表示されます。</p>
+<div class="tip">ファイルの内容は変わりません。文書は書いた言語のままです。翻訳されるのはボタンとメニューだけです。</div>
+
+@@ right-click
+title: 右クリック メニューと既定のアプリ
+keywords: プログラムから開く コンテキスト メニュー 既定のプログラム windows 11 その他のオプションを確認 削除
+---
+<p>インストーラーで右クリックのオプションにチェックを入れると、Windows の右クリック メニューに次の項目が追加されます（自分のアカウントのみ — 管理者権限は不要です）:</p>
+<table><tr><th>右クリックするもの</th><th>表示される項目</th></tr>
+<tr><td>.pdf</td><td>Ethical PDF Editor で開く</td></tr>
+<tr><td>.docx</td><td>Ethical Document Editor で開く</td></tr>
+<tr><td>.xlsx, .csv</td><td>Ethical Spreadsheet Editor で開く</td></tr>
+<tr><td>.pptx</td><td>Ethical Presentation Editor で開く</td></tr>
+<tr><td>.psd .png .jpg .webp .bmp .gif .tif .ora</td><td>Ethical Photo Editor で開く</td></tr>
+<tr><td>.db .sqlite .accdb .mdb</td><td>Ethical Database で開く</td></tr>
+<tr><td>任意のファイルまたはフォルダー</td><td>Ethical Converter で変換 / 圧縮</td></tr></table>
+<p>複数のファイルを選んで右クリックし、コンバーターの項目を選ぶと、すべて <b>1 つ</b> のコンバーター ウィンドウに入ります。</p>
+<h2>アプリを既定にする</h2>
+<p>ファイルを右クリック → <b>プログラムから開く → 別のプログラムを選択</b> → Ethical アプリを選ぶ → <b>常にこのアプリを使って開く</b> にチェック。</p>
+<h2>Windows 11</h2><p>項目は <b>その他のオプションを確認</b> の中にあります（または <kbd>Shift</kbd> を押しながら右クリック）。</p>
+<h2>項目を削除する</h2>
+<p>インストーラーをもう一度実行して右クリックのオプションのチェックを外すか、EthicalApp をアンインストールすると、項目も一緒に消えます。</p>
+
+@@ sharing
+title: ソース コードと自分でビルドする方法
+keywords: ソース コード github オープンソース ビルド 開発者 改造 agpl 共有
+---
+<p>EthicalApp はオープンソース（AGPL-3.0）です。ソース コードはすべて GitHub にあります: <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>。各インストーラーのソース コードの ZIP も <a href="https://ethicalapp.org">ethicalapp.org</a> にあります。</p>
+<h2>友だちに教える</h2>
+<p><a href="https://ethicalapp.org">ethicalapp.org</a> のリンクを送ってください — 常に最新で安全なバージョンです。</p>
+<h2>ソースからインストーラーをビルドする</h2>
+<ol><li><b>Python 3.14</b> と <b>Inno Setup 6</b> をインストールします。</li>
+<li>ソース フォルダーで <code>python -m venv .venv</code> を実行し、続けて <code>.venv\\Scripts\\python -m pip install -r requirements.txt</code> を実行します。</li>
+<li>アプリを直接起動する（例: <code>.venv\\Scripts\\python apps\\suite_launcher.py</code>）か、<code>.venv\\Scripts\\python installer\\build.py</code> でインストーラーをビルドします。</li></ol>
+<h2>ソースの中身</h2>
+<table><tr><th>フォルダー</th><th>用途</th></tr>
+<tr><td><code>apps/</code></td><td>各アプリのコード</td></tr>
+<tr><td><code>apps/locales/</code></td><td>翻訳（言語ごとに 1 ファイル）</td></tr>
+<tr><td><code>guide/</code></td><td>このガイド（翻訳は <code>guide/i18n/</code>）</td></tr>
+<tr><td><code>branding/</code></td><td>アイコンとサウンド</td></tr>
+<tr><td><code>installer/</code></td><td>Windows インストーラーを作成</td></tr>
+<tr><td><code>licenses/</code></td><td>オープンソース部品のライセンス</td></tr></table>
+<p>改造して自分のバージョンを配布する場合、AGPL によりあなたのソース コードも公開する必要があります。</p>
+
+@@ compat
+title: ファイル互換性の早見表
+keywords: 形式 docx xlsx pptx psd pdf 互換 失われる 警告 保持
+---
+<table><tr><th>アプリ</th><th>開ける形式</th><th>保存できる形式</th><th>まだ保持されないもの（警告が出ます）</th></tr>
+<tr><td>PDF</td><td>.pdf（パスワード付きも可）</td><td>.pdf、.docx/.txt/画像へのエクスポート</td><td>—</td></tr>
+<tr><td>文書</td><td>.docx .html .md .txt</td><td>.docx .odt .html .md .txt、PDF</td><td>脚注、コメント、変更履歴、テキスト ボックス、浮動画像、段組み</td></tr>
+<tr><td>表計算</td><td>.xlsx .xlsm .csv .tsv</td><td>.xlsx .csv、PDF</td><td>条件付き書式、ドロップダウン/データの入力規則、ピボット テーブル、マクロ、珍しいグラフ</td></tr>
+<tr><td>プレゼンテーション</td><td>.pptx</td><td>.pptx、PDF、PNG</td><td>グラフ、SmartArt、動画/音声、アニメーションと画面切り替え</td></tr>
+<tr><td>データベース</td><td>.db/.sqlite（SQLite）、.xlsx・.csv・Access .accdb/.mdb* のインポート</td><td>.db、.xlsx・.csv・PDF へのエクスポート</td><td>*Access のインポートには Microsoft の無料 Access ドライバーが必要です。Access のフォーム・レポート・マクロは取り込まれません（テーブルのみ）</td></tr>
+<tr><td>写真</td><td>.psd .png .jpg .webp .bmp .gif .tif .ico .ora</td><td>.psd（レイヤー）.ora（レイヤー）、すべての単一画像形式、PDF</td><td>PSD の調整レイヤー、レイヤー効果、マスク、スマート オブジェクト（ピクセルは読み込まれます）</td></tr></table>
+<div class="tip">アプリが保持できない内容がファイルに含まれている場合、開くときにそう知らせ、元のファイルに上書き保存する前にもう一度確認します。元のファイルを残すには <b>ファイル → 名前を付けて保存</b> を使ってください。</div>
+<p>古い形式（<code>.doc</code>、<code>.xls</code>、<code>.ppt</code>）には対応していません。作成したプログラムで開き、先に「x」付きの新しい形式で保存してください。</p>
+
+@@ pdf-basics
+title: PDF: 開く・表示・テキスト検索
+keywords: ズーム サムネイル ページ パネル 検索 探す パスワード
+---
+<p>PDF は <b>ファイル → 開く</b>（<kbd>Ctrl</kbd>+<kbd>O</kbd>）、ウィンドウへのドラッグ、または右クリック → <i>Ethical PDF Editor で開く</i> で開きます。パスワード付きの PDF はパスワードを尋ねます。</p>
+<h2>移動</h2><ul>
+<li><b>ズーム:</b> <kbd>Ctrl</kbd>+マウス ホイール、ズーム ボックス、<i>幅に合わせる</i>（<kbd>Ctrl</kbd>+<kbd>1</kbd>）、実際のサイズ（<kbd>Ctrl</kbd>+<kbd>0</kbd>）。</li>
+<li><b>ページ パネル</b>（左）: サムネイルをクリックするとそのページへ移動します。ページ操作には <kbd>Ctrl</kbd>/<kbd>Shift</kbd> で複数選択します。右クリックでページ メニュー。</li>
+<li><b>ページへ移動:</b> ページ ボックスに番号を入力します。</li></ul>
+<h2>テキストの検索</h2><p><b>テキストを検索…</b> に入力して <kbd>Enter</kbd> を押します。<kbd>F3</kbd> / <b>次へ</b> と <b>前へ</b> で結果を移動します（すべて強調表示、現在の結果はオレンジ）。</p>
+<h2>テキストのコピー</h2><p><b>選択</b> ツールでテキストをドラッグし、<kbd>Ctrl</kbd>+<kbd>C</kbd> を押します。</p>
+
+@@ pdf-edit-text
+title: PDF: 既存テキストの編集とテキストの追加
+keywords: テキスト編集 文字を変える フォント 誤字 テキスト追加
+---
+<h2>PDF にもともとあるテキストを変更する</h2><ol>
+<li><b>テキストを編集</b> ツールを選びます。</li><li>変更したい行をクリックします。</li>
+<li>ダイアログに行のテキスト、フォント、サイズ、太字/斜体、色が表示されます — 必要な部分を変えて OK をクリックします。</li></ol>
+<p>アプリは PDF のフォントを認識し、PC にインストールされている対応フォント（例: Calibri、Times New Roman）を選びます。インストールされていない場合は似たフォントを使います。</p>
+<div class="warn">編集は 1 行ずつです。回転したテキストや縦書きのテキストは編集できません。</div>
+<h2>新しいテキストを追加する</h2><p><b>テキストを追加</b> を選び、置きたい場所をクリックして入力し、インストール済みの好きなフォントを選びます。本物のページ テキストになるので、あとから <b>テキストを編集</b> で変更できます。</p>
+
+@@ pdf-annotate
+title: PDF: ハイライト・メモ・描画・図形
+keywords: 注釈 ハイライト 下線 取り消し線 メモ 描画 ペン 四角形 楕円 矢印 線 画像 色
+---
+<table><tr><th>ツール</th><th>使い方</th></tr>
+<tr><td>ハイライト / 下線 / 取り消し線</td><td>テキストの上をドラッグします。ハイライトは <b>蛍光ペン</b> の色、ほかは <b>色</b> ボタンの色を使います。</td></tr>
+<tr><td>メモ</td><td>クリックして付箋メモを置き、入力します。</td></tr>
+<tr><td>描画</td><td>フリーハンドのペン（色と太さはツール バーで指定）。</td></tr>
+<tr><td>四角形 / 楕円 / 線 / 矢印</td><td>ドラッグして描きます。</td></tr>
+<tr><td>画像</td><td>クリック（または枠をドラッグ）して画像を選びます。</td></tr></table>
+<h2>あとから注釈を編集する</h2><p><b>選択</b> に切り替えてから:</p><ul>
+<li>注釈をドラッグして移動します。<kbd>Delete</kbd> で削除します。</li>
+<li>テキスト ボックスやメモをダブルクリックすると文字を編集できます。</li>
+<li>右クリックで <i>色を変更</i> / <i>削除</i>。</li></ul>
+<p>どの変更も <kbd>Ctrl</kbd>+<kbd>Z</kbd> で元に戻せます。</p>
+
+@@ pdf-forms-sign
+title: PDF: フォームの入力と署名
+keywords: フォーム フィールド チェック ボックス 入力 署名 サイン 描く
+---
+<h2>フォーム</h2><p>フォームのフィールドは薄い青で表示されます（<i>表示 → フォーム フィールドを強調表示</i> でオフにできます）。<b>選択</b> ツールでフィールドをクリックします。テキスト フィールドは文字を尋ね、チェック ボックスはオン/オフが切り替わり、ドロップダウンは選択肢を表示します。</p>
+<h2>署名</h2><ol><li><b>署名</b> ツール（または <i>編集 → 署名を作成</i>）を選びます。</li>
+<li>マウスで署名を <b>描く</b> か、画像を使います（<b>画像</b> タブ — 背景が透明な PNG が最適）。</li>
+<li>ページをクリックして配置します。もう一度クリックすると複製を置けます。あとで <b>選択</b> で移動できます。</li></ol>
+
+@@ pdf-pages
+title: PDF: ページ操作・結合・分割
+keywords: 回転 削除 並べ替え 移動 挿入 空白 結合 まとめる 分割 抽出 ページ 画像
+---
+<p>ページ関連のコマンドはすべて <b>ページ</b> メニューにあります（ページ パネルの右クリックでも使えます）。選択したサムネイル、または現在のページに対して動作します。</p>
+<table><tr><th>目的</th><th>使うもの</th></tr>
+<tr><td>回転</td><td>右に回転 <kbd>Ctrl</kbd>+<kbd>R</kbd> / 左に回転 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd></td></tr>
+<tr><td>並べ替え</td><td>ページを上へ / 下へ移動</td></tr>
+<tr><td>ページの追加</td><td>空白ページを挿入、ファイルからページを挿入（別の PDF）、画像をページとして挿入</td></tr>
+<tr><td>ページを取り出す</td><td>選択したページを抽出（新しい PDF として保存）</td></tr>
+<tr><td>1 ページ 1 ファイル</td><td>単一ページに分割</td></tr>
+<tr><td>削除</td><td>選択したページを削除</td></tr></table>
+<h2>複数のファイルを結合する</h2><p><b>ファイル → ファイルを 1 つの PDF に結合</b>: PDF と画像を順番に選ぶと、1 つの新しい PDF になります。<b>ファイル → 画像から新しい PDF</b> は写真やスキャンを PDF にします。</p>
+<div class="tip"><a href="#conv-combine">コンバーター</a> でも画像と PDF をまとめて結合できます。</div>
+
+@@ pdf-redact
+title: PDF: 白塗りと墨消し（情報を隠す）
+keywords: 墨消し 黒塗り 隠す 削除 機密 白塗り プライバシー 安全
+---
+<table><tr><th>ツール</th><th>動作</th><th>秘密情報に安全？</th></tr>
+<tr><td><b>白塗り</b></td><td>範囲の上に白い四角を描きます。</td><td>❌ 下のテキストはファイルに残り、コピーできてしまいます。</td></tr>
+<tr><td><b>墨消し</b></td><td>四角の下のテキスト・画像・図形を完全に消去し、黒で塗りつぶします。</td><td>✅ はい — 内容は消えます。</td></tr></table>
+<div class="warn">パスワード、口座番号、住所などには必ず <b>墨消し</b> を使ってください。結果は新しいファイルとして保存し、元のファイルは安全な場所に保管してください。</div>
+
+@@ pdf-export
+title: PDF: 保存・エクスポート・印刷
+keywords: 保存 エクスポート word docx 画像 png jpg テキスト 印刷
+---
+<ul><li><b>保存</b>（<kbd>Ctrl</kbd>+<kbd>S</kbd>）/ <b>名前を付けて保存</b>。保存時は埋め込みフォントのうち使用している文字だけを残すので、ファイルが小さく保たれます。</li>
+<li><b>ファイル → エクスポート</b>: ページを PNG/JPG 画像として（DPI を選択）、Word 文書として（.docx — テキスト・スタイル・画像。正確なレイアウトではありません）、またはプレーン テキストとして。</li>
+<li><b>ファイル → 印刷</b>（<kbd>Ctrl</kbd>+<kbd>P</kbd>）。</li></ul>
+
+@@ write-basics
+title: 文書: 基本
+keywords: ワープロ 文書 ページ表示 入力 スタイル 見出し 標準 フォント
+---
+<p>Ethical Document Editor は文書を本物のページとして表示します — 余白のある白い用紙で、印刷したときと同じ見た目です。ステータス バーには現在のページと単語数が表示されます。</p>
+<h2>スタイル</h2><p>書式バーの最初のボックスで段落スタイルを設定します: <b>標準、表題、見出し 1–4</b>。見出しのあとで <kbd>Enter</kbd> を押すと、Word と同じように標準に戻ります。見出しは本物の Word の見出しとして保存されます。</p>
+<h2>フォント</h2><p>PC にあるすべてのフォントを使えます。新しい文書は Calibri 11（Calibri がない場合は Arial）を使います。</p>
+<h2>便利なキー</h2><table>
+<tr><td>太字 / 斜体 / 下線</td><td>${K("Ctrl B")} ${K("Ctrl I")} ${K("Ctrl U")}</td></tr>
+<tr><td>文字を大きく / 小さく</td><td>${K("Ctrl ]")} ${K("Ctrl [")}</td></tr>
+<tr><td>左揃え / 中央揃え / 右揃え / 両端揃え</td><td>${K("Ctrl L")} ${K("Ctrl E")} ${K("Ctrl R")} ${K("Ctrl J")}</td></tr>
+<tr><td>検索と置換</td><td>${K("Ctrl F")} / ${K("Ctrl H")}</td></tr>
+<tr><td>改ページ</td><td>${K("Ctrl Enter")}</td></tr>
+<tr><td>書式のクリア</td><td>${K("Ctrl Space")}</td></tr>
+<tr><td>書式なしで貼り付け</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>文字カウント</td><td>${K("Ctrl Shift G")}</td></tr></table>
+
+@@ write-format
+title: 文書: 文字・段落・箇条書きの書式
+keywords: 太字 色 蛍光ペン 上付き 下付き 行間 インデント 箇条書き 段落番号 リスト タブ
+---
+<h2>文字</h2><p>フォント、サイズ、<b>B</b> <i>I</i> <u>U</u> <s>S</s>、上付き x²、下付き x₂、文字の色（見本から選び <b>A</b> で適用）、蛍光ペン、<i>書式 → 大文字/小文字の変更</i>、<i>書式のクリア</i>。</p>
+<h2>段落</h2><p>配置、<i>段落 → 行間</i>（1.0–3.0）、段落前/後の間隔、インデントを増やす/減らす（<kbd>Ctrl</kbd>+<kbd>M</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>）。</p>
+<h2>リスト</h2><ul>
+<li><b>• リスト</b> / <b>1. リスト</b> で箇条書きまたは段落番号を開始します。<i>段落 → リストのスタイル</i> には 8 種類あります（•、○、▪、1.、a.、A.、i.、I.）。</li>
+<li>項目の先頭で <kbd>Tab</kbd> を押すとサブ項目になり、<kbd>Shift</kbd>+<kbd>Tab</kbd> で戻ります。</li>
+<li>空の項目で <kbd>Enter</kbd> を押すとリストが終わります。先頭で <kbd>Backspace</kbd> を押すと記号が消えます。</li></ul>
+
+@@ write-insert
+title: 文書: 画像・表・リンク
+keywords: 挿入 画像 サイズ変更 表 行 列 結合 網かけ リンク ハイパーリンク 日付 横線
+---
+<h2>画像</h2><p><i>挿入 → 画像</i>、<kbd>Ctrl</kbd>+<kbd>V</kbd> で貼り付け、または画像ファイルをドラッグします。画像を右クリック → <b>画像のサイズ変更</b> で、サイズを % で指定できます。</p>
+<h2>表</h2><p><i>挿入 → 表</i>（行数・列数と、必要なら網かけの見出し行を選びます）。表の中では <b>表</b> メニューまたは右クリックで、行や列の挿入/削除、選択したセルの結合、セルの分割、網かけの追加、表の削除ができます。</p>
+<h2>リンク</h2><p>テキストを選んで <kbd>Ctrl</kbd>+<kbd>K</kbd> を押します。リンクを <kbd>Ctrl</kbd>+クリックすると開きます。右クリック → リンクの削除。</p>
+<h2>その他</h2><p>改ページ（<kbd>Ctrl</kbd>+<kbd>Enter</kbd>）、日付と時刻、横線。</p>
+
+@@ write-pagesetup
+title: 文書: ページ設定・ヘッダー・フッター・ページ番号
+keywords: 余白 用紙サイズ a4 レター 横向き ヘッダー フッター ページ番号
+---
+<p><b>ファイル → ページ設定</b>:</p><ul>
+<li>用紙: Letter、Legal、A4、A5 またはユーザー定義サイズ。<b>横向き</b>。</li>
+<li>余白（上、下、左、右）をインチで指定。</li>
+<li><b>ヘッダー</b> の文字（各ページの上中央）、<b>フッター</b>（左下）、<b>ページ番号</b>（右下）。</li></ul>
+<p>これらは .docx に保存されるので、Word でも表示されます。</p>
+
+@@ write-files
+title: 文書: ファイル・Word 互換性・PDF・印刷
+keywords: docx 保存 開く odt html markdown txt pdf エクスポート 印刷 印刷プレビュー 互換性
+---
+<p><b>開ける形式:</b> .docx、.html、.md、.txt。<b>保存できる形式:</b> .docx（既定）、.odt、.html、.md、.txt。<b>PDF としてエクスポート</b> は選択できる本物のテキストを保ちます。<b>印刷</b> と <b>印刷プレビュー</b> はページ表示と同じになります。</p>
+<h2>Word との間でやり取りできるもの</h2><p>見出しと表題、フォント（テーマのフォントを含む）、サイズ、太字/斜体/下線/取り消し線、色、蛍光ペン、配置、インデント、間隔、改ページ、箇条書きと段落番号（入れ子も可）、表（結合セル、幅、網かけ）、画像、リンク、用紙サイズと余白、ヘッダー/フッターの文字、ページ番号。</p>
+<p><b>未対応:</b> 脚注、コメント、変更履歴、テキスト ボックス、浮動画像（文字の折り返しあり）、段組み、複数のセクション。ズームとスペル チェックもまだありません。</p>
+
+@@ sheets-basics
+title: 表計算: 基本
+keywords: 表計算 セル 入力 enter tab 移動 数式バー 名前ボックス シート見出し シート ステータス 合計
+---
+<h2>ウィンドウ</h2><ul>
+<li><b>名前ボックス</b>（左上）: 現在のセルを表示します。<code>B12</code>、<code>A1:C20</code>、<code>Sheet2!A1</code>、名前付き範囲を入力して Enter を押すとそこへ移動します（<kbd>Ctrl</kbd>+<kbd>G</kbd>）。</li>
+<li><b>fx / 数式バー</b>: セルに実際に入っている内容（数式など）を表示・編集します。</li>
+<li><b>シート見出し</b>（下）: <b>+</b> でシートを追加。ダブルクリックで名前を変更、右クリックで複製/削除、ドラッグで並べ替え。</li>
+<li><b>ステータス バー</b>: 数値をいくつか選ぶと、合計・平均・個数が表示されます。</li></ul>
+<h2>値の入力</h2><table><tr><th>入力</th><th>結果</th></tr>
+<tr><td><code>1234.5</code> / <code>1,234</code></td><td>数値（桁区切りあり）</td></tr>
+<tr><td><code>$5</code> / <code>25%</code></td><td>通貨 / パーセント</td></tr>
+<tr><td><code>2026-10-11</code>、<code>10/11/2026</code>、<code>Oct 11, 2026</code></td><td>日付</td></tr>
+<tr><td><code>9:30</code>、<code>9:30 PM</code></td><td>時刻</td></tr>
+<tr><td><code>TRUE</code> / <code>FALSE</code></td><td>真偽値</td></tr>
+<tr><td><code>'007</code></td><td>入力したとおりの文字列（' は表示されません）</td></tr>
+<tr><td><code>=A1*2</code></td><td>数式</td></tr></table>
+<h2>移動</h2><table>
+<tr><td>${K("Enter")} / ${K("Shift Enter")}</td><td>下 / 上</td></tr><tr><td>${K("Tab")} / ${K("Shift Tab")}</td><td>右 / 左</td></tr>
+<tr><td>${K("Ctrl Arrow")}</td><td>データの端へジャンプ</td></tr><tr><td>${K("Ctrl Shift Arrow")}</td><td>端まで選択</td></tr>
+<tr><td>${K("F2")} またはダブルクリック</td><td>セルを編集</td></tr><tr><td>${K("Delete")}</td><td>内容を消去</td></tr></table>
+
+@@ sheets-formulas
+title: 表計算: 数式と参照
+keywords: 数式 参照 絶対 相対 $ ドル 別シート 名前付き範囲 エラー div/0 ref name n/a 循環 オート sum
+---
+<p>数式は <code>=</code> で始めます: <code>=B2*C2</code>、<code>=SUM(D2:D20)</code>、<code>=IF(A1&gt;10,"big","small")</code>。</p>
+<h2>演算子</h2><p><code>+ - * /</code>、<code>^</code>（べき乗）、<code>%</code>（パーセント）、<code>&amp;</code>（文字列の連結）、<code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code>。</p>
+<h2>参照</h2><table>
+<tr><td><code>A1</code></td><td>1 つのセル — コピーすると自動で調整されます</td></tr>
+<tr><td><code>$A$1</code> / <code>A$1</code> / <code>$A1</code></td><td>列や行を絶対参照（固定）— コピーしても変わりません</td></tr>
+<tr><td><code>A1:C10</code></td><td>セルの範囲</td></tr><tr><td><code>B:B</code></td><td>列全体</td></tr>
+<tr><td><code>'My Sheet'!A1</code></td><td>別のシートのセル</td></tr>
+<tr><td><code>Prices</code></td><td>名前付き範囲（<i>データ → 名前の定義</i>）</td></tr>
+<tr><td><code>{1,2;3,4}</code></td><td>配列定数</td></tr></table>
+<p>コピー/貼り付け、下方向へコピー（<kbd>Ctrl</kbd>+<kbd>D</kbd>）、右方向へコピー（<kbd>Ctrl</kbd>+<kbd>R</kbd>）は Excel と同じように参照を調整します。行や列の挿入・削除ですべての数式が更新され、削除したセルへの参照は <code>#REF!</code> になります。</p>
+<h2>ショートカット</h2><ul><li><b>オート SUM</b>（<kbd>Alt</kbd>+<kbd>=</kbd>）は上または左の数値に対して <code>=SUM(…)</code> を入力します。</li>
+<li><b>関数…</b>（<kbd>Shift</kbd>+<kbd>F3</kbd>）で関数名を挿入します。<i>ヘルプ → 関数一覧</i> ですべて表示できます。</li></ul>
+<h2>エラー</h2><table>
+<tr><td><code>#DIV/0!</code></td><td>0 で割った</td></tr><tr><td><code>#VALUE!</code></td><td>値の種類が違う（例: 計算に文字列）</td></tr>
+<tr><td><code>#REF!</code></td><td>参照先のセルが削除された</td></tr><tr><td><code>#NAME?</code></td><td>不明な関数または名前</td></tr>
+<tr><td><code>#N/A</code></td><td>検索で何も見つからなかった</td></tr><tr><td><code>#NUM!</code></td><td>ありえない数値</td></tr>
+<tr><td><code>#CIRC!</code></td><td>循環参照 — 数式が自分自身に依存している</td></tr></table>
+<div class="tip">Excel のブックで Ethical Spreadsheet Editor がまだ知らない関数が使われている場合、エラーではなく Excel が最後に計算した値を表示します。</div>
+<p>関数は英語名（SUM、IF、VLOOKUP…）で入力します。Excel ファイルの内部と同じ書き方です。</p>
+
+@@ sheets-functions
+title: 表計算: 関数一覧（143 関数）
+keywords: 関数 一覧 sum average count if vlookup xlookup index match sumif countif 文字列 日付 round pmt
+---
+<table><tr><th>分類</th><th>関数</th></tr>
+<tr><td>集計と統計</td><td>SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, COUNTBLANK, PRODUCT, MEDIAN, MODE, STDEV(.S/.P), VAR(.S/.P), LARGE, SMALL, RANK, SUMPRODUCT</td></tr>
+<tr><td>条件付き</td><td>SUMIF, SUMIFS, COUNTIF, COUNTIFS, AVERAGEIF, AVERAGEIFS, MAXIFS, MINIFS</td></tr>
+<tr><td>論理</td><td>IF, IFS, IFERROR, IFNA, SWITCH, CHOOSE, AND, OR, NOT, XOR, TRUE, FALSE</td></tr>
+<tr><td>検索</td><td>VLOOKUP, HLOOKUP, XLOOKUP, INDEX, MATCH, ROW, COLUMN, ROWS, COLUMNS</td></tr>
+<tr><td>数学</td><td>ROUND, ROUNDUP, ROUNDDOWN, TRUNC, INT, ABS, SQRT, POWER, MOD, EXP, LN, LOG, LOG10, SIGN, PI, RAND, RANDBETWEEN, CEILING, FLOOR, EVEN, ODD, FACT, DEGREES, RADIANS, SIN, COS, TAN, ASIN, ACOS, ATAN, ATAN2</td></tr>
+<tr><td>文字列</td><td>CONCATENATE, CONCAT, TEXTJOIN, LEFT, RIGHT, MID, LEN, UPPER, LOWER, PROPER, TRIM, CLEAN, FIND, SEARCH, SUBSTITUTE, REPLACE, REPT, EXACT, CHAR, CODE, VALUE, TEXT, FIXED, DOLLAR, T, N</td></tr>
+<tr><td>日付と時刻</td><td>TODAY, NOW, DATE, TIME, YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, WEEKDAY, DAYS, DATEDIF, EDATE, EOMONTH, DATEVALUE</td></tr>
+<tr><td>情報</td><td>ISBLANK, ISNUMBER, ISTEXT, ISNONTEXT, ISLOGICAL, ISERROR, ISERR, ISNA, ISEVEN, ISODD, NA</td></tr>
+<tr><td>財務</td><td>PMT, FV, PV, NPV</td></tr></table>
+<h2>例</h2><table>
+<tr><td><code>=VLOOKUP("Apples",A2:C50,3,FALSE)</code></td><td>A 列で “Apples” を探し、C 列の値を返す</td></tr>
+<tr><td><code>=XLOOKUP(F2,A:A,C:C,"not found")</code></td><td>見つからないときの値を指定できる新しい検索</td></tr>
+<tr><td><code>=INDEX(B2:B50,MATCH(F2,A2:A50,0))</code></td><td>どの方向にも検索できる</td></tr>
+<tr><td><code>=SUMIF(B:B,"&gt;100",C:C)</code></td><td>B が 100 を超える行の C を合計</td></tr>
+<tr><td><code>=COUNTIF(A:A,"app*")</code></td><td>“app” で始まるセルを数える</td></tr>
+<tr><td><code>=TEXT(TODAY(),"dddd, mmmm d")</code></td><td>今日の日付を文字列で（例: “Sunday, October 11”）</td></tr>
+<tr><td><code>=PMT(5%/12,360,-200000)</code></td><td>30 年住宅ローンの毎月の返済額</td></tr>
+<tr><td><code>=IFERROR(A1/B1,0)</code></td><td>エラーの代わりに 0</td></tr></table>
+
+@@ sheets-format
+title: 表計算: 書式と表示形式
+keywords: 書式 数値 通貨 パーセント 日付 小数 ユーザー定義 太字 塗りつぶし 色 罫線 結合 折り返し 配置 列幅 行の高さ 非表示
+---
+<h2>セルのスタイル</h2><p>フォント、サイズ、<b>B I U S</b>、フォントの色、<b>塗りつぶし</b> の色（と <b>塗りつぶしなし</b>）、配置（左/中央/右、上/中央/下）、<b>折り返し</b>、<b>セルを結合して中央揃え</b>、<b>罫線</b>（格子、外枠、太線、下、上下、なし）。</p>
+<h2>表示形式</h2><p>ツール バー: <b>$</b> 通貨、<b>%</b>、<b>,</b> 桁区切り、<b>.0+ / .0-</b> 小数点、または表示形式の一覧（標準、数値、通貨、会計、パーセンテージ、日付、時刻、指数、文字列）。<i>書式 → 表示形式 → ユーザー定義…</i> では Excel の書式コードを使えます:</p>
+<table><tr><th>コード</th><th>12345.678 の表示</th></tr>
+<tr><td><code>#,##0.00</code></td><td>12,345.68</td></tr><tr><td><code>$#,##0</code></td><td>$12,346</td></tr>
+<tr><td><code>0.0%</code></td><td>1234567.8%（100 倍されます）</td></tr><tr><td><code>0.00E+00</code></td><td>1.23E+04</td></tr>
+<tr><td><code>000000</code></td><td>012346</td></tr><tr><td><code>#,##0;(#,##0)</code></td><td>負の数をかっこで表示</td></tr>
+<tr><td><code>0.0 "kg"</code></td><td>12345.7 kg</td></tr>
+<tr><td><code>yyyy-mm-dd</code>、<code>mmm d, yyyy</code>、<code>dddd</code></td><td>日付のスタイル</td></tr>
+<tr><td><code>h:mm AM/PM</code></td><td>時刻</td></tr></table>
+<p>セルに <code>########</code> と出るのは数値が収まらないためです — 列の幅を広げてください。</p>
+<h2>列と行</h2><p>見出しの境界をドラッグするか、<i>書式 → 列の幅 / 行の高さ / 列の幅の自動調整 / 非表示 / すべて再表示</i> を使います。</p>
+
+@@ sheets-data
+title: 表計算: データの並べ替え・フィル・コピー・編集
+keywords: 並べ替え 昇順 降順 重複の削除 連続データ コピー 貼り付け 値 切り取り 挿入 削除 行 列 検索 置換 コメント
+---
+<h2>並べ替え</h2><p><b>昇順 A→Z / 降順 Z→A</b> は現在の列でデータを並べ替えます（見出しは自動で認識）。<i>データ → 並べ替え…</i> では最大 3 列まで指定できます。空のセルは常に最後になります。</p>
+<h2>フィル</h2><ul><li><kbd>Ctrl</kbd>+<kbd>D</kbd> 下方向へコピー / <kbd>Ctrl</kbd>+<kbd>R</kbd> 右方向へコピー — 最初のセルをコピーします（数式は調整されます）。</li>
+<li><i>編集 → 連続データの作成</i>: 最初のセルに 1 と 2（または 5 と 10、日付）を入力し、範囲を選ぶとパターンが続きます。</li></ul>
+<h2>コピーと貼り付け</h2><p>数式は貼り付けると調整されます。<b>値のみ貼り付け</b>（<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>）は数式ではなく結果を貼り付けます。1 つのセルを選択範囲にコピーすると範囲全体が埋まります。ほかのプログラムからコピーした（タブ区切りの）テキストはセルに分割されます。</p>
+<h2>その他</h2><ul><li>行や列の挿入 / 削除（メニューまたは右クリック）。</li>
+<li><i>データ → 重複の削除</i>。</li><li>検索と置換（<kbd>Ctrl</kbd>+<kbd>F</kbd>）、全シートも対象にできます。</li>
+<li>コメント（<kbd>Shift</kbd>+<kbd>F2</kbd>）— 赤い三角で示され、マウスを重ねると読めます。</li></ul>
+
+@@ sheets-charts
+title: 表計算: グラフと画像
+keywords: グラフ 縦棒 横棒 折れ線 円 画像 挿入 移動
+---
+<ol><li>見出し行とラベルの列を <b>含めて</b> データを選択します — 例: A 列に月、B 列と C 列に売上。</li>
+<li><b>挿入 → グラフ…</b>（または <b>グラフ</b> ボタン）: 縦棒、横棒、折れ線、円のいずれかとタイトルを選びます。</li></ol>
+<p>グラフは数値が変わると更新されます。ドラッグで移動、右クリック → グラフの編集 / グラフの削除。</p>
+<p><b>挿入 → 画像…</b> で画像を追加します。ドラッグで移動、右クリック → サイズ変更 / 削除。</p>
+<p>グラフと画像は .xlsx に保存され、Excel で開けます。</p>
+
+@@ sheets-files
+title: 表計算: ファイル・Excel 互換性・PDF・印刷
+keywords: xlsx xlsm csv tsv 保存 開く excel 互換性 警告 印刷 pdf
+---
+<p><b>開ける形式:</b> .xlsx、.xlsm（マクロなしの .xlsx として保存）、.csv/.tsv。<b>保存できる形式:</b> .xlsx、または .csv（現在のシートのみ）。</p>
+<p><b>保持されるもの:</b> 値、数式、フォント、色、塗りつぶし、罫線、表示形式、配置、折り返し、結合セル、列の幅、行の高さ、非表示の行/列、コメント、名前付き範囲、複数のシート、グラフ（縦棒/横棒/折れ線/円）、画像。</p>
+<p><b>まだ保持されないもの</b>（開くときと上書き前に警告）: 条件付き書式、データの入力規則/ドロップダウン、ピボット テーブル、マクロ、珍しい種類のグラフ。ウィンドウ枠の固定はファイルに残りますが、画面には反映されません。</p>
+<p><b>PDF としてエクスポート / 印刷</b> では、すべての列がページの幅に収まります。</p>
+<div class="tip">非常に大きなブック（10 万を超える数式）は動作が遅くなります — 変更のたびにすべての数式が再計算されるためです。</div>
+
+@@ slides-basics
+title: プレゼンテーション: 基本
+keywords: プレゼンテーション スライド パネル レイアウト 新しいスライド プレースホルダー ノート 複製 非表示 並べ替え
+---
+<ul><li><b>左:</b> スライドのサムネイル — クリックで開く、ドラッグで並べ替え、右クリックで複製・削除・非表示・移動。</li>
+<li><b>中央:</b> スライド。<kbd>Ctrl</kbd>+マウス ホイールでズーム。</li><li><b>下:</b> 現在のスライドの発表者ノート。</li></ul>
+<h2>スライドの追加</h2><p><b>新しいスライド</b>（<kbd>Ctrl</kbd>+<kbd>M</kbd>）は現在のスライドの後ろにスライドを追加します。横の矢印でレイアウトを選べます:
+タイトル スライド、タイトルとコンテンツ、セクション見出し、2 つのコンテンツ、タイトルのみ、白紙。PowerPoint から開いたプレゼンテーションでは、そのファイル独自のレイアウトが使えます。</p>
+<p>「クリックしてタイトル/テキストを追加」と書かれた灰色の点線の枠はプレースホルダーです — クリックして入力します。空のままならスライド ショーや PDF には表示されません。</p>
+<p><b>非表示</b> のスライド（スライド → 非表示 / 表示）はスライド ショーとエクスポートで飛ばされます。</p>
+
+@@ slides-objects
+title: プレゼンテーション: テキスト・図形・画像・表
+keywords: テキスト ボックス 図形 画像 表 移動 サイズ変更 回転 反転 配置 前面へ 背面へ 揃える 箇条書き 塗りつぶし 枠線
+---
+<h2>挿入</h2><p><b>テキスト ボックス</b>、<b>画像</b>（または画像を貼り付け / ドラッグ）、<b>図形</b>（19 種類の図形、線、矢印）、<b>表</b>。</p>
+<h2>オブジェクトの操作</h2><table>
+<tr><td>選択</td><td>クリック（空いた場所で枠をドラッグすると複数選択）</td></tr>
+<tr><td>移動</td><td>ドラッグ、または矢印キー（${K("Shift Arrow")} = 10 px）</td></tr>
+<tr><td>サイズ変更</td><td>白いハンドルをドラッグ（画像は縦横比を保ちます。変えるときは ${K("Shift")} を押しながら）</td></tr>
+<tr><td>テキストの編集</td><td>ダブルクリック、${K("F2")}/${K("Enter")}、またはそのまま入力。終わるときは ${K("Esc")}</td></tr>
+<tr><td>削除 / 複製</td><td>${K("Delete")} / ${K("Ctrl D")}</td></tr>
+<tr><td>前面へ / 背面へ</td><td>配置メニュー、または前面/背面ボタン</td></tr>
+<tr><td>スライドに揃える、回転、反転</td><td>配置メニュー</td></tr></table>
+<h2>書式</h2><p>テキスト: フォント、サイズ、A+/A−、B/I/U、色、配置、上下の配置（書式メニュー）、箇条書きと段落番号。図形: <b>塗りつぶし</b> と <b>枠線</b> の色、枠線の太さ、塗りつぶしなし / 枠線なし。</p>
+
+@@ slides-design
+title: プレゼンテーション: テーマ・背景・スライドのサイズ
+keywords: テーマ デザイン 背景 色 画像 スライドのサイズ ワイド画面 4:3
+---
+<p><b>デザイン → テーマ</b> で 8 種類のテーマ（Office、ミッドナイト、スレート、フォレスト、サンセット、オーシャン、チャコール、ブラッシュ）のいずれかをすべてのスライドに適用します: 背景、タイトルと本文の色やフォント。</p>
+<p><b>デザイン → スライドの背景色</b>（このスライド）、<b>すべてのスライドの背景色</b>、<b>背景画像</b>。</p>
+<p><b>ファイル → スライドのサイズ</b>: ワイド画面 16:9、標準 4:3、A4、正方形 — 内容は収まるように拡大縮小されます。</p>
+<p><b>ファイル → 新規</b> では新しいプレゼンテーションのテーマを選べます。</p>
+
+@@ slides-present
+title: プレゼンテーション: スライド ショー
+keywords: 発表 スライド ショー f5 全画面 キー 黒い画面 次へ 前へ
+---
+<p><b>F5</b> で最初のスライドから、<b>Shift+F5</b> で現在のスライドから始まります（または <b>▶ 発表</b> ボタン）。</p>
+<table><tr><th>目的</th><th>キー</th></tr>
+<tr><td>次のスライド</td><td>${K("Space")} ${K("→")} ${K("↓")} ${K("Page_Down")} ${K("Enter")}、左クリック、マウス ホイール</td></tr>
+<tr><td>前のスライド</td><td>${K("←")} ${K("↑")} ${K("Page_Up")} ${K("Backspace")}、右クリック</td></tr>
+<tr><td>最初 / 最後</td><td>${K("Home")} / ${K("End")}</td></tr>
+<tr><td>黒い画面 / 白い画面</td><td>${K("B")} / ${K("W")}</td></tr>
+<tr><td>終了</td><td>${K("Esc")}</td></tr></table>
+
+@@ slides-files
+title: プレゼンテーション: ファイル・PowerPoint 互換性・エクスポート
+keywords: pptx powerpoint 保存 開く エクスポート pdf png 画像 印刷 マスター レイアウト
+---
+<p><b>.pptx を開いて保存できます。</b> 読み込んだプレゼンテーションは PowerPoint と同じように見えます: アプリはスライド マスターとレイアウト（テーマの色、フォント、背景、ロゴ、箇条書きのスタイル）を読み取ります。保存時は元のマスター、レイアウト、テーマを保持するので、PowerPoint でも正しく表示されます。</p>
+<p><b>エクスポート:</b> PDF（鮮明で、テキストを選択可能）、PNG 画像（幅 1920 px）、印刷。</p>
+<p><b>まだ保持されないもの:</b> グラフ、SmartArt、動画/音声、アニメーションと画面切り替え（警告が出ます）。グラデーションの塗りつぶしは単色で表示されます。発表者ビューとスペル チェックはまだありません。</p>

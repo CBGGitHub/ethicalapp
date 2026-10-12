@@ -1,0 +1,442 @@
+@ui
+guide_title: EthicalApp 가이드
+search: 가이드 검색…  (/ 키)
+theme: 밝게 / 어둡게
+footer: EthicalApp 가이드 · 오프라인에서도 작동
+result_one: “{q}” 검색 결과 1개
+result_many: “{q}” 검색 결과 {n}개
+nothing: 찾지 못했습니다. 단어를 줄이거나 다른 단어로 검색해 보세요 — 예: “pdf 병합”, “합계”, “레이어”.
+english_only: 이 문서는 아직 영어로만 제공됩니다.
+
+@sections
+start: 시작하기
+pdf: Ethical PDF Editor
+write: Ethical Document Editor
+sheets: Ethical Spreadsheet Editor
+slides: Ethical Presentation Editor
+photo: Ethical Photo Editor
+conv: Ethical Converter
+base: Ethical Database
+sticky: Ethical Sticky Notes
+snip: Ethical Snip
+planner: Ethical Planner
+help: 도움말 및 참고
+
+@@ welcome
+title: EthicalApp에 오신 것을 환영합니다
+keywords: 개요 앱 소개 시작
+---
+<p>EthicalApp은 Windows용 무료 수제 데스크톱 앱 모음입니다 — 모두가 매일 쓰는 도구를
+저희가 직접 만든 버전입니다. <b>실제 파일 형식</b>(Word, Excel, PowerPoint, PDF, Photoshop)을 열고 저장하므로
+누구와도 파일을 주고받을 수 있습니다.</p>
+<div class="cards">
+<a class="card" href="#pdf-basics"><img src="../branding/icons/png/pdf_64.png" alt=""><b>Ethical PDF Editor</b><span>PDF 보기, 텍스트 편집, 주석, 양식 작성, 서명, 병합 및 분할</span></a>
+<a class="card" href="#write-basics"><img src="../branding/icons/png/document_64.png" alt=""><b>Ethical Document Editor</b><span>문서 — Word .docx 열기 및 저장</span></a>
+<a class="card" href="#sheets-basics"><img src="../branding/icons/png/spreadsheet_64.png" alt=""><b>Ethical Spreadsheet Editor</b><span>143가지 함수와 차트가 있는 스프레드시트 — Excel .xlsx</span></a>
+<a class="card" href="#slides-basics"><img src="../branding/icons/png/presentation_64.png" alt=""><b>Ethical Presentation Editor</b><span>프레젠테이션과 슬라이드 — PowerPoint .pptx</span></a>
+<a class="card" href="#photo-basics"><img src="../branding/icons/png/photo_64.png" alt=""><b>Ethical Photo Editor</b><span>레이어 사진 편집기 — Photoshop .psd, PNG, JPG…</span></a>
+<a class="card" href="#conv-basics"><img src="../branding/icons/png/converter_64.png" alt=""><b>Ethical Converter</b><span>오디오, 동영상, 이미지, 문서 변환 및 압축, zip 압축/풀기</span></a>
+<a class="card" href="#base-basics"><img src="../branding/icons/png/database_64.png" alt=""><b>Ethical Database</b><span>데이터베이스: 테이블, 폼, 쿼리, 관계, 보고서</span></a>
+<a class="card" href="#stickies"><img src="../branding/icons/png/stickynotes_64.png" alt=""><b>Ethical Sticky Notes</b><span>바탕 화면에 머무는 메모와 할 일 목록</span></a>
+<a class="card" href="#snip"><img src="../branding/icons/png/snip_64.png" alt=""><b>Ethical Snip</b><span>표시할 수 있는 스크린샷 — Ctrl+PrtScn</span></a>
+<a class="card" href="#planner"><img src="../branding/icons/png/planner_64.png" alt=""><b>Ethical Planner</b><span>제때 알려 주는 미리 알림과 달력</span></a>
+</div>
+<h2>빠른 시작</h2>
+<ol><li>처음이신가요? <a href="#setup">앱 설치 및 실행</a>을 참고하세요.</li>
+<li>시작 메뉴나 바탕 화면에서 <b>EthicalApp</b>을 여세요: 모든 앱이 한 창에 있습니다. 앱을 클릭하거나 파일을 끌어다 놓으세요.
+<b>파일을 마우스 오른쪽 단추로 클릭 → Ethical …(으)로 열기</b>도 사용할 수 있습니다(<a href="#right-click">오른쪽 클릭 메뉴</a> 참고).</li>
+<li>어느 앱에서든 <kbd>F1</kbd>을 누르면 이 가이드가 해당 앱 페이지로 열립니다.</li>
+<li>다른 언어를 원하세요? EthicalApp 창 아래쪽의 <b>🌐</b>을 클릭하세요(<a href="#language">언어 변경</a> 참고).</li>
+<li>AI 도우미에게 맡기고 싶으세요? <a href="#ai-claude">AI(Claude)로 앱 사용하기</a>를 참고하세요.</li></ol>
+<div class="tip">위쪽 검색 상자(또는 <kbd>/</kbd> 키)로 무엇이든 찾을 수 있습니다 — 예: “가리기”, “VLOOKUP”, “혼합 모드”, “동영상 압축”.</div>
+
+@@ setup
+title: 앱 설치 및 실행
+keywords: 설치 설치 프로그램 다운로드 업데이트 제거 시작 메뉴 처음
+---
+<h2>설치</h2>
+<ol><li><a href="https://ethicalapp.org">ethicalapp.org</a>에서 설치 프로그램을 다운로드해 실행하세요. 관리자 암호는 필요 없습니다.</li>
+<li>Windows에 “Windows의 PC 보호” 메시지가 나오면 <b>추가 정보 → 실행</b>을 클릭하세요. 아직 잘 알려지지 않은 새 프로그램에서 나타나는 메시지입니다. 웹사이트의 SHA-256 지문으로 다운로드가 진짜인지 확인할 수 있습니다.</li>
+<li><b>모두</b>, <b>사무용 앱만</b>을 선택하거나 원하는 앱만 체크하세요.</li>
+<li>옵션: 바탕 화면 바로 가기, 오른쪽 클릭 메뉴의 “Ethical …(으)로 열기” 항목, Sticky Notes / Snip / Planner를 Windows와 함께 시작, <b>선택한 앱을 Claude에 연결</b>(<a href="#ai-claude">AI로 앱 사용하기</a> 참고).</li>
+<li><b>EthicalApp을 작업 표시줄 / 시작에 고정하도록 도와주기</b>: Windows는 프로그램이 스스로 고정하는 것을 허용하지 않으므로, 실행기가 필요한 두 번의 클릭을 보여 줍니다(작업 표시줄의 아이콘을 마우스 오른쪽 단추로 클릭 → <b>작업 표시줄에 고정</b>, 또는 시작에서 <b>EthicalApp</b>을 마우스 오른쪽 단추로 클릭 → <b>시작 화면에 고정</b>). 실행기의 <b>작업 표시줄 또는 시작에 고정…</b> 링크로 언제든 다시 볼 수 있습니다.</li></ol>
+<h2>실행</h2>
+<p><b>EthicalApp</b>(시작 메뉴 또는 바탕 화면)을 열면 설치된 모든 앱이 한 창에 나타납니다. 타일을 클릭하거나, <b>파일 열기…</b>(<kbd>Ctrl</kbd>+<kbd>O</kbd>)를 사용하거나, 파일을 끌어다 놓으면 각각 알맞은 앱에서 열립니다. 각 앱은 <b>시작 → EthicalApp</b>에도 있습니다.</p>
+<h2>업데이트 및 제거</h2>
+<p>업데이트하려면 새 설치 프로그램을 실행하세요. 이전 버전을 바꾸고 설정, 메모, 미리 알림은 그대로 유지합니다. 모두 제거하려면 <b>설정 → 앱 → EthicalApp → 제거</b>(다시 설치할 경우를 대비해 메모와 미리 알림은 PC에 남습니다).</p>
+<h2>소스 코드에서(개발자용)</h2>
+<p>모든 소스 코드가 공개되어 있습니다 — <a href="#sharing">소스 코드와 직접 빌드하기</a>를 참고하세요.</p>
+
+@@ language
+title: 언어 변경
+keywords: 언어 번역 한국어 영어 language
+---
+<p>EthicalApp은 English, Español, Português (Brasil), Français, Deutsch, Italiano, Nederlands, Polski, Türkçe, Русский, Bahasa Indonesia, 日本語, 한국어, 简体中文으로 사용할 수 있습니다.</p>
+<ol><li><b>EthicalApp</b> 창을 엽니다(시작 메뉴).</li>
+<li>아래쪽의 <b>🌐</b>을 클릭하고 언어를 고릅니다. <b>Windows와 같게</b>는 Windows 표시 언어를 따릅니다 — 이것이 기본값입니다.</li>
+<li>EthicalApp 다시 시작에 동의합니다. 이미 열려 있는 앱은 다음에 시작할 때 바뀝니다.</li></ol>
+<p>선택한 언어는 모든 Ethical 앱, 이 가이드, 대화 상자(열기/저장, 색)에 적용됩니다. 날짜도 해당 언어로 표시됩니다.</p>
+<div class="tip">파일 내용은 바뀌지 않습니다. 문서는 작성한 언어 그대로입니다. 단추와 메뉴만 번역됩니다.</div>
+
+@@ right-click
+title: 오른쪽 클릭 메뉴와 기본 앱
+keywords: 연결 프로그램 상황에 맞는 메뉴 기본 프로그램 windows 11 추가 옵션 표시 제거
+---
+<p>설치 프로그램에서 오른쪽 클릭 옵션을 체크했다면 Windows 오른쪽 클릭 메뉴에 다음 항목이 생깁니다(내 계정에만 — 관리자 권한 불필요):</p>
+<table><tr><th>오른쪽 클릭 대상</th><th>나타나는 항목</th></tr>
+<tr><td>.pdf</td><td>Ethical PDF Editor(으)로 열기</td></tr>
+<tr><td>.docx</td><td>Ethical Document Editor(으)로 열기</td></tr>
+<tr><td>.xlsx, .csv</td><td>Ethical Spreadsheet Editor(으)로 열기</td></tr>
+<tr><td>.pptx</td><td>Ethical Presentation Editor(으)로 열기</td></tr>
+<tr><td>.psd .png .jpg .webp .bmp .gif .tif .ora</td><td>Ethical Photo Editor(으)로 열기</td></tr>
+<tr><td>.db .sqlite .accdb .mdb</td><td>Ethical Database(으)로 열기</td></tr>
+<tr><td>모든 파일 또는 폴더</td><td>Ethical Converter로 변환 / 압축</td></tr></table>
+<p>여러 파일을 선택해 마우스 오른쪽 단추로 클릭하고 변환기 항목을 고르면 모두 <b>하나의</b> 변환기 창으로 들어갑니다.</p>
+<h2>앱을 기본값으로 만들기</h2>
+<p>파일을 마우스 오른쪽 단추로 클릭 → <b>연결 프로그램 → 다른 앱 선택</b> → Ethical 앱 선택 → <b>항상 이 앱을 사용하여 열기</b> 체크.</p>
+<h2>Windows 11</h2><p>항목은 <b>추가 옵션 표시</b> 아래에 있습니다(또는 <kbd>Shift</kbd>를 누른 채 마우스 오른쪽 단추 클릭).</p>
+<h2>항목 제거</h2>
+<p>설치 프로그램을 다시 실행해 오른쪽 클릭 옵션을 해제하거나 EthicalApp을 제거하면 항목도 함께 사라집니다.</p>
+
+@@ sharing
+title: 소스 코드와 직접 빌드하기
+keywords: 소스 코드 github 오픈 소스 빌드 개발자 수정 agpl 공유
+---
+<p>EthicalApp은 오픈 소스(AGPL-3.0)입니다. 모든 소스 코드는 GitHub에 있습니다: <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>. 각 설치 프로그램의 소스 코드 zip도 <a href="https://ethicalapp.org">ethicalapp.org</a>에 있습니다.</p>
+<h2>친구와 공유하기</h2>
+<p><a href="https://ethicalapp.org">ethicalapp.org</a> 링크를 보내 주세요 — 항상 최신이고 안전한 버전입니다.</p>
+<h2>소스에서 설치 프로그램 빌드하기</h2>
+<ol><li><b>Python 3.14</b>와 <b>Inno Setup 6</b>을 설치합니다.</li>
+<li>소스 폴더에서 <code>python -m venv .venv</code>를 실행한 다음 <code>.venv\\Scripts\\python -m pip install -r requirements.txt</code>를 실행합니다.</li>
+<li>앱을 바로 실행하거나(예: <code>.venv\\Scripts\\python apps\\suite_launcher.py</code>) <code>.venv\\Scripts\\python installer\\build.py</code>로 설치 프로그램을 빌드합니다.</li></ol>
+<h2>소스의 구성</h2>
+<table><tr><th>폴더</th><th>용도</th></tr>
+<tr><td><code>apps/</code></td><td>각 앱의 코드</td></tr>
+<tr><td><code>apps/locales/</code></td><td>번역(언어마다 파일 하나)</td></tr>
+<tr><td><code>guide/</code></td><td>이 가이드(번역은 <code>guide/i18n/</code>)</td></tr>
+<tr><td><code>branding/</code></td><td>아이콘과 소리</td></tr>
+<tr><td><code>installer/</code></td><td>Windows 설치 프로그램 빌드</td></tr>
+<tr><td><code>licenses/</code></td><td>오픈 소스 구성 요소의 라이선스</td></tr></table>
+<p>수정한 버전을 배포하면 AGPL에 따라 소스 코드도 공개해야 합니다.</p>
+
+@@ compat
+title: 파일 호환성 한눈에 보기
+keywords: 형식 docx xlsx pptx psd pdf 호환 손실 경고 유지
+---
+<table><tr><th>앱</th><th>열기</th><th>저장</th><th>아직 유지되지 않음(경고 표시)</th></tr>
+<tr><td>PDF</td><td>.pdf(암호가 있는 파일 포함)</td><td>.pdf, .docx/.txt/이미지로 내보내기</td><td>—</td></tr>
+<tr><td>문서</td><td>.docx .html .md .txt</td><td>.docx .odt .html .md .txt, PDF</td><td>각주, 메모, 변경 내용 추적, 텍스트 상자, 떠 있는 그림, 다단</td></tr>
+<tr><td>스프레드시트</td><td>.xlsx .xlsm .csv .tsv</td><td>.xlsx .csv, PDF</td><td>조건부 서식, 드롭다운/데이터 유효성 검사, 피벗 테이블, 매크로, 흔하지 않은 차트</td></tr>
+<tr><td>프레젠테이션</td><td>.pptx</td><td>.pptx, PDF, PNG</td><td>차트, SmartArt, 동영상/오디오, 애니메이션과 전환</td></tr>
+<tr><td>데이터베이스</td><td>.db/.sqlite(SQLite), .xlsx·.csv·Access .accdb/.mdb* 가져오기</td><td>.db, .xlsx·.csv·PDF로 내보내기</td><td>*Access 가져오기에는 Microsoft의 무료 Access 드라이버가 필요합니다. Access 폼, 보고서, 매크로는 가져오지 않습니다(테이블만)</td></tr>
+<tr><td>사진</td><td>.psd .png .jpg .webp .bmp .gif .tif .ico .ora</td><td>.psd(레이어) .ora(레이어), 모든 단일 이미지 형식, PDF</td><td>PSD 조정 레이어, 레이어 효과, 마스크, 고급 개체(픽셀은 불러옴)</td></tr></table>
+<div class="tip">앱이 유지할 수 없는 내용이 파일에 있으면 열 때 알려 주고, 원본에 덮어쓰기 전에 다시 확인합니다. 원본을 그대로 두려면 <b>파일 → 다른 이름으로 저장</b>을 사용하세요.</div>
+<p>예전 형식(<code>.doc</code>, <code>.xls</code>, <code>.ppt</code>)은 지원하지 않습니다 — 만든 프로그램에서 열어 먼저 “x”가 붙은 최신 형식으로 저장하세요.</p>
+
+@@ pdf-basics
+title: PDF: 열기, 보기, 텍스트 검색
+keywords: 확대 축소 미리 보기 페이지 패널 검색 찾기 암호
+---
+<p>PDF는 <b>파일 → 열기</b>(<kbd>Ctrl</kbd>+<kbd>O</kbd>), 창으로 끌어다 놓기, 또는 마우스 오른쪽 클릭 → <i>Ethical PDF Editor(으)로 열기</i>로 엽니다. 암호가 있는 PDF는 암호를 묻습니다.</p>
+<h2>둘러보기</h2><ul>
+<li><b>확대/축소:</b> <kbd>Ctrl</kbd>+마우스 휠, 확대/축소 상자, <i>너비에 맞춤</i>(<kbd>Ctrl</kbd>+<kbd>1</kbd>), 실제 크기(<kbd>Ctrl</kbd>+<kbd>0</kbd>).</li>
+<li><b>페이지 패널</b>(왼쪽): 미리 보기를 클릭하면 그 페이지로 이동합니다. 페이지 작업을 하려면 <kbd>Ctrl</kbd>/<kbd>Shift</kbd>로 여러 개를 선택하세요. 마우스 오른쪽 클릭으로 페이지 메뉴를 엽니다.</li>
+<li><b>페이지로 이동:</b> 페이지 상자에 번호를 입력합니다.</li></ul>
+<h2>텍스트 검색</h2><p><b>텍스트 찾기…</b>에 입력하고 <kbd>Enter</kbd>를 누르세요. <kbd>F3</kbd> / <b>다음</b>과 <b>이전</b>으로 결과를 이동합니다(모두 강조 표시, 현재 결과는 주황색).</p>
+<h2>텍스트 복사</h2><p><b>선택</b> 도구로 텍스트를 끈 다음 <kbd>Ctrl</kbd>+<kbd>C</kbd>를 누르세요.</p>
+
+@@ pdf-edit-text
+title: PDF: 기존 텍스트 편집과 텍스트 추가
+keywords: 텍스트 편집 단어 바꾸기 글꼴 오타 텍스트 추가
+---
+<h2>PDF에 이미 있는 텍스트 바꾸기</h2><ol>
+<li><b>텍스트 편집</b> 도구를 선택합니다.</li><li>바꿀 줄을 클릭합니다.</li>
+<li>상자에 줄의 텍스트, 글꼴, 크기, 굵게/기울임, 색이 표시됩니다 — 원하는 대로 바꾸고 확인을 클릭하세요.</li></ol>
+<p>앱이 PDF의 글꼴을 알아보고 PC에 설치된 같은 글꼴(예: Calibri, Times New Roman)을 고릅니다. 설치되어 있지 않으면 비슷한 글꼴을 사용합니다.</p>
+<div class="warn">편집은 한 번에 한 줄씩 됩니다. 회전되었거나 세로로 쓴 텍스트는 편집할 수 없습니다.</div>
+<h2>새 텍스트 추가</h2><p><b>텍스트 추가</b>를 고르고, 넣을 위치를 클릭한 뒤 입력하고, 설치된 아무 글꼴이나 고르세요. 실제 페이지 텍스트가 되므로 나중에 <b>텍스트 편집</b>으로 바꿀 수 있습니다.</p>
+
+@@ pdf-annotate
+title: PDF: 형광펜, 메모, 그리기, 도형
+keywords: 주석 형광펜 밑줄 취소선 메모 그리기 펜 사각형 타원 화살표 선 이미지 색
+---
+<table><tr><th>도구</th><th>사용법</th></tr>
+<tr><td>형광펜 / 밑줄 / 취소선</td><td>텍스트 위로 끕니다. 형광펜은 <b>형광펜</b> 색을, 나머지는 <b>색</b> 단추의 색을 씁니다.</td></tr>
+<tr><td>메모</td><td>클릭해 메모지를 붙이고 내용을 입력합니다.</td></tr>
+<tr><td>그리기</td><td>자유롭게 그리는 펜(색과 굵기는 도구 모음에서).</td></tr>
+<tr><td>사각형 / 타원 / 선 / 화살표</td><td>끌어서 그립니다.</td></tr>
+<tr><td>이미지</td><td>클릭(또는 상자를 끌기)하고 이미지를 고릅니다.</td></tr></table>
+<h2>나중에 주석 편집하기</h2><p><b>선택</b>으로 바꾼 다음:</p><ul>
+<li>주석을 끌어 옮깁니다. <kbd>Delete</kbd>를 누르면 삭제됩니다.</li>
+<li>텍스트 상자나 메모를 두 번 클릭하면 내용을 편집할 수 있습니다.</li>
+<li>마우스 오른쪽 클릭으로 <i>색 변경</i> / <i>삭제</i>.</li></ul>
+<p>모든 변경은 <kbd>Ctrl</kbd>+<kbd>Z</kbd>로 되돌릴 수 있습니다.</p>
+
+@@ pdf-forms-sign
+title: PDF: 양식 작성과 서명
+keywords: 양식 필드 확인란 작성 서명 사인 그리기
+---
+<h2>양식</h2><p>양식 필드는 연한 파란색으로 표시됩니다(<i>보기 → 양식 필드 강조</i>로 끌 수 있음). <b>선택</b> 도구로 필드를 클릭하세요. 텍스트 필드는 텍스트를 묻고, 확인란은 체크/해제되며, 드롭다운은 선택지를 보여 줍니다.</p>
+<h2>서명</h2><ol><li><b>서명</b> 도구(또는 <i>편집 → 서명 만들기</i>)를 고릅니다.</li>
+<li>마우스로 서명을 <b>그리거나</b> 이미지를 사용합니다(<b>이미지</b> 탭 — 배경이 투명한 PNG가 가장 좋음).</li>
+<li>페이지를 클릭해 배치합니다. 다시 클릭하면 사본을 더 놓습니다. 나중에 <b>선택</b>으로 옮깁니다.</li></ol>
+
+@@ pdf-pages
+title: PDF: 페이지, 병합, 분할
+keywords: 회전 삭제 순서 이동 삽입 빈 페이지 병합 합치기 분할 추출 페이지 이미지
+---
+<p>페이지 명령은 모두 <b>페이지</b> 메뉴에 있습니다(페이지 패널에서 마우스 오른쪽 클릭으로도 가능). 선택한 미리 보기 또는 현재 페이지에 적용됩니다.</p>
+<table><tr><th>목적</th><th>사용</th></tr>
+<tr><td>회전</td><td>오른쪽으로 회전 <kbd>Ctrl</kbd>+<kbd>R</kbd> / 왼쪽으로 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd></td></tr>
+<tr><td>순서 변경</td><td>페이지 위로 / 아래로 이동</td></tr>
+<tr><td>페이지 추가</td><td>빈 페이지 삽입, 파일에서 페이지 삽입(다른 PDF), 이미지를 페이지로 삽입</td></tr>
+<tr><td>페이지 빼내기</td><td>선택한 페이지 추출(새 PDF로 저장)</td></tr>
+<tr><td>페이지마다 파일 하나</td><td>낱장으로 분할</td></tr>
+<tr><td>삭제</td><td>선택한 페이지 삭제</td></tr></table>
+<h2>여러 파일 병합</h2><p><b>파일 → 파일을 하나의 PDF로 병합</b>: PDF와 이미지를 순서대로 고르면 하나의 새 PDF가 됩니다. <b>파일 → 이미지로 새 PDF</b>는 사진이나 스캔을 PDF로 만듭니다.</p>
+<div class="tip"><a href="#conv-combine">변환기</a>에서도 이미지와 PDF를 한꺼번에 병합할 수 있습니다.</div>
+
+@@ pdf-redact
+title: PDF: 흰색으로 덮기와 가리기(정보 숨기기)
+keywords: 가리기 검은 상자 숨기기 제거 기밀 흰색 덮기 개인 정보 안전
+---
+<table><tr><th>도구</th><th>기능</th><th>비밀 정보에 안전?</th></tr>
+<tr><td><b>흰색으로 덮기</b></td><td>영역 위에 흰 상자를 칠합니다.</td><td>❌ 아래 텍스트는 파일에 남아 있어 복사할 수 있습니다.</td></tr>
+<tr><td><b>가리기</b></td><td>상자 아래의 텍스트, 이미지, 그림을 영구히 지우고 검은색으로 채웁니다.</td><td>✅ 예 — 내용이 사라집니다.</td></tr></table>
+<div class="warn">암호, 계좌 번호, 주소 등에는 항상 <b>가리기</b>를 사용하세요. 결과는 새 파일로 저장하고 원본은 안전한 곳에 보관하세요.</div>
+
+@@ pdf-export
+title: PDF: 저장, 내보내기, 인쇄
+keywords: 저장 내보내기 word docx 이미지 png jpg 텍스트 인쇄
+---
+<ul><li><b>저장</b>(<kbd>Ctrl</kbd>+<kbd>S</kbd>) / <b>다른 이름으로 저장</b>. 저장할 때 포함된 글꼴에서 사용한 글자만 남기므로 파일이 작게 유지됩니다.</li>
+<li><b>파일 → 내보내기</b>: 페이지를 PNG/JPG 이미지로(DPI 선택), Word 문서로(.docx — 텍스트, 스타일, 이미지. 정확한 배치는 아님), 또는 일반 텍스트로.</li>
+<li><b>파일 → 인쇄</b>(<kbd>Ctrl</kbd>+<kbd>P</kbd>).</li></ul>
+
+@@ write-basics
+title: 문서: 기본
+keywords: 워드프로세서 문서 페이지 보기 입력 스타일 제목 표준 글꼴
+---
+<p>Ethical Document Editor는 문서를 실제 페이지로 보여 줍니다 — 여백이 있는 흰 종이로, 인쇄했을 때와 똑같습니다. 상태 표시줄에 현재 페이지와 단어 수가 나옵니다.</p>
+<h2>스타일</h2><p>서식 도구 모음의 첫 번째 상자에서 단락 스타일을 정합니다: <b>표준, 제목, 제목 1–4</b>. 제목 뒤에서 <kbd>Enter</kbd>를 누르면 Word처럼 표준으로 돌아갑니다. 제목은 실제 Word 제목으로 저장됩니다.</p>
+<h2>글꼴</h2><p>PC에 있는 모든 글꼴을 쓸 수 있습니다. 새 문서는 Calibri 11(Calibri가 없으면 Arial)을 사용합니다.</p>
+<h2>유용한 키</h2><table>
+<tr><td>굵게 / 기울임꼴 / 밑줄</td><td>${K("Ctrl B")} ${K("Ctrl I")} ${K("Ctrl U")}</td></tr>
+<tr><td>글자 크게 / 작게</td><td>${K("Ctrl ]")} ${K("Ctrl [")}</td></tr>
+<tr><td>왼쪽 / 가운데 / 오른쪽 / 양쪽 맞춤</td><td>${K("Ctrl L")} ${K("Ctrl E")} ${K("Ctrl R")} ${K("Ctrl J")}</td></tr>
+<tr><td>찾기 및 바꾸기</td><td>${K("Ctrl F")} / ${K("Ctrl H")}</td></tr>
+<tr><td>페이지 나누기</td><td>${K("Ctrl Enter")}</td></tr>
+<tr><td>서식 지우기</td><td>${K("Ctrl Space")}</td></tr>
+<tr><td>서식 없이 붙여넣기</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>단어 수</td><td>${K("Ctrl Shift G")}</td></tr></table>
+
+@@ write-format
+title: 문서: 글자, 단락, 목록 서식
+keywords: 굵게 색 형광펜 위 첨자 아래 첨자 줄 간격 들여쓰기 글머리 기호 번호 매기기 목록 탭
+---
+<h2>글자</h2><p>글꼴, 크기, <b>B</b> <i>I</i> <u>U</u> <s>S</s>, 위 첨자 x², 아래 첨자 x₂, 글자 색(견본에서 고르고 <b>A</b>로 적용), 형광펜, <i>서식 → 대/소문자 바꾸기</i>, <i>서식 지우기</i>.</p>
+<h2>단락</h2><p>맞춤, <i>단락 → 줄 간격</i>(1.0–3.0), 단락 앞/뒤 간격, 들여쓰기 늘리기/줄이기(<kbd>Ctrl</kbd>+<kbd>M</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>).</p>
+<h2>목록</h2><ul>
+<li><b>• 목록</b> / <b>1. 목록</b>으로 글머리 기호나 번호 매기기를 시작합니다. <i>단락 → 목록 스타일</i>에는 8가지가 있습니다(•, ○, ▪, 1., a., A., i., I.).</li>
+<li>항목 맨 앞에서 <kbd>Tab</kbd>을 누르면 하위 항목이 되고, <kbd>Shift</kbd>+<kbd>Tab</kbd>을 누르면 돌아옵니다.</li>
+<li>빈 항목에서 <kbd>Enter</kbd>를 누르면 목록이 끝나고, 맨 앞에서 <kbd>Backspace</kbd>를 누르면 기호가 없어집니다.</li></ul>
+
+@@ write-insert
+title: 문서: 그림, 표, 링크
+keywords: 삽입 그림 크기 조정 표 행 열 병합 음영 링크 하이퍼링크 날짜 가로줄
+---
+<h2>그림</h2><p><i>삽입 → 그림</i>, <kbd>Ctrl</kbd>+<kbd>V</kbd>로 붙여넣기, 또는 이미지 파일을 끌어다 놓습니다. 그림을 마우스 오른쪽 단추로 클릭 → <b>그림 크기 조정</b>으로 크기를 %로 정합니다.</p>
+<h2>표</h2><p><i>삽입 → 표</i>(행/열 수와, 원하면 음영 머리글 행을 고릅니다). 표 안에서는 <b>표</b> 메뉴나 마우스 오른쪽 클릭으로 행과 열 삽입/삭제, 선택한 셀 병합, 셀 분할, 음영 추가, 표 삭제를 할 수 있습니다.</p>
+<h2>링크</h2><p>텍스트를 선택하고 <kbd>Ctrl</kbd>+<kbd>K</kbd>를 누릅니다. 링크를 <kbd>Ctrl</kbd>+클릭하면 열립니다. 마우스 오른쪽 클릭 → 링크 제거.</p>
+<h2>기타</h2><p>페이지 나누기(<kbd>Ctrl</kbd>+<kbd>Enter</kbd>), 날짜와 시간, 가로줄.</p>
+
+@@ write-pagesetup
+title: 문서: 페이지 설정, 머리글, 바닥글, 쪽 번호
+keywords: 여백 용지 크기 a4 레터 가로 머리글 바닥글 쪽 번호
+---
+<p><b>파일 → 페이지 설정</b>:</p><ul>
+<li>용지: Letter, Legal, A4, A5 또는 사용자 지정 크기, <b>가로</b>.</li>
+<li>여백(위, 아래, 왼쪽, 오른쪽)을 인치로 지정.</li>
+<li><b>머리글</b> 텍스트(각 페이지 위쪽 가운데), <b>바닥글</b>(왼쪽 아래), <b>쪽 번호</b>(오른쪽 아래).</li></ul>
+<p>.docx에 저장되므로 Word에서도 표시됩니다.</p>
+
+@@ write-files
+title: 문서: 파일, Word 호환성, PDF, 인쇄
+keywords: docx 저장 열기 odt html markdown txt pdf 내보내기 인쇄 인쇄 미리 보기 호환성
+---
+<p><b>열기:</b> .docx, .html, .md, .txt. <b>저장:</b> .docx(기본), .odt, .html, .md, .txt. <b>PDF로 내보내기</b>는 선택할 수 있는 실제 텍스트를 유지합니다. <b>인쇄</b>와 <b>인쇄 미리 보기</b>는 페이지 보기와 같습니다.</p>
+<h2>Word와 주고받을 수 있는 것</h2><p>제목과 문서 제목, 글꼴(테마 글꼴 포함), 크기, 굵게/기울임꼴/밑줄/취소선, 색, 형광펜, 맞춤, 들여쓰기, 간격, 페이지 나누기, 글머리 기호와 번호 매기기(중첩 포함), 표(병합된 셀, 너비, 음영), 그림, 링크, 용지 크기와 여백, 머리글/바닥글 텍스트, 쪽 번호.</p>
+<p><b>아직 지원 안 됨:</b> 각주, 메모, 변경 내용 추적, 텍스트 상자, 떠 있는 그림(텍스트 배치 포함), 다단, 여러 구역. 확대/축소와 맞춤법 검사도 아직 없습니다.</p>
+
+@@ sheets-basics
+title: 스프레드시트: 기본
+keywords: 스프레드시트 셀 입력 enter tab 이동 수식 입력줄 이름 상자 시트 탭 시트 상태 합계
+---
+<h2>창</h2><ul>
+<li><b>이름 상자</b>(왼쪽 위): 현재 셀을 보여 줍니다. <code>B12</code>, <code>A1:C20</code>, <code>Sheet2!A1</code> 또는 이름 있는 범위를 입력하고 Enter를 누르면 그곳으로 이동합니다(<kbd>Ctrl</kbd>+<kbd>G</kbd>).</li>
+<li><b>fx / 수식 입력줄</b>: 셀에 실제로 들어 있는 내용(예: 수식)을 보여 주고 편집합니다.</li>
+<li><b>시트 탭</b>(아래): <b>+</b>로 시트 추가, 두 번 클릭으로 이름 바꾸기, 마우스 오른쪽 클릭으로 복제/삭제, 끌어서 순서 변경.</li>
+<li><b>상태 표시줄</b>: 숫자 몇 개를 선택하면 합계, 평균, 개수가 보입니다.</li></ul>
+<h2>값 입력</h2><table><tr><th>입력</th><th>결과</th></tr>
+<tr><td><code>1234.5</code> / <code>1,234</code></td><td>숫자(천 단위 구분 기호 포함)</td></tr>
+<tr><td><code>$5</code> / <code>25%</code></td><td>통화 / 백분율</td></tr>
+<tr><td><code>2026-10-11</code>, <code>10/11/2026</code>, <code>Oct 11, 2026</code></td><td>날짜</td></tr>
+<tr><td><code>9:30</code>, <code>9:30 PM</code></td><td>시간</td></tr>
+<tr><td><code>TRUE</code> / <code>FALSE</code></td><td>참/거짓 값</td></tr>
+<tr><td><code>'007</code></td><td>입력한 그대로의 텍스트(' 는 숨겨짐)</td></tr>
+<tr><td><code>=A1*2</code></td><td>수식</td></tr></table>
+<h2>이동</h2><table>
+<tr><td>${K("Enter")} / ${K("Shift Enter")}</td><td>아래 / 위</td></tr><tr><td>${K("Tab")} / ${K("Shift Tab")}</td><td>오른쪽 / 왼쪽</td></tr>
+<tr><td>${K("Ctrl Arrow")}</td><td>데이터 끝으로 이동</td></tr><tr><td>${K("Ctrl Shift Arrow")}</td><td>끝까지 선택</td></tr>
+<tr><td>${K("F2")} 또는 두 번 클릭</td><td>셀 편집</td></tr><tr><td>${K("Delete")}</td><td>내용 지우기</td></tr></table>
+
+@@ sheets-formulas
+title: 스프레드시트: 수식과 참조
+keywords: 수식 참조 절대 상대 $ 달러 다른 시트 이름 있는 범위 오류 div/0 ref name n/a 순환 자동 합계
+---
+<p>수식은 <code>=</code>로 시작합니다: <code>=B2*C2</code>, <code>=SUM(D2:D20)</code>, <code>=IF(A1&gt;10,"big","small")</code>.</p>
+<h2>연산자</h2><p><code>+ - * /</code>, <code>^</code>(거듭제곱), <code>%</code>(백분율), <code>&amp;</code>(텍스트 연결), <code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code>.</p>
+<h2>참조</h2><table>
+<tr><td><code>A1</code></td><td>셀 하나 — 복사하면 자동으로 조정됨</td></tr>
+<tr><td><code>$A$1</code> / <code>A$1</code> / <code>$A1</code></td><td>열과/또는 행을 절대(고정) 참조 — 복사해도 바뀌지 않음</td></tr>
+<tr><td><code>A1:C10</code></td><td>셀 범위</td></tr><tr><td><code>B:B</code></td><td>열 전체</td></tr>
+<tr><td><code>'My Sheet'!A1</code></td><td>다른 시트의 셀</td></tr>
+<tr><td><code>Prices</code></td><td>이름 있는 범위(<i>데이터 → 이름 정의</i>)</td></tr>
+<tr><td><code>{1,2;3,4}</code></td><td>배열 상수</td></tr></table>
+<p>복사/붙여넣기, 아래로 채우기(<kbd>Ctrl</kbd>+<kbd>D</kbd>), 오른쪽으로 채우기(<kbd>Ctrl</kbd>+<kbd>R</kbd>)는 Excel처럼 참조를 조정합니다. 행/열을 삽입하거나 삭제하면 모든 수식이 업데이트되고, 삭제된 셀에 대한 참조는 <code>#REF!</code>가 됩니다.</p>
+<h2>바로 가기</h2><ul><li><b>자동 합계</b>(<kbd>Alt</kbd>+<kbd>=</kbd>)는 위나 왼쪽의 숫자에 대해 <code>=SUM(…)</code>을 입력합니다.</li>
+<li><b>함수…</b>(<kbd>Shift</kbd>+<kbd>F3</kbd>)로 함수 이름을 삽입합니다. <i>도움말 → 함수 목록</i>에서 모두 볼 수 있습니다.</li></ul>
+<h2>오류</h2><table>
+<tr><td><code>#DIV/0!</code></td><td>0으로 나눔</td></tr><tr><td><code>#VALUE!</code></td><td>값의 종류가 맞지 않음(예: 계산에 텍스트)</td></tr>
+<tr><td><code>#REF!</code></td><td>가리키던 셀이 삭제됨</td></tr><tr><td><code>#NAME?</code></td><td>알 수 없는 함수나 이름</td></tr>
+<tr><td><code>#N/A</code></td><td>찾기에서 아무것도 못 찾음</td></tr><tr><td><code>#NUM!</code></td><td>불가능한 숫자</td></tr>
+<tr><td><code>#CIRC!</code></td><td>순환 참조 — 수식이 자기 자신에 의존함</td></tr></table>
+<div class="tip">Excel 통합 문서가 Ethical Spreadsheet Editor가 아직 모르는 함수를 쓰면, 오류 대신 Excel이 마지막으로 계산한 값을 보여 줍니다.</div>
+<p>함수는 영어 이름(SUM, IF, VLOOKUP…)으로 입력합니다. Excel 파일 내부와 같은 방식입니다.</p>
+
+@@ sheets-functions
+title: 스프레드시트: 함수 목록(143개 함수)
+keywords: 함수 목록 sum average count if vlookup xlookup index match sumif countif 텍스트 날짜 round pmt
+---
+<table><tr><th>분류</th><th>함수</th></tr>
+<tr><td>합계와 통계</td><td>SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, COUNTBLANK, PRODUCT, MEDIAN, MODE, STDEV(.S/.P), VAR(.S/.P), LARGE, SMALL, RANK, SUMPRODUCT</td></tr>
+<tr><td>조건부</td><td>SUMIF, SUMIFS, COUNTIF, COUNTIFS, AVERAGEIF, AVERAGEIFS, MAXIFS, MINIFS</td></tr>
+<tr><td>논리</td><td>IF, IFS, IFERROR, IFNA, SWITCH, CHOOSE, AND, OR, NOT, XOR, TRUE, FALSE</td></tr>
+<tr><td>찾기</td><td>VLOOKUP, HLOOKUP, XLOOKUP, INDEX, MATCH, ROW, COLUMN, ROWS, COLUMNS</td></tr>
+<tr><td>수학</td><td>ROUND, ROUNDUP, ROUNDDOWN, TRUNC, INT, ABS, SQRT, POWER, MOD, EXP, LN, LOG, LOG10, SIGN, PI, RAND, RANDBETWEEN, CEILING, FLOOR, EVEN, ODD, FACT, DEGREES, RADIANS, SIN, COS, TAN, ASIN, ACOS, ATAN, ATAN2</td></tr>
+<tr><td>텍스트</td><td>CONCATENATE, CONCAT, TEXTJOIN, LEFT, RIGHT, MID, LEN, UPPER, LOWER, PROPER, TRIM, CLEAN, FIND, SEARCH, SUBSTITUTE, REPLACE, REPT, EXACT, CHAR, CODE, VALUE, TEXT, FIXED, DOLLAR, T, N</td></tr>
+<tr><td>날짜와 시간</td><td>TODAY, NOW, DATE, TIME, YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, WEEKDAY, DAYS, DATEDIF, EDATE, EOMONTH, DATEVALUE</td></tr>
+<tr><td>정보</td><td>ISBLANK, ISNUMBER, ISTEXT, ISNONTEXT, ISLOGICAL, ISERROR, ISERR, ISNA, ISEVEN, ISODD, NA</td></tr>
+<tr><td>재무</td><td>PMT, FV, PV, NPV</td></tr></table>
+<h2>예</h2><table>
+<tr><td><code>=VLOOKUP("Apples",A2:C50,3,FALSE)</code></td><td>A열에서 “Apples”를 찾아 C열 값을 반환</td></tr>
+<tr><td><code>=XLOOKUP(F2,A:A,C:C,"not found")</code></td><td>못 찾을 때의 값을 정할 수 있는 최신 찾기</td></tr>
+<tr><td><code>=INDEX(B2:B50,MATCH(F2,A2:A50,0))</code></td><td>어느 방향으로든 찾기</td></tr>
+<tr><td><code>=SUMIF(B:B,"&gt;100",C:C)</code></td><td>B가 100보다 큰 행의 C 합계</td></tr>
+<tr><td><code>=COUNTIF(A:A,"app*")</code></td><td>“app”로 시작하는 셀 개수</td></tr>
+<tr><td><code>=TEXT(TODAY(),"dddd, mmmm d")</code></td><td>오늘 날짜를 텍스트로(예: “Sunday, October 11”)</td></tr>
+<tr><td><code>=PMT(5%/12,360,-200000)</code></td><td>30년 주택 담보 대출의 월 상환액</td></tr>
+<tr><td><code>=IFERROR(A1/B1,0)</code></td><td>오류 대신 0</td></tr></table>
+
+@@ sheets-format
+title: 스프레드시트: 서식과 표시 형식
+keywords: 서식 숫자 통화 백분율 날짜 소수 사용자 지정 굵게 채우기 색 테두리 병합 줄 바꿈 맞춤 열 너비 행 높이 숨기기
+---
+<h2>셀 스타일</h2><p>글꼴, 크기, <b>B I U S</b>, 글꼴 색, <b>채우기</b> 색(과 <b>채우기 없음</b>), 맞춤(왼쪽/가운데/오른쪽, 위/가운데/아래), 텍스트 <b>줄 바꿈</b>, <b>병합하고 가운데 맞춤</b>, <b>테두리</b>(모두, 바깥쪽, 굵게, 아래쪽, 위쪽과 아래쪽, 없음).</p>
+<h2>표시 형식</h2><p>도구 모음: <b>$</b> 통화, <b>%</b>, <b>,</b> 천 단위, <b>.0+ / .0-</b> 소수 자릿수, 또는 형식 목록(일반, 숫자, 통화, 회계, 백분율, 날짜, 시간, 지수, 텍스트). <i>서식 → 표시 형식 → 사용자 지정…</i>에서는 Excel 서식 코드를 쓸 수 있습니다:</p>
+<table><tr><th>코드</th><th>12345.678 표시</th></tr>
+<tr><td><code>#,##0.00</code></td><td>12,345.68</td></tr><tr><td><code>$#,##0</code></td><td>$12,346</td></tr>
+<tr><td><code>0.0%</code></td><td>1234567.8%(100을 곱함)</td></tr><tr><td><code>0.00E+00</code></td><td>1.23E+04</td></tr>
+<tr><td><code>000000</code></td><td>012346</td></tr><tr><td><code>#,##0;(#,##0)</code></td><td>음수를 괄호로 표시</td></tr>
+<tr><td><code>0.0 "kg"</code></td><td>12345.7 kg</td></tr>
+<tr><td><code>yyyy-mm-dd</code>, <code>mmm d, yyyy</code>, <code>dddd</code></td><td>날짜 스타일</td></tr>
+<tr><td><code>h:mm AM/PM</code></td><td>시간</td></tr></table>
+<p>셀에 <code>########</code>이 보이면 숫자가 들어가지 않는다는 뜻입니다 — 열을 넓히세요.</p>
+<h2>열과 행</h2><p>머리글 경계를 끌거나 <i>서식 → 열 너비 / 행 높이 / 열 너비 자동 맞춤 / 숨기기 / 모두 숨기기 취소</i>를 사용하세요.</p>
+
+@@ sheets-data
+title: 스프레드시트: 데이터 정렬, 채우기, 복사, 편집
+keywords: 정렬 오름차순 내림차순 중복 제거 계열 채우기 복사 붙여넣기 값 잘라내기 삽입 삭제 행 열 찾기 바꾸기 메모
+---
+<h2>정렬</h2><p><b>오름차순 A→Z / 내림차순 Z→A</b>는 현재 열을 기준으로 데이터를 정렬합니다(머리글은 자동 인식). <i>데이터 → 정렬…</i>은 최대 3개 열로 정렬합니다. 빈 셀은 항상 맨 아래로 갑니다.</p>
+<h2>채우기</h2><ul><li><kbd>Ctrl</kbd>+<kbd>D</kbd> 아래로 채우기 / <kbd>Ctrl</kbd>+<kbd>R</kbd> 오른쪽으로 채우기 — 첫 셀을 복사합니다(수식은 조정됨).</li>
+<li><i>편집 → 계열 채우기</i>: 첫 셀들에 1과 2(또는 5와 10, 날짜)를 입력하고 범위를 선택하면 패턴이 이어집니다.</li></ul>
+<h2>복사와 붙여넣기</h2><p>수식은 붙여넣을 때 조정됩니다. <b>값만 붙여넣기</b>(<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>)는 수식 대신 결과를 붙여넣습니다. 셀 하나를 선택한 블록에 복사하면 블록 전체가 채워집니다. 다른 프로그램에서 복사한(탭으로 구분된) 텍스트는 셀로 나뉩니다.</p>
+<h2>그 밖에</h2><ul><li>행과 열 삽입 / 삭제(메뉴 또는 마우스 오른쪽 클릭).</li>
+<li><i>데이터 → 중복 제거</i>.</li><li>찾기 및 바꾸기(<kbd>Ctrl</kbd>+<kbd>F</kbd>), 모든 시트에서도 가능.</li>
+<li>메모(<kbd>Shift</kbd>+<kbd>F2</kbd>) — 빨간 모서리로 표시되며, 마우스를 올리면 읽을 수 있습니다.</li></ul>
+
+@@ sheets-charts
+title: 스프레드시트: 차트와 그림
+keywords: 차트 세로 막대 가로 막대 꺾은선 원형 그림 삽입 이동
+---
+<ol><li>머리글 행과 레이블 열을 <b>포함해</b> 데이터를 선택합니다 — 예: A열에 월, B열과 C열에 매출.</li>
+<li><b>삽입 → 차트…</b>(또는 <b>차트</b> 단추): 세로 막대, 가로 막대, 꺾은선, 원형 중 하나와 제목을 고릅니다.</li></ol>
+<p>차트는 숫자가 바뀌면 업데이트됩니다. 끌어서 옮기고, 마우스 오른쪽 클릭 → 차트 편집 / 차트 삭제.</p>
+<p><b>삽입 → 그림…</b>으로 그림을 추가합니다. 끌어서 옮기고, 마우스 오른쪽 클릭 → 크기 조정 / 삭제.</p>
+<p>차트와 그림은 .xlsx에 저장되며 Excel에서 열립니다.</p>
+
+@@ sheets-files
+title: 스프레드시트: 파일, Excel 호환성, PDF, 인쇄
+keywords: xlsx xlsm csv tsv 저장 열기 excel 호환성 경고 인쇄 pdf
+---
+<p><b>열기:</b> .xlsx, .xlsm(매크로 없는 .xlsx로 저장), .csv/.tsv. <b>저장:</b> .xlsx 또는 .csv(현재 시트만).</p>
+<p><b>유지됨:</b> 값, 수식, 글꼴, 색, 채우기, 테두리, 표시 형식, 맞춤, 텍스트 줄 바꿈, 병합된 셀, 열 너비, 행 높이, 숨긴 행/열, 메모, 이름 있는 범위, 여러 시트, 차트(세로 막대/가로 막대/꺾은선/원형), 그림.</p>
+<p><b>아직 유지 안 됨</b>(열 때와 덮어쓰기 전에 경고): 조건부 서식, 데이터 유효성 검사/드롭다운, 피벗 테이블, 매크로, 흔하지 않은 차트 종류. 틀 고정은 파일에 남지만 화면에는 표시되지 않습니다.</p>
+<p><b>PDF로 내보내기 / 인쇄</b>는 모든 열을 페이지 너비에 맞춥니다.</p>
+<div class="tip">아주 큰 통합 문서(수식 10만 개 이상)는 느려집니다 — 변경할 때마다 모든 수식을 다시 계산하기 때문입니다.</div>
+
+@@ slides-basics
+title: 프레젠테이션: 기본
+keywords: 프레젠테이션 슬라이드 패널 레이아웃 새 슬라이드 개체 틀 노트 복제 숨기기 순서
+---
+<ul><li><b>왼쪽:</b> 슬라이드 미리 보기 — 클릭해 열기, 끌어서 순서 바꾸기, 마우스 오른쪽 클릭으로 복제, 삭제, 숨기기, 이동.</li>
+<li><b>가운데:</b> 슬라이드. <kbd>Ctrl</kbd>+마우스 휠로 확대/축소.</li><li><b>아래:</b> 현재 슬라이드의 발표자 노트.</li></ul>
+<h2>슬라이드 추가</h2><p><b>새 슬라이드</b>(<kbd>Ctrl</kbd>+<kbd>M</kbd>)는 현재 슬라이드 뒤에 슬라이드를 추가합니다. 옆의 화살표로 레이아웃을 고릅니다:
+제목 슬라이드, 제목 및 내용, 구역 머리글, 콘텐츠 2개, 제목만, 빈 화면. PowerPoint에서 연 프레젠테이션은 자체 레이아웃을 제공합니다.</p>
+<p>“제목/텍스트를 입력하려면 클릭하십시오”라고 적힌 회색 점선 상자는 개체 틀입니다 — 클릭해서 입력하세요. 비어 있으면 슬라이드 쇼나 PDF에 나오지 않습니다.</p>
+<p><b>숨긴</b> 슬라이드(슬라이드 → 숨기기 / 표시)는 슬라이드 쇼와 내보내기에서 건너뜁니다.</p>
+
+@@ slides-objects
+title: 프레젠테이션: 텍스트, 도형, 그림, 표
+keywords: 텍스트 상자 도형 그림 표 이동 크기 조정 회전 대칭 정렬 앞으로 뒤로 맞춤 글머리 기호 채우기 윤곽선
+---
+<h2>삽입</h2><p><b>텍스트 상자</b>, <b>그림</b>(또는 그림 붙여넣기 / 끌어다 놓기), <b>도형</b>(도형 19가지, 선, 화살표), <b>표</b>.</p>
+<h2>개체 다루기</h2><table>
+<tr><td>선택</td><td>클릭(빈 곳에서 상자를 끌면 여러 개 선택)</td></tr>
+<tr><td>이동</td><td>끌기 또는 화살표 키(${K("Shift Arrow")} = 10 px)</td></tr>
+<tr><td>크기 조정</td><td>흰 핸들을 끕니다(그림은 비율을 유지하며, 바꾸려면 ${K("Shift")}를 누른 채로)</td></tr>
+<tr><td>텍스트 편집</td><td>두 번 클릭, ${K("F2")}/${K("Enter")}, 또는 바로 입력. 끝내려면 ${K("Esc")}</td></tr>
+<tr><td>삭제 / 복제</td><td>${K("Delete")} / ${K("Ctrl D")}</td></tr>
+<tr><td>앞으로 / 뒤로</td><td>정렬 메뉴 또는 앞/뒤 단추</td></tr>
+<tr><td>슬라이드에 맞춤, 회전, 대칭</td><td>정렬 메뉴</td></tr></table>
+<h2>서식</h2><p>텍스트: 글꼴, 크기, A+/A−, B/I/U, 색, 맞춤, 세로 맞춤(서식 메뉴), 글머리 기호와 번호 매기기. 도형: <b>채우기</b>와 <b>윤곽선</b> 색, 윤곽선 두께, 채우기 없음 / 윤곽선 없음.</p>
+
+@@ slides-design
+title: 프레젠테이션: 테마, 배경, 슬라이드 크기
+keywords: 테마 디자인 배경 색 그림 슬라이드 크기 와이드스크린 4:3
+---
+<p><b>디자인 → 테마</b>는 8가지 테마(Office, 미드나이트, 슬레이트, 숲, 노을, 바다, 차콜, 블러시) 중 하나를 모든 슬라이드에 적용합니다: 배경, 제목과 본문의 색과 글꼴.</p>
+<p><b>디자인 → 슬라이드 배경색</b>(이 슬라이드), <b>모든 슬라이드의 배경색</b>, <b>배경 그림</b>.</p>
+<p><b>파일 → 슬라이드 크기</b>: 와이드스크린 16:9, 표준 4:3, A4, 정사각형 — 내용이 맞도록 크기가 조정됩니다.</p>
+<p><b>파일 → 새로 만들기</b>에서 새 프레젠테이션의 테마를 고를 수 있습니다.</p>
+
+@@ slides-present
+title: 프레젠테이션: 슬라이드 쇼
+keywords: 발표 슬라이드 쇼 f5 전체 화면 키 검은 화면 다음 이전
+---
+<p><b>F5</b>는 첫 슬라이드부터, <b>Shift+F5</b>는 현재 슬라이드부터 시작합니다(또는 <b>▶ 발표</b> 단추).</p>
+<table><tr><th>목적</th><th>키</th></tr>
+<tr><td>다음 슬라이드</td><td>${K("Space")} ${K("→")} ${K("↓")} ${K("Page_Down")} ${K("Enter")}, 왼쪽 클릭, 마우스 휠</td></tr>
+<tr><td>이전 슬라이드</td><td>${K("←")} ${K("↑")} ${K("Page_Up")} ${K("Backspace")}, 오른쪽 클릭</td></tr>
+<tr><td>처음 / 마지막</td><td>${K("Home")} / ${K("End")}</td></tr>
+<tr><td>검은 화면 / 흰 화면</td><td>${K("B")} / ${K("W")}</td></tr>
+<tr><td>끝내기</td><td>${K("Esc")}</td></tr></table>
+
+@@ slides-files
+title: 프레젠테이션: 파일, PowerPoint 호환성, 내보내기
+keywords: pptx powerpoint 저장 열기 내보내기 pdf png 그림 인쇄 마스터 레이아웃
+---
+<p><b>.pptx를 열고 저장합니다.</b> 가져온 프레젠테이션은 PowerPoint에서와 똑같이 보입니다: 앱이 프레젠테이션의 슬라이드 마스터와 레이아웃(테마 색, 글꼴, 배경, 로고, 글머리 기호 스타일)을 읽습니다. 저장할 때 원래의 마스터, 레이아웃, 테마를 유지하므로 PowerPoint에서도 제대로 보입니다.</p>
+<p><b>내보내기:</b> PDF(선명하고 텍스트 선택 가능), PNG 그림(너비 1920 px), 인쇄.</p>
+<p><b>아직 유지 안 됨:</b> 차트, SmartArt, 동영상/오디오, 애니메이션과 전환(경고 표시). 그라데이션 채우기는 단색으로 표시됩니다. 발표자 보기와 맞춤법 검사는 아직 없습니다.</p>

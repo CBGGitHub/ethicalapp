@@ -18,16 +18,17 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import photo_core as pc  # noqa: E402
 from suite_common import SETTINGS_ORG, SUITE_NAME, ColorButton, make_app  # noqa: E402
 from suite_common import add_guide_action  # noqa: E402
+from i18n import N_, add_items, tr  # noqa: E402
 
 APP_NAME = "Ethical Photo Editor"
 MAX_UNDO = 30
 TOOLS = [  # key, icon text, name, shortcut
-    ("move", "✥", "Move", "V"), ("rect", "⬚", "Rectangle Select", "M"), ("ellipse", "◯", "Ellipse Select", None),
-    ("lasso", "➰", "Lasso", "L"), ("wand", "✨", "Magic Wand", "W"), ("crop", "⌗", "Crop", "C"),
-    ("brush", "🖌", "Brush", "B"), ("eraser", "⌫", "Eraser", "E"), ("fill", "◧", "Paint Bucket", "G"),
-    ("gradient", "▤", "Gradient", None), ("clone", "⎘", "Clone Stamp", "S"), ("eyedropper", "💧", "Eyedropper", "I"),
-    ("text", "T", "Text", "T"), ("shape", "▭", "Shape", "U"), ("hand", "✋", "Hand (pan)", "H"),
-    ("zoom", "🔍", "Zoom (Alt = out)", "Z"),
+    ("move", "✥", tr("Move"), "V"), ("rect", "⬚", tr("Rectangle Select"), "M"), ("ellipse", "◯", tr("Ellipse Select"), None),
+    ("lasso", "➰", tr("Lasso"), "L"), ("wand", "✨", tr("Magic Wand"), "W"), ("crop", "⌗", tr("Crop"), "C"),
+    ("brush", "🖌", tr("Brush"), "B"), ("eraser", "⌫", tr("Eraser"), "E"), ("fill", "◧", tr("Paint Bucket"), "G"),
+    ("gradient", "▤", tr("Gradient"), None), ("clone", "⎘", tr("Clone Stamp"), "S"), ("eyedropper", "💧", tr("Eyedropper"), "I"),
+    ("text", "T", tr("Text"), "T"), ("shape", "▭", tr("Shape"), "U"), ("hand", "✋", tr("Hand (pan)"), "H"),
+    ("zoom", "🔍", tr("Zoom (Alt = out)"), "Z"),
 ]
 SELECT_TOOLS = ("rect", "ellipse", "lasso", "wand")
 
@@ -222,6 +223,7 @@ class ParamDialog(QDialog):
         self.timer = QTimer(self, singleShot=True, interval=120)
         self.timer.timeout.connect(lambda: self.on_change(dict(self.values)))
         for key, label, lo, hi, default in params:
+            label = tr(label)
             is_float = isinstance(default, float) or (hi - lo) <= 10
             row = QHBoxLayout()
             slider = QSlider(Qt.Horizontal)
@@ -255,7 +257,7 @@ class ParamDialog(QDialog):
             row.addWidget(slider)
             row.addWidget(spin)
             form.addRow(label + ":", row)
-        self.preview = QCheckBox("Preview")
+        self.preview = QCheckBox(tr("Preview"))
         self.preview.setChecked(True)
         self.preview.toggled.connect(lambda _: self.on_change(dict(self.values)))
         form.addRow("", self.preview)
@@ -266,30 +268,30 @@ class ParamDialog(QDialog):
 
 
 class NewImageDialog(QDialog):
-    PRESETS = {"Custom": None, "HD 1920×1080": (1920, 1080), "4K 3840×2160": (3840, 2160),
-               "Instagram post 1080×1080": (1080, 1080), "Instagram story 1080×1920": (1080, 1920),
-               "YouTube thumbnail 1280×720": (1280, 720), "A4 @ 300 dpi": (2480, 3508),
-               "Letter @ 300 dpi": (2550, 3300), "Icon 512×512": (512, 512)}
+    PRESETS = {tr("Custom"): None, tr("HD 1920×1080"): (1920, 1080), tr("4K 3840×2160"): (3840, 2160),
+               tr("Instagram post 1080×1080"): (1080, 1080), tr("Instagram story 1080×1920"): (1080, 1920),
+               tr("YouTube thumbnail 1280×720"): (1280, 720), tr("A4 @ 300 dpi"): (2480, 3508),
+               tr("Letter @ 300 dpi"): (2550, 3300), tr("Icon 512×512"): (512, 512)}
 
     def __init__(self, parent, w=1920, h=1080):
         super().__init__(parent)
-        self.setWindowTitle("New Image")
+        self.setWindowTitle(tr("New Image"))
         self.preset = QComboBox()
         self.preset.addItems(self.PRESETS)
-        self.preset.setCurrentText("HD 1920×1080")
+        self.preset.setCurrentIndex(1)                       # HD 1920×1080
         self.w, self.h = QSpinBox(), QSpinBox()
         for s, v in ((self.w, w), (self.h, h)):
             s.setRange(1, 30000)
             s.setValue(v)
-            s.setSuffix(" px")
+            s.setSuffix(tr(" px"))
         self.bg = QComboBox()
-        self.bg.addItems(["White", "Transparent", "Black", "Foreground colour"])
+        add_items(self.bg, [N_("White"), N_("Transparent"), N_("Black"), N_("Foreground colour")])
         self.preset.currentTextChanged.connect(self._preset)
         form = QFormLayout(self)
-        form.addRow("Preset:", self.preset)
-        form.addRow("Width:", self.w)
-        form.addRow("Height:", self.h)
-        form.addRow("Background:", self.bg)
+        form.addRow(tr("Preset:"), self.preset)
+        form.addRow(tr("Width:"), self.w)
+        form.addRow(tr("Height:"), self.h)
+        form.addRow(tr("Background:"), self.bg)
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(self.accept)
         bb.rejected.connect(self.reject)
@@ -304,7 +306,7 @@ class NewImageDialog(QDialog):
 class TextDialog(QDialog):
     def __init__(self, parent, settings):
         super().__init__(parent)
-        self.setWindowTitle("Text")
+        self.setWindowTitle(tr("Text"))
         self.edit = QPlainTextEdit(settings.get("text", ""))
         self.edit.setMinimumSize(380, 110)
         self.font = QFontComboBox()
@@ -312,36 +314,35 @@ class TextDialog(QDialog):
         self.size = QSpinBox()
         self.size.setRange(4, 2000)
         self.size.setValue(settings.get("size", 48))
-        self.bold, self.italic = QCheckBox("Bold"), QCheckBox("Italic")
+        self.bold, self.italic = QCheckBox(tr("Bold")), QCheckBox(tr("Italic"))
         self.bold.setChecked(settings.get("bold", False))
         self.italic.setChecked(settings.get("italic", False))
-        self.color = ColorButton(QColor(settings.get("color", "#000000")), "Text colour")
+        self.color = ColorButton(QColor(settings.get("color", "#000000")), tr("Text colour"))
         self.align = QComboBox()
-        self.align.addItems(["Left", "Centre", "Right"])
-        self.align.setCurrentText(settings.get("align", "Left"))
+        add_items(self.align, [N_("Left"), N_("Centre"), N_("Right")], settings.get("align", "Left"))
         self.outline = QSpinBox()
         self.outline.setRange(0, 100)
         self.outline.setValue(settings.get("outline", 0))
-        self.outline_color = ColorButton(QColor(settings.get("outline_color", "#FFFFFF")), "Outline colour")
-        self.shadow = QCheckBox("Drop shadow")
+        self.outline_color = ColorButton(QColor(settings.get("outline_color", "#FFFFFF")), tr("Outline colour"))
+        self.shadow = QCheckBox(tr("Drop shadow"))
         self.shadow.setChecked(settings.get("shadow", False))
         form = QFormLayout(self)
         form.addRow(self.edit)
-        form.addRow("Font:", self.font)
-        form.addRow("Size (px):", self.size)
+        form.addRow(tr("Font:"), self.font)
+        form.addRow(tr("Size (px):"), self.size)
         row = QHBoxLayout()
         row.addWidget(self.bold)
         row.addWidget(self.italic)
-        row.addWidget(QLabel("Colour"))
+        row.addWidget(QLabel(tr("Colour")))
         row.addWidget(self.color)
         row.addStretch()
-        form.addRow("Style:", row)
-        form.addRow("Align:", self.align)
+        form.addRow(tr("Style:"), row)
+        form.addRow(tr("Align:"), self.align)
         row2 = QHBoxLayout()
         row2.addWidget(self.outline)
         row2.addWidget(self.outline_color)
         row2.addStretch()
-        form.addRow("Outline (px):", row2)
+        form.addRow(tr("Outline (px):"), row2)
         form.addRow("", self.shadow)
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(self.accept)
@@ -351,7 +352,7 @@ class TextDialog(QDialog):
     def settings(self):
         return dict(text=self.edit.toPlainText(), font=self.font.currentFont().family(), size=self.size.value(),
                     bold=self.bold.isChecked(), italic=self.italic.isChecked(), color=self.color.color().name(),
-                    align=self.align.currentText(), outline=self.outline.value(),
+                    align=self.align.currentData(), outline=self.outline.value(),
                     outline_color=self.outline_color.color().name(), shadow=self.shadow.isChecked())
 
 
@@ -415,13 +416,13 @@ class PhotoWindow(QMainWindow):
         self.setAcceptDrops(True)
         self.canvas = Canvas(self)
         self.setCentralWidget(self.canvas)
-        self.fg = ColorButton(QColor("#000000"), "Foreground colour")
-        self.bg = ColorButton(QColor("#FFFFFF"), "Background colour")
+        self.fg = ColorButton(QColor("#000000"), tr("Foreground colour"))
+        self.bg = ColorButton(QColor("#FFFFFF"), tr("Background colour"))
         self._build_toolbox()
         self._build_layers_dock()
         self._build_history_dock()
         self._build_menus()
-        self.opts_bar = QToolBar("Tool Options")
+        self.opts_bar = QToolBar(tr("Tool Options"))
         self.opts_bar.setObjectName("options")
         self.addToolBar(Qt.TopToolBarArea, self.opts_bar)
         self.pos_label, self.zoom_label, self.size_label = QLabel(), QLabel(), QLabel()
@@ -447,7 +448,7 @@ class PhotoWindow(QMainWindow):
         return a
 
     def _build_toolbox(self):
-        tb = QToolBar("Tools")
+        tb = QToolBar(tr("Tools"))
         tb.setObjectName("tools")
         tb.setOrientation(Qt.Vertical)
         tb.setMovable(False)
@@ -471,28 +472,28 @@ class PhotoWindow(QMainWindow):
         g.addWidget(self.bg, 1, 1)
         swap = QToolButton()
         swap.setText("⇄")
-        swap.setToolTip("Swap colours (X)")
+        swap.setToolTip(tr("Swap colours (X)"))
         swap.clicked.connect(self.swap_colors)
         g.addWidget(swap, 0, 1)
         reset = QToolButton()
         reset.setText("◩")
-        reset.setToolTip("Default black/white (D)")
+        reset.setToolTip(tr("Default black/white (D)"))
         reset.clicked.connect(self.reset_colors)
         g.addWidget(reset, 1, 0)
         tb.addWidget(box)
 
     def _build_layers_dock(self):
-        dock = QDockWidget("Layers", self)
+        dock = QDockWidget(tr("Layers"), self)
         dock.setObjectName("layers")
         w = QWidget()
         v = QVBoxLayout(w)
         v.setContentsMargins(4, 4, 4, 4)
         row = QHBoxLayout()
         self.blend_box = QComboBox()
-        self.blend_box.addItems(pc.BLEND_MODES)
-        self.blend_box.activated.connect(lambda _: self.set_layer_prop("blend", self.blend_box.currentText()))
+        add_items(self.blend_box, pc.BLEND_MODES)
+        self.blend_box.activated.connect(lambda _: self.set_layer_prop("blend", self.blend_box.currentData()))
         row.addWidget(self.blend_box, 1)
-        row.addWidget(QLabel("Opacity"))
+        row.addWidget(QLabel(tr("Opacity")))
         self.opacity_spin = QSpinBox()
         self.opacity_spin.setRange(0, 100)
         self.opacity_spin.setSuffix("%")
@@ -510,9 +511,10 @@ class PhotoWindow(QMainWindow):
             lambda pos: self.layer_menu.exec(self.layer_list.mapToGlobal(pos)))
         v.addWidget(self.layer_list, 1)
         btns = QHBoxLayout()
-        for text, tip, slot in (("＋", "New layer", self.new_layer), ("⧉", "Duplicate layer", self.duplicate_layer),
-                                ("▲", "Move up", lambda: self.move_layer(1)), ("▼", "Move down", lambda: self.move_layer(-1)),
-                                ("⤓", "Merge down", self.merge_down), ("🗑", "Delete layer", self.delete_layer)):
+        for text, tip, slot in (("＋", tr("New layer"), self.new_layer), ("⧉", tr("Duplicate layer"), self.duplicate_layer),
+                                ("▲", tr("Move up"), lambda: self.move_layer(1)),
+                                ("▼", tr("Move down"), lambda: self.move_layer(-1)),
+                                ("⤓", tr("Merge down"), self.merge_down), ("🗑", tr("Delete layer"), self.delete_layer)):
             b = QToolButton()
             b.setText(text)
             b.setToolTip(tip)
@@ -524,7 +526,7 @@ class PhotoWindow(QMainWindow):
         self.layers_dock = dock
 
     def _build_history_dock(self):
-        dock = QDockWidget("History", self)
+        dock = QDockWidget(tr("History"), self)
         dock.setObjectName("history")
         self.hist_list = QListWidget()
         self.hist_list.itemClicked.connect(lambda it: self.jump_history(self.hist_list.row(it)))
@@ -534,103 +536,103 @@ class PhotoWindow(QMainWindow):
 
     def _build_menus(self):
         mb = self.menuBar()
-        f = mb.addMenu("&File")
-        self.act("&New...", self.new_file, "Ctrl+N", f)
-        self.act("&Open...", self.open_dialog, "Ctrl+O", f)
-        self.recent_menu = f.addMenu("Open &Recent")
+        f = mb.addMenu(tr("&File"))
+        self.act(tr("&New..."), self.new_file, "Ctrl+N", f)
+        self.act(tr("&Open..."), self.open_dialog, "Ctrl+O", f)
+        self.recent_menu = f.addMenu(tr("Open &Recent"))
         self._refresh_recent()
-        self.act("&Place Image as Layer...", self.place_image, None, f)
+        self.act(tr("&Place Image as Layer..."), self.place_image, None, f)
         f.addSeparator()
-        self.act("&Save", self.save, "Ctrl+S", f)
-        self.act("Save &As...", self.save_as, "Ctrl+Shift+S", f)
-        self.act("&Export As (PNG, JPG, WebP...)...", self.export_as, "Ctrl+Alt+Shift+W", f)
+        self.act(tr("&Save"), self.save, "Ctrl+S", f)
+        self.act(tr("Save &As..."), self.save_as, "Ctrl+Shift+S", f)
+        self.act(tr("&Export As (PNG, JPG, WebP...)..."), self.export_as, "Ctrl+Alt+Shift+W", f)
         f.addSeparator()
-        self.act("E&xit", self.close, None, f)
+        self.act(tr("E&xit"), self.close, None, f)
 
-        e = mb.addMenu("&Edit")
-        self.act("&Undo", self.undo, "Ctrl+Z", e)
-        self.act("&Redo", self.redo, "Ctrl+Shift+Z", e)
-        self.addAction(self.act("Redo", self.redo, "Ctrl+Y"))
+        e = mb.addMenu(tr("&Edit"))
+        self.act(tr("&Undo"), self.undo, "Ctrl+Z", e)
+        self.act(tr("&Redo"), self.redo, "Ctrl+Shift+Z", e)
+        self.addAction(self.act(tr("Redo"), self.redo, "Ctrl+Y"))
         e.addSeparator()
-        self.act("Cu&t", self.cut, "Ctrl+X", e)
-        self.act("&Copy", self.copy, "Ctrl+C", e)
-        self.act("Copy &Merged", lambda: self.copy(merged=True), "Ctrl+Shift+C", e)
-        self.act("&Paste as New Layer", self.paste, "Ctrl+V", e)
-        self.act("C&lear Selection Pixels", self.clear_pixels, "Delete", e)
+        self.act(tr("Cu&t"), self.cut, "Ctrl+X", e)
+        self.act(tr("&Copy"), self.copy, "Ctrl+C", e)
+        self.act(tr("Copy &Merged"), lambda: self.copy(merged=True), "Ctrl+Shift+C", e)
+        self.act(tr("&Paste as New Layer"), self.paste, "Ctrl+V", e)
+        self.act(tr("C&lear Selection Pixels"), self.clear_pixels, "Delete", e)
         e.addSeparator()
-        self.act("&Fill with Foreground", lambda: self.fill_selection(self.fg.color()), "Alt+Backspace", e)
-        self.act("Fill with &Background", lambda: self.fill_selection(self.bg.color()), "Ctrl+Backspace", e)
-        self.act("&Stroke Selection...", self.stroke_selection, None, e)
+        self.act(tr("&Fill with Foreground"), lambda: self.fill_selection(self.fg.color()), "Alt+Backspace", e)
+        self.act(tr("Fill with &Background"), lambda: self.fill_selection(self.bg.color()), "Ctrl+Backspace", e)
+        self.act(tr("&Stroke Selection..."), self.stroke_selection, None, e)
         e.addSeparator()
-        self.act("Free &Transform (scale/rotate)...", self.transform_dialog, "Ctrl+T", e)
+        self.act(tr("Free &Transform (scale/rotate)..."), self.transform_dialog, "Ctrl+T", e)
 
-        im = mb.addMenu("&Image")
-        adj = im.addMenu("&Adjustments")
+        im = mb.addMenu(tr("&Image"))
+        adj = im.addMenu(tr("&Adjustments"))
         for name in pc.ADJUSTMENTS:
-            self.act(name + "...", lambda _=False, n=name: self.run_adjustment(n), None, adj)
+            self.act(tr(name) + "...", lambda _=False, n=name: self.run_adjustment(n), None, adj)
         adj.addSeparator()
         for name in pc.INSTANT:
-            self.act(name, lambda _=False, n=name: self.run_instant(n), None, adj)
-        self.act("&Image Size...", self.image_size, "Ctrl+Alt+I", im)
-        self.act("&Canvas Size...", self.canvas_size, "Ctrl+Alt+C", im)
-        rot = im.addMenu("&Rotate Canvas")
-        self.act("90° Clockwise", lambda: self.rotate_canvas(90), None, rot)
-        self.act("90° Counter-clockwise", lambda: self.rotate_canvas(-90), None, rot)
+            self.act(tr(name), lambda _=False, n=name: self.run_instant(n), None, adj)
+        self.act(tr("&Image Size..."), self.image_size, "Ctrl+Alt+I", im)
+        self.act(tr("&Canvas Size..."), self.canvas_size, "Ctrl+Alt+C", im)
+        rot = im.addMenu(tr("&Rotate Canvas"))
+        self.act(tr("90° Clockwise"), lambda: self.rotate_canvas(90), None, rot)
+        self.act(tr("90° Counter-clockwise"), lambda: self.rotate_canvas(-90), None, rot)
         self.act("180°", lambda: self.rotate_canvas(180), None, rot)
-        self.act("Arbitrary...", self.rotate_arbitrary, None, rot)
-        self.act("Flip Canvas &Horizontal", lambda: self.flip_canvas(True), None, im)
-        self.act("Flip Canvas &Vertical", lambda: self.flip_canvas(False), None, im)
-        self.act("Cr&op to Selection", self.crop_to_selection, None, im)
-        self.act("&Trim Transparent Edges", self.trim, None, im)
-        self.act("&Flatten Image", self.flatten, None, im)
+        self.act(tr("Arbitrary..."), self.rotate_arbitrary, None, rot)
+        self.act(tr("Flip Canvas &Horizontal"), lambda: self.flip_canvas(True), None, im)
+        self.act(tr("Flip Canvas &Vertical"), lambda: self.flip_canvas(False), None, im)
+        self.act(tr("Cr&op to Selection"), self.crop_to_selection, None, im)
+        self.act(tr("&Trim Transparent Edges"), self.trim, None, im)
+        self.act(tr("&Flatten Image"), self.flatten, None, im)
 
-        lm = mb.addMenu("&Layer")
+        lm = mb.addMenu(tr("&Layer"))
         self.layer_menu = lm
-        self.act("&New Layer", self.new_layer, "Ctrl+Shift+N", lm)
-        self.act("&Duplicate / Copy Selection to New Layer", self.duplicate_layer, "Ctrl+J", lm)
-        self.act("Cut Selection to New Layer", lambda: self.duplicate_layer(cut=True), "Ctrl+Shift+J", lm)
-        self.act("De&lete Layer", self.delete_layer, None, lm)
-        self.act("&Rename Layer...", self.rename_layer, None, lm)
-        self.act("Edit &Text Layer...", self.edit_text_layer, None, lm)
+        self.act(tr("&New Layer"), self.new_layer, "Ctrl+Shift+N", lm)
+        self.act(tr("&Duplicate / Copy Selection to New Layer"), self.duplicate_layer, "Ctrl+J", lm)
+        self.act(tr("Cut Selection to New Layer"), lambda: self.duplicate_layer(cut=True), "Ctrl+Shift+J", lm)
+        self.act(tr("De&lete Layer"), self.delete_layer, None, lm)
+        self.act(tr("&Rename Layer..."), self.rename_layer, None, lm)
+        self.act(tr("Edit &Text Layer..."), self.edit_text_layer, None, lm)
         lm.addSeparator()
-        self.act("Move Layer &Up", lambda: self.move_layer(1), "Ctrl+]", lm)
-        self.act("Move Layer D&own", lambda: self.move_layer(-1), "Ctrl+[", lm)
-        self.act("&Merge Down", self.merge_down, "Ctrl+E", lm)
-        self.act("Merge &Visible", self.merge_visible, "Ctrl+Shift+E", lm)
+        self.act(tr("Move Layer &Up"), lambda: self.move_layer(1), "Ctrl+]", lm)
+        self.act(tr("Move Layer D&own"), lambda: self.move_layer(-1), "Ctrl+[", lm)
+        self.act(tr("&Merge Down"), self.merge_down, "Ctrl+E", lm)
+        self.act(tr("Merge &Visible"), self.merge_visible, "Ctrl+Shift+E", lm)
         lm.addSeparator()
-        self.act("Flip Layer Horizontal", lambda: self.flip_layer(True), None, lm)
-        self.act("Flip Layer Vertical", lambda: self.flip_layer(False), None, lm)
-        self.act("Rotate Layer 90°", lambda: self.rotate_layer(90), None, lm)
+        self.act(tr("Flip Layer Horizontal"), lambda: self.flip_layer(True), None, lm)
+        self.act(tr("Flip Layer Vertical"), lambda: self.flip_layer(False), None, lm)
+        self.act(tr("Rotate Layer 90°"), lambda: self.rotate_layer(90), None, lm)
 
-        sm = mb.addMenu("&Select")
-        self.act("&All", self.select_all, "Ctrl+A", sm)
-        self.act("&Deselect", self.deselect, "Ctrl+D", sm)
-        self.act("&Inverse", self.invert_selection, "Ctrl+Shift+I", sm)
-        self.act("&Layer Pixels", self.select_layer_pixels, None, sm)
-        self.act("&Colour Range (all similar colours)...", self.color_range, None, sm)
+        sm = mb.addMenu(tr("&Select"))
+        self.act(tr("&All"), self.select_all, "Ctrl+A", sm)
+        self.act(tr("&Deselect"), self.deselect, "Ctrl+D", sm)
+        self.act(tr("&Inverse"), self.invert_selection, "Ctrl+Shift+I", sm)
+        self.act(tr("&Layer Pixels"), self.select_layer_pixels, None, sm)
+        self.act(tr("&Colour Range (all similar colours)..."), self.color_range, None, sm)
         sm.addSeparator()
-        self.act("&Grow...", lambda: self.modify_selection("grow"), None, sm)
-        self.act("&Shrink...", lambda: self.modify_selection("shrink"), None, sm)
-        self.act("&Feather...", lambda: self.modify_selection("feather"), "Shift+F6", sm)
+        self.act(tr("&Grow..."), lambda: self.modify_selection("grow"), None, sm)
+        self.act(tr("&Shrink..."), lambda: self.modify_selection("shrink"), None, sm)
+        self.act(tr("&Feather..."), lambda: self.modify_selection("feather"), "Shift+F6", sm)
 
-        fl = mb.addMenu("Fil&ter")
+        fl = mb.addMenu(tr("Fil&ter"))
         for name in pc.FILTERS:
-            self.act(name + ("..." if pc.FILTERS[name][1] else ""), lambda _=False, n=name: self.run_filter(n), None, fl)
+            self.act(tr(name) + ("..." if pc.FILTERS[name][1] else ""), lambda _=False, n=name: self.run_filter(n), None, fl)
 
-        vm = mb.addMenu("&View")
-        self.act("Zoom &In", lambda: self.canvas.set_zoom(self.canvas.zoom * 1.25), "Ctrl+=", vm)
-        self.act("Zoom &Out", lambda: self.canvas.set_zoom(self.canvas.zoom / 1.25), "Ctrl+-", vm)
-        self.act("&Fit on Screen", self.canvas.fit, "Ctrl+0", vm)
-        self.act("&Actual Pixels (100%)", lambda: self.canvas.set_zoom(1.0), "Ctrl+1", vm)
+        vm = mb.addMenu(tr("&View"))
+        self.act(tr("Zoom &In"), lambda: self.canvas.set_zoom(self.canvas.zoom * 1.25), "Ctrl+=", vm)
+        self.act(tr("Zoom &Out"), lambda: self.canvas.set_zoom(self.canvas.zoom / 1.25), "Ctrl+-", vm)
+        self.act(tr("&Fit on Screen"), self.canvas.fit, "Ctrl+0", vm)
+        self.act(tr("&Actual Pixels (100%)"), lambda: self.canvas.set_zoom(1.0), "Ctrl+1", vm)
         vm.addSeparator()
         vm.addAction(self.layers_dock.toggleViewAction())
         vm.addAction(self.hist_dock.toggleViewAction())
 
-        h = mb.addMenu("&Help")
+        h = mb.addMenu(tr("&Help"))
 
         add_guide_action(self, h, "photo-basics")
-        self.act("&Keyboard Shortcuts", self.show_shortcuts, None, h)
-        self.act("&About", lambda: QMessageBox.about(self, APP_NAME, f"<b>{APP_NAME}</b><br>Part of {SUITE_NAME}."),
+        self.act(tr("&Keyboard Shortcuts"), self.show_shortcuts, None, h)
+        self.act(tr("&About"), lambda: QMessageBox.about(self, APP_NAME, tr("<b>{APP_NAME}</b><br>Part of {SUITE_NAME}.").format(APP_NAME=APP_NAME, SUITE_NAME=SUITE_NAME)),
                  None, h)
         for key, _, _, sc in TOOLS:
             if sc:
@@ -676,9 +678,8 @@ class PhotoWindow(QMainWindow):
     def _combo(self, key, label, items):
         self.opts_bar.addWidget(QLabel(f" {label} "))
         c = QComboBox()
-        c.addItems(items)
-        c.setCurrentText(self.opt[key])
-        c.currentTextChanged.connect(lambda v: self.opt.__setitem__(key, v))
+        add_items(c, items, self.opt[key])                     # options keep the English names
+        c.currentIndexChanged.connect(lambda i: self.opt.__setitem__(key, c.itemData(i)))
         c.setFocusPolicy(Qt.ClickFocus)
         self.opts_bar.addWidget(c)
 
@@ -691,47 +692,48 @@ class PhotoWindow(QMainWindow):
         bar.addWidget(lbl)
         t = self.tool
         if t in ("brush", "eraser", "clone"):
-            self.size_spin = self._spin("size", "Size", 1, 2000, " px")
-            self._spin("hardness", "Hardness", 0, 100, "%")
-            self._spin("opacity", "Opacity", 1, 100, "%")
+            self.size_spin = self._spin("size", tr("Size"), 1, 2000, " px")
+            self._spin("hardness", tr("Hardness"), 0, 100, "%")
+            self._spin("opacity", tr("Opacity"), 1, 100, "%")
             if t == "clone":
-                bar.addWidget(QLabel("   Alt+click to pick the source point"))
+                bar.addWidget(QLabel(tr("   Alt+click to pick the source point")))
         elif t in SELECT_TOOLS:
-            self._combo("sel_mode", "Mode", ["replace", "add", "subtract", "intersect"])
+            self._combo("sel_mode", tr("Mode"), ["replace", "add", "subtract", "intersect"])
             if t == "wand":
-                self._spin("tolerance", "Tolerance", 0, 255)
-                self._check("contiguous", "Contiguous")
-                self._check("sample_all", "Sample all layers")
+                self._spin("tolerance", tr("Tolerance"), 0, 255)
+                self._check("contiguous", tr("Contiguous"))
+                self._check("sample_all", tr("Sample all layers"))
             else:
-                self._spin("feather", "Feather", 0, 250, " px")
-            bar.addWidget(QLabel("   Shift = add, Alt = subtract"))
+                self._spin("feather", tr("Feather"), 0, 250, " px")
+            bar.addWidget(QLabel(tr("   Shift = add, Alt = subtract")))
         elif t == "fill":
-            self._spin("tolerance", "Tolerance", 0, 255)
-            self._check("contiguous", "Contiguous")
-            self._check("sample_all", "Sample all layers")
-            self._spin("opacity", "Opacity", 1, 100, "%")
+            self._spin("tolerance", tr("Tolerance"), 0, 255)
+            self._check("contiguous", tr("Contiguous"))
+            self._check("sample_all", tr("Sample all layers"))
+            self._spin("opacity", tr("Opacity"), 1, 100, "%")
         elif t == "gradient":
-            self._combo("grad_type", "Type", ["Linear", "Radial"])
-            self._combo("grad_mode", "Colours", ["Foreground → Background", "Foreground → Transparent"])
-            self._spin("opacity", "Opacity", 1, 100, "%")
+            self._combo("grad_type", tr("Type"), [N_("Linear"), N_("Radial")])
+            self._combo("grad_mode", tr("Colours"), [N_("Foreground → Background"), N_("Foreground → Transparent")])
+            self._spin("opacity", tr("Opacity"), 1, 100, "%")
         elif t == "shape":
-            self._combo("shape", "Shape", ["Rectangle", "Rounded Rectangle", "Ellipse", "Line", "Arrow"])
-            self._check("shape_fill", "Fill (foreground)")
-            self._spin("stroke", "Outline (background)", 0, 200, " px")
-            bar.addWidget(QLabel("   Drawn on a new layer"))
+            self._combo("shape", tr("Shape"), [N_("Rectangle"), N_("Rounded Rectangle"), N_("Ellipse"), N_("Line"),
+                                               N_("Arrow")])
+            self._check("shape_fill", tr("Fill (foreground)"))
+            self._spin("stroke", tr("Outline (background)"), 0, 200, " px")
+            bar.addWidget(QLabel(tr("   Drawn on a new layer")))
         elif t == "crop":
-            b = QPushButton("Apply Crop (Enter)")
+            b = QPushButton(tr("Apply Crop (Enter)"))
             b.clicked.connect(self.apply_crop)
             bar.addWidget(b)
-            b2 = QPushButton("Cancel (Esc)")
+            b2 = QPushButton(tr("Cancel (Esc)"))
             b2.clicked.connect(lambda: (setattr(self, "crop_rect", None), self.canvas.update()))
             bar.addWidget(b2)
         elif t == "text":
-            bar.addWidget(QLabel("   Click to add text (click an existing text layer to edit it)"))
+            bar.addWidget(QLabel(tr("   Click to add text (click an existing text layer to edit it)")))
         elif t == "move":
-            bar.addWidget(QLabel("   Drag to move the layer (or the selected pixels). Arrow keys nudge."))
+            bar.addWidget(QLabel(tr("   Drag to move the layer (or the selected pixels). Arrow keys nudge.")))
         elif t == "eyedropper":
-            bar.addWidget(QLabel("   Click: foreground colour   Alt+click: background colour"))
+            bar.addWidget(QLabel(tr("   Click: foreground colour   Alt+click: background colour")))
 
     def change_size(self, d):
         s = self.opt["size"]
@@ -755,7 +757,7 @@ class PhotoWindow(QMainWindow):
         self.doc = doc
         self.path = path
         self.modified = False
-        self.history = [("Open" if path else "New", doc.snapshot())]
+        self.history = [(tr("Open") if path else tr("New"), doc.snapshot())]
         self.hist_pos = 0
         self.crop_rect = None
         self.update_selection()
@@ -839,14 +841,14 @@ class PhotoWindow(QMainWindow):
         lw.setCurrentRow(len(self.doc.layers) - 1 - self.doc.active)
         lw.blockSignals(False)
         l = self.doc.layer
-        self.blend_box.setCurrentText(l.blend)
+        self.blend_box.setCurrentIndex(max(0, self.blend_box.findData(l.blend)))
         self.opacity_spin.setValue(int(round(l.opacity * 100)))
 
     def _layer_selected(self, row):
         if row >= 0:
             self.doc.active = len(self.doc.layers) - 1 - row
             l = self.doc.layer
-            self.blend_box.setCurrentText(l.blend)
+            self.blend_box.setCurrentIndex(max(0, self.blend_box.findData(l.blend)))
             self.opacity_spin.setValue(int(round(l.opacity * 100)))
 
     def _layer_item_changed(self, item):
@@ -854,7 +856,7 @@ class PhotoWindow(QMainWindow):
         vis = item.checkState() == Qt.Checked
         if self.doc.layers[i].visible != vis:
             self.doc.layers[i].visible = vis
-            self.changed("Show layer" if vis else "Hide layer", layers_changed=False)
+            self.changed(tr("Show layer") if vis else tr("Hide layer"), layers_changed=False)
 
     def set_layer_prop(self, prop, value):
         l = self.doc.layer
@@ -863,14 +865,14 @@ class PhotoWindow(QMainWindow):
             self.changed({"blend": "Blend mode", "opacity": "Layer opacity"}[prop], layers_changed=False)
 
     def update_title(self):
-        name = os.path.basename(self.path) if self.path else "Untitled"
+        name = os.path.basename(self.path) if self.path else tr("Untitled")
         self.setWindowTitle(f"{'*' if self.modified else ''}{name} - {APP_NAME}")
 
     def update_status(self, ip=None):
         d = self.doc
         if d is None:
             return
-        self.size_label.setText(f"  {d.width} × {d.height} px  ")
+        self.size_label.setText(tr("  {width} × {height} px  ").format(width=d.width, height=d.height))
         self.zoom_label.setText(f"  {round(self.canvas.zoom * 100)}%  ")
         if ip is not None:
             x, y = int(ip.x()), int(ip.y())
@@ -900,13 +902,13 @@ class PhotoWindow(QMainWindow):
         m.fill(255)
         self.doc.selection = m
         self.update_selection()
-        self.changed("Select all", False)
+        self.changed(tr("Select all"), False)
 
     def deselect(self):
         if self.doc.selection is not None:
             self.doc.selection = None
             self.update_selection()
-            self.changed("Deselect", False)
+            self.changed(tr("Deselect"), False)
 
     def invert_selection(self):
         if self.doc.selection is None:
@@ -915,7 +917,7 @@ class PhotoWindow(QMainWindow):
         m.invertPixels()
         self.doc.selection = m if pc.mask_bounds(m) else None
         self.update_selection()
-        self.changed("Inverse selection", False)
+        self.changed(tr("Inverse selection"), False)
 
     def select_layer_pixels(self):
         l = self.doc.layer
@@ -927,11 +929,11 @@ class PhotoWindow(QMainWindow):
         full[r.y():r.bottom() + 1, r.x():r.right() + 1] = a[r.y() - l.y:r.bottom() + 1 - l.y, r.x() - l.x:r.right() + 1 - l.x]
         self.doc.selection = pc.mask_from_array(full)
         self.update_selection()
-        self.changed("Select layer pixels", False)
+        self.changed(tr("Select layer pixels"), False)
 
     def color_range(self):
-        tol, ok = QInputDialog.getInt(self, "Colour Range", "Select every pixel similar to the foreground colour.\n"
-                                      "Tolerance:", 40, 0, 255)
+        tol, ok = QInputDialog.getInt(self, tr("Colour Range"), tr("Select every pixel similar to the foreground "
+                                                               "colour.\nTolerance:"), 40, 0, 255)
         if not ok:
             return
         arr = pc.to_array(self.comp).astype(np.int16)
@@ -939,18 +941,18 @@ class PhotoWindow(QMainWindow):
         diff = np.abs(arr[..., :3] - np.array([c.red(), c.green(), c.blue()])).max(-1)
         self.doc.selection = pc.mask_from_array((diff <= tol).astype(np.float32))
         self.update_selection()
-        self.changed("Colour range", False)
+        self.changed(tr("Colour range"), False)
 
     def modify_selection(self, how):
         if self.doc.selection is None:
             return
-        v, ok = QInputDialog.getInt(self, how.title(), "Pixels:", 5, 1, 500)
+        v, ok = QInputDialog.getInt(self, how.title(), tr("Pixels:"), 5, 1, 500)
         if not ok:
             return
         m = self.doc.selection
         self.doc.selection = pc.feather_mask(m, v) if how == "feather" else pc.grow_mask(m, v if how == "grow" else -v)
         self.update_selection()
-        self.changed(f"{how.title()} selection", False)
+        self.changed(tr("{v} selection").format(v=how.title()), False)
 
     def sel_alpha(self, rect):
         """Selection mask as an ARGB alpha image covering canvas rect (or None)."""
@@ -989,7 +991,7 @@ class PhotoWindow(QMainWindow):
         if l is None:
             return False
         if not l.visible:
-            QMessageBox.information(self, APP_NAME, "The selected layer is hidden - show it first.")
+            QMessageBox.information(self, APP_NAME, tr("The selected layer is hidden - show it first."))
             return False
         return True
 
@@ -1007,11 +1009,12 @@ class PhotoWindow(QMainWindow):
             if t == "clone" and mods & Qt.AltModifier:
                 self.clone_src = ip
                 self.drag = None
-                self.statusBar().showMessage("Clone source set - now paint where you want to copy to", 4000)
+                self.statusBar().showMessage(tr("Clone source set - now paint where you want to copy to"), 4000)
                 return
             if t == "clone" and self.clone_src is None:
                 self.drag = None
-                QMessageBox.information(self, APP_NAME, "Alt+click on the picture first to choose what to copy from.")
+                QMessageBox.information(self, APP_NAME, tr("Alt+click on the picture first to choose what to copy "
+                                                           "from."))
                 return
             if not self.check_editable():
                 self.drag = None
@@ -1028,7 +1031,7 @@ class PhotoWindow(QMainWindow):
             m = pc.region_mask(d, int(ip.x()), int(ip.y()), self.opt["tolerance"], self.opt["contiguous"],
                                self.opt["sample_all"])
             if m is not None:
-                self.set_selection(m, mode, "Magic wand")
+                self.set_selection(m, mode, tr("Magic wand"))
             self.drag = None
         elif t == "fill":
             if self.check_editable():
@@ -1080,18 +1083,18 @@ class PhotoWindow(QMainWindow):
             else:
                 path.addEllipse(rect)
             self.set_selection(pc.path_mask(self.doc, path, antialias=t == "ellipse"), d["mode"],
-                               "Rectangle select" if t == "rect" else "Ellipse select")
+                               tr("Rectangle select") if t == "rect" else tr("Ellipse select"))
         elif t == "lasso":
             if len(d["pts"]) > 2:
                 path = QPainterPath()
                 path.addPolygon(QPolygonF(d["pts"]))
                 path.closeSubpath()
-                self.set_selection(pc.path_mask(self.doc, path), d["mode"], "Lasso")
+                self.set_selection(pc.path_mask(self.doc, path), d["mode"], tr("Lasso"))
         elif t == "crop":
             r = rect.toRect().intersected(QRect(0, 0, self.doc.width, self.doc.height))
             self.crop_rect = r if r.width() > 2 and r.height() > 2 else None
             if self.crop_rect is not None:
-                self.statusBar().showMessage("Press Enter or double-click to crop, Esc to cancel", 5000)
+                self.statusBar().showMessage(tr("Press Enter or double-click to crop, Esc to cancel"), 5000)
         elif t == "gradient":
             if (b - a).manhattanLength() > 2 and self.check_editable():
                 self.draw_gradient(a, b)
@@ -1308,7 +1311,7 @@ class PhotoWindow(QMainWindow):
             p.end()
             self.move_float = None
             self.update_selection()
-        self.changed("Move", layers_changed=False)
+        self.changed(tr("Move"), layers_changed=False)
 
     def nudge(self, dx, dy):
         self.drag = {"start": QPointF(0, 0)}
@@ -1332,7 +1335,7 @@ class PhotoWindow(QMainWindow):
         if self.doc.selection is not None:
             m = pc.combine_masks(self.doc.selection, m, "intersect")
         self._fill_mask(m, self.fg.color(), self.opt["opacity"] / 100)
-        self.changed("Paint bucket", layers_changed=False)
+        self.changed(tr("Paint bucket"), layers_changed=False)
 
     def _fill_mask(self, mask, color, opacity=1.0):
         """Paint `color` onto the current layer wherever the canvas-sized mask is set."""
@@ -1360,12 +1363,12 @@ class PhotoWindow(QMainWindow):
             m = QImage(self.doc.width, self.doc.height, QImage.Format_Grayscale8)
             m.fill(255)
         self._fill_mask(m, color)
-        self.changed("Fill", layers_changed=False)
+        self.changed(tr("Fill"), layers_changed=False)
 
     def stroke_selection(self):
         if self.doc.selection is None or not self.check_editable():
             return
-        w, ok = QInputDialog.getInt(self, "Stroke", "Width (px):", 4, 1, 500)
+        w, ok = QInputDialog.getInt(self, tr("Stroke"), tr("Width (px):"), 4, 1, 500)
         if not ok:
             return
         l = self.doc.layer
@@ -1376,7 +1379,7 @@ class PhotoWindow(QMainWindow):
         p.setPen(QPen(self.fg.color(), w))
         p.drawPath(self.sel_path)
         p.end()
-        self.changed("Stroke", layers_changed=False)
+        self.changed(tr("Stroke"), layers_changed=False)
 
     def draw_gradient(self, a, b):
         l = self.doc.layer
@@ -1403,7 +1406,7 @@ class PhotoWindow(QMainWindow):
         p.setOpacity(self.opt["opacity"] / 100)
         p.drawImage(-l.x, -l.y, layer_img)
         p.end()
-        self.changed("Gradient", layers_changed=False)
+        self.changed(tr("Gradient"), layers_changed=False)
 
     def draw_shape(self, a, b, mods):
         s = self.opt["shape"]
@@ -1442,7 +1445,7 @@ class PhotoWindow(QMainWindow):
         p.end()
         self.doc.layers.insert(self.doc.active + 1, pc.Layer(s, img, box.x(), box.y()))
         self.doc.active += 1
-        self.changed(f"{s} shape")
+        self.changed(tr("{s} shape").format(s=s))
 
     def text_click(self, ip):
         # clicking an existing text layer re-edits it
@@ -1466,12 +1469,12 @@ class PhotoWindow(QMainWindow):
         layer = pc.Layer(t["text"].split("\n")[0][:30], img, int(ip.x()) + off.x(), int(ip.y()) + off.y(), text=t)
         self.doc.layers.insert(self.doc.active + 1, layer)
         self.doc.active += 1
-        self.changed("Text")
+        self.changed(tr("Text"))
 
     def edit_text_layer(self):
         l = self.doc.layer
         if not l.text:
-            QMessageBox.information(self, APP_NAME, "The selected layer isn't a text layer.")
+            QMessageBox.information(self, APP_NAME, tr("The selected layer isn't a text layer."))
             return
         dlg = TextDialog(self, l.text)
         if not dlg.exec():
@@ -1482,7 +1485,7 @@ class PhotoWindow(QMainWindow):
         l.image, l.text = img, t
         l.x, l.y = t["anchor"][0] + off.x(), t["anchor"][1] + off.y()
         l.name = t["text"].split("\n")[0][:30] or l.name
-        self.changed("Edit text")
+        self.changed(tr("Edit text"))
 
     def apply_crop(self):
         r = self.crop_rect
@@ -1495,7 +1498,7 @@ class PhotoWindow(QMainWindow):
         self.doc.selection = None
         self.crop_rect = None
         self.update_selection()
-        self.changed("Crop")
+        self.changed(tr("Crop"))
         self.canvas.fit()
 
     def canvas_key(self, e):
@@ -1551,34 +1554,34 @@ class PhotoWindow(QMainWindow):
 
     def run_adjustment(self, name):
         fn, params = pc.ADJUSTMENTS[name]
-        self._run_param(name, fn, params, name)
+        self._run_param(tr(name), fn, params, tr(name))
 
     def run_filter(self, name):
         fn, params = pc.FILTERS[name]
-        self._run_param(name, fn, params, name)
+        self._run_param(tr(name), fn, params, tr(name))
 
     def run_instant(self, name):
         if not self.check_editable():
             return
         l = self.doc.layer
         pc.apply_with_mask(l, pc.from_array(pc.INSTANT[name](pc.to_array(l.image))), self.doc)
-        self.changed(name, layers_changed=False)
+        self.changed(tr(name), layers_changed=False)
 
     # ------------------------------------------------------------ image operations
     def image_size(self):
         d = self.doc
         dlg = QDialog(self)
-        dlg.setWindowTitle("Image Size")
+        dlg.setWindowTitle(tr("Image Size"))
         w, h = QSpinBox(), QSpinBox()
         for s, v in ((w, d.width), (h, d.height)):
             s.setRange(1, 30000)
             s.setValue(v)
-            s.setSuffix(" px")
+            s.setSuffix(tr(" px"))
         pct = QDoubleSpinBox()
         pct.setRange(1, 1000)
         pct.setValue(100)
         pct.setSuffix(" %")
-        keep = QCheckBox("Keep proportions")
+        keep = QCheckBox(tr("Keep proportions"))
         keep.setChecked(True)
         lock = [False]
 
@@ -1603,11 +1606,11 @@ class PhotoWindow(QMainWindow):
         dpi.setRange(1, 2400)
         dpi.setValue(d.dpi)
         form = QFormLayout(dlg)
-        form.addRow("Scale:", pct)
-        form.addRow("Width:", w)
-        form.addRow("Height:", h)
+        form.addRow(tr("Scale:"), pct)
+        form.addRow(tr("Width:"), w)
+        form.addRow(tr("Height:"), h)
         form.addRow("", keep)
-        form.addRow("Resolution (dpi):", dpi)
+        form.addRow(tr("Resolution (dpi):"), dpi)
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(dlg.accept)
         bb.rejected.connect(dlg.reject)
@@ -1624,31 +1627,32 @@ class PhotoWindow(QMainWindow):
         d.width, d.height, d.dpi = w.value(), h.value(), dpi.value()
         d.selection = None
         self.update_selection()
-        self.changed("Image size")
+        self.changed(tr("Image size"))
         self.canvas.fit()
 
     def canvas_size(self):
         d = self.doc
         dlg = QDialog(self)
-        dlg.setWindowTitle("Canvas Size")
+        dlg.setWindowTitle(tr("Canvas Size"))
         w, h = QSpinBox(), QSpinBox()
         for s, v in ((w, d.width), (h, d.height)):
             s.setRange(1, 30000)
             s.setValue(v)
-            s.setSuffix(" px")
+            s.setSuffix(tr(" px"))
         anchor = QComboBox()
-        anchor.addItems(["Centre", "Top-left", "Top", "Top-right", "Left", "Right", "Bottom-left", "Bottom", "Bottom-right"])
+        add_items(anchor, [N_("Centre"), N_("Top-left"), N_("Top"), N_("Top-right"), N_("Left"), N_("Right"),
+                           N_("Bottom-left"), N_("Bottom"), N_("Bottom-right")])
         form = QFormLayout(dlg)
-        form.addRow("Width:", w)
-        form.addRow("Height:", h)
-        form.addRow("Anchor:", anchor)
+        form.addRow(tr("Width:"), w)
+        form.addRow(tr("Height:"), h)
+        form.addRow(tr("Anchor:"), anchor)
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(dlg.accept)
         bb.rejected.connect(dlg.reject)
         form.addRow(bb)
         if not dlg.exec():
             return
-        a = anchor.currentText().lower()
+        a = anchor.currentData().lower()
         dw, dh = w.value() - d.width, h.value() - d.height
         ox = 0 if "left" in a else dw if "right" in a else dw // 2
         oy = 0 if "top" in a else dh if "bottom" in a else dh // 2
@@ -1665,7 +1669,7 @@ class PhotoWindow(QMainWindow):
             p.end()
             bgl.image, bgl.x, bgl.y = img, 0, 0
         self.update_selection()
-        self.changed("Canvas size")
+        self.changed(tr("Canvas size"))
         self.canvas.fit()
 
     def _transform_all(self, tf_fn, new_w, new_h, label):
@@ -1684,22 +1688,22 @@ class PhotoWindow(QMainWindow):
         d = self.doc
         t = QTransform().rotate(deg)
         nw, nh = (d.height, d.width) if deg in (90, -90) else (d.width, d.height)
-        self._transform_all(lambda img: img.transformed(t, Qt.SmoothTransformation), nw, nh, f"Rotate {deg}°")
+        self._transform_all(lambda img: img.transformed(t, Qt.SmoothTransformation), nw, nh, tr("Rotate {deg}°").format(deg=deg))
 
     def rotate_arbitrary(self):
-        deg, ok = QInputDialog.getDouble(self, "Rotate Canvas", "Degrees (clockwise):", 15, -360, 360, 1)
+        deg, ok = QInputDialog.getDouble(self, tr("Rotate Canvas"), tr("Degrees (clockwise):"), 15, -360, 360, 1)
         if not ok:
             return
         d = self.doc
         t = QTransform().rotate(deg)
         r = t.mapRect(QRectF(0, 0, d.width, d.height))
         self._transform_all(lambda img: img.transformed(t, Qt.SmoothTransformation), int(round(r.width())),
-                            int(round(r.height())), f"Rotate {deg:g}°")
+                            int(round(r.height())), tr("Rotate {deg}°").format(deg=f"{deg:g}"))
 
     def flip_canvas(self, horizontal):
         d = self.doc
         self._transform_all(lambda img: img.mirrored(horizontal, not horizontal), d.width, d.height,
-                            "Flip horizontal" if horizontal else "Flip vertical")
+                            tr("Flip horizontal") if horizontal else tr("Flip vertical"))
 
     def crop_to_selection(self):
         if self.doc.selection is None:
@@ -1718,15 +1722,15 @@ class PhotoWindow(QMainWindow):
         img = pc.composite(d, background=QColor("white"))
         d.layers = [pc.Layer("Background", img)]
         d.active = 0
-        self.changed("Flatten")
+        self.changed(tr("Flatten"))
 
     # ------------------------------------------------------------ layer operations
     def new_layer(self):
         d = self.doc
         n = len(d.layers) + 1
-        d.layers.insert(d.active + 1, pc.Layer(f"Layer {n}", pc.blank(d.width, d.height)))
+        d.layers.insert(d.active + 1, pc.Layer(tr("Layer {n}").format(n=n), pc.blank(d.width, d.height)))
         d.active += 1
-        self.changed("New layer")
+        self.changed(tr("New layer"))
 
     def duplicate_layer(self, cut=False):
         d = self.doc
@@ -1744,29 +1748,29 @@ class PhotoWindow(QMainWindow):
                 p.setCompositionMode(QPainter.CompositionMode_DestinationOut)
                 p.drawImage(0, 0, sel)
                 p.end()
-            new = pc.Layer("Layer via " + ("cut" if cut else "copy"), img, l.x, l.y)
+            new = pc.Layer(tr("Layer via cut") if cut else tr("Layer via copy"), img, l.x, l.y)
         else:
             new = l.copy()
             new.name = l.name + " copy"
         d.layers.insert(d.active + 1, new)
         d.active += 1
-        self.changed("Cut to layer" if cut else "Duplicate layer")
+        self.changed(tr("Cut to layer") if cut else tr("Duplicate layer"))
 
     def delete_layer(self):
         d = self.doc
         if len(d.layers) == 1:
-            QMessageBox.information(self, APP_NAME, "An image needs at least one layer.")
+            QMessageBox.information(self, APP_NAME, tr("An image needs at least one layer."))
             return
         del d.layers[d.active]
         d.active = max(0, d.active - 1)
-        self.changed("Delete layer")
+        self.changed(tr("Delete layer"))
 
     def rename_layer(self):
         l = self.doc.layer
-        name, ok = QInputDialog.getText(self, "Rename Layer", "Name:", QLineEdit.Normal, l.name)
+        name, ok = QInputDialog.getText(self, tr("Rename Layer"), tr("Name:"), QLineEdit.Normal, l.name)
         if ok and name.strip():
             l.name = name.strip()
-            self.changed("Rename layer")
+            self.changed(tr("Rename layer"))
 
     def move_layer(self, d_):
         d = self.doc
@@ -1774,7 +1778,7 @@ class PhotoWindow(QMainWindow):
         if 0 <= j < len(d.layers):
             d.layers[d.active], d.layers[j] = d.layers[j], d.layers[d.active]
             d.active = j
-            self.changed("Move layer")
+            self.changed(tr("Move layer"))
 
     def merge_down(self):
         d = self.doc
@@ -1793,21 +1797,21 @@ class PhotoWindow(QMainWindow):
         below.image, below.x, below.y, below.opacity, below.text = img, u.x(), u.y(), 1.0, None
         del d.layers[d.active]
         d.active -= 1
-        self.changed("Merge down")
+        self.changed(tr("Merge down"))
 
     def merge_visible(self):
         d = self.doc
         img = pc.composite(d)
         hidden = [l for l in d.layers if not l.visible]
-        d.layers = [pc.Layer("Merged", img)] + hidden
+        d.layers = [pc.Layer(tr("Merged"), img)] + hidden
         d.active = 0
-        self.changed("Merge visible")
+        self.changed(tr("Merge visible"))
 
     def flip_layer(self, horizontal):
         l = self.doc.layer
         l.image = l.image.mirrored(horizontal, not horizontal)
         l.text = None
-        self.changed("Flip layer")
+        self.changed(tr("Flip layer"))
 
     def rotate_layer(self, deg):
         l = self.doc.layer
@@ -1815,13 +1819,13 @@ class PhotoWindow(QMainWindow):
         l.image = l.image.transformed(QTransform().rotate(deg), Qt.SmoothTransformation)
         l.x, l.y = c.x() - l.image.width() // 2, c.y() - l.image.height() // 2
         l.text = None
-        self.changed("Rotate layer")
+        self.changed(tr("Rotate layer"))
 
     def transform_dialog(self):
         if not self.check_editable():
             return
         dlg = QDialog(self)
-        dlg.setWindowTitle("Free Transform")
+        dlg.setWindowTitle(tr("Free Transform"))
         sx, sy, rot = QDoubleSpinBox(), QDoubleSpinBox(), QDoubleSpinBox()
         for s in (sx, sy):
             s.setRange(1, 2000)
@@ -1829,14 +1833,14 @@ class PhotoWindow(QMainWindow):
             s.setSuffix(" %")
         rot.setRange(-360, 360)
         rot.setSuffix(" °")
-        keep = QCheckBox("Keep proportions")
+        keep = QCheckBox(tr("Keep proportions"))
         keep.setChecked(True)
         sx.valueChanged.connect(lambda v: sy.setValue(v) if keep.isChecked() else None)
         form = QFormLayout(dlg)
-        form.addRow("Width:", sx)
-        form.addRow("Height:", sy)
+        form.addRow(tr("Width:"), sx)
+        form.addRow(tr("Height:"), sy)
         form.addRow("", keep)
-        form.addRow("Rotate:", rot)
+        form.addRow(tr("Rotate:"), rot)
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(dlg.accept)
         bb.rejected.connect(dlg.reject)
@@ -1853,7 +1857,7 @@ class PhotoWindow(QMainWindow):
         l.text = None
         self.doc.selection = None
         self.update_selection()
-        self.changed("Transform")
+        self.changed(tr("Transform"))
 
     # ------------------------------------------------------------ clipboard
     def _selected_pixels(self, merged=False):
@@ -1872,7 +1876,7 @@ class PhotoWindow(QMainWindow):
     def copy(self, merged=False):
         img, _ = self._selected_pixels(merged)
         QGuiApplication.clipboard().setImage(img)
-        self.statusBar().showMessage("Copied", 2000)
+        self.statusBar().showMessage(tr("Copied"), 2000)
 
     def cut(self):
         self.copy()
@@ -1881,16 +1885,16 @@ class PhotoWindow(QMainWindow):
     def paste(self):
         img = QGuiApplication.clipboard().image()
         if img.isNull():
-            QMessageBox.information(self, APP_NAME, "There's no picture on the clipboard.")
+            QMessageBox.information(self, APP_NAME, tr("There's no picture on the clipboard."))
             return
-        self._add_image_layer(img.convertToFormat(pc.FMT), "Pasted")
+        self._add_image_layer(img.convertToFormat(pc.FMT), tr("Pasted"))
 
     def _add_image_layer(self, img, name):
         d = self.doc
         x, y = (d.width - img.width()) // 2, (d.height - img.height()) // 2
         d.layers.insert(d.active + 1, pc.Layer(name, img, x, y))
         d.active += 1
-        self.changed(f"Add {name.lower()}")
+        self.changed(tr("Add {v}").format(v=name.lower()))
 
     def clear_pixels(self):
         if self.doc.selection is None or not self.check_editable():
@@ -1901,13 +1905,13 @@ class PhotoWindow(QMainWindow):
         p.setCompositionMode(QPainter.CompositionMode_DestinationOut)
         p.drawImage(0, 0, sel)
         p.end()
-        self.changed("Clear", layers_changed=False)
+        self.changed(tr("Clear"), layers_changed=False)
 
     # ------------------------------------------------------------ files
     def maybe_save(self):
         if not self.modified:
             return True
-        r = QMessageBox.question(self, APP_NAME, "Save changes to this image?",
+        r = QMessageBox.question(self, APP_NAME, tr("Save changes to this image?"),
                                  QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
         if r == QMessageBox.Save:
             return self.save()
@@ -1924,12 +1928,12 @@ class PhotoWindow(QMainWindow):
             return
         dlg = NewImageDialog(self)
         if dlg.exec():
-            bg = dlg.bg.currentText()
+            bg = dlg.bg.currentData()
             color = {"White": "white", "Transparent": "transparent", "Black": "black"}.get(bg, self.fg.color().name())
             self.set_document(pc.new_document(dlg.w.value(), dlg.h.value(), color), None)
 
     def open_dialog(self):
-        f, _ = QFileDialog.getOpenFileName(self, "Open", self.settings.value("last_dir", ""), pc.READ_FORMATS)
+        f, _ = QFileDialog.getOpenFileName(self, tr("Open"), self.settings.value("last_dir", ""), tr("Images") + " (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff *.ico *.psd *.ora);;" + tr("All files") + " (*)")
         if f:
             self.open_path(f)
 
@@ -1941,22 +1945,23 @@ class PhotoWindow(QMainWindow):
             doc, warnings = pc.load_image_file(path)
         except Exception as ex:
             QGuiApplication.restoreOverrideCursor()
-            QMessageBox.critical(self, APP_NAME, f"Could not open the image:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Could not open the image:\n{ex}").format(ex=ex))
             return
         QGuiApplication.restoreOverrideCursor()
         self.set_document(doc, path)
         self._add_recent(path)
         if warnings:
-            QMessageBox.information(self, APP_NAME, "Note: this file uses " + ", ".join(warnings) +
-                                    ". These can't be edited here yet; the layers' pixels were loaded.")
+            QMessageBox.information(self, APP_NAME, tr("Note: this file uses {things}. These can't be edited here yet; "
+                                                       "the layers' pixels were loaded.").format(
+                                                           things=", ".join(tr(w) for w in warnings)))
 
     def place_image(self):
-        f, _ = QFileDialog.getOpenFileName(self, "Place Image", self.settings.value("last_dir", ""), pc.READ_FORMATS)
+        f, _ = QFileDialog.getOpenFileName(self, tr("Place Image"), self.settings.value("last_dir", ""), tr("Images") + " (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff *.ico *.psd *.ora);;" + tr("All files") + " (*)")
         if f:
             try:
                 doc, _ = pc.load_image_file(f)
             except Exception as ex:
-                QMessageBox.critical(self, APP_NAME, f"Could not open the image:\n{ex}")
+                QMessageBox.critical(self, APP_NAME, tr("Could not open the image:\n{ex}").format(ex=ex))
                 return
             self._add_image_layer(pc.composite(doc), os.path.splitext(os.path.basename(f))[0])
 
@@ -1969,9 +1974,9 @@ class PhotoWindow(QMainWindow):
         start = os.path.splitext(self.path)[0] + ".psd" if self.path else os.path.join(
             self.settings.value("last_dir", ""), "Untitled.psd")
         f, flt = QFileDialog.getSaveFileName(
-            self, "Save As", start,
-            "Photoshop PSD - keeps layers (*.psd);;OpenRaster - keeps layers (*.ora);;PNG (*.png);;JPEG (*.jpg);;"
-            "WebP (*.webp);;TIFF (*.tif);;BMP (*.bmp);;GIF (*.gif);;Icon (*.ico);;PDF (*.pdf)")
+            self, tr("Save As"), start,
+            tr("Photoshop PSD - keeps layers (*.psd);;OpenRaster - keeps layers (*.ora);;PNG (*.png);;JPEG "
+               "(*.jpg);;WebP (*.webp);;TIFF (*.tif);;BMP (*.bmp);;GIF (*.gif);;Icon (*.ico);;PDF (*.pdf)"))
         if not f:
             return False
         if not os.path.splitext(f)[1]:
@@ -1979,10 +1984,10 @@ class PhotoWindow(QMainWindow):
         return self.write(f)
 
     def export_as(self):
-        start = os.path.splitext(self.path or "Untitled")[0] + ".png"
-        f, _ = QFileDialog.getSaveFileName(self, "Export As", start,
-                                           "PNG (*.png);;JPEG (*.jpg);;WebP (*.webp);;TIFF (*.tif);;BMP (*.bmp);;"
-                                           "GIF (*.gif);;Icon (*.ico);;PDF (*.pdf)")
+        start = os.path.splitext(self.path or tr("Untitled"))[0] + ".png"
+        f, _ = QFileDialog.getSaveFileName(self, tr("Export As"), start,
+                                           tr("PNG (*.png);;JPEG (*.jpg);;WebP (*.webp);;TIFF (*.tif);;BMP "
+                                              "(*.bmp);;GIF (*.gif);;Icon (*.ico);;PDF (*.pdf)"))
         if f:
             self.write(f, export=True)
 
@@ -1995,29 +2000,29 @@ class PhotoWindow(QMainWindow):
                 pc.save_ora(self.doc, path)
             else:
                 if len(self.doc.layers) > 1 and not export:
-                    r = QMessageBox.question(self, APP_NAME, f"{os.path.splitext(path)[1].upper()} files can't keep "
-                                             "layers - the picture will be flattened in the saved file (your layers "
-                                             "stay here). Continue?")
+                    r = QMessageBox.question(self, APP_NAME, tr("{v} files can't keep layers - the picture will be "
+                                                                "flattened in the saved file (your layers stay "
+                                                                "here). Continue?").format(v=os.path.splitext(path)[1].upper()))
                     if r != QMessageBox.Yes:
                         return False
                 quality = 90
                 if low.endswith((".jpg", ".jpeg", ".webp")):
-                    quality, ok = QInputDialog.getInt(self, "Quality", "Quality (1-100):", 90, 1, 100)
+                    quality, ok = QInputDialog.getInt(self, tr("Quality"), tr("Quality (1-100):"), 90, 1, 100)
                     if not ok:
                         return False
                 pc.save_flat(self.doc, path, quality)
         except PermissionError:
-            QMessageBox.critical(self, APP_NAME, "Could not save - the file may be open in another program.")
+            QMessageBox.critical(self, APP_NAME, tr("Could not save - the file may be open in another program."))
             return False
         except Exception as ex:
-            QMessageBox.critical(self, APP_NAME, f"Could not save:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Could not save:\n{ex}").format(ex=ex))
             return False
         if not export:
             self.path = path
             self.modified = False
             self.update_title()
         self._add_recent(path)
-        self.statusBar().showMessage(f"Saved {path}", 4000)
+        self.statusBar().showMessage(tr("Saved {path}").format(path=path), 4000)
         return True
 
     def _add_recent(self, path):
@@ -2059,10 +2064,11 @@ class PhotoWindow(QMainWindow):
 
     def show_shortcuts(self):
         lines = [f"{sc}  —  {name}" for _, _, name, sc in TOOLS if sc]
-        lines += ["", "Space + drag — pan    Ctrl + wheel — zoom", "[ / ] — brush size    X — swap colours",
-                  "Ctrl+Z / Ctrl+Shift+Z — undo / redo    Ctrl+D — deselect", "Ctrl+J — duplicate layer / copy selection to layer",
-                  "Ctrl+E — merge down    Ctrl+T — transform    Delete — clear selected pixels"]
-        QMessageBox.information(self, "Keyboard Shortcuts", "\n".join(lines))
+        lines += ["", tr("Space + drag — pan    Ctrl + wheel — zoom"), tr("[ / ] — brush size    X — swap colours"),
+                  tr("Ctrl+Z / Ctrl+Shift+Z — undo / redo    Ctrl+D — deselect"),
+                  tr("Ctrl+J — duplicate layer / copy selection to layer"),
+                  tr("Ctrl+E — merge down    Ctrl+T — transform    Delete — clear selected pixels")]
+        QMessageBox.information(self, tr("Keyboard Shortcuts"), "\n".join(lines))
 
 
 def main():

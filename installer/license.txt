@@ -8,7 +8,7 @@ It is built on free, open-source components, each under its own licence. The ful
   * FFmpeg (audio/video conversion) ......... GNU General Public License v3 (GPL-3.0)
   * Qt / PySide6 (user interface) ........... GNU Lesser General Public License v3 (LGPL-3.0)
   * py7zr (7z archives) ..................... GNU Lesser General Public License v2.1
-  * Python, python-docx, python-pptx, openpyxl, Pillow, NumPy, SciPy, psd-tools, yt-dlp, Deno, the MCP SDK and others ........................... permissive licences (PSF, MIT, BSD, Unlicense)
+  * Python, python-docx, python-pptx, openpyxl, Pillow, NumPy, SciPy, psd-tools, the MCP SDK and others ........................... permissive licences (PSF, MIT, BSD)
 
 Because of the AGPL and GPL components, whenever you give EthicalApp to someone else you must also make the corresponding source code available to them. The complete source code of EthicalApp is installed in the "source" folder, so sharing the installed folder or this installer together with that source satisfies this.
 

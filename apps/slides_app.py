@@ -22,26 +22,27 @@ from pptx_io import (INDENT_PX, Element, Layout, Presentation, Slide, load_pptx,
                      new_slide_from_layout, save_pptx)
 from suite_common import SETTINGS_ORG, SUITE_NAME, ColorButton, make_app  # noqa: E402
 from suite_common import add_guide_action  # noqa: E402
+from i18n import N_, tr  # noqa: E402
 
 APP_NAME = "Ethical Presentation Editor"
 HANDLE = 7
 
 THEMES = {
-    "Office":   dict(bg="#FFFFFF", title="#1F1F1F", text="#404040", accent="#4472C4", tfont="Calibri Light", bfont="Calibri"),
-    "Midnight": dict(bg="#1E2761", title="#FFFFFF", text="#CADCFC", accent="#F96167", tfont="Segoe UI Semibold", bfont="Segoe UI"),
-    "Slate":    dict(bg="#2F3C4F", title="#FFFFFF", text="#E0E6ED", accent="#4FB3BF", tfont="Segoe UI Light", bfont="Segoe UI"),
-    "Forest":   dict(bg="#F4F1E8", title="#2C5F2D", text="#333333", accent="#97BC62", tfont="Georgia", bfont="Calibri"),
-    "Sunset":   dict(bg="#FFF4E6", title="#B85042", text="#4A4A4A", accent="#E07A5F", tfont="Cambria", bfont="Calibri"),
-    "Ocean":    dict(bg="#065A82", title="#FFFFFF", text="#D6EEF5", accent="#F4D35E", tfont="Calibri Light", bfont="Calibri"),
-    "Charcoal": dict(bg="#222222", title="#F5F5F5", text="#BBBBBB", accent="#FFB400", tfont="Arial Black", bfont="Arial"),
-    "Blush":    dict(bg="#FCEEF0", title="#6D2E46", text="#4D3B42", accent="#D16D8C", tfont="Georgia", bfont="Segoe UI"),
+    N_("Office"):   dict(bg="#FFFFFF", title="#1F1F1F", text="#404040", accent="#4472C4", tfont="Calibri Light", bfont="Calibri"),
+    N_("Midnight"): dict(bg="#1E2761", title="#FFFFFF", text="#CADCFC", accent="#F96167", tfont="Segoe UI Semibold", bfont="Segoe UI"),
+    N_("Slate"):    dict(bg="#2F3C4F", title="#FFFFFF", text="#E0E6ED", accent="#4FB3BF", tfont="Segoe UI Light", bfont="Segoe UI"),
+    N_("Forest"):   dict(bg="#F4F1E8", title="#2C5F2D", text="#333333", accent="#97BC62", tfont="Georgia", bfont="Calibri"),
+    N_("Sunset"):   dict(bg="#FFF4E6", title="#B85042", text="#4A4A4A", accent="#E07A5F", tfont="Cambria", bfont="Calibri"),
+    N_("Ocean"):    dict(bg="#065A82", title="#FFFFFF", text="#D6EEF5", accent="#F4D35E", tfont="Calibri Light", bfont="Calibri"),
+    N_("Charcoal"): dict(bg="#222222", title="#F5F5F5", text="#BBBBBB", accent="#FFB400", tfont="Arial Black", bfont="Arial"),
+    N_("Blush"):    dict(bg="#FCEEF0", title="#6D2E46", text="#4D3B42", accent="#D16D8C", tfont="Georgia", bfont="Segoe UI"),
 }
-SHAPES = [("Rectangle", "rect"), ("Rounded Rectangle", "roundrect"), ("Ellipse", "ellipse"),
-          ("Triangle", "triangle"), ("Right Triangle", "rttriangle"), ("Diamond", "diamond"),
-          ("Pentagon", "pentagon"), ("Hexagon", "hexagon"), ("Octagon", "octagon"), ("Star", "star5"),
-          ("Right Arrow", "rarrow"), ("Left Arrow", "larrow"), ("Up Arrow", "uarrow"), ("Down Arrow", "darrow"),
-          ("Chevron", "chevron"), ("Arrow Pentagon", "homeplate"), ("Parallelogram", "parallelogram"),
-          ("Trapezoid", "trapezoid"), ("Plus", "plus")]
+SHAPES = [(tr("Rectangle"), "rect"), (tr("Rounded Rectangle"), "roundrect"), (tr("Ellipse"), "ellipse"),
+          (tr("Triangle"), "triangle"), (tr("Right Triangle"), "rttriangle"), (tr("Diamond"), "diamond"),
+          (tr("Pentagon"), "pentagon"), (tr("Hexagon"), "hexagon"), (tr("Octagon"), "octagon"), (tr("Star"), "star5"),
+          (tr("Right Arrow"), "rarrow"), (tr("Left Arrow"), "larrow"), (tr("Up Arrow"), "uarrow"), (tr("Down Arrow"), "darrow"),
+          (tr("Chevron"), "chevron"), (tr("Arrow Pentagon"), "homeplate"), (tr("Parallelogram"), "parallelogram"),
+          (tr("Trapezoid"), "trapezoid"), (tr("Plus"), "plus")]
 
 
 # ====================================================================== drawing
@@ -250,7 +251,7 @@ def draw_prompt(p, e):
     al = e.doc.begin().blockFormat().alignment()
     va = {"t": Qt.AlignTop, "m": Qt.AlignVCenter, "b": Qt.AlignBottom}[e.anchor]
     l, t, r, b = e.insets
-    p.drawText(QRectF(l, t, e.w - l - r, e.h - t - b), (al & Qt.AlignHorizontal_Mask) | va | Qt.TextWordWrap, e.prompt)
+    p.drawText(QRectF(l, t, e.w - l - r, e.h - t - b), (al & Qt.AlignHorizontal_Mask) | va | Qt.TextWordWrap, tr(e.prompt))
     p.restore()
 
 
@@ -325,25 +326,25 @@ def builtin_layouts(pres, theme):
     bg = ("color", t["bg"])
     m = W * 0.06
 
-    def title(y, h, size=40, align=Qt.AlignLeft, anchor="b", prompt="Click to add title"):
+    def title(y, h, size=40, align=Qt.AlignLeft, anchor="b", prompt=N_("Click to add title")):
         return text_element("title", m, y, W - 2 * m, h, size, t["title"], t["tfont"], align, anchor, prompt=prompt)
 
-    def body(x, y, w, h, prompt="Click to add text"):
+    def body(x, y, w, h, prompt=N_("Click to add text")):
         return text_element("body", x, y, w, h, 24, t["text"], t["bfont"], bullets=True, prompt=prompt)
     return [
-        Layout("Title Slide", None, [], bg, [
+        Layout(N_("Title Slide"), None, [], bg, [
             title(H * 0.26, H * 0.28, 54, Qt.AlignHCenter, "b"),
             text_element("body", m * 2, H * 0.57, W - 4 * m, H * 0.16, 24, t["text"], t["bfont"], Qt.AlignHCenter,
-                         prompt="Click to add subtitle")]),
-        Layout("Title and Content", None, [], bg, [title(H * 0.05, H * 0.16), body(m, H * 0.25, W - 2 * m, H * 0.66)]),
-        Layout("Section Header", None, [], bg, [
+                         prompt=N_("Click to add subtitle"))]),
+        Layout(N_("Title and Content"), None, [], bg, [title(H * 0.05, H * 0.16), body(m, H * 0.25, W - 2 * m, H * 0.66)]),
+        Layout(N_("Section Header"), None, [], bg, [
             title(H * 0.30, H * 0.28, 48, Qt.AlignLeft, "b"),
             text_element("body", m, H * 0.60, W - 2 * m, H * 0.14, 22, t["text"], t["bfont"],
-                         prompt="Click to add text")]),
-        Layout("Two Content", None, [], bg, [title(H * 0.05, H * 0.16), body(m, H * 0.25, (W - 3 * m) / 2, H * 0.66),
+                         prompt=N_("Click to add text"))]),
+        Layout(N_("Two Content"), None, [], bg, [title(H * 0.05, H * 0.16), body(m, H * 0.25, (W - 3 * m) / 2, H * 0.66),
                                              body(m * 2 + (W - 3 * m) / 2, H * 0.25, (W - 3 * m) / 2, H * 0.66)]),
-        Layout("Title Only", None, [], bg, [title(H * 0.05, H * 0.16)]),
-        Layout("Blank", None, [], bg, []),
+        Layout(N_("Title Only"), None, [], bg, [title(H * 0.05, H * 0.16)]),
+        Layout(N_("Blank"), None, [], bg, []),
     ]
 
 
@@ -709,7 +710,7 @@ class SlideShow(QWidget):
         self.pos = next((n for n, i in enumerate(self.order) if i >= start), 0)
         self.cache = {}
         self.blank = None
-        self.setWindowTitle("Slide Show")
+        self.setWindowTitle(tr("Slide Show"))
         self.setStyleSheet("background: black;")
         self.setCursor(Qt.BlankCursor)
         self.setFocusPolicy(Qt.StrongFocus)
@@ -730,7 +731,7 @@ class SlideShow(QWidget):
         if self.pos >= len(self.order):
             p.setPen(QColor("#bbb"))
             p.setFont(QFont("Segoe UI", 16))
-            p.drawText(self.rect(), Qt.AlignCenter, "End of slide show. Click or press Esc to exit.")
+            p.drawText(self.rect(), Qt.AlignCenter, tr("End of slide show. Click or press Esc to exit."))
             return
         img = self.image(self.pos)
         size = img.size().scaled(self.size(), Qt.KeepAspectRatio)
@@ -824,7 +825,7 @@ class SlidesWindow(QMainWindow):
         self.thumbs.setContextMenuPolicy(Qt.CustomContextMenu)
         self.thumbs.customContextMenuRequested.connect(self._thumb_menu)
         self.notes = QPlainTextEdit()
-        self.notes.setPlaceholderText("Click to add speaker notes")
+        self.notes.setPlaceholderText(tr("Click to add speaker notes"))
         self.notes.textChanged.connect(self._notes_changed)
         self.notes.setMaximumHeight(160)
 
@@ -865,115 +866,116 @@ class SlidesWindow(QMainWindow):
 
     def _build_actions(self):
         mb = self.menuBar()
-        f = mb.addMenu("&File")
-        a_new = self.act("&New", self.new_file, "Ctrl+N", f)
-        a_open = self.act("&Open...", self.open_dialog, "Ctrl+O", f)
-        self.recent_menu = f.addMenu("Open &Recent")
+        f = mb.addMenu(tr("&File"))
+        a_new = self.act(tr("&New"), self.new_file, "Ctrl+N", f)
+        a_open = self.act(tr("&Open..."), self.open_dialog, "Ctrl+O", f)
+        self.recent_menu = f.addMenu(tr("Open &Recent"))
         self._refresh_recent()
         f.addSeparator()
-        a_save = self.act("&Save", self.save, "Ctrl+S", f)
-        self.act("Save &As...", self.save_as, "Ctrl+Shift+S", f)
-        a_pdf = self.act("Export as &PDF...", self.export_pdf, None, f)
-        self.act("Export Slides as &Images...", self.export_images, None, f)
-        self.act("&Print...", self.print_slides, "Ctrl+P", f)
+        a_save = self.act(tr("&Save"), self.save, "Ctrl+S", f)
+        self.act(tr("Save &As..."), self.save_as, "Ctrl+Shift+S", f)
+        a_pdf = self.act(tr("Export as &PDF..."), self.export_pdf, None, f)
+        self.act(tr("Export Slides as &Images..."), self.export_images, None, f)
+        self.act(tr("&Print..."), self.print_slides, "Ctrl+P", f)
         f.addSeparator()
-        self.act("Slide &Size...", self.slide_size, None, f)
+        self.act(tr("Slide &Size..."), self.slide_size, None, f)
         f.addSeparator()
-        self.act("E&xit", self.close, None, f)
+        self.act(tr("E&xit"), self.close, None, f)
 
-        e = mb.addMenu("&Edit")
-        a_undo = self.act("&Undo", self.undo, "Ctrl+Z", e)
-        a_redo = self.act("&Redo", self.redo, "Ctrl+Y", e)
+        e = mb.addMenu(tr("&Edit"))
+        a_undo = self.act(tr("&Undo"), self.undo, "Ctrl+Z", e)
+        a_redo = self.act(tr("&Redo"), self.redo, "Ctrl+Y", e)
         e.addSeparator()
-        self.act("Cu&t", self.cut, "Ctrl+X", e)
-        self.act("&Copy", self.copy, "Ctrl+C", e)
-        self.act("&Paste", self.paste, "Ctrl+V", e)
-        self.act("&Duplicate", self.duplicate_selected, "Ctrl+D", e)
-        self.act("De&lete", self.delete_selected, None, e)
-        self.act("Select &All", self.select_all, "Ctrl+A", e)
+        self.act(tr("Cu&t"), self.cut, "Ctrl+X", e)
+        self.act(tr("&Copy"), self.copy, "Ctrl+C", e)
+        self.act(tr("&Paste"), self.paste, "Ctrl+V", e)
+        self.act(tr("&Duplicate"), self.duplicate_selected, "Ctrl+D", e)
+        self.act(tr("De&lete"), self.delete_selected, None, e)
+        self.act(tr("Select &All"), self.select_all, "Ctrl+A", e)
 
-        sm = mb.addMenu("&Slide")
-        self.new_slide_menu = sm.addMenu("&New Slide")
-        self.act("New Slide (same layout)", lambda: self.add_slide(None), "Ctrl+M", sm)
-        self.act("D&uplicate Slide", self.duplicate_slide, None, sm)
-        self.act("&Delete Slide", self.delete_slide, None, sm)
-        self.act("&Hide / Show Slide", self.toggle_hidden, None, sm)
+        sm = mb.addMenu(tr("&Slide"))
+        self.new_slide_menu = sm.addMenu(tr("&New Slide"))
+        self.act(tr("New Slide (same layout)"), lambda: self.add_slide(None), "Ctrl+M", sm)
+        self.act(tr("D&uplicate Slide"), self.duplicate_slide, None, sm)
+        self.act(tr("&Delete Slide"), self.delete_slide, None, sm)
+        self.act(tr("&Hide / Show Slide"), self.toggle_hidden, None, sm)
         sm.addSeparator()
-        self.act("Move Slide &Up", lambda: self.move_slide(-1), None, sm)
-        self.act("Move Slide Do&wn", lambda: self.move_slide(1), None, sm)
+        self.act(tr("Move Slide &Up"), lambda: self.move_slide(-1), None, sm)
+        self.act(tr("Move Slide Do&wn"), lambda: self.move_slide(1), None, sm)
 
-        ins = mb.addMenu("&Insert")
-        a_tb = self.act("&Text Box", self.insert_textbox, None, ins)
-        a_pic = self.act("&Picture...", self.insert_picture, None, ins)
-        shp = ins.addMenu("&Shape")
+        ins = mb.addMenu(tr("&Insert"))
+        a_tb = self.act(tr("&Text Box"), self.insert_textbox, None, ins)
+        a_pic = self.act(tr("&Picture..."), self.insert_picture, None, ins)
+        shp = ins.addMenu(tr("&Shape"))
         for label, g in SHAPES:
             self.act(label, lambda _=False, g=g: self.insert_shape(g), None, shp)
         shp.addSeparator()
-        self.act("Line", lambda: self.insert_line(False), None, shp)
-        self.act("Arrow", lambda: self.insert_line(True), None, shp)
+        self.act(tr("Line"), lambda: self.insert_line(False), None, shp)
+        self.act(tr("Arrow"), lambda: self.insert_line(True), None, shp)
         self.shape_menu = shp
-        a_table = self.act("T&able...", self.insert_table, None, ins)
+        a_table = self.act(tr("T&able..."), self.insert_table, None, ins)
 
-        fm = mb.addMenu("F&ormat")
-        self.act("&Bold", lambda: self.char_toggle("bold"), "Ctrl+B", fm)
-        self.act("&Italic", lambda: self.char_toggle("italic"), "Ctrl+I", fm)
-        self.act("&Underline", lambda: self.char_toggle("underline"), "Ctrl+U", fm)
-        self.act("Bigger Text", lambda: self.grow_font(1), "Ctrl+]", fm)
-        self.act("Smaller Text", lambda: self.grow_font(-1), "Ctrl+[", fm)
+        fm = mb.addMenu(tr("F&ormat"))
+        self.act(tr("&Bold"), lambda: self.char_toggle("bold"), "Ctrl+B", fm)
+        self.act(tr("&Italic"), lambda: self.char_toggle("italic"), "Ctrl+I", fm)
+        self.act(tr("&Underline"), lambda: self.char_toggle("underline"), "Ctrl+U", fm)
+        self.act(tr("Bigger Text"), lambda: self.grow_font(1), "Ctrl+]", fm)
+        self.act(tr("Smaller Text"), lambda: self.grow_font(-1), "Ctrl+[", fm)
         fm.addSeparator()
-        self.act("Align &Left", lambda: self.align(Qt.AlignLeft), "Ctrl+L", fm)
-        self.act("&Centre", lambda: self.align(Qt.AlignHCenter), "Ctrl+E", fm)
-        self.act("Align &Right", lambda: self.align(Qt.AlignRight), "Ctrl+R", fm)
-        self.act("&Justify", lambda: self.align(Qt.AlignJustify), "Ctrl+J", fm)
-        va = fm.addMenu("&Vertical Alignment")
-        for t, v in (("Top", "t"), ("Middle", "m"), ("Bottom", "b")):
+        self.act(tr("Align &Left"), lambda: self.align(Qt.AlignLeft), "Ctrl+L", fm)
+        self.act(tr("&Centre"), lambda: self.align(Qt.AlignHCenter), "Ctrl+E", fm)
+        self.act(tr("Align &Right"), lambda: self.align(Qt.AlignRight), "Ctrl+R", fm)
+        self.act(tr("&Justify"), lambda: self.align(Qt.AlignJustify), "Ctrl+J", fm)
+        va = fm.addMenu(tr("&Vertical Alignment"))
+        for t, v in ((tr("Top"), "t"), (tr("Middle"), "m"), (tr("Bottom"), "b")):
             self.act(t, lambda _=False, v=v: self.set_anchor(v), None, va)
-        self.act("&Bullets", lambda: self.toggle_list(QTextListFormat.ListDisc), None, fm)
-        self.act("&Numbering", lambda: self.toggle_list(QTextListFormat.ListDecimal), None, fm)
+        self.act(tr("&Bullets"), lambda: self.toggle_list(QTextListFormat.ListDisc), None, fm)
+        self.act(tr("&Numbering"), lambda: self.toggle_list(QTextListFormat.ListDecimal), None, fm)
         fm.addSeparator()
-        self.act("Shape &Fill Colour...", self.pick_fill, None, fm)
-        self.act("No Fill", lambda: self.set_shape_prop("fill", None), None, fm)
-        self.act("Shape &Outline Colour...", self.pick_line, None, fm)
-        self.act("No Outline", lambda: self.set_shape_prop("line", None), None, fm)
-        self.act("Outline &Width...", self.pick_line_width, None, fm)
+        self.act(tr("Shape &Fill Colour..."), self.pick_fill, None, fm)
+        self.act(tr("No Fill"), lambda: self.set_shape_prop("fill", None), None, fm)
+        self.act(tr("Shape &Outline Colour..."), self.pick_line, None, fm)
+        self.act(tr("No Outline"), lambda: self.set_shape_prop("line", None), None, fm)
+        self.act(tr("Outline &Width..."), self.pick_line_width, None, fm)
 
-        ar = mb.addMenu("&Arrange")
-        self.act("Bring to &Front", lambda: self.reorder("front"), "Ctrl+Shift+]", ar)
-        self.act("Bring &Forward", lambda: self.reorder("forward"), None, ar)
-        self.act("Send &Backward", lambda: self.reorder("backward"), None, ar)
-        self.act("Send to Bac&k", lambda: self.reorder("back"), "Ctrl+Shift+[", ar)
+        ar = mb.addMenu(tr("&Arrange"))
+        self.act(tr("Bring to &Front"), lambda: self.reorder("front"), "Ctrl+Shift+]", ar)
+        self.act(tr("Bring &Forward"), lambda: self.reorder("forward"), None, ar)
+        self.act(tr("Send &Backward"), lambda: self.reorder("backward"), None, ar)
+        self.act(tr("Send to Bac&k"), lambda: self.reorder("back"), "Ctrl+Shift+[", ar)
         ar.addSeparator()
-        al = ar.addMenu("&Align on Slide")
-        for t, k in (("Left", "left"), ("Centre", "hcenter"), ("Right", "right"), ("Top", "top"),
-                     ("Middle", "vcenter"), ("Bottom", "bottom")):
+        al = ar.addMenu(tr("&Align on Slide"))
+        for t, k in ((tr("Left"), "left"), (tr("Centre"), "hcenter"), (tr("Right"), "right"), (tr("Top"), "top"),
+                     (tr("Middle"), "vcenter"), (tr("Bottom"), "bottom")):
             self.act(t, lambda _=False, k=k: self.align_on_slide(k), None, al)
         ar.addSeparator()
-        self.act("Rotate Right 90°", lambda: self.rotate(90), None, ar)
-        self.act("Rotate Left 90°", lambda: self.rotate(-90), None, ar)
-        self.act("Rotation...", self.rotation_dialog, None, ar)
-        self.act("Flip Horizontal", lambda: self.flip("h"), None, ar)
-        self.act("Flip Vertical", lambda: self.flip("v"), None, ar)
+        self.act(tr("Rotate Right 90°"), lambda: self.rotate(90), None, ar)
+        self.act(tr("Rotate Left 90°"), lambda: self.rotate(-90), None, ar)
+        self.act(tr("Rotation..."), self.rotation_dialog, None, ar)
+        self.act(tr("Flip Horizontal"), lambda: self.flip("h"), None, ar)
+        self.act(tr("Flip Vertical"), lambda: self.flip("v"), None, ar)
 
-        dm = mb.addMenu("&Design")
-        th = dm.addMenu("&Theme (apply to all slides)")
+        dm = mb.addMenu(tr("&Design"))
+        th = dm.addMenu(tr("&Theme (apply to all slides)"))
         for name in THEMES:
-            self.act(name, lambda _=False, n=name: self.apply_theme(n), None, th)
-        self.act("Slide &Background Colour...", lambda: self.pick_background(False), None, dm)
-        self.act("Background Colour for &All Slides...", lambda: self.pick_background(True), None, dm)
-        self.act("Background &Picture...", self.background_picture, None, dm)
+            self.act(tr(name), lambda _=False, n=name: self.apply_theme(n), None, th)
+        self.act(tr("Slide &Background Colour..."), lambda: self.pick_background(False), None, dm)
+        self.act(tr("Background Colour for &All Slides..."), lambda: self.pick_background(True), None, dm)
+        self.act(tr("Background &Picture..."), self.background_picture, None, dm)
 
-        sh = mb.addMenu("Slide S&how")
-        a_show = self.act("From &Beginning", lambda: self.slideshow(0), "F5", sh)
-        self.act("From &Current Slide", lambda: self.slideshow(self.index), "Shift+F5", sh)
-        h = mb.addMenu("&Help")
+        sh = mb.addMenu(tr("Slide S&how"))
+        a_show = self.act(tr("From &Beginning"), lambda: self.slideshow(0), "F5", sh)
+        self.act(tr("From &Current Slide"), lambda: self.slideshow(self.index), "Shift+F5", sh)
+        h = mb.addMenu(tr("&Help"))
         add_guide_action(self, h, "slides-basics")
-        self.act("Slide Show &Keys", lambda: QMessageBox.information(
-            self, APP_NAME, "Next: Space, →, ↓, Page Down, Enter, click\nPrevious: ←, ↑, Page Up, Backspace,"
-            " right-click\nBlack screen: B    White screen: W\nFirst/last: Home / End    Exit: Esc"), None, h)
-        self.act("&About", lambda: QMessageBox.about(
-            self, APP_NAME, f"<b>{APP_NAME}</b><br>Part of {SUITE_NAME}."), None, h)
+        self.act(tr("Slide Show &Keys"), lambda: QMessageBox.information(
+            self, APP_NAME, tr("Next: Space, →, ↓, Page Down, Enter, click\nPrevious: ←, ↑, Page Up, Backspace, "
+                               "right-click\nBlack screen: B    White screen: W\nFirst/last: Home / End    Exit: "
+                               "Esc")), None, h)
+        self.act(tr("&About"), lambda: QMessageBox.about(
+            self, APP_NAME, tr("<b>{APP_NAME}</b><br>Part of {SUITE_NAME}.").format(APP_NAME=APP_NAME, SUITE_NAME=SUITE_NAME)), None, h)
 
-        tb = QToolBar("Main")
+        tb = QToolBar(tr("Main"))
         tb.setObjectName("main")
         self.addToolBar(tb)
         for a in (a_new, a_open, a_save, a_pdf):
@@ -983,7 +985,7 @@ class SlidesWindow(QMainWindow):
         tb.addAction(a_redo)
         tb.addSeparator()
         nb = QToolButton()
-        nb.setText("New Slide")
+        nb.setText(tr("New Slide"))
         nb.setPopupMode(QToolButton.MenuButtonPopup)
         nb.setMenu(self.new_slide_menu)
         nb.clicked.connect(lambda: self.add_slide(None))
@@ -991,17 +993,17 @@ class SlidesWindow(QMainWindow):
         tb.addAction(a_tb)
         tb.addAction(a_pic)
         sb = QToolButton()
-        sb.setText("Shapes")
+        sb.setText(tr("Shapes"))
         sb.setPopupMode(QToolButton.InstantPopup)
         sb.setMenu(self.shape_menu)
         tb.addWidget(sb)
         tb.addAction(a_table)
         tb.addSeparator()
         tb.addAction(a_show)
-        a_show.setIconText("▶ Present")
+        a_show.setIconText(tr("▶ Present"))
 
         self.addToolBarBreak()
-        ft = QToolBar("Format")
+        ft = QToolBar(tr("Format"))
         ft.setObjectName("format")
         self.addToolBar(ft)
         self.font_box = QFontComboBox()
@@ -1025,26 +1027,26 @@ class SlidesWindow(QMainWindow):
             ft.addAction(a)
         ft.addAction(self.act("A+", lambda: self.grow_font(1)))
         ft.addAction(self.act("A-", lambda: self.grow_font(-1)))
-        self.text_color = ColorButton(QColor("#C00000"), "Text colour")
+        self.text_color = ColorButton(QColor("#C00000"), tr("Text colour"))
         self.text_color.colorChanged.connect(lambda c: self.merge_char(color=c))
-        ft.addAction(self.act("A", lambda: self.merge_char(color=self.text_color.color()), tip="Apply text colour"))
+        ft.addAction(self.act("A", lambda: self.merge_char(color=self.text_color.color()), tip=tr("Apply text colour")))
         ft.addWidget(self.text_color)
         ft.addSeparator()
-        for t, al in (("Left", Qt.AlignLeft), ("Centre", Qt.AlignHCenter), ("Right", Qt.AlignRight)):
+        for t, al in ((tr("Left"), Qt.AlignLeft), (tr("Centre"), Qt.AlignHCenter), (tr("Right"), Qt.AlignRight)):
             ft.addAction(self.act(t, lambda _=False, al=al: self.align(al)))
-        ft.addAction(self.act("• List", lambda: self.toggle_list(QTextListFormat.ListDisc)))
-        ft.addAction(self.act("1. List", lambda: self.toggle_list(QTextListFormat.ListDecimal)))
+        ft.addAction(self.act(tr("• List"), lambda: self.toggle_list(QTextListFormat.ListDisc)))
+        ft.addAction(self.act(tr("1. List"), lambda: self.toggle_list(QTextListFormat.ListDecimal)))
         ft.addSeparator()
-        ft.addWidget(QLabel(" Fill "))
-        self.fill_color = ColorButton(QColor("#4472C4"), "Shape fill")
+        ft.addWidget(QLabel(tr(" Fill ")))
+        self.fill_color = ColorButton(QColor("#4472C4"), tr("Shape fill"))
         self.fill_color.colorChanged.connect(lambda c: self.set_shape_prop("fill", c.name().upper()))
         ft.addWidget(self.fill_color)
-        ft.addWidget(QLabel(" Outline "))
-        self.line_color = ColorButton(QColor("#2F528F"), "Shape outline")
+        ft.addWidget(QLabel(tr(" Outline ")))
+        self.line_color = ColorButton(QColor("#2F528F"), tr("Shape outline"))
         self.line_color.colorChanged.connect(lambda c: self.set_shape_prop("line", c.name().upper()))
         ft.addWidget(self.line_color)
-        ft.addAction(self.act("Front", lambda: self.reorder("front")))
-        ft.addAction(self.act("Back", lambda: self.reorder("back")))
+        ft.addAction(self.act(tr("Front"), lambda: self.reorder("front")))
+        ft.addAction(self.act(tr("Back"), lambda: self.reorder("back")))
         for w in (self.font_box, self.size_box):
             w.setFocusPolicy(Qt.ClickFocus)
 
@@ -1070,7 +1072,7 @@ class SlidesWindow(QMainWindow):
     def _rebuild_layout_menu(self):
         self.new_slide_menu.clear()
         for i, lay in enumerate(self.pres.layouts):
-            self.new_slide_menu.addAction(lay.name, lambda i=i: self.add_slide(i))
+            self.new_slide_menu.addAction(tr(lay.name), lambda i=i: self.add_slide(i))
 
     def update_title(self):
         name = os.path.basename(self.path) if self.path else "Presentation1"
@@ -1085,7 +1087,7 @@ class SlidesWindow(QMainWindow):
         self.finish_editing()
         if not self.modified:
             return True
-        r = QMessageBox.question(self, APP_NAME, "Save changes to this presentation?",
+        r = QMessageBox.question(self, APP_NAME, tr("Save changes to this presentation?"),
                                  QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
         if r == QMessageBox.Save:
             return self.save()
@@ -1100,14 +1102,15 @@ class SlidesWindow(QMainWindow):
     def new_file(self):
         if not self.maybe_save():
             return
-        name, ok = QInputDialog.getItem(self, "New Presentation", "Theme:", list(THEMES), 0, False)
+        label, ok = QInputDialog.getItem(self, tr("New Presentation"), tr("Theme:"), [tr(n) for n in THEMES], 0, False)
+        name = next((n for n in THEMES if tr(n) == label), "Office")
         if ok:
             self.lossy = []
             self.load_presentation(new_presentation(name), None)
 
     def open_dialog(self):
-        f, _ = QFileDialog.getOpenFileName(self, "Open", self.settings.value("last_dir", ""),
-                                           "PowerPoint (*.pptx);;All files (*)")
+        f, _ = QFileDialog.getOpenFileName(self, tr("Open"), self.settings.value("last_dir", ""),
+                                           tr("PowerPoint (*.pptx);;All files (*)"))
         if f:
             self.open_path(f)
 
@@ -1115,14 +1118,15 @@ class SlidesWindow(QMainWindow):
         if not self.maybe_save():
             return
         if path.lower().endswith(".ppt"):
-            QMessageBox.information(self, APP_NAME, "The old .ppt format isn't supported. Please save it as .pptx first.")
+            QMessageBox.information(self, APP_NAME, tr("The old .ppt format isn't supported. Please save it as "
+                                                       ".pptx first."))
             return
         QGuiApplication.setOverrideCursor(Qt.WaitCursor)
         try:
             pres, warnings = load_pptx(path)
         except Exception as ex:
             QGuiApplication.restoreOverrideCursor()
-            QMessageBox.critical(self, APP_NAME, f"Could not open the file:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Could not open the file:\n{ex}").format(ex=ex))
             return
         QGuiApplication.restoreOverrideCursor()
         self.lossy = warnings
@@ -1130,16 +1134,18 @@ class SlidesWindow(QMainWindow):
         self._add_recent(path)
         if warnings:
             QMessageBox.information(
-                self, APP_NAME, "This presentation contains " + ", ".join(warnings) + ".\n\n"
-                f"{APP_NAME} can't show or keep these yet - they will be missing if you save over the "
-                "original. Use File > Save As to keep the original file unchanged.")
+                self, APP_NAME, tr("This presentation contains ") + ", ".join(warnings) + tr(".\n\n{APP_NAME} can't show or keep "
+                                                                                         "these yet - they will be missing if "
+                                                                                         "you save over the original. Use File "
+                                                                                         "> Save As to keep the original file "
+                                                                                         "unchanged.").format(APP_NAME=APP_NAME))
 
     def save(self):
         if not self.path:
             return self.save_as()
         if self.lossy:
-            r = QMessageBox.question(self, APP_NAME, "Saving over the original will remove: " + ", ".join(self.lossy)
-                                     + ".\nSave anyway? (No = Save As instead.)",
+            r = QMessageBox.question(self, APP_NAME, tr("Saving over the original will remove: ") + ", ".join(self.lossy)
+                                     + tr(".\nSave anyway? (No = Save As instead.)"),
                                      QMessageBox.Yes | QMessageBox.No | QMessageBox.Cancel)
             if r == QMessageBox.No:
                 return self.save_as()
@@ -1149,7 +1155,7 @@ class SlidesWindow(QMainWindow):
 
     def save_as(self):
         start = self.path or os.path.join(self.settings.value("last_dir", ""), "Presentation1.pptx")
-        f, _ = QFileDialog.getSaveFileName(self, "Save As", start, "PowerPoint (*.pptx)")
+        f, _ = QFileDialog.getSaveFileName(self, tr("Save As"), start, tr("PowerPoint (*.pptx)"))
         if not f:
             return False
         if not f.lower().endswith(".pptx"):
@@ -1164,16 +1170,16 @@ class SlidesWindow(QMainWindow):
         try:
             save_pptx(self.pres, path)
         except PermissionError:
-            QMessageBox.critical(self, APP_NAME, "Could not save - the file may be open in another program.")
+            QMessageBox.critical(self, APP_NAME, tr("Could not save - the file may be open in another program."))
             return False
         except Exception as ex:
-            QMessageBox.critical(self, APP_NAME, f"Could not save:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Could not save:\n{ex}").format(ex=ex))
             return False
         self.path = path
         self.modified = False
         self.update_title()
         self._add_recent(path)
-        self.statusBar().showMessage(f"Saved {path}", 4000)
+        self.statusBar().showMessage(tr("Saved {path}").format(path=path), 4000)
         return True
 
     def _add_recent(self, path):
@@ -1319,7 +1325,7 @@ class SlidesWindow(QMainWindow):
         self.thumbs.blockSignals(True)
         self.thumbs.setCurrentRow(i)
         self.thumbs.blockSignals(False)
-        self.slide_label.setText(f"  Slide {i + 1} of {len(self.pres.slides)}  ")
+        self.slide_label.setText(tr("  Slide {v} of {v2}  ").format(v=i + 1, v2=len(self.pres.slides)))
         self.scene.update()
 
     def _discard_item(self, it):
@@ -1354,11 +1360,11 @@ class SlidesWindow(QMainWindow):
     def _thumb_menu(self, pos):
         m = QMenu(self)
         m.addMenu(self.new_slide_menu)
-        m.addAction("Duplicate Slide", self.duplicate_slide)
-        m.addAction("Delete Slide", self.delete_slide)
-        m.addAction("Hide / Show Slide", self.toggle_hidden)
-        m.addAction("Move Up", lambda: self.move_slide(-1))
-        m.addAction("Move Down", lambda: self.move_slide(1))
+        m.addAction(tr("Duplicate Slide"), self.duplicate_slide)
+        m.addAction(tr("Delete Slide"), self.delete_slide)
+        m.addAction(tr("Hide / Show Slide"), self.toggle_hidden)
+        m.addAction(tr("Move Up"), lambda: self.move_slide(-1))
+        m.addAction(tr("Move Down"), lambda: self.move_slide(1))
         m.exec(self.thumbs.mapToGlobal(pos))
 
     def add_slide(self, layout_index):
@@ -1386,7 +1392,7 @@ class SlidesWindow(QMainWindow):
 
     def delete_slide(self):
         if len(self.pres.slides) == 1:
-            QMessageBox.information(self, APP_NAME, "A presentation needs at least one slide.")
+            QMessageBox.information(self, APP_NAME, tr("A presentation needs at least one slide."))
             return
         self.push_undo()
         del self.pres.slides[self.index]
@@ -1631,20 +1637,20 @@ class SlidesWindow(QMainWindow):
 
     def pick_fill(self):
         from PySide6.QtWidgets import QColorDialog
-        c = QColorDialog.getColor(self.fill_color.color(), self, "Shape fill")
+        c = QColorDialog.getColor(self.fill_color.color(), self, tr("Shape fill"))
         if c.isValid():
             self.fill_color.setColor(c)
             self.set_shape_prop("fill", c.name().upper())
 
     def pick_line(self):
         from PySide6.QtWidgets import QColorDialog
-        c = QColorDialog.getColor(self.line_color.color(), self, "Outline colour")
+        c = QColorDialog.getColor(self.line_color.color(), self, tr("Outline colour"))
         if c.isValid():
             self.line_color.setColor(c)
             self.set_shape_prop("line", c.name().upper())
 
     def pick_line_width(self):
-        w, ok = QInputDialog.getDouble(self, "Outline Width", "Width (points):", 1, 0.25, 50, 2)
+        w, ok = QInputDialog.getDouble(self, tr("Outline Width"), tr("Width (points):"), 1, 0.25, 50, 2)
         if ok:
             self.set_shape_prop("line_w", w * 96 / 72)
 
@@ -1688,15 +1694,15 @@ class SlidesWindow(QMainWindow):
 
     def insert_picture(self, path=None):
         if not path:
-            path, _ = QFileDialog.getOpenFileName(self, "Insert Picture", self.settings.value("last_dir", ""),
-                                                  "Images (*.png *.jpg *.jpeg *.gif *.bmp)")
+            path, _ = QFileDialog.getOpenFileName(self, tr("Insert Picture"), self.settings.value("last_dir", ""),
+                                                  tr("Images (*.png *.jpg *.jpeg *.gif *.bmp)"))
         if not path:
             return
         with open(path, "rb") as fh:
             data = fh.read()
         img = QImage.fromData(data)
         if img.isNull():
-            QMessageBox.warning(self, APP_NAME, "Couldn't read that image.")
+            QMessageBox.warning(self, APP_NAME, tr("Couldn't read that image."))
             return
         W, H = self.pres.width, self.pres.height
         scale = min(1.0, W * 0.6 / img.width(), H * 0.6 / img.height())
@@ -1705,15 +1711,15 @@ class SlidesWindow(QMainWindow):
 
     def insert_table(self):
         dlg = QDialog(self)
-        dlg.setWindowTitle("Insert Table")
+        dlg.setWindowTitle(tr("Insert Table"))
         rows, cols = QSpinBox(), QSpinBox()
         rows.setRange(1, 30)
         cols.setRange(1, 15)
         rows.setValue(3)
         cols.setValue(3)
         form = QFormLayout(dlg)
-        form.addRow("Rows:", rows)
-        form.addRow("Columns:", cols)
+        form.addRow(tr("Rows:"), rows)
+        form.addRow(tr("Columns:"), cols)
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(dlg.accept)
         bb.rejected.connect(dlg.reject)
@@ -1870,7 +1876,7 @@ class SlidesWindow(QMainWindow):
         sel = self.selected_items()
         if not sel:
             return
-        v, ok = QInputDialog.getDouble(self, "Rotation", "Degrees:", sel[0].el.rot, -360, 360, 1)
+        v, ok = QInputDialog.getDouble(self, tr("Rotation"), tr("Degrees:"), sel[0].el.rot, -360, 360, 1)
         if ok:
             self.push_undo()
             for it in sel:
@@ -1915,7 +1921,7 @@ class SlidesWindow(QMainWindow):
     def pick_background(self, all_slides):
         from PySide6.QtWidgets import QColorDialog
         cur = QColor(self.slide.bg[1]) if self.slide.bg and self.slide.bg[0] == "color" else QColor("white")
-        c = QColorDialog.getColor(cur, self, "Background colour")
+        c = QColorDialog.getColor(cur, self, tr("Background colour"))
         if not c.isValid():
             return
         self.push_undo()
@@ -1926,13 +1932,13 @@ class SlidesWindow(QMainWindow):
         self.goto_slide(self.index, force=True)
 
     def background_picture(self):
-        f, _ = QFileDialog.getOpenFileName(self, "Background Picture", self.settings.value("last_dir", ""),
-                                           "Images (*.png *.jpg *.jpeg *.bmp)")
+        f, _ = QFileDialog.getOpenFileName(self, tr("Background Picture"), self.settings.value("last_dir", ""),
+                                           tr("Images (*.png *.jpg *.jpeg *.bmp)"))
         if not f:
             return
         with open(f, "rb") as fh:
             data = fh.read()
-        r = QMessageBox.question(self, APP_NAME, "Use this picture on all slides?",
+        r = QMessageBox.question(self, APP_NAME, tr("Use this picture on all slides?"),
                                  QMessageBox.Yes | QMessageBox.No | QMessageBox.Cancel)
         if r == QMessageBox.Cancel:
             return
@@ -1944,10 +1950,10 @@ class SlidesWindow(QMainWindow):
         self.goto_slide(self.index, force=True)
 
     def slide_size(self):
-        options = ["Widescreen 16:9", "Standard 4:3", "A4 Paper", "Square 1:1"]
+        options = [tr("Widescreen 16:9"), tr("Standard 4:3"), tr("A4 Paper"), tr("Square 1:1")]
         sizes = [(1280, 720), (960, 720), (1123, 794), (720, 720)]
         cur = next((i for i, s in enumerate(sizes) if abs(s[0] - self.pres.width) < 2 and abs(s[1] - self.pres.height) < 2), 0)
-        name, ok = QInputDialog.getItem(self, "Slide Size", "Size:", options, cur, False)
+        name, ok = QInputDialog.getItem(self, tr("Slide Size"), tr("Size:"), options, cur, False)
         if not ok:
             return
         w, h = sizes[options.index(name)]
@@ -1982,7 +1988,7 @@ class SlidesWindow(QMainWindow):
     def export_pdf(self):
         self.finish_editing()
         start = os.path.splitext(self.path)[0] + ".pdf" if self.path else "Presentation1.pdf"
-        f, _ = QFileDialog.getSaveFileName(self, "Export as PDF", start, "PDF files (*.pdf)")
+        f, _ = QFileDialog.getSaveFileName(self, tr("Export as PDF"), start, tr("PDF files (*.pdf)"))
         if not f:
             return
         if not f.lower().endswith(".pdf"):
@@ -2001,16 +2007,16 @@ class SlidesWindow(QMainWindow):
                 render_slide(p, self.pres, s, QRectF(0, 0, w.width(), w.height()))
         finally:
             p.end()
-        self.statusBar().showMessage(f"Exported {f}", 5000)
+        self.statusBar().showMessage(tr("Exported {f}").format(f=f), 5000)
 
     def export_images(self):
-        folder = QFileDialog.getExistingDirectory(self, "Folder for the slide images")
+        folder = QFileDialog.getExistingDirectory(self, tr("Folder for the slide images"))
         if not folder:
             return
         base = os.path.splitext(os.path.basename(self.path or "Presentation1"))[0]
         for n, s in enumerate(self._visible_slides()):
             slide_image(self.pres, s, 1920).save(os.path.join(folder, f"{base}_slide{n + 1}.png"))
-        self.statusBar().showMessage(f"Saved {len(self._visible_slides())} images to {folder}", 5000)
+        self.statusBar().showMessage(tr("Saved {v} images to {folder}").format(v=len(self._visible_slides()), folder=folder), 5000)
 
     def print_slides(self):
         printer = QPrinter(QPrinter.HighResolution)

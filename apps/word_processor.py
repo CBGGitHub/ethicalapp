@@ -1,6 +1,7 @@
 """Word Processor - write and edit documents; opens and saves real Word (.docx) files."""
 import datetime
 import os
+import re
 import sys
 import uuid
 
@@ -23,15 +24,18 @@ from docx_io import (HEADING_LOOK, PX_PER_PT, TITLE_PROP, PageSetup, load_docx, 
                      save_docx)
 from suite_common import SETTINGS_ORG, SUITE_NAME, ColorButton, make_app  # noqa: E402
 from suite_common import add_guide_action  # noqa: E402
+from i18n import tr  # noqa: E402
 
 APP_NAME = "Ethical Document Editor"
-OPEN_FILTER = ("All supported (*.docx *.html *.htm *.md *.txt);;Word documents (*.docx);;"
-               "Web pages (*.html *.htm);;Markdown (*.md);;Plain text (*.txt);;All files (*)")
-SAVE_FILTER = ("Word document (*.docx);;OpenDocument text (*.odt);;Web page (*.html);;"
-               "Markdown (*.md);;Plain text (*.txt)")
-STYLES = ["Normal", "Title", "Heading 1", "Heading 2", "Heading 3", "Heading 4"]
-PAGE_SIZES = {"Letter (8.5 x 11 in)": (8.5, 11), "Legal (8.5 x 14 in)": (8.5, 14),
-              "A4 (210 x 297 mm)": (8.27, 11.69), "A5 (148 x 210 mm)": (5.83, 8.27)}
+OPEN_FILTER = ";;".join([tr("All supported") + " (*.docx *.html *.htm *.md *.txt)", tr("Word documents") + " (*.docx)",
+                         tr("Web pages") + " (*.html *.htm)", "Markdown (*.md)", tr("Plain text") + " (*.txt)",
+                         tr("All files") + " (*)"])
+SAVE_FILTER = ";;".join([tr("Word document") + " (*.docx)", tr("OpenDocument text") + " (*.odt)",
+                         tr("Web page") + " (*.html)", "Markdown (*.md)", tr("Plain text") + " (*.txt)"])
+STYLES = ["Normal", "Title", "Heading 1", "Heading 2", "Heading 3", "Heading 4"]      # internal names (Word's)
+STYLE_LABELS = [tr("Normal"), tr("Title"), tr("Heading 1"), tr("Heading 2"), tr("Heading 3"), tr("Heading 4")]
+PAGE_SIZES = {tr("Letter (8.5 x 11 in)"): (8.5, 11), tr("Legal (8.5 x 14 in)"): (8.5, 14),
+              tr("A4 (210 x 297 mm)"): (8.27, 11.69), tr("A5 (148 x 210 mm)"): (5.83, 8.27)}
 BULLET_CYCLE = [QTextListFormat.ListDisc, QTextListFormat.ListCircle, QTextListFormat.ListSquare]
 NUMBER_CYCLE = [QTextListFormat.ListDecimal, QTextListFormat.ListLowerAlpha,
                 QTextListFormat.ListLowerRoman]
@@ -200,7 +204,7 @@ class PageEditor(QTextEdit):
         href = self.anchorAt(e.position().toPoint())
         self.viewport().setCursor(Qt.PointingHandCursor if href and e.modifiers() & Qt.ControlModifier
                                   else Qt.IBeamCursor)
-        self.setToolTip(f"{href}\nCtrl+Click to open" if href else "")
+        self.setToolTip(tr("{href}\nCtrl+Click to open").format(href=href) if href else "")
 
     # ---- paste / drop images
     def canInsertFromMimeData(self, src):
@@ -226,13 +230,13 @@ class PageEditor(QTextEdit):
             self.setTextCursor(c)
         menu.addSeparator()
         if self.win.image_at_cursor() is not None:
-            menu.addAction("Resize Image...", self.win.resize_image)
+            menu.addAction(tr("Resize Image..."), self.win.resize_image)
         if self.textCursor().currentTable():
             menu.addMenu(self.win.table_menu)
         href = self.anchorAt(e.pos())
         if href:
-            menu.addAction("Open Link", lambda: QDesktopServices.openUrl(QUrl(href)))
-            menu.addAction("Remove Link", self.win.remove_link)
+            menu.addAction(tr("Open Link"), lambda: QDesktopServices.openUrl(QUrl(href)))
+            menu.addAction(tr("Remove Link"), self.win.remove_link)
         menu.addMenu(self.win.paragraph_menu)
         menu.exec(e.globalPos())
 
@@ -242,51 +246,51 @@ class PageEditor(QTextEdit):
 class PageSetupDialog(QDialog):
     def __init__(self, parent, setup):
         super().__init__(parent)
-        self.setWindowTitle("Page Setup")
+        self.setWindowTitle(tr("Page Setup"))
         self.size = QComboBox()
-        self.size.addItems(list(PAGE_SIZES) + ["Custom"])
+        self.size.addItems(list(PAGE_SIZES) + [tr("Custom")])
         self.w = QDoubleSpinBox()
         self.h = QDoubleSpinBox()
         for s in (self.w, self.h):
             s.setRange(2, 40)
-            s.setSuffix(" in")
+            s.setSuffix(tr(" in"))
             s.setSingleStep(0.1)
-        self.landscape = QCheckBox("Landscape")
+        self.landscape = QCheckBox(tr("Landscape"))
         portrait = (min(setup.width_in, setup.height_in), max(setup.width_in, setup.height_in))
         self.landscape.setChecked(setup.width_in > setup.height_in)
         self.w.setValue(portrait[0])
         self.h.setValue(portrait[1])
-        match = next((k for k, v in PAGE_SIZES.items()
-                      if abs(v[0] - portrait[0]) < 0.05 and abs(v[1] - portrait[1]) < 0.05), "Custom")
-        self.size.setCurrentText(match)
-        self.size.currentTextChanged.connect(self._size_changed)
+        match = next((i for i, v in enumerate(PAGE_SIZES.values())
+                      if abs(v[0] - portrait[0]) < 0.05 and abs(v[1] - portrait[1]) < 0.05), len(PAGE_SIZES))
+        self.size.setCurrentIndex(match)
+        self.size.currentIndexChanged.connect(self._size_changed)
         self.margins = []
         mg = QGridLayout()
-        for i, (label, val) in enumerate((("Top", setup.margin_top), ("Bottom", setup.margin_bottom),
-                                          ("Left", setup.margin_left), ("Right", setup.margin_right))):
+        for i, (label, val) in enumerate(((tr("Top"), setup.margin_top), (tr("Bottom"), setup.margin_bottom),
+                                          (tr("Left"), setup.margin_left), (tr("Right"), setup.margin_right))):
             s = QDoubleSpinBox()
             s.setRange(0, 5)
             s.setSingleStep(0.1)
-            s.setSuffix(" in")
+            s.setSuffix(tr(" in"))
             s.setValue(val)
             self.margins.append(s)
             mg.addWidget(QLabel(label), i // 2, (i % 2) * 2)
             mg.addWidget(s, i // 2, (i % 2) * 2 + 1)
         self.header = QLineEdit(setup.header)
         self.footer = QLineEdit(setup.footer)
-        self.pagenum = QCheckBox("Show page numbers (bottom right)")
+        self.pagenum = QCheckBox(tr("Show page numbers (bottom right)"))
         self.pagenum.setChecked(setup.page_numbers)
         form = QFormLayout()
-        form.addRow("Paper size:", self.size)
+        form.addRow(tr("Paper size:"), self.size)
         row = QHBoxLayout()
         row.addWidget(self.w)
         row.addWidget(QLabel("x"))
         row.addWidget(self.h)
-        form.addRow("Size:", row)
+        form.addRow(tr("Size:"), row)
         form.addRow("", self.landscape)
-        form.addRow("Margins:", mg)
-        form.addRow("Header:", self.header)
-        form.addRow("Footer:", self.footer)
+        form.addRow(tr("Margins:"), mg)
+        form.addRow(tr("Header:"), self.header)
+        form.addRow(tr("Footer:"), self.footer)
         form.addRow("", self.pagenum)
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(self.accept)
@@ -295,10 +299,11 @@ class PageSetupDialog(QDialog):
         lay.addLayout(form)
         lay.addWidget(bb)
 
-    def _size_changed(self, name):
-        if name in PAGE_SIZES:
-            self.w.setValue(PAGE_SIZES[name][0])
-            self.h.setValue(PAGE_SIZES[name][1])
+    def _size_changed(self, i):
+        if 0 <= i < len(PAGE_SIZES):
+            w, h = list(PAGE_SIZES.values())[i]
+            self.w.setValue(w)
+            self.h.setValue(h)
 
     def result_setup(self):
         w, h = self.w.value(), self.h.value()
@@ -315,20 +320,20 @@ class FindReplaceDialog(QDialog):
     def __init__(self, win):
         super().__init__(win)
         self.win = win
-        self.setWindowTitle("Find and Replace")
+        self.setWindowTitle(tr("Find and Replace"))
         self.find = QLineEdit()
         self.repl = QLineEdit()
-        self.case = QCheckBox("Match case")
-        self.whole = QCheckBox("Whole words only")
+        self.case = QCheckBox(tr("Match case"))
+        self.whole = QCheckBox(tr("Whole words only"))
         form = QFormLayout()
-        form.addRow("Find:", self.find)
-        form.addRow("Replace with:", self.repl)
+        form.addRow(tr("Find:"), self.find)
+        form.addRow(tr("Replace with:"), self.repl)
         form.addRow("", self.case)
         form.addRow("", self.whole)
         self.info = QLabel("")
         btns = QHBoxLayout()
-        for text, slot in (("Find Next", self.find_next), ("Replace", self.replace),
-                           ("Replace All", self.replace_all), ("Close", self.close)):
+        for text, slot in ((tr("Find Next"), self.find_next), (tr("Replace"), self.replace),
+                           (tr("Replace All"), self.replace_all), (tr("Close"), self.close)):
             b = QPushButton(text)
             b.clicked.connect(slot)
             btns.addWidget(b)
@@ -355,7 +360,7 @@ class FindReplaceDialog(QDialog):
         if c.isNull():
             c = ed.document().find(text, QTextCursor(ed.document()), self.flags())
         if c.isNull():
-            self.info.setText("Not found.")
+            self.info.setText(tr("Not found."))
             return False
         self.info.setText("")
         ed.setTextCursor(c)
@@ -387,7 +392,7 @@ class FindReplaceDialog(QDialog):
             c.insertText(self.repl.text())
             n += 1
         edit.endEditBlock()
-        self.info.setText(f"Replaced {n} occurrence(s).")
+        self.info.setText(tr("Replaced {n} occurrence(s).").format(n=n))
 
 
 # ---------------------------------------------------------------- main window
@@ -446,121 +451,121 @@ class WordProcessor(QMainWindow):
     def _build_actions(self):
         ed = self.editor
         mb = self.menuBar()
-        f = mb.addMenu("&File")
-        a_new = self.act("&New", self.new_file, "Ctrl+N", f)
-        a_open = self.act("&Open...", self.open_dialog, "Ctrl+O", f)
-        self.recent_menu = f.addMenu("Open &Recent")
+        f = mb.addMenu(tr("&File"))
+        a_new = self.act(tr("&New"), self.new_file, "Ctrl+N", f)
+        a_open = self.act(tr("&Open..."), self.open_dialog, "Ctrl+O", f)
+        self.recent_menu = f.addMenu(tr("Open &Recent"))
         self._refresh_recent()
         f.addSeparator()
-        a_save = self.act("&Save", self.save, "Ctrl+S", f)
-        self.act("Save &As...", self.save_as, "Ctrl+Shift+S", f)
-        a_pdf = self.act("Export as &PDF...", self.export_pdf, None, f)
+        a_save = self.act(tr("&Save"), self.save, "Ctrl+S", f)
+        self.act(tr("Save &As..."), self.save_as, "Ctrl+Shift+S", f)
+        a_pdf = self.act(tr("Export as &PDF..."), self.export_pdf, None, f)
         f.addSeparator()
-        self.act("Page Set&up...", self.page_setup, None, f)
-        self.act("Print Pre&view...", self.print_preview, None, f)
-        a_print = self.act("&Print...", self.print_doc, "Ctrl+P", f)
+        self.act(tr("Page Set&up..."), self.page_setup, None, f)
+        self.act(tr("Print Pre&view..."), self.print_preview, None, f)
+        a_print = self.act(tr("&Print..."), self.print_doc, "Ctrl+P", f)
         f.addSeparator()
-        self.act("E&xit", self.close, None, f)
+        self.act(tr("E&xit"), self.close, None, f)
 
-        e = mb.addMenu("&Edit")
-        a_undo = self.act("&Undo", ed.undo, "Ctrl+Z", e)
-        a_redo = self.act("&Redo", ed.redo, "Ctrl+Y", e)
+        e = mb.addMenu(tr("&Edit"))
+        a_undo = self.act(tr("&Undo"), ed.undo, "Ctrl+Z", e)
+        a_redo = self.act(tr("&Redo"), ed.redo, "Ctrl+Y", e)
         e.addSeparator()
-        self.act("Cu&t", ed.cut, "Ctrl+X", e)
-        self.act("&Copy", ed.copy, "Ctrl+C", e)
-        self.act("&Paste", ed.paste, "Ctrl+V", e)
-        self.act("Paste as Plain &Text", self.paste_plain, "Ctrl+Shift+V", e)
-        self.act("Select &All", ed.selectAll, "Ctrl+A", e)
+        self.act(tr("Cu&t"), ed.cut, "Ctrl+X", e)
+        self.act(tr("&Copy"), ed.copy, "Ctrl+C", e)
+        self.act(tr("&Paste"), ed.paste, "Ctrl+V", e)
+        self.act(tr("Paste as Plain &Text"), self.paste_plain, "Ctrl+Shift+V", e)
+        self.act(tr("Select &All"), ed.selectAll, "Ctrl+A", e)
         e.addSeparator()
-        self.act("&Find and Replace...", self.show_find, "Ctrl+F", e)
-        self.act("Find &Next", lambda: self.find_dialog and self.find_dialog.find_next(), "F3", e)
-        self.act("Rep&lace...", self.show_find, "Ctrl+H", e)
+        self.act(tr("&Find and Replace..."), self.show_find, "Ctrl+F", e)
+        self.act(tr("Find &Next"), lambda: self.find_dialog and self.find_dialog.find_next(), "F3", e)
+        self.act(tr("Rep&lace..."), self.show_find, "Ctrl+H", e)
 
-        ins = mb.addMenu("&Insert")
-        self.act("&Picture...", self.insert_image_dialog, None, ins)
-        a_table = self.act("&Table...", self.insert_table, None, ins)
-        self.act("&Link...", self.insert_link, "Ctrl+K", ins)
-        self.act("Page &Break", self.insert_page_break, "Ctrl+Return", ins)
-        self.act("&Date and Time", self.insert_date, None, ins)
-        self.act("Horizontal &Line", self.insert_hline, None, ins)
+        ins = mb.addMenu(tr("&Insert"))
+        self.act(tr("&Picture..."), self.insert_image_dialog, None, ins)
+        a_table = self.act(tr("&Table..."), self.insert_table, None, ins)
+        self.act(tr("&Link..."), self.insert_link, "Ctrl+K", ins)
+        self.act(tr("Page &Break"), self.insert_page_break, "Ctrl+Return", ins)
+        self.act(tr("&Date and Time"), self.insert_date, None, ins)
+        self.act(tr("Horizontal &Line"), self.insert_hline, None, ins)
 
-        fm = mb.addMenu("F&ormat")
-        self.a_bold = self.act("&Bold", lambda on: self.merge(weight=QFont.Bold if on else QFont.Normal),
+        fm = mb.addMenu(tr("F&ormat"))
+        self.a_bold = self.act(tr("&Bold"), lambda on: self.merge(weight=QFont.Bold if on else QFont.Normal),
                                "Ctrl+B", fm, True)
-        self.a_italic = self.act("&Italic", lambda on: self.merge(italic=on), "Ctrl+I", fm, True)
-        self.a_under = self.act("&Underline", lambda on: self.merge(underline=on), "Ctrl+U", fm, True)
-        self.a_strike = self.act("&Strikethrough", lambda on: self.merge(strike=on), None, fm, True)
-        self.a_sup = self.act("Su&perscript", lambda on: self.merge(valign="sup" if on else None),
+        self.a_italic = self.act(tr("&Italic"), lambda on: self.merge(italic=on), "Ctrl+I", fm, True)
+        self.a_under = self.act(tr("&Underline"), lambda on: self.merge(underline=on), "Ctrl+U", fm, True)
+        self.a_strike = self.act(tr("&Strikethrough"), lambda on: self.merge(strike=on), None, fm, True)
+        self.a_sup = self.act(tr("Su&perscript"), lambda on: self.merge(valign="sup" if on else None),
                               "Ctrl+Shift+=", fm, True)
-        self.a_sub = self.act("Subs&cript", lambda on: self.merge(valign="sub" if on else None),
+        self.a_sub = self.act(tr("Subs&cript"), lambda on: self.merge(valign="sub" if on else None),
                               "Ctrl+=", fm, True)
         fm.addSeparator()
-        self.act("Text &Colour...", self.pick_text_color, None, fm)
-        self.act("&Highlight Colour...", self.pick_highlight, None, fm)
-        self.act("&Remove Highlight", self.remove_highlight, None, fm)
-        self.act("C&lear Formatting", self.clear_formatting, "Ctrl+Space", fm)
-        self.act("Change Ca&se: UPPER", lambda: self.change_case(str.upper), None, fm)
-        self.act("Change Case: lower", lambda: self.change_case(str.lower), None, fm)
-        self.act("Change Case: Title", lambda: self.change_case(str.title), None, fm)
+        self.act(tr("Text &Colour..."), self.pick_text_color, None, fm)
+        self.act(tr("&Highlight Colour..."), self.pick_highlight, None, fm)
+        self.act(tr("&Remove Highlight"), self.remove_highlight, None, fm)
+        self.act(tr("C&lear Formatting"), self.clear_formatting, "Ctrl+Space", fm)
+        self.act(tr("Change Ca&se: UPPER"), lambda: self.change_case(str.upper), None, fm)
+        self.act(tr("Change Case: lower"), lambda: self.change_case(str.lower), None, fm)
+        self.act(tr("Change Case: Title"), lambda: self.change_case(str.title), None, fm)
 
-        pm = mb.addMenu("&Paragraph")
+        pm = mb.addMenu(tr("&Paragraph"))
         self.paragraph_menu = pm
         align_group = QActionGroup(self)
         self.align_actions = {}
-        for text, al, sc in (("Align &Left", Qt.AlignLeft, "Ctrl+L"), ("&Centre", Qt.AlignHCenter, "Ctrl+E"),
-                             ("Align &Right", Qt.AlignRight, "Ctrl+R"), ("&Justify", Qt.AlignJustify, "Ctrl+J")):
+        for text, al, sc in ((tr("Align &Left"), Qt.AlignLeft, "Ctrl+L"), (tr("&Centre"), Qt.AlignHCenter, "Ctrl+E"),
+                             (tr("Align &Right"), Qt.AlignRight, "Ctrl+R"), (tr("&Justify"), Qt.AlignJustify, "Ctrl+J")):
             a = self.act(text, lambda _=False, al=al: self.set_alignment(al), sc, pm, True)
             align_group.addAction(a)
             self.align_actions[al] = a
         pm.addSeparator()
-        self.a_bullets = self.act("&Bullets", lambda: self.toggle_list(QTextListFormat.ListDisc),
+        self.a_bullets = self.act(tr("&Bullets"), lambda: self.toggle_list(QTextListFormat.ListDisc),
                                   "Ctrl+Shift+L", pm, True)
-        self.a_numbers = self.act("&Numbering", lambda: self.toggle_list(QTextListFormat.ListDecimal),
+        self.a_numbers = self.act(tr("&Numbering"), lambda: self.toggle_list(QTextListFormat.ListDecimal),
                                   None, pm, True)
-        lists = pm.addMenu("List St&yle")
-        for text, st in (("• Disc", QTextListFormat.ListDisc), ("○ Circle", QTextListFormat.ListCircle),
-                         ("▪ Square", QTextListFormat.ListSquare), ("1. 2. 3.", QTextListFormat.ListDecimal),
+        lists = pm.addMenu(tr("List St&yle"))
+        for text, st in (("• " + tr("Disc"), QTextListFormat.ListDisc), ("○ " + tr("Circle"), QTextListFormat.ListCircle),
+                         ("▪ " + tr("Square"), QTextListFormat.ListSquare), ("1. 2. 3.", QTextListFormat.ListDecimal),
                          ("a. b. c.", QTextListFormat.ListLowerAlpha), ("A. B. C.", QTextListFormat.ListUpperAlpha),
                          ("i. ii. iii.", QTextListFormat.ListLowerRoman),
                          ("I. II. III.", QTextListFormat.ListUpperRoman)):
             self.act(text, lambda _=False, st=st: self.set_list_style(st), None, lists)
         pm.addSeparator()
-        a_indent = self.act("&Increase Indent", lambda: self.indent(1), "Ctrl+M", pm)
-        a_outdent = self.act("&Decrease Indent", lambda: self.indent(-1), "Ctrl+Shift+M", pm)
+        a_indent = self.act(tr("&Increase Indent"), lambda: self.indent(1), "Ctrl+M", pm)
+        a_outdent = self.act(tr("&Decrease Indent"), lambda: self.indent(-1), "Ctrl+Shift+M", pm)
         pm.addSeparator()
-        sp = pm.addMenu("Line &Spacing")
+        sp = pm.addMenu(tr("Line &Spacing"))
         for v in (1.0, 1.08, 1.15, 1.5, 2.0, 2.5, 3.0):
             self.act(f"{v:g}", lambda _=False, v=v: self.set_line_spacing(v), None, sp)
-        self.act("Add Space &Before Paragraph", lambda: self.para_space(top=12), None, pm)
-        self.act("Add Space &After Paragraph", lambda: self.para_space(bottom=8), None, pm)
-        self.act("Remove Paragraph Spacing", lambda: self.para_space(top=0, bottom=0), None, pm)
+        self.act(tr("Add Space &Before Paragraph"), lambda: self.para_space(top=12), None, pm)
+        self.act(tr("Add Space &After Paragraph"), lambda: self.para_space(bottom=8), None, pm)
+        self.act(tr("Remove Paragraph Spacing"), lambda: self.para_space(top=0, bottom=0), None, pm)
 
-        tm = mb.addMenu("T&able")
+        tm = mb.addMenu(tr("T&able"))
         self.table_menu = tm
         tm.addAction(a_table)
         tm.addSeparator()
-        self.act("Insert Row &Above", lambda: self.table_op("row_above"), None, tm)
-        self.act("Insert Row &Below", lambda: self.table_op("row_below"), None, tm)
-        self.act("Insert Column &Left", lambda: self.table_op("col_left"), None, tm)
-        self.act("Insert Column &Right", lambda: self.table_op("col_right"), None, tm)
+        self.act(tr("Insert Row &Above"), lambda: self.table_op("row_above"), None, tm)
+        self.act(tr("Insert Row &Below"), lambda: self.table_op("row_below"), None, tm)
+        self.act(tr("Insert Column &Left"), lambda: self.table_op("col_left"), None, tm)
+        self.act(tr("Insert Column &Right"), lambda: self.table_op("col_right"), None, tm)
         tm.addSeparator()
-        self.act("Delete Ro&w", lambda: self.table_op("del_row"), None, tm)
-        self.act("Delete Colu&mn", lambda: self.table_op("del_col"), None, tm)
-        self.act("Delete &Table", lambda: self.table_op("del_table"), None, tm)
+        self.act(tr("Delete Ro&w"), lambda: self.table_op("del_row"), None, tm)
+        self.act(tr("Delete Colu&mn"), lambda: self.table_op("del_col"), None, tm)
+        self.act(tr("Delete &Table"), lambda: self.table_op("del_table"), None, tm)
         tm.addSeparator()
-        self.act("&Merge Cells", lambda: self.table_op("merge"), None, tm)
-        self.act("&Split Cell", lambda: self.table_op("split"), None, tm)
-        self.act("Cell &Shading...", lambda: self.table_op("shade"), None, tm)
+        self.act(tr("&Merge Cells"), lambda: self.table_op("merge"), None, tm)
+        self.act(tr("&Split Cell"), lambda: self.table_op("split"), None, tm)
+        self.act(tr("Cell &Shading..."), lambda: self.table_op("shade"), None, tm)
 
-        vm = mb.addMenu("&View")
-        self.act("Word &Count...", self.show_word_count, "Ctrl+Shift+G", vm)
-        h = mb.addMenu("&Help")
+        vm = mb.addMenu(tr("&View"))
+        self.act(tr("Word &Count..."), self.show_word_count, "Ctrl+Shift+G", vm)
+        h = mb.addMenu(tr("&Help"))
         add_guide_action(self, h, "write-basics")
-        self.act("&About", lambda: QMessageBox.about(
-            self, APP_NAME, f"<b>{APP_NAME}</b><br>Part of {SUITE_NAME}."), None, h)
+        self.act(tr("&About"), lambda: QMessageBox.about(
+            self, APP_NAME, tr("<b>{APP_NAME}</b><br>Part of {SUITE_NAME}.").format(APP_NAME=APP_NAME, SUITE_NAME=SUITE_NAME)), None, h)
 
         # toolbar 1: file + edit
-        tb = QToolBar("File")
+        tb = QToolBar(tr("File"))
         tb.setObjectName("file")
         self.addToolBar(tb)
         for a in (a_new, a_open, a_save, a_print, a_pdf):
@@ -570,16 +575,16 @@ class WordProcessor(QMainWindow):
         tb.addAction(a_redo)
         tb.addSeparator()
         tb.addAction(a_table)
-        tb.addAction(self.act("Picture", self.insert_image_dialog))
-        tb.addAction(self.act("Link", self.insert_link))
+        tb.addAction(self.act(tr("Picture"), self.insert_image_dialog))
+        tb.addAction(self.act(tr("Link"), self.insert_link))
 
         # toolbar 2: formatting
         self.addToolBarBreak()
-        ft = QToolBar("Formatting")
+        ft = QToolBar(tr("Formatting"))
         ft.setObjectName("format")
         self.addToolBar(ft)
         self.style_box = QComboBox()
-        self.style_box.addItems(STYLES)
+        self.style_box.addItems(STYLE_LABELS)
         self.style_box.setMinimumWidth(110)
         self.style_box.activated.connect(lambda i: self.apply_style(STYLES[i]))
         ft.addWidget(self.style_box)
@@ -596,8 +601,8 @@ class WordProcessor(QMainWindow):
         self.size_box.activated.connect(lambda _: self._size_from_box())
         self.size_box.lineEdit().returnPressed.connect(self._size_from_box)
         ft.addWidget(self.size_box)
-        ft.addAction(self.act("A+", lambda: self.grow_font(1), "Ctrl+]", tip="Bigger text"))
-        ft.addAction(self.act("A-", lambda: self.grow_font(-1), "Ctrl+[", tip="Smaller text"))
+        ft.addAction(self.act("A+", lambda: self.grow_font(1), "Ctrl+]", tip=tr("Bigger text")))
+        ft.addAction(self.act("A-", lambda: self.grow_font(-1), "Ctrl+[", tip=tr("Smaller text")))
         ft.addSeparator()
         for a, style in ((self.a_bold, "bold"), (self.a_italic, "italic"), (self.a_under, "underline"),
                          (self.a_strike, "strike")):
@@ -613,29 +618,29 @@ class WordProcessor(QMainWindow):
         self.a_sub.setText("x₂")
         ft.addAction(self.a_sup)
         ft.addAction(self.a_sub)
-        self.text_color = ColorButton(QColor("#C00000"), "Text colour (click the A to apply)")
+        self.text_color = ColorButton(QColor("#C00000"), tr("Text colour (click the A to apply)"))
         self.text_color.colorChanged.connect(lambda c: self.merge(color=c))
         apply_color = self.act("A", lambda: self.merge(color=self.text_color.color()),
-                               tip="Apply text colour")
+                               tip=tr("Apply text colour"))
         ft.addAction(apply_color)
         ft.addWidget(self.text_color)
-        self.hl_color = ColorButton(QColor("#FFFF00"), "Highlight colour (click the pen to apply)")
+        self.hl_color = ColorButton(QColor("#FFFF00"), tr("Highlight colour (click the pen to apply)"))
         self.hl_color.colorChanged.connect(lambda c: self.merge(background=c))
-        ft.addAction(self.act("Highlight", lambda: self.merge(background=self.hl_color.color()),
-                              tip="Apply highlight"))
+        ft.addAction(self.act(tr("Highlight"), lambda: self.merge(background=self.hl_color.color()),
+                              tip=tr("Apply highlight")))
         ft.addWidget(self.hl_color)
         ft.addSeparator()
-        for al, label in ((Qt.AlignLeft, "Left"), (Qt.AlignHCenter, "Centre"),
-                          (Qt.AlignRight, "Right"), (Qt.AlignJustify, "Justify")):
+        for al, label in ((Qt.AlignLeft, tr("Left")), (Qt.AlignHCenter, tr("Centre")),
+                          (Qt.AlignRight, tr("Right")), (Qt.AlignJustify, tr("Justify"))):
             self.align_actions[al].setIconText(label)
             ft.addAction(self.align_actions[al])
         ft.addSeparator()
-        self.a_bullets.setIconText("• List")
-        self.a_numbers.setIconText("1. List")
+        self.a_bullets.setIconText(tr("• List"))
+        self.a_numbers.setIconText(tr("1. List"))
         ft.addAction(self.a_bullets)
         ft.addAction(self.a_numbers)
-        a_outdent.setIconText("◄ Indent")
-        a_indent.setIconText("Indent ►")
+        a_outdent.setIconText(tr("◄ Indent"))
+        a_indent.setIconText(tr("Indent ►"))
         ft.addAction(a_outdent)
         ft.addAction(a_indent)
         for w in (self.size_box, self.font_box, self.style_box):
@@ -659,13 +664,13 @@ class WordProcessor(QMainWindow):
         self._char_format_changed(self.editor.currentCharFormat())
 
     def update_title(self):
-        name = os.path.basename(self.path) if self.path else "Untitled"
+        name = os.path.basename(self.path) if self.path else tr("Untitled")
         self.setWindowTitle(f"{'*' if self.doc.isModified() else ''}{name} - {APP_NAME}")
 
     def maybe_save(self):
         if not self.doc.isModified():
             return True
-        r = QMessageBox.question(self, APP_NAME, "Save changes to this document?",
+        r = QMessageBox.question(self, APP_NAME, tr("Save changes to this document?"),
                                  QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
         if r == QMessageBox.Save:
             return self.save()
@@ -682,7 +687,7 @@ class WordProcessor(QMainWindow):
             self.set_document(new_document(), PageSetup(), None)
 
     def open_dialog(self):
-        f, _ = QFileDialog.getOpenFileName(self, "Open", self.settings.value("last_dir", ""), OPEN_FILTER)
+        f, _ = QFileDialog.getOpenFileName(self, tr("Open"), self.settings.value("last_dir", ""), OPEN_FILTER)
         if f:
             self.open_path(f)
 
@@ -696,8 +701,7 @@ class WordProcessor(QMainWindow):
                 doc, setup = load_docx(path)
             elif ext in (".doc", ".rtf", ".odt", ".pages", ".wps"):
                 QMessageBox.information(
-                    self, APP_NAME, f"The {ext} format isn't supported yet.\n"
-                    "Supported: .docx, .html, .md, .txt")
+                    self, APP_NAME, tr("The {ext} format isn't supported yet.\nSupported: .docx, .html, .md, .txt").format(ext=ext))
                 return
             else:
                 with open(path, "r", encoding="utf-8", errors="replace") as fh:
@@ -712,7 +716,7 @@ class WordProcessor(QMainWindow):
                     doc.setPlainText(text)
                 doc.setModified(False)
         except Exception as ex:
-            QMessageBox.critical(self, APP_NAME, f"Could not open the file:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Could not open the file:\n{ex}").format(ex=ex))
             return
         self.set_document(doc, setup, path)
         self._add_recent(path)
@@ -725,12 +729,12 @@ class WordProcessor(QMainWindow):
     def save_as(self):
         start = os.path.splitext(self.path)[0] + ".docx" if self.path else os.path.join(
             self.settings.value("last_dir", ""), "Document.docx")
-        f, flt = QFileDialog.getSaveFileName(self, "Save As", start, SAVE_FILTER)
+        f, flt = QFileDialog.getSaveFileName(self, tr("Save As"), start, SAVE_FILTER)
         if not f:
             return False
         if not os.path.splitext(f)[1]:
-            f += {"Word": ".docx", "OpenD": ".odt", "Web p": ".html", "Markd": ".md",
-                  "Plain": ".txt"}.get(flt[:5], ".docx")
+            m = re.search(r"\(\*(\.\w+)", flt)
+            f += m.group(1) if m else ".docx"
         return self.write(f)
 
     def write(self, path):
@@ -747,13 +751,13 @@ class WordProcessor(QMainWindow):
                 with open(path, "w", encoding="utf-8") as fh:
                     fh.write(text)
         except Exception as ex:
-            QMessageBox.critical(self, APP_NAME, f"Could not save:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Could not save:\n{ex}").format(ex=ex))
             return False
         self.path = path
         self.doc.setModified(False)
         self.update_title()
         self._add_recent(path)
-        self.statusBar().showMessage(f"Saved {path}", 4000)
+        self.statusBar().showMessage(tr("Saved {path}").format(path=path), 4000)
         return True
 
     def _add_recent(self, path):
@@ -824,7 +828,7 @@ class WordProcessor(QMainWindow):
 
     def export_pdf(self):
         start = os.path.splitext(self.path)[0] + ".pdf" if self.path else "Document.pdf"
-        f, _ = QFileDialog.getSaveFileName(self, "Export as PDF", start, "PDF files (*.pdf)")
+        f, _ = QFileDialog.getSaveFileName(self, tr("Export as PDF"), start, tr("PDF files (*.pdf)"))
         if not f:
             return
         if not f.lower().endswith(".pdf"):
@@ -835,7 +839,7 @@ class WordProcessor(QMainWindow):
         writer.setTitle(os.path.splitext(os.path.basename(self.path or "Document"))[0])
         writer.setCreator(f"{SUITE_NAME} {APP_NAME}")
         self.render_pages(writer)
-        self.statusBar().showMessage(f"Exported {f}", 5000)
+        self.statusBar().showMessage(tr("Exported {f}").format(f=f), 5000)
 
     def _make_printer(self):
         printer = QPrinter(QPrinter.HighResolution)
@@ -871,7 +875,7 @@ class WordProcessor(QMainWindow):
         self._updating = True
         style = ("Title" if bf.property(TITLE_PROP) else
                  f"Heading {bf.headingLevel()}" if bf.headingLevel() else "Normal")
-        self.style_box.setCurrentText(style if style in STYLES else "Normal")
+        self.style_box.setCurrentIndex(STYLES.index(style) if style in STYLES else 0)
         al = bf.alignment() & Qt.AlignHorizontal_Mask
         for k, a in self.align_actions.items():
             a.setChecked(bool(al & k) if k != Qt.AlignLeft else not al & (Qt.AlignHCenter | Qt.AlignRight | Qt.AlignJustify))
@@ -881,7 +885,7 @@ class WordProcessor(QMainWindow):
         self.a_numbers.setChecked(bool(lst) and not is_bullet)
         self._updating = False
         page = int(r.center().y() // self.editor.setup.size_px[1]) + 1
-        self.page_label.setText(f"  Page {page} of {self.editor.page_count()}  ")
+        self.page_label.setText(tr("  Page {page} of {v}  ").format(page=page, v=self.editor.page_count()))
 
     def _char_format_changed(self, cf):
         self._updating = True
@@ -901,24 +905,22 @@ class WordProcessor(QMainWindow):
     def _update_counts(self):
         text = self.doc.toPlainText()
         words = len(text.split())
-        self.words_label.setText(f"  {words:,} words  ")
+        self.words_label.setText(tr("  {words:,} words  ").format(words=words))
         self._cursor_moved_light()
 
     def _cursor_moved_light(self):
         r = self.editor.cursorRect()
         page = int(r.center().y() // self.editor.setup.size_px[1]) + 1
-        self.page_label.setText(f"  Page {page} of {self.editor.page_count()}  ")
+        self.page_label.setText(tr("  Page {page} of {v}  ").format(page=page, v=self.editor.page_count()))
 
     def show_word_count(self):
         c = self.editor.textCursor()
         text = c.selectedText().replace(" ", "\n") if c.hasSelection() else self.doc.toPlainText()
-        where = "Selection" if c.hasSelection() else "Document"
+        where = tr("Selection") if c.hasSelection() else tr("Document")
         QMessageBox.information(
-            self, "Word Count",
-            f"{where}\n\nPages: {self.editor.page_count()}\nWords: {len(text.split()):,}\n"
-            f"Characters (with spaces): {len(text):,}\n"
-            f"Characters (no spaces): {len(''.join(text.split())):,}\n"
-            f"Paragraphs: {len([p for p in text.splitlines() if p.strip()]):,}")
+            self, tr("Word Count"),
+            tr("{where}\n\nPages: {v}\nWords: {v2:,}\nCharacters (with spaces): {v3:,}\nCharacters (no spaces): "
+               "{v4:,}\nParagraphs: {v5:,}").format(where=where, v=self.editor.page_count(), v2=len(text.split()), v3=len(text), v4=len(''.join(text.split())), v5=len([p for p in text.splitlines() if p.strip()])))
 
     # ------------------------------------------------------------ character formatting
     def merge(self, family=None, size=None, weight=None, italic=None, underline=None, strike=None,
@@ -967,13 +969,13 @@ class WordProcessor(QMainWindow):
         self.merge(size=new)
 
     def pick_text_color(self):
-        c = QColorDialog.getColor(self.text_color.color(), self, "Text colour")
+        c = QColorDialog.getColor(self.text_color.color(), self, tr("Text colour"))
         if c.isValid():
             self.text_color.setColor(c)
             self.merge(color=c)
 
     def pick_highlight(self):
-        c = QColorDialog.getColor(self.hl_color.color(), self, "Highlight colour")
+        c = QColorDialog.getColor(self.hl_color.color(), self, tr("Highlight colour"))
         if c.isValid():
             self.hl_color.setColor(c)
             self.merge(background=c)
@@ -1186,12 +1188,12 @@ class WordProcessor(QMainWindow):
         self.editor.textCursor().insertImage(f)
 
     def insert_image_dialog(self):
-        f, _ = QFileDialog.getOpenFileName(self, "Insert Picture", self.settings.value("last_dir", ""),
-                                           "Images (*.png *.jpg *.jpeg *.gif *.bmp *.webp *.tif *.tiff)")
+        f, _ = QFileDialog.getOpenFileName(self, tr("Insert Picture"), self.settings.value("last_dir", ""),
+                                           tr("Images (*.png *.jpg *.jpeg *.gif *.bmp *.webp *.tif *.tiff)"))
         if f:
             img = QImage(f)
             if img.isNull():
-                QMessageBox.warning(self, APP_NAME, "Couldn't read that image.")
+                QMessageBox.warning(self, APP_NAME, tr("Couldn't read that image."))
             else:
                 self.insert_qimage(img)
 
@@ -1213,7 +1215,7 @@ class WordProcessor(QMainWindow):
         img = self.doc.resource(QTextDocument.ImageResource, QUrl(fmt.name()))
         natural = img.width() if isinstance(img, QImage) else fmt.width() or 100
         cur = int(round((fmt.width() or natural) * 100 / max(natural, 1)))
-        pct, ok = QInputDialog.getInt(self, "Resize Image", "Size (% of original):", cur, 1, 1000)
+        pct, ok = QInputDialog.getInt(self, tr("Resize Image"), tr("Size (% of original):"), cur, 1, 1000)
         if not ok:
             return
         ratio = (fmt.height() / fmt.width()) if fmt.width() and fmt.height() else (
@@ -1226,16 +1228,16 @@ class WordProcessor(QMainWindow):
 
     def insert_table(self):
         dlg = QDialog(self)
-        dlg.setWindowTitle("Insert Table")
+        dlg.setWindowTitle(tr("Insert Table"))
         rows, cols = QSpinBox(), QSpinBox()
         rows.setRange(1, 200)
         cols.setRange(1, 30)
         rows.setValue(3)
         cols.setValue(3)
-        header = QCheckBox("Shade first row as header")
+        header = QCheckBox(tr("Shade first row as header"))
         form = QFormLayout(dlg)
-        form.addRow("Rows:", rows)
-        form.addRow("Columns:", cols)
+        form.addRow(tr("Rows:"), rows)
+        form.addRow(tr("Columns:"), cols)
         form.addRow("", header)
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(dlg.accept)
@@ -1262,7 +1264,7 @@ class WordProcessor(QMainWindow):
         c = self.editor.textCursor()
         t = c.currentTable()
         if not t:
-            QMessageBox.information(self, APP_NAME, "Put the cursor inside a table first.")
+            QMessageBox.information(self, APP_NAME, tr("Put the cursor inside a table first."))
             return
         cell = t.cellAt(c)
         r, col = cell.row(), cell.column()
@@ -1295,7 +1297,7 @@ class WordProcessor(QMainWindow):
         elif op == "split":
             t.splitCell(r, col, 1, 1)
         elif op == "shade":
-            color = QColorDialog.getColor(QColor("#D9E2F3"), self, "Cell shading")
+            color = QColorDialog.getColor(QColor("#D9E2F3"), self, tr("Cell shading"))
             if color.isValid():
                 if c.hasSelection():
                     fr, nr, fc, nc = c.selectedTableCells()
@@ -1310,12 +1312,12 @@ class WordProcessor(QMainWindow):
     def insert_link(self):
         c = self.editor.textCursor()
         dlg = QDialog(self)
-        dlg.setWindowTitle("Insert Link")
+        dlg.setWindowTitle(tr("Insert Link"))
         text = QLineEdit(c.selectedText())
         url = QLineEdit(c.charFormat().anchorHref() or "https://")
         form = QFormLayout(dlg)
-        form.addRow("Text to show:", text)
-        form.addRow("Address:", url)
+        form.addRow(tr("Text to show:"), text)
+        form.addRow(tr("Address:"), url)
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(dlg.accept)
         bb.rejected.connect(dlg.reject)

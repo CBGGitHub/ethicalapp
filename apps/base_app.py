@@ -19,26 +19,27 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import base_core as bc  # noqa: E402
 from suite_common import SETTINGS_ORG, SUITE_NAME, make_app  # noqa: E402
 from suite_common import add_guide_action  # noqa: E402
+from i18n import N_, add_items, tr  # noqa: E402
 
 APP_NAME = "Ethical Database"
 ACCENT = "#7B1F3A"
 BATCH = 500
-DB_FILTER = "Ethical Database / SQLite database (*.db *.sqlite *.sqlite3 *.edb);;All files (*)"
+DB_FILTER = tr("Ethical Database / SQLite database") + " (*.db *.sqlite *.sqlite3 *.edb);;" + tr("All files") + " (*)"
 
 
-def error(parent, ex, what="That didn't work"):
+def error(parent, ex, what=None):
     msg = str(ex)
     friendly = {
-        "NOT NULL constraint failed": "This field is required - please fill it in.",
-        "UNIQUE constraint failed": "That value is already used in another record, but this field must be unique.",
-        "FOREIGN KEY constraint failed": "This would break a relationship: the related record doesn't exist, "
-                                         "or other records still depend on this one.",
+        "NOT NULL constraint failed": tr("This field is required - please fill it in."),
+        "UNIQUE constraint failed": tr("That value is already used in another record, but this field must be unique."),
+        "FOREIGN KEY constraint failed": tr("This would break a relationship: the related record doesn't exist, "
+                                            "or other records still depend on this one."),
     }
     for k, v in friendly.items():
         if k in msg:
             msg = v + f"\n\n({ex})"
             break
-    QMessageBox.warning(parent, APP_NAME, f"{what}:\n{msg}")
+    QMessageBox.warning(parent, APP_NAME, (what or tr("That didn't work")) + ":\n" + msg)
 
 
 # ====================================================================== data model
@@ -197,7 +198,7 @@ class SqlModel(QAbstractTableModel):
             self.db.con.commit()
         except sqlite3.Error as ex:
             self.db.con.rollback()
-            error(None, ex, "Couldn't save")
+            error(None, ex, tr("Couldn't save"))
             return False
         self.rows[r] = list(self.db.con.execute(f"SELECT rowid AS __rid, * FROM {bc.q(self.source)} WHERE rowid=?",
                                                 (self.rowid(r),)).fetchone())
@@ -213,7 +214,7 @@ class SqlModel(QAbstractTableModel):
             self.db.con.commit()
         except sqlite3.Error as ex:
             self.db.con.rollback()
-            error(None, ex, "Couldn't delete")
+            error(None, ex, tr("Couldn't delete"))
             return 0
         self.reload()
         return len(ids)
@@ -244,7 +245,7 @@ class CellDelegate(QStyledItemDelegate):
         e = super().createEditor(parent, opt, idx)
         kind = self.model.kinds.get(col)
         if isinstance(e, QLineEdit) and kind in ("Date", "Date & Time"):
-            e.setPlaceholderText("YYYY-MM-DD or 'today'")
+            e.setPlaceholderText(tr("YYYY-MM-DD or 'today'"))
         return e
 
     def setEditorData(self, editor, idx):
@@ -283,22 +284,23 @@ class DatasheetTab(QWidget):
         self.sort_col, self.sort_desc = None, False
         bar = QHBoxLayout()
         self.search = QLineEdit()
-        self.search.setPlaceholderText("Search all fields…")
+        self.search.setPlaceholderText(tr("Search all fields…"))
         self.search.setClearButtonEnabled(True)
         self.search.textChanged.connect(lambda _: self.search_timer.start())
         self.search_timer = QTimer(self, singleShot=True, interval=250)
         self.search_timer.timeout.connect(self.apply_search)
         bar.addWidget(self.search, 1)
-        for text, slot, tip in (("＋ New Record", self.new_record, "Add a record (or type in the ✱ row)"),
-                                ("✖ Delete", self.delete_records, "Delete the selected records"),
-                                ("Filter by Selection", self.filter_selection, "Show only records with this value"),
-                                ("Remove Filter", self.clear_filter, None), ("Form View", self.form_view, None),
-                                ("↻", self.refresh, "Refresh")):
+        for text, slot, tip, always in (
+                ("＋ " + tr("New Record"), self.new_record, tr("Add a record (or type in the ✱ row)"), False),
+                ("✖ " + tr("Delete"), self.delete_records, tr("Delete the selected records"), False),
+                (tr("Filter by Selection"), self.filter_selection, tr("Show only records with this value"), True),
+                (tr("Remove Filter"), self.clear_filter, None, True), (tr("Form View"), self.form_view, None, True),
+                ("↻", self.refresh, tr("Refresh"), True)):
             b = QPushButton(text)
             if tip:
                 b.setToolTip(tip)
             b.clicked.connect(slot)
-            if text not in ("↻", "Form View", "Filter by Selection", "Remove Filter") and not self.model.editable:
+            if not always and not self.model.editable:
                 b.setEnabled(False)
             bar.addWidget(b)
         self.status = QLabel()
@@ -318,10 +320,10 @@ class DatasheetTab(QWidget):
             self.view.setColumnWidth(c, min(max(self.view.columnWidth(c), 70), 320))
 
     def update_status(self):
-        filt = " (filtered)" if self.model.filters or self.model.search else ""
-        ro = "  ·  read-only query results" if self.model.view else ""
-        self.status.setText(f"{self.model.total:,} record(s){filt}{ro}"
-                            + ("" if not self.model.order else f"  ·  sorted by {self.sort_col}"))
+        filt = " " + tr("(filtered)") if self.model.filters or self.model.search else ""
+        ro = "  ·  " + tr("read-only query results") if self.model.view else ""
+        self.status.setText(tr("{total:,} record(s){filt}{ro}").format(total=self.model.total, filt=filt, ro=ro)
+                            + ("" if not self.model.order else tr("  ·  sorted by {sort_col}").format(sort_col=self.sort_col)))
 
     def refresh(self):
         self.model.reload()
@@ -368,11 +370,11 @@ class DatasheetTab(QWidget):
         rows = [r for r in rows if not self.model.is_new_row(r)]
         if not rows:
             return
-        if QMessageBox.question(self, APP_NAME, f"Delete {len(rows)} record(s)? This can't be undone.") != QMessageBox.Yes:
+        if QMessageBox.question(self, APP_NAME, tr("Delete {v} record(s)? This can't be undone.").format(v=len(rows))) != QMessageBox.Yes:
             return
         n = self.model.delete_rows(rows)
         if n:
-            self.win.statusBar().showMessage(f"Deleted {n} record(s)", 3000)
+            self.win.statusBar().showMessage(tr("Deleted {n} record(s)").format(n=n), 3000)
 
     def form_view(self):
         idx = self.view.currentIndex()
@@ -380,14 +382,14 @@ class DatasheetTab(QWidget):
 
     def context_menu(self, pos):
         m = QMenu(self)
-        m.addAction("Filter by Selection", self.filter_selection)
-        m.addAction("Remove Filter", self.clear_filter)
+        m.addAction(tr("Filter by Selection"), self.filter_selection)
+        m.addAction(tr("Remove Filter"), self.clear_filter)
         m.addSeparator()
-        m.addAction("Copy", self.copy_cells)
+        m.addAction(tr("Copy"), self.copy_cells)
         if self.model.editable:
-            m.addAction("New Record", self.new_record)
-            m.addAction("Delete Record(s)", self.delete_records)
-        m.addAction("Open in Form View", self.form_view)
+            m.addAction(tr("New Record"), self.new_record)
+            m.addAction(tr("Delete Record(s)"), self.delete_records)
+        m.addAction(tr("Open in Form View"), self.form_view)
         m.exec(self.view.viewport().mapToGlobal(pos))
 
     def copy_cells(self):
@@ -437,7 +439,7 @@ class FormTab(QWidget):
             else:
                 e = QLineEdit()
                 if kind in ("Date", "Date & Time"):
-                    e.setPlaceholderText("YYYY-MM-DD or 'today'")
+                    e.setPlaceholderText(tr("YYYY-MM-DD or 'today'"))
                 if kind == "AutoNumber":
                     e.setReadOnly(True)
                     e.setStyleSheet("background: #f2f2f2;")
@@ -463,14 +465,14 @@ class FormTab(QWidget):
         nav.addWidget(self.pos_label)
         nav.addStretch()
         self.find = QLineEdit()
-        self.find.setPlaceholderText("Find…")
+        self.find.setPlaceholderText(tr("Find…"))
         self.find.returnPressed.connect(self.find_next)
         nav.addWidget(self.find)
-        for text, slot in (("＋ New", self.new_record), ("💾 Save", self.save), ("✖ Delete", self.delete),
-                           ("Datasheet", lambda: self.win.open_datasheet(self.source))):
+        for text, slot in (("＋ " + tr("New"), self.new_record), ("💾 " + tr("Save"), self.save),
+                           ("✖ " + tr("Delete"), self.delete), (tr("Datasheet"), lambda: self.win.open_datasheet(self.source))):
             b = QPushButton(text)
             b.clicked.connect(slot)
-            b.setEnabled(self.model.editable or text == "Datasheet")
+            b.setEnabled(self.model.editable or text == tr("Datasheet"))
             nav.addWidget(b)
         lay = QVBoxLayout(self)
         lay.addWidget(title)
@@ -489,10 +491,10 @@ class FormTab(QWidget):
             elif isinstance(e, QPlainTextEdit):
                 e.setPlainText("" if v is None else str(v))
             else:
-                e.setText("(New)" if self.new_mode and kind == "AutoNumber" else
+                e.setText(tr("(New)") if self.new_mode and kind == "AutoNumber" else
                           "" if v is None else (bc.display(v, kind) if kind in ("Date", "Currency") else str(v)))
         n = len(self.model.rows)
-        self.pos_label.setText("  New record" if self.new_mode else f"  Record {self.row + 1} of {n}" if n else "  No records")
+        self.pos_label.setText(tr("  New record") if self.new_mode else tr("  Record {v} of {n}").format(v=self.row + 1, n=n) if n else tr("  No records"))
 
     def values(self):
         out = {}
@@ -549,10 +551,10 @@ class FormTab(QWidget):
             return False
         except sqlite3.Error as ex:
             self.win.db.con.rollback()
-            error(self, ex, "Couldn't save the record")
+            error(self, ex, tr("Couldn't save the record"))
             return False
         self.load()
-        self.win.statusBar().showMessage("Record saved", 2000)
+        self.win.statusBar().showMessage(tr("Record saved"), 2000)
         return True
 
     def go(self, row):
@@ -579,7 +581,7 @@ class FormTab(QWidget):
             self.new_mode = False
             self.load()
             return
-        if QMessageBox.question(self, APP_NAME, "Delete this record? This can't be undone.") != QMessageBox.Yes:
+        if QMessageBox.question(self, APP_NAME, tr("Delete this record? This can't be undone.")) != QMessageBox.Yes:
             return
         if self.model.delete_rows([self.row]):
             self.model.fetch_all()
@@ -596,7 +598,7 @@ class FormTab(QWidget):
             if any(t in str(v).lower() for v in self.model.rows[r][1:] if v is not None):
                 self.go(r)
                 return
-        self.win.statusBar().showMessage("Not found", 2000)
+        self.win.statusBar().showMessage(tr("Not found"), 2000)
 
 
 class DesignTab(QWidget):
@@ -606,28 +608,30 @@ class DesignTab(QWidget):
         super().__init__()
         self.win, self.table = win, table
         top = QHBoxLayout()
-        top.addWidget(QLabel("Table name:"))
+        top.addWidget(QLabel(tr("Table name:")))
         self.name = QLineEdit(table or "")
-        self.name.setPlaceholderText("e.g. Customers")
+        self.name.setPlaceholderText(tr("e.g. Customers"))
         top.addWidget(self.name, 1)
         self.grid = QTableWidget(0, 5)
-        self.grid.setHorizontalHeaderLabels(["Field Name", "Data Type", "Required", "Unique", "Default Value"])
+        self.grid.setHorizontalHeaderLabels([tr("Field Name"), tr("Data Type"), tr("Required"), tr("Unique"),
+                                             tr("Default Value")])
         self.grid.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
         self.grid.horizontalHeader().setSectionResizeMode(4, QHeaderView.Stretch)
         self.grid.setColumnWidth(1, 150)
         btns = QHBoxLayout()
-        for text, slot in (("＋ Add Field", lambda: self.add_row(bc.Field(""))), ("✖ Remove Field", self.remove_row),
+        for text, slot in (("＋ " + tr("Add Field"), lambda: self.add_row(bc.Field(""))),
+                           ("✖ " + tr("Remove Field"), self.remove_row),
                            ("▲", lambda: self.move(-1)), ("▼", lambda: self.move(1))):
             b = QPushButton(text)
             b.clicked.connect(slot)
             btns.addWidget(b)
         btns.addStretch()
-        save = QPushButton("💾 Save Table")
+        save = QPushButton(tr("💾 Save Table"))
         save.setStyleSheet(f"background: {ACCENT}; color: white; font-weight: bold; padding: 6px 16px;")
         save.clicked.connect(self.save)
         btns.addWidget(save)
-        help_ = QLabel("Tip: every table should have an AutoNumber ID. Defaults: type a value, or DATE() for "
-                       "today's date. Relationships between tables: Database → Relationships.")
+        help_ = QLabel(tr("Tip: every table should have an AutoNumber ID. Defaults: type a value, or DATE() for "
+                          "today's date. Relationships between tables: Database → Relationships."))
         help_.setWordWrap(True)
         help_.setStyleSheet("color: #666;")
         lay = QVBoxLayout(self)
@@ -646,8 +650,7 @@ class DesignTab(QWidget):
         item.setData(Qt.UserRole, f.original)
         self.grid.setItem(r, 0, item)
         cb = QComboBox()
-        cb.addItems(bc.FIELD_TYPES)
-        cb.setCurrentText(f.kind)
+        add_items(cb, bc.FIELD_TYPES, f.kind)
         self.grid.setCellWidget(r, 1, cb)
         for c, val in ((2, f.required), (3, f.unique)):
             chk = QTableWidgetItem()
@@ -664,7 +667,7 @@ class DesignTab(QWidget):
         if r >= 0:
             name = self.grid.item(r, 0).text()
             if self.table and self.grid.item(r, 0).data(Qt.UserRole) and QMessageBox.question(
-                    self, APP_NAME, f"Remove the field “{name}” and all its data?") != QMessageBox.Yes:
+                    self, APP_NAME, tr("Remove the field “{name}” and all its data?").format(name=name)) != QMessageBox.Yes:
                 return
             self.grid.removeRow(r)
 
@@ -683,7 +686,7 @@ class DesignTab(QWidget):
     def read_fields(self):
         out = []
         for r in range(self.grid.rowCount()):
-            kind = self.grid.cellWidget(r, 1).currentText()
+            kind = self.grid.cellWidget(r, 1).currentData()
             out.append(bc.Field(self.grid.item(r, 0).text().strip(), kind,
                                 self.grid.item(r, 2).checkState() == Qt.Checked,
                                 self.grid.item(r, 3).checkState() == Qt.Checked,
@@ -700,24 +703,24 @@ class DesignTab(QWidget):
                 db.create_table(name, fields)
             else:
                 if name != self.table and (name in db.tables() or name in db.views()):
-                    raise ValueError(f"There's already something called {name}.")
+                    raise ValueError(tr("There's already something called {name}.").format(name=name))
                 self.win.close_tabs_for(self.table, keep=self)
                 db.redesign(self.table, fields, new_name=name)
         except (ValueError, sqlite3.Error) as ex:
-            error(self, ex, "Couldn't save the table")
+            error(self, ex, tr("Couldn't save the table"))
             return
         broken = db.broken_views()
         self.table = name
         self.win.refresh_nav()
-        self.win.statusBar().showMessage(f"Saved table {name}", 3000)
+        self.win.statusBar().showMessage(tr("Saved table {name}").format(name=name), 3000)
         idx = self.win.tabs.indexOf(self)
-        self.win.tabs.setTabText(idx, f"{name} (Design)")
+        self.win.tabs.setTabText(idx, tr("{name} (Design)").format(name=name))
         self.grid.setRowCount(0)
         for f in db.fields(name):
             self.add_row(f)
         if broken:
-            QMessageBox.information(self, APP_NAME, "These saved queries no longer work because of the change and "
-                                    "need updating: " + ", ".join(broken))
+            QMessageBox.information(self, APP_NAME, tr("These saved queries no longer work because of the change "
+                                                       "and need updating: ") + ", ".join(broken))
 
 
 class QueryTab(QWidget):
@@ -732,57 +735,57 @@ class QueryTab(QWidget):
         design = QWidget()
         dl = QVBoxLayout(design)
         row = QHBoxLayout()
-        row.addWidget(QLabel("Main table:"))
+        row.addWidget(QLabel(tr("Main table:")))
         self.base = QComboBox()
         self.base.addItems(db.tables() + db.views())
         self.base.currentTextChanged.connect(self._base_changed)
         row.addWidget(self.base)
-        row.addWidget(QLabel("  Also show fields from related tables:"))
+        row.addWidget(QLabel(tr("  Also show fields from related tables:")))
         self.related = QListWidget()
         self.related.setMaximumHeight(70)
         self.related.itemChanged.connect(lambda _: self._fill_field_list())
         row.addWidget(self.related, 1)
         dl.addLayout(row)
-        self.totals = QCheckBox("Totals (group and add up)")
+        self.totals = QCheckBox(tr("Totals (group and add up)"))
         self.totals.toggled.connect(lambda on: self.grid.setColumnHidden(5, not on))
-        self.distinct = QCheckBox("Hide duplicate rows")
+        self.distinct = QCheckBox(tr("Hide duplicate rows"))
         r2 = QHBoxLayout()
         r2.addWidget(self.totals)
         r2.addWidget(self.distinct)
         r2.addStretch()
-        add = QPushButton("＋ Add Field")
+        add = QPushButton(tr("＋ Add Field"))
         add.clicked.connect(lambda: self.add_row())
-        rm = QPushButton("✖ Remove")
+        rm = QPushButton(tr("✖ Remove"))
         rm.clicked.connect(lambda: self.grid.removeRow(self.grid.currentRow()))
-        allf = QPushButton("Add All Fields")
+        allf = QPushButton(tr("Add All Fields"))
         allf.clicked.connect(self.add_all)
         for b in (add, allf, rm):
             r2.addWidget(b)
         dl.addLayout(r2)
         self.grid = QTableWidget(0, 6)
-        self.grid.setHorizontalHeaderLabels(["Field", "Show", "Sort", "Criteria", "", "Total"])
+        self.grid.setHorizontalHeaderLabels([tr("Field"), tr("Show"), tr("Sort"), tr("Criteria"), "", tr("Total")])
         self.grid.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
         self.grid.horizontalHeader().setSectionResizeMode(3, QHeaderView.Stretch)
         self.grid.setColumnHidden(4, True)
         self.grid.setColumnHidden(5, True)
         dl.addWidget(self.grid, 1)
-        tip = QLabel('Criteria examples:  >100   <=#2026-12-31#   Like "A*"   Between 1 And 50   Is Null   '
-                     '"London" Or "Paris"   Yes')
+        tip = QLabel(tr('Criteria examples:  >100   <=#2026-12-31#   Like "A*"   Between 1 And 50   Is Null   '
+                        '"London" Or "Paris"   Yes'))
         tip.setStyleSheet("color: #666;")
         dl.addWidget(tip)
-        self.tabs.addTab(design, "Design")
+        self.tabs.addTab(design, tr("Design"))
         # --- SQL page
         self.sql = QPlainTextEdit()
         self.sql.setFont(QFont("Consolas", 11))
-        self.sql.setPlaceholderText("SELECT * FROM \"Customers\" WHERE \"City\" = 'London'")
-        self.tabs.addTab(self.sql, "SQL")
+        self.sql.setPlaceholderText(tr('SELECT * FROM "Customers" WHERE "City" = \'London\''))
+        self.tabs.addTab(self.sql, tr("SQL"))
         self.tabs.currentChanged.connect(self._tab_changed)
         # --- results
         self.results = QTableView()
         self.results.setAlternatingRowColors(True)
         self.result_label = QLabel()
         btns = QHBoxLayout()
-        for text, slot in (("▶ Run", self.run), ("💾 Save Query…", self.save)):
+        for text, slot in (("▶ " + tr("Run"), self.run), ("💾 " + tr("Save Query…"), self.save)):
             b = QPushButton(text)
             b.clicked.connect(slot)
             btns.addWidget(b)
@@ -857,11 +860,11 @@ class QueryTab(QWidget):
         show.setCheckState(Qt.Checked)
         self.grid.setItem(r, 1, show)
         sort = QComboBox()
-        sort.addItems(["", "Ascending", "Descending"])
+        add_items(sort, ["", N_("Ascending"), N_("Descending")])
         self.grid.setCellWidget(r, 2, sort)
         self.grid.setItem(r, 3, QTableWidgetItem(""))
         tot = QComboBox()
-        tot.addItems(["Group By", "Sum", "Average", "Count", "Min", "Max", "Where"])
+        add_items(tot, [N_("Group By"), N_("Sum"), N_("Average"), N_("Count"), N_("Min"), N_("Max"), N_("Where")])
         self.grid.setCellWidget(r, 5, tot)
 
     def add_all(self):
@@ -875,8 +878,8 @@ class QueryTab(QWidget):
             if not f:
                 continue
             rows.append(dict(table=t, field=f, show=self.grid.item(r, 1).checkState() == Qt.Checked,
-                             sort=self.grid.cellWidget(r, 2).currentText(), criteria=self.grid.item(r, 3).text(),
-                             total=self.grid.cellWidget(r, 5).currentText()))
+                             sort=self.grid.cellWidget(r, 2).currentData(), criteria=self.grid.item(r, 3).text(),
+                             total=self.grid.cellWidget(r, 5).currentData()))
         joins = [self.related.item(i).data(Qt.UserRole) for i in range(self.related.count())
                  if self.related.item(i).checkState() == Qt.Checked]
         return bc.build_query(self.win.db, self.base.currentText(), joins, rows, self.distinct.isChecked(),
@@ -897,12 +900,12 @@ class QueryTab(QWidget):
         first = sql.lstrip().split(None, 1)[0].upper() if sql.strip() else ""
         try:
             if first not in ("SELECT", "WITH", "PRAGMA", "VALUES"):
-                if QMessageBox.question(self, APP_NAME, f"This is a {first} statement that changes data or the "
-                                        "database design. Run it?") != QMessageBox.Yes:
+                if QMessageBox.question(self, APP_NAME, tr("This is a {first} statement that changes data or the "
+                                                           "database design. Run it?").format(first=first)) != QMessageBox.Yes:
                     return
                 con.executescript(sql)
                 con.commit()
-                self.result_label.setText(f"Done ({con.total_changes} total changes this session).")
+                self.result_label.setText(tr("Done ({total_changes} total changes this session).").format(total_changes=con.total_changes))
                 self.win.refresh_nav()
                 return
             cur = con.execute(sql)
@@ -910,28 +913,28 @@ class QueryTab(QWidget):
             rows = cur.fetchmany(5000)
         except sqlite3.Error as ex:
             con.rollback()
-            error(self, ex, "The query has a problem")
+            error(self, ex, tr("The query has a problem"))
             return
         self.results.setModel(None)
         tw = _ResultModel(cols, rows)
         self.results.setModel(tw)
         self.results.resizeColumnsToContents()
-        self.result_label.setText(f"{len(rows):,} row(s)" + (" (first 5,000 shown)" if len(rows) == 5000 else ""))
+        self.result_label.setText(tr("{v:,} row(s)").format(v=len(rows)) + (tr(" (first 5,000 shown)") if len(rows) == 5000 else ""))
 
     def save(self):
         sql = self.current_sql()
-        name, ok = QInputDialog.getText(self, "Save Query", "Query name:", QLineEdit.Normal, self.name or "")
+        name, ok = QInputDialog.getText(self, tr("Save Query"), tr("Query name:"), QLineEdit.Normal, self.name or "")
         if not ok or not name.strip():
             return
         try:
             self.win.db.save_query(name.strip(), sql)
         except (ValueError, sqlite3.Error) as ex:
-            error(self, ex, "Couldn't save the query")
+            error(self, ex, tr("Couldn't save the query"))
             return
         self.name = name.strip()
-        self.win.tabs.setTabText(self.win.tabs.indexOf(self), f"{self.name} (Query)")
+        self.win.tabs.setTabText(self.win.tabs.indexOf(self), tr("{name} (Query)").format(name=self.name))
         self.win.refresh_nav()
-        self.win.statusBar().showMessage(f"Saved query {self.name}", 3000)
+        self.win.statusBar().showMessage(tr("Saved query {name}").format(name=self.name), 3000)
 
 
 class _ResultModel(QAbstractTableModel):
@@ -963,8 +966,9 @@ class ReportTab(QWidget):
         self.win, self.spec, self.name = win, spec, name
         self.browser = QTextBrowser()
         bar = QHBoxLayout()
-        for text, slot in (("🖨 Print…", self.print_), ("👁 Print Preview", self.preview), ("📄 Export PDF…", self.pdf),
-                           ("✎ Edit Report…", self.edit), ("💾 Save Report…", self.save), ("↻ Refresh", self.render)):
+        for text, slot in (("🖨 " + tr("Print…"), self.print_), ("👁 " + tr("Print Preview"), self.preview),
+                           ("📄 " + tr("Export PDF…"), self.pdf), ("✎ " + tr("Edit Report…"), self.edit),
+                           ("💾 " + tr("Save Report…"), self.save), ("↻ " + tr("Refresh"), self.render)):
             b = QPushButton(text)
             b.clicked.connect(slot)
             bar.addWidget(b)
@@ -978,7 +982,7 @@ class ReportTab(QWidget):
         try:
             self.html = bc.report_html(self.win.db, self.spec)
         except sqlite3.Error as ex:
-            self.html = f"<p>Couldn't build the report: {ex}</p>"
+            self.html = "<p>" + tr("Couldn't build the report: {ex}").format(ex=ex) + "</p>"
         self.browser.setHtml(self.html)
 
     def _doc(self):
@@ -1005,14 +1009,14 @@ class ReportTab(QWidget):
         dlg.exec()
 
     def pdf(self):
-        f, _ = QFileDialog.getSaveFileName(self, "Export Report as PDF", (self.spec.get("title") or "Report") + ".pdf",
-                                           "PDF files (*.pdf)")
+        f, _ = QFileDialog.getSaveFileName(self, tr("Export Report as PDF"), (self.spec.get("title") or tr("Report")) + ".pdf",
+                                           tr("PDF files (*.pdf)"))
         if f:
             w = QPdfWriter(f)
             w.setPageLayout(self._layout())
             w.setResolution(150)
             self._doc().print_(w)
-            self.win.statusBar().showMessage(f"Exported {f}", 4000)
+            self.win.statusBar().showMessage(tr("Exported {f}").format(f=f), 4000)
 
     def edit(self):
         dlg = ReportDialog(self.win, self.spec)
@@ -1021,12 +1025,12 @@ class ReportTab(QWidget):
             self.render()
 
     def save(self):
-        name, ok = QInputDialog.getText(self, "Save Report", "Report name:", QLineEdit.Normal,
+        name, ok = QInputDialog.getText(self, tr("Save Report"), tr("Report name:"), QLineEdit.Normal,
                                         self.name or self.spec.get("title", ""))
         if ok and name.strip():
             self.win.db.save_report(name.strip(), self.spec)
             self.name = name.strip()
-            self.win.tabs.setTabText(self.win.tabs.indexOf(self), f"{self.name} (Report)")
+            self.win.tabs.setTabText(self.win.tabs.indexOf(self), tr("{name} (Report)").format(name=self.name))
             self.win.refresh_nav()
 
 
@@ -1035,7 +1039,7 @@ class ReportDialog(QDialog):
         super().__init__(win)
         self.win = win
         spec = spec or {}
-        self.setWindowTitle("Report")
+        self.setWindowTitle(tr("Report"))
         self.source = QComboBox()
         self.source.addItems(win.db.tables() + win.db.views())
         if spec.get("source"):
@@ -1044,25 +1048,25 @@ class ReportDialog(QDialog):
         self.fields = QListWidget()
         self.group = QComboBox()
         self.sort = QComboBox()
-        self.desc = QCheckBox("Descending")
+        self.desc = QCheckBox(tr("Descending"))
         self.desc.setChecked(spec.get("sort_desc", False))
-        self.landscape = QCheckBox("Landscape (wide reports)")
+        self.landscape = QCheckBox(tr("Landscape (wide reports)"))
         self.landscape.setChecked(spec.get("landscape", False))
         self.totals = QTableWidget(0, 2)
-        self.totals.setHorizontalHeaderLabels(["Number field", "Total"])
+        self.totals.setHorizontalHeaderLabels([tr("Number field"), tr("Total")])
         self.totals.horizontalHeader().setStretchLastSection(True)
         self.totals.setMaximumHeight(140)
         self.source.currentTextChanged.connect(lambda _: self._fill({}))
         form = QFormLayout(self)
-        form.addRow("Show data from:", self.source)
-        form.addRow("Title:", self.title)
-        form.addRow("Fields (tick and drag to order):", self.fields)
-        form.addRow("Group by:", self.group)
+        form.addRow(tr("Show data from:"), self.source)
+        form.addRow(tr("Title:"), self.title)
+        form.addRow(tr("Fields (tick and drag to order):"), self.fields)
+        form.addRow(tr("Group by:"), self.group)
         row = QHBoxLayout()
         row.addWidget(self.sort, 1)
         row.addWidget(self.desc)
-        form.addRow("Sort by:", row)
-        form.addRow("Totals:", self.totals)
+        form.addRow(tr("Sort by:"), row)
+        form.addRow(tr("Totals:"), self.totals)
         form.addRow("", self.landscape)
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(self.accept)
@@ -1103,15 +1107,14 @@ class ReportDialog(QDialog):
                 self.totals.insertRow(r)
                 self.totals.setItem(r, 0, QTableWidgetItem(c))
                 cb = QComboBox()
-                cb.addItems(["", "Sum", "Average", "Count"])
-                cb.setCurrentText(tot.get(c, ""))
+                add_items(cb, ["", N_("Sum"), N_("Average"), N_("Count")], tot.get(c, ""))
                 self.totals.setCellWidget(r, 1, cb)
 
     def spec(self):
         fields = [self.fields.item(i).text() for i in range(self.fields.count())
                   if self.fields.item(i).checkState() == Qt.Checked]
-        totals = {self.totals.item(r, 0).text(): self.totals.cellWidget(r, 1).currentText()
-                  for r in range(self.totals.rowCount()) if self.totals.cellWidget(r, 1).currentText()}
+        totals = {self.totals.item(r, 0).text(): self.totals.cellWidget(r, 1).currentData()
+                  for r in range(self.totals.rowCount()) if self.totals.cellWidget(r, 1).currentData()}
         return dict(source=self.source.currentText(), title=self.title.text().strip(), fields=fields,
                     group_by=self.group.currentText(), sort=self.sort.currentText(), sort_desc=self.desc.isChecked(),
                     totals=totals, landscape=self.landscape.isChecked())
@@ -1121,12 +1124,12 @@ class RelationshipsDialog(QDialog):
     def __init__(self, win):
         super().__init__(win)
         self.win = win
-        self.setWindowTitle("Relationships")
+        self.setWindowTitle(tr("Relationships"))
         self.resize(900, 620)
         self.diagram = Diagram(win.db)
         self.listw = QListWidget()
         self.listw.setMaximumHeight(130)
-        add = QGroupBoxLike("Add a relationship (one parent record ↔ many child records)")
+        add = QGroupBoxLike(tr("Add a relationship (one parent record ↔ many child records)"))
         g = QGridLayout(add)
         self.parent_t, self.parent_f, self.child_t, self.child_f = QComboBox(), QComboBox(), QComboBox(), QComboBox()
         tables = win.db.tables()
@@ -1134,20 +1137,20 @@ class RelationshipsDialog(QDialog):
         self.child_t.addItems(tables)
         self.parent_t.currentTextChanged.connect(lambda t: self._fields(self.parent_f, t, pk=True))
         self.child_t.currentTextChanged.connect(lambda t: self._fields(self.child_f, t))
-        self.cascade = QCheckBox("Deleting a parent also deletes its children (cascade delete)")
-        g.addWidget(QLabel("Parent table (the “one”):"), 0, 0)
+        self.cascade = QCheckBox(tr("Deleting a parent also deletes its children (cascade delete)"))
+        g.addWidget(QLabel(tr("Parent table (the “one”):")), 0, 0)
         g.addWidget(self.parent_t, 0, 1)
-        g.addWidget(QLabel("key field:"), 0, 2)
+        g.addWidget(QLabel(tr("key field:")), 0, 2)
         g.addWidget(self.parent_f, 0, 3)
-        g.addWidget(QLabel("Child table (the “many”):"), 1, 0)
+        g.addWidget(QLabel(tr("Child table (the “many”):")), 1, 0)
         g.addWidget(self.child_t, 1, 1)
-        g.addWidget(QLabel("field that points to the parent:"), 1, 2)
+        g.addWidget(QLabel(tr("field that points to the parent:")), 1, 2)
         g.addWidget(self.child_f, 1, 3)
         g.addWidget(self.cascade, 2, 0, 1, 3)
-        b = QPushButton("＋ Add Relationship")
+        b = QPushButton(tr("＋ Add Relationship"))
         b.clicked.connect(self.add)
         g.addWidget(b, 2, 3)
-        rm = QPushButton("✖ Remove Selected Relationship")
+        rm = QPushButton(tr("✖ Remove Selected Relationship"))
         rm.clicked.connect(self.remove)
         close = QDialogButtonBox(QDialogButtonBox.Close)
         close.rejected.connect(self.reject)
@@ -1174,7 +1177,7 @@ class RelationshipsDialog(QDialog):
         self.listw.clear()
         for r in self.rels:
             self.listw.addItem(f"{r.parent}.{r.parent_field}  1 ──── ∞  {r.child}.{r.child_field}"
-                               + ("   (cascade delete)" if r.cascade_delete else ""))
+                               + ("   " + tr("(cascade delete)") if r.cascade_delete else ""))
         self.diagram.rels = self.rels
         self.diagram.update()
 
@@ -1184,13 +1187,13 @@ class RelationshipsDialog(QDialog):
         if not all([rel.child, rel.child_field, rel.parent, rel.parent_field]):
             return
         if rel.child == rel.parent:
-            QMessageBox.information(self, APP_NAME, "Choose two different tables.")
+            QMessageBox.information(self, APP_NAME, tr("Choose two different tables."))
             return
         try:
             self.win.close_tabs_for(rel.child)
             self.win.db.add_relation(rel)
         except (ValueError, sqlite3.Error) as ex:
-            error(self, ex, "Couldn't add the relationship")
+            error(self, ex, tr("Couldn't add the relationship"))
             return
         self.refresh()
 
@@ -1202,7 +1205,7 @@ class RelationshipsDialog(QDialog):
             self.win.close_tabs_for(self.rels[i].child)
             self.win.db.remove_relation(self.rels[i])
         except (ValueError, sqlite3.Error) as ex:
-            error(self, ex, "Couldn't remove the relationship")
+            error(self, ex, tr("Couldn't remove the relationship"))
             return
         self.refresh()
 
@@ -1227,7 +1230,7 @@ class Diagram(QWidget):
         p.fillRect(self.rect(), QColor("#f7f4f5"))
         tables = self.db.tables()
         if not tables:
-            p.drawText(self.rect(), Qt.AlignCenter, "No tables yet.")
+            p.drawText(self.rect(), Qt.AlignCenter, tr("No tables yet."))
             return
         cols = max(1, min(4, len(tables)))
         bw, gap = 190, 40
@@ -1279,18 +1282,19 @@ class StartPage(QWidget):
         self.win = win
         lay = QVBoxLayout(self)
         lay.setContentsMargins(60, 40, 60, 40)
-        title = QLabel(f"<span style='font-size:30px; font-weight:600; color:{ACCENT}'>Ethical Database</span>"
-                       "<br><span style='color:#666; font-size:14px'>Keep lists and records organised: contacts, "
-                       "stock, orders, tasks — anything.</span>")
+        title = QLabel(tr("<span style='font-size:30px; font-weight:600; color:{ACCENT}'>Ethical "
+                          "Database</span><br><span style='color:#666; font-size:14px'>Keep lists and records "
+                          "organised: contacts, stock, orders, tasks — anything.</span>").format(ACCENT=ACCENT))
         lay.addWidget(title)
         lay.addSpacing(20)
-        lay.addWidget(QLabel("<b>Create a new database</b>"))
+        lay.addWidget(QLabel(tr("<b>Create a new database</b>")))
         grid = QGridLayout()
-        descs = {"Blank database": "Start from scratch", "Contacts": "People, phone numbers, emails, birthdays",
-                 "Tasks": "To-do list with due dates and priorities", "Inventory": "Products, categories, stock levels",
-                 "Customers & Orders": "Customers, products, orders with totals and a report"}
+        descs = {N_("Blank database"): tr("Start from scratch"), N_("Contacts"): tr("People, phone numbers, emails, birthdays"),
+                 N_("Tasks"): tr("To-do list with due dates and priorities"),
+                 N_("Inventory"): tr("Products, categories, stock levels"),
+                 N_("Customers & Orders"): tr("Customers, products, orders with totals and a report")}
         for i, (name, d) in enumerate(descs.items()):
-            b = QPushButton(name.replace("&", "&&") + "\n" + d)  # && shows a literal & on buttons
+            b = QPushButton(tr(name).replace("&", "&&") + "\n" + d)  # && shows a literal & on buttons
             b.setMinimumHeight(64)
             b.setStyleSheet("text-align: left; padding: 8px 14px; font-size: 13px;")
             b.clicked.connect(lambda _=False, n=name: self.win.new_database(n))
@@ -1298,16 +1302,16 @@ class StartPage(QWidget):
         lay.addLayout(grid)
         lay.addSpacing(20)
         row = QHBoxLayout()
-        ob = QPushButton("📂 Open a database…")
+        ob = QPushButton(tr("📂 Open a database…"))
         ob.clicked.connect(self.win.open_dialog)
         row.addWidget(ob)
-        ib = QPushButton("Import from Excel / CSV / Access into a new database…")
+        ib = QPushButton(tr("Import from Excel / CSV / Access into a new database…"))
         ib.clicked.connect(self.win.import_new)
         row.addWidget(ib)
         row.addStretch()
         lay.addLayout(row)
         lay.addSpacing(16)
-        lay.addWidget(QLabel("<b>Recent</b>"))
+        lay.addWidget(QLabel(tr("<b>Recent</b>")))
         self.recent = QListWidget()
         self.recent.itemDoubleClicked.connect(lambda it: self.win.open_path(it.data(Qt.UserRole)))
         lay.addWidget(self.recent, 1)
@@ -1362,43 +1366,44 @@ class BaseWindow(QMainWindow):
 
     def _build_menus(self):
         mb = self.menuBar()
-        f = mb.addMenu("&File")
-        self.act("&New Database…", self.new_dialog, "Ctrl+N", f)
-        self.act("&Open…", self.open_dialog, "Ctrl+O", f)
-        self.act("Save a &Copy As…", self.save_copy, None, f)
+        f = mb.addMenu(tr("&File"))
+        self.act(tr("&New Database…"), self.new_dialog, "Ctrl+N", f)
+        self.act(tr("&Open…"), self.open_dialog, "Ctrl+O", f)
+        self.act(tr("Save a &Copy As…"), self.save_copy, None, f)
         f.addSeparator()
-        self.act("&Import (Excel, CSV, Access)…", self.import_dialog, None, f)
-        self.act("&Export Table/Query…", self.export_dialog, None, f)
+        self.act(tr("&Import (Excel, CSV, Access)…"), self.import_dialog, None, f)
+        self.act(tr("&Export Table/Query…"), self.export_dialog, None, f)
         f.addSeparator()
-        self.act("&Close Database", self.close_database, None, f)
-        self.act("E&xit", self.close, None, f)
-        c = mb.addMenu("&Create")
-        a_table = self.act("&Table…", lambda: self.open_design(None), "Ctrl+Shift+T", c)
-        a_query = self.act("&Query…", lambda: self.open_query(None), "Ctrl+Shift+Q", c)
-        a_report = self.act("&Report…", self.new_report, "Ctrl+Shift+R", c)
-        a_form = self.act("&Form for Current Table", self.form_for_current, None, c)
-        d = mb.addMenu("&Database")
-        a_rel = self.act("&Relationships…", self.relationships, None, d)
-        self.act("&SQL Console", lambda: self._sql_console(), None, d)
-        self.act("&Compact && Repair", self.compact, None, d)
-        h = mb.addMenu("&Help")
+        self.act(tr("&Close Database"), self.close_database, None, f)
+        self.act(tr("E&xit"), self.close, None, f)
+        c = mb.addMenu(tr("&Create"))
+        a_table = self.act(tr("&Table…"), lambda: self.open_design(None), "Ctrl+Shift+T", c)
+        a_query = self.act(tr("&Query…"), lambda: self.open_query(None), "Ctrl+Shift+Q", c)
+        a_report = self.act(tr("&Report…"), self.new_report, "Ctrl+Shift+R", c)
+        a_form = self.act(tr("&Form for Current Table"), self.form_for_current, None, c)
+        d = mb.addMenu(tr("&Database"))
+        a_rel = self.act(tr("&Relationships…"), self.relationships, None, d)
+        self.act(tr("&SQL Console"), lambda: self._sql_console(), None, d)
+        self.act(tr("&Compact && Repair"), self.compact, None, d)
+        h = mb.addMenu(tr("&Help"))
         add_guide_action(self, h, "base-basics")
-        self.act("&About", lambda: QMessageBox.about(
-            self, APP_NAME, f"<b>{APP_NAME}</b><br>Part of {SUITE_NAME}.<br><br>Databases are standard SQLite files."),
+        self.act(tr("&About"), lambda: QMessageBox.about(
+            self, APP_NAME, tr("<b>{APP_NAME}</b><br>Part of {SUITE_NAME}.<br><br>Databases are standard SQLite "
+                               "files.").format(APP_NAME=APP_NAME, SUITE_NAME=SUITE_NAME)),
                  None, h)
-        tb = QToolBar("Main")
+        tb = QToolBar(tr("Main"))
         tb.setObjectName("main")
         self.addToolBar(tb)
-        tb.addAction(self.act("New", self.new_dialog))
-        tb.addAction(self.act("Open", self.open_dialog))
+        tb.addAction(self.act(tr("New"), self.new_dialog))
+        tb.addAction(self.act(tr("Open"), self.open_dialog))
         tb.addSeparator()
-        for a, t in ((a_table, "＋ Table"), (a_query, "＋ Query"), (a_form, "Form"), (a_report, "＋ Report"),
-                     (a_rel, "Relationships")):
+        for a, t in ((a_table, "＋ " + tr("Table")), (a_query, "＋ " + tr("Query")), (a_form, tr("Form")),
+                     (a_report, "＋ " + tr("Report")), (a_rel, tr("Relationships"))):
             a.setIconText(t)
             tb.addAction(a)
         tb.addSeparator()
-        tb.addAction(self.act("Import", self.import_dialog))
-        tb.addAction(self.act("Export", self.export_dialog))
+        tb.addAction(self.act(tr("Import"), self.import_dialog))
+        tb.addAction(self.act(tr("Export"), self.export_dialog))
         self.db_actions = [a_table, a_query, a_report, a_form, a_rel]
 
     # ------------------------------------------------------------ database lifecycle
@@ -1448,11 +1453,11 @@ class BaseWindow(QMainWindow):
             with open(path, "rb") as fh:
                 head = fh.read(16)
             if head and not head.startswith(b"SQLite format 3"):
-                raise ValueError("This isn't an Ethical Database / SQLite database file.")
+                raise ValueError(tr("This isn't an Ethical Database / SQLite database file."))
             db = bc.Database(path)
             db.tables()
         except Exception as ex:
-            QMessageBox.critical(self, APP_NAME, f"Could not open the database:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Could not open the database:\n{ex}").format(ex=ex))
             return
         self.close_database()
         self.db = db
@@ -1463,36 +1468,37 @@ class BaseWindow(QMainWindow):
         tables = db.tables()
         if tables:
             self.open_datasheet(tables[0])
-        self.statusBar().showMessage("Changes are saved automatically.", 5000)
+        self.statusBar().showMessage(tr("Changes are saved automatically."), 5000)
 
     def _ask_new_path(self, suggestion):
-        f, _ = QFileDialog.getSaveFileName(self, "Create Database", os.path.join(
+        f, _ = QFileDialog.getSaveFileName(self, tr("Create Database"), os.path.join(
             self.settings.value("last_dir", os.path.expanduser("~/Documents")), suggestion), DB_FILTER)
         if f and not os.path.splitext(f)[1]:
             f += ".db"
         return f
 
     def new_database(self, template="Blank database"):
-        f = self._ask_new_path(("Database" if template == "Blank database" else template.replace(" & ", " and ")) + ".db")
+        f = self._ask_new_path((tr("Database") if template == "Blank database" else
+                                tr(template).replace(" & ", " " + tr("and") + " ")) + ".db")
         if not f:
             return
         try:
             self.close_database()
             bc.create_from_template(f, template).close()
         except Exception as ex:
-            QMessageBox.critical(self, APP_NAME, f"Could not create the database:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Could not create the database:\n{ex}").format(ex=ex))
             return
         self.open_path(f)
         if template == "Blank database":
             self.open_design(None)
 
     def new_dialog(self):
-        name, ok = QInputDialog.getItem(self, "New Database", "Start from:", list(bc.TEMPLATES), 0, False)
+        name, ok = QInputDialog.getItem(self, tr("New Database"), tr("Start from:"), list(bc.TEMPLATES), 0, False)
         if ok:
             self.new_database(name)
 
     def open_dialog(self):
-        f, _ = QFileDialog.getOpenFileName(self, "Open Database", self.settings.value("last_dir", ""),
+        f, _ = QFileDialog.getOpenFileName(self, tr("Open Database"), self.settings.value("last_dir", ""),
                                            DB_FILTER.replace("*.edb)", "*.edb *.accdb *.mdb)"))
         if f:
             self.open_path(f)
@@ -1506,19 +1512,19 @@ class BaseWindow(QMainWindow):
             dst = sqlite3.connect(f)
             self.db.con.backup(dst)
             dst.close()
-            self.statusBar().showMessage(f"Saved a copy to {f}", 4000)
+            self.statusBar().showMessage(tr("Saved a copy to {f}").format(f=f), 4000)
 
     def compact(self):
         if self.db:
             ok = self.db.compact()
-            QMessageBox.information(self, APP_NAME, "Database checked and compacted." if ok == "ok" else
-                                    f"Problems were found: {ok}")
+            QMessageBox.information(self, APP_NAME, tr("Database checked and compacted.") if ok == "ok" else
+                                    tr("Problems were found: {ok}").format(ok=ok))
 
     def closeEvent(self, e):
         for i in range(self.tabs.count()):
             w = self.tabs.widget(i)
             if isinstance(w, FormTab) and w.dirty():
-                r = QMessageBox.question(self, APP_NAME, f"Save the changed record in {w.source}?",
+                r = QMessageBox.question(self, APP_NAME, tr("Save the changed record in {source}?").format(source=w.source),
                                          QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
                 if r == QMessageBox.Cancel or (r == QMessageBox.Save and not w.save()):
                     e.ignore()
@@ -1546,8 +1552,8 @@ class BaseWindow(QMainWindow):
         self.nav.clear()
         if not self.db:
             return
-        for title, items, kind in (("Tables", self.db.tables(), "table"), ("Queries", self.db.views(), "query"),
-                                   ("Reports", self.db.reports(), "report")):
+        for title, items, kind in ((tr("Tables"), self.db.tables(), "table"), (tr("Queries"), self.db.views(), "query"),
+                                   (tr("Reports"), self.db.reports(), "report")):
             top = QTreeWidgetItem([f"{title} ({len(items)})"])
             f = top.font(0)
             f.setBold(True)
@@ -1578,27 +1584,27 @@ class BaseWindow(QMainWindow):
         if data:
             kind, name = data
             if kind in ("table", "query"):
-                m.addAction("Open", lambda: self.open_datasheet(name))
-                m.addAction("Form View", lambda: self.open_form(name))
-                m.addAction("Design View" if kind == "table" else "Edit Query (SQL)",
+                m.addAction(tr("Open"), lambda: self.open_datasheet(name))
+                m.addAction(tr("Form View"), lambda: self.open_form(name))
+                m.addAction(tr("Design View") if kind == "table" else tr("Edit Query (SQL)"),
                             lambda: self.open_design(name) if kind == "table" else self.open_query(name))
-                m.addAction("New Report from This…", lambda: self.new_report(name))
-                m.addAction("Export…", lambda: self.export_dialog(name))
+                m.addAction(tr("New Report from This…"), lambda: self.new_report(name))
+                m.addAction(tr("Export…"), lambda: self.export_dialog(name))
                 m.addSeparator()
-                m.addAction("Rename…", lambda: self.rename(name))
+                m.addAction(tr("Rename…"), lambda: self.rename(name))
                 m.addAction("Delete", lambda: self.delete(kind, name))
             else:
-                m.addAction("Open", lambda: self.open_report(name))
+                m.addAction(tr("Open"), lambda: self.open_report(name))
                 m.addAction("Delete", lambda: self.delete(kind, name))
         if self.db:
             m.addSeparator()
-            m.addAction("New Table…", lambda: self.open_design(None))
-            m.addAction("New Query…", lambda: self.open_query(None))
-            m.addAction("New Report…", lambda: self.new_report())
+            m.addAction(tr("New Table…"), lambda: self.open_design(None))
+            m.addAction(tr("New Query…"), lambda: self.open_query(None))
+            m.addAction(tr("New Report…"), lambda: self.new_report())
         m.exec(self.nav.viewport().mapToGlobal(pos))
 
     def rename(self, name):
-        new, ok = QInputDialog.getText(self, "Rename", "New name:", QLineEdit.Normal, name)
+        new, ok = QInputDialog.getText(self, tr("Rename"), tr("New name:"), QLineEdit.Normal, name)
         new = new.strip()
         if not ok or not new or new == name:
             return
@@ -1608,12 +1614,12 @@ class BaseWindow(QMainWindow):
             if not self.db.is_view(new):
                 self.db._fix_views(name, new, {})
         except sqlite3.Error as ex:
-            error(self, ex, "Couldn't rename")
+            error(self, ex, tr("Couldn't rename"))
         self.refresh_nav()
 
     def delete(self, kind, name):
-        what = {"table": "table and all its records", "query": "query", "report": "report"}[kind]
-        if QMessageBox.question(self, APP_NAME, f"Delete the {what} “{name}”? This can't be undone.") != QMessageBox.Yes:
+        what = {"table": tr("table and all its records"), "query": tr("query"), "report": tr("report")}[kind]
+        if QMessageBox.question(self, APP_NAME, tr("Delete the {what} “{name}”? This can't be undone.").format(what=what, name=name)) != QMessageBox.Yes:
             return
         try:
             self.close_tabs_for(name)
@@ -1622,7 +1628,7 @@ class BaseWindow(QMainWindow):
             else:
                 self.db.drop(name)
         except sqlite3.Error as ex:
-            error(self, ex, "Couldn't delete")
+            error(self, ex, tr("Couldn't delete"))
         self.refresh_nav()
 
     # ------------------------------------------------------------ tabs
@@ -1639,7 +1645,7 @@ class BaseWindow(QMainWindow):
     def close_tab(self, i):
         w = self.tabs.widget(i)
         if isinstance(w, FormTab) and w.dirty():
-            r = QMessageBox.question(self, APP_NAME, "Save the changed record?",
+            r = QMessageBox.question(self, APP_NAME, tr("Save the changed record?"),
                                      QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
             if r == QMessageBox.Cancel or (r == QMessageBox.Save and not w.save()):
                 return
@@ -1657,13 +1663,13 @@ class BaseWindow(QMainWindow):
         try:
             self._tab(DatasheetTab(self, name), name, ("sheet", name))
         except sqlite3.Error as ex:
-            error(self, ex, f"Couldn't open {name}")
+            error(self, ex, tr("Couldn't open {name}").format(name=name))
 
     def open_form(self, name, row=0):
         for i in reversed(range(self.tabs.count())):
             if getattr(self.tabs.widget(i), "_key", None) == ("form", name):
                 self.tabs.removeTab(i)
-        self._tab(FormTab(self, name, row), f"{name} (Form)", ("form", name))
+        self._tab(FormTab(self, name, row), tr("{name} (Form)").format(name=name), ("form", name))
 
     def form_for_current(self):
         w = self.tabs.currentWidget()
@@ -1671,29 +1677,29 @@ class BaseWindow(QMainWindow):
         if src:
             self.open_form(src)
         elif self.db and self.db.tables():
-            name, ok = QInputDialog.getItem(self, "Form", "Form for:", self.db.tables() + self.db.views(), 0, False)
+            name, ok = QInputDialog.getItem(self, tr("Form"), tr("Form for:"), self.db.tables() + self.db.views(), 0, False)
             if ok:
                 self.open_form(name)
 
     def open_design(self, table):
-        self._tab(DesignTab(self, table), f"{table} (Design)" if table else "New Table", ("design", table or object()))
+        self._tab(DesignTab(self, table), tr("{table} (Design)").format(table=table) if table else tr("New Table"), ("design", table or object()))
 
     def open_query(self, name):
         if not self.db.tables():
-            QMessageBox.information(self, APP_NAME, "Create a table first.")
+            QMessageBox.information(self, APP_NAME, tr("Create a table first."))
             return
-        self._tab(QueryTab(self, name), f"{name} (Query)" if name else "New Query", ("query", name or object()))
+        self._tab(QueryTab(self, name), tr("{name} (Query)").format(name=name) if name else tr("New Query"), ("query", name or object()))
 
     def _sql_console(self):
         if not self.db:
             return
-        t = self._tab(QueryTab(self, None), "SQL Console", ("query", object()))
+        t = self._tab(QueryTab(self, None), tr("SQL Console"), ("query", object()))
         t.tabs.setCurrentIndex(1)
 
     def open_report(self, name):
         spec = self.db.report(name)
         if spec:
-            self._tab(ReportTab(self, spec, name), f"{name} (Report)", ("report", name))
+            self._tab(ReportTab(self, spec, name), tr("{name} (Report)").format(name=name), ("report", name))
 
     def new_report(self, source=None):
         if not self.db or not (self.db.tables() or self.db.views()):
@@ -1701,7 +1707,7 @@ class BaseWindow(QMainWindow):
         dlg = ReportDialog(self, {"source": source} if source else None)
         if dlg.exec():
             spec = dlg.spec()
-            self._tab(ReportTab(self, spec), f"{spec['title'] or spec['source']} (Report)", ("report", object()))
+            self._tab(ReportTab(self, spec), tr("{v} (Report)").format(v=spec['title'] or spec['source']), ("report", object()))
 
     def relationships(self):
         if self.db:
@@ -1713,15 +1719,15 @@ class BaseWindow(QMainWindow):
         if not self.db:
             self.import_new()
             return
-        f, _ = QFileDialog.getOpenFileName(self, "Import", self.settings.value("last_dir", ""),
-                                           "Data files (*.csv *.txt *.xlsx *.accdb *.mdb);;All files (*)")
+        f, _ = QFileDialog.getOpenFileName(self, tr("Import"), self.settings.value("last_dir", ""),
+                                           tr("Data files (*.csv *.txt *.xlsx *.accdb *.mdb);;All files (*)"))
         if f:
             self.import_file(f)
 
     def import_new(self, path=None):
         if not path:
-            path, _ = QFileDialog.getOpenFileName(self, "Import into a new database", self.settings.value("last_dir", ""),
-                                                  "Data files (*.csv *.txt *.xlsx *.accdb *.mdb)")
+            path, _ = QFileDialog.getOpenFileName(self, tr("Import into a new database"), self.settings.value("last_dir", ""),
+                                                  tr("Data files (*.csv *.txt *.xlsx *.accdb *.mdb)"))
         if not path:
             return
         dst = self._ask_new_path(os.path.splitext(os.path.basename(path))[0] + ".db")
@@ -1744,20 +1750,20 @@ class BaseWindow(QMainWindow):
             elif low.endswith((".accdb", ".mdb")):
                 sources = bc.read_access(path)
             else:
-                raise ValueError("Unsupported file type.")
+                raise ValueError(tr("Unsupported file type."))
         except Exception as ex:
-            QMessageBox.warning(self, APP_NAME, f"Couldn't read the file:\n{ex}")
+            QMessageBox.warning(self, APP_NAME, tr("Couldn't read the file:\n{ex}").format(ex=ex))
             return
         if not sources:
-            QMessageBox.information(self, APP_NAME, "No data found in that file.")
+            QMessageBox.information(self, APP_NAME, tr("No data found in that file."))
             return
         names = list(sources)
         if len(names) > 1:
             dlg = QDialog(self)
-            dlg.setWindowTitle("Choose what to import")
+            dlg.setWindowTitle(tr("Choose what to import"))
             lw = QListWidget()
             for n in names:
-                it = QListWidgetItem(f"{n}  ({len(sources[n][1])} rows)")
+                it = QListWidgetItem(tr("{n}  ({v} rows)").format(n=n, v=len(sources[n][1])))
                 it.setFlags(it.flags() | Qt.ItemIsUserCheckable)
                 it.setCheckState(Qt.Checked)
                 it.setData(Qt.UserRole, n)
@@ -1766,7 +1772,7 @@ class BaseWindow(QMainWindow):
             bb.accepted.connect(dlg.accept)
             bb.rejected.connect(dlg.reject)
             lay = QVBoxLayout(dlg)
-            lay.addWidget(QLabel("Each one becomes a table:"))
+            lay.addWidget(QLabel(tr("Each one becomes a table:")))
             lay.addWidget(lw)
             lay.addWidget(bb)
             if not dlg.exec():
@@ -1782,14 +1788,14 @@ class BaseWindow(QMainWindow):
                 k += 1
             try:
                 cnt = bc.import_rows(self.db, table, header, rows)
-                done.append(f"{table}: {cnt:,} records")
+                done.append(tr("{table}: {count:,} records").format(table=table, count=cnt))
             except Exception as ex:
-                error(self, ex, f"Couldn't import {n}")
+                error(self, ex, tr("Couldn't import {n}").format(n=n))
         self.refresh_nav()
         if done:
             self.open_datasheet(done[0].split(":")[0])
-            QMessageBox.information(self, APP_NAME, "Imported:\n" + "\n".join(done) +
-                                    "\n\nTip: check the field types in Design View.")
+            QMessageBox.information(self, APP_NAME, tr("Imported:\n") + "\n".join(done) +
+                                    tr("\n\nTip: check the field types in Design View."))
 
     def export_dialog(self, name=None):
         if not self.db:
@@ -1801,19 +1807,20 @@ class BaseWindow(QMainWindow):
         if not objs:
             return
         if not name:
-            name, ok = QInputDialog.getItem(self, "Export", "What to export:", objs, 0, False)
+            name, ok = QInputDialog.getItem(self, tr("Export"), tr("What to export:"), objs, 0, False)
             if not ok:
                 return
-        f, flt = QFileDialog.getSaveFileName(self, f"Export {name}", os.path.join(
-            self.settings.value("last_dir", ""), name), "Excel workbook (*.xlsx);;Excel - all tables & queries (*.xlsx);;"
-            "CSV (*.csv);;PDF report (*.pdf)")
+        filters = [tr("Excel workbook") + " (*.xlsx)", tr("Excel - all tables & queries") + " (*.xlsx)", "CSV (*.csv)",
+                   tr("PDF report") + " (*.pdf)"]
+        f, flt = QFileDialog.getSaveFileName(self, tr("Export {name}").format(name=name), os.path.join(
+            self.settings.value("last_dir", ""), name), ";;".join(filters))
         if not f:
             return
         try:
-            if flt.startswith("CSV") or f.lower().endswith(".csv"):
+            if flt == filters[2] or f.lower().endswith(".csv"):
                 f = f if f.lower().endswith(".csv") else f + ".csv"
                 n = bc.export_csv(self.db, name, f)
-            elif flt.startswith("PDF") or f.lower().endswith(".pdf"):
+            elif flt == filters[3] or f.lower().endswith(".pdf"):
                 f = f if f.lower().endswith(".pdf") else f + ".pdf"
                 doc = QTextDocument()
                 doc.setHtml(bc.report_html(self.db, {"source": name, "title": name}))
@@ -1824,13 +1831,13 @@ class BaseWindow(QMainWindow):
                 n = self.db.count(name)
             else:
                 f = f if f.lower().endswith(".xlsx") else f + ".xlsx"
-                srcs = objs if "all tables" in flt else [name]
+                srcs = objs if flt == filters[1] else [name]
                 bc.export_xlsx(self.db, srcs, f)
                 n = sum(self.db.count(s) for s in srcs)
         except Exception as ex:
-            error(self, ex, "Export failed")
+            error(self, ex, tr("Export failed"))
             return
-        self.statusBar().showMessage(f"Exported {n:,} record(s) to {f}", 5000)
+        self.statusBar().showMessage(tr("Exported {n:,} record(s) to {f}").format(n=n, f=f), 5000)
 
 
 def main():

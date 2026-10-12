@@ -1,0 +1,513 @@
+@@ photo-basics
+title: Fotos: o básico
+keywords: editor de fotos abrir novo zoom mover camadas histórico interface
+---
+<ul><li><b>Esquerda:</b> ferramentas e as cores principal/de fundo (⇄ trocar = ${K("X")}, ◩ preto/branco padrão = ${K("D")}).</li>
+<li><b>Topo:</b> opções da ferramenta atual (tamanho, opacidade, tolerância…).</li>
+<li><b>Direita:</b> <b>Camadas</b> e <b>Histórico</b> (clique em qualquer passo para voltar a ele).</li></ul>
+<h2>Navegar</h2><p><kbd>Ctrl</kbd>+roda dá zoom (onde está o mouse), a roda rola, <kbd>Espaço</kbd>+arrastar ou arrastar com o botão do meio move a vista, <kbd>Ctrl</kbd>+<kbd>0</kbd> ajustar, <kbd>Ctrl</kbd>+<kbd>1</kbd> 100%. Com muito zoom você vê uma grade de pixels.</p>
+<h2>Imagem nova</h2><p><b>Arquivo → Novo</b> tem predefinições (HD, 4K, Instagram, miniatura do YouTube, A4…) e uma escolha de fundo (branco, transparente, preto, cor).</p>
+<p>Desfazer/refazer: <kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> (30 passos).</p>
+
+@@ photo-tools
+title: Fotos: as ferramentas
+keywords: ferramentas pincel borracha balde gradiente carimbo conta-gotas cortar mover varinha laço seleção mão zoom atalho
+---
+<table><tr><th>Tecla</th><th>Ferramenta</th><th>Uso</th></tr>
+<tr><td>${K("V")}</td><td>Mover</td><td>Arraste a camada (ou só os pixels selecionados). As setas movem um pouco.</td></tr>
+<tr><td>${K("M")}</td><td>Seleção retangular / elíptica</td><td>Arraste. ${K("Shift")} adiciona, ${K("Alt")} subtrai. Opção de suavizar.</td></tr>
+<tr><td>${K("L")}</td><td>Laço</td><td>Desenhe à mão em volta de uma área.</td></tr>
+<tr><td>${K("W")}</td><td>Varinha mágica</td><td>Clique para selecionar cores parecidas (tolerância, contíguo, amostrar todas as camadas).</td></tr>
+<tr><td>${K("C")}</td><td>Cortar</td><td>Arraste e depois ${K("Enter")} ou clique duplo. ${K("Esc")} cancela.</td></tr>
+<tr><td>${K("B")}</td><td>Pincel</td><td>Tamanho, dureza (borda suave/dura), opacidade. ${K("[")} ${K("]")} mudam o tamanho.</td></tr>
+<tr><td>${K("E")}</td><td>Borracha</td><td>Apaga até a transparência.</td></tr>
+<tr><td>${K("G")}</td><td>Balde de tinta</td><td>Preenche cores parecidas conectadas.</td></tr>
+<tr><td></td><td>Gradiente</td><td>Arraste uma linha: linear ou radial, para a cor de fundo ou para transparente.</td></tr>
+<tr><td>${K("S")}</td><td>Carimbo</td><td>${K("Alt")}+clique na origem e depois pinte para copiá-la (ótimo para tirar manchas).</td></tr>
+<tr><td>${K("I")}</td><td>Conta-gotas</td><td>Clique: pega a cor principal. ${K("Alt")}+clique: a de fundo.</td></tr>
+<tr><td>${K("T")}</td><td>Texto</td><td>Clique para adicionar texto; clique numa camada de texto existente para editá-la.</td></tr>
+<tr><td>${K("U")}</td><td>Forma</td><td>Retângulo, arredondado, elipse, linha, seta — numa camada nova. ${K("Shift")} = quadrado/círculo.</td></tr>
+<tr><td>${K("H")}</td><td>Mão</td><td>Mover a vista.</td></tr><tr><td>${K("Z")}</td><td>Zoom</td><td>Clique para aproximar, ${K("Alt")}+clique para afastar.</td></tr></table>
+<p>Pintar, preencher, gradientes, filtros e ajustes só afetam a <b>área selecionada</b> (se houver seleção) da <b>camada atual</b>.</p>
+
+@@ photo-selections
+title: Fotos: seleções
+keywords: selecionar tudo desmarcar inverter suavizar expandir contrair intervalo de cores pixels da camada recortar copiar formigas
+---
+<p>Uma seleção limita onde você pinta ou edita. Ela aparece como “formigas andando”.</p>
+<table><tr><td>Selecionar tudo / desmarcar / inverter</td><td>${K("Ctrl A")} / ${K("Ctrl D")} / ${K("Ctrl Shift I")}</td></tr>
+<tr><td>Adicionar / subtrair</td><td>segure ${K("Shift")} / ${K("Alt")} enquanto seleciona, ou escolha o Modo</td></tr>
+<tr><td>Borda suave</td><td>Selecionar → Suavizar (${K("Shift F6")})</td></tr>
+<tr><td>Maior / menor</td><td>Selecionar → Expandir / Contrair</td></tr>
+<tr><td>Todos os pixels de uma cor</td><td>Selecionar → Intervalo de cores (usa a cor principal)</td></tr>
+<tr><td>Os pixels visíveis de uma camada</td><td>Selecionar → Pixels da camada</td></tr></table>
+<h2>O que dá para fazer com uma seleção</h2><ul>
+<li><kbd>Delete</kbd> limpa; <i>Editar → Preencher</i> (<kbd>Alt</kbd>+<kbd>Backspace</kbd>) / Contornar.</li>
+<li><kbd>Ctrl</kbd>+<kbd>J</kbd> copia para uma camada nova, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd> recorta para uma camada nova.</li>
+<li><kbd>Ctrl</kbd>+<kbd>T</kbd> escala/gira; <i>Imagem → Cortar na seleção</i>.</li>
+<li>Copiar / Copiar mesclado / Colar (como camada nova).</li></ul>
+
+@@ photo-layers
+title: Fotos: camadas e modos de mesclagem
+keywords: camada nova duplicar mesclar achatar opacidade modo de mesclagem multiplicação divisão sobrepor ocultar renomear ordem
+---
+<p>Camadas são folhas empilhadas: as de cima cobrem as de baixo. O painel <b>Camadas</b> mostra começando pela de cima.</p>
+<ul><li>Caixa = mostrar/ocultar. Clique duplo = renomear. Mude a ordem com ▲ ▼.</li>
+<li>Botões: ＋ nova, ⧉ duplicar, ▲▼ mover, ⤓ mesclar para baixo (<kbd>Ctrl</kbd>+<kbd>E</kbd>), 🗑 excluir.</li>
+<li>As caixas de <b>Opacidade</b> e <b>modo de mesclagem</b> acima da lista valem para a camada atual.</li>
+<li>Menu Camada: mesclar visíveis, inverter/girar camada, editar camada de texto. Menu Imagem: achatar.</li></ul>
+<h2>Modos de mesclagem</h2><table>
+<tr><td>Multiplicação</td><td>escurece — ótimo para sombras e para pôr traço por cima de cor</td></tr>
+<tr><td>Divisão / Subexposição linear (adicionar)</td><td>clareia — brilhos, efeitos de luz</td></tr>
+<tr><td>Sobrepor / Luz suave / Luz direta</td><td>acrescenta contraste e textura</td></tr>
+<tr><td>Escurecer / Clarear</td><td>fica com o pixel mais escuro / mais claro</td></tr>
+<tr><td>Superexposição de cor / Superexposição de cor inversa</td><td>clareamento / escurecimento forte</td></tr>
+<tr><td>Diferença / Exclusão</td><td>inverte pela camada de baixo — efeitos, comparar imagens</td></tr></table>
+<p>As camadas podem ter qualquer tamanho e passar das bordas da tela — mover nunca perde pixels.</p>
+
+@@ photo-adjust
+title: Fotos: ajustes e filtros
+keywords: brilho contraste níveis matiz saturação vibratilidade exposição equilíbrio de cores temperatura preto e branco sépia inverter limiar posterizar desfocar nitidez ruído pixelizar vinheta relevo
+---
+<h2>Imagem → Ajustes</h2><p>Todos têm controles deslizantes com <b>Prévia</b> ao vivo:</p>
+<table><tr><td>Brilho/contraste</td><td>conserto rápido para fotos apagadas</td></tr>
+<tr><td>Níveis</td><td>define o ponto preto, o ponto branco e os tons médios (gama)</td></tr>
+<tr><td>Matiz/saturação</td><td>muda as cores, deixa mais fortes/fracas, clareia/escurece</td></tr>
+<tr><td>Vibratilidade</td><td>reforça mais as cores apagadas que as fortes (a pele fica natural)</td></tr>
+<tr><td>Exposição</td><td>como mudar a exposição da câmera (pontos)</td></tr>
+<tr><td>Equilíbrio de cores / Temperatura-tonalidade</td><td>corrige tons de cor — mais quente, mais frio, mais verde…</td></tr>
+<tr><td>Limiar / Posterizar</td><td>preto e branco puro / menos tons de cor</td></tr></table>
+<p>Com um clique: Inverter, Preto e branco, Sépia, Contraste automático.</p>
+<h2>Menu Filtro</h2><p>Desfoque gaussiano, Desfoque de movimento, Nitidez, Reduzir ruído, Adicionar ruído, Pixelizar, Vinheta, Relevo, Localizar bordas, Pintura a óleo.</p>
+<div class="tip">Para desfocar um fundo: selecione o objeto (Varinha mágica / Laço), <i>Selecionar → Inverter</i>, <i>Selecionar → Suavizar</i> 10 px e depois <i>Filtro → Desfoque gaussiano</i>.</div>
+
+@@ photo-text-shapes
+title: Fotos: texto e formas
+keywords: texto fonte contorno sombra editar forma retângulo elipse seta linha
+---
+<h2>Texto</h2><p>Ferramenta Texto (${K("T")}) → clique → digite. Escolha qualquer fonte, tamanho (px), negrito/itálico, cor, alinhamento, um <b>contorno</b> (espessura + cor) e uma <b>sombra projetada</b>.
+Cada texto tem a sua própria camada (marcada com <b>T</b>). Para mudar depois: ferramenta Texto → clique no texto, ou <i>Camada → Editar camada de texto</i>.</p>
+<div class="warn">Redimensionar, girar ou inverter uma camada de texto a transforma numa camada de imagem comum (não dá mais para editar como texto).</div>
+<h2>Formas</h2><p>Ferramenta Forma (${K("U")}): escolha Retângulo, Retângulo arredondado, Elipse, Linha ou Seta. O preenchimento usa a cor principal e o contorno a cor de fundo (defina a espessura, 0 = nenhum). Segure ${K("Shift")} para quadrados/círculos perfeitos. Cada forma vai para uma camada nova.</p>
+
+@@ photo-files
+title: Fotos: arquivos do Photoshop, salvar e exportar
+keywords: psd photoshop salvar exportar png jpg webp qualidade ora camadas achatar tiff ico pdf
+---
+<h2>Photoshop (.psd)</h2><p>Abre PSDs com as camadas: nomes, posições, opacidade, modos de mesclagem, camadas ocultas (os grupos são achatados nas suas camadas). <b>Salva PSD com camadas</b>, que abre no Photoshop.</p>
+<p>Não editáveis: camadas de ajuste, efeitos de camada (sombras, traços…), máscaras, objetos inteligentes — os pixels deles são carregados quando possível e você é avisado. Camadas de texto do Photoshop chegam como imagens.</p>
+<h2>Salvar</h2><table><tr><th>Formato</th><th>Mantém camadas?</th><th>Bom para</th></tr>
+<tr><td>.psd</td><td>✅</td><td>compartilhar com quem usa Photoshop, guardar o trabalho</td></tr>
+<tr><td>.ora (OpenRaster)</td><td>✅ (+ texto editável)</td><td>guardar o trabalho num formato aberto</td></tr>
+<tr><td>.png</td><td>❌</td><td>gráficos, capturas de tela, transparência</td></tr>
+<tr><td>.jpg</td><td>❌</td><td>fotos (pergunta a qualidade 1–100)</td></tr>
+<tr><td>.webp</td><td>❌</td><td>web — arquivos pequenos</td></tr>
+<tr><td>.tif / .bmp / .gif / .ico / .pdf</td><td>❌</td><td>impressão / programas antigos / ícones / documentos</td></tr></table>
+<p><b>Arquivo → Exportar como</b> salva uma cópia achatada sem mudar o arquivo em que você está trabalhando.</p>
+
+@@ conv-basics
+title: Conversor: como usar
+keywords: conversor adicionar arquivos arrastar pasta destino iniciar cancelar botão direito lote
+---
+<ol><li><b>Adicione arquivos:</b> arraste arquivos ou pastas inteiras para a lista, use <b>Adicionar arquivos…/Adicionar pasta…</b>, ou selecione arquivos no Explorador → botão direito → <i>Converter / comprimir com Ethical Converter</i>.</li>
+<li><b>Escolha uma tarefa</b> nas abas: <a href="#conv-formats">Converter</a>, <a href="#conv-compress">Comprimir</a>, <a href="#conv-combine">Combinar</a>, <a href="#conv-combine">Zip / Descompactar</a> — ou <a href="#conv-download">⬇ Baixar de um link</a> para salvar vídeos da internet.</li>
+<li>Em <b>Converter</b>, cada arquivo tem a sua própria opção <b>Converter para</b>; <b>Definir todos os arquivos como</b> muda todos os arquivos que aceitam aquele formato.</li>
+<li>Escolha para onde vão os resultados: <b>mesma pasta de cada arquivo</b> ou <b>esta pasta</b>.</li>
+<li>Clique em <b>▶ Iniciar</b>. Cada arquivo mostra o progresso; <b>Cancelar</b> para.</li></ol>
+<p>Os originais nunca são alterados nem sobrescritos — os arquivos novos ganham nome próprio (ex.: <code>video (compressed).mp4</code>, <code>photo (1).png</code>).</p>
+<p><kbd>Delete</kbd> tira os arquivos selecionados da lista.</p>
+
+@@ conv-formats
+title: Conversor: o que vira o quê
+keywords: formatos áudio vídeo imagem documento wav mp3 mp4 mkv webm gif flac m4a pdf docx pptx xlsx csv png jpg webp ico
+---
+<table><tr><th>De</th><th>Para</th></tr>
+<tr><td><b>Áudio</b>: mp3 wav flac ogg m4a aac wma opus aiff amr ac3</td><td>MP3, WAV, FLAC (sem perdas), M4A/AAC, OGG, OPUS, AIFF, WMA, <b>vídeo MP4</b> (som + uma imagem ou tela preta)</td></tr>
+<tr><td><b>Vídeo</b>: mp4 mkv mov avi webm wmv flv m4v mpg 3gp ts…</td><td>MP4 (H.264), MP4 (H.265, menor), MKV, WebM, MOV, AVI, WMV, GIF animado, ou só o som: MP3, WAV, M4A, FLAC</td></tr>
+<tr><td><b>Imagens</b>: png jpg webp bmp gif tif ico psd tga</td><td>PNG, JPG, WebP, BMP, GIF, TIFF, ICO (ícone de vários tamanhos), PDF</td></tr>
+<tr><td>PDF</td><td>PNG ou JPG (uma por página), Word .docx, texto</td></tr>
+<tr><td>Word .docx</td><td>PDF, texto, HTML, Markdown, ODT</td></tr>
+<tr><td>PowerPoint .pptx</td><td>PDF, PNG (uma por slide)</td></tr>
+<tr><td>Excel .xlsx</td><td>CSV (um por planilha)</td></tr><tr><td>CSV</td><td>Excel .xlsx</td></tr>
+<tr><td>.txt .md .html</td><td>PDF, Word .docx (e HTML/texto)</td></tr>
+<tr><td>Arquivos compactados: zip 7z tar tgz gz bz2 xz</td><td>Extrair (descompactar)</td></tr></table>
+<h2>Opções (aba Converter)</h2><ul>
+<li><b>Qualidade do vídeo</b> Alta / Equilibrada / Arquivo pequeno, <b>Tamanho do vídeo</b> (manter, 4K, 1080p, 720p, 480p, 360p).</li>
+<li><b>Qualidade do áudio</b> 64k–320k (192k é um bom padrão; 320k é o melhor MP3).</li>
+<li><b>Qualidade da imagem</b> e <b>tamanho máximo</b> (para JPG/WebP e redimensionar).</li>
+<li><b>Imagem para áudio → MP4</b>: escolha uma capa; senão, usa uma tela preta.</li>
+<li><b>Tamanho do GIF</b> (largura) e resolução de <b>PDF → imagens</b> (dpi).</li></ul>
+
+@@ conv-compress
+title: Conversor: comprimir (deixar os arquivos menores)
+keywords: comprimir menor reduzir tamanho vídeo áudio pdf imagens word powerpoint excel zip 7z e-mail
+---
+<p>Escolha <b>Leve</b> (melhor qualidade), <b>Equilibrado</b> ou <b>Forte</b> (o menor).</p>
+<table><tr><th>Arquivo</th><th>O que acontece</th></tr>
+<tr><td>Vídeo</td><td>recodificado como MP4 (H.264); Equilibrado limita a 1080p, Forte a 720p</td></tr>
+<tr><td>Áudio</td><td>taxa de bits menor (160k / 128k / 96k); WAV/FLAC/AIFF viram MP3</td></tr>
+<tr><td>Imagens</td><td>salvas de novo menores (qualidade JPG/WebP, menos cores no PNG, redução opcional para 2560/1600 px)</td></tr>
+<tr><td>PDF</td><td>as imagens de dentro são reduzidas e recomprimidas, as fontes aparadas, o arquivo limpo</td></tr>
+<tr><td>Word/Excel/PowerPoint</td><td>as imagens de dentro são reduzidas e o arquivo é recompactado no máximo</td></tr>
+<tr><td>Todo o resto</td><td>vira zip (Forte usa 7z, que é menor)</td></tr></table>
+<p>A coluna Resultado mostra quanto cada arquivo diminuiu. Se não dá para deixar um arquivo visivelmente menor, nenhum arquivo novo é criado (“Já está pequeno”).</p>
+<div class="tip">Para mandar um vídeo grande por e-mail, <b>Forte</b> costuma deixá-lo numa fração do tamanho e ainda bonito no celular.</div>
+
+@@ conv-trim
+title: Conversor: cortar vídeos (e girar, redimensionar, tirar o som)
+keywords: cortar aparar vídeo clipe encurtar início fim girar de lado redimensionar 720p 1080p mudo remover som áudio
+---
+<p>A aba <b>✂ Cortar vídeo</b> fica só com a parte do vídeo que você quer.</p>
+<ol><li>Clique em <b>📂 Abrir um vídeo…</b> (ou solte um na aba).</li>
+<li>Arraste o controle deslizante — a imagem mostra aquele momento. Clique em <b>⇤ Começar aqui</b>, avance e depois <b>Terminar aqui ⇥</b>. Ou digite os tempos em segundos.
+A linha de baixo diz o que você vai manter, ex.: “Mantendo 0:12.0 → 1:05.5 (0:53.5)”.</li>
+<li>Escolha como cortar:<ul>
+<li><b>Rápido</b> — na hora e sem perda de qualidade, mas o corte cai no “quadro-chave” mais próximo, então pode começar alguns segundos antes.</li>
+<li><b>Exato</b> — corta no quadro exato (o vídeo é refeito, o que demora um pouco mais).</li></ul></li>
+<li>Opcional: <b>Tamanho</b> 1080p / 720p / 480p (arquivo menor), <b>Girar</b> (conserta vídeos de celular de lado), <b>Remover o som</b>.
+Tamanho e giro sempre usam Exato.</li>
+<li>Clique em <b>✂ Salvar o vídeo cortado</b>. Ele é salvo como “<i>nome</i> (trimmed)” ao lado do original, ou na pasta de <b>Salvar os resultados em</b>.
+O original não muda.</li></ol>
+<p class="note">Para só mudar o tamanho de vídeos inteiros (vários de uma vez), use a opção <b>Tamanho do vídeo</b> da aba <b>Converter</b>, ou <b>Comprimir</b>.</p>
+
+@@ conv-combine
+title: Conversor: combinar, compactar e descompactar
+keywords: combinar juntar unir pdf áudio vídeo zip 7z extrair descompactar arquivo compactado
+---
+<h2>Aba Combinar</h2><ul>
+<li><b>Imagens e PDFs → um só PDF</b> (ex.: páginas digitalizadas num documento).</li>
+<li><b>Arquivos de áudio → um MP3</b> (unidos um depois do outro).</li><li><b>Vídeos → um MP4</b>.</li></ul>
+<p>Os arquivos são unidos na ordem da lista — use ▲ Mover para cima / ▼ Mover para baixo. Digite um nome para o arquivo novo.</p>
+<h2>Aba Zip / Descompactar</h2><ul>
+<li><b>Compactar todos os arquivos num só ZIP</b> (funciona em qualquer lugar) ou <b>7z</b> (menor; precisa do 7-Zip ou parecido para abrir). As pastas mantêm a estrutura.</li>
+<li><b>Extrair</b> descompacta .zip, .7z, .tar, .tar.gz/.tgz, .tar.bz2, .tar.xz, .gz, .bz2, .xz numa pasta com o nome do arquivo compactado.</li></ul>
+<p>Arquivos .rar ainda não podem ser extraídos.</p>
+
+@@ conv-download
+title: Conversor: baixar vídeos de links
+keywords: baixar download youtube twitter x tiktok instagram vimeo link url vídeo áudio mp3 playlist segurança vírus
+---
+<p class="note"><b>Não está em todas as versões:</b> o download público do EthicalApp não traz este recurso. Ele só existe em versões pessoais feitas com <code>installer\build.py --with-downloader</code> ou ao rodar pelo código-fonte.</p>
+<p>A aba <b>⬇ Baixar de um link</b> salva vídeos ou o som deles do YouTube, X/Twitter, TikTok, Instagram, Vimeo, Facebook, Reddit, SoundCloud e mais de mil sites.</p>
+<ol><li>Cole um ou mais links (um por linha) — o botão <b>📋 Colar</b> cola o que você copiou.</li>
+<li>Opcional: <b>🔎 Verificar links</b> mostra antes o título, o canal e a duração de cada um.</li>
+<li>Escolha <b>Vídeo</b> (qualidade 360p–4K; <b>MP4</b> toca em qualquer lugar, <b>Melhor qualidade</b> salva MKV) ou <b>Só áudio</b> (MP3, M4A, OPUS, WAV, FLAC).</li>
+<li>Marque <b>Playlist inteira</b> para pegar todos os vídeos de uma playlist (até 200).</li>
+<li>Clique em <b>⬇ Baixar</b>. Os arquivos vão para a pasta de “Salvar os resultados em” (ou para a sua pasta <b>Downloads</b>).</li></ol>
+<p>Marque <b>Adicionar os downloads concluídos à lista</b> para converter ou comprimir na hora (ex.: baixar e depois fazer um GIF).</p>
+<h2>🛡 Segurança embutida</h2><ul>
+<li>Só links normais da web são aceitos — links para arquivos do seu PC ou da sua rede de casa são recusados.</li>
+<li>Os downloads caem primeiro numa pasta de <b>quarentena</b> particular.</li>
+<li>Só tipos de arquivo de áudio/vídeo saem da quarentena — programas (.exe, scripts), arquivos compactados, documentos e páginas da web são <b>bloqueados e apagados</b>, mesmo fingindo ser vídeo.</li>
+<li>Cada arquivo é aberto pelo FFmpeg para provar que tem mesmo áudio ou vídeo.</li>
+<li>O <b>Microsoft Defender</b> verifica cada arquivo antes de salvar; qualquer coisa suspeita é apagada.</li>
+<li>Nada baixado é aberto ou executado pelo aplicativo.</li></ul>
+<div class="warn">⚖ Só baixe vídeos que você tem permissão para baixar — os seus próprios envios, ou vídeos que o criador deixa baixar (ex.: Creative Commons). Os termos de muitos sites, incluindo o YouTube, não permitem baixar, e os direitos autorais continuam valendo.</div>
+<h2>Se os downloads pararem de funcionar</h2><p>Os sites mudam com frequência. Clique em <b>Atualizar o baixador</b> (precisa de internet) e reinicie o conversor.
+Vídeos privados, só para membros, com restrição de idade ou bloqueados por região não podem ser baixados.</p>
+
+@@ base-basics
+title: Banco de dados: o que é e como começar
+keywords: banco de dados access sqlite começar modelo novo abrir tabela registro campo painel de navegação salvamento automático
+---
+<p>Um banco de dados guarda listas de coisas — contatos, produtos, pedidos, tarefas — em <b>tabelas</b>. Cada linha é um
+<b>registro</b> (um cliente), cada coluna um <b>campo</b> (o nome, o e-mail…). Diferente de uma planilha, as tabelas podem ser
+<a href="#base-relationships">ligadas</a> (um pedido pertence a um cliente), e você pode fazer perguntas com
+<a href="#base-queries">consultas</a> e imprimir <a href="#base-reports">relatórios</a>.</p>
+<h2>Começar</h2><p>A página inicial oferece um <b>Banco de dados em branco</b> ou um modelo pronto com dados de exemplo:
+<b>Contatos</b>, <b>Tarefas</b>, <b>Estoque</b> (com uma consulta de estoque baixo), <b>Clientes e pedidos</b> (tabelas ligadas, uma consulta de totais de pedidos e um relatório).
+Você também pode abrir um banco de dados ou importar Excel/CSV/Access direto para um novo.</p>
+<h2>A janela</h2><ul>
+<li><b>Esquerda:</b> o painel de navegação — Tabelas, Consultas, Relatórios. Clique duas vezes para abrir; botão direito para Modo Design, Modo Formulário, Renomear, Excluir, Exportar, Novo relatório.</li>
+<li><b>Direita:</b> abas para tudo o que você abre.</li></ul>
+<div class="tip">Não há botão Salvar para os dados — <b>toda mudança é salva na hora</b>, como no Access. Use <i>Arquivo → Salvar uma cópia como</i> para backups.</div>
+<p>Um banco de dados é um único arquivo <b>.db</b> (o formato padrão SQLite, que muitas outras ferramentas também abrem).</p>
+
+@@ base-tables
+title: Banco de dados: criar tabelas e tipos de campo
+keywords: modo design tabela campo tipo numeração automática texto número moeda data sim não obrigatório único padrão renomear
+---
+<p><b>Criar → Tabela</b> (ou botão direito numa tabela → <b>Modo Design</b> para alterá-la). Cada linha do designer é um campo:</p>
+<table><tr><th>Tipo</th><th>Para</th></tr>
+<tr><td>Numeração automática</td><td>um ID que se numera sozinho (1, 2, 3…) — toda tabela deve ter um</td></tr>
+<tr><td>Texto curto / Texto longo</td><td>nomes, códigos / anotações, descrições</td></tr>
+<tr><td>Número inteiro / Número decimal</td><td>quantidades / medidas</td></tr>
+<tr><td>Moeda</td><td>dinheiro (aparece como $1,234.50)</td></tr>
+<tr><td>Data / Data e hora</td><td>digite 2026-10-11, 10/11/2026 ou <code>today</code></td></tr>
+<tr><td>Sim/Não</td><td>uma caixa de seleção</td></tr></table>
+<ul><li><b>Obrigatório</b> — o campo não pode ficar vazio. <b>Único</b> — dois registros não podem ter o mesmo valor (ex.: código do produto, e-mail).</li>
+<li><b>Valor padrão</b> — preenchido nos registros novos; <code>DATE()</code> quer dizer hoje.</li>
+<li>Renomeie, reordene (▲▼), adicione ou remova campos quando quiser e clique em <b>Salvar tabela</b> — os dados existentes são mantidos, e as consultas salvas que usam um campo renomeado são atualizadas sozinhas.</li></ul>
+
+@@ base-data
+title: Banco de dados: digitar e encontrar dados (folha de dados e formulário)
+keywords: folha de dados modo formulário novo registro excluir pesquisar filtrar classificar editar pesquisa
+---
+<h2>Modo Folha de dados</h2><p>Abre como uma planilha. Clique numa célula e digite; pressione <kbd>Enter</kbd> para salvar.</p><ul>
+<li><b>Novo registro:</b> digite na última linha marcada com <b>✱</b>, ou clique em <b>＋ Novo registro</b>.</li>
+<li><b>Excluir:</b> selecione registros → <b>✖ Excluir</b>.</li>
+<li><b>Classificar:</b> clique no cabeçalho de uma coluna (de novo para inverter).</li>
+<li>A caixa <b>Buscar em todos os campos</b> filtra enquanto você digita. <b>Filtrar pela seleção</b> mostra só os registros com o valor da célula atual; <b>Remover filtro</b> mostra tudo de novo.</li>
+<li>Campos Sim/Não são caixas de seleção. Campos ligados a outra tabela (ex.: o cliente de um pedido) mostram uma <b>lista suspensa de nomes</b> em vez de números de ID.</li></ul>
+<h2>Modo Formulário</h2><p>Um registro por vez, com uma caixa por campo — mais fácil para digitar registros longos.
+Use ⏮ ◀ ▶ ⏭ para navegar, <b>＋ Novo</b>, <b>💾 Salvar</b>, <b>✖ Excluir</b> e <b>Localizar…</b>. Ir para outro registro salva as suas mudanças.</p>
+<p>Se algo não puder ser salvo, você recebe um motivo em português claro — ex.: um campo obrigatório está vazio, um valor único já está em uso ou um registro ligado não existe.</p>
+
+@@ base-queries
+title: Banco de dados: consultas (perguntar aos seus dados)
+keywords: consulta design critérios classificar totais soma contar agrupar sql modo junção relacionada
+---
+<p><b>Criar → Consulta</b>. Uma consulta escolhe campos, filtra registros e os classifica — ex.: “todos os pedidos enviados este mês, os mais novos primeiro”. As consultas salvas aparecem em <b>Consultas</b> e sempre mostram os dados atuais.</p>
+<h2>Aba Design</h2><ol>
+<li>Escolha a <b>tabela principal</b>. Marque <b>tabelas relacionadas</b> para usar os campos delas também (precisa de um <a href="#base-relationships">relacionamento</a>).</li>
+<li><b>＋ Adicionar campo</b> (ou <b>Adicionar todos os campos</b>), e para cada um: <b>Mostrar</b>, <b>Classificar</b> e <b>Critérios</b>.</li>
+<li><b>▶ Executar</b> para ver os resultados; <b>💾 Salvar consulta…</b> para guardá-la.</li></ol>
+<h2>Exemplos de critérios</h2><table>
+<tr><td><code>&gt;100</code>, <code>&lt;=50</code>, <code>&lt;&gt;0</code></td><td>comparações</td></tr>
+<tr><td><code>"London"</code> ou <code>London</code></td><td>exatamente isso</td></tr>
+<tr><td><code>"London" Or "Paris"</code></td><td>um ou outro</td></tr>
+<tr><td><code>Like "A*"</code></td><td>começa com A (<code>*</code> = qualquer coisa, <code>?</code> = um caractere)</td></tr>
+<tr><td><code>Between 1 And 50</code></td><td>um intervalo</td></tr>
+<tr><td><code>&gt;=#2026-01-01#</code></td><td>datas (entre sinais #)</td></tr>
+<tr><td><code>Is Null</code> / <code>Is Not Null</code></td><td>vazio / não vazio</td></tr>
+<tr><td><code>Yes</code> / <code>No</code></td><td>campos Sim/Não</td></tr></table>
+<h2>Totais</h2><p>Marque <b>Totais</b> para agrupar e somar — ex.: Agrupar por cliente, Soma da quantidade. Critérios numa Soma/Contagem valem para os totais.</p>
+<h2>Aba SQL</h2><p>Mostra a consulta como SQL (a linguagem padrão de banco de dados) — você pode editá-la direto. <i>Banco de dados → Console SQL</i> deixa executar qualquer SQL; comandos que mudam dados perguntam antes.</p>
+
+@@ base-relationships
+title: Banco de dados: relacionamentos (ligar tabelas)
+keywords: relacionamento ligação chave estrangeira um para muitos pai filho exclusão em cascata diagrama
+---
+<p>Um relacionamento diz “cada registro <b>filho</b> pertence a um registro <b>pai</b>” — cada pedido pertence a um cliente, cada produto a uma categoria.</p>
+<ol><li>Dê à tabela filha um campo <b>Número inteiro</b> que vai guardar o ID do pai (ex.: <i>Customer ID</i> em Pedidos).</li>
+<li><b>Banco de dados → Relacionamentos</b>: escolha a tabela pai e o ID dela, a tabela filha e o campo que “aponta”, e <b>＋ Adicionar relacionamento</b>.</li></ol>
+<p>O que você ganha:</p><ul>
+<li>O campo filho mostra uma <b>lista suspensa de nomes do pai</b> nas folhas de dados e nos formulários.</li>
+<li>Os registros não podem apontar para um pai que não existe, e um pai com filhos não pode ser apagado sem querer…</li>
+<li>…a menos que você marque <b>exclusão em cascata</b>: aí apagar um pai também apaga os filhos (ex.: apagar um pedido apaga as linhas dele).</li>
+<li>As consultas podem combinar campos de tabelas relacionadas.</li></ul>
+<p>A janela mostra um diagrama de todas as tabelas com linhas entre os campos relacionados (1 ── ∞).</p>
+
+@@ base-reports
+title: Banco de dados: relatórios e impressão
+keywords: relatório imprimir pdf agrupar totais soma média título paisagem
+---
+<p><b>Criar → Relatório</b> (ou botão direito numa tabela/consulta → Novo relatório). Escolha:</p><ul>
+<li>os <b>dados</b> (qualquer tabela ou consulta) e um <b>título</b>;</li>
+<li>quais <b>campos</b> mostrar (marque e arraste para mudar a ordem);</li>
+<li><b>Agrupar por</b> um campo (ex.: uma seção por cliente) e <b>Classificar por</b>;</li>
+<li><b>Totais</b> para campos numéricos — Soma, Média ou Contagem (por grupo e no total);</li>
+<li><b>Paisagem</b> para relatórios largos.</li></ul>
+<p>Depois <b>Imprimir</b>, <b>Visualizar impressão</b> ou <b>Exportar PDF</b>. <b>Salvar relatório</b> guarda em <b>Relatórios</b> — ele sempre mostra os dados atuais.</p>
+
+@@ base-import
+title: Banco de dados: importar e exportar (Excel, CSV, Access)
+keywords: importar exportar excel xlsx csv access accdb mdb driver backup cópia compactar reparar
+---
+<h2>Importar</h2><p><b>Arquivo → Importar</b> (ou arraste um arquivo para a janela): <b>Excel .xlsx</b> (cada planilha → uma tabela), <b>CSV</b> ou <b>Access .accdb/.mdb</b> (cada tabela).
+A primeira linha vira os nomes dos campos, e os tipos de campo (número, moeda, data, Sim/Não, texto) são detectados sozinhos — confira depois no Modo Design.
+Pela página inicial você pode importar direto para um banco de dados novo.</p>
+<div class="warn"><b>Arquivos do Access</b> precisam do <b>Access Database Engine 2016 Redistributable (64 bits)</b> gratuito da Microsoft instalado (baixe em microsoft.com). Só as tabelas e os dados vêm — formulários, relatórios e macros do Access não.</div>
+<h2>Exportar</h2><p><b>Arquivo → Exportar</b> (ou botão direito → Exportar): uma tabela ou consulta para o <b>Excel</b>, <b>todas as tabelas e consultas</b> num único arquivo do Excel (uma planilha cada), <b>CSV</b> ou um relatório em <b>PDF</b>.</p>
+<h2>Cuidando do arquivo</h2><ul><li><b>Arquivo → Salvar uma cópia como</b> — um backup seguro, mesmo com o banco aberto.</li>
+<li><b>Banco de dados → Compactar e reparar</b> — verifica o arquivo e o reduz depois de muitas exclusões.</li></ul>
+
+@@ stickies
+title: Notas adesivas: notas e listas de tarefas na sua área de trabalho
+keywords: notas adesivas tarefas lista lembrete área de trabalho post-it bandeja inicialização
+---
+<p>O <b>Ethical Sticky Notes</b> coloca notinhas na sua área de trabalho — ótimas para listas de tarefas, telefones e lembretes.
+Tudo é salvo sozinho enquanto você digita, só neste PC.</p>
+<h2>O básico</h2><ul>
+<li><b>Nova nota:</b> clique em <b>+</b> em qualquer nota, pressione ${K("Ctrl N")} ou use o ícone na bandeja (canto inferior direito da barra de tarefas) → <b>Nova nota</b>.</li>
+<li><b>Mova</b> uma nota arrastando a barra de cima. <b>Redimensione</b> arrastando qualquer borda ou canto.</li>
+<li><b>Recolha</b> uma nota até o título: clique duas vezes na barra de cima (de novo para expandir).</li>
+<li><b>Cor:</b> <b>⋯</b> → escolha uma de 8 cores. <b>Tamanho do texto:</b> <b>⋯</b> → Tamanho do texto.</li>
+<li><b>Manter acima:</b> clique em <b>📌</b> para a nota ficar sobre as outras janelas.</li>
+<li><b>✕ fecha</b> a nota, mas a guarda. Traga as notas de volta pelo ícone na bandeja → <b>Mostrar todas as notas</b> (ou só clique no ícone), ou <b>Todas as notas…</b>.</li></ul>
+<h2>Listas de tarefas</h2><ul>
+<li>Digite <kbd>[</kbd><kbd>]</kbd> e um espaço no começo de uma linha (ou clique em <b>☑</b> / ${K("Ctrl Shift C")}) para uma caixa de seleção.</li>
+<li>Clique numa caixa para marcá-la — o item é riscado. Clique de novo para desmarcar.</li>
+<li><kbd>Enter</kbd> cria o próximo item; <kbd>Enter</kbd> num item vazio termina a lista. <kbd>Backspace</kbd> no começo de um item volta a ser texto.</li>
+<li>Digite <kbd>-</kbd> e um espaço para uma lista com marcadores (ou <b>•</b> / ${K("Ctrl Shift L")}).</li></ul>
+<h2>Formatação</h2><p>Clique dentro de uma nota para ver a barra de baixo: <b>B</b> ${K("Ctrl B")}, <i>I</i> ${K("Ctrl I")}, <u>U</u> ${K("Ctrl U")},
+<s>S</s> ${K("Ctrl T")}. Texto colado entra sem formatação, para combinar com a nota.</p>
+<h2>Encontrar e excluir notas</h2><ul>
+<li><b>Todas as notas…</b> (ícone na bandeja ou <b>⋯</b>) lista todas as notas com uma caixa de pesquisa — clique duas vezes para abrir uma.</li>
+<li><b>Excluir</b>: 🗑 na barra de baixo da nota ou ${K("Ctrl D")}. Apagou sem querer? Ícone na bandeja → <b>Restaurar nota excluída</b> (as últimas 30 ficam guardadas).</li></ul>
+<h2>Iniciar com o Windows</h2><p>Ícone na bandeja → <b>Iniciar com o Windows</b> (ou marque no instalador) e as suas notas voltam toda vez que você entra.
+Para fechar o aplicativo de vez: ícone na bandeja → <b>Sair das Notas adesivas</b> — as suas notas ficam guardadas.</p>
+<h2>Onde as notas ficam</h2><p>Em <code>%APPDATA%\\Ethical Suite\\Sticky Notes\\notes.json</code> (mais uma cópia de segurança, <code>notes.json.bak</code>). Elas nunca são
+enviadas para lugar nenhum. Desinstalar o EthicalApp deixa esse arquivo, então as notas continuam lá se você reinstalar. Para levar as notas para outro PC, copie esse arquivo.</p>
+<h2>Com IA</h2><p>Se você conectou o EthicalApp ao Claude, pode dizer coisas como “coloque na minha área de trabalho uma nota com as tarefas de sábado” ou
+“marque <i>ligar para o dentista</i> como feito” — a nota muda na sua tela em um ou dois segundos.</p>
+<h2>Atalhos</h2><p>${K("Ctrl N")} nova nota · ${K("Ctrl D")} excluir · ${K("Ctrl W")} fechar · ${K("Ctrl B")}/${K("Ctrl I")}/${K("Ctrl U")}/${K("Ctrl T")} negrito/itálico/sublinhado/tachado ·
+${K("Ctrl Shift C")} caixas de seleção · ${K("Ctrl Shift L")} marcadores · ${K("F1")} esta ajuda</p>
+
+@@ planner
+title: Planner: lembretes e um calendário
+keywords: agenda lembrete lembretes calendário evento alarme suplementos remédios diário repetir notificação adiar aniversário compromisso
+---
+<p>O <b>Ethical Planner</b> lembra você das coisas na hora — “tomar os suplementos todo dia às 8:00”, “dentista amanhã às 14:30”,
+“aniversário da mãe” — com um cartão que aparece no canto da tela.</p>
+<h2>Lembretes e eventos</h2><ul>
+<li><b>⏰ Novo lembrete</b> (${K("Ctrl N")}) é para coisas que você <i>faz</i>: o aviso tem um botão <b>Feito</b> e você pode marcar na lista.</li>
+<li><b>📅 Novo evento</b> (${K("Ctrl E")}) é para coisas que <i>acontecem</i>: compromissos, aniversários. Você recebe um aviso antes (15 minutos por padrão).</li>
+<li>Os botões de <b>Início rápido</b> preenchem os mais comuns: suplementos diários, beber água, dia do lixo, um aniversário.</li>
+<li>Clique duas vezes num dia do calendário para adicionar um evento naquele dia.</li></ul>
+<h2>Repetir</h2><p><b>Repetir:</b> todo dia, todo dia útil (seg–sex), toda semana (marque os dias, ex.: seg/qua/sex), todo mês ou todo ano —
+e “a cada N” (a cada 2 dias, a cada 3 semanas…). <b>Parar de repetir depois de</b> define uma data final. Um lembrete mensal no dia 31 acontece no último dia dos meses mais curtos.</p>
+<h2>Alertas e o aviso</h2><ul>
+<li>Escolha o <b>Alerta</b> (na hora, 5/10/15/30 minutos, 1–2 horas, 1–2 dias ou uma semana antes) e, se quiser, um segundo (<b>Também</b>), ex.: um dia antes <i>e</i> uma hora antes.</li>
+<li>Itens de dia inteiro alertam às 09:00 (menos o tempo do alerta).</li>
+<li>O cartão fica até você clicar em <b>Feito</b>/<b>OK</b>, <b>Adiar</b> (5 minutos … amanhã de manhã) ou ✕. Ele aparece mesmo com o Assistente de foco do Windows ligado.</li>
+<li>O PC estava desligado ou em suspensão? O que você perdeu nas últimas 12 horas aparece na próxima vez, marcado como <i>perdido</i>.</li>
+<li>Cada aviso toca um sininho suave (o som próprio do Planner, então funciona mesmo com os sons de notificação do Windows desligados). Teste: <b>⋯ → Testar uma janela de lembrete</b>. Ligue ou desligue o som em <b>⋯</b>.</li>
+<li><b>Relógio:</b> os horários seguem o relógio do seu PC. Escolha <b>⋯ → Relógio → 12 horas (8:00 PM)</b> ou <b>24 horas (20:00)</b> – por padrão o Planner usa o mesmo que o Windows.</li></ul>
+<h2>A lista</h2><ul>
+<li>Mostra o dia selecionado e os 6 dias seguintes. Clique numa data do calendário para olhar adiante; <b>Hoje</b> (${K("Ctrl T")}) volta.</li>
+<li>Marque a caixa para dar um lembrete como feito naquele dia (ele é riscado). Os atrasados ficam em vermelho.</li>
+<li>Botão direito num item: Editar, Marcar como feito / Não feito, <b>Pular só este</b> (para um item que se repete), Excluir.</li>
+<li>Dias em negrito no calendário têm eventos ou lembretes menos frequentes. <b>A seguir</b> mostra o próximo alerta.</li></ul>
+<h2>Deixar rodando</h2><p>Os lembretes só aparecem enquanto o Planner está rodando, então fechar a janela o deixa na bandeja (canto inferior direito da barra de tarefas).
+Na primeira vez ele pergunta se deve <b>iniciar com o Windows</b> — diga sim (ou marque no instalador ou em <b>⋯</b>). <b>Sair do Ethical Planner</b> no menu da bandeja o encerra.</p>
+<h2>Onde fica guardado</h2><p><code>%APPDATA%\\Ethical Suite\\Planner\\planner.json</code> (mais um backup). Nunca é enviado para lugar nenhum; desinstalar mantém o arquivo.</p>
+<h2>Com IA</h2><p>Se você conectou o Planner ao Claude: “me lembre de tomar as vitaminas todo dia às 8”, “o que tenho esta semana?”,
+“já tomei os remédios” (marca como feito), “passe o dentista para quinta às 3”.</p>
+
+@@ snip
+title: Snip: capturas de tela que você pode marcar
+keywords: captura de tela print screen prtscn ferramenta de captura cortar seta realçar pixelizar desfocar esconder
+---
+<p>O <b>Ethical Snip</b> tira uma foto da sua tela — inteira, de uma janela ou só da parte que você escolher — e deixa você
+desenhar nela antes de copiar ou salvar.</p>
+<h2>Fazer uma captura</h2><ul>
+<li>Pressione ${K("Ctrl PrtScn")} em qualquer lugar (enquanto o Snip está rodando — ele espera na bandeja, no canto inferior direito da barra de tarefas), clique em <b>✂ Nova captura</b> (${K("Ctrl N")}) ou use o ícone na bandeja.</li>
+<li>A tela congela e escurece. Escolha no topo: <b>Retângulo</b> (arraste uma área), <b>Janela</b> (clique numa janela), <b>Tela inteira</b> (clique) ou <b>Forma livre</b> (desenhe em volta de algo).
+Teclas: <kbd>R</kbd> <kbd>W</kbd> <kbd>S</kbd> <kbd>F</kbd>. <kbd>Esc</kbd> ou botão direito cancela.</li>
+<li><b>Atraso:</b> a seta ao lado de Nova captura → Atraso → 3, 5 ou 10 segundos, para abrir um menu antes da foto.</li>
+<li>Toda captura é <b>copiada</b> (cole com ${K("Ctrl V")} num chat ou e-mail) e <b>salva</b> em <code>Pictures\\Ethical Snips</code>. As duas coisas podem ser desligadas em <b>⋯</b>.</li></ul>
+<h2>Marcar</h2><ul>
+<li><b>Caneta</b> <kbd>P</kbd>, <b>Realce</b> <kbd>H</kbd>, <b>Seta</b> <kbd>A</kbd>, <b>Caixa</b> <kbd>R</kbd> (segure <kbd>Shift</kbd> para um quadrado), <b>Texto</b> <kbd>T</kbd> (clique e digite).</li>
+<li><b>Pixelizar</b> <kbd>X</kbd>: arraste sobre nomes, endereços ou senhas para escondê-los antes de compartilhar a imagem.</li>
+<li><b>Cortar</b> <kbd>C</kbd>: arraste em volta da parte que quer manter.</li>
+<li>Escolha uma cor e uma espessura (Fina / Média / Grossa) na barra de ferramentas. <b>Selecionar</b> <kbd>V</kbd> deixa mover marcas ou apagá-las (<kbd>Delete</kbd>).</li>
+<li>${K("Ctrl Z")} desfazer, ${K("Ctrl Y")} refazer. Zoom: ${K("Ctrl +")} / ${K("Ctrl -")} / ${K("Ctrl 0")} ou ${K("Ctrl")} + roda do mouse.</li></ul>
+<h2>Copiar, salvar, compartilhar</h2><ul>
+<li><b>Copiar</b> (${K("Ctrl C")}) copia a imagem marcada. <b>Salvar</b> (${K("Ctrl S")}) atualiza a captura salva; <b>Salvar como…</b> escolhe um nome e PNG, JPG, WebP ou BMP.</li>
+<li><b>Abrir no Editor de fotos</b> para edições maiores (camadas, filtros, efeitos de texto).</li>
+<li>O Snip também marca qualquer imagem: <b>⋯ → Abrir uma imagem</b> (${K("Ctrl O")}), cole uma (${K("Ctrl V")}) ou solte um arquivo na janela.</li></ul>
+<h2>Configurações (menu ⋯)</h2><p>Copiar toda captura · Salvar toda captura automaticamente · Continuar na bandeja para ${K("Ctrl PrtScn")} ·
+Iniciar com o Windows · Mudar o atalho · Escolher a pasta das capturas. Fechar a janela deixa o Snip na bandeja; <b>Sair do Ethical Snip</b> fecha de vez.</p>
+<h2>Mudar o atalho</h2><p>Sem tecla PrtScn (muitos notebooks)? Ou outro programa já usa ela? Clique em <b>⌨ Mudar atalho…</b> na tela inicial do Snip (ou no atalho mostrado no canto inferior direito, ou em <b>⋯ → Mudar o atalho…</b>), clique na caixa e pressione as teclas que quiser — por exemplo ${K("Ctrl Alt S")}. Precisa de ${K("Ctrl")}, ${K("Alt")} ou da tecla Windows (as teclas F funcionam sozinhas). Evite atalhos que outros programas usam, como ${K("Ctrl Shift S")} (Salvar como). A barra de status mostra o atalho em uso, ou avisa se outro programa já está com ele.</p>
+<h2>Com IA</h2><p>Se você conectou o Snip ao Claude, pode pedir “tire uma captura da janela do Excel e salve na minha área de trabalho”. O Claude só tira
+capturas quando você pede, e as imagens ficam salvas no seu PC.</p>
+
+@@ ai-claude
+title: Usar os aplicativos com IA (Claude)
+keywords: ia claude mcp assistente automatizar conectar ferramentas chat code desktop
+---
+<p>O EthicalApp inclui um <b>servidor MCP</b> — um conector que deixa o assistente de IA <b>Claude</b> (Claude Code ou Claude Desktop) usar os aplicativos por você. É só pedir com as suas palavras, por exemplo:</p>
+<ul><li>“Transforme as minhas anotações.md num documento do Word bem formatado.”</li>
+<li>“Leia orcamento.xlsx, adicione uma linha de 10% de imprevistos e um gráfico de pizza.”</li>
+<li>“Faça uma apresentação de 6 slides sobre o nosso plano de verão com o tema Oceano e depois abra.”</li>
+<li>“Censure todos os telefones de contrato.pdf.” · “Preencha este formulário PDF com os meus dados.”</li>
+<li>“Redimensione todas estas fotos para 1080 px e adicione o texto do nosso logotipo.” · “Converta este vídeo para MP3.”</li>
+<li>“Crie um banco de dados da minha coleção de livros e me dê um relatório agrupado por autor.”</li></ul>
+<h2>Conectar</h2><ol><li>No instalador, marque <b>Conectar os aplicativos escolhidos ao Claude</b> (execute o instalador de novo quando quiser mudar).</li>
+<li>Ele se conecta ao <b>Claude Code</b> automaticamente, e ao <b>Claude Desktop</b> se estiver instalado (reinicie o Claude Desktop depois).</li>
+<li>O guia do usuário sempre vai junto para o Claude poder consultar como as coisas funcionam.</li></ol>
+<p>Para desconectar, execute o instalador de novo e desmarque a opção, ou desinstale o EthicalApp.</p>
+<h2>O que o Claude pode fazer (cerca de 65 ferramentas)</h2><table>
+<tr><td>PDF</td><td>ler texto e informações, juntar, dividir, extrair/excluir/girar páginas, adicionar texto ou imagens, localizar e substituir texto, censurar para sempre, listar e preencher formulários</td></tr>
+<tr><td>Documentos</td><td>ler um .docx como Markdown, criar documentos a partir de Markdown (títulos, listas, tabelas), acrescentar, localizar e substituir</td></tr>
+<tr><td>Planilhas</td><td>ler células (valores ou fórmulas), escrever células e fórmulas, formatar intervalos, adicionar gráficos e planilhas, calcular qualquer fórmula</td></tr>
+<tr><td>Apresentações</td><td>ler apresentações, criar apresentações com temas/marcadores/anotações/imagens, adicionar slides a uma existente</td></tr>
+<tr><td>Fotos</td><td>informações e camadas, redimensionar, cortar, girar, inverter, todos os ajustes e filtros, texto, tamanho da tela</td></tr>
+<tr><td>Conversor</td><td>converter qualquer arquivo compatível, comprimir, combinar, zip/descompactar, informações de mídia, baixar de links (com as mesmas verificações de segurança)</td></tr>
+<tr><td>Banco de dados</td><td>visão geral, consultas SQL só de leitura, alterações, criar bancos/tabelas, inserir registros, relacionamentos, consultas salvas, importar/exportar, relatórios em PDF</td></tr>
+<tr><td>Notas adesivas</td><td>listar, ler, adicionar, mudar e marcar notas da sua área de trabalho</td></tr>
+<tr><td>Snip</td><td>listar janelas e tirar uma captura quando você pede</td></tr>
+<tr><td>Planner</td><td>listar, adicionar, mudar e concluir lembretes e eventos</td></tr>
+<tr><td>Sempre</td><td>pesquisar e ler este guia, abrir um arquivo no aplicativo Ethical certo para você ver</td></tr></table>
+<h2>Segurança</h2><ul><li>O Claude mexe nos arquivos do seu PC só por meio destas ferramentas; o Claude pede permissão antes de usá-las (conforme as suas configurações do Claude).</li>
+<li>As edições são salvas como <b>cópias novas</b> (ex.: “report (edited).pdf”), a menos que você peça para sobrescrever; arquivos novos nunca substituem os existentes, a menos que você diga.</li>
+<li>As consultas ao banco de dados são só de leitura, a menos que a ferramenta de alteração seja usada; as regras dos relacionamentos continuam valendo.</li></ul>
+
+@@ shortcuts
+title: Todos os atalhos de teclado
+keywords: atalhos de teclado teclas teclas de atalho
+---
+<h2>Todos os aplicativos</h2><table><tr><td>Novo / Abrir / Salvar / Salvar como</td><td>${K("Ctrl N")} ${K("Ctrl O")} ${K("Ctrl S")} ${K("Ctrl Shift S")}</td></tr>
+<tr><td>Desfazer / Refazer</td><td>${K("Ctrl Z")} / ${K("Ctrl Y")}</td></tr><tr><td>Imprimir</td><td>${K("Ctrl P")}</td></tr>
+<tr><td>Localizar</td><td>${K("Ctrl F")}</td></tr><tr><td>Este guia</td><td>${K("F1")}</td></tr></table>
+<h2>Ethical PDF Editor</h2><table><tr><td>Aumentar / diminuir zoom / tamanho real / ajustar à largura</td><td>${K("Ctrl =")} ${K("Ctrl -")} ${K("Ctrl 0")} ${K("Ctrl 1")}</td></tr>
+<tr><td>Localizar próximo / anterior</td><td>${K("F3")} / ${K("Shift F3")}</td></tr><tr><td>Girar página para a direita / esquerda</td><td>${K("Ctrl R")} / ${K("Ctrl Shift R")}</td></tr>
+<tr><td>Copiar o texto selecionado / excluir anotação</td><td>${K("Ctrl C")} / ${K("Delete")}</td></tr></table>
+<h2>Ethical Document Editor</h2><p>Veja <a href="#write-basics">Documentos: o básico</a>.</p>
+<h2>Ethical Spreadsheet Editor</h2><table><tr><td>Ir para</td><td>${K("Ctrl G")}</td></tr><tr><td>Preencher para baixo / direita</td><td>${K("Ctrl D")} / ${K("Ctrl R")}</td></tr>
+<tr><td>AutoSoma / inserir função</td><td>${K("Alt =")} / ${K("Shift F3")}</td></tr><tr><td>Colar valores</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>Inserir linhas / excluir linhas</td><td>${K("Ctrl Shift =")} / ${K("Ctrl -")}</td></tr><tr><td>Nova planilha</td><td>${K("Shift F11")}</td></tr>
+<tr><td>Comentário</td><td>${K("Shift F2")}</td></tr><tr><td>Tachado</td><td>${K("Ctrl 5")}</td></tr></table>
+<h2>Ethical Presentation Editor</h2><table><tr><td>Novo slide</td><td>${K("Ctrl M")}</td></tr><tr><td>Apresentar do início / do atual</td><td>${K("F5")} / ${K("Shift F5")}</td></tr>
+<tr><td>Duplicar objeto</td><td>${K("Ctrl D")}</td></tr><tr><td>Trazer para a frente / enviar para trás</td><td>${K("Ctrl Shift ]")} / ${K("Ctrl Shift [")}</td></tr></table>
+<h2>Ethical Database</h2><table><tr><td>Novo banco de dados / abrir</td><td>${K("Ctrl N")} / ${K("Ctrl O")}</td></tr>
+<tr><td>Nova tabela / consulta / relatório</td><td>${K("Ctrl Shift T")} / ${K("Ctrl Shift Q")} / ${K("Ctrl Shift R")}</td></tr></table>
+<h2>Ethical Photo Editor</h2><p>Veja <a href="#photo-tools">Fotos: as ferramentas</a> e <a href="#photo-selections">seleções</a>. Também ${K("Ctrl J")} duplicar/copiar para camada, ${K("Ctrl E")} mesclar para baixo, ${K("Ctrl T")} transformar, ${K("Ctrl Shift N")} nova camada, ${K("Ctrl Alt I")} tamanho da imagem, ${K("Ctrl Alt C")} tamanho da tela.</p>
+
+@@ troubleshooting
+title: Solução de problemas e perguntas frequentes
+keywords: problema erro não funciona não abre trava falta botão direito fonte ffmpeg antivírus lento doc xls ppt idioma
+---
+<h3>Um aplicativo não abre</h3>
+<p>Execute de novo o instalador de <a href="https://ethicalapp.org">ethicalapp.org</a> — ele repara a instalação e mantém as suas configurações, notas e lembretes.</p>
+<h3>“O Windows protegeu o computador” ao instalar</h3><p>Clique em <b>Mais informações → Executar assim mesmo</b>. O Windows mostra isso para programas novos que ele ainda não conhece. Confira a impressão digital SHA-256 do download no site se quiser ter certeza de que é autêntico.</p>
+<h3>Os itens do botão direito sumiram</h3><p>Execute o instalador de novo e marque a opção do botão direito. No Windows 11, procure em <b>Mostrar mais opções</b>.</p>
+<h3>“Tipo de arquivo não compatível” / arquivos antigos do Office</h3><p>.doc, .xls e .ppt não são compatíveis — salve-os primeiro como .docx/.xlsx/.pptx. Arquivos .rar não podem ser extraídos.</p>
+<h3>O texto ficou diferente do original</h3><p>As fontes vêm do seu PC. Se um documento usa uma fonte que você não tem, é usada uma parecida. Instale a fonte e abra de novo.</p>
+<h3>Algo sumiu depois de salvar um arquivo do Excel/PowerPoint</h3><p>Veja <a href="#compat">Compatibilidade de arquivos</a> — o aplicativo avisa sobre o que não consegue manter. Guarde o original e use Salvar como.</p>
+<h3>Uma conversão de vídeo falhou</h3><p>A mensagem de erro vem do FFmpeg. Causas comuns: o arquivo está danificado ou ainda baixando, não tem som (para formatos de áudio) ou não tem imagem (para formatos de vídeo). Tente primeiro MP4 (H.264) — funciona com quase tudo.</p>
+<h3>Aviso do antivírus</h3><p>Alguns antivírus desconfiam de programas novos que ainda não viram. Todo o código-fonte do EthicalApp é público no <a href="https://github.com/CBGGitHub/ethicalapp">GitHub</a>, e o site mostra a impressão digital de cada download.</p>
+<h3>Os aplicativos estão no idioma errado</h3><p>Clique em <b>🌐</b> embaixo na janela do EthicalApp — veja <a href="#language">Mudar o idioma</a>.</p>
+<h3>Está lento</h3><p>Planilhas enormes (mais de 100 mil fórmulas), fotos muito grandes com muitas camadas e vídeos 4K longos demoram mais. O conversor mostra o progresso de cada arquivo.</p>
+
+@@ glossary
+title: Glossário
+keywords: glossário termos significado definição taxa de bits crf codec sem perdas com perdas dpi camada mesclagem espaço reservado mestre
+---
+<table>
+<tr><td><b>Taxa de bits</b></td><td>Quantos dados por segundo o áudio/vídeo usa (ex.: 192k). Maior = melhor qualidade, arquivo maior.</td></tr>
+<tr><td><b>Modo de mesclagem</b></td><td>Como uma camada se mistura com as camadas de baixo (Multiplicação, Divisão…).</td></tr>
+<tr><td><b>Codec</b></td><td>O método usado para comprimir áudio/vídeo (H.264, H.265, AAC, MP3…).</td></tr>
+<tr><td><b>CRF</b></td><td>Ajuste de qualidade do vídeo: menor = melhor qualidade, arquivo maior.</td></tr>
+<tr><td><b>DPI</b></td><td>Pontos por polegada — a resolução ao imprimir ou ao transformar PDFs em imagens.</td></tr>
+<tr><td><b>Suavizar</b></td><td>Uma borda suave e gradual numa seleção.</td></tr>
+<tr><td><b>Achatar</b></td><td>Juntar todas as camadas numa imagem só.</td></tr>
+<tr><td><b>Camada</b></td><td>Uma folha numa pilha de folhas transparentes que formam uma imagem.</td></tr>
+<tr><td><b>Sem perdas</b></td><td>Compressão sem perda de qualidade (PNG, FLAC, ZIP). <b>Com perdas</b> descarta detalhes para economizar espaço (JPG, MP3, MP4).</td></tr>
+<tr><td><b>Mestre / layout</b></td><td>Nos arquivos do PowerPoint, os slides de design ocultos que dão aos slides de verdade o fundo, as fontes e o logotipo.</td></tr>
+<tr><td><b>Intervalo nomeado</b></td><td>Um nome (como <code>Prices</code>) que representa células numa planilha.</td></tr>
+<tr><td><b>Espaço reservado</b></td><td>Uma caixa vazia “Clique para adicionar …” num slide.</td></tr>
+<tr><td><b>Censurar</b></td><td>Remover conteúdo de um PDF para sempre.</td></tr>
+<tr><td><b>Tolerância</b></td><td>Quanto uma cor pode ser diferente e ainda contar como “parecida” (varinha mágica, balde de tinta).</td></tr></table>
+
+@@ licenses
+title: Créditos e licenças
+keywords: licença créditos código aberto ffmpeg qt pyside pymupdf gpl agpl lgpl mit
+---
+<p>O código próprio do EthicalApp foi escrito para este projeto. Ele é feito sobre estas partes livres e de código aberto:</p>
+<table><tr><th>Parte</th><th>Usada para</th><th>Licença</th></tr>
+<tr><td>Python</td><td>a linguagem</td><td>PSF</td></tr>
+<tr><td>Qt / PySide6</td><td>janelas, layout de texto, impressão, gráficos</td><td>LGPL v3</td></tr>
+<tr><td>PyMuPDF (MuPDF)</td><td>ler/escrever PDF</td><td>AGPL v3</td></tr>
+<tr><td>FFmpeg (via imageio-ffmpeg)</td><td>conversão de áudio e vídeo</td><td>GPL v3 (esta compilação)</td></tr>
+<tr><td>python-docx, python-pptx, openpyxl</td><td>arquivos do Word, PowerPoint e Excel</td><td>MIT</td></tr>
+<tr><td>Pillow</td><td>imagens</td><td>MIT-CMU (HPND)</td></tr>
+<tr><td>NumPy, SciPy</td><td>cálculos de imagem</td><td>BSD</td></tr>
+<tr><td>psd-tools</td><td>ler arquivos do Photoshop</td><td>MIT</td></tr>
+<tr><td>py7zr</td><td>arquivos 7z</td><td>LGPL v2.1</td></tr>
+<tr><td>SQLite (embutido no Python)</td><td>bancos de dados do Ethical Database</td><td>Domínio público</td></tr>
+<tr><td>pyodbc</td><td>importar arquivos do Access</td><td>MIT</td></tr>
+<tr><td>yt-dlp, Deno (só versões pessoais)</td><td>baixar vídeos de links</td><td>Unlicense / MIT</td></tr>
+<tr><td>MCP Python SDK</td><td>o conector de IA (Claude)</td><td>MIT</td></tr></table>
+<p>O EthicalApp é licenciado sob a <b>AGPL-3.0</b>. Os textos completos das licenças estão na pasta <code>licenses</code> da sua instalação, e o código-fonte está em <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>. Sem vínculo com a Microsoft nem com a Adobe.</p>

@@ -1,0 +1,513 @@
+@@ photo-basics
+title: Foto: dasar-dasar
+keywords: editor foto buka baru zoom geser lapisan riwayat antarmuka
+---
+<ul><li><b>Kiri:</b> alat serta warna latar depan/latar belakang (⇄ tukar = ${K("X")}, ◩ hitam/putih bawaan = ${K("D")}).</li>
+<li><b>Atas:</b> opsi alat saat ini (ukuran, opasitas, toleransi…).</li>
+<li><b>Kanan:</b> <b>Lapisan</b> dan <b>Riwayat</b> (klik sebuah langkah untuk kembali ke sana).</li></ul>
+<h2>Berkeliling</h2><p><kbd>Ctrl</kbd>+roda mouse untuk zoom (di posisi mouse), roda untuk menggulir, <kbd>Spasi</kbd>+seret atau seret dengan tombol tengah untuk menggeser tampilan, <kbd>Ctrl</kbd>+<kbd>0</kbd> paskan, <kbd>Ctrl</kbd>+<kbd>1</kbd> 100%. Saat diperbesar jauh, kisi piksel terlihat.</p>
+<h2>Gambar baru</h2><p><b>File → Baru</b> memiliki ukuran siap pakai (HD, 4K, Instagram, thumbnail YouTube, A4…) dan pilihan latar belakang (putih, transparan, hitam, warna).</p>
+<p>Batal/ulangi: <kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> (30 langkah).</p>
+
+@@ photo-tools
+title: Foto: alat-alat
+keywords: alat kuas penghapus ember cat gradien stempel klon pipet pangkas pindah tongkat ajaib laso seleksi tangan zoom pintasan
+---
+<table><tr><th>Tombol</th><th>Alat</th><th>Kegunaan</th></tr>
+<tr><td>${K("V")}</td><td>Pindah</td><td>Seret lapisan (atau hanya piksel yang dipilih). Tombol panah menggeser sedikit.</td></tr>
+<tr><td>${K("M")}</td><td>Seleksi persegi / elips</td><td>Seret. ${K("Shift")} menambah, ${K("Alt")} mengurangi. Opsi feather.</td></tr>
+<tr><td>${K("L")}</td><td>Laso</td><td>Gambar bebas mengelilingi suatu area.</td></tr>
+<tr><td>${K("W")}</td><td>Tongkat ajaib</td><td>Klik untuk memilih warna yang mirip (toleransi, bersebelahan, ambil dari semua lapisan).</td></tr>
+<tr><td>${K("C")}</td><td>Pangkas</td><td>Seret, lalu ${K("Enter")} atau klik dua kali. ${K("Esc")} membatalkan.</td></tr>
+<tr><td>${K("B")}</td><td>Kuas</td><td>Ukuran, kekerasan (tepi lembut/tegas), opasitas. ${K("[")} ${K("]")} mengubah ukuran.</td></tr>
+<tr><td>${K("E")}</td><td>Penghapus</td><td>Menghapus hingga transparan.</td></tr>
+<tr><td>${K("G")}</td><td>Ember cat</td><td>Mengisi warna mirip yang tersambung.</td></tr>
+<tr><td></td><td>Gradien</td><td>Seret sebuah garis: linear atau radial, ke warna latar belakang atau ke transparan.</td></tr>
+<tr><td>${K("S")}</td><td>Stempel klon</td><td>${K("Alt")}+klik sumbernya, lalu lukis untuk menyalinnya (bagus untuk menghapus noda).</td></tr>
+<tr><td>${K("I")}</td><td>Pipet</td><td>Klik: ambil warna latar depan. ${K("Alt")}+klik: latar belakang.</td></tr>
+<tr><td>${K("T")}</td><td>Teks</td><td>Klik untuk menambah teks; klik lapisan teks yang ada untuk mengeditnya.</td></tr>
+<tr><td>${K("U")}</td><td>Bentuk</td><td>Persegi, membulat, elips, garis, panah — pada lapisan baru. ${K("Shift")} = persegi/lingkaran.</td></tr>
+<tr><td>${K("H")}</td><td>Tangan</td><td>Menggeser tampilan.</td></tr><tr><td>${K("Z")}</td><td>Zoom</td><td>Klik untuk memperbesar, ${K("Alt")}+klik untuk memperkecil.</td></tr></table>
+<p>Melukis, mengisi, gradien, filter, dan penyesuaian hanya bekerja di dalam <b>area terpilih</b> (jika ada seleksi) pada <b>lapisan saat ini</b>.</p>
+
+@@ photo-selections
+title: Foto: seleksi
+keywords: pilih semua batalkan pilihan balik feather perluas susutkan rentang warna piksel lapisan potong salin semut
+---
+<p>Seleksi membatasi tempat Anda melukis atau mengedit. Tampil sebagai “semut berbaris”.</p>
+<table><tr><td>Pilih semua / batalkan pilihan / balik</td><td>${K("Ctrl A")} / ${K("Ctrl D")} / ${K("Ctrl Shift I")}</td></tr>
+<tr><td>Tambah / kurangi</td><td>tahan ${K("Shift")} / ${K("Alt")} saat memilih, atau pilih Mode</td></tr>
+<tr><td>Tepi lembut</td><td>Seleksi → Feather (${K("Shift F6")})</td></tr>
+<tr><td>Lebih besar / lebih kecil</td><td>Seleksi → Perluas / Susutkan</td></tr>
+<tr><td>Semua piksel satu warna</td><td>Seleksi → Rentang warna (memakai warna latar depan)</td></tr>
+<tr><td>Piksel lapisan yang terlihat</td><td>Seleksi → Piksel lapisan</td></tr></table>
+<h2>Yang bisa dilakukan dengan seleksi</h2><ul>
+<li><kbd>Delete</kbd> mengosongkannya; <i>Edit → Isi</i> (<kbd>Alt</kbd>+<kbd>Backspace</kbd>) / Garis tepi.</li>
+<li><kbd>Ctrl</kbd>+<kbd>J</kbd> menyalinnya ke lapisan baru, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd> memotongnya ke lapisan baru.</li>
+<li><kbd>Ctrl</kbd>+<kbd>T</kbd> menskalakan/memutarnya; <i>Gambar → Pangkas ke seleksi</i>.</li>
+<li>Salin / Salin gabungan / Tempel (sebagai lapisan baru).</li></ul>
+
+@@ photo-layers
+title: Foto: lapisan dan mode campuran
+keywords: lapisan baru gandakan gabung ratakan opasitas mode campuran multiply screen overlay sembunyikan ganti nama urutan
+---
+<p>Lapisan adalah lembaran bertumpuk: yang di atas menutupi yang di bawah. Panel <b>Lapisan</b> menampilkannya dari atas ke bawah.</p>
+<ul><li>Kotak centang = tampilkan/sembunyikan. Klik dua kali = ganti nama. Ubah urutan dengan ▲ ▼.</li>
+<li>Tombol: ＋ baru, ⧉ gandakan, ▲▼ pindah, ⤓ gabung ke bawah (<kbd>Ctrl</kbd>+<kbd>E</kbd>), 🗑 hapus.</li>
+<li>Kotak <b>Opasitas</b> dan <b>mode campuran</b> di atas daftar berlaku untuk lapisan saat ini.</li>
+<li>Menu Lapisan: gabung yang terlihat, balik/putar lapisan, edit lapisan teks. Menu Gambar: ratakan gambar.</li></ul>
+<h2>Mode campuran</h2><table>
+<tr><td>Multiply</td><td>menggelapkan — bagus untuk bayangan dan menaruh garis gambar di atas warna</td></tr>
+<tr><td>Screen / Linear Dodge (Add)</td><td>mencerahkan — pendar, efek cahaya</td></tr>
+<tr><td>Overlay / Soft Light / Hard Light</td><td>menambah kontras dan tekstur</td></tr>
+<tr><td>Darken / Lighten</td><td>mempertahankan piksel yang lebih gelap / lebih terang</td></tr>
+<tr><td>Color Dodge / Color Burn</td><td>pencerahan / penggelapan kuat</td></tr>
+<tr><td>Difference / Exclusion</td><td>membalik berdasarkan lapisan di bawahnya — efek, membandingkan gambar</td></tr></table>
+<p>Lapisan bisa berukuran apa saja dan menjulur keluar kanvas — tidak ada piksel yang hilang saat dipindah.</p>
+
+@@ photo-adjust
+title: Foto: penyesuaian dan filter
+keywords: kecerahan kontras level rona saturasi vibrance eksposur keseimbangan warna suhu hitam putih sepia balik ambang posterisasi buram pertajam derau pikselasi vinyet timbul
+---
+<h2>Gambar → Penyesuaian</h2><p>Semuanya memakai penggeser dengan <b>Pratinjau</b> langsung:</p>
+<table><tr><td>Kecerahan/kontras</td><td>perbaikan cepat untuk foto pucat</td></tr>
+<tr><td>Level</td><td>atur titik hitam, titik putih, dan nada tengah (gamma)</td></tr>
+<tr><td>Rona/saturasi</td><td>menggeser warna, menguatkan/melemahkan, mencerahkan/menggelapkan</td></tr>
+<tr><td>Vibrance</td><td>menguatkan warna pucat lebih dari warna yang sudah kuat (kulit tetap alami)</td></tr>
+<tr><td>Eksposur</td><td>seperti mengubah eksposur kamera (stop)</td></tr>
+<tr><td>Keseimbangan warna / Suhu-tint</td><td>memperbaiki rona warna — lebih hangat, lebih dingin, lebih hijau…</td></tr>
+<tr><td>Ambang / Posterisasi</td><td>hitam putih murni / lebih sedikit tingkat warna</td></tr></table>
+<p>Sekali klik: Balik, Hitam putih, Sepia, Kontras otomatis.</p>
+<h2>Menu Filter</h2><p>Buram Gaussian, Buram gerak, Pertajam, Kurangi derau, Tambah derau, Pikselasi, Vinyet, Timbul, Cari tepi, Lukisan cat minyak.</p>
+<div class="tip">Untuk memburamkan latar belakang: pilih objeknya (Tongkat ajaib / Laso), <i>Seleksi → Balik</i>, <i>Seleksi → Feather</i> 10 px, lalu <i>Filter → Buram Gaussian</i>.</div>
+
+@@ photo-text-shapes
+title: Foto: teks dan bentuk
+keywords: teks font garis tepi bayangan edit bentuk persegi elips panah garis
+---
+<h2>Teks</h2><p>Alat teks (${K("T")}) → klik → ketik. Pilih font apa pun, ukuran (px), tebal/miring, warna, perataan, <b>garis tepi</b> (tebal + warna), dan <b>bayangan jatuh</b>.
+Setiap teks mendapat lapisannya sendiri (ditandai <b>T</b>). Untuk mengubahnya nanti: alat Teks → klik teksnya, atau <i>Lapisan → Edit lapisan teks</i>.</p>
+<div class="warn">Mengubah ukuran, memutar, atau membalik lapisan teks mengubahnya menjadi lapisan gambar biasa (tidak bisa diedit sebagai teks lagi).</div>
+<h2>Bentuk</h2><p>Alat bentuk (${K("U")}): pilih Persegi panjang, Persegi panjang membulat, Elips, Garis, atau Panah. Isian memakai warna latar depan, garis tepi memakai warna latar belakang (atur lebarnya, 0 = tanpa). Tahan ${K("Shift")} untuk persegi/lingkaran sempurna. Setiap bentuk ditaruh di lapisan baru.</p>
+
+@@ photo-files
+title: Foto: file Photoshop, menyimpan, dan mengekspor
+keywords: psd photoshop simpan ekspor png jpg webp kualitas ora lapisan ratakan tiff ico pdf
+---
+<h2>Photoshop (.psd)</h2><p>Membuka PSD beserta lapisannya: nama, posisi, opasitas, mode campuran, lapisan tersembunyi (grup diuraikan menjadi lapisannya). <b>Menyimpan PSD berlapis</b> yang bisa dibuka di Photoshop.</p>
+<p>Tidak bisa diedit: lapisan penyesuaian, efek lapisan (bayangan, garis tepi…), masker, objek cerdas — pikselnya dimuat bila memungkinkan dan Anda akan diberi tahu. Lapisan teks Photoshop masuk sebagai gambar.</p>
+<h2>Menyimpan</h2><table><tr><th>Format</th><th>Menyimpan lapisan?</th><th>Cocok untuk</th></tr>
+<tr><td>.psd</td><td>✅</td><td>berbagi dengan pengguna Photoshop, menyimpan pekerjaan</td></tr>
+<tr><td>.ora (OpenRaster)</td><td>✅ (+ teks yang bisa diedit)</td><td>menyimpan pekerjaan dalam format terbuka</td></tr>
+<tr><td>.png</td><td>❌</td><td>grafis, tangkapan layar, transparansi</td></tr>
+<tr><td>.jpg</td><td>❌</td><td>foto (menanyakan kualitas 1–100)</td></tr>
+<tr><td>.webp</td><td>❌</td><td>web — file kecil</td></tr>
+<tr><td>.tif / .bmp / .gif / .ico / .pdf</td><td>❌</td><td>cetak / perangkat lunak lama / ikon / dokumen</td></tr></table>
+<p><b>File → Ekspor sebagai</b> menyimpan salinan yang diratakan tanpa mengubah file yang sedang Anda kerjakan.</p>
+
+@@ conv-basics
+title: Konverter: cara memakainya
+keywords: konverter tambah file seret folder tujuan mulai batal klik kanan banyak sekaligus
+---
+<ol><li><b>Tambahkan file:</b> seret file atau seluruh folder ke dalam daftar, gunakan <b>Tambah file…/Tambah folder…</b>, atau pilih file di File Explorer → klik kanan → <i>Konversi / kompres dengan Ethical Converter</i>.</li>
+<li><b>Pilih tugas</b> dengan tab: <a href="#conv-formats">Konversi</a>, <a href="#conv-compress">Kompres</a>, <a href="#conv-combine">Gabung</a>, <a href="#conv-combine">Zip / Ekstrak</a> — atau <a href="#conv-download">⬇ Unduh dari tautan</a> untuk menyimpan video daring.</li>
+<li>Di <b>Konversi</b>, setiap file punya pilihan <b>Konversi ke</b> sendiri; <b>Atur semua file ke</b> mengubah setiap file yang mendukung format itu.</li>
+<li>Pilih ke mana hasilnya disimpan: <b>folder yang sama dengan tiap file</b> atau <b>folder ini</b>.</li>
+<li>Tekan <b>▶ Mulai</b>. Setiap file menunjukkan kemajuannya; <b>Batal</b> menghentikan.</li></ol>
+<p>File asli tidak pernah diubah atau ditimpa — file baru mendapat namanya sendiri (mis. <code>video (compressed).mp4</code>, <code>photo (1).png</code>).</p>
+<p><kbd>Delete</kbd> mengeluarkan file terpilih dari daftar.</p>
+
+@@ conv-formats
+title: Konverter: apa menjadi apa
+keywords: format audio video gambar dokumen wav mp3 mp4 mkv webm gif flac m4a pdf docx pptx xlsx csv png jpg webp ico
+---
+<table><tr><th>Dari</th><th>Ke</th></tr>
+<tr><td><b>Audio</b>: mp3 wav flac ogg m4a aac wma opus aiff amr ac3</td><td>MP3, WAV, FLAC (lossless), M4A/AAC, OGG, OPUS, AIFF, WMA, <b>video MP4</b> (audio + gambar atau layar hitam)</td></tr>
+<tr><td><b>Video</b>: mp4 mkv mov avi webm wmv flv m4v mpg 3gp ts…</td><td>MP4 (H.264), MP4 (H.265, lebih kecil), MKV, WebM, MOV, AVI, WMV, GIF animasi, atau audionya saja: MP3, WAV, M4A, FLAC</td></tr>
+<tr><td><b>Gambar</b>: png jpg webp bmp gif tif ico psd tga</td><td>PNG, JPG, WebP, BMP, GIF, TIFF, ICO (ikon multi-ukuran), PDF</td></tr>
+<tr><td>PDF</td><td>PNG atau JPG (satu per halaman), Word .docx, teks</td></tr>
+<tr><td>Word .docx</td><td>PDF, teks, HTML, Markdown, ODT</td></tr>
+<tr><td>PowerPoint .pptx</td><td>PDF, PNG (satu per slide)</td></tr>
+<tr><td>Excel .xlsx</td><td>CSV (satu per lembar)</td></tr><tr><td>CSV</td><td>Excel .xlsx</td></tr>
+<tr><td>.txt .md .html</td><td>PDF, Word .docx (dan HTML/teks)</td></tr>
+<tr><td>Arsip: zip 7z tar tgz gz bz2 xz</td><td>Ekstrak (buka)</td></tr></table>
+<h2>Opsi (tab Konversi)</h2><ul>
+<li><b>Kualitas video</b> Tinggi / Seimbang / File kecil, <b>Ukuran video</b> (tetap, 4K, 1080p, 720p, 480p, 360p).</li>
+<li><b>Kualitas audio</b> 64k–320k (192k adalah bawaan yang baik; 320k adalah MP3 terbaik).</li>
+<li><b>Kualitas gambar</b> dan <b>ukuran maksimum</b> (untuk JPG/WebP dan untuk memperkecil).</li>
+<li><b>Gambar untuk audio → MP4</b>: pilih gambar sampul, jika tidak maka dipakai layar hitam.</li>
+<li><b>Ukuran GIF</b> (lebar) dan resolusi <b>PDF → gambar</b> (dpi).</li></ul>
+
+@@ conv-compress
+title: Konverter: kompres (memperkecil file)
+keywords: kompres perkecil kurangi ukuran video audio pdf gambar word powerpoint excel zip 7z email
+---
+<p>Pilih <b>Ringan</b> (kualitas terbaik), <b>Seimbang</b>, atau <b>Kuat</b> (paling kecil).</p>
+<table><tr><th>File</th><th>Yang terjadi</th></tr>
+<tr><td>Video</td><td>dienkode ulang sebagai MP4 (H.264); Seimbang membatasi ke 1080p, Kuat ke 720p</td></tr>
+<tr><td>Audio</td><td>bitrate lebih rendah (160k / 128k / 96k); WAV/FLAC/AIFF menjadi MP3</td></tr>
+<tr><td>Gambar</td><td>disimpan ulang lebih kecil (kualitas JPG/WebP, warna PNG lebih sedikit, opsional diperkecil ke 2560/1600 px)</td></tr>
+<tr><td>PDF</td><td>gambar di dalamnya diperkecil dan dikompres ulang, font dirampingkan, file dibersihkan</td></tr>
+<tr><td>Word/Excel/PowerPoint</td><td>gambar di dalamnya diperkecil, lalu di-zip ulang dengan kompresi maksimum</td></tr>
+<tr><td>Lainnya</td><td>di-zip (Kuat memakai 7z, yang lebih kecil)</td></tr></table>
+<p>Kolom Hasil menunjukkan seberapa kecil tiap file menjadi. Jika sebuah file tidak bisa diperkecil secara berarti, tidak dibuat file baru (“Sudah kecil”).</p>
+<div class="tip">Untuk mengirim video besar lewat email, <b>Kuat</b> biasanya memperkecilnya hingga sebagian kecil ukurannya, dan masih terlihat bagus di ponsel.</div>
+
+@@ conv-trim
+title: Konverter: memangkas video (juga memutar, mengubah ukuran, membisukan)
+keywords: pangkas potong video klip awal akhir putar miring ukuran 720p 1080p bisu hapus suara audio
+---
+<p>Tab <b>✂ Pangkas video</b> hanya menyimpan bagian video yang Anda inginkan.</p>
+<ol><li>Klik <b>📂 Buka video…</b> (atau jatuhkan video ke tab).</li>
+<li>Seret penggeser — gambarnya menunjukkan momen itu. Klik <b>⇤ Mulai di sini</b>, maju, lalu <b>Akhiri di sini ⇥</b>. Atau ketik waktunya dalam detik.
+Baris di bawahnya menunjukkan yang disimpan, mis. “Disimpan 0:12.0 → 1:05.5 (0:53.5)”.</li>
+<li>Pilih cara memotong:<ul>
+<li><b>Cepat</b> — instan dan tanpa kehilangan kualitas, tetapi potongan jatuh pada “keyframe” terdekat, jadi bisa mulai beberapa detik lebih awal.</li>
+<li><b>Tepat</b> — memotong di bingkai yang tepat (video dibuat ulang, jadi sedikit lebih lama).</li></ul></li>
+<li>Opsional: <b>Ukuran</b> 1080p / 720p / 480p (file lebih kecil), <b>Putar</b> (memperbaiki video ponsel yang direkam miring), <b>Hapus suara</b>.
+Ukuran dan putar selalu memakai Tepat.</li>
+<li>Klik <b>✂ Simpan video terpangkas</b>. Video disimpan sebagai “<i>nama</i> (trimmed)” di samping aslinya, atau di folder pada <b>Simpan hasil ke</b>.
+Aslinya tidak berubah.</li></ol>
+<p class="note">Untuk sekadar mengubah ukuran seluruh video (banyak sekaligus), gunakan pengaturan <b>Ukuran video</b> di tab <b>Konversi</b>, atau <b>Kompres</b>.</p>
+
+@@ conv-combine
+title: Konverter: menggabung, zip, dan ekstrak
+keywords: gabung satukan pdf audio video zip 7z ekstrak buka arsip
+---
+<h2>Tab Gabung</h2><ul>
+<li><b>Gambar dan PDF → satu PDF</b> (mis. halaman pindaian menjadi satu dokumen).</li>
+<li><b>File audio → satu MP3</b> (berurutan).</li><li><b>Video → satu MP4</b>.</li></ul>
+<p>File digabung sesuai urutan daftar — gunakan ▲ Naik / ▼ Turun. Ketik nama untuk file baru.</p>
+<h2>Tab Zip / Ekstrak</h2><ul>
+<li><b>Masukkan semua file ke satu ZIP</b> (bisa dibuka di mana saja) atau <b>7z</b> (lebih kecil; perlu 7-Zip atau sejenisnya untuk membukanya). Folder mempertahankan strukturnya.</li>
+<li><b>Ekstrak</b> membuka .zip, .7z, .tar, .tar.gz/.tgz, .tar.bz2, .tar.xz, .gz, .bz2, .xz ke folder bernama sama dengan arsipnya.</li></ul>
+<p>File .rar belum bisa diekstrak.</p>
+
+@@ conv-download
+title: Konverter: mengunduh video dari tautan
+keywords: unduh download youtube twitter x tiktok instagram vimeo tautan url video audio mp3 daftar putar keamanan virus
+---
+<p class="note"><b>Tidak ada di setiap versi:</b> unduhan publik EthicalApp tidak menyertakan fitur ini. Fitur ini hanya ada di versi pribadi yang dibangun dengan <code>installer\build.py --with-downloader</code> atau saat dijalankan dari kode sumber.</p>
+<p>Tab <b>⬇ Unduh dari tautan</b> menyimpan video atau audionya dari YouTube, X/Twitter, TikTok, Instagram, Vimeo, Facebook, Reddit, SoundCloud, dan lebih dari seribu situs lain.</p>
+<ol><li>Tempel satu atau beberapa tautan (satu per baris) — tombol <b>📋 Tempel</b> menempelkan yang Anda salin.</li>
+<li>Opsional: <b>🔎 Periksa tautan</b> menampilkan dulu judul, kanal, dan durasi masing-masing.</li>
+<li>Pilih <b>Video</b> (kualitas 360p–4K; <b>MP4</b> bisa diputar di mana saja, <b>Kualitas terbaik</b> menyimpan MKV) atau <b>Hanya audio</b> (MP3, M4A, OPUS, WAV, FLAC).</li>
+<li>Centang <b>Seluruh daftar putar</b> untuk mengambil setiap video dalam daftar putar (hingga 200).</li>
+<li>Tekan <b>⬇ Unduh</b>. File masuk ke folder pada “Simpan hasil ke” (atau folder <b>Unduhan</b> Anda).</li></ol>
+<p>Centang <b>Tambahkan unduhan selesai ke daftar file</b> untuk langsung mengonversi atau mengompresnya (mis. unduh, lalu buat GIF).</p>
+<h2>🛡 Keamanan bawaan</h2><ul>
+<li>Hanya tautan web biasa yang diterima — tautan ke file di PC atau jaringan rumah Anda ditolak.</li>
+<li>Unduhan masuk dulu ke folder <b>karantina</b> pribadi.</li>
+<li>Hanya jenis file audio/video yang boleh keluar dari karantina — program (.exe, skrip), arsip, dokumen, dan halaman web <b>diblokir dan dihapus</b>, bahkan jika menyamar sebagai video.</li>
+<li>FFmpeg membuka setiap file untuk membuktikan isinya benar-benar audio atau video.</li>
+<li><b>Microsoft Defender</b> memindai setiap file sebelum disimpan; apa pun yang ditandai akan dihapus.</li>
+<li>Aplikasi tidak pernah membuka atau menjalankan apa pun yang diunduhnya.</li></ul>
+<div class="warn">⚖ Hanya unduh video yang boleh Anda unduh — unggahan Anda sendiri, atau video yang pemiliknya mengizinkan diunduh (mis. Creative Commons). Ketentuan banyak situs, termasuk YouTube, tidak mengizinkan pengunduhan, dan hak cipta tetap berlaku.</div>
+<h2>Jika unduhan berhenti berfungsi</h2><p>Situs web sering berubah. Tekan <b>Perbarui pengunduh</b> (perlu internet), lalu mulai ulang Konverter.
+Video pribadi, khusus anggota, dibatasi usia, atau diblokir di wilayah Anda tidak bisa diunduh.</p>
+
+@@ base-basics
+title: Basis data: apa itu basis data dan cara memulai
+keywords: basis data database access sqlite mulai templat baru buka tabel rekaman bidang panel navigasi simpan otomatis
+---
+<p>Basis data menyimpan daftar — kontak, produk, pesanan, tugas — dalam <b>tabel</b>. Setiap baris adalah
+<b>rekaman</b> (satu pelanggan), setiap kolom adalah <b>bidang</b> (nama, email…). Tidak seperti lembar kerja, tabel bisa
+<a href="#base-relationships">ditautkan</a> (pesanan milik seorang pelanggan), dan Anda bisa bertanya dengan
+<a href="#base-queries">kueri</a> serta mencetak <a href="#base-reports">laporan</a>.</p>
+<h2>Memulai</h2><p>Halaman awal menawarkan <b>Basis data kosong</b> atau templat siap pakai dengan data contoh:
+<b>Kontak</b>, <b>Tugas</b>, <b>Inventaris</b> (dengan kueri stok rendah), <b>Pelanggan &amp; pesanan</b> (tabel tertaut, kueri total pesanan, dan laporan).
+Anda juga bisa membuka basis data atau mengimpor Excel/CSV/Access langsung ke basis data baru.</p>
+<h2>Jendela</h2><ul>
+<li><b>Kiri:</b> panel navigasi — Tabel, Kueri, Laporan. Klik dua kali untuk membuka; klik kanan untuk Tampilan desain, Tampilan formulir, Ganti nama, Hapus, Ekspor, Laporan baru.</li>
+<li><b>Kanan:</b> sebuah tab untuk semua yang Anda buka.</li></ul>
+<div class="tip">Tidak ada tombol Simpan untuk data — <b>setiap perubahan langsung disimpan</b>, seperti di Access. Gunakan <i>File → Simpan salinan sebagai</i> untuk cadangan.</div>
+<p>Basis data adalah satu file <b>.db</b> (format standar SQLite, yang juga bisa dibuka banyak program lain).</p>
+
+@@ base-tables
+title: Basis data: merancang tabel dan jenis bidang
+keywords: tampilan desain tabel bidang jenis nomor otomatis teks angka mata uang tanggal ya tidak wajib unik bawaan ganti nama
+---
+<p><b>Buat → Tabel</b> (atau klik kanan tabel → <b>Tampilan desain</b> untuk mengubahnya). Setiap baris di perancang adalah sebuah bidang:</p>
+<table><tr><th>Jenis</th><th>Untuk</th></tr>
+<tr><td>Nomor otomatis</td><td>ID yang menomori dirinya sendiri (1, 2, 3…) — setiap tabel sebaiknya punya</td></tr>
+<tr><td>Teks pendek / Teks panjang</td><td>nama, kode / catatan, deskripsi</td></tr>
+<tr><td>Bilangan bulat / Bilangan desimal</td><td>jumlah / ukuran</td></tr>
+<tr><td>Mata uang</td><td>uang (ditampilkan sebagai $1,234.50)</td></tr>
+<tr><td>Tanggal / Tanggal &amp; waktu</td><td>ketik 2026-10-11, 10/11/2026, atau <code>today</code></td></tr>
+<tr><td>Ya/Tidak</td><td>kotak centang</td></tr></table>
+<ul><li><b>Wajib</b> — bidang tidak boleh kosong. <b>Unik</b> — tidak boleh ada dua rekaman dengan nilai yang sama (mis. kode produk, email).</li>
+<li><b>Nilai bawaan</b> — diisikan pada rekaman baru; <code>DATE()</code> berarti hari ini.</li>
+<li>Ganti nama, ubah urutan (▲▼), tambah atau hapus bidang kapan saja lalu tekan <b>Simpan tabel</b> — data yang ada dipertahankan, dan kueri tersimpan yang memakai bidang yang diganti namanya diperbarui otomatis.</li></ul>
+
+@@ base-data
+title: Basis data: memasukkan dan menemukan data (lembar data dan formulir)
+keywords: lembar data tampilan formulir rekaman baru hapus cari filter urutkan edit pencarian
+---
+<h2>Tampilan lembar data</h2><p>Terbuka seperti lembar kerja. Klik sel lalu ketik; tekan <kbd>Enter</kbd> untuk menyimpan.</p><ul>
+<li><b>Rekaman baru:</b> ketik di baris terbawah yang ditandai <b>✱</b>, atau tekan <b>＋ Rekaman baru</b>.</li>
+<li><b>Hapus:</b> pilih rekaman → <b>✖ Hapus</b>.</li>
+<li><b>Urutkan:</b> klik judul kolom (lagi untuk membalik).</li>
+<li>Kotak <b>Cari di semua bidang</b> menyaring saat Anda mengetik. <b>Filter menurut pilihan</b> hanya menampilkan rekaman dengan nilai sel saat ini; <b>Hapus filter</b> menampilkan semuanya lagi.</li>
+<li>Bidang Ya/Tidak berupa kotak centang. Bidang yang tertaut ke tabel lain (mis. pelanggan pada pesanan) menampilkan <b>daftar tarik-turun berisi nama</b>, bukan nomor ID.</li></ul>
+<h2>Tampilan formulir</h2><p>Satu rekaman sekaligus, satu kotak per bidang — lebih nyaman untuk rekaman panjang.
+Gunakan ⏮ ◀ ▶ ⏭ untuk berpindah, <b>＋ Baru</b>, <b>💾 Simpan</b>, <b>✖ Hapus</b>, dan <b>Cari…</b>. Berpindah ke rekaman lain menyimpan perubahan Anda.</p>
+<p>Jika sesuatu tidak bisa disimpan, Anda mendapat alasan yang jelas — mis. bidang wajib kosong, nilai unik sudah dipakai, atau rekaman tertaut tidak ada.</p>
+
+@@ base-queries
+title: Basis data: kueri (bertanya pada data Anda)
+keywords: kueri desain kriteria urutkan total jumlah hitung kelompokkan sql tampilan join terkait
+---
+<p><b>Buat → Kueri</b>. Kueri memilih bidang, menyaring rekaman, dan mengurutkannya — mis. “semua pesanan yang dikirim bulan ini, terbaru dulu”. Kueri tersimpan muncul di bawah <b>Kueri</b> dan selalu menampilkan data terkini.</p>
+<h2>Tab Desain</h2><ol>
+<li>Pilih <b>tabel utama</b>. Centang <b>tabel terkait</b> untuk memakai bidangnya juga (perlu <a href="#base-relationships">relasi</a>).</li>
+<li><b>＋ Tambah bidang</b> (atau <b>Tambah semua bidang</b>), lalu untuk masing-masing: <b>Tampilkan</b>, <b>Urutkan</b>, dan <b>Kriteria</b>.</li>
+<li><b>▶ Jalankan</b> untuk melihat hasil; <b>💾 Simpan kueri…</b> untuk menyimpannya.</li></ol>
+<h2>Contoh kriteria</h2><table>
+<tr><td><code>&gt;100</code>, <code>&lt;=50</code>, <code>&lt;&gt;0</code></td><td>perbandingan</td></tr>
+<tr><td><code>"London"</code> atau <code>London</code></td><td>persis ini</td></tr>
+<tr><td><code>"London" Or "Paris"</code></td><td>salah satunya</td></tr>
+<tr><td><code>Like "A*"</code></td><td>diawali A (<code>*</code> = apa saja, <code>?</code> = satu karakter)</td></tr>
+<tr><td><code>Between 1 And 50</code></td><td>sebuah rentang</td></tr>
+<tr><td><code>&gt;=#2026-01-01#</code></td><td>tanggal (di antara tanda #)</td></tr>
+<tr><td><code>Is Null</code> / <code>Is Not Null</code></td><td>kosong / tidak kosong</td></tr>
+<tr><td><code>Yes</code> / <code>No</code></td><td>bidang Ya/Tidak</td></tr></table>
+<h2>Total</h2><p>Centang <b>Total</b> untuk mengelompokkan dan menjumlahkan — mis. Kelompokkan menurut pelanggan, Jumlah kuantitas. Kriteria pada Jumlah/Hitung berlaku untuk totalnya.</p>
+<h2>Tab SQL</h2><p>Menampilkan kueri sebagai SQL (bahasa standar basis data) — Anda bisa mengeditnya langsung. <i>Basis data → Konsol SQL</i> menjalankan SQL apa pun; perintah yang mengubah data akan bertanya dulu.</p>
+
+@@ base-relationships
+title: Basis data: relasi (menautkan tabel)
+keywords: relasi tautan kunci asing satu ke banyak induk anak hapus berantai diagram
+---
+<p>Relasi menyatakan “setiap rekaman <b>anak</b> milik satu rekaman <b>induk</b>” — setiap pesanan milik satu pelanggan, setiap produk milik satu kategori.</p>
+<ol><li>Beri tabel anak sebuah bidang <b>Bilangan bulat</b> yang akan menyimpan ID induk (mis. <i>Customer ID</i> di Pesanan).</li>
+<li><b>Basis data → Relasi</b>: pilih tabel induk dan ID-nya, tabel anak dan bidang “penunjuk”-nya, lalu <b>＋ Tambah relasi</b>.</li></ol>
+<p>Yang Anda dapatkan:</p><ul>
+<li>Bidang anak menampilkan <b>daftar tarik-turun nama induk</b> di lembar data dan formulir.</li>
+<li>Rekaman tidak bisa menunjuk ke induk yang tidak ada, dan induk yang masih punya anak tidak bisa terhapus tanpa sengaja…</li>
+<li>…kecuali Anda mencentang <b>hapus berantai</b>: maka menghapus induk juga menghapus anaknya (mis. menghapus pesanan menghapus baris-barisnya).</li>
+<li>Kueri bisa menggabungkan bidang dari tabel yang tertaut.</li></ul>
+<p>Jendela menampilkan diagram semua tabel dengan garis di antara bidang yang tertaut (1 ── ∞).</p>
+
+@@ base-reports
+title: Basis data: laporan dan mencetak
+keywords: laporan cetak pdf kelompokkan total jumlah rata-rata judul lanskap
+---
+<p><b>Buat → Laporan</b> (atau klik kanan tabel/kueri → Laporan baru). Pilih:</p><ul>
+<li><b>data</b> (tabel atau kueri apa pun) dan <b>judul</b>;</li>
+<li><b>bidang</b> mana yang ditampilkan (centang dan seret untuk mengubah urutan);</li>
+<li><b>Kelompokkan menurut</b> sebuah bidang (mis. satu bagian per pelanggan) dan <b>Urutkan menurut</b>;</li>
+<li><b>Total</b> untuk bidang angka — Jumlah, Rata-rata, atau Hitung (per kelompok dan keseluruhan);</li>
+<li><b>Lanskap</b> untuk laporan lebar.</li></ul>
+<p>Lalu <b>Cetak</b>, <b>Pratinjau cetak</b>, atau <b>Ekspor PDF</b>. <b>Simpan laporan</b> menyimpannya di bawah <b>Laporan</b> — selalu menampilkan data terkini.</p>
+
+@@ base-import
+title: Basis data: impor dan ekspor (Excel, CSV, Access)
+keywords: impor ekspor excel xlsx csv access accdb mdb driver cadangan salinan padatkan perbaiki
+---
+<h2>Impor</h2><p><b>File → Impor</b> (atau seret file ke jendela): <b>Excel .xlsx</b> (setiap lembar → sebuah tabel), <b>CSV</b>, atau <b>Access .accdb/.mdb</b> (setiap tabel).
+Baris pertama menjadi nama bidang, dan jenis bidang (angka, mata uang, tanggal, Ya/Tidak, teks) dikenali otomatis — periksa setelahnya di Tampilan desain.
+Dari halaman awal Anda bisa mengimpor langsung ke basis data baru.</p>
+<div class="warn"><b>File Access</b> memerlukan <b>Access Database Engine 2016 Redistributable (64-bit)</b> gratis dari Microsoft (unduh di microsoft.com). Hanya tabel dan datanya yang ikut — bukan formulir, laporan, atau makro Access.</div>
+<h2>Ekspor</h2><p><b>File → Ekspor</b> (atau klik kanan → Ekspor): tabel atau kueri ke <b>Excel</b>, <b>semua tabel &amp; kueri</b> ke satu file Excel (masing-masing satu lembar), <b>CSV</b>, atau laporan <b>PDF</b>.</p>
+<h2>Merawat file</h2><ul><li><b>File → Simpan salinan sebagai</b> — cadangan yang aman, bahkan saat basis data terbuka.</li>
+<li><b>Basis data → Padatkan &amp; perbaiki</b> — memeriksa file dan memperkecilnya setelah banyak penghapusan.</li></ul>
+
+@@ stickies
+title: Catatan tempel: catatan dan daftar tugas di desktop Anda
+keywords: catatan tempel catatan tugas daftar tugas pengingat desktop post-it baki sistem mulai otomatis
+---
+<p><b>Ethical Sticky Notes</b> menaruh catatan kecil di desktop Anda — bagus untuk daftar tugas, nomor telepon, dan pengingat.
+Semuanya tersimpan sendiri saat Anda mengetik, hanya di PC ini.</p>
+<h2>Dasar-dasar</h2><ul>
+<li><b>Catatan baru:</b> klik <b>+</b> di catatan mana pun, tekan ${K("Ctrl N")}, atau gunakan ikon baki sistem (kanan bawah taskbar) → <b>Catatan baru</b>.</li>
+<li><b>Pindahkan</b> catatan dengan menyeret bilah atasnya. <b>Ubah ukuran</b> dengan menyeret tepi atau sudut.</li>
+<li><b>Ciutkan</b> catatan hingga judulnya saja: klik dua kali bilah atas (lagi untuk membentangkan).</li>
+<li><b>Warna:</b> <b>⋯</b> → pilih salah satu dari 8 warna. <b>Ukuran teks:</b> <b>⋯</b> → Ukuran teks.</li>
+<li><b>Selalu di atas:</b> klik <b>📌</b> agar catatan tetap di atas jendela lain.</li>
+<li><b>✕ menutup</b> catatan tetapi menyimpannya. Munculkan kembali lewat ikon baki → <b>Tampilkan semua catatan</b> (atau cukup klik ikonnya), atau <b>Semua catatan…</b>.</li></ul>
+<h2>Daftar tugas</h2><ul>
+<li>Ketik <kbd>[</kbd><kbd>]</kbd> dan spasi di awal baris (atau klik <b>☑</b> / ${K("Ctrl Shift C")}) untuk kotak centang.</li>
+<li>Klik kotaknya untuk mencentang — butirnya dicoret. Klik lagi untuk menghapus centang.</li>
+<li><kbd>Enter</kbd> membuat butir berikutnya; <kbd>Enter</kbd> pada butir kosong mengakhiri daftar. <kbd>Backspace</kbd> di awal butir mengubahnya kembali menjadi teks.</li>
+<li>Ketik <kbd>-</kbd> dan spasi untuk poin (atau <b>•</b> / ${K("Ctrl Shift L")}).</li></ul>
+<h2>Format</h2><p>Klik di dalam catatan untuk melihat bilah bawah: <b>B</b> ${K("Ctrl B")}, <i>I</i> ${K("Ctrl I")}, <u>U</u> ${K("Ctrl U")},
+<s>S</s> ${K("Ctrl T")}. Teks yang ditempel masuk tanpa format agar serasi dengan catatan.</p>
+<h2>Menemukan dan menghapus catatan</h2><ul>
+<li><b>Semua catatan…</b> (ikon baki atau <b>⋯</b>) mencantumkan setiap catatan dengan kotak pencarian — klik dua kali untuk membuka.</li>
+<li><b>Hapus</b>: 🗑 di bilah bawah catatan atau ${K("Ctrl D")}. Terhapus tidak sengaja? Ikon baki → <b>Pulihkan catatan yang dihapus</b> (30 terakhir disimpan).</li></ul>
+<h2>Mulai bersama Windows</h2><p>Ikon baki → <b>Mulai bersama Windows</b> (atau centang di penginstal), dan catatan Anda muncul kembali setiap kali Anda masuk.
+Untuk menutup aplikasi sepenuhnya: ikon baki → <b>Keluar dari Catatan Tempel</b> — catatan Anda tetap tersimpan.</p>
+<h2>Lokasi catatan</h2><p>Di <code>%APPDATA%\\Ethical Suite\\Sticky Notes\\notes.json</code> (plus salinan cadangan, <code>notes.json.bak</code>). Catatan tidak pernah
+diunggah. Mencopot EthicalApp tetap menyimpan file ini, jadi catatan Anda masih ada jika Anda memasang ulang. Untuk memindahkan catatan ke PC lain, salin file itu.</p>
+<h2>Dengan AI</h2><p>Jika Anda menghubungkan EthicalApp ke Claude, Anda bisa berkata misalnya “taruh catatan tugas untuk urusan hari Sabtu di desktop saya” atau
+“centang <i>telepon dokter gigi</i>” — catatannya berubah di layar dalam satu-dua detik.</p>
+<h2>Pintasan</h2><p>${K("Ctrl N")} catatan baru · ${K("Ctrl D")} hapus · ${K("Ctrl W")} tutup · ${K("Ctrl B")}/${K("Ctrl I")}/${K("Ctrl U")}/${K("Ctrl T")} tebal/miring/garis bawah/coret ·
+${K("Ctrl Shift C")} kotak centang · ${K("Ctrl Shift L")} poin · ${K("F1")} panduan ini</p>
+
+@@ planner
+title: Planner: pengingat dan kalender
+keywords: perencana pengingat kalender acara alarm suplemen pil obat setiap hari ulangi notifikasi tunda ulang tahun janji
+---
+<p><b>Ethical Planner</b> mengingatkan Anda tepat waktu — “minum suplemen setiap hari pukul 8:00”, “dokter gigi besok pukul 14:30”,
+“ulang tahun Ibu” — dengan kartu yang muncul di sudut layar.</p>
+<h2>Pengingat dan acara</h2><ul>
+<li><b>⏰ Pengingat baru</b> (${K("Ctrl N")}) untuk hal yang Anda <i>lakukan</i>: jendela pemberitahuannya punya tombol <b>Selesai</b> dan Anda bisa mencentangnya di daftar.</li>
+<li><b>📅 Acara baru</b> (${K("Ctrl E")}) untuk hal yang <i>terjadi</i>: janji temu, ulang tahun. Anda diberi peringatan sebelumnya (bawaan 15 menit).</li>
+<li>Tombol di bawah <b>Mulai cepat</b> mengisi hal yang umum: suplemen harian, minum air, malam buang sampah, ulang tahun.</li>
+<li>Klik dua kali sebuah hari di kalender untuk menambah acara pada hari itu.</li></ul>
+<h2>Pengulangan</h2><p><b>Ulangi:</b> setiap hari, setiap hari kerja (Sen–Jum), setiap minggu (centang harinya, mis. Sen/Rab/Jum), setiap bulan, atau setiap tahun —
+dan “setiap N” (setiap 2 hari, setiap 3 minggu…). <b>Berhenti mengulang setelah</b> menetapkan tanggal akhir. Pengingat bulanan pada tanggal 31 jatuh pada hari terakhir di bulan yang lebih pendek.</p>
+<h2>Peringatan dan jendela pemberitahuan</h2><ul>
+<li>Pilih <b>Peringatan</b> (tepat waktu, 5/10/15/30 menit, 1–2 jam, 1–2 hari, atau seminggu sebelumnya) dan, jika mau, peringatan kedua (<b>Juga</b>), mis. sehari sebelum <i>dan</i> sejam sebelum.</li>
+<li>Item sepanjang hari memberi peringatan pukul 09:00 (dikurangi waktu peringatan).</li>
+<li>Kartu tetap ada sampai Anda mengklik <b>Selesai</b>/<b>OK</b>, <b>Tunda</b> (5 menit … besok pagi), atau ✕. Kartu tetap muncul meski Bantuan fokus Windows aktif.</li>
+<li>PC mati atau tidur? Yang terlewat dalam 12 jam terakhir muncul lain kali, ditandai <i>terlewat</i>.</li>
+<li>Setiap peringatan membunyikan dentang lembut (suara Planner sendiri, jadi tetap berbunyi meski suara notifikasi Windows dimatikan). Coba: <b>⋯ → Uji jendela pengingat</b>. Nyalakan/matikan suara di <b>⋯</b>.</li>
+<li><b>Jam:</b> waktu mengikuti jam PC Anda. Pilih <b>⋯ → Jam → 12 jam (8:00 PM)</b> atau <b>24 jam (20:00)</b> – secara bawaan Planner mengikuti yang dipakai Windows.</li></ul>
+<h2>Daftar</h2><ul>
+<li>Menampilkan hari terpilih dan 6 hari setelahnya. Klik tanggal di kalender untuk melihat ke depan; <b>Hari ini</b> (${K("Ctrl T")}) kembali.</li>
+<li>Centang kotaknya untuk menandai pengingat selesai pada hari itu (dicoret). Yang terlambat berwarna merah.</li>
+<li>Klik kanan item: Edit, Tandai selesai / Belum selesai, <b>Lewati yang ini saja</b> (untuk item berulang), Hapus.</li>
+<li>Hari yang ditebalkan di kalender memiliki acara atau pengingat yang lebih jarang. <b>Berikutnya</b> menampilkan peringatan selanjutnya.</li></ul>
+<h2>Biarkan tetap berjalan</h2><p>Pengingat hanya bisa muncul selama Planner berjalan, jadi menutup jendela membuatnya tetap di baki sistem (kanan bawah taskbar).
+Saat pertama kali dijalankan, ia bertanya apakah perlu <b>mulai bersama Windows</b> — jawab ya (atau centang di penginstal atau di <b>⋯</b>). <b>Keluar dari Ethical Planner</b> di menu baki menghentikannya.</p>
+<h2>Tempat penyimpanan</h2><p><code>%APPDATA%\\Ethical Suite\\Planner\\planner.json</code> (plus cadangan). Tidak pernah diunggah; mencopot aplikasi tetap menyimpannya.</p>
+<h2>Dengan AI</h2><p>Jika Anda menghubungkan Planner ke Claude: “ingatkan saya minum vitamin setiap hari jam 8”, “apa jadwal saya minggu ini?”,
+“saya sudah minum pil” (mencentangnya), “pindahkan dokter gigi ke Kamis jam 3”.</p>
+
+@@ snip
+title: Snip: tangkapan layar untuk diberi tanda
+keywords: tangkapan layar screenshot print screen alat potong pangkas panah sorot pikselasi buramkan sembunyikan
+---
+<p><b>Ethical Snip</b> mengambil gambar layar Anda — seluruhnya, sebuah jendela, atau hanya bagian yang Anda pilih — dan memungkinkan Anda
+menggambar di atasnya sebelum menyalin atau menyimpannya.</p>
+<h2>Mengambil tangkapan layar</h2><ul>
+<li>Tekan ${K("Ctrl PrtScn")} di mana saja (selama Snip berjalan — ia menunggu di baki sistem, kanan bawah taskbar), klik <b>✂ Tangkapan baru</b> (${K("Ctrl N")}), atau gunakan ikon baki.</li>
+<li>Layar membeku dan meredup. Pilih di atas: <b>Persegi panjang</b> (seret area), <b>Jendela</b> (klik jendela), <b>Layar penuh</b> (klik), atau <b>Bentuk bebas</b> (gambar mengelilingi sesuatu).
+Tombol: <kbd>R</kbd> <kbd>W</kbd> <kbd>S</kbd> <kbd>F</kbd>. <kbd>Esc</kbd> atau klik kanan membatalkan.</li>
+<li><b>Tunda:</b> panah di samping Tangkapan baru → Tunda → 3, 5, atau 10 detik, untuk membuka menu dulu.</li>
+<li>Setiap tangkapan <b>disalin</b> (tempel dengan ${K("Ctrl V")} ke obrolan atau email) dan <b>disimpan</b> di <code>Pictures\\Ethical Snips</code>. Keduanya bisa dimatikan di <b>⋯</b>.</li></ul>
+<h2>Memberi tanda</h2><ul>
+<li><b>Pena</b> <kbd>P</kbd>, <b>Sorot</b> <kbd>H</kbd>, <b>Panah</b> <kbd>A</kbd>, <b>Kotak</b> <kbd>R</kbd> (tahan <kbd>Shift</kbd> untuk persegi), <b>Teks</b> <kbd>T</kbd> (klik, lalu ketik).</li>
+<li><b>Pikselasi</b> <kbd>X</kbd>: seret di atas nama, alamat, atau kata sandi untuk menyembunyikannya sebelum membagikan gambar.</li>
+<li><b>Pangkas</b> <kbd>C</kbd>: seret mengelilingi bagian yang ingin disimpan.</li>
+<li>Pilih warna dan ketebalan (Tipis / Sedang / Tebal) di bilah alat. <b>Pilih</b> <kbd>V</kbd> memungkinkan Anda memindahkan tanda atau menghapusnya (<kbd>Delete</kbd>).</li>
+<li>${K("Ctrl Z")} batal, ${K("Ctrl Y")} ulangi. Zoom: ${K("Ctrl +")} / ${K("Ctrl -")} / ${K("Ctrl 0")} atau ${K("Ctrl")} + roda mouse.</li></ul>
+<h2>Menyalin, menyimpan, membagikan</h2><ul>
+<li><b>Salin</b> (${K("Ctrl C")}) menyalin gambar yang sudah ditandai. <b>Simpan</b> (${K("Ctrl S")}) memperbarui tangkapan yang tersimpan; <b>Simpan sebagai…</b> memilih nama dan PNG, JPG, WebP, atau BMP.</li>
+<li><b>Buka di Editor Foto</b> untuk pengeditan lebih besar (lapisan, filter, efek teks).</li>
+<li>Snip juga bisa menandai gambar lain: <b>⋯ → Buka gambar</b> (${K("Ctrl O")}), tempel gambar (${K("Ctrl V")}), atau seret file ke jendela.</li></ul>
+<h2>Pengaturan (menu ⋯)</h2><p>Salin setiap tangkapan · Simpan otomatis setiap tangkapan · Tetap berjalan di baki untuk ${K("Ctrl PrtScn")} ·
+Mulai bersama Windows · Ubah pintasan · Pilih folder tangkapan layar. Menutup jendela membuat Snip tetap di baki; <b>Keluar dari Ethical Snip</b> menutupnya sepenuhnya.</p>
+<h2>Mengubah pintasan</h2><p>Tidak punya tombol PrtScn (banyak laptop)? Atau program lain sudah memakainya? Klik <b>⌨ Ubah pintasan…</b> di layar awal Snip (atau pintasan yang tampil di kanan bawah, atau <b>⋯ → Ubah pintasan…</b>), klik di kotak lalu tekan tombol yang Anda mau — misalnya ${K("Ctrl Alt S")}. Perlu ${K("Ctrl")}, ${K("Alt")}, atau tombol Windows (tombol F bisa sendirian). Hindari pintasan yang dipakai program lain, seperti ${K("Ctrl Shift S")} (Simpan sebagai). Bilah status menunjukkan pintasan yang aktif, atau memberi tahu jika program lain sudah memakainya.</p>
+<h2>Dengan AI</h2><p>Jika Anda menghubungkan Snip ke Claude, Anda bisa meminta “ambil tangkapan layar jendela Excel dan simpan di desktop saya”. Claude hanya
+mengambil tangkapan layar saat Anda memintanya, dan gambarnya disimpan di PC Anda.</p>
+
+@@ ai-claude
+title: Memakai aplikasi dengan AI (Claude)
+keywords: ai kecerdasan buatan claude mcp asisten otomatisasi hubungkan alat obrolan code desktop
+---
+<p>EthicalApp menyertakan <b>server MCP</b> — penghubung yang memungkinkan asisten AI <b>Claude</b> (Claude Code atau Claude Desktop) menjalankan aplikasi untuk Anda. Cukup minta dengan kata-kata Anda sendiri, misalnya:</p>
+<ul><li>“Ubah catatan.md saya menjadi dokumen Word yang rapi.”</li>
+<li>“Baca anggaran.xlsx, tambahkan baris dana tak terduga 10% dan diagram pai.”</li>
+<li>“Buat presentasi 6 slide tentang rencana musim panas kami dengan tema Samudra, lalu buka.”</li>
+<li>“Sensor semua nomor telepon di kontrak.pdf.” · “Isi formulir PDF ini dengan data saya.”</li>
+<li>“Perkecil semua foto ini menjadi 1080 px dan tambahkan teks logo kami.” · “Ubah video ini menjadi MP3.”</li>
+<li>“Buat basis data koleksi buku saya dan beri saya laporan yang dikelompokkan menurut pengarang.”</li></ul>
+<h2>Menghubungkannya</h2><ol><li>Di penginstal, centang <b>Hubungkan aplikasi pilihan ke Claude</b> (jalankan penginstal lagi kapan saja untuk mengubahnya).</li>
+<li>Penginstal otomatis terhubung ke <b>Claude Code</b>, dan ke <b>Claude Desktop</b> jika terpasang (mulai ulang Claude Desktop setelahnya).</li>
+<li>Panduan pengguna selalu disertakan, jadi Claude bisa memeriksa cara kerja sesuatu.</li></ol>
+<p>Untuk memutuskan, jalankan penginstal lagi dan hapus centangnya, atau copot EthicalApp.</p>
+<h2>Yang bisa dilakukan Claude (sekitar 65 alat)</h2><table>
+<tr><td>PDF</td><td>membaca teks dan info, menggabung, memisah, mengekstrak/menghapus/memutar halaman, menambah teks atau gambar, mencari dan mengganti teks, menyensor permanen, mencantumkan dan mengisi formulir</td></tr>
+<tr><td>Dokumen</td><td>membaca .docx sebagai Markdown, membuat dokumen dari Markdown (judul, daftar, tabel), menambahkan teks, mencari dan mengganti</td></tr>
+<tr><td>Lembar kerja</td><td>membaca sel (nilai atau rumus), menulis sel dan rumus, memformat rentang, menambah bagan dan lembar, menghitung rumus apa pun</td></tr>
+<tr><td>Presentasi</td><td>membaca presentasi, membuat dengan tema/poin/catatan/gambar, menambah slide ke presentasi yang ada</td></tr>
+<tr><td>Foto</td><td>info dan lapisan, ubah ukuran, pangkas, putar, balik, semua penyesuaian dan filter, teks, ukuran kanvas</td></tr>
+<tr><td>Konverter</td><td>mengonversi file apa pun yang didukung, mengompres, menggabung, zip/ekstrak, info media, mengunduh dari tautan (dengan pemeriksaan keamanan yang sama)</td></tr>
+<tr><td>Basis data</td><td>ikhtisar, kueri SQL hanya-baca, perubahan, membuat basis data/tabel, menyisipkan rekaman, relasi, kueri tersimpan, impor/ekspor, laporan PDF</td></tr>
+<tr><td>Catatan tempel</td><td>mencantumkan, membaca, menambah, mengubah, dan mencentang catatan di desktop Anda</td></tr>
+<tr><td>Snip</td><td>mencantumkan jendela dan mengambil tangkapan layar saat Anda minta</td></tr>
+<tr><td>Planner</td><td>mencantumkan, menambah, mengubah, dan menyelesaikan pengingat dan acara</td></tr>
+<tr><td>Selalu</td><td>mencari dan membaca panduan ini, membuka file di aplikasi Ethical yang tepat agar Anda melihatnya</td></tr></table>
+<h2>Keamanan</h2><ul><li>Claude bekerja dengan file di PC Anda hanya melalui alat-alat ini; Claude meminta izin sebelum memakainya (tergantung pengaturan Claude Anda).</li>
+<li>Perubahan disimpan sebagai <b>salinan baru</b> (mis. “report (edited).pdf”) kecuali Anda meminta untuk menimpa; file baru tidak pernah menggantikan yang sudah ada kecuali Anda menyuruhnya.</li>
+<li>Kueri basis data bersifat hanya-baca kecuali alat perubahan dipakai; aturan relasi tetap berlaku.</li></ul>
+
+@@ shortcuts
+title: Semua pintasan keyboard
+keywords: pintasan keyboard tombol hotkey
+---
+<h2>Setiap aplikasi</h2><table><tr><td>Baru / Buka / Simpan / Simpan sebagai</td><td>${K("Ctrl N")} ${K("Ctrl O")} ${K("Ctrl S")} ${K("Ctrl Shift S")}</td></tr>
+<tr><td>Batal / Ulangi</td><td>${K("Ctrl Z")} / ${K("Ctrl Y")}</td></tr><tr><td>Cetak</td><td>${K("Ctrl P")}</td></tr>
+<tr><td>Cari</td><td>${K("Ctrl F")}</td></tr><tr><td>Panduan ini</td><td>${K("F1")}</td></tr></table>
+<h2>Ethical PDF Editor</h2><table><tr><td>Perbesar / perkecil / ukuran sebenarnya / sesuaikan lebar</td><td>${K("Ctrl =")} ${K("Ctrl -")} ${K("Ctrl 0")} ${K("Ctrl 1")}</td></tr>
+<tr><td>Cari berikutnya / sebelumnya</td><td>${K("F3")} / ${K("Shift F3")}</td></tr><tr><td>Putar halaman ke kanan / kiri</td><td>${K("Ctrl R")} / ${K("Ctrl Shift R")}</td></tr>
+<tr><td>Salin teks terpilih / hapus anotasi</td><td>${K("Ctrl C")} / ${K("Delete")}</td></tr></table>
+<h2>Ethical Document Editor</h2><p>Lihat <a href="#write-basics">Dokumen: dasar-dasar</a>.</p>
+<h2>Ethical Spreadsheet Editor</h2><table><tr><td>Pergi ke</td><td>${K("Ctrl G")}</td></tr><tr><td>Isi ke bawah / kanan</td><td>${K("Ctrl D")} / ${K("Ctrl R")}</td></tr>
+<tr><td>Jumlah Otomatis / sisipkan fungsi</td><td>${K("Alt =")} / ${K("Shift F3")}</td></tr><tr><td>Tempel nilai</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>Sisipkan baris / hapus baris</td><td>${K("Ctrl Shift =")} / ${K("Ctrl -")}</td></tr><tr><td>Lembar baru</td><td>${K("Shift F11")}</td></tr>
+<tr><td>Komentar</td><td>${K("Shift F2")}</td></tr><tr><td>Coret</td><td>${K("Ctrl 5")}</td></tr></table>
+<h2>Ethical Presentation Editor</h2><table><tr><td>Slide baru</td><td>${K("Ctrl M")}</td></tr><tr><td>Presentasikan dari awal / dari slide saat ini</td><td>${K("F5")} / ${K("Shift F5")}</td></tr>
+<tr><td>Gandakan objek</td><td>${K("Ctrl D")}</td></tr><tr><td>Bawa ke depan / kirim ke belakang</td><td>${K("Ctrl Shift ]")} / ${K("Ctrl Shift [")}</td></tr></table>
+<h2>Ethical Database</h2><table><tr><td>Basis data baru / buka</td><td>${K("Ctrl N")} / ${K("Ctrl O")}</td></tr>
+<tr><td>Tabel / kueri / laporan baru</td><td>${K("Ctrl Shift T")} / ${K("Ctrl Shift Q")} / ${K("Ctrl Shift R")}</td></tr></table>
+<h2>Ethical Photo Editor</h2><p>Lihat <a href="#photo-tools">Foto: alat-alat</a> dan <a href="#photo-selections">seleksi</a>. Ditambah ${K("Ctrl J")} gandakan/salin ke lapisan, ${K("Ctrl E")} gabung ke bawah, ${K("Ctrl T")} transformasi, ${K("Ctrl Shift N")} lapisan baru, ${K("Ctrl Alt I")} ukuran gambar, ${K("Ctrl Alt C")} ukuran kanvas.</p>
+
+@@ troubleshooting
+title: Pemecahan masalah dan Tanya Jawab
+keywords: masalah galat tidak berfungsi tidak mau mulai mogok hilang klik kanan font ffmpeg antivirus lambat doc xls ppt bahasa
+---
+<h3>Aplikasi tidak mau berjalan</h3>
+<p>Jalankan lagi penginstal dari <a href="https://ethicalapp.org">ethicalapp.org</a> — ia memperbaiki pemasangan dan menyimpan pengaturan, catatan, serta pengingat Anda.</p>
+<h3>“Windows melindungi PC Anda” saat memasang</h3><p>Klik <b>Info selengkapnya → Tetap jalankan</b>. Windows menampilkan ini untuk program baru yang belum dikenalnya. Periksa sidik jari SHA-256 unduhan di situs web jika Anda ingin memastikan keasliannya.</p>
+<h3>Item klik kanan tidak ada</h3><p>Jalankan lagi penginstal dan centang opsi klik kanan. Di Windows 11, lihat di bawah <b>Tampilkan opsi lainnya</b>.</p>
+<h3>“Jenis file tidak didukung” / file Office lama</h3><p>.doc, .xls, dan .ppt tidak didukung — simpan dulu sebagai .docx/.xlsx/.pptx. Arsip .rar tidak bisa diekstrak.</p>
+<h3>Teks terlihat berbeda dari aslinya</h3><p>Font berasal dari PC Anda. Jika dokumen memakai font yang tidak Anda miliki, dipakai font yang mirip. Pasang font itu lalu buka ulang.</p>
+<h3>Ada yang hilang setelah menyimpan file Excel/PowerPoint</h3><p>Lihat <a href="#compat">Kompatibilitas file</a> — aplikasi memperingatkan hal yang tidak bisa dipertahankannya. Simpan file aslinya dan gunakan Simpan sebagai.</p>
+<h3>Konversi video gagal</h3><p>Pesan galatnya berasal dari FFmpeg. Penyebab umum: file rusak atau masih diunduh, tidak ada audionya (untuk format audio), atau tidak ada gambarnya (untuk format video). Coba MP4 (H.264) dulu — hampir selalu berhasil.</p>
+<h3>Peringatan antivirus</h3><p>Sebagian antivirus curiga pada program baru yang belum pernah dilihatnya. Seluruh kode sumber EthicalApp terbuka untuk umum di <a href="https://github.com/CBGGitHub/ethicalapp">GitHub</a>, dan situs web menampilkan sidik jari setiap unduhan.</p>
+<h3>Aplikasi memakai bahasa yang salah</h3><p>Klik <b>🌐</b> di bagian bawah jendela EthicalApp — lihat <a href="#language">Mengganti bahasa</a>.</p>
+<h3>Lambat</h3><p>Lembar kerja raksasa (lebih dari 100.000 rumus), foto sangat besar dengan banyak lapisan, dan video 4K yang panjang butuh waktu lebih lama. Konverter menunjukkan kemajuan setiap file.</p>
+
+@@ glossary
+title: Glosarium
+keywords: glosarium istilah arti definisi bitrate crf codec lossless lossy dpi lapisan campuran tempat penampung master
+---
+<table>
+<tr><td><b>Bitrate</b></td><td>Berapa banyak data per detik yang dipakai audio/video (mis. 192k). Lebih tinggi = kualitas lebih baik, file lebih besar.</td></tr>
+<tr><td><b>Mode campuran</b></td><td>Cara lapisan berbaur dengan lapisan di bawahnya (Multiply, Screen…).</td></tr>
+<tr><td><b>Codec</b></td><td>Metode untuk mengompres audio/video (H.264, H.265, AAC, MP3…).</td></tr>
+<tr><td><b>CRF</b></td><td>Pengaturan kualitas video: lebih rendah = kualitas lebih baik, file lebih besar.</td></tr>
+<tr><td><b>DPI</b></td><td>Titik per inci — resolusi saat mencetak atau mengubah PDF menjadi gambar.</td></tr>
+<tr><td><b>Feather</b></td><td>Tepi seleksi yang lembut dan bertahap.</td></tr>
+<tr><td><b>Ratakan</b></td><td>Menggabungkan semua lapisan menjadi satu gambar.</td></tr>
+<tr><td><b>Lapisan</b></td><td>Satu lembar dalam tumpukan lembar transparan yang bersama-sama membentuk gambar.</td></tr>
+<tr><td><b>Lossless</b></td><td>Kompresi tanpa kehilangan kualitas (PNG, FLAC, ZIP). <b>Lossy</b> membuang detail demi menghemat ruang (JPG, MP3, MP4).</td></tr>
+<tr><td><b>Master / tata letak</b></td><td>Dalam file PowerPoint, slide desain tersembunyi yang memberi slide sebenarnya latar belakang, font, dan logo.</td></tr>
+<tr><td><b>Rentang bernama</b></td><td>Nama (seperti <code>Prices</code>) yang mewakili sel-sel dalam lembar kerja.</td></tr>
+<tr><td><b>Tempat penampung</b></td><td>Kotak kosong “Klik untuk menambah …” pada slide.</td></tr>
+<tr><td><b>Sensor</b></td><td>Menghapus isi PDF secara permanen.</td></tr>
+<tr><td><b>Toleransi</b></td><td>Seberapa berbeda sebuah warna masih dianggap “mirip” (tongkat ajaib, ember cat).</td></tr></table>
+
+@@ licenses
+title: Penghargaan dan lisensi
+keywords: lisensi penghargaan sumber terbuka ffmpeg qt pyside pymupdf gpl agpl lgpl mit
+---
+<p>Kode milik EthicalApp sendiri ditulis untuk proyek ini. Kode itu dibangun di atas komponen gratis dan sumber terbuka berikut:</p>
+<table><tr><th>Komponen</th><th>Dipakai untuk</th><th>Lisensi</th></tr>
+<tr><td>Python</td><td>bahasa pemrogramannya</td><td>PSF</td></tr>
+<tr><td>Qt / PySide6</td><td>jendela, tata letak teks, pencetakan, bagan</td><td>LGPL v3</td></tr>
+<tr><td>PyMuPDF (MuPDF)</td><td>membaca/menulis PDF</td><td>AGPL v3</td></tr>
+<tr><td>FFmpeg (melalui imageio-ffmpeg)</td><td>konversi audio dan video</td><td>GPL v3 (build ini)</td></tr>
+<tr><td>python-docx, python-pptx, openpyxl</td><td>file Word, PowerPoint, dan Excel</td><td>MIT</td></tr>
+<tr><td>Pillow</td><td>gambar</td><td>MIT-CMU (HPND)</td></tr>
+<tr><td>NumPy, SciPy</td><td>perhitungan gambar</td><td>BSD</td></tr>
+<tr><td>psd-tools</td><td>membaca file Photoshop</td><td>MIT</td></tr>
+<tr><td>py7zr</td><td>arsip 7z</td><td>LGPL v2.1</td></tr>
+<tr><td>SQLite (bawaan Python)</td><td>basis data Ethical Database</td><td>Domain publik</td></tr>
+<tr><td>pyodbc</td><td>mengimpor file Access</td><td>MIT</td></tr>
+<tr><td>yt-dlp, Deno (hanya versi pribadi)</td><td>mengunduh video dari tautan</td><td>Unlicense / MIT</td></tr>
+<tr><td>MCP Python SDK</td><td>penghubung AI (Claude)</td><td>MIT</td></tr></table>
+<p>EthicalApp sendiri berlisensi <b>AGPL-3.0</b>. Teks lisensi lengkap ada di folder <code>licenses</code> pada instalasi Anda, dan kode sumbernya ada di <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>. Tidak berafiliasi dengan Microsoft atau Adobe.</p>

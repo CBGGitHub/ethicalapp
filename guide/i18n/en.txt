@@ -1,0 +1,956 @@
+@ui
+guide_title: EthicalApp Guide
+search: Search the guide…  (press / )
+theme: Light / dark
+footer: EthicalApp Guide · works offline
+result_one: 1 result for “{q}”
+result_many: {n} results for “{q}”
+nothing: Nothing found. Try fewer or different words — e.g. “pdf merge”, “sum”, “layer”.
+english_only: This article is only in English so far.
+
+@sections
+start: Getting started
+pdf: Ethical PDF Editor
+write: Ethical Document Editor
+sheets: Ethical Spreadsheet Editor
+slides: Ethical Presentation Editor
+photo: Ethical Photo Editor
+conv: Ethical Converter
+base: Ethical Database
+sticky: Ethical Sticky Notes
+snip: Ethical Snip
+planner: Ethical Planner
+help: Help & reference
+
+@@ welcome
+title: Welcome to EthicalApp
+keywords: overview apps intro home
+---
+<p>EthicalApp is a free, home-made set of desktop apps for Windows — our own versions of the tools
+people use every day. They open and save the <b>real file formats</b> (Word, Excel, PowerPoint, PDF, Photoshop),
+so you can swap files with anyone.</p>
+<div class="cards">
+<a class="card" href="#pdf-basics"><img src="../branding/icons/png/pdf_64.png" alt=""><b>Ethical PDF Editor</b><span>View, edit text, annotate, fill forms, sign, merge & split PDFs</span></a>
+<a class="card" href="#write-basics"><img src="../branding/icons/png/document_64.png" alt=""><b>Ethical Document Editor</b><span>Documents — opens & saves Word .docx</span></a>
+<a class="card" href="#sheets-basics"><img src="../branding/icons/png/spreadsheet_64.png" alt=""><b>Ethical Spreadsheet Editor</b><span>Spreadsheets with 143 formulas & charts — Excel .xlsx</span></a>
+<a class="card" href="#slides-basics"><img src="../branding/icons/png/presentation_64.png" alt=""><b>Ethical Presentation Editor</b><span>Slide decks & slideshows — PowerPoint .pptx</span></a>
+<a class="card" href="#photo-basics"><img src="../branding/icons/png/photo_64.png" alt=""><b>Ethical Photo Editor</b><span>Layered photo editor — Photoshop .psd, PNG, JPG…</span></a>
+<a class="card" href="#conv-basics"><img src="../branding/icons/png/converter_64.png" alt=""><b>Ethical Converter</b><span>Convert & compress audio, video, pictures, documents; zip/unzip</span></a>
+<a class="card" href="#base-basics"><img src="../branding/icons/png/database_64.png" alt=""><b>Ethical Database</b><span>Databases: tables, forms, queries, relationships, reports</span></a>
+<a class="card" href="#stickies"><img src="../branding/icons/png/stickynotes_64.png" alt=""><b>Ethical Sticky Notes</b><span>Notes & to-do lists that stay on your desktop</span></a>
+<a class="card" href="#snip"><img src="../branding/icons/png/snip_64.png" alt=""><b>Ethical Snip</b><span>Screenshots you can mark up — Ctrl+PrtScn</span></a>
+<a class="card" href="#planner"><img src="../branding/icons/png/planner_64.png" alt=""><b>Ethical Planner</b><span>Reminders & a calendar that pop up on time</span></a>
+</div>
+<h2>Quick start</h2>
+<ol><li>First time? See <a href="#setup">Installing & starting the apps</a>.</li>
+<li>Open <b>EthicalApp</b> from the Start menu or the desktop: one window with all your apps. Click one, or drop a file on it.
+You can also <b>right-click a file → Open with Ethical …</b> (see <a href="#right-click">Right-click menu</a>).</li>
+<li>Press <kbd>F1</kbd> in any app to open this guide on that app's page.</li>
+<li>Prefer another language? Click <b>🌐</b> at the bottom of the EthicalApp window (see <a href="#language">Changing the language</a>).</li>
+<li>Want an AI assistant to do the work? See <a href="#ai-claude">Using the apps with AI (Claude)</a>.</li></ol>
+<div class="tip">Use the search box at the top (or press <kbd>/</kbd>) to find anything — e.g. “redact”, “VLOOKUP”, “blend mode”, “compress video”.</div>
+
+@@ setup
+title: Installing & starting the apps
+keywords: install setup installer download update uninstall start menu launcher first time
+---
+<h2>Install</h2>
+<ol><li>Download the installer from <a href="https://ethicalapp.org">ethicalapp.org</a> and run it. No administrator password needed.</li>
+<li>If Windows says “Windows protected your PC”, click <b>More info → Run anyway</b>. That message appears for new programs that aren't widely known yet; you can check that your download is genuine with the SHA-256 fingerprint shown on the website.</li>
+<li>Choose <b>Everything</b>, <b>Office apps only</b>, or tick exactly the apps you want.</li>
+<li>Options: desktop shortcuts, right-click “Open with Ethical …” entries, starting Sticky Notes / Snip / Planner with Windows, and <b>Connect the chosen apps to Claude</b> (see <a href="#ai-claude">Using the apps with AI</a>).</li>
+<li><b>Help me pin EthicalApp to the taskbar / Start</b>: Windows doesn't let programs pin themselves, so the launcher shows the two-click steps (right-click its taskbar icon → <b>Pin to taskbar</b>; or in Start right-click <b>EthicalApp</b> → <b>Pin to Start</b>). The launcher's <b>Pin to taskbar or Start…</b> link shows them again any time.</li></ol>
+<h2>Start</h2>
+<p>Open <b>EthicalApp</b> (Start menu or desktop) for one window with all your installed apps: click a tile, use <b>Open a file…</b> (<kbd>Ctrl</kbd>+<kbd>O</kbd>), or drop files on it and each opens in the right app. Every app is also in <b>Start → EthicalApp</b>.</p>
+<h2>Update & uninstall</h2>
+<p>To update, run a newer installer: it replaces the old version and keeps your settings, notes and reminders. To remove everything: <b>Settings → Apps → EthicalApp → Uninstall</b> (your notes and reminders stay on the PC in case you reinstall).</p>
+<h2>From source (developers)</h2>
+<p>The full source code is public — see <a href="#sharing">Source code & building it yourself</a>.</p>
+
+@@ language
+title: Changing the language
+keywords: language english spanish french german translation translate idioma langue sprache
+---
+<p>EthicalApp is available in English, Español, Português (Brasil), Français, Deutsch, Italiano, Nederlands, Polski, Türkçe, Русский, Bahasa Indonesia, 日本語, 한국어 and 简体中文.</p>
+<ol><li>Open the <b>EthicalApp</b> window (Start menu).</li>
+<li>Click <b>🌐</b> at the bottom and pick a language. <b>Same as Windows</b> follows your Windows display language — that's the default.</li>
+<li>Say yes to restart EthicalApp. Apps that are already open switch the next time you start them.</li></ol>
+<p>The choice applies to every Ethical app, this guide and the dialogs (Open/Save, colours). Dates use your language too.</p>
+<div class="tip">Your files don't change: a document you write stays in the language you wrote it in. Only the buttons and menus are translated.</div>
+
+@@ right-click
+title: Right-click menu & default apps
+keywords: open with context menu default program windows 11 show more options remove
+---
+<p>If you ticked the right-click option in the installer, Windows' right-click menu gets these entries (for your user account only — no admin rights needed):</p>
+<table><tr><th>Right-click on…</th><th>You get</th></tr>
+<tr><td>.pdf</td><td>Open with Ethical PDF Editor</td></tr>
+<tr><td>.docx</td><td>Open with Ethical Document Editor</td></tr>
+<tr><td>.xlsx, .csv</td><td>Open with Ethical Spreadsheet Editor</td></tr>
+<tr><td>.pptx</td><td>Open with Ethical Presentation Editor</td></tr>
+<tr><td>.psd .png .jpg .webp .bmp .gif .tif .ora</td><td>Open with Ethical Photo Editor</td></tr>
+<tr><td>.db .sqlite .accdb .mdb</td><td>Open with Ethical Database</td></tr>
+<tr><td>Any file or folder</td><td>Convert / compress with Ethical Converter</td></tr></table>
+<p>Select several files, right-click, and choose the converter entry: they all land in <b>one</b> converter window.</p>
+<h2>Make an app the default</h2>
+<p>Right-click a file → <b>Open with → Choose another app</b> → pick the Ethical app → tick <b>Always use this app</b>.</p>
+<h2>Windows 11</h2><p>The entries are under <b>Show more options</b> (or hold <kbd>Shift</kbd> while right-clicking).</p>
+<h2>Removing the entries</h2>
+<p>Run the installer again and untick the right-click option, or uninstall EthicalApp — the entries are removed with it.</p>
+
+@@ sharing
+title: Source code & building it yourself
+keywords: source code github open source build developer modify agpl share
+---
+<p>EthicalApp is open source (AGPL-3.0). The complete source code is on GitHub: <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>, and each installer ships the matching source as a zip on <a href="https://ethicalapp.org">ethicalapp.org</a>.</p>
+<h2>Sharing with friends</h2>
+<p>Just send them the link to <a href="https://ethicalapp.org">ethicalapp.org</a> — that's always the latest, safe version.</p>
+<h2>Building the installer from source</h2>
+<ol><li>Install <b>Python 3.14</b> and <b>Inno Setup 6</b>.</li>
+<li>In the source folder: <code>python -m venv .venv</code>, then <code>.venv\\Scripts\\python -m pip install -r requirements.txt</code>.</li>
+<li>Run the apps directly (e.g. <code>.venv\\Scripts\\python apps\\suite_launcher.py</code>) or build the installer with <code>.venv\\Scripts\\python installer\\build.py</code>.</li></ol>
+<h2>What's in the source</h2>
+<table><tr><th>Folder</th><th>Purpose</th></tr>
+<tr><td><code>apps/</code></td><td>The code of every app</td></tr>
+<tr><td><code>apps/locales/</code></td><td>The translations (one file per language)</td></tr>
+<tr><td><code>guide/</code></td><td>This guide (and <code>guide/i18n/</code> for its translations)</td></tr>
+<tr><td><code>branding/</code></td><td>Icons and sounds</td></tr>
+<tr><td><code>installer/</code></td><td>Builds the Windows installer</td></tr>
+<tr><td><code>licenses/</code></td><td>Licences of the open-source parts</td></tr></table>
+<p>If you change it and share your version, the AGPL asks you to share your source code too.</p>
+
+@@ compat
+title: File compatibility at a glance
+keywords: formats docx xlsx pptx psd pdf compatible lost warning keep
+---
+<table><tr><th>App</th><th>Opens</th><th>Saves</th><th>Not kept yet (you're warned)</th></tr>
+<tr><td>PDF</td><td>.pdf (incl. password-protected)</td><td>.pdf, export .docx/.txt/images</td><td>—</td></tr>
+<tr><td>Write</td><td>.docx .html .md .txt</td><td>.docx .odt .html .md .txt, PDF</td><td>footnotes, comments, tracked changes, text boxes, floating images, columns</td></tr>
+<tr><td>Sheets</td><td>.xlsx .xlsm .csv .tsv</td><td>.xlsx .csv, PDF</td><td>conditional formatting, dropdowns/data validation, pivot tables, macros, unusual charts</td></tr>
+<tr><td>Slides</td><td>.pptx</td><td>.pptx, PDF, PNG</td><td>charts, SmartArt, video/audio, animations & transitions</td></tr>
+<tr><td>Base</td><td>.db/.sqlite (SQLite); imports .xlsx, .csv, Access .accdb/.mdb*</td><td>.db; exports .xlsx, .csv, PDF</td><td>*Access import needs Microsoft's free Access driver; Access forms, reports & macros aren't imported (only tables)</td></tr>
+<tr><td>Photo</td><td>.psd .png .jpg .webp .bmp .gif .tif .ico .ora</td><td>.psd (layers) .ora (layers), all flat formats, PDF</td><td>PSD adjustment layers, layer effects, masks, smart objects (pixels are loaded)</td></tr></table>
+<div class="tip">When a file has something an app can't keep, it tells you when you open it, and asks again before you save over the original. Use <b>File → Save As</b> to keep the original untouched.</div>
+<p>Old formats (<code>.doc</code>, <code>.xls</code>, <code>.ppt</code>) aren't supported — open them in the program that made them and save as the modern “x” format first.</p>
+
+@@ pdf-basics
+title: PDF: opening, viewing & finding text
+keywords: zoom thumbnails pages panel search find password
+---
+<p>Open a PDF with <b>File → Open</b> (<kbd>Ctrl</kbd>+<kbd>O</kbd>), by dragging it into the window, or right-click → <i>Open with Ethical PDF Editor</i>. Password-protected PDFs ask for the password.</p>
+<h2>Moving around</h2><ul>
+<li><b>Zoom:</b> <kbd>Ctrl</kbd>+mouse wheel, the zoom box, <i>Fit Width</i> (<kbd>Ctrl</kbd>+<kbd>1</kbd>), actual size (<kbd>Ctrl</kbd>+<kbd>0</kbd>).</li>
+<li><b>Pages panel</b> (left): click a thumbnail to jump. Select several with <kbd>Ctrl</kbd>/<kbd>Shift</kbd> for page operations. Right-click for the Pages menu.</li>
+<li><b>Go to page:</b> type a number in the Page box.</li></ul>
+<h2>Find text</h2><p>Type in <b>Find text…</b> and press <kbd>Enter</kbd>; <kbd>F3</kbd> / <b>Next</b> and <b>Prev</b> step through matches (all highlighted, current one orange).</p>
+<h2>Copy text</h2><p>With the <b>Select</b> tool, drag across text, then <kbd>Ctrl</kbd>+<kbd>C</kbd>.</p>
+
+@@ pdf-edit-text
+title: PDF: editing existing text & adding text
+keywords: edit text change words font typo add text
+---
+<h2>Change text that's already in the PDF</h2><ol>
+<li>Choose the <b>Edit Text</b> tool.</li><li>Click on the line you want to change.</li>
+<li>A box shows the line's text, font, size, bold/italic and colour — change anything and press OK.</li></ol>
+<p>The app detects the PDF's font and picks the matching font installed on your PC (e.g. Calibri, Times New Roman). If that font isn't installed it uses a look-alike.</p>
+<div class="warn">Editing works one line at a time. Rotated/vertical text can't be edited.</div>
+<h2>Add new text</h2><p>Choose <b>Add Text</b>, click where it should go, type, pick any installed font. It becomes real page text — later you can change it with <b>Edit Text</b>.</p>
+
+@@ pdf-annotate
+title: PDF: highlight, notes, drawing & shapes
+keywords: annotate highlight underline strikeout sticky note draw pen rectangle ellipse arrow line image colour
+---
+<table><tr><th>Tool</th><th>How</th></tr>
+<tr><td>Highlight / Underline / Strikeout</td><td>Drag across text. Highlight uses the <b>Highlight</b> colour; the others the <b>Colour</b> button.</td></tr>
+<tr><td>Note</td><td>Click to place a sticky note and type the note.</td></tr>
+<tr><td>Draw</td><td>Freehand pen (colour + width from the toolbar).</td></tr>
+<tr><td>Rectangle / Ellipse / Line / Arrow</td><td>Drag to draw.</td></tr>
+<tr><td>Image</td><td>Click (or drag a box) and choose a picture.</td></tr></table>
+<h2>Changing annotations afterwards</h2><p>Switch to <b>Select</b>, then:</p><ul>
+<li>drag an annotation to move it; press <kbd>Delete</kbd> to remove it;</li>
+<li>double-click a text box or note to edit its text;</li>
+<li>right-click for <i>Change Colour</i> / <i>Delete</i>.</li></ul>
+<p>Every change can be undone with <kbd>Ctrl</kbd>+<kbd>Z</kbd>.</p>
+
+@@ pdf-forms-sign
+title: PDF: filling forms & signing
+keywords: form field checkbox fill sign signature draw
+---
+<h2>Forms</h2><p>Form fields are tinted light blue (turn off with <i>View → Highlight Form Fields</i>). With the <b>Select</b> tool click a field: text fields ask for text, checkboxes toggle, drop-downs show their choices.</p>
+<h2>Signatures</h2><ol><li>Choose the <b>Sign</b> tool (or <i>Edit → Create Signature</i>).</li>
+<li><b>Draw</b> your signature with the mouse, or use a picture of it (<b>Image</b> tab — a PNG with a transparent background looks best).</li>
+<li>Click on the page to place it. Click again to place more copies. Move it later with <b>Select</b>.</li></ol>
+
+@@ pdf-pages
+title: PDF: pages, merging & splitting
+keywords: rotate delete reorder move insert blank merge combine split extract pages images
+---
+<p>All page commands are in the <b>Pages</b> menu (also right-click in the pages panel). They act on the selected thumbnails, or the current page.</p>
+<table><tr><th>Do this</th><th>Use</th></tr>
+<tr><td>Rotate</td><td>Rotate Right <kbd>Ctrl</kbd>+<kbd>R</kbd> / Left <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd></td></tr>
+<tr><td>Reorder</td><td>Move Page Up / Down</td></tr>
+<tr><td>Add pages</td><td>Insert Blank Page, Insert Pages from File (another PDF), Insert Image as Page</td></tr>
+<tr><td>Take pages out</td><td>Extract Selected Pages (saves them as a new PDF)</td></tr>
+<tr><td>One file per page</td><td>Split into Single Pages</td></tr>
+<tr><td>Remove</td><td>Delete Selected Pages</td></tr></table>
+<h2>Merge several files</h2><p><b>File → Combine Files into PDF</b>: pick PDFs and pictures in order; they become one new PDF. <b>File → New PDF from Images</b> turns photos/scans into a PDF.</p>
+<div class="tip">The <a href="#conv-combine">Converter</a> can also combine pictures and PDFs in bulk.</div>
+
+@@ pdf-redact
+title: PDF: whiteout vs. redact (hiding information)
+keywords: redact black box hide remove sensitive whiteout privacy security
+---
+<table><tr><th>Tool</th><th>What it does</th><th>Safe for secrets?</th></tr>
+<tr><td><b>Whiteout</b></td><td>Paints a white box over the area.</td><td>❌ The text underneath is still in the file and can be copied out.</td></tr>
+<tr><td><b>Redact</b></td><td>Permanently deletes the text, pictures and drawings under the box and fills it black.</td><td>✅ Yes — the content is gone.</td></tr></table>
+<div class="warn">Always use <b>Redact</b> for passwords, account numbers, addresses etc. Save the result as a new file and keep the original somewhere safe.</div>
+
+@@ pdf-export
+title: PDF: saving, exporting & printing
+keywords: save export word docx images png jpg text print
+---
+<ul><li><b>Save</b> (<kbd>Ctrl</kbd>+<kbd>S</kbd>) / <b>Save As</b>. Saving keeps only the letters you used from embedded fonts, so files stay small.</li>
+<li><b>File → Export</b>: pages as PNG/JPG images (choose DPI), as a Word document (.docx — text, styles and pictures; not the exact layout), or as plain text.</li>
+<li><b>File → Print</b> (<kbd>Ctrl</kbd>+<kbd>P</kbd>).</li></ul>
+
+@@ write-basics
+title: Documents: the basics
+keywords: word processor document page view typing styles headings title normal fonts
+---
+<p>Ethical Document Editor shows your document as real pages — white sheets with margins, exactly how they'll print. The status bar shows the page you're on and the word count.</p>
+<h2>Styles</h2><p>The first box on the formatting bar sets the paragraph style: <b>Normal, Title, Heading 1–4</b>. Pressing <kbd>Enter</kbd> after a heading switches back to Normal, like in Word. Headings are saved as real Word headings.</p>
+<h2>Fonts</h2><p>Every font installed on your PC is available. New documents use Calibri 11 (or Arial if Calibri isn't installed).</p>
+<h2>Handy keys</h2><table>
+<tr><td>Bold / Italic / Underline</td><td>${K("Ctrl B")} ${K("Ctrl I")} ${K("Ctrl U")}</td></tr>
+<tr><td>Bigger / smaller text</td><td>${K("Ctrl ]")} ${K("Ctrl [")}</td></tr>
+<tr><td>Align left / centre / right / justify</td><td>${K("Ctrl L")} ${K("Ctrl E")} ${K("Ctrl R")} ${K("Ctrl J")}</td></tr>
+<tr><td>Find & replace</td><td>${K("Ctrl F")} / ${K("Ctrl H")}</td></tr>
+<tr><td>Page break</td><td>${K("Ctrl Enter")}</td></tr>
+<tr><td>Clear formatting</td><td>${K("Ctrl Space")}</td></tr>
+<tr><td>Paste without formatting</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>Word count</td><td>${K("Ctrl Shift G")}</td></tr></table>
+
+@@ write-format
+title: Documents: formatting text, paragraphs & lists
+keywords: bold colour highlight superscript subscript line spacing indent bullets numbering list tab
+---
+<h2>Text</h2><p>Font, size, <b>B</b> <i>I</i> <u>U</u> <s>S</s>, x² superscript, x₂ subscript, text colour (pick with the swatch, apply with <b>A</b>), highlight, <i>Format → Change Case</i>, <i>Clear Formatting</i>.</p>
+<h2>Paragraphs</h2><p>Alignment, <i>Paragraph → Line Spacing</i> (1.0–3.0), space before/after, increase/decrease indent (<kbd>Ctrl</kbd>+<kbd>M</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>).</p>
+<h2>Lists</h2><ul>
+<li><b>• List</b> / <b>1. List</b> start bullets or numbering; <i>Paragraph → List Style</i> has 8 styles (•, ○, ▪, 1., a., A., i., I.).</li>
+<li><kbd>Tab</kbd> at the start of an item makes it a sub-item; <kbd>Shift</kbd>+<kbd>Tab</kbd> moves it back.</li>
+<li><kbd>Enter</kbd> on an empty item ends the list; <kbd>Backspace</kbd> at the start removes the bullet.</li></ul>
+
+@@ write-insert
+title: Documents: pictures, tables & links
+keywords: insert picture image resize table rows columns merge shading link hyperlink date horizontal line
+---
+<h2>Pictures</h2><p><i>Insert → Picture</i>, paste with <kbd>Ctrl</kbd>+<kbd>V</kbd>, or drag a picture file in. Right-click a picture → <b>Resize Image</b> to set its size in %.</p>
+<h2>Tables</h2><p><i>Insert → Table</i> (choose rows/columns, optional shaded header). Inside a table, the <b>Table</b> menu or right-click lets you insert/delete rows and columns, merge selected cells, split cells, add cell shading or delete the table.</p>
+<h2>Links</h2><p>Select text and press <kbd>Ctrl</kbd>+<kbd>K</kbd>. <kbd>Ctrl</kbd>+click a link to open it. Right-click → Remove Link.</p>
+<h2>Other</h2><p>Page break (<kbd>Ctrl</kbd>+<kbd>Enter</kbd>), date & time, horizontal line.</p>
+
+@@ write-pagesetup
+title: Documents: page setup, headers, footers & page numbers
+keywords: margins paper size a4 letter landscape header footer page numbers
+---
+<p><b>File → Page Setup</b>:</p><ul>
+<li>Paper: Letter, Legal, A4, A5 or custom size; <b>Landscape</b>.</li>
+<li>Margins (top, bottom, left, right) in inches.</li>
+<li><b>Header</b> text (centred at the top of every page), <b>Footer</b> text (bottom left), <b>page numbers</b> (bottom right).</li></ul>
+<p>These are saved in the .docx so Word shows them too.</p>
+
+@@ write-files
+title: Documents: files, Word compatibility, PDF & printing
+keywords: docx save open odt html markdown txt pdf export print preview compatibility
+---
+<p><b>Opens:</b> .docx, .html, .md, .txt. <b>Saves:</b> .docx (default), .odt, .html, .md, .txt. <b>Export as PDF</b> keeps real, selectable text. <b>Print</b> and <b>Print Preview</b> match the page view.</p>
+<h2>What carries over to/from Word</h2><p>Headings & Title, fonts (including theme fonts), sizes, bold/italic/underline/strike, colours, highlight, alignment, indents, spacing, page breaks, bullets & numbering (nested), tables (merged cells, widths, shading), pictures, links, page size & margins, header/footer text and page numbers.</p>
+<p><b>Not yet:</b> footnotes, comments, tracked changes, text boxes, floating (text-wrapped) pictures, columns, multiple sections. There's also no zoom or spell check yet.</p>
+
+@@ sheets-basics
+title: Spreadsheets: the basics
+keywords: spreadsheet cell type enter tab move formula bar name box sheet tabs status sum
+---
+<h2>The window</h2><ul>
+<li><b>Name box</b> (top left): shows the current cell; type <code>B12</code>, <code>A1:C20</code>, <code>Sheet2!A1</code> or a named range and press Enter to jump there (<kbd>Ctrl</kbd>+<kbd>G</kbd>).</li>
+<li><b>fx / formula bar</b>: shows and edits what's really in the cell (e.g. the formula).</li>
+<li><b>Sheet tabs</b> (bottom): <b>+</b> adds a sheet; double-click to rename; right-click to duplicate/delete; drag to reorder.</li>
+<li><b>Status bar</b>: select some numbers to see their Sum, Average and Count.</li></ul>
+<h2>Typing values</h2><table><tr><th>You type</th><th>You get</th></tr>
+<tr><td><code>1234.5</code> / <code>1,234</code></td><td>number (with thousands format)</td></tr>
+<tr><td><code>$5</code> / <code>25%</code></td><td>currency / percent</td></tr>
+<tr><td><code>2026-10-11</code>, <code>10/11/2026</code>, <code>Oct 11, 2026</code></td><td>date</td></tr>
+<tr><td><code>9:30</code>, <code>9:30 PM</code></td><td>time</td></tr>
+<tr><td><code>TRUE</code> / <code>FALSE</code></td><td>true/false value</td></tr>
+<tr><td><code>'007</code></td><td>text exactly as typed (the ' is hidden)</td></tr>
+<tr><td><code>=A1*2</code></td><td>a formula</td></tr></table>
+<h2>Moving around</h2><table>
+<tr><td>${K("Enter")} / ${K("Shift Enter")}</td><td>down / up</td></tr><tr><td>${K("Tab")} / ${K("Shift Tab")}</td><td>right / left</td></tr>
+<tr><td>${K("Ctrl Arrow")}</td><td>jump to the edge of the data</td></tr><tr><td>${K("Ctrl Shift Arrow")}</td><td>select to the edge</td></tr>
+<tr><td>${K("F2")} or double-click</td><td>edit the cell</td></tr><tr><td>${K("Delete")}</td><td>clear contents</td></tr></table>
+
+@@ sheets-formulas
+title: Spreadsheets: formulas & references
+keywords: formula reference absolute relative $ dollar other sheet named range error div/0 ref name n/a circular autosum
+---
+<p>A formula starts with <code>=</code>: <code>=B2*C2</code>, <code>=SUM(D2:D20)</code>, <code>=IF(A1&gt;10,"big","small")</code>.</p>
+<h2>Operators</h2><p><code>+ - * /</code>, <code>^</code> (power), <code>%</code> (percent), <code>&amp;</code> (join text), <code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code>.</p>
+<h2>References</h2><table>
+<tr><td><code>A1</code></td><td>one cell — adjusts when copied</td></tr>
+<tr><td><code>$A$1</code> / <code>A$1</code> / <code>$A1</code></td><td>absolute (fixed) column and/or row — doesn't change when copied</td></tr>
+<tr><td><code>A1:C10</code></td><td>a block of cells</td></tr><tr><td><code>B:B</code></td><td>a whole column</td></tr>
+<tr><td><code>'My Sheet'!A1</code></td><td>a cell on another sheet</td></tr>
+<tr><td><code>Prices</code></td><td>a named range (<i>Data → Define Name</i>)</td></tr>
+<tr><td><code>{1,2;3,4}</code></td><td>an array constant</td></tr></table>
+<p>Copy/paste, fill down (<kbd>Ctrl</kbd>+<kbd>D</kbd>) and fill right (<kbd>Ctrl</kbd>+<kbd>R</kbd>) adjust references just like Excel. Inserting or deleting rows/columns updates every formula; references to deleted cells become <code>#REF!</code>.</p>
+<h2>Shortcuts</h2><ul><li><b>AutoSum</b> (<kbd>Alt</kbd>+<kbd>=</kbd>) writes <code>=SUM(…)</code> for the numbers above or to the left.</li>
+<li><b>Function…</b> (<kbd>Shift</kbd>+<kbd>F3</kbd>) inserts a function name; <i>Help → Functions List</i> shows all of them.</li></ul>
+<h2>Errors</h2><table>
+<tr><td><code>#DIV/0!</code></td><td>divided by zero</td></tr><tr><td><code>#VALUE!</code></td><td>wrong type (e.g. text in maths)</td></tr>
+<tr><td><code>#REF!</code></td><td>the cell it pointed to was deleted</td></tr><tr><td><code>#NAME?</code></td><td>unknown function or name</td></tr>
+<tr><td><code>#N/A</code></td><td>lookup found nothing</td></tr><tr><td><code>#NUM!</code></td><td>impossible number</td></tr>
+<tr><td><code>#CIRC!</code></td><td>circular reference — the formula depends on itself</td></tr></table>
+<div class="tip">If a workbook from Excel uses a function Ethical Spreadsheet Editor doesn't know yet, it shows the value Excel last calculated instead of an error.</div>
+<p>Functions are written with their English names (SUM, IF, VLOOKUP…), the same as inside Excel files.</p>
+
+@@ sheets-functions
+title: Spreadsheets: function reference (143 functions)
+keywords: functions list sum average count if vlookup xlookup index match sumif countif text date round pmt
+---
+<table><tr><th>Group</th><th>Functions</th></tr>
+<tr><td>Totals & stats</td><td>SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, COUNTBLANK, PRODUCT, MEDIAN, MODE, STDEV(.S/.P), VAR(.S/.P), LARGE, SMALL, RANK, SUMPRODUCT</td></tr>
+<tr><td>Conditional</td><td>SUMIF, SUMIFS, COUNTIF, COUNTIFS, AVERAGEIF, AVERAGEIFS, MAXIFS, MINIFS</td></tr>
+<tr><td>Logic</td><td>IF, IFS, IFERROR, IFNA, SWITCH, CHOOSE, AND, OR, NOT, XOR, TRUE, FALSE</td></tr>
+<tr><td>Lookup</td><td>VLOOKUP, HLOOKUP, XLOOKUP, INDEX, MATCH, ROW, COLUMN, ROWS, COLUMNS</td></tr>
+<tr><td>Maths</td><td>ROUND, ROUNDUP, ROUNDDOWN, TRUNC, INT, ABS, SQRT, POWER, MOD, EXP, LN, LOG, LOG10, SIGN, PI, RAND, RANDBETWEEN, CEILING, FLOOR, EVEN, ODD, FACT, DEGREES, RADIANS, SIN, COS, TAN, ASIN, ACOS, ATAN, ATAN2</td></tr>
+<tr><td>Text</td><td>CONCATENATE, CONCAT, TEXTJOIN, LEFT, RIGHT, MID, LEN, UPPER, LOWER, PROPER, TRIM, CLEAN, FIND, SEARCH, SUBSTITUTE, REPLACE, REPT, EXACT, CHAR, CODE, VALUE, TEXT, FIXED, DOLLAR, T, N</td></tr>
+<tr><td>Dates & times</td><td>TODAY, NOW, DATE, TIME, YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, WEEKDAY, DAYS, DATEDIF, EDATE, EOMONTH, DATEVALUE</td></tr>
+<tr><td>Checks</td><td>ISBLANK, ISNUMBER, ISTEXT, ISNONTEXT, ISLOGICAL, ISERROR, ISERR, ISNA, ISEVEN, ISODD, NA</td></tr>
+<tr><td>Finance</td><td>PMT, FV, PV, NPV</td></tr></table>
+<h2>Examples</h2><table>
+<tr><td><code>=VLOOKUP("Apples",A2:C50,3,FALSE)</code></td><td>find “Apples” in column A, return column C</td></tr>
+<tr><td><code>=XLOOKUP(F2,A:A,C:C,"not found")</code></td><td>modern lookup with a fallback</td></tr>
+<tr><td><code>=INDEX(B2:B50,MATCH(F2,A2:A50,0))</code></td><td>lookup in any direction</td></tr>
+<tr><td><code>=SUMIF(B:B,"&gt;100",C:C)</code></td><td>add C where B is over 100</td></tr>
+<tr><td><code>=COUNTIF(A:A,"app*")</code></td><td>count cells starting with “app”</td></tr>
+<tr><td><code>=TEXT(TODAY(),"dddd, mmmm d")</code></td><td>today as text, e.g. “Sunday, October 11”</td></tr>
+<tr><td><code>=PMT(5%/12,360,-200000)</code></td><td>monthly payment on a 30-year loan</td></tr>
+<tr><td><code>=IFERROR(A1/B1,0)</code></td><td>0 instead of an error</td></tr></table>
+
+@@ sheets-format
+title: Spreadsheets: formatting & number formats
+keywords: number format currency percent date decimal custom code bold fill colour border merge wrap align column width row height hide
+---
+<h2>Cell styles</h2><p>Font, size, <b>B I U S</b>, font colour, <b>Fill</b> colour (and <b>No Fill</b>), alignment (left/centre/right, top/middle/bottom), <b>Wrap</b> text, <b>Merge & Centre</b>, <b>Borders</b> (all, outside, thick, bottom, top & bottom, none).</p>
+<h2>Number formats</h2><p>Toolbar: <b>$</b> currency, <b>%</b>, <b>,</b> thousands, <b>.0+ / .0-</b> decimals, or the format list (General, Number, Currency, Accounting, Percent, dates, time, Scientific, Text). <i>Format → Number Format → Custom…</i> accepts Excel format codes:</p>
+<table><tr><th>Code</th><th>12345.678 shows as</th></tr>
+<tr><td><code>#,##0.00</code></td><td>12,345.68</td></tr><tr><td><code>$#,##0</code></td><td>$12,346</td></tr>
+<tr><td><code>0.0%</code></td><td>1234567.8% (it multiplies by 100)</td></tr><tr><td><code>0.00E+00</code></td><td>1.23E+04</td></tr>
+<tr><td><code>000000</code></td><td>012346</td></tr><tr><td><code>#,##0;(#,##0)</code></td><td>negatives in brackets</td></tr>
+<tr><td><code>0.0 "kg"</code></td><td>12345.7 kg</td></tr>
+<tr><td><code>yyyy-mm-dd</code>, <code>mmm d, yyyy</code>, <code>dddd</code></td><td>date styles</td></tr>
+<tr><td><code>h:mm AM/PM</code></td><td>time</td></tr></table>
+<p><code>########</code> in a cell means the number doesn't fit — widen the column.</p>
+<h2>Columns & rows</h2><p>Drag header borders, or <i>Format → Column Width / Row Height / AutoFit Column Width / Hide / Unhide All</i>.</p>
+
+@@ sheets-data
+title: Spreadsheets: sorting, filling, copying & editing data
+keywords: sort ascending descending remove duplicates fill down series copy paste values cut insert delete rows columns find replace comment
+---
+<h2>Sort</h2><p><b>Sort A→Z / Z→A</b> sorts the data by the current column (headers are detected). <i>Data → Sort…</i> sorts by up to 3 columns. Blank cells always go last.</p>
+<h2>Fill</h2><ul><li><kbd>Ctrl</kbd>+<kbd>D</kbd> fill down / <kbd>Ctrl</kbd>+<kbd>R</kbd> fill right — copies the first cell (formulas adjust).</li>
+<li><i>Edit → Fill Series</i>: type 1 and 2 (or 5 and 10, or a date) in the first cells, select the range, and it continues the pattern.</li></ul>
+<h2>Copy & paste</h2><p>Formulas adjust when pasted. <b>Paste Values Only</b> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>) pastes results instead of formulas. Copying one cell onto a selected block fills the whole block. Text copied from other programs (tab-separated) is split into cells.</p>
+<h2>Other</h2><ul><li>Insert / Delete rows & columns (menus or right-click).</li>
+<li><i>Data → Remove Duplicates</i>.</li><li>Find & Replace (<kbd>Ctrl</kbd>+<kbd>F</kbd>), optionally across all sheets.</li>
+<li>Comments (<kbd>Shift</kbd>+<kbd>F2</kbd>) — shown with a red corner; hover to read.</li></ul>
+
+@@ sheets-charts
+title: Spreadsheets: charts & pictures
+keywords: chart graph column bar line pie picture image insert move
+---
+<ol><li>Select the data <b>including</b> a header row and a label column — e.g. months in column A, sales in B and C.</li>
+<li><b>Insert → Chart…</b> (or the <b>Chart</b> button): choose Column, Bar, Line or Pie and a title.</li></ol>
+<p>Charts update when the numbers change. Drag to move; right-click → Edit Chart / Delete Chart.</p>
+<p><b>Insert → Picture…</b> adds an image; drag to move; right-click → Resize / Delete.</p>
+<p>Charts and pictures are saved in the .xlsx and open in Excel.</p>
+
+@@ sheets-files
+title: Spreadsheets: files, Excel compatibility, PDF & printing
+keywords: xlsx xlsm csv tsv save open excel compatibility warning print pdf
+---
+<p><b>Opens:</b> .xlsx, .xlsm (saved as .xlsx without macros), .csv/.tsv. <b>Saves:</b> .xlsx, or .csv (current sheet only).</p>
+<p><b>Kept:</b> values, formulas, fonts, colours, fills, borders, number formats, alignment, wrap, merged cells, column widths, row heights, hidden rows/columns, comments, named ranges, multiple sheets, charts (column/bar/line/pie), pictures.</p>
+<p><b>Not kept yet</b> (you're warned on open and before overwriting): conditional formatting, data validation/dropdowns, pivot tables, macros, unusual chart types. Freeze panes are kept in the file but not shown on screen.</p>
+<p><b>Export as PDF / Print</b> fit all columns to the page width.</p>
+<div class="tip">Very big workbooks (100,000+ formulas) will feel slow — every formula is recalculated after each change.</div>
+
+@@ slides-basics
+title: Presentations: the basics
+keywords: presentation slide panel layout new slide placeholder notes duplicate hide reorder
+---
+<ul><li><b>Left:</b> slide thumbnails — click to open, drag to reorder, right-click to duplicate, delete, hide or move.</li>
+<li><b>Middle:</b> the slide. <kbd>Ctrl</kbd>+wheel zooms.</li><li><b>Bottom:</b> speaker notes for the current slide.</li></ul>
+<h2>Adding slides</h2><p><b>New Slide</b> (<kbd>Ctrl</kbd>+<kbd>M</kbd>) adds a slide after the current one; the arrow next to it picks a layout:
+Title Slide, Title and Content, Section Header, Two Content, Title Only, Blank. Decks opened from PowerPoint offer their own layouts.</p>
+<p>Grey dashed boxes with “Click to add title/text” are placeholders — click and type. They don't appear in the slideshow or PDF when empty.</p>
+<p><b>Hidden</b> slides (Slide → Hide / Show) are skipped when presenting and exporting.</p>
+
+@@ slides-objects
+title: Presentations: text, shapes, pictures & tables
+keywords: text box shape picture table move resize rotate flip arrange front back align bullets fill outline
+---
+<h2>Insert</h2><p><b>Text Box</b>, <b>Picture</b> (or paste / drag a picture in), <b>Shapes</b> (19 shapes, line, arrow), <b>Table</b>.</p>
+<h2>Working with objects</h2><table>
+<tr><td>Select</td><td>click (drag a box on empty space to select several)</td></tr>
+<tr><td>Move</td><td>drag, or arrow keys (${K("Shift Arrow")} = 10 px)</td></tr>
+<tr><td>Resize</td><td>drag the white handles (pictures keep their shape; hold ${K("Shift")} to change that)</td></tr>
+<tr><td>Edit text</td><td>double-click, press ${K("F2")}/${K("Enter")}, or just start typing; ${K("Esc")} to finish</td></tr>
+<tr><td>Delete / duplicate</td><td>${K("Delete")} / ${K("Ctrl D")}</td></tr>
+<tr><td>Front / back</td><td>Arrange menu or the Front/Back buttons</td></tr>
+<tr><td>Align on slide, rotate, flip</td><td>Arrange menu</td></tr></table>
+<h2>Formatting</h2><p>Text: font, size, A+/A−, B/I/U, colour, alignment, vertical alignment (Format menu), bullets & numbering. Shapes: <b>Fill</b> and <b>Outline</b> colours, outline width, no fill / no outline.</p>
+
+@@ slides-design
+title: Presentations: themes, backgrounds & slide size
+keywords: theme design background colour picture slide size widescreen 4:3
+---
+<p><b>Design → Theme</b> applies one of 8 themes (Office, Midnight, Slate, Forest, Sunset, Ocean, Charcoal, Blush) to every slide: background plus title and text colours and fonts.</p>
+<p><b>Design → Slide Background Colour</b> (this slide), <b>Background Colour for All Slides</b>, <b>Background Picture</b>.</p>
+<p><b>File → Slide Size</b>: Widescreen 16:9, Standard 4:3, A4, Square — content is scaled to fit.</p>
+<p><b>File → New</b> lets you choose a theme for a new presentation.</p>
+
+@@ slides-present
+title: Presentations: presenting a slideshow
+keywords: present slideshow f5 full screen keys black screen next previous
+---
+<p><b>F5</b> starts from the first slide, <b>Shift+F5</b> from the current one (or the <b>▶ Present</b> button).</p>
+<table><tr><th>Do</th><th>Keys</th></tr>
+<tr><td>Next slide</td><td>${K("Space")} ${K("→")} ${K("↓")} ${K("Page_Down")} ${K("Enter")}, left click, wheel</td></tr>
+<tr><td>Previous slide</td><td>${K("←")} ${K("↑")} ${K("Page_Up")} ${K("Backspace")}, right click</td></tr>
+<tr><td>First / last</td><td>${K("Home")} / ${K("End")}</td></tr>
+<tr><td>Black / white screen</td><td>${K("B")} / ${K("W")}</td></tr>
+<tr><td>Exit</td><td>${K("Esc")}</td></tr></table>
+
+@@ slides-files
+title: Presentations: files, PowerPoint compatibility & export
+keywords: pptx powerpoint save open export pdf png images print master layout
+---
+<p><b>Opens and saves .pptx.</b> Imported decks look like they do in PowerPoint: the app reads the deck's masters and layouts (theme colours, fonts, backgrounds, logos, bullet styles). When you save, the deck's original masters/layouts/theme are kept, so it still looks right in PowerPoint.</p>
+<p><b>Export:</b> PDF (sharp, selectable text), PNG images (1920 px wide), Print.</p>
+<p><b>Not kept yet:</b> charts, SmartArt, video/audio, animations & transitions (you're warned). Gradient fills show as one colour. No presenter view or spell check yet.</p>
+
+@@ photo-basics
+title: Photo: the basics
+keywords: photo editor open new zoom pan layers history interface
+---
+<ul><li><b>Left:</b> tools, and the foreground/background colours (⇄ swap = ${K("X")}, ◩ default black/white = ${K("D")}).</li>
+<li><b>Top:</b> options for the current tool (size, opacity, tolerance…).</li>
+<li><b>Right:</b> <b>Layers</b> and <b>History</b> (click any step to go back to it).</li></ul>
+<h2>Moving around</h2><p><kbd>Ctrl</kbd>+wheel zoom (at the mouse), wheel scroll, <kbd>Space</kbd>+drag or middle-drag to pan, <kbd>Ctrl</kbd>+<kbd>0</kbd> fit, <kbd>Ctrl</kbd>+<kbd>1</kbd> 100%. Zoomed in far you'll see a pixel grid.</p>
+<h2>New image</h2><p><b>File → New</b> has presets (HD, 4K, Instagram, YouTube thumbnail, A4…) and a background choice (white, transparent, black, colour).</p>
+<p>Undo/redo: <kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> (30 steps).</p>
+
+@@ photo-tools
+title: Photo: the tools
+keywords: tools brush eraser bucket gradient clone stamp eyedropper crop move wand lasso marquee hand zoom shortcut
+---
+<table><tr><th>Key</th><th>Tool</th><th>Use</th></tr>
+<tr><td>${K("V")}</td><td>Move</td><td>Drag the layer (or only the selected pixels). Arrow keys nudge.</td></tr>
+<tr><td>${K("M")}</td><td>Rectangle / Ellipse select</td><td>Drag. ${K("Shift")} adds, ${K("Alt")} subtracts. Feather option.</td></tr>
+<tr><td>${K("L")}</td><td>Lasso</td><td>Draw around an area freehand.</td></tr>
+<tr><td>${K("W")}</td><td>Magic Wand</td><td>Click to select similar colours (tolerance, contiguous, sample all layers).</td></tr>
+<tr><td>${K("C")}</td><td>Crop</td><td>Drag, then ${K("Enter")} or double-click. ${K("Esc")} cancels.</td></tr>
+<tr><td>${K("B")}</td><td>Brush</td><td>Size, hardness (soft/hard edge), opacity. ${K("[")} ${K("]")} change size.</td></tr>
+<tr><td>${K("E")}</td><td>Eraser</td><td>Erases to transparency.</td></tr>
+<tr><td>${K("G")}</td><td>Paint Bucket</td><td>Fills similar connected colours.</td></tr>
+<tr><td></td><td>Gradient</td><td>Drag a line: linear or radial, to background colour or to transparent.</td></tr>
+<tr><td>${K("S")}</td><td>Clone Stamp</td><td>${K("Alt")}+click the source, then paint to copy it (great for removing spots).</td></tr>
+<tr><td>${K("I")}</td><td>Eyedropper</td><td>Click: pick foreground colour. ${K("Alt")}+click: background.</td></tr>
+<tr><td>${K("T")}</td><td>Text</td><td>Click to add text; click an existing text layer to edit it.</td></tr>
+<tr><td>${K("U")}</td><td>Shape</td><td>Rectangle, rounded, ellipse, line, arrow — on a new layer. ${K("Shift")} = square/circle.</td></tr>
+<tr><td>${K("H")}</td><td>Hand</td><td>Pan.</td></tr><tr><td>${K("Z")}</td><td>Zoom</td><td>Click to zoom in, ${K("Alt")}+click out.</td></tr></table>
+<p>Painting, filling, gradients, filters and adjustments only affect the <b>selected area</b> (if there is a selection) of the <b>current layer</b>.</p>
+
+@@ photo-selections
+title: Photo: selections
+keywords: select all deselect inverse feather grow shrink colour range layer pixels cut copy marching ants
+---
+<p>A selection limits where you paint or edit. It shows as “marching ants”.</p>
+<table><tr><td>Select all / deselect / inverse</td><td>${K("Ctrl A")} / ${K("Ctrl D")} / ${K("Ctrl Shift I")}</td></tr>
+<tr><td>Add to / subtract from</td><td>hold ${K("Shift")} / ${K("Alt")} while selecting, or choose the Mode</td></tr>
+<tr><td>Soft edge</td><td>Select → Feather (${K("Shift F6")})</td></tr>
+<tr><td>Bigger / smaller</td><td>Select → Grow / Shrink</td></tr>
+<tr><td>All pixels of a colour</td><td>Select → Colour Range (uses the foreground colour)</td></tr>
+<tr><td>A layer's visible pixels</td><td>Select → Layer Pixels</td></tr></table>
+<h2>What you can do with a selection</h2><ul>
+<li><kbd>Delete</kbd> clears it; <i>Edit → Fill</i> (<kbd>Alt</kbd>+<kbd>Backspace</kbd>) / Stroke.</li>
+<li><kbd>Ctrl</kbd>+<kbd>J</kbd> copies it to a new layer, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd> cuts it to a new layer.</li>
+<li><kbd>Ctrl</kbd>+<kbd>T</kbd> scales/rotates it; <i>Image → Crop to Selection</i>.</li>
+<li>Copy / Copy Merged / Paste (as a new layer).</li></ul>
+
+@@ photo-layers
+title: Photo: layers & blend modes
+keywords: layer new duplicate merge flatten opacity blend mode multiply screen overlay hide rename order
+---
+<p>Layers are stacked sheets: the top ones cover the ones below. The <b>Layers</b> panel shows them top-first.</p>
+<ul><li>Tick box = show/hide. Double-click = rename. Drag the order with ▲ ▼.</li>
+<li>Buttons: ＋ new, ⧉ duplicate, ▲▼ move, ⤓ merge down (<kbd>Ctrl</kbd>+<kbd>E</kbd>), 🗑 delete.</li>
+<li><b>Opacity</b> and <b>blend mode</b> boxes above the list apply to the current layer.</li>
+<li>Layer menu: merge visible, flip/rotate layer, edit text layer. Image menu: flatten.</li></ul>
+<h2>Blend modes</h2><table>
+<tr><td>Multiply</td><td>darkens — great for shadows and putting line art over colour</td></tr>
+<tr><td>Screen / Linear Dodge (Add)</td><td>lightens — glows, light effects</td></tr>
+<tr><td>Overlay / Soft Light / Hard Light</td><td>adds contrast and texture</td></tr>
+<tr><td>Darken / Lighten</td><td>keeps the darker / lighter pixel</td></tr>
+<tr><td>Color Dodge / Color Burn</td><td>strong brightening / darkening</td></tr>
+<tr><td>Difference / Exclusion</td><td>inverts by the layer below — effects, comparing images</td></tr></table>
+<p>Layers can be any size and can stick out past the canvas — moving never loses pixels.</p>
+
+@@ photo-adjust
+title: Photo: adjustments & filters
+keywords: brightness contrast levels hue saturation vibrance exposure colour balance temperature black white sepia invert threshold posterize blur sharpen noise pixelate vignette emboss
+---
+<h2>Image → Adjustments</h2><p>All have sliders with a live <b>Preview</b>:</p>
+<table><tr><td>Brightness/Contrast</td><td>quick fix for dull photos</td></tr>
+<tr><td>Levels</td><td>set black point, white point and midtones (gamma)</td></tr>
+<tr><td>Hue/Saturation</td><td>shift colours, make them stronger/weaker, lighten/darken</td></tr>
+<tr><td>Vibrance</td><td>boosts dull colours more than strong ones (skin stays natural)</td></tr>
+<tr><td>Exposure</td><td>like changing the camera's exposure (stops)</td></tr>
+<tr><td>Color Balance / Temperature-Tint</td><td>fix colour casts — warmer, cooler, greener…</td></tr>
+<tr><td>Threshold / Posterize</td><td>pure black & white / fewer colour steps</td></tr></table>
+<p>One-click: Invert, Black & White, Sepia, Auto Contrast.</p>
+<h2>Filter menu</h2><p>Gaussian Blur, Motion Blur, Sharpen, Reduce Noise, Add Noise, Pixelate, Vignette, Emboss, Find Edges, Oil Paint.</p>
+<div class="tip">To blur a background: select the subject (Magic Wand / Lasso), <i>Select → Inverse</i>, <i>Select → Feather</i> 10 px, then <i>Filter → Gaussian Blur</i>.</div>
+
+@@ photo-text-shapes
+title: Photo: text & shapes
+keywords: text font outline shadow edit shape rectangle ellipse arrow line
+---
+<h2>Text</h2><p>Text tool (${K("T")}) → click → type. Choose any font, size (px), bold/italic, colour, alignment, an <b>outline</b> (thickness + colour) and a <b>drop shadow</b>.
+Each text gets its own layer (marked <b>T</b>). To change it later: Text tool → click the text, or <i>Layer → Edit Text Layer</i>.</p>
+<div class="warn">Resizing, rotating or flipping a text layer turns it into a normal picture layer (no longer editable as text).</div>
+<h2>Shapes</h2><p>Shape tool (${K("U")}): pick Rectangle, Rounded Rectangle, Ellipse, Line or Arrow. Fill uses the foreground colour, the outline the background colour (set its width, 0 = none). Hold ${K("Shift")} for perfect squares/circles. Each shape is placed on a new layer.</p>
+
+@@ photo-files
+title: Photo: Photoshop files, saving & exporting
+keywords: psd photoshop save export png jpg webp quality ora layers flatten tiff ico pdf
+---
+<h2>Photoshop (.psd)</h2><p>Opens PSDs with their layers: names, positions, opacity, blend modes, hidden layers (groups are flattened into their layers). <b>Saves PSD with layers</b>, which opens in Photoshop.</p>
+<p>Not editable: adjustment layers, layer effects (shadows, strokes…), masks, smart objects — their pixels are loaded where possible and you're told. Photoshop text layers come in as pictures.</p>
+<h2>Saving</h2><table><tr><th>Format</th><th>Keeps layers?</th><th>Good for</th></tr>
+<tr><td>.psd</td><td>✅</td><td>sharing with Photoshop users, keeping work</td></tr>
+<tr><td>.ora (OpenRaster)</td><td>✅ (+ editable text)</td><td>keeping your work in an open format</td></tr>
+<tr><td>.png</td><td>❌</td><td>graphics, screenshots, transparency</td></tr>
+<tr><td>.jpg</td><td>❌</td><td>photos (asks for quality 1–100)</td></tr>
+<tr><td>.webp</td><td>❌</td><td>web — small files</td></tr>
+<tr><td>.tif / .bmp / .gif / .ico / .pdf</td><td>❌</td><td>printing / old software / icons / documents</td></tr></table>
+<p><b>File → Export As</b> saves a flattened copy without changing the file you're working on.</p>
+
+@@ conv-basics
+title: Converter: how to use it
+keywords: converter add files drag folder output start cancel right click batch
+---
+<ol><li><b>Add files:</b> drag files or whole folders into the list, use <b>Add Files…/Add Folder…</b>, or select files in Explorer → right-click → <i>Convert / compress with Ethical Converter</i>.</li>
+<li><b>Pick a job</b> with the tabs: <a href="#conv-formats">Convert</a>, <a href="#conv-compress">Compress</a>, <a href="#conv-combine">Combine</a>, <a href="#conv-combine">Zip / Unzip</a> — or <a href="#conv-download">⬇ Download from Link</a> to save online videos.</li>
+<li>In <b>Convert</b>, each file has its own <b>Convert to</b> choice; <b>Set all files to</b> changes every file that supports that format.</li>
+<li>Choose where results go: <b>same folder as each file</b> or <b>this folder</b>.</li>
+<li>Press <b>▶ Start</b>. Each file shows its progress; <b>Cancel</b> stops.</li></ol>
+<p>Originals are never changed or overwritten — new files get their own names (e.g. <code>video (compressed).mp4</code>, <code>photo (1).png</code>).</p>
+<p><kbd>Delete</kbd> removes selected files from the list.</p>
+
+@@ conv-formats
+title: Converter: what converts to what
+keywords: formats audio video image document wav mp3 mp4 mkv webm gif flac m4a pdf docx pptx xlsx csv png jpg webp ico
+---
+<table><tr><th>From</th><th>To</th></tr>
+<tr><td><b>Audio</b>: mp3 wav flac ogg m4a aac wma opus aiff amr ac3</td><td>MP3, WAV, FLAC (lossless), M4A/AAC, OGG, OPUS, AIFF, WMA, <b>MP4 video</b> (sound + a picture or black screen)</td></tr>
+<tr><td><b>Video</b>: mp4 mkv mov avi webm wmv flv m4v mpg 3gp ts…</td><td>MP4 (H.264), MP4 (H.265, smaller), MKV, WebM, MOV, AVI, WMV, animated GIF, or just the sound: MP3, WAV, M4A, FLAC</td></tr>
+<tr><td><b>Pictures</b>: png jpg webp bmp gif tif ico psd tga</td><td>PNG, JPG, WebP, BMP, GIF, TIFF, ICO (multi-size icon), PDF</td></tr>
+<tr><td>PDF</td><td>PNG or JPG (one per page), Word .docx, text</td></tr>
+<tr><td>Word .docx</td><td>PDF, text, HTML, Markdown, ODT</td></tr>
+<tr><td>PowerPoint .pptx</td><td>PDF, PNG (one per slide)</td></tr>
+<tr><td>Excel .xlsx</td><td>CSV (one per sheet)</td></tr><tr><td>CSV</td><td>Excel .xlsx</td></tr>
+<tr><td>.txt .md .html</td><td>PDF, Word .docx (and HTML/text)</td></tr>
+<tr><td>Archives: zip 7z tar tgz gz bz2 xz</td><td>Extract (unpack)</td></tr></table>
+<h2>Options (Convert tab)</h2><ul>
+<li><b>Video quality</b> High / Balanced / Small file, <b>Video size</b> (keep, 4K, 1080p, 720p, 480p, 360p).</li>
+<li><b>Audio quality</b> 64k–320k (192k is a good default; 320k is the best MP3).</li>
+<li><b>Picture quality</b> and <b>max size</b> (for JPG/WebP and resizing).</li>
+<li><b>Picture for audio → MP4</b>: choose a cover image, otherwise a black screen is used.</li>
+<li><b>GIF size</b> (width) and <b>PDF → images</b> resolution (dpi).</li></ul>
+
+@@ conv-compress
+title: Converter: compressing (making files smaller)
+keywords: compress smaller shrink size video audio pdf images word powerpoint excel zip 7z email
+---
+<p>Choose <b>Light</b> (best quality), <b>Balanced</b> or <b>Strong</b> (smallest).</p>
+<table><tr><th>File</th><th>What happens</th></tr>
+<tr><td>Video</td><td>re-encoded as MP4 (H.264); Balanced limits to 1080p, Strong to 720p</td></tr>
+<tr><td>Audio</td><td>lower bitrate (160k / 128k / 96k); WAV/FLAC/AIFF become MP3</td></tr>
+<tr><td>Pictures</td><td>re-saved smaller (JPG/WebP quality, PNG colour reduction, optional downscale to 2560/1600 px)</td></tr>
+<tr><td>PDF</td><td>pictures inside are downsampled & recompressed, fonts trimmed, file cleaned</td></tr>
+<tr><td>Word/Excel/PowerPoint</td><td>the pictures inside are shrunk, then re-zipped at maximum compression</td></tr>
+<tr><td>Anything else</td><td>zipped (Strong uses 7z, which is smaller)</td></tr></table>
+<p>The Result column shows how much smaller each file got. If a file can't be made noticeably smaller, no new file is made (“Already small”).</p>
+<div class="tip">For emailing a big video, <b>Strong</b> usually cuts it to a fraction of the size while still looking fine on a phone.</div>
+
+@@ conv-trim
+title: Converter: trimming videos (and rotating, resizing, muting)
+keywords: trim cut video clip shorten start end rotate sideways resize 720p 1080p mute remove sound audio
+---
+<p>The <b>✂ Trim video</b> tab keeps just the part of a video you want.</p>
+<ol><li>Click <b>📂 Open a video…</b> (or drop one on the tab).</li>
+<li>Drag the slider — the picture shows that moment. Click <b>⇤ Start here</b>, move on, then <b>End here ⇥</b>. Or type the times in seconds.
+The line underneath says what you're keeping, e.g. “Keeping 0:12.0 → 1:05.5 (0:53.5)”.</li>
+<li>Choose how to cut:<ul>
+<li><b>Fast</b> — instant and no quality loss, but the cut lands on the nearest “keyframe”, so it can start up to a few seconds early.</li>
+<li><b>Exact</b> — cuts on the exact frame (the video is re-made, which takes a little longer).</li></ul></li>
+<li>Optional: <b>Size</b> 1080p / 720p / 480p (smaller file), <b>Rotate</b> (fix sideways phone videos), <b>Remove the sound</b>.
+Size and rotate always use Exact.</li>
+<li>Click <b>✂ Save trimmed video</b>. It's saved as “<i>name</i> (trimmed)” next to the original, or in the folder under <b>Save results to</b>.
+The original isn't changed.</li></ol>
+<p class="note">To only change the size of whole videos (many at once), use the <b>Convert</b> tab's <b>Video size</b> setting, or <b>Compress</b>.</p>
+
+@@ conv-combine
+title: Converter: combining, zipping & unzipping
+keywords: combine merge join pdf audio video zip 7z extract unzip archive
+---
+<h2>Combine tab</h2><ul>
+<li><b>Pictures and PDFs → one PDF</b> (e.g. scanned pages into one document).</li>
+<li><b>Audio files → one MP3</b> (joined end to end).</li><li><b>Videos → one MP4</b>.</li></ul>
+<p>Files are joined in list order — use ▲ Move up / ▼ Move down. Type a name for the new file.</p>
+<h2>Zip / Unzip tab</h2><ul>
+<li><b>Pack all files into one ZIP</b> (works everywhere) or <b>7z</b> (smaller; needs 7-Zip or similar to open). Folders keep their structure.</li>
+<li><b>Extract</b> unpacks .zip, .7z, .tar, .tar.gz/.tgz, .tar.bz2, .tar.xz, .gz, .bz2, .xz into a folder named after the archive.</li></ul>
+<p>.rar files can't be extracted yet.</p>
+
+@@ conv-download
+title: Converter: downloading videos from links
+keywords: download youtube twitter x tiktok instagram vimeo link url video audio mp3 playlist yt-dlp safety virus
+---
+<p class="note"><b>Not in every version:</b> the public EthicalApp download leaves this feature out. It's only in personal builds made with <code>installer\build.py --with-downloader</code> or when running from source.</p>
+<p>The <b>⬇ Download from Link</b> tab saves videos or their sound from YouTube, X/Twitter, TikTok, Instagram, Vimeo, Facebook, Reddit, SoundCloud and over a thousand other sites.</p>
+<ol><li>Paste one or more links (one per line) — the <b>📋 Paste</b> button pastes what you copied.</li>
+<li>Optional: <b>🔎 Check Links</b> shows each title, channel and length first.</li>
+<li>Choose <b>Video</b> (quality 360p–4K; <b>MP4</b> plays everywhere, <b>Best quality</b> saves MKV) or <b>Audio only</b> (MP3, M4A, OPUS, WAV, FLAC).</li>
+<li>Tick <b>Whole playlist</b> to get every video in a playlist (up to 200).</li>
+<li>Press <b>⬇ Download</b>. Files go to the folder under “Save results to” (or your <b>Downloads</b> folder).</li></ol>
+<p>Tick <b>Add finished downloads to the file list</b> to convert or compress them straight away (e.g. download, then make a GIF).</p>
+<h2>🛡 Built-in safety</h2><ul>
+<li>Only normal web links are accepted — links to files on your PC or your home network are refused.</li>
+<li>Downloads land in a private <b>quarantine</b> folder first.</li>
+<li>Only audio/video file types can leave quarantine — programs (.exe, scripts), archives, documents and web pages are <b>blocked and deleted</b>, even if they pretend to be a video.</li>
+<li>Each file is opened by FFmpeg to prove it really contains audio or video.</li>
+<li><b>Microsoft Defender</b> virus-scans every file before it's saved; anything flagged is deleted.</li>
+<li>Nothing downloaded is ever opened or run by the app.</li></ul>
+<div class="warn">⚖ Only download videos you're allowed to — your own uploads, or videos the creator lets you download (e.g. Creative Commons). Many sites' terms, including YouTube's, don't allow downloading, and copyright still applies.</div>
+<h2>If downloads stop working</h2><p>Websites change often. Press <b>Update Downloader</b> (needs internet), then restart the converter.
+Private, members-only, age-restricted or region-blocked videos can't be downloaded.</p>
+
+@@ base-basics
+title: Database: what a database is & getting started
+keywords: database access sqlite start template new open table record field navigation pane autosave
+---
+<p>A database keeps lists of things — contacts, products, orders, tasks — in <b>tables</b>. Each row is a
+<b>record</b> (one customer), each column a <b>field</b> (their name, email…). Unlike a spreadsheet, tables can be
+<a href="#base-relationships">linked</a> (an order belongs to a customer), and you can ask questions with
+<a href="#base-queries">queries</a> and print <a href="#base-reports">reports</a>.</p>
+<h2>Start</h2><p>The start page offers a <b>Blank database</b> or a ready-made template with sample data:
+<b>Contacts</b>, <b>Tasks</b>, <b>Inventory</b> (with a Low Stock query), <b>Customers & Orders</b> (linked tables, an Order Totals query and a report).
+You can also open a database or import Excel/CSV/Access straight into a new one.</p>
+<h2>The window</h2><ul>
+<li><b>Left:</b> the navigation pane — Tables, Queries, Reports. Double-click to open; right-click for Design View, Form View, Rename, Delete, Export, New Report.</li>
+<li><b>Right:</b> tabs for everything you open.</li></ul>
+<div class="tip">There's no Save button for data — <b>every change is saved immediately</b>, like in Access. Use <i>File → Save a Copy As</i> for backups.</div>
+<p>A database is a single <b>.db</b> file (the standard SQLite format, which many other tools can open too).</p>
+
+@@ base-tables
+title: Database: designing tables & field types
+keywords: design view table field type autonumber text number currency date yes no required unique default rename
+---
+<p><b>Create → Table</b> (or right-click a table → <b>Design View</b> to change one). Each row in the designer is a field:</p>
+<table><tr><th>Type</th><th>For</th></tr>
+<tr><td>AutoNumber</td><td>an ID that numbers itself (1, 2, 3…) — every table should have one</td></tr>
+<tr><td>Short Text / Long Text</td><td>names, codes / notes, descriptions</td></tr>
+<tr><td>Whole Number / Decimal Number</td><td>quantities / measurements</td></tr>
+<tr><td>Currency</td><td>money (shown as $1,234.50)</td></tr>
+<tr><td>Date / Date & Time</td><td>type 2026-10-11, 10/11/2026 or <code>today</code></td></tr>
+<tr><td>Yes/No</td><td>a checkbox</td></tr></table>
+<ul><li><b>Required</b> — the field can't be left empty. <b>Unique</b> — no two records may have the same value (e.g. SKU, email).</li>
+<li><b>Default Value</b> — filled in for new records; <code>DATE()</code> means today.</li>
+<li>Rename, reorder (▲▼), add or remove fields any time and press <b>Save Table</b> — existing data is kept, and saved queries that use a renamed field are updated automatically.</li></ul>
+
+@@ base-data
+title: Database: entering & finding data (datasheet and form view)
+keywords: datasheet form view new record delete search filter sort edit lookup
+---
+<h2>Datasheet view</h2><p>Opens like a spreadsheet. Click a cell and type; press <kbd>Enter</kbd> to save it.</p><ul>
+<li><b>New record:</b> type in the bottom row marked <b>✱</b>, or press <b>＋ New Record</b>.</li>
+<li><b>Delete:</b> select records → <b>✖ Delete</b>.</li>
+<li><b>Sort:</b> click a column heading (again for reverse).</li>
+<li><b>Search all fields</b> box filters as you type. <b>Filter by Selection</b> shows only records with the value in the current cell; <b>Remove Filter</b> shows everything again.</li>
+<li>Yes/No fields are checkboxes. Fields linked to another table (e.g. an order's customer) show a <b>drop-down of names</b> instead of ID numbers.</li></ul>
+<h2>Form view</h2><p>One record at a time with a box per field — easier for typing in long records.
+Use ⏮ ◀ ▶ ⏭ to move, <b>＋ New</b>, <b>💾 Save</b>, <b>✖ Delete</b>, and <b>Find…</b>. Moving to another record saves your changes.</p>
+<p>If something can't be saved you get a plain-English reason — e.g. a required field is empty, a unique value is already used, or a linked record doesn't exist.</p>
+
+@@ base-queries
+title: Database: queries (asking questions of your data)
+keywords: query design criteria sort totals sum count group by sql view join related
+---
+<p><b>Create → Query</b>. A query picks fields, filters records and sorts them — e.g. “all shipped orders this month, newest first”. Saved queries appear under <b>Queries</b> and always show current data.</p>
+<h2>Design tab</h2><ol>
+<li>Choose the <b>main table</b>. Tick <b>related tables</b> to use their fields too (needs a <a href="#base-relationships">relationship</a>).</li>
+<li><b>＋ Add Field</b> (or <b>Add All Fields</b>), then for each: <b>Show</b>, <b>Sort</b>, and <b>Criteria</b>.</li>
+<li><b>▶ Run</b> to see the results; <b>💾 Save Query…</b> to keep it.</li></ol>
+<h2>Criteria examples</h2><table>
+<tr><td><code>&gt;100</code>, <code>&lt;=50</code>, <code>&lt;&gt;0</code></td><td>comparisons</td></tr>
+<tr><td><code>"London"</code> or <code>London</code></td><td>exactly this</td></tr>
+<tr><td><code>"London" Or "Paris"</code></td><td>either</td></tr>
+<tr><td><code>Like "A*"</code></td><td>starts with A (<code>*</code> = anything, <code>?</code> = one character)</td></tr>
+<tr><td><code>Between 1 And 50</code></td><td>a range</td></tr>
+<tr><td><code>&gt;=#2026-01-01#</code></td><td>dates (between # signs)</td></tr>
+<tr><td><code>Is Null</code> / <code>Is Not Null</code></td><td>empty / not empty</td></tr>
+<tr><td><code>Yes</code> / <code>No</code></td><td>Yes/No fields</td></tr></table>
+<h2>Totals</h2><p>Tick <b>Totals</b> to group and add up — e.g. Group By customer, Sum of quantity. Criteria on a Sum/Count apply to the totals.</p>
+<h2>SQL tab</h2><p>Shows the query as SQL (the standard database language) — you can edit it directly. <i>Database → SQL Console</i> lets you run any SQL; commands that change data ask first.</p>
+
+@@ base-relationships
+title: Database: relationships (linking tables)
+keywords: relationship link foreign key one to many parent child cascade delete diagram
+---
+<p>A relationship says “each <b>child</b> record belongs to one <b>parent</b> record” — each order belongs to a customer, each product to a category.</p>
+<ol><li>Give the child table a <b>Whole Number</b> field that will hold the parent's ID (e.g. <i>Customer ID</i> in Orders).</li>
+<li><b>Database → Relationships</b>: choose the parent table and its ID, the child table and its “points to” field, and <b>＋ Add Relationship</b>.</li></ol>
+<p>What you get:</p><ul>
+<li>The child field shows a <b>drop-down of parent names</b> in datasheets and forms.</li>
+<li>Records can't point to a parent that doesn't exist, and a parent with children can't be deleted by accident…</li>
+<li>…unless you ticked <b>cascade delete</b>: then deleting a parent also deletes its children (e.g. deleting an order deletes its order lines).</li>
+<li>Queries can combine fields from related tables.</li></ul>
+<p>The window shows a diagram of all tables with lines between related fields (1 ── ∞).</p>
+
+@@ base-reports
+title: Database: reports & printing
+keywords: report print pdf group totals sum average title landscape
+---
+<p><b>Create → Report</b> (or right-click a table/query → New Report). Choose:</p><ul>
+<li>the <b>data</b> (any table or query) and a <b>title</b>;</li>
+<li>which <b>fields</b> to show (tick, and drag to change the order);</li>
+<li><b>Group by</b> a field (e.g. one section per customer) and <b>Sort by</b>;</li>
+<li><b>Totals</b> for number fields — Sum, Average or Count (per group and overall);</li>
+<li><b>Landscape</b> for wide reports.</li></ul>
+<p>Then <b>Print</b>, <b>Print Preview</b> or <b>Export PDF</b>. <b>Save Report</b> keeps it under <b>Reports</b> — it always shows current data.</p>
+
+@@ base-import
+title: Database: importing & exporting (Excel, CSV, Access)
+keywords: import export excel xlsx csv access accdb mdb driver backup copy compact repair
+---
+<h2>Import</h2><p><b>File → Import</b> (or drag a file into the window): <b>Excel .xlsx</b> (each sheet → a table), <b>CSV</b>, or <b>Access .accdb/.mdb</b> (each table).
+The first row becomes the field names, and field types (number, currency, date, Yes/No, text) are detected automatically — check them afterwards in Design View.
+From the start page you can import straight into a new database.</p>
+<div class="warn"><b>Access files</b> need Microsoft's free <b>Access Database Engine 2016 Redistributable (64-bit)</b> installed (download from microsoft.com). Only the tables and their data come across — Access forms, reports and macros don't.</div>
+<h2>Export</h2><p><b>File → Export</b> (or right-click → Export): a table or query to <b>Excel</b>, <b>all tables & queries</b> to one Excel file (one sheet each), <b>CSV</b>, or a <b>PDF</b> report.</p>
+<h2>Looking after the file</h2><ul><li><b>File → Save a Copy As</b> — a safe backup, even while open.</li>
+<li><b>Database → Compact & Repair</b> — checks the file and shrinks it after lots of deleting.</li></ul>
+
+@@ stickies
+title: Sticky Notes: notes and to-do lists on your desktop
+keywords: sticky notes todo to-do checklist reminder desktop post-it tray startup
+---
+<p><b>Ethical Sticky Notes</b> puts little notes on your desktop — great for to-do lists, phone numbers and reminders.
+Everything saves by itself while you type, on this PC only.</p>
+<h2>The basics</h2><ul>
+<li><b>New note:</b> click <b>+</b> on any note, press ${K("Ctrl N")}, or use the tray icon (bottom-right of the taskbar) → <b>New note</b>.</li>
+<li><b>Move</b> a note by dragging its top bar. <b>Resize</b> it by dragging any edge or corner.</li>
+<li><b>Fold</b> a note down to its title: double-click the top bar (again to unfold).</li>
+<li><b>Colour:</b> <b>⋯</b> → pick one of 8 colours. <b>Text size:</b> <b>⋯</b> → Text size.</li>
+<li><b>Keep on top:</b> click <b>📌</b> so the note stays above other windows.</li>
+<li><b>✕ closes</b> the note but keeps it. Bring notes back with the tray icon → <b>Show all notes</b> (or just click the tray icon), or <b>All notes…</b>.</li></ul>
+<h2>To-do lists</h2><ul>
+<li>Type <kbd>[</kbd><kbd>]</kbd> and a space at the start of a line (or click <b>☑</b> / ${K("Ctrl Shift C")}) for a checkbox.</li>
+<li>Click a box to tick it — the item is crossed out. Click again to untick.</li>
+<li><kbd>Enter</kbd> makes the next item; <kbd>Enter</kbd> on an empty item ends the list. <kbd>Backspace</kbd> at the start of an item turns it back into text.</li>
+<li>Type <kbd>-</kbd> and a space for a bullet list (or <b>•</b> / ${K("Ctrl Shift L")}).</li></ul>
+<h2>Formatting</h2><p>Click into a note to see the bar at the bottom: <b>B</b> ${K("Ctrl B")}, <i>I</i> ${K("Ctrl I")}, <u>U</u> ${K("Ctrl U")},
+<s>S</s> ${K("Ctrl T")}. Pasted text comes in plain, so it matches the note.</p>
+<h2>Finding and deleting notes</h2><ul>
+<li><b>All notes…</b> (tray icon or <b>⋯</b>) lists every note with a search box — double-click to open one.</li>
+<li><b>Delete</b>: 🗑 in the note's bottom bar or ${K("Ctrl D")}. Deleted by mistake? Tray icon → <b>Restore deleted note</b> (the last 30 are kept).</li></ul>
+<h2>Start with Windows</h2><p>Tray icon → <b>Start when Windows starts</b> (or tick it in the installer) and your notes are back every time you log in.
+Closing the app completely: tray icon → <b>Quit Sticky Notes</b> — your notes are kept.</p>
+<h2>Where notes are kept</h2><p>In <code>%APPDATA%\\Ethical Suite\\Sticky Notes\\notes.json</code> (plus a backup copy, <code>notes.json.bak</code>). They're never
+uploaded. Uninstalling EthicalApp leaves this file, so your notes are still there if you reinstall. To move notes to another PC, copy that file.</p>
+<h2>With AI</h2><p>If you connected EthicalApp to Claude, you can say things like “put a to-do note on my desktop for Saturday's errands” or
+“tick off <i>call the dentist</i>” — the note changes on your screen within a couple of seconds.</p>
+<h2>Shortcuts</h2><p>${K("Ctrl N")} new note · ${K("Ctrl D")} delete · ${K("Ctrl W")} close · ${K("Ctrl B")}/${K("Ctrl I")}/${K("Ctrl U")}/${K("Ctrl T")} bold/italic/underline/strikethrough ·
+${K("Ctrl Shift C")} checkboxes · ${K("Ctrl Shift L")} bullets · ${K("F1")} this help</p>
+
+@@ planner
+title: Planner: reminders and a calendar
+keywords: planner reminder reminders calendar event alarm supplements pills medicine daily repeat notification snooze birthday appointment
+---
+<p><b>Ethical Planner</b> reminds you of things on time — “take supplements every day at 8:00”, “dentist tomorrow at 14:30”,
+“Mom's birthday” — with a card that pops up in the corner of the screen.</p>
+<h2>Reminders and events</h2><ul>
+<li><b>⏰ New reminder</b> (${K("Ctrl N")}) is for things you <i>do</i>: the pop-up has a <b>Done</b> button and you can tick it off in the list.</li>
+<li><b>📅 New event</b> (${K("Ctrl E")}) is for things that <i>happen</i>: appointments, birthdays. You get a heads-up before (15 minutes by default).</li>
+<li><b>Quick start</b> buttons fill in common ones: daily supplements, drinking water, bins night, a birthday.</li>
+<li>Double-click a day in the calendar to add an event on that day.</li></ul>
+<h2>Repeating</h2><p><b>Repeat:</b> every day, every weekday (Mon–Fri), every week (tick the days, e.g. Mon/Wed/Fri), every month or every year —
+and “every N” (every 2 days, every 3 weeks…). <b>Stop repeating after</b> sets an end date. A monthly reminder on the 31st happens on the last day of shorter months.</p>
+<h2>Alerts and the pop-up</h2><ul>
+<li>Choose <b>Alert</b> (at the time, 5/10/15/30 minutes, 1–2 hours, 1–2 days or a week before) and optionally a second one (<b>Also</b>), e.g. a day before <i>and</i> an hour before.</li>
+<li>All-day items alert at 09:00 (minus the alert time).</li>
+<li>The card stays until you click <b>Done</b>/<b>OK</b>, <b>Snooze</b> (5 minutes … tomorrow morning) or ✕. It shows even when Windows' Focus Assist is on.</li>
+<li>Was the PC off or asleep? Anything you missed in the last 12 hours pops up next time, marked <i>missed</i>.</li>
+<li>Each pop-up plays a soft chime (Planner's own sound, so it works even if Windows sounds are muted for notifications). Try it: <b>⋯ → Test a reminder pop-up</b>. Turn the sound on/off in <b>⋯</b>.</li>
+<li><b>Clock:</b> times follow your PC's clock. Choose <b>⋯ → Clock → 12-hour (8:00 PM)</b> or <b>24-hour (20:00)</b> – by default Planner uses whatever Windows uses.</li></ul>
+<h2>The list</h2><ul>
+<li>Shows the selected day and the 6 days after it. Click a date in the calendar to look ahead; <b>Today</b> (${K("Ctrl T")}) jumps back.</li>
+<li>Tick the box to mark a reminder done for that day (it's crossed out). Overdue ones are red.</li>
+<li>Right-click an item: Edit, Mark done / Not done, <b>Skip just this one</b> (for a repeating item), Delete.</li>
+<li>Bold days in the calendar have events or less-frequent reminders. <b>Next up</b> shows the next alert.</li></ul>
+<h2>Keep it running</h2><p>Reminders can only pop up while Planner runs, so closing the window keeps it in the tray (bottom-right of the taskbar).
+On first start it asks to <b>start with Windows</b> — say yes (or tick it in the installer or <b>⋯</b>). <b>Quit Ethical Planner</b> in the tray menu stops it.</p>
+<h2>Where it's kept</h2><p><code>%APPDATA%\\Ethical Suite\\Planner\\planner.json</code> (plus a backup). Never uploaded; uninstalling keeps it.</p>
+<h2>With AI</h2><p>If you connected Planner to Claude: “remind me to take my vitamins every day at 8”, “what's coming up this week?”,
+“I took my pills” (ticks it off), “move the dentist to Thursday at 3”.</p>
+
+@@ snip
+title: Snip: screenshots you can mark up
+keywords: snip screenshot screen capture print screen prtscn snipping tool crop arrow highlight pixelate blur hide
+---
+<p><b>Ethical Snip</b> takes a picture of your screen — all of it, one window, or just the part you choose — and lets you
+draw on it before you copy or save it.</p>
+<h2>Taking a snip</h2><ul>
+<li>Press ${K("Ctrl PrtScn")} anywhere (while Snip is running — it waits in the tray, bottom-right of the taskbar), click <b>✂ New snip</b> (${K("Ctrl N")}), or use the tray icon.</li>
+<li>The screen freezes and dims. Choose at the top: <b>Rectangle</b> (drag an area), <b>Window</b> (click a window), <b>Full screen</b> (click) or <b>Free-form</b> (draw around something).
+Keys: <kbd>R</kbd> <kbd>W</kbd> <kbd>S</kbd> <kbd>F</kbd>. <kbd>Esc</kbd> or right-click cancels.</li>
+<li><b>Delay:</b> the arrow next to New snip → Delay → 3, 5 or 10 seconds, to open a menu before the picture is taken.</li>
+<li>Every snip is <b>copied</b> (paste it with ${K("Ctrl V")} into a chat or email) and <b>saved</b> in <code>Pictures\\Ethical Snips</code>. Both can be switched off in <b>⋯</b>.</li></ul>
+<h2>Marking it up</h2><ul>
+<li><b>Pen</b> <kbd>P</kbd>, <b>Highlight</b> <kbd>H</kbd>, <b>Arrow</b> <kbd>A</kbd>, <b>Box</b> <kbd>R</kbd> (hold <kbd>Shift</kbd> for a square), <b>Text</b> <kbd>T</kbd> (click, then type).</li>
+<li><b>Pixelate</b> <kbd>X</kbd>: drag over names, addresses or passwords to hide them before you share the picture.</li>
+<li><b>Crop</b> <kbd>C</kbd>: drag around the part to keep.</li>
+<li>Pick a colour and a size (Thin / Medium / Thick) in the toolbar. <b>Select</b> <kbd>V</kbd> lets you move marks or delete them (<kbd>Delete</kbd>).</li>
+<li>${K("Ctrl Z")} undo, ${K("Ctrl Y")} redo. Zoom: ${K("Ctrl +")} / ${K("Ctrl -")} / ${K("Ctrl 0")} or ${K("Ctrl")} + mouse wheel.</li></ul>
+<h2>Copy, save, share</h2><ul>
+<li><b>Copy</b> (${K("Ctrl C")}) copies the marked-up picture. <b>Save</b> (${K("Ctrl S")}) updates the saved snip; <b>Save as…</b> chooses a name and PNG, JPG, WebP or BMP.</li>
+<li><b>Open in Photo Editor</b> for bigger edits (layers, filters, text effects).</li>
+<li>Snip also marks up any picture: <b>⋯ → Open a picture</b> (${K("Ctrl O")}), paste one (${K("Ctrl V")}) or drop a file on the window.</li></ul>
+<h2>Settings (⋯ menu)</h2><p>Copy every snip · Save every snip automatically · Keep running in the tray for ${K("Ctrl PrtScn")} ·
+Start when Windows starts · Change the shortcut · Choose the snips folder. Closing the window keeps Snip in the tray; <b>Quit Ethical Snip</b> closes it completely.</p>
+<h2>Changing the shortcut</h2><p>No PrtScn key (many laptops)? Or another program already uses it? click <b>⌨ Change shortcut…</b> on Snip's start screen (or the shortcut shown at the bottom right, or <b>⋯ → Change the shortcut…</b>), click the box and press the keys you want — for example ${K("Ctrl Alt S")}. It needs ${K("Ctrl")}, ${K("Alt")} or the Windows key (F-keys work alone). Avoid shortcuts other programs use, like ${K("Ctrl Shift S")} (Save As). The status bar shows the shortcut in use, or tells you if another program already has it.</p>
+<h2>With AI</h2><p>If you connected Snip to Claude, you can ask “take a screenshot of the Excel window and save it to my Desktop”. Claude only takes
+screenshots when you ask, and the pictures are saved on your PC.</p>
+
+@@ ai-claude
+title: Using the apps with AI (Claude)
+keywords: ai claude mcp assistant automate connect tools chat code desktop
+---
+<p>EthicalApp includes an <b>MCP server</b> — a connector that lets the AI assistant <b>Claude</b> (Claude Code or Claude Desktop) use the apps for you. You just ask in plain words, for example:</p>
+<ul><li>“Turn my notes.md into a nicely formatted Word document.”</li>
+<li>“Read budget.xlsx, add a 10% contingency row and a pie chart.”</li>
+<li>“Make a 6-slide deck about our summer plan with the Ocean theme, then open it.”</li>
+<li>“Redact every phone number in contract.pdf.” · “Fill in this PDF form with my details.”</li>
+<li>“Resize all these photos to 1080 px and add our logo text.” · “Convert this video to MP3.”</li>
+<li>“Create a database of my book collection and give me a report grouped by author.”</li></ul>
+<h2>Connect it</h2><ol><li>In the installer, tick <b>Connect the chosen apps to Claude</b> (run the installer again any time to change it).</li>
+<li>It connects to <b>Claude Code</b> automatically, and to <b>Claude Desktop</b> if it's installed (restart Claude Desktop afterwards).</li>
+<li>The user guide is always included so Claude can look up how things work.</li></ol>
+<p>To disconnect, run the installer again and untick the option, or uninstall EthicalApp.</p>
+<h2>What Claude can do (about 65 tools)</h2><table>
+<tr><td>PDF</td><td>read text & info, merge, split, extract/delete/rotate pages, add text or pictures, find & replace text, permanently redact, list & fill forms</td></tr>
+<tr><td>Documents</td><td>read a .docx as Markdown, create documents from Markdown (headings, lists, tables), append, find & replace</td></tr>
+<tr><td>Spreadsheets</td><td>read cells (values or formulas), write cells & formulas, format ranges, add charts and sheets, calculate any formula</td></tr>
+<tr><td>Presentations</td><td>read decks, create decks with themes/bullets/notes/pictures, add slides to an existing deck</td></tr>
+<tr><td>Photos</td><td>info & layers, resize, crop, rotate, flip, every adjustment & filter, text, canvas size</td></tr>
+<tr><td>Converter</td><td>convert any supported file, compress, combine, zip/unzip, media info, download from links (with the same safety checks)</td></tr>
+<tr><td>Database</td><td>overview, read-only SQL queries, changes, create databases/tables, insert records, relationships, saved queries, import/export, PDF reports</td></tr>
+<tr><td>Sticky Notes</td><td>list, read, add, change and tick off notes on your desktop</td></tr>
+<tr><td>Snip</td><td>list windows and take a screenshot when you ask</td></tr>
+<tr><td>Planner</td><td>list, add, change and complete reminders and events</td></tr>
+<tr><td>Always</td><td>search & read this guide, open a file in the matching Ethical app so you can see it</td></tr></table>
+<h2>Safety</h2><ul><li>Claude works on files on your PC only through these tools; Claude asks before using them (depending on your Claude settings).</li>
+<li>Edits are saved as <b>new copies</b> (e.g. “report (edited).pdf”) unless you ask to overwrite; new files never replace existing ones unless you say so.</li>
+<li>Database queries are read-only unless the change tool is used; relationship rules are still enforced.</li></ul>
+
+@@ shortcuts
+title: All keyboard shortcuts
+keywords: keyboard shortcuts keys hotkeys
+---
+<h2>Every app</h2><table><tr><td>New / Open / Save / Save As</td><td>${K("Ctrl N")} ${K("Ctrl O")} ${K("Ctrl S")} ${K("Ctrl Shift S")}</td></tr>
+<tr><td>Undo / Redo</td><td>${K("Ctrl Z")} / ${K("Ctrl Y")}</td></tr><tr><td>Print</td><td>${K("Ctrl P")}</td></tr>
+<tr><td>Find</td><td>${K("Ctrl F")}</td></tr><tr><td>This guide</td><td>${K("F1")}</td></tr></table>
+<h2>Ethical PDF Editor</h2><table><tr><td>Zoom in / out / actual / fit width</td><td>${K("Ctrl =")} ${K("Ctrl -")} ${K("Ctrl 0")} ${K("Ctrl 1")}</td></tr>
+<tr><td>Find next / previous</td><td>${K("F3")} / ${K("Shift F3")}</td></tr><tr><td>Rotate page right / left</td><td>${K("Ctrl R")} / ${K("Ctrl Shift R")}</td></tr>
+<tr><td>Copy selected text / delete annotation</td><td>${K("Ctrl C")} / ${K("Delete")}</td></tr></table>
+<h2>Ethical Document Editor</h2><p>See <a href="#write-basics">Write: the basics</a>.</p>
+<h2>Ethical Spreadsheet Editor</h2><table><tr><td>Go to</td><td>${K("Ctrl G")}</td></tr><tr><td>Fill down / right</td><td>${K("Ctrl D")} / ${K("Ctrl R")}</td></tr>
+<tr><td>AutoSum / insert function</td><td>${K("Alt =")} / ${K("Shift F3")}</td></tr><tr><td>Paste values</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>Insert rows / delete rows</td><td>${K("Ctrl Shift =")} / ${K("Ctrl -")}</td></tr><tr><td>New sheet</td><td>${K("Shift F11")}</td></tr>
+<tr><td>Comment</td><td>${K("Shift F2")}</td></tr><tr><td>Strikethrough</td><td>${K("Ctrl 5")}</td></tr></table>
+<h2>Ethical Presentation Editor</h2><table><tr><td>New slide</td><td>${K("Ctrl M")}</td></tr><tr><td>Present from start / current</td><td>${K("F5")} / ${K("Shift F5")}</td></tr>
+<tr><td>Duplicate object</td><td>${K("Ctrl D")}</td></tr><tr><td>Bring to front / send to back</td><td>${K("Ctrl Shift ]")} / ${K("Ctrl Shift [")}</td></tr></table>
+<h2>Ethical Database</h2><table><tr><td>New database / open</td><td>${K("Ctrl N")} / ${K("Ctrl O")}</td></tr>
+<tr><td>New table / query / report</td><td>${K("Ctrl Shift T")} / ${K("Ctrl Shift Q")} / ${K("Ctrl Shift R")}</td></tr></table>
+<h2>Ethical Photo Editor</h2><p>See <a href="#photo-tools">Photo: the tools</a> and <a href="#photo-selections">selections</a>. Also ${K("Ctrl J")} duplicate/copy to layer, ${K("Ctrl E")} merge down, ${K("Ctrl T")} transform, ${K("Ctrl Shift N")} new layer, ${K("Ctrl Alt I")} image size, ${K("Ctrl Alt C")} canvas size.</p>
+
+@@ troubleshooting
+title: Troubleshooting & FAQ
+keywords: problem error not working won't start crash missing right click font ffmpeg antivirus slow doc xls ppt
+---
+<h3>An app won't start</h3>
+<p>Run the installer from <a href="https://ethicalapp.org">ethicalapp.org</a> again — it repairs the installation and keeps your settings, notes and reminders.</p>
+<h3>“Windows protected your PC” when installing</h3><p>Click <b>More info → Run anyway</b>. Windows shows this for new programs it doesn't know yet. Check the download's SHA-256 fingerprint on the website if you want to be sure it's genuine.</p>
+<h3>The right-click entries are missing</h3><p>Run the installer again and tick the right-click option. On Windows 11 look under <b>Show more options</b>.</p>
+<h3>“Unsupported file type” / old Office files</h3><p>.doc, .xls and .ppt aren't supported — save them as .docx/.xlsx/.pptx first. .rar archives can't be extracted.</p>
+<h3>Text looks different from the original</h3><p>The fonts come from your PC. If a document uses a font you don't have, a look-alike is used. Install the font and reopen.</p>
+<h3>Something is missing after saving an Excel/PowerPoint file</h3><p>See <a href="#compat">File compatibility</a> — the app warns about features it can't keep. Keep the original and use Save As.</p>
+<h3>A video conversion failed</h3><p>The error message comes from FFmpeg. Common causes: the file is damaged or still downloading, it has no sound (for audio formats) or no picture (for video formats). Try MP4 (H.264) first — it works with almost everything.</p>
+<h3>Antivirus warning</h3><p>Some antivirus programs are suspicious of new programs they haven't seen before. EthicalApp's full source code is public on <a href="https://github.com/CBGGitHub/ethicalapp">GitHub</a>, and the website shows each download's fingerprint.</p>
+<h3>The apps are in the wrong language</h3><p>Click <b>🌐</b> at the bottom of the EthicalApp window — see <a href="#language">Changing the language</a>.</p>
+<h3>It feels slow</h3><p>Huge spreadsheets (100k+ formulas), very large photos with many layers, and long 4K videos take longer. The converter shows progress for each file.</p>
+
+@@ glossary
+title: Glossary
+keywords: glossary terms meaning definition bitrate crf codec lossless lossy dpi layer blend placeholder master
+---
+<table>
+<tr><td><b>Bitrate</b></td><td>How much data per second audio/video uses (e.g. 192k). Higher = better quality, bigger file.</td></tr>
+<tr><td><b>Blend mode</b></td><td>How a layer mixes with the layers below it (Multiply, Screen…).</td></tr>
+<tr><td><b>Codec</b></td><td>The method used to compress audio/video (H.264, H.265, AAC, MP3…).</td></tr>
+<tr><td><b>CRF</b></td><td>Video quality setting: lower = better quality, bigger file.</td></tr>
+<tr><td><b>DPI</b></td><td>Dots per inch — resolution when printing or turning PDFs into pictures.</td></tr>
+<tr><td><b>Feather</b></td><td>A soft, gradual edge on a selection.</td></tr>
+<tr><td><b>Flatten</b></td><td>Merge all layers into one picture.</td></tr>
+<tr><td><b>Layer</b></td><td>One sheet in a stack of transparent sheets that make up a picture.</td></tr>
+<tr><td><b>Lossless</b></td><td>Compression with no quality loss (PNG, FLAC, ZIP). <b>Lossy</b> throws away detail to save space (JPG, MP3, MP4).</td></tr>
+<tr><td><b>Master / layout</b></td><td>In PowerPoint files, the hidden design slides that give real slides their background, fonts and logo.</td></tr>
+<tr><td><b>Named range</b></td><td>A name (like <code>Prices</code>) that stands for cells in a spreadsheet.</td></tr>
+<tr><td><b>Placeholder</b></td><td>An empty “Click to add …” box on a slide.</td></tr>
+<tr><td><b>Redact</b></td><td>Permanently remove content from a PDF.</td></tr>
+<tr><td><b>Tolerance</b></td><td>How different a colour may be and still count as “similar” (magic wand, paint bucket).</td></tr></table>
+
+@@ licenses
+title: Credits & licences
+keywords: license licence credits open source ffmpeg qt pyside pymupdf gpl agpl lgpl mit
+---
+<p>EthicalApp's own code was written for this project. It's built on these free, open-source parts:</p>
+<table><tr><th>Part</th><th>Used for</th><th>Licence</th></tr>
+<tr><td>Python</td><td>the language</td><td>PSF</td></tr>
+<tr><td>Qt / PySide6</td><td>windows, text layout, printing, charts</td><td>LGPL v3</td></tr>
+<tr><td>PyMuPDF (MuPDF)</td><td>PDF reading/writing</td><td>AGPL v3</td></tr>
+<tr><td>FFmpeg (via imageio-ffmpeg)</td><td>audio & video conversion</td><td>GPL v3 (this build)</td></tr>
+<tr><td>python-docx, python-pptx, openpyxl</td><td>Word, PowerPoint, Excel files</td><td>MIT</td></tr>
+<tr><td>Pillow</td><td>pictures</td><td>MIT-CMU (HPND)</td></tr>
+<tr><td>NumPy, SciPy</td><td>image maths</td><td>BSD</td></tr>
+<tr><td>psd-tools</td><td>reading Photoshop files</td><td>MIT</td></tr>
+<tr><td>py7zr</td><td>7z archives</td><td>LGPL v2.1</td></tr>
+<tr><td>SQLite (built into Python)</td><td>Ethical Database databases</td><td>Public domain</td></tr>
+<tr><td>pyodbc</td><td>importing Access files</td><td>MIT</td></tr>
+<tr><td>yt-dlp, Deno (personal builds only)</td><td>downloading videos from links</td><td>Unlicense / MIT</td></tr>
+<tr><td>MCP Python SDK</td><td>the AI (Claude) connector</td><td>MIT</td></tr></table>
+<p>EthicalApp itself is licensed under the <b>AGPL-3.0</b>. The full licence texts are in the <code>licenses</code> folder of your installation, and the source code is at <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>. Not affiliated with Microsoft or Adobe.</p>

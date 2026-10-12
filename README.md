@@ -22,6 +22,11 @@ no tracking.** Made by [CraftingBenchGames](https://craftingbenchgames.com/).
 | **Ethical Snip** | Screenshots (area / window / full screen / free-form) you can mark up, pixelate, crop |
 | **Ethical Planner** | Reminders and calendar events that pop up on time, with Done/Snooze |
 
+**Languages:** English, Español, Português (Brasil), Français, Deutsch, Italiano, Nederlands, Polski, Türkçe,
+Русский, Bahasa Indonesia, 日本語, 한국어, 简体中文 – the apps follow your Windows language, or pick one with the 🌐
+button in the EthicalApp window. Translations live in `apps/locales/` (apps), `guide/i18n/` (guide) and
+`installer/setup_i18n.py` (installer); corrections are welcome.
+
 Press **F1** in any app for the searchable offline user guide. Optional: connect the apps to **Claude** (AI
 assistant) so it can use them for you – the installer offers this.
 

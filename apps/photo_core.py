@@ -9,23 +9,24 @@ import numpy as np
 from PIL import Image, ImageFilter, ImageOps
 from PySide6.QtCore import QBuffer, QByteArray, QIODevice, QPoint, QRect, Qt
 from PySide6.QtGui import QColor, QImage, QPainter, QPainterPath, QRegion
+from i18n import N_
 
 FMT = QImage.Format_ARGB32_Premultiplied
 
-BLEND_MODES = {  # name -> (QPainter mode, PSD key)
-    "Normal": (QPainter.CompositionMode_SourceOver, b"norm"),
-    "Multiply": (QPainter.CompositionMode_Multiply, b"mul "),
-    "Screen": (QPainter.CompositionMode_Screen, b"scrn"),
-    "Overlay": (QPainter.CompositionMode_Overlay, b"over"),
-    "Darken": (QPainter.CompositionMode_Darken, b"dark"),
-    "Lighten": (QPainter.CompositionMode_Lighten, b"lite"),
-    "Color Dodge": (QPainter.CompositionMode_ColorDodge, b"div "),
-    "Color Burn": (QPainter.CompositionMode_ColorBurn, b"idiv"),
-    "Soft Light": (QPainter.CompositionMode_SoftLight, b"sLit"),
-    "Hard Light": (QPainter.CompositionMode_HardLight, b"hLit"),
-    "Difference": (QPainter.CompositionMode_Difference, b"diff"),
-    "Exclusion": (QPainter.CompositionMode_Exclusion, b"smud"),
-    "Linear Dodge (Add)": (QPainter.CompositionMode_Plus, b"lddg"),
+BLEND_MODES = {  # name (English, kept in files) -> (QPainter mode, PSD key)
+    N_("Normal"): (QPainter.CompositionMode_SourceOver, b"norm"),
+    N_("Multiply"): (QPainter.CompositionMode_Multiply, b"mul "),
+    N_("Screen"): (QPainter.CompositionMode_Screen, b"scrn"),
+    N_("Overlay"): (QPainter.CompositionMode_Overlay, b"over"),
+    N_("Darken"): (QPainter.CompositionMode_Darken, b"dark"),
+    N_("Lighten"): (QPainter.CompositionMode_Lighten, b"lite"),
+    N_("Color Dodge"): (QPainter.CompositionMode_ColorDodge, b"div "),
+    N_("Color Burn"): (QPainter.CompositionMode_ColorBurn, b"idiv"),
+    N_("Soft Light"): (QPainter.CompositionMode_SoftLight, b"sLit"),
+    N_("Hard Light"): (QPainter.CompositionMode_HardLight, b"hLit"),
+    N_("Difference"): (QPainter.CompositionMode_Difference, b"diff"),
+    N_("Exclusion"): (QPainter.CompositionMode_Exclusion, b"smud"),
+    N_("Linear Dodge (Add)"): (QPainter.CompositionMode_Plus, b"lddg"),
 }
 PSD_TO_MODE = {v[1]: k for k, v in BLEND_MODES.items()}
 
@@ -390,40 +391,40 @@ def f_oil(arr, radius=3):
 
 
 FILTERS = {
-    "Gaussian Blur": (lambda arr, radius=4: _blur_all(arr, radius), [("radius", "Radius", 0.5, 100, 4)]),
-    "Motion Blur": (f_motion_blur, [("distance", "Distance", 3, 200, 20), ("angle", "Angle", -180, 180, 0)]),
-    "Sharpen": (_pil_filter(lambda im, amount=100, radius=2: im.filter(ImageFilter.UnsharpMask(radius, int(amount), 2))),
-                [("amount", "Amount %", 10, 500, 100), ("radius", "Radius", 0.5, 20, 2)]),
-    "Reduce Noise (Median)": (_pil_filter(lambda im, size=3: im.filter(ImageFilter.MedianFilter(max(3, int(size) | 1)))),
-                              [("size", "Size", 3, 15, 3)]),
-    "Add Noise": (f_noise, [("amount", "Amount", 1, 100, 10)]),
-    "Pixelate": (f_pixelate, [("size", "Cell size", 2, 200, 10)]),
-    "Vignette": (f_vignette, [("amount", "Amount", 0, 100, 50), ("size", "Clear centre %", 0, 100, 60)]),
-    "Emboss": (_pil_filter(lambda im: im.filter(ImageFilter.EMBOSS)), []),
-    "Find Edges": (_pil_filter(lambda im: ImageOps.invert(im.filter(ImageFilter.FIND_EDGES))), []),
-    "Oil Paint": (f_oil, [("radius", "Brush", 1, 8, 3)]),
+    N_("Gaussian Blur"): (lambda arr, radius=4: _blur_all(arr, radius), [("radius", N_("Radius"), 0.5, 100, 4)]),
+    N_("Motion Blur"): (f_motion_blur, [("distance", N_("Distance"), 3, 200, 20), ("angle", N_("Angle"), -180, 180, 0)]),
+    N_("Sharpen"): (_pil_filter(lambda im, amount=100, radius=2: im.filter(ImageFilter.UnsharpMask(radius, int(amount), 2))),
+                [("amount", N_("Amount %"), 10, 500, 100), ("radius", N_("Radius"), 0.5, 20, 2)]),
+    N_("Reduce Noise (Median)"): (_pil_filter(lambda im, size=3: im.filter(ImageFilter.MedianFilter(max(3, int(size) | 1)))),
+                              [("size", N_("Size"), 3, 15, 3)]),
+    N_("Add Noise"): (f_noise, [("amount", N_("Amount"), 1, 100, 10)]),
+    N_("Pixelate"): (f_pixelate, [("size", N_("Cell size"), 2, 200, 10)]),
+    N_("Vignette"): (f_vignette, [("amount", N_("Amount"), 0, 100, 50), ("size", N_("Clear centre %"), 0, 100, 60)]),
+    N_("Emboss"): (_pil_filter(lambda im: im.filter(ImageFilter.EMBOSS)), []),
+    N_("Find Edges"): (_pil_filter(lambda im: ImageOps.invert(im.filter(ImageFilter.FIND_EDGES))), []),
+    N_("Oil Paint"): (f_oil, [("radius", N_("Brush"), 1, 8, 3)]),
 }
 
 ADJUSTMENTS = {
-    "Brightness/Contrast": (adj_brightness_contrast, [("brightness", "Brightness", -100, 100, 0),
-                                                      ("contrast", "Contrast", -100, 100, 0)]),
-    "Levels": (adj_levels, [("black", "Input black", 0, 254, 0), ("white", "Input white", 1, 255, 255),
-                            ("gamma", "Midtones (gamma)", 0.1, 5, 1.0), ("out_black", "Output black", 0, 255, 0),
-                            ("out_white", "Output white", 0, 255, 255)]),
-    "Hue/Saturation": (adj_hue_saturation, [("hue", "Hue", -180, 180, 0), ("saturation", "Saturation", -100, 100, 0),
-                                            ("lightness", "Lightness", -100, 100, 0)]),
-    "Vibrance": (adj_vibrance, [("vibrance", "Vibrance", -100, 100, 30)]),
-    "Exposure": (adj_exposure, [("exposure", "Exposure (stops)", -5, 5, 0), ("gamma", "Gamma", 0.1, 3, 1.0)]),
-    "Color Balance": (adj_color_balance, [("cyan_red", "Cyan ↔ Red", -100, 100, 0),
-                                          ("magenta_green", "Magenta ↔ Green", -100, 100, 0),
-                                          ("yellow_blue", "Yellow ↔ Blue", -100, 100, 0)]),
-    "Temperature/Tint": (adj_temperature, [("temperature", "Cool ↔ Warm", -100, 100, 0),
-                                           ("tint", "Green ↔ Magenta", -100, 100, 0)]),
-    "Threshold": (adj_threshold, [("level", "Level", 1, 255, 128)]),
-    "Posterize": (adj_posterize, [("levels", "Levels", 2, 32, 4)]),
+    N_("Brightness/Contrast"): (adj_brightness_contrast, [("brightness", N_("Brightness"), -100, 100, 0),
+                                                      ("contrast", N_("Contrast"), -100, 100, 0)]),
+    N_("Levels"): (adj_levels, [("black", N_("Input black"), 0, 254, 0), ("white", N_("Input white"), 1, 255, 255),
+                            ("gamma", N_("Midtones (gamma)"), 0.1, 5, 1.0), ("out_black", N_("Output black"), 0, 255, 0),
+                            ("out_white", N_("Output white"), 0, 255, 255)]),
+    N_("Hue/Saturation"): (adj_hue_saturation, [("hue", N_("Hue"), -180, 180, 0), ("saturation", N_("Saturation"), -100, 100, 0),
+                                            ("lightness", N_("Lightness"), -100, 100, 0)]),
+    N_("Vibrance"): (adj_vibrance, [("vibrance", N_("Vibrance"), -100, 100, 30)]),
+    N_("Exposure"): (adj_exposure, [("exposure", N_("Exposure (stops)"), -5, 5, 0), ("gamma", N_("Gamma"), 0.1, 3, 1.0)]),
+    N_("Color Balance"): (adj_color_balance, [("cyan_red", N_("Cyan ↔ Red"), -100, 100, 0),
+                                          ("magenta_green", N_("Magenta ↔ Green"), -100, 100, 0),
+                                          ("yellow_blue", N_("Yellow ↔ Blue"), -100, 100, 0)]),
+    N_("Temperature/Tint"): (adj_temperature, [("temperature", N_("Cool ↔ Warm"), -100, 100, 0),
+                                           ("tint", N_("Green ↔ Magenta"), -100, 100, 0)]),
+    N_("Threshold"): (adj_threshold, [("level", N_("Level"), 1, 255, 128)]),
+    N_("Posterize"): (adj_posterize, [("levels", N_("Levels"), 2, 32, 4)]),
 }
-INSTANT = {"Invert": adj_invert, "Black & White": adj_black_white, "Sepia": adj_sepia,
-           "Auto Contrast": auto_contrast}
+INSTANT = {N_("Invert"): adj_invert, N_("Black & White"): adj_black_white, N_("Sepia"): adj_sepia,
+           N_("Auto Contrast"): auto_contrast}
 
 
 # ====================================================================== selection helpers
@@ -506,7 +507,7 @@ def grow_mask(mask, px):
 
 # ====================================================================== file I/O
 
-READ_FORMATS = "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff *.ico *.psd *.ora);;All files (*)"
+READ_FORMATS = "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff *.ico *.psd *.ora);;All files (*)"  # app: tr()
 
 
 def load_image_file(path):
@@ -542,11 +543,11 @@ def load_psd(path):
                 walk(layer)
                 continue
             if layer.kind in ("adjustment", "fill") and layer.kind == "adjustment":
-                warnings.add("adjustment layers")
+                warnings.add(N_("adjustment layers"))
                 continue
             try:
                 if layer.has_effects():
-                    warnings.add("layer effects (shadows, strokes…)")
+                    warnings.add(N_("layer effects (shadows, strokes…)"))
             except Exception:
                 pass
             im = layer.topil()
@@ -556,7 +557,7 @@ def load_psd(path):
                       layer.opacity / 255, PSD_TO_MODE.get(layer.blend_mode.value if hasattr(layer.blend_mode, "value")
                                                            else b"norm", "Normal"))
             if layer.kind == "type":
-                warnings.add("text layers (kept as pictures)")
+                warnings.add(N_("text layers (kept as pictures)"))
             doc.layers.append(l)
     walk(psd)
     if not doc.layers:

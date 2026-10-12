@@ -12,6 +12,7 @@ import subprocess
 import tarfile
 import threading
 import zipfile
+from i18n import N_, tr
 
 AUDIO = {".mp3", ".wav", ".flac", ".ogg", ".oga", ".m4a", ".aac", ".wma", ".opus", ".aiff", ".aif", ".amr", ".ac3", ".mka"}
 VIDEO = {".mp4", ".mkv", ".mov", ".avi", ".webm", ".wmv", ".flv", ".m4v", ".mpg", ".mpeg", ".3gp", ".ts", ".mts",
@@ -21,27 +22,27 @@ ARCHIVE = {".zip", ".7z", ".tar", ".gz", ".tgz", ".bz2", ".tbz2", ".xz", ".txz"}
 DOCS = {".pdf", ".docx", ".txt", ".md", ".html", ".htm", ".pptx", ".xlsx", ".csv"}
 
 # target label -> output extension, per category
-AUDIO_TARGETS = {"MP3": ".mp3", "WAV": ".wav", "FLAC (lossless)": ".flac", "M4A / AAC": ".m4a",
-                 "OGG Vorbis": ".ogg", "OPUS": ".opus", "AIFF": ".aiff", "WMA": ".wma",
-                 "MP4 video (audio + picture)": ".mp4"}
-VIDEO_TARGETS = {"MP4 (H.264)": ".mp4", "MP4 (H.265, smaller)": ".mp4", "MKV": ".mkv", "WebM": ".webm",
-                 "MOV": ".mov", "AVI": ".avi", "WMV": ".wmv", "GIF (animated)": ".gif",
-                 "MP3 (audio only)": ".mp3", "WAV (audio only)": ".wav", "M4A (audio only)": ".m4a",
-                 "FLAC (audio only)": ".flac"}
+AUDIO_TARGETS = {"MP3": ".mp3", "WAV": ".wav", N_("FLAC (lossless)"): ".flac", "M4A / AAC": ".m4a",
+                 N_("OGG Vorbis"): ".ogg", "OPUS": ".opus", "AIFF": ".aiff", "WMA": ".wma",
+                 N_("MP4 video (audio + picture)"): ".mp4"}
+VIDEO_TARGETS = {"MP4 (H.264)": ".mp4", N_("MP4 (H.265, smaller)"): ".mp4", "MKV": ".mkv", "WebM": ".webm",
+                 "MOV": ".mov", "AVI": ".avi", "WMV": ".wmv", N_("GIF (animated)"): ".gif",
+                 N_("MP3 (audio only)"): ".mp3", N_("WAV (audio only)"): ".wav", N_("M4A (audio only)"): ".m4a",
+                 N_("FLAC (audio only)"): ".flac"}
 IMAGE_TARGETS = {"PNG": ".png", "JPG": ".jpg", "WebP": ".webp", "BMP": ".bmp", "GIF": ".gif", "TIFF": ".tif",
-                 "ICO (icon)": ".ico", "PDF": ".pdf"}
+                 N_("ICO (icon)"): ".ico", "PDF": ".pdf"}
 DOC_TARGETS = {
-    ".pdf": {"PNG images (one per page)": ".png", "JPG images (one per page)": ".jpg", "Word (.docx)": ".docx",
-             "Text (.txt)": ".txt"},
-    ".docx": {"PDF": ".pdf", "Text (.txt)": ".txt", "Web page (.html)": ".html", "Markdown (.md)": ".md",
-              "OpenDocument (.odt)": ".odt"},
-    ".txt": {"PDF": ".pdf", "Word (.docx)": ".docx"},
-    ".md": {"PDF": ".pdf", "Word (.docx)": ".docx", "Web page (.html)": ".html"},
-    ".html": {"PDF": ".pdf", "Word (.docx)": ".docx", "Text (.txt)": ".txt"},
-    ".htm": {"PDF": ".pdf", "Word (.docx)": ".docx", "Text (.txt)": ".txt"},
-    ".pptx": {"PDF": ".pdf", "PNG images (one per slide)": ".png"},
-    ".xlsx": {"CSV (one per sheet)": ".csv"},
-    ".csv": {"Excel (.xlsx)": ".xlsx"},
+    ".pdf": {N_("PNG images (one per page)"): ".png", N_("JPG images (one per page)"): ".jpg", N_("Word (.docx)"): ".docx",
+             N_("Text (.txt)"): ".txt"},
+    ".docx": {"PDF": ".pdf", N_("Text (.txt)"): ".txt", N_("Web page (.html)"): ".html", N_("Markdown (.md)"): ".md",
+              N_("OpenDocument (.odt)"): ".odt"},
+    ".txt": {"PDF": ".pdf", N_("Word (.docx)"): ".docx"},
+    ".md": {"PDF": ".pdf", N_("Word (.docx)"): ".docx", N_("Web page (.html)"): ".html"},
+    ".html": {"PDF": ".pdf", N_("Word (.docx)"): ".docx", N_("Text (.txt)"): ".txt"},
+    ".htm": {"PDF": ".pdf", N_("Word (.docx)"): ".docx", N_("Text (.txt)"): ".txt"},
+    ".pptx": {"PDF": ".pdf", N_("PNG images (one per slide)"): ".png"},
+    ".xlsx": {N_("CSV (one per sheet)"): ".csv"},
+    ".csv": {N_("Excel (.xlsx)"): ".xlsx"},
 }
 GUI_JOBS = {".docx", ".txt", ".md", ".html", ".htm", ".pptx"}   # need Qt text/painting on the main thread
 
@@ -68,7 +69,7 @@ def targets_for(path):
     if cat == "document":
         return dict(DOC_TARGETS.get(ext, {}))
     if cat == "archive":
-        return {"Extract (unpack)": ""}
+        return {N_("Extract (unpack)"): ""}
     return {}
 
 
@@ -188,7 +189,7 @@ def run_ffmpeg(args, duration, progress, cancel):
         raise RuntimeError(f"FFmpeg failed: {msg}")
 
 
-VIDEO_QUALITY = {"High quality": 20, "Balanced": 23, "Small file": 28}
+VIDEO_QUALITY = {N_("High quality"): 20, N_("Balanced"): 23, N_("Small file"): 28}
 AUDIO_BITRATES = ["320k", "256k", "192k", "160k", "128k", "96k", "64k"]
 
 
@@ -228,7 +229,7 @@ def convert_media(src, target, dst, opts, progress, cancel):
                          *vf, "-c:a", "aac", "-b:a", abr, "-shortest", "-movflags", "+faststart", dst]
     elif ext in (".mp3", ".wav", ".flac", ".m4a", ".ogg", ".opus", ".aiff", ".wma"):
         if not info["audio"]:
-            raise RuntimeError("This file has no sound to convert.")
+            raise RuntimeError(tr("This file has no sound to convert."))
         args = ["-i", src, "-vn", "-map", "0:a:0"] + audio_codec_args(ext, abr) + [dst]
     elif ext == ".gif":
         width = int(opts.get("gif_width", 480))
@@ -237,7 +238,7 @@ def convert_media(src, target, dst, opts, progress, cancel):
                                   f"[b][p]paletteuse=dither=bayer:bayer_scale=4", "-loop", "0", dst]
     else:
         if not info["video"]:
-            raise RuntimeError("This file has no video picture.")
+            raise RuntimeError(tr("This file has no video picture."))
         if target == "MP4 (H.265, smaller)":
             v = ["-c:v", "libx265", "-preset", "medium", "-crf", str(crf + 4), "-tag:v", "hvc1", "-pix_fmt", "yuv420p"]
         elif ext == ".webm":
@@ -666,7 +667,7 @@ def extract_archive(src, folder, progress, cancel):
         with opener(src, "rb") as fin, open(os.path.join(dest, base), "wb") as fout:
             shutil.copyfileobj(fin, fout)
     else:
-        raise RuntimeError("Unsupported archive type.")
+        raise RuntimeError(tr("Unsupported archive type."))
     return [dest]
 
 
@@ -722,7 +723,7 @@ def combine_pdf(files, dst, progress, cancel):
             out.insert_pdf(pymupdf.open("pdf", buf.getvalue()))
         progress((i + 1) / len(files) * 100)
     if out.page_count == 0:
-        raise RuntimeError("Nothing to combine - add images or PDFs.")
+        raise RuntimeError(tr("Nothing to combine - add images or PDFs."))
     out.save(dst, garbage=3, deflate=True)
     return [dst]
 
@@ -759,7 +760,7 @@ def run_convert(src, target, folder, opts, progress, cancel):
     cat = category(src)
     t = targets_for(src)
     if target not in t:
-        raise RuntimeError("Can't convert this file to that format.")
+        raise RuntimeError(tr("Can't convert this file to that format."))
     ext = t[target]
     src_ext = os.path.splitext(src)[1].lower()
     if cat == "archive":
@@ -790,14 +791,14 @@ def compress_kind(src):
     cat = category(src)
     ext = os.path.splitext(src)[1].lower()
     if cat in ("audio", "video"):
-        return "Re-encode smaller" + (" (MP4)" if cat == "video" else "")
+        return N_("Re-encode smaller (MP4)") if cat == "video" else N_("Re-encode smaller")
     if cat == "image":
-        return "Smaller picture"
+        return N_("Smaller picture")
     if ext == ".pdf":
-        return "Shrink PDF"
+        return N_("Shrink PDF")
     if ext in (".docx", ".xlsx", ".pptx"):
-        return "Shrink pictures inside"
-    return "Zip it"
+        return N_("Shrink pictures inside")
+    return N_("Zip it")
 
 
 def run_compress(src, level, folder, progress, cancel):

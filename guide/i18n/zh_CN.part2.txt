@@ -1,0 +1,513 @@
+@@ photo-basics
+title: 照片：基础
+keywords: 照片编辑器 打开 新建 缩放 平移 图层 历史记录 界面
+---
+<ul><li><b>左侧：</b>工具以及前景色/背景色（⇄ 互换 = ${K("X")}，◩ 默认黑/白 = ${K("D")}）。</li>
+<li><b>顶部：</b>当前工具的选项（大小、不透明度、容差…）。</li>
+<li><b>右侧：</b><b>图层</b>和<b>历史记录</b>（点击某一步即可回到那一步）。</li></ul>
+<h2>浏览</h2><p><kbd>Ctrl</kbd>+滚轮缩放（以鼠标位置为中心），滚轮滚动，<kbd>空格</kbd>+拖动或按住中键拖动可平移视图，<kbd>Ctrl</kbd>+<kbd>0</kbd> 适合窗口，<kbd>Ctrl</kbd>+<kbd>1</kbd> 100%。放大很多时会显示像素网格。</p>
+<h2>新建图像</h2><p><b>文件 → 新建</b>提供预设（高清、4K、Instagram、YouTube 缩略图、A4…）和背景选择（白色、透明、黑色、颜色）。</p>
+<p>撤消/重做：<kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd>（30 步）。</p>
+
+@@ photo-tools
+title: 照片：工具
+keywords: 工具 画笔 橡皮擦 油漆桶 渐变 仿制图章 吸管 裁剪 移动 魔棒 套索 选区 抓手 缩放 快捷键
+---
+<table><tr><th>按键</th><th>工具</th><th>用法</th></tr>
+<tr><td>${K("V")}</td><td>移动</td><td>拖动图层（或只拖动选中的像素）。方向键可微移。</td></tr>
+<tr><td>${K("M")}</td><td>矩形 / 椭圆选框</td><td>拖动。${K("Shift")} 添加，${K("Alt")} 减去。有羽化选项。</td></tr>
+<tr><td>${K("L")}</td><td>套索</td><td>徒手圈出一个区域。</td></tr>
+<tr><td>${K("W")}</td><td>魔棒</td><td>点击选择相似颜色（容差、连续、对所有图层取样）。</td></tr>
+<tr><td>${K("C")}</td><td>裁剪</td><td>拖动后按 ${K("Enter")} 或双击。${K("Esc")} 取消。</td></tr>
+<tr><td>${K("B")}</td><td>画笔</td><td>大小、硬度（柔和/锐利边缘）、不透明度。${K("[")} ${K("]")} 调整大小。</td></tr>
+<tr><td>${K("E")}</td><td>橡皮擦</td><td>擦除到透明。</td></tr>
+<tr><td>${K("G")}</td><td>油漆桶</td><td>填充相连的相似颜色。</td></tr>
+<tr><td></td><td>渐变</td><td>拖出一条线：线性或径向，渐变到背景色或透明。</td></tr>
+<tr><td>${K("S")}</td><td>仿制图章</td><td>${K("Alt")}+单击取样源，然后涂抹来复制（非常适合去除污点）。</td></tr>
+<tr><td>${K("I")}</td><td>吸管</td><td>单击：拾取前景色。${K("Alt")}+单击：背景色。</td></tr>
+<tr><td>${K("T")}</td><td>文字</td><td>单击添加文字；单击已有文字图层即可编辑。</td></tr>
+<tr><td>${K("U")}</td><td>形状</td><td>矩形、圆角矩形、椭圆、直线、箭头 — 画在新图层上。${K("Shift")} = 正方形/正圆。</td></tr>
+<tr><td>${K("H")}</td><td>抓手</td><td>平移视图。</td></tr><tr><td>${K("Z")}</td><td>缩放</td><td>单击放大，${K("Alt")}+单击缩小。</td></tr></table>
+<p>绘画、填充、渐变、滤镜和调整只作用于<b>当前图层</b>的<b>选区</b>内（如果有选区的话）。</p>
+
+@@ photo-selections
+title: 照片：选区
+keywords: 全选 取消选择 反选 羽化 扩展 收缩 色彩范围 图层像素 剪切 复制 蚂蚁线
+---
+<p>选区限定你绘画或编辑的范围。它显示为“行进的蚂蚁线”。</p>
+<table><tr><td>全选 / 取消选择 / 反选</td><td>${K("Ctrl A")} / ${K("Ctrl D")} / ${K("Ctrl Shift I")}</td></tr>
+<tr><td>添加 / 减去</td><td>选择时按住 ${K("Shift")} / ${K("Alt")}，或选择模式</td></tr>
+<tr><td>柔和边缘</td><td>选择 → 羽化（${K("Shift F6")}）</td></tr>
+<tr><td>扩大 / 缩小</td><td>选择 → 扩展 / 收缩</td></tr>
+<tr><td>某种颜色的所有像素</td><td>选择 → 色彩范围（使用前景色）</td></tr>
+<tr><td>图层的可见像素</td><td>选择 → 图层像素</td></tr></table>
+<h2>选区可以做什么</h2><ul>
+<li><kbd>Delete</kbd> 清除；<i>编辑 → 填充</i>（<kbd>Alt</kbd>+<kbd>Backspace</kbd>）/ 描边。</li>
+<li><kbd>Ctrl</kbd>+<kbd>J</kbd> 复制到新图层，<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd> 剪切到新图层。</li>
+<li><kbd>Ctrl</kbd>+<kbd>T</kbd> 缩放/旋转；<i>图像 → 裁剪到选区</i>。</li>
+<li>复制 / 合并复制 / 粘贴（作为新图层）。</li></ul>
+
+@@ photo-layers
+title: 照片：图层和混合模式
+keywords: 图层 新建 复制 合并 拼合 不透明度 混合模式 正片叠底 滤色 叠加 隐藏 重命名 顺序
+---
+<p>图层就像叠在一起的纸：上面的盖住下面的。<b>图层</b>面板从上到下列出它们。</p>
+<ul><li>复选框 = 显示/隐藏。双击 = 重命名。用 ▲ ▼ 调整顺序。</li>
+<li>按钮：＋ 新建，⧉ 复制，▲▼ 移动，⤓ 向下合并（<kbd>Ctrl</kbd>+<kbd>E</kbd>），🗑 删除。</li>
+<li>列表上方的<b>不透明度</b>和<b>混合模式</b>框作用于当前图层。</li>
+<li>图层菜单：合并可见图层、翻转/旋转图层、编辑文字图层。图像菜单：拼合图像。</li></ul>
+<h2>混合模式</h2><table>
+<tr><td>正片叠底</td><td>变暗 — 适合做阴影，以及把线稿叠在颜色上</td></tr>
+<tr><td>滤色 / 线性减淡（添加）</td><td>变亮 — 发光、灯光效果</td></tr>
+<tr><td>叠加 / 柔光 / 强光</td><td>增加对比度和质感</td></tr>
+<tr><td>变暗 / 变亮</td><td>保留较暗 / 较亮的像素</td></tr>
+<tr><td>颜色减淡 / 颜色加深</td><td>强烈提亮 / 压暗</td></tr>
+<tr><td>差值 / 排除</td><td>根据下方图层反相 — 特效、比较图像</td></tr></table>
+<p>图层可以是任意大小，也可以超出画布 — 移动时不会丢失像素。</p>
+
+@@ photo-adjust
+title: 照片：调整和滤镜
+keywords: 亮度 对比度 色阶 色相 饱和度 自然饱和度 曝光度 色彩平衡 色温 黑白 怀旧 反相 阈值 色调分离 模糊 锐化 杂色 像素化 暗角 浮雕
+---
+<h2>图像 → 调整</h2><p>全部带有滑块和实时<b>预览</b>：</p>
+<table><tr><td>亮度/对比度</td><td>快速修正灰蒙蒙的照片</td></tr>
+<tr><td>色阶</td><td>设置黑场、白场和中间调（伽马）</td></tr>
+<tr><td>色相/饱和度</td><td>偏移颜色、加强/减弱、变亮/变暗</td></tr>
+<tr><td>自然饱和度</td><td>提升暗淡的颜色多于鲜艳的颜色（肤色保持自然）</td></tr>
+<tr><td>曝光度</td><td>就像调整相机的曝光（档）</td></tr>
+<tr><td>色彩平衡 / 色温-色调</td><td>修正偏色 — 更暖、更冷、更绿…</td></tr>
+<tr><td>阈值 / 色调分离</td><td>纯黑白 / 更少的颜色层次</td></tr></table>
+<p>一键操作：反相、黑白、怀旧、自动对比度。</p>
+<h2>滤镜菜单</h2><p>高斯模糊、动感模糊、锐化、减少杂色、添加杂色、像素化、暗角、浮雕、查找边缘、油画。</p>
+<div class="tip">要模糊背景：选中主体（魔棒 / 套索），<i>选择 → 反选</i>，<i>选择 → 羽化</i> 10 px，然后 <i>滤镜 → 高斯模糊</i>。</div>
+
+@@ photo-text-shapes
+title: 照片：文字和形状
+keywords: 文字 字体 描边 阴影 编辑 形状 矩形 椭圆 箭头 直线
+---
+<h2>文字</h2><p>文字工具（${K("T")}）→ 单击 → 输入。可选择任意字体、大小（px）、粗体/斜体、颜色、对齐、<b>描边</b>（粗细 + 颜色）和<b>投影</b>。
+每段文字都有自己的图层（标有 <b>T</b>）。之后要修改：文字工具 → 单击文字，或<i>图层 → 编辑文字图层</i>。</p>
+<div class="warn">缩放、旋转或翻转文字图层会把它变成普通图像图层（不能再作为文字编辑）。</div>
+<h2>形状</h2><p>形状工具（${K("U")}）：选择矩形、圆角矩形、椭圆、直线或箭头。填充使用前景色，描边使用背景色（可设宽度，0 = 无）。按住 ${K("Shift")} 可画正方形/正圆。每个形状都会放在新图层上。</p>
+
+@@ photo-files
+title: 照片：Photoshop 文件、保存和导出
+keywords: psd photoshop 保存 导出 png jpg webp 质量 ora 图层 拼合 tiff ico pdf
+---
+<h2>Photoshop（.psd）</h2><p>打开 PSD 时保留图层：名称、位置、不透明度、混合模式、隐藏图层（组会展开为其中的图层）。可<b>保存带图层的 PSD</b>，在 Photoshop 中能打开。</p>
+<p>不能编辑的：调整图层、图层效果（阴影、描边…）、蒙版、智能对象 — 会尽可能载入它们的像素，并提示你。Photoshop 的文字图层会作为图像载入。</p>
+<h2>保存</h2><table><tr><th>格式</th><th>保留图层？</th><th>适合</th></tr>
+<tr><td>.psd</td><td>✅</td><td>与 Photoshop 用户共享、保存作品</td></tr>
+<tr><td>.ora（OpenRaster）</td><td>✅（+ 可编辑文字）</td><td>以开放格式保存作品</td></tr>
+<tr><td>.png</td><td>❌</td><td>图形、截图、透明效果</td></tr>
+<tr><td>.jpg</td><td>❌</td><td>照片（会询问质量 1–100）</td></tr>
+<tr><td>.webp</td><td>❌</td><td>网页 — 文件小</td></tr>
+<tr><td>.tif / .bmp / .gif / .ico / .pdf</td><td>❌</td><td>印刷 / 老软件 / 图标 / 文档</td></tr></table>
+<p><b>文件 → 导出为</b>保存一份拼合后的副本，而不改动你正在编辑的文件。</p>
+
+@@ conv-basics
+title: 转换器：如何使用
+keywords: 转换器 添加文件 拖动 文件夹 目标 开始 取消 右键 批量
+---
+<ol><li><b>添加文件：</b>把文件或整个文件夹拖进列表，使用<b>添加文件…/添加文件夹…</b>，或在文件资源管理器中选中文件 → 右键单击 → <i>用 Ethical Converter 转换 / 压缩</i>。</li>
+<li>用选项卡<b>选择任务</b>：<a href="#conv-formats">转换</a>、<a href="#conv-compress">压缩</a>、<a href="#conv-combine">合并</a>、<a href="#conv-combine">压缩包 / 解压</a> — 或用 <a href="#conv-download">⬇ 从链接下载</a>保存在线视频。</li>
+<li>在<b>转换</b>中，每个文件都有自己的<b>转换为</b>选项；<b>将所有文件设为</b>会更改所有支持该格式的文件。</li>
+<li>选择结果保存的位置：<b>与各文件相同的文件夹</b>或<b>此文件夹</b>。</li>
+<li>按 <b>▶ 开始</b>。每个文件都会显示进度；<b>取消</b>可停止。</li></ol>
+<p>原文件永远不会被修改或覆盖 — 新文件会有自己的名字（例如 <code>video (compressed).mp4</code>、<code>photo (1).png</code>）。</p>
+<p><kbd>Delete</kbd> 把选中的文件移出列表。</p>
+
+@@ conv-formats
+title: 转换器：什么能转成什么
+keywords: 格式 音频 视频 图片 文档 wav mp3 mp4 mkv webm gif flac m4a pdf docx pptx xlsx csv png jpg webp ico
+---
+<table><tr><th>源格式</th><th>目标格式</th></tr>
+<tr><td><b>音频</b>：mp3 wav flac ogg m4a aac wma opus aiff amr ac3</td><td>MP3、WAV、FLAC（无损）、M4A/AAC、OGG、OPUS、AIFF、WMA、<b>MP4 视频</b>（声音 + 一张图片或黑屏）</td></tr>
+<tr><td><b>视频</b>：mp4 mkv mov avi webm wmv flv m4v mpg 3gp ts…</td><td>MP4（H.264）、MP4（H.265，更小）、MKV、WebM、MOV、AVI、WMV、GIF 动图，或只要声音：MP3、WAV、M4A、FLAC</td></tr>
+<tr><td><b>图片</b>：png jpg webp bmp gif tif ico psd tga</td><td>PNG、JPG、WebP、BMP、GIF、TIFF、ICO（多尺寸图标）、PDF</td></tr>
+<tr><td>PDF</td><td>PNG 或 JPG（每页一张）、Word .docx、文本</td></tr>
+<tr><td>Word .docx</td><td>PDF、文本、HTML、Markdown、ODT</td></tr>
+<tr><td>PowerPoint .pptx</td><td>PDF、PNG（每张幻灯片一张）</td></tr>
+<tr><td>Excel .xlsx</td><td>CSV（每个工作表一个）</td></tr><tr><td>CSV</td><td>Excel .xlsx</td></tr>
+<tr><td>.txt .md .html</td><td>PDF、Word .docx（以及 HTML/文本）</td></tr>
+<tr><td>压缩包：zip 7z tar tgz gz bz2 xz</td><td>解压</td></tr></table>
+<h2>选项（转换选项卡）</h2><ul>
+<li><b>视频质量</b> 高 / 均衡 / 小文件，<b>视频尺寸</b>（保持、4K、1080p、720p、480p、360p）。</li>
+<li><b>音频质量</b> 64k–320k（192k 是不错的默认值；320k 是最好的 MP3）。</li>
+<li><b>图片质量</b>和<b>最大尺寸</b>（用于 JPG/WebP 和缩小）。</li>
+<li><b>音频 → MP4 的图片</b>：选择一张封面图，否则使用黑屏。</li>
+<li><b>GIF 尺寸</b>（宽度）和 <b>PDF → 图片</b>的分辨率（dpi）。</li></ul>
+
+@@ conv-compress
+title: 转换器：压缩（让文件变小）
+keywords: 压缩 变小 缩小 大小 视频 音频 pdf 图片 word powerpoint excel zip 7z 邮件
+---
+<p>选择<b>轻度</b>（质量最好）、<b>均衡</b>或<b>强力</b>（最小）。</p>
+<table><tr><th>文件</th><th>会怎样处理</th></tr>
+<tr><td>视频</td><td>重新编码为 MP4（H.264）；均衡最高 1080p，强力最高 720p</td></tr>
+<tr><td>音频</td><td>降低码率（160k / 128k / 96k）；WAV/FLAC/AIFF 变为 MP3</td></tr>
+<tr><td>图片</td><td>以更小的体积重新保存（JPG/WebP 质量、减少 PNG 颜色、可选缩小到 2560/1600 px）</td></tr>
+<tr><td>PDF</td><td>缩小并重新压缩其中的图片，精简字体，清理文件</td></tr>
+<tr><td>Word/Excel/PowerPoint</td><td>缩小其中的图片，再以最高压缩率重新打包</td></tr>
+<tr><td>其他所有文件</td><td>打包成 zip（强力使用更小的 7z）</td></tr></table>
+<p>“结果”列显示每个文件缩小了多少。如果某个文件无法明显变小，就不会生成新文件（“已经很小”）。</p>
+<div class="tip">要用邮件发送大视频，<b>强力</b>通常能把它缩小到原来的几分之一，在手机上看依然清晰。</div>
+
+@@ conv-trim
+title: 转换器：剪辑视频（以及旋转、调整尺寸、静音）
+keywords: 剪辑 截取 视频 片段 开始 结束 旋转 横过来 尺寸 720p 1080p 静音 去掉声音 音频
+---
+<p><b>✂ 剪辑视频</b>选项卡只保留你想要的那段视频。</p>
+<ol><li>点击 <b>📂 打开视频…</b>（或把视频拖到选项卡上）。</li>
+<li>拖动滑块 — 画面会显示那一刻。点击 <b>⇤ 从这里开始</b>，往后移，再点击<b>在这里结束 ⇥</b>。也可以直接输入秒数。
+下面一行会显示保留的部分，例如“保留 0:12.0 → 1:05.5（0:53.5）”。</li>
+<li>选择剪切方式：<ul>
+<li><b>快速</b> — 立刻完成且不损失画质，但剪切点会落在最近的“关键帧”上，所以可能会提前几秒开始。</li>
+<li><b>精确</b> — 在准确的帧上剪切（视频会重新生成，所以稍慢一些）。</li></ul></li>
+<li>可选：<b>尺寸</b> 1080p / 720p / 480p（文件更小）、<b>旋转</b>（修正横着拍的手机视频）、<b>去掉声音</b>。
+尺寸和旋转总是使用精确方式。</li>
+<li>点击 <b>✂ 保存剪辑后的视频</b>。它会以“<i>名称</i> (trimmed)”保存在原视频旁边，或保存到<b>结果保存到</b>中的文件夹。
+原视频不会改变。</li></ol>
+<p class="note">如果只想调整整段视频的尺寸（一次处理很多个），请使用<b>转换</b>选项卡中的<b>视频尺寸</b>设置，或使用<b>压缩</b>。</p>
+
+@@ conv-combine
+title: 转换器：合并、打包和解压
+keywords: 合并 拼接 pdf 音频 视频 zip 7z 解压 压缩包
+---
+<h2>合并选项卡</h2><ul>
+<li><b>图片和 PDF → 一个 PDF</b>（例如把扫描的页面合成一个文档）。</li>
+<li><b>音频文件 → 一个 MP3</b>（首尾相接）。</li><li><b>视频 → 一个 MP4</b>。</li></ul>
+<p>文件按列表顺序合并 — 用 ▲ 上移 / ▼ 下移调整。为新文件输入一个名字。</p>
+<h2>压缩包 / 解压选项卡</h2><ul>
+<li><b>把所有文件放进一个 ZIP</b>（到处都能打开）或 <b>7z</b>（更小；需要 7-Zip 之类的软件才能打开）。文件夹会保持原有结构。</li>
+<li><b>解压</b>可把 .zip、.7z、.tar、.tar.gz/.tgz、.tar.bz2、.tar.xz、.gz、.bz2、.xz 解压到与压缩包同名的文件夹中。</li></ul>
+<p>暂时还不能解压 .rar 文件。</p>
+
+@@ conv-download
+title: 转换器：从链接下载视频
+keywords: 下载 youtube twitter x tiktok instagram vimeo 链接 url 视频 音频 mp3 播放列表 安全 病毒
+---
+<p class="note"><b>并非所有版本都有：</b>EthicalApp 的公开下载版不包含此功能。它只存在于用 <code>installer\build.py --with-downloader</code> 构建的个人版本，或从源代码运行时。</p>
+<p><b>⬇ 从链接下载</b>选项卡可以从 YouTube、X/Twitter、TikTok、Instagram、Vimeo、Facebook、Reddit、SoundCloud 等一千多个网站保存视频或其声音。</p>
+<ol><li>粘贴一个或多个链接（每行一个）— <b>📋 粘贴</b>按钮会粘贴你复制的内容。</li>
+<li>可选：<b>🔎 检查链接</b>会先显示每个视频的标题、频道和时长。</li>
+<li>选择<b>视频</b>（画质 360p–4K；<b>MP4</b> 到处都能播放，<b>最佳画质</b>保存为 MKV）或<b>仅音频</b>（MP3、M4A、OPUS、WAV、FLAC）。</li>
+<li>勾选<b>整个播放列表</b>可下载播放列表中的每个视频（最多 200 个）。</li>
+<li>按 <b>⬇ 下载</b>。文件会保存到“结果保存到”中的文件夹（或你的<b>下载</b>文件夹）。</li></ol>
+<p>勾选<b>把下载完成的文件加入文件列表</b>，就能马上转换或压缩它们（例如下载后做成 GIF）。</p>
+<h2>🛡 内置安全措施</h2><ul>
+<li>只接受普通网页链接 — 指向你电脑或家庭网络中文件的链接会被拒绝。</li>
+<li>下载的内容先进入私有的<b>隔离</b>文件夹。</li>
+<li>只有音频/视频类型的文件能离开隔离区 — 程序（.exe、脚本）、压缩包、文档和网页即使伪装成视频也会被<b>拦截并删除</b>。</li>
+<li>FFmpeg 会打开每个文件，确认里面真的是音频或视频。</li>
+<li><b>Microsoft Defender</b> 会在保存前扫描每个文件；任何被标记的文件都会被删除。</li>
+<li>应用永远不会打开或运行任何下载的东西。</li></ul>
+<div class="warn">⚖ 只下载你有权下载的视频 — 你自己上传的，或作者允许下载的视频（例如知识共享许可）。许多网站（包括 YouTube）的条款不允许下载，版权依然有效。</div>
+<h2>如果下载不再有效</h2><p>网站经常变化。按<b>更新下载器</b>（需要联网），然后重新启动转换器。
+私密、仅限会员、有年龄限制或在你所在地区被屏蔽的视频无法下载。</p>
+
+@@ base-basics
+title: 数据库：什么是数据库以及如何开始
+keywords: 数据库 access sqlite 开始 模板 新建 打开 表 记录 字段 导航窗格 自动保存
+---
+<p>数据库把各种清单 — 联系人、产品、订单、任务 — 保存在<b>表</b>中。每一行是一条
+<b>记录</b>（一位客户），每一列是一个<b>字段</b>（姓名、邮箱…）。和电子表格不同，表之间可以
+<a href="#base-relationships">关联</a>（一个订单属于一位客户），你还可以用<a href="#base-queries">查询</a>提问，
+并打印<a href="#base-reports">报表</a>。</p>
+<h2>开始</h2><p>起始页提供<b>空白数据库</b>，或带示例数据的现成模板：
+<b>联系人</b>、<b>任务</b>、<b>库存</b>（带低库存查询）、<b>客户和订单</b>（关联的表、订单合计查询和一份报表）。
+你也可以打开一个数据库，或把 Excel/CSV/Access 直接导入新数据库。</p>
+<h2>窗口</h2><ul>
+<li><b>左侧：</b>导航窗格 — 表、查询、报表。双击打开；右键单击可选设计视图、窗体视图、重命名、删除、导出、新建报表。</li>
+<li><b>右侧：</b>你打开的每个对象一个选项卡。</li></ul>
+<div class="tip">数据没有保存按钮 — 和 Access 一样，<b>每次修改都会立即保存</b>。备份请使用<i>文件 → 另存副本</i>。</div>
+<p>一个数据库就是一个 <b>.db</b> 文件（标准的 SQLite 格式，很多其他程序也能打开）。</p>
+
+@@ base-tables
+title: 数据库：设计表和字段类型
+keywords: 设计视图 表 字段 类型 自动编号 文本 数字 货币 日期 是 否 必填 唯一 默认值 重命名
+---
+<p><b>创建 → 表</b>（或右键单击表 → <b>设计视图</b>来修改）。设计器中的每一行就是一个字段：</p>
+<table><tr><th>类型</th><th>用于</th></tr>
+<tr><td>自动编号</td><td>自己编号的 ID（1、2、3…）— 每个表都应该有一个</td></tr>
+<tr><td>短文本 / 长文本</td><td>姓名、代码 / 备注、说明</td></tr>
+<tr><td>整数 / 小数</td><td>数量 / 测量值</td></tr>
+<tr><td>货币</td><td>金额（显示为 $1,234.50）</td></tr>
+<tr><td>日期 / 日期和时间</td><td>输入 2026-10-11、10/11/2026 或 <code>today</code></td></tr>
+<tr><td>是/否</td><td>复选框</td></tr></table>
+<ul><li><b>必填</b> — 字段不能为空。<b>唯一</b> — 两条记录不能有相同的值（例如产品代码、邮箱）。</li>
+<li><b>默认值</b> — 新记录会自动填入；<code>DATE()</code> 表示今天。</li>
+<li>随时可以重命名、调整顺序（▲▼）、添加或删除字段，然后按<b>保存表</b> — 现有数据会保留，用到被重命名字段的已保存查询也会自动更新。</li></ul>
+
+@@ base-data
+title: 数据库：输入和查找数据（数据表和窗体）
+keywords: 数据表 窗体视图 新建记录 删除 搜索 筛选 排序 编辑 查阅
+---
+<h2>数据表视图</h2><p>像电子表格一样打开。点击单元格输入；按 <kbd>Enter</kbd> 保存。</p><ul>
+<li><b>新记录：</b>在最下面标有 <b>✱</b> 的行中输入，或按 <b>＋ 新建记录</b>。</li>
+<li><b>删除：</b>选中记录 → <b>✖ 删除</b>。</li>
+<li><b>排序：</b>点击列标题（再点一次反向）。</li>
+<li><b>搜索所有字段</b>框会随输入进行筛选。<b>按所选内容筛选</b>只显示与当前单元格值相同的记录；<b>清除筛选</b>重新显示全部。</li>
+<li>是/否字段是复选框。关联到其他表的字段（例如订单的客户）会显示<b>名称下拉列表</b>，而不是 ID 号。</li></ul>
+<h2>窗体视图</h2><p>一次一条记录，每个字段一个框 — 输入较长的记录更方便。
+用 ⏮ ◀ ▶ ⏭ 翻页，还有 <b>＋ 新建</b>、<b>💾 保存</b>、<b>✖ 删除</b>和<b>查找…</b>。切换到其他记录时会保存你的修改。</p>
+<p>如果无法保存，会给出明确的原因 — 例如必填字段为空、唯一值已被使用，或关联的记录不存在。</p>
+
+@@ base-queries
+title: 数据库：查询（向数据提问）
+keywords: 查询 设计 条件 排序 汇总 求和 计数 分组 sql 视图 联接 相关
+---
+<p><b>创建 → 查询</b>。查询会挑选字段、筛选记录并排序 — 例如“本月已发货的所有订单，最新的在前”。已保存的查询显示在<b>查询</b>下，并始终显示最新数据。</p>
+<h2>设计选项卡</h2><ol>
+<li>选择<b>主表</b>。勾选<b>相关表</b>即可同时使用它们的字段（需要先建立<a href="#base-relationships">关系</a>）。</li>
+<li><b>＋ 添加字段</b>（或<b>添加所有字段</b>），然后为每个字段设置<b>显示</b>、<b>排序</b>和<b>条件</b>。</li>
+<li><b>▶ 运行</b>查看结果；<b>💾 保存查询…</b>保存它。</li></ol>
+<h2>条件示例</h2><table>
+<tr><td><code>&gt;100</code>、<code>&lt;=50</code>、<code>&lt;&gt;0</code></td><td>比较</td></tr>
+<tr><td><code>"London"</code> 或 <code>London</code></td><td>完全等于</td></tr>
+<tr><td><code>"London" Or "Paris"</code></td><td>二者之一</td></tr>
+<tr><td><code>Like "A*"</code></td><td>以 A 开头（<code>*</code> = 任意内容，<code>?</code> = 一个字符）</td></tr>
+<tr><td><code>Between 1 And 50</code></td><td>一个范围</td></tr>
+<tr><td><code>&gt;=#2026-01-01#</code></td><td>日期（放在 # 号之间）</td></tr>
+<tr><td><code>Is Null</code> / <code>Is Not Null</code></td><td>为空 / 不为空</td></tr>
+<tr><td><code>Yes</code> / <code>No</code></td><td>是/否字段</td></tr></table>
+<h2>汇总</h2><p>勾选<b>汇总</b>即可分组并合计 — 例如按客户分组、对数量求和。写在合计/计数上的条件作用于汇总结果。</p>
+<h2>SQL 选项卡</h2><p>以 SQL（数据库的标准语言）显示查询 — 你可以直接编辑。<i>数据库 → SQL 控制台</i>可运行任何 SQL；会修改数据的命令会先征求确认。</p>
+
+@@ base-relationships
+title: 数据库：关系（关联表）
+keywords: 关系 关联 外键 一对多 父表 子表 级联删除 关系图
+---
+<p>关系表示“每条<b>子</b>记录属于一条<b>父</b>记录” — 每个订单属于一位客户，每个产品属于一个类别。</p>
+<ol><li>给子表添加一个<b>整数</b>字段，用来存放父记录的 ID（例如订单表中的 <i>Customer ID</i>）。</li>
+<li><b>数据库 → 关系</b>：选择父表及其 ID、子表及其“指向”字段，然后 <b>＋ 添加关系</b>。</li></ol>
+<p>你会得到：</p><ul>
+<li>子字段在数据表和窗体中会显示<b>父记录名称下拉列表</b>。</li>
+<li>记录不能指向不存在的父记录，有子记录的父记录也不会被误删…</li>
+<li>…除非你勾选了<b>级联删除</b>：那样删除父记录时也会删除其子记录（例如删除订单会删除它的明细行）。</li>
+<li>查询可以组合关联表中的字段。</li></ul>
+<p>窗口会显示所有表的关系图，关联字段之间以连线表示（1 ── ∞）。</p>
+
+@@ base-reports
+title: 数据库：报表和打印
+keywords: 报表 打印 pdf 分组 汇总 求和 平均值 标题 横向
+---
+<p><b>创建 → 报表</b>（或右键单击表/查询 → 新建报表）。选择：</p><ul>
+<li><b>数据</b>（任意表或查询）和<b>标题</b>；</li>
+<li>要显示哪些<b>字段</b>（勾选并拖动调整顺序）；</li>
+<li>按某个字段<b>分组</b>（例如每位客户一节）和<b>排序</b>；</li>
+<li>数字字段的<b>汇总</b> — 求和、平均值或计数（按组和总计）；</li>
+<li>较宽的报表可用<b>横向</b>。</li></ul>
+<p>然后<b>打印</b>、<b>打印预览</b>或<b>导出 PDF</b>。<b>保存报表</b>会把它保存在<b>报表</b>下 — 它始终显示最新数据。</p>
+
+@@ base-import
+title: 数据库：导入和导出（Excel、CSV、Access）
+keywords: 导入 导出 excel xlsx csv access accdb mdb 驱动程序 备份 副本 压缩 修复
+---
+<h2>导入</h2><p><b>文件 → 导入</b>（或把文件拖进窗口）：<b>Excel .xlsx</b>（每个工作表 → 一个表）、<b>CSV</b> 或 <b>Access .accdb/.mdb</b>（每个表）。
+第一行会成为字段名，字段类型（数字、货币、日期、是/否、文本）会自动识别 — 之后请在设计视图中检查。
+在起始页可以直接导入到新数据库。</p>
+<div class="warn"><b>Access 文件</b>需要安装微软免费的 <b>Access Database Engine 2016 Redistributable（64 位）</b>（从 microsoft.com 下载）。只会导入表及其数据 — 不包括 Access 的窗体、报表和宏。</div>
+<h2>导出</h2><p><b>文件 → 导出</b>（或右键单击 → 导出）：把表或查询导出到 <b>Excel</b>，把<b>所有表和查询</b>导出到一个 Excel 文件（各占一个工作表），导出为 <b>CSV</b>，或导出为 <b>PDF</b> 报表。</p>
+<h2>维护文件</h2><ul><li><b>文件 → 另存副本</b> — 即使在打开状态下也能安全备份。</li>
+<li><b>数据库 → 压缩和修复</b> — 检查文件，并在大量删除后缩小文件。</li></ul>
+
+@@ stickies
+title: 便笺：桌面上的便笺和待办清单
+keywords: 便笺 笔记 待办 任务清单 提醒 桌面 便利贴 通知区域 开机启动
+---
+<p><b>Ethical Sticky Notes</b> 在桌面上放置小便笺 — 很适合待办清单、电话号码和提醒。
+输入时会自动保存，只保存在这台电脑上。</p>
+<h2>基础</h2><ul>
+<li><b>新便笺：</b>点击任意便笺上的 <b>+</b>，按 ${K("Ctrl N")}，或使用通知区域图标（任务栏右下角）→ <b>新建便笺</b>。</li>
+<li>拖动顶部栏可<b>移动</b>便笺。拖动边缘或角可<b>调整大小</b>。</li>
+<li>双击顶部栏可把便笺<b>折叠</b>到只剩标题（再双击展开）。</li>
+<li><b>颜色：</b><b>⋯</b> → 从 8 种颜色中选择。<b>文字大小：</b><b>⋯</b> → 文字大小。</li>
+<li><b>置顶：</b>点击 <b>📌</b>，便笺会保持在其他窗口上方。</li>
+<li><b>✕ 只是关闭</b>便笺，并不会删除。可通过通知区域图标 → <b>显示所有便笺</b>（或直接点击图标）或<b>所有便笺…</b>找回。</li></ul>
+<h2>待办清单</h2><ul>
+<li>在行首输入 <kbd>[</kbd><kbd>]</kbd> 和一个空格（或点击 <b>☑</b> / ${K("Ctrl Shift C")}）即可得到复选框。</li>
+<li>点击复选框打勾 — 该项会被划掉。再点一次取消勾选。</li>
+<li><kbd>Enter</kbd> 新建下一项；在空项上按 <kbd>Enter</kbd> 结束清单。在某项开头按 <kbd>Backspace</kbd> 会把它变回普通文字。</li>
+<li>输入 <kbd>-</kbd> 和一个空格得到项目符号（或 <b>•</b> / ${K("Ctrl Shift L")}）。</li></ul>
+<h2>格式</h2><p>点击便笺内部即可看到底部栏：<b>B</b> ${K("Ctrl B")}、<i>I</i> ${K("Ctrl I")}、<u>U</u> ${K("Ctrl U")}、
+<s>S</s> ${K("Ctrl T")}。粘贴的文字会去掉格式，以便和便笺风格一致。</p>
+<h2>查找和删除便笺</h2><ul>
+<li><b>所有便笺…</b>（通知区域图标或 <b>⋯</b>）列出所有便笺并带搜索框 — 双击即可打开。</li>
+<li><b>删除</b>：便笺底部栏的 🗑 或 ${K("Ctrl D")}。误删了？通知区域图标 → <b>恢复已删除的便笺</b>（保留最近 30 个）。</li></ul>
+<h2>随 Windows 启动</h2><p>通知区域图标 → <b>随 Windows 启动</b>（或在安装程序中勾选），每次登录时便笺都会回来。
+要完全关闭应用：通知区域图标 → <b>退出便笺</b> — 便笺会保留。</p>
+<h2>便笺保存在哪里</h2><p>保存在 <code>%APPDATA%\\Ethical Suite\\Sticky Notes\\notes.json</code>（外加一个备份副本 <code>notes.json.bak</code>）。它们从不
+上传。卸载 EthicalApp 会保留这个文件，所以重新安装后便笺还在。要把便笺搬到另一台电脑，复制这个文件即可。</p>
+<h2>配合 AI</h2><p>如果你把 EthicalApp 连接到了 Claude，可以说“在我桌面上放一张周六要办的事的待办便笺”或
+“把<i>给牙医打电话</i>打上勾” — 一两秒内屏幕上的便笺就会变化。</p>
+<h2>快捷键</h2><p>${K("Ctrl N")} 新便笺 · ${K("Ctrl D")} 删除 · ${K("Ctrl W")} 关闭 · ${K("Ctrl B")}/${K("Ctrl I")}/${K("Ctrl U")}/${K("Ctrl T")} 加粗/倾斜/下划线/删除线 ·
+${K("Ctrl Shift C")} 复选框 · ${K("Ctrl Shift L")} 项目符号 · ${K("F1")} 本指南</p>
+
+@@ planner
+title: Planner：提醒事项和日历
+keywords: 计划 提醒 提醒事项 日历 日程 闹钟 保健品 药 每天 重复 通知 稍后提醒 生日 预约
+---
+<p><b>Ethical Planner</b> 会准时提醒你 — “每天 8:00 吃保健品”“明天 14:30 看牙医”
+“妈妈的生日” — 屏幕角落会弹出一张卡片。</p>
+<h2>提醒事项和日程</h2><ul>
+<li><b>⏰ 新提醒</b>（${K("Ctrl N")}）用于你要<i>做</i>的事：弹窗上有<b>完成</b>按钮，也可以在列表中打勾。</li>
+<li><b>📅 新日程</b>（${K("Ctrl E")}）用于会<i>发生</i>的事：约会、生日。会提前提醒你（默认提前 15 分钟）。</li>
+<li><b>快速开始</b>下的按钮可填好常见事项：每天吃保健品、喝水、倒垃圾日、生日。</li>
+<li>在日历上双击某一天即可在那天添加日程。</li></ul>
+<h2>重复</h2><p><b>重复：</b>每天、每个工作日（周一至周五）、每周（勾选星期几，例如周一/周三/周五）、每月或每年 —
+以及“每 N 个”（每 2 天、每 3 周…）。<b>在此日期后停止重复</b>可设置结束日期。设在 31 日的每月提醒，在较短的月份会落在最后一天。</p>
+<h2>提醒和弹窗</h2><ul>
+<li>选择<b>提醒</b>时间（准时、提前 5/10/15/30 分钟、1–2 小时、1–2 天或一周），也可以再加一个（<b>另外</b>），例如提前一天<i>和</i>提前一小时。</li>
+<li>全天事项在 09:00 提醒（减去提前量）。</li>
+<li>卡片会一直显示，直到你点击<b>完成</b>/<b>确定</b>、<b>稍后提醒</b>（5 分钟 … 明天早上）或 ✕。即使开启了 Windows 专注助手也会显示。</li>
+<li>电脑关机或睡眠了？过去 12 小时内错过的提醒会在下次出现，并标为<i>已错过</i>。</li>
+<li>每次提醒都会响起柔和的铃声（Planner 自己的声音，所以即使关闭了 Windows 通知声音也会响）。试一试：<b>⋯ → 测试提醒弹窗</b>。在 <b>⋯</b> 中打开或关闭声音。</li>
+<li><b>时钟：</b>时间跟随电脑的时钟。选择 <b>⋯ → 时钟 → 12 小时制（8:00 PM）</b>或 <b>24 小时制（20:00）</b>– 默认情况下 Planner 跟随 Windows 的设置。</li></ul>
+<h2>列表</h2><ul>
+<li>显示所选的那一天及之后 6 天。点击日历上的日期可以向后看；<b>今天</b>（${K("Ctrl T")}）跳回来。</li>
+<li>勾选复选框，即可把提醒标为当天已完成（会被划掉）。逾期的显示为红色。</li>
+<li>右键单击事项：编辑、标为已完成 / 未完成、<b>仅跳过这一次</b>（重复事项）、删除。</li>
+<li>日历上加粗的日子有日程或不常见的提醒。<b>即将到来</b>显示下一个提醒。</li></ul>
+<h2>保持运行</h2><p>只有 Planner 在运行时才会弹出提醒，所以关闭窗口后它会留在通知区域（任务栏右下角）。
+第一次运行时会问你是否<b>随 Windows 启动</b> — 请选择是（也可以在安装程序或 <b>⋯</b> 中勾选）。通知区域菜单中的<b>退出 Ethical Planner</b> 可停止它。</p>
+<h2>保存在哪里</h2><p><code>%APPDATA%\\Ethical Suite\\Planner\\planner.json</code>（外加一个备份）。从不上传；卸载时也会保留。</p>
+<h2>配合 AI</h2><p>如果你把 Planner 连接到了 Claude：“每天 8 点提醒我吃维生素”“这周有什么安排？”
+“我吃过药了”（会打勾）、“把看牙医改到周四下午 3 点”。</p>
+
+@@ snip
+title: Snip：可以标注的截图
+keywords: 截图 屏幕截图 print screen 截图工具 裁剪 箭头 高亮 像素化 模糊 隐藏
+---
+<p><b>Ethical Snip</b> 会给屏幕拍照 — 整个屏幕、一个窗口或只选你要的部分 — 并让你在复制或保存前
+在上面画画。</p>
+<h2>截图</h2><ul>
+<li>在任何地方按 ${K("Ctrl PrtScn")}（Snip 运行时 — 它在任务栏右下角的通知区域里等待），点击 <b>✂ 新建截图</b>（${K("Ctrl N")}），或使用通知区域图标。</li>
+<li>屏幕会定格并变暗。在顶部选择：<b>矩形</b>（拖出一个区域）、<b>窗口</b>（点击一个窗口）、<b>全屏</b>（点击）或<b>任意形状</b>（圈出某样东西）。
+按键：<kbd>R</kbd> <kbd>W</kbd> <kbd>S</kbd> <kbd>F</kbd>。<kbd>Esc</kbd> 或右键单击取消。</li>
+<li><b>延时：</b>新建截图旁的箭头 → 延时 → 3、5 或 10 秒，好先打开菜单。</li>
+<li>每张截图都会<b>复制</b>（用 ${K("Ctrl V")} 粘贴到聊天或邮件里）并<b>保存</b>到 <code>Pictures\\Ethical Snips</code>。两者都可以在 <b>⋯</b> 中关闭。</li></ul>
+<h2>标注</h2><ul>
+<li><b>画笔</b> <kbd>P</kbd>、<b>高亮</b> <kbd>H</kbd>、<b>箭头</b> <kbd>A</kbd>、<b>方框</b> <kbd>R</kbd>（按住 <kbd>Shift</kbd> 画正方形）、<b>文字</b> <kbd>T</kbd>（点击后输入）。</li>
+<li><b>像素化</b> <kbd>X</kbd>：在姓名、地址或密码上拖动，分享图片前把它们隐藏起来。</li>
+<li><b>裁剪</b> <kbd>C</kbd>：圈出想保留的部分。</li>
+<li>在工具栏中选择颜色和粗细（细 / 中 / 粗）。<b>选择</b> <kbd>V</kbd> 可以移动标注或删除它们（<kbd>Delete</kbd>）。</li>
+<li>${K("Ctrl Z")} 撤消，${K("Ctrl Y")} 重做。缩放：${K("Ctrl +")} / ${K("Ctrl -")} / ${K("Ctrl 0")} 或 ${K("Ctrl")} + 滚轮。</li></ul>
+<h2>复制、保存、分享</h2><ul>
+<li><b>复制</b>（${K("Ctrl C")}）复制标注后的图片。<b>保存</b>（${K("Ctrl S")}）更新已保存的截图；<b>另存为…</b>可选择名称和 PNG、JPG、WebP 或 BMP。</li>
+<li>需要更多编辑（图层、滤镜、文字效果）时，用<b>在照片编辑器中打开</b>。</li>
+<li>Snip 也能标注任何其他图片：<b>⋯ → 打开图片</b>（${K("Ctrl O")}）、粘贴图片（${K("Ctrl V")}），或把文件拖到窗口上。</li></ul>
+<h2>设置（⋯ 菜单）</h2><p>复制每张截图 · 自动保存每张截图 · 为 ${K("Ctrl PrtScn")} 保持在通知区域运行 ·
+随 Windows 启动 · 更改快捷键 · 选择截图文件夹。关闭窗口后 Snip 仍在通知区域；<b>退出 Ethical Snip</b> 会彻底关闭它。</p>
+<h2>更改快捷键</h2><p>没有 PrtScn 键（很多笔记本电脑）？或者其他程序已经占用了它？在 Snip 的起始界面点击 <b>⌨ 更改快捷键…</b>（或点击右下角显示的快捷键，或 <b>⋯ → 更改快捷键…</b>），点击输入框，再按下你想要的键 — 例如 ${K("Ctrl Alt S")}。需要包含 ${K("Ctrl")}、${K("Alt")} 或 Windows 键（F 键可单独使用）。避免使用其他程序常用的快捷键，比如 ${K("Ctrl Shift S")}（另存为）。状态栏会显示当前生效的快捷键，或者告诉你它已被其他程序占用。</p>
+<h2>配合 AI</h2><p>如果你把 Snip 连接到了 Claude，可以说“把 Excel 窗口截个图保存到我的桌面”。Claude 只会
+在你要求时截图，图片保存在你的电脑上。</p>
+
+@@ ai-claude
+title: 通过 AI（Claude）使用应用
+keywords: ai 人工智能 claude mcp 助手 自动化 连接 工具 聊天 code desktop
+---
+<p>EthicalApp 包含一个 <b>MCP 服务器</b> — 一个让 AI 助手 <b>Claude</b>（Claude Code 或 Claude Desktop）替你操作这些应用的连接器。用你自己的话提出要求就行，例如：</p>
+<ul><li>“把我的笔记.md 变成排版整齐的 Word 文档。”</li>
+<li>“读一下预算.xlsx，加一行 10% 的应急费用和一个饼图。”</li>
+<li>“用海洋主题做一份 6 页的夏季计划幻灯片，然后打开它。”</li>
+<li>“把合同.pdf 里的所有电话号码涂黑。” · “用我的信息填好这个 PDF 表单。”</li>
+<li>“把这些照片都缩到 1080 px，再加上我们的标志文字。” · “把这个视频转成 MP3。”</li>
+<li>“为我的藏书建一个数据库，并给我一份按作者分组的报表。”</li></ul>
+<h2>连接</h2><ol><li>在安装程序中勾选<b>将所选应用连接到 Claude</b>（随时重新运行安装程序即可更改）。</li>
+<li>它会自动连接到 <b>Claude Code</b>，如果装了 <b>Claude Desktop</b> 也会连接（之后请重启 Claude Desktop）。</li>
+<li>用户指南始终包含在内，所以 Claude 可以查阅功能的用法。</li></ol>
+<p>要断开连接，重新运行安装程序并取消勾选，或卸载 EthicalApp。</p>
+<h2>Claude 能做什么（约 65 个工具）</h2><table>
+<tr><td>PDF</td><td>读取文字和信息、合并、拆分、提取/删除/旋转页面、添加文字或图片、查找替换文字、永久涂黑、列出并填写表单</td></tr>
+<tr><td>文档</td><td>把 .docx 读成 Markdown、用 Markdown 创建文档（标题、列表、表格）、追加内容、查找和替换</td></tr>
+<tr><td>电子表格</td><td>读取单元格（值或公式）、写入单元格和公式、设置区域格式、添加图表和工作表、计算任意公式</td></tr>
+<tr><td>演示文稿</td><td>读取演示文稿、用主题/项目符号/备注/图片创建、向已有文稿添加幻灯片</td></tr>
+<tr><td>照片</td><td>信息和图层、调整大小、裁剪、旋转、翻转、所有调整和滤镜、文字、画布大小</td></tr>
+<tr><td>转换器</td><td>转换任何支持的文件、压缩、合并、打包/解压、媒体信息、从链接下载（同样经过安全检查）</td></tr>
+<tr><td>数据库</td><td>概览、只读 SQL 查询、修改、创建数据库/表、插入记录、关系、已保存的查询、导入/导出、PDF 报表</td></tr>
+<tr><td>便笺</td><td>列出、读取、添加、修改并勾选桌面上的便笺</td></tr>
+<tr><td>Snip</td><td>列出窗口，并在你要求时截图</td></tr>
+<tr><td>Planner</td><td>列出、添加、修改和完成提醒事项与日程</td></tr>
+<tr><td>始终可用</td><td>搜索和阅读本指南，在合适的 Ethical 应用中打开文件给你看</td></tr></table>
+<h2>安全</h2><ul><li>Claude 只通过这些工具处理你电脑上的文件；Claude 在使用前会先询问（取决于你的 Claude 设置）。</li>
+<li>除非你要求覆盖，修改都会保存为<b>新副本</b>（例如“report (edited).pdf”）；除非你同意，新文件永远不会替换已有文件。</li>
+<li>除非使用修改工具，数据库查询都是只读的；关系规则依然有效。</li></ul>
+
+@@ shortcuts
+title: 所有键盘快捷键
+keywords: 键盘快捷键 按键 热键
+---
+<h2>所有应用</h2><table><tr><td>新建 / 打开 / 保存 / 另存为</td><td>${K("Ctrl N")} ${K("Ctrl O")} ${K("Ctrl S")} ${K("Ctrl Shift S")}</td></tr>
+<tr><td>撤消 / 重做</td><td>${K("Ctrl Z")} / ${K("Ctrl Y")}</td></tr><tr><td>打印</td><td>${K("Ctrl P")}</td></tr>
+<tr><td>查找</td><td>${K("Ctrl F")}</td></tr><tr><td>本指南</td><td>${K("F1")}</td></tr></table>
+<h2>Ethical PDF Editor</h2><table><tr><td>放大 / 缩小 / 实际大小 / 适合宽度</td><td>${K("Ctrl =")} ${K("Ctrl -")} ${K("Ctrl 0")} ${K("Ctrl 1")}</td></tr>
+<tr><td>查找下一个 / 上一个</td><td>${K("F3")} / ${K("Shift F3")}</td></tr><tr><td>页面向右 / 向左旋转</td><td>${K("Ctrl R")} / ${K("Ctrl Shift R")}</td></tr>
+<tr><td>复制所选文字 / 删除批注</td><td>${K("Ctrl C")} / ${K("Delete")}</td></tr></table>
+<h2>Ethical Document Editor</h2><p>见<a href="#write-basics">文档：基础</a>。</p>
+<h2>Ethical Spreadsheet Editor</h2><table><tr><td>定位</td><td>${K("Ctrl G")}</td></tr><tr><td>向下 / 向右填充</td><td>${K("Ctrl D")} / ${K("Ctrl R")}</td></tr>
+<tr><td>自动求和 / 插入函数</td><td>${K("Alt =")} / ${K("Shift F3")}</td></tr><tr><td>粘贴值</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>插入行 / 删除行</td><td>${K("Ctrl Shift =")} / ${K("Ctrl -")}</td></tr><tr><td>新建工作表</td><td>${K("Shift F11")}</td></tr>
+<tr><td>批注</td><td>${K("Shift F2")}</td></tr><tr><td>删除线</td><td>${K("Ctrl 5")}</td></tr></table>
+<h2>Ethical Presentation Editor</h2><table><tr><td>新建幻灯片</td><td>${K("Ctrl M")}</td></tr><tr><td>从头放映 / 从当前幻灯片放映</td><td>${K("F5")} / ${K("Shift F5")}</td></tr>
+<tr><td>复制对象</td><td>${K("Ctrl D")}</td></tr><tr><td>置于顶层 / 置于底层</td><td>${K("Ctrl Shift ]")} / ${K("Ctrl Shift [")}</td></tr></table>
+<h2>Ethical Database</h2><table><tr><td>新建数据库 / 打开</td><td>${K("Ctrl N")} / ${K("Ctrl O")}</td></tr>
+<tr><td>新建表 / 查询 / 报表</td><td>${K("Ctrl Shift T")} / ${K("Ctrl Shift Q")} / ${K("Ctrl Shift R")}</td></tr></table>
+<h2>Ethical Photo Editor</h2><p>见<a href="#photo-tools">照片：工具</a>和<a href="#photo-selections">选区</a>。另外还有 ${K("Ctrl J")} 复制/复制到图层，${K("Ctrl E")} 向下合并，${K("Ctrl T")} 变换，${K("Ctrl Shift N")} 新建图层，${K("Ctrl Alt I")} 图像大小，${K("Ctrl Alt C")} 画布大小。</p>
+
+@@ troubleshooting
+title: 疑难解答和常见问题
+keywords: 问题 错误 不工作 无法启动 崩溃 缺少 右键 字体 ffmpeg 杀毒软件 慢 doc xls ppt 语言
+---
+<h3>应用无法启动</h3>
+<p>重新运行 <a href="https://ethicalapp.org">ethicalapp.org</a> 上的安装程序 — 它会修复安装，并保留你的设置、便笺和提醒。</p>
+<h3>安装时出现“Windows 已保护你的电脑”</h3><p>点击<b>更多信息 → 仍要运行</b>。Windows 会对还不认识的新程序显示这个提示。如果想确认下载是真的，请在网站上核对下载文件的 SHA-256 指纹。</p>
+<h3>右键菜单中没有这些项目</h3><p>重新运行安装程序并勾选右键菜单选项。在 Windows 11 中请看<b>显示更多选项</b>。</p>
+<h3>“不支持的文件类型” / 旧版 Office 文件</h3><p>不支持 .doc、.xls 和 .ppt — 请先另存为 .docx/.xlsx/.pptx。不能解压 .rar 压缩包。</p>
+<h3>文字看起来和原文件不一样</h3><p>字体来自你的电脑。如果文档用了你没有的字体，就会改用相似的字体。安装该字体后重新打开即可。</p>
+<h3>保存 Excel/PowerPoint 文件后少了东西</h3><p>见<a href="#compat">文件兼容性</a> — 应用会提醒你哪些内容无法保留。请保留原文件并使用另存为。</p>
+<h3>视频转换失败</h3><p>错误信息来自 FFmpeg。常见原因：文件损坏或还在下载、没有声音（转音频格式时）或没有画面（转视频格式时）。先试试 MP4（H.264）— 它几乎适用于所有文件。</p>
+<h3>杀毒软件警告</h3><p>有些杀毒软件对从没见过的新程序比较警惕。EthicalApp 的全部源代码都公开在 <a href="https://github.com/CBGGitHub/ethicalapp">GitHub</a> 上，网站也列出了每个下载文件的指纹。</p>
+<h3>应用的语言不对</h3><p>点击 EthicalApp 窗口底部的 <b>🌐</b> — 见<a href="#language">更改语言</a>。</p>
+<h3>运行很慢</h3><p>巨大的电子表格（超过 10 万个公式）、图层很多的超大照片和很长的 4K 视频需要更长时间。转换器会显示每个文件的进度。</p>
+
+@@ glossary
+title: 术语表
+keywords: 术语表 术语 含义 定义 码率 crf 编解码器 无损 有损 dpi 图层 混合 占位符 母版
+---
+<table>
+<tr><td><b>码率</b></td><td>音频/视频每秒使用的数据量（例如 192k）。越高质量越好、文件越大。</td></tr>
+<tr><td><b>混合模式</b></td><td>图层与下方图层混合的方式（正片叠底、滤色…）。</td></tr>
+<tr><td><b>编解码器</b></td><td>压缩音频/视频的方法（H.264、H.265、AAC、MP3…）。</td></tr>
+<tr><td><b>CRF</b></td><td>视频质量设置：越低质量越好、文件越大。</td></tr>
+<tr><td><b>DPI</b></td><td>每英寸点数 — 打印或把 PDF 转成图片时的分辨率。</td></tr>
+<tr><td><b>羽化</b></td><td>选区柔和、渐变的边缘。</td></tr>
+<tr><td><b>拼合</b></td><td>把所有图层合并成一张图像。</td></tr>
+<tr><td><b>图层</b></td><td>一叠透明纸中的一张，它们叠在一起构成一幅图像。</td></tr>
+<tr><td><b>无损</b></td><td>不损失质量的压缩（PNG、FLAC、ZIP）。<b>有损</b>会舍弃细节来节省空间（JPG、MP3、MP4）。</td></tr>
+<tr><td><b>母版 / 版式</b></td><td>在 PowerPoint 文件中，为实际幻灯片提供背景、字体和徽标的隐藏设计幻灯片。</td></tr>
+<tr><td><b>名称区域</b></td><td>代表电子表格中一些单元格的名字（如 <code>Prices</code>）。</td></tr>
+<tr><td><b>占位符</b></td><td>幻灯片上写着“单击此处添加…”的空框。</td></tr>
+<tr><td><b>涂黑</b></td><td>从 PDF 中永久删除内容。</td></tr>
+<tr><td><b>容差</b></td><td>颜色相差多少仍算作“相似”（魔棒、油漆桶）。</td></tr></table>
+
+@@ licenses
+title: 致谢和许可证
+keywords: 许可证 致谢 开源 ffmpeg qt pyside pymupdf gpl agpl lgpl mit
+---
+<p>EthicalApp 自己的代码是为这个项目编写的。它建立在以下免费开源组件之上：</p>
+<table><tr><th>组件</th><th>用途</th><th>许可证</th></tr>
+<tr><td>Python</td><td>编程语言</td><td>PSF</td></tr>
+<tr><td>Qt / PySide6</td><td>窗口、文字排版、打印、图表</td><td>LGPL v3</td></tr>
+<tr><td>PyMuPDF（MuPDF）</td><td>读写 PDF</td><td>AGPL v3</td></tr>
+<tr><td>FFmpeg（通过 imageio-ffmpeg）</td><td>音频和视频转换</td><td>GPL v3（此版本）</td></tr>
+<tr><td>python-docx, python-pptx, openpyxl</td><td>Word、PowerPoint 和 Excel 文件</td><td>MIT</td></tr>
+<tr><td>Pillow</td><td>图像</td><td>MIT-CMU (HPND)</td></tr>
+<tr><td>NumPy, SciPy</td><td>图像计算</td><td>BSD</td></tr>
+<tr><td>psd-tools</td><td>读取 Photoshop 文件</td><td>MIT</td></tr>
+<tr><td>py7zr</td><td>7z 压缩包</td><td>LGPL v2.1</td></tr>
+<tr><td>SQLite（Python 内置）</td><td>Ethical Database 的数据库</td><td>公有领域</td></tr>
+<tr><td>pyodbc</td><td>导入 Access 文件</td><td>MIT</td></tr>
+<tr><td>yt-dlp, Deno（仅个人版本）</td><td>从链接下载视频</td><td>Unlicense / MIT</td></tr>
+<tr><td>MCP Python SDK</td><td>AI（Claude）连接器</td><td>MIT</td></tr></table>
+<p>EthicalApp 本身采用 <b>AGPL-3.0</b> 许可证。完整的许可证文本在安装目录的 <code>licenses</code> 文件夹中，源代码在 <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>。与 Microsoft 和 Adobe 无关。</p>

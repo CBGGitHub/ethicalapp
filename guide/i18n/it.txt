@@ -1,0 +1,442 @@
+@ui
+guide_title: Guida di EthicalApp
+search: Cerca nella guida…  (premi / )
+theme: Chiaro / scuro
+footer: Guida di EthicalApp · funziona offline
+result_one: 1 risultato per “{q}”
+result_many: {n} risultati per “{q}”
+nothing: Nessun risultato. Prova con meno parole o con parole diverse — es. “unire pdf”, “somma”, “livello”.
+english_only: Questo articolo per ora è disponibile solo in inglese.
+
+@sections
+start: Per iniziare
+pdf: Ethical PDF Editor
+write: Ethical Document Editor
+sheets: Ethical Spreadsheet Editor
+slides: Ethical Presentation Editor
+photo: Ethical Photo Editor
+conv: Ethical Converter
+base: Ethical Database
+sticky: Ethical Sticky Notes
+snip: Ethical Snip
+planner: Ethical Planner
+help: Aiuto e riferimento
+
+@@ welcome
+title: Benvenuto in EthicalApp
+keywords: panoramica app introduzione inizio
+---
+<p>EthicalApp è una raccolta gratuita e fatta in casa di app desktop per Windows — le nostre versioni degli strumenti
+che tutti usano ogni giorno. Aprono e salvano i <b>veri formati di file</b> (Word, Excel, PowerPoint, PDF, Photoshop),
+così puoi scambiare file con chiunque.</p>
+<div class="cards">
+<a class="card" href="#pdf-basics"><img src="../branding/icons/png/pdf_64.png" alt=""><b>Ethical PDF Editor</b><span>Visualizza, modifica il testo, annota, compila moduli, firma, unisci e dividi PDF</span></a>
+<a class="card" href="#write-basics"><img src="../branding/icons/png/document_64.png" alt=""><b>Ethical Document Editor</b><span>Documenti — apre e salva i .docx di Word</span></a>
+<a class="card" href="#sheets-basics"><img src="../branding/icons/png/spreadsheet_64.png" alt=""><b>Ethical Spreadsheet Editor</b><span>Fogli di calcolo con 143 formule e grafici — .xlsx di Excel</span></a>
+<a class="card" href="#slides-basics"><img src="../branding/icons/png/presentation_64.png" alt=""><b>Ethical Presentation Editor</b><span>Presentazioni e diapositive — .pptx di PowerPoint</span></a>
+<a class="card" href="#photo-basics"><img src="../branding/icons/png/photo_64.png" alt=""><b>Ethical Photo Editor</b><span>Editor di foto a livelli — .psd di Photoshop, PNG, JPG…</span></a>
+<a class="card" href="#conv-basics"><img src="../branding/icons/png/converter_64.png" alt=""><b>Ethical Converter</b><span>Converti e comprimi audio, video, immagini, documenti; zip/estrai</span></a>
+<a class="card" href="#base-basics"><img src="../branding/icons/png/database_64.png" alt=""><b>Ethical Database</b><span>Database: tabelle, maschere, query, relazioni, report</span></a>
+<a class="card" href="#stickies"><img src="../branding/icons/png/stickynotes_64.png" alt=""><b>Ethical Sticky Notes</b><span>Note ed elenchi di cose da fare che restano sul desktop</span></a>
+<a class="card" href="#snip"><img src="../branding/icons/png/snip_64.png" alt=""><b>Ethical Snip</b><span>Screenshot da annotare — Ctrl+Stamp</span></a>
+<a class="card" href="#planner"><img src="../branding/icons/png/planner_64.png" alt=""><b>Ethical Planner</b><span>Promemoria e un calendario che avvisano in tempo</span></a>
+</div>
+<h2>Avvio rapido</h2>
+<ol><li>Prima volta? Vedi <a href="#setup">Installare e avviare le app</a>.</li>
+<li>Apri <b>EthicalApp</b> dal menu Start o dal desktop: una finestra con tutte le tue app. Fai clic su una, oppure trascinaci sopra un file.
+Puoi anche <b>fare clic destro su un file → Apri con Ethical …</b> (vedi <a href="#right-click">Menu del clic destro</a>).</li>
+<li>Premi <kbd>F1</kbd> in qualsiasi app per aprire questa guida alla pagina di quell'app.</li>
+<li>Preferisci un'altra lingua? Fai clic su <b>🌐</b> in basso nella finestra di EthicalApp (vedi <a href="#language">Cambiare lingua</a>).</li>
+<li>Vuoi che un assistente IA faccia il lavoro? Vedi <a href="#ai-claude">Usare le app con l'IA (Claude)</a>.</li></ol>
+<div class="tip">Usa la casella di ricerca in alto (o premi <kbd>/</kbd>) per trovare qualsiasi cosa — es. “oscurare”, “CERCA.VERT”, “metodo di fusione”, “comprimere video”.</div>
+
+@@ setup
+title: Installare e avviare le app
+keywords: installare installazione scaricare aggiornare disinstallare menu start prima volta
+---
+<h2>Installare</h2>
+<ol><li>Scarica il programma di installazione da <a href="https://ethicalapp.org">ethicalapp.org</a> ed eseguilo. Non serve la password di amministratore.</li>
+<li>Se Windows dice “PC protetto da Windows”, fai clic su <b>Ulteriori informazioni → Esegui comunque</b>. Il messaggio compare con i programmi nuovi ancora poco conosciuti; puoi verificare che il download sia autentico con l'impronta SHA-256 mostrata sul sito.</li>
+<li>Scegli <b>Tutto</b>, <b>Solo app per l'ufficio</b>, oppure spunta esattamente le app che vuoi.</li>
+<li>Opzioni: collegamenti sul desktop, voci “Apri con Ethical …” nel clic destro, avvio di Sticky Notes / Snip / Planner con Windows e <b>Collega le app scelte a Claude</b> (vedi <a href="#ai-claude">Usare le app con l'IA</a>).</li>
+<li><b>Aiutami ad aggiungere EthicalApp alla barra delle applicazioni / a Start</b>: Windows non permette ai programmi di aggiungersi da soli, quindi il launcher mostra i due clic necessari (clic destro sulla sua icona nella barra delle applicazioni → <b>Aggiungi alla barra delle applicazioni</b>; oppure in Start clic destro su <b>EthicalApp</b> → <b>Aggiungi a Start</b>). Il link <b>Aggiungi alla barra delle applicazioni o a Start…</b> del launcher li mostra di nuovo quando vuoi.</li></ol>
+<h2>Avviare</h2>
+<p>Apri <b>EthicalApp</b> (menu Start o desktop) per avere una finestra con tutte le app installate: fai clic su un riquadro, usa <b>Apri un file…</b> (<kbd>Ctrl</kbd>+<kbd>O</kbd>) o trascinaci sopra dei file, e ognuno si apre nell'app giusta. Ogni app è anche in <b>Start → EthicalApp</b>.</p>
+<h2>Aggiornare e disinstallare</h2>
+<p>Per aggiornare, esegui un programma di installazione più recente: sostituisce la versione precedente e mantiene impostazioni, note e promemoria. Per togliere tutto: <b>Impostazioni → App → EthicalApp → Disinstalla</b> (note e promemoria restano sul PC nel caso tu reinstalli).</p>
+<h2>Dal codice sorgente (sviluppatori)</h2>
+<p>Tutto il codice sorgente è pubblico — vedi <a href="#sharing">Codice sorgente e compilarlo da sé</a>.</p>
+
+@@ language
+title: Cambiare lingua
+keywords: lingua traduzione italiano inglese language
+---
+<p>EthicalApp è disponibile in English, Español, Português (Brasil), Français, Deutsch, Italiano, Nederlands, Polski, Türkçe, Русский, Bahasa Indonesia, 日本語, 한국어 e 简体中文.</p>
+<ol><li>Apri la finestra di <b>EthicalApp</b> (menu Start).</li>
+<li>Fai clic su <b>🌐</b> in basso e scegli una lingua. <b>Come Windows</b> segue la lingua di visualizzazione di Windows — è l'impostazione predefinita.</li>
+<li>Accetta di riavviare EthicalApp. Le app già aperte cambiano la prossima volta che le avvii.</li></ol>
+<p>La scelta vale per tutte le app Ethical, questa guida e le finestre di dialogo (Apri/Salva, colori). Anche le date seguono la tua lingua.</p>
+<div class="tip">I tuoi file non cambiano: un documento resta nella lingua in cui l'hai scritto. Vengono tradotti solo i pulsanti e i menu.</div>
+
+@@ right-click
+title: Menu del clic destro e app predefinite
+keywords: apri con menu contestuale programma predefinito windows 11 mostra altre opzioni rimuovere
+---
+<p>Se hai spuntato l'opzione del clic destro nel programma di installazione, il menu del clic destro di Windows ha queste voci (solo per il tuo account — non servono diritti di amministratore):</p>
+<table><tr><th>Clic destro su…</th><th>Ottieni</th></tr>
+<tr><td>.pdf</td><td>Apri con Ethical PDF Editor</td></tr>
+<tr><td>.docx</td><td>Apri con Ethical Document Editor</td></tr>
+<tr><td>.xlsx, .csv</td><td>Apri con Ethical Spreadsheet Editor</td></tr>
+<tr><td>.pptx</td><td>Apri con Ethical Presentation Editor</td></tr>
+<tr><td>.psd .png .jpg .webp .bmp .gif .tif .ora</td><td>Apri con Ethical Photo Editor</td></tr>
+<tr><td>.db .sqlite .accdb .mdb</td><td>Apri con Ethical Database</td></tr>
+<tr><td>Qualsiasi file o cartella</td><td>Converti / comprimi con Ethical Converter</td></tr></table>
+<p>Seleziona più file, fai clic destro e scegli la voce del convertitore: finiscono tutti in <b>un'unica</b> finestra del convertitore.</p>
+<h2>Rendere un'app quella predefinita</h2>
+<p>Clic destro su un file → <b>Apri con → Scegli un'altra app</b> → scegli l'app Ethical → spunta <b>Usa sempre questa app</b>.</p>
+<h2>Windows 11</h2><p>Le voci si trovano in <b>Mostra altre opzioni</b> (oppure tieni premuto <kbd>Maiusc</kbd> mentre fai clic destro).</p>
+<h2>Rimuovere le voci</h2>
+<p>Esegui di nuovo il programma di installazione e togli la spunta all'opzione del clic destro, oppure disinstalla EthicalApp — le voci vengono rimosse insieme.</p>
+
+@@ sharing
+title: Codice sorgente e compilarlo da sé
+keywords: codice sorgente github open source compilare sviluppatore modificare agpl condividere
+---
+<p>EthicalApp è open source (AGPL-3.0). Tutto il codice sorgente è su GitHub: <a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>, e ogni programma di installazione ha il suo codice sorgente in uno zip su <a href="https://ethicalapp.org">ethicalapp.org</a>.</p>
+<h2>Condividere con gli amici</h2>
+<p>Manda loro il link a <a href="https://ethicalapp.org">ethicalapp.org</a> — è sempre la versione più recente e sicura.</p>
+<h2>Compilare il programma di installazione dal codice sorgente</h2>
+<ol><li>Installa <b>Python 3.14</b> e <b>Inno Setup 6</b>.</li>
+<li>Nella cartella del codice: <code>python -m venv .venv</code>, poi <code>.venv\\Scripts\\python -m pip install -r requirements.txt</code>.</li>
+<li>Avvia le app direttamente (es. <code>.venv\\Scripts\\python apps\\suite_launcher.py</code>) oppure compila il programma di installazione con <code>.venv\\Scripts\\python installer\\build.py</code>.</li></ol>
+<h2>Cosa c'è nel codice sorgente</h2>
+<table><tr><th>Cartella</th><th>A cosa serve</th></tr>
+<tr><td><code>apps/</code></td><td>Il codice di ogni app</td></tr>
+<tr><td><code>apps/locales/</code></td><td>Le traduzioni (un file per lingua)</td></tr>
+<tr><td><code>guide/</code></td><td>Questa guida (e <code>guide/i18n/</code> per le sue traduzioni)</td></tr>
+<tr><td><code>branding/</code></td><td>Icone e suoni</td></tr>
+<tr><td><code>installer/</code></td><td>Crea il programma di installazione per Windows</td></tr>
+<tr><td><code>licenses/</code></td><td>Licenze delle parti open source</td></tr></table>
+<p>Se lo modifichi e condividi la tua versione, la AGPL ti chiede di condividere anche il tuo codice sorgente.</p>
+
+@@ compat
+title: Compatibilità dei file a colpo d'occhio
+keywords: formati docx xlsx pptx psd pdf compatibile perso avviso mantenere
+---
+<table><tr><th>App</th><th>Apre</th><th>Salva</th><th>Non ancora mantenuto (ti avvisa)</th></tr>
+<tr><td>PDF</td><td>.pdf (anche protetti da password)</td><td>.pdf, esporta .docx/.txt/immagini</td><td>—</td></tr>
+<tr><td>Documenti</td><td>.docx .html .md .txt</td><td>.docx .odt .html .md .txt, PDF</td><td>note a piè di pagina, commenti, revisioni, caselle di testo, immagini mobili, colonne</td></tr>
+<tr><td>Fogli di calcolo</td><td>.xlsx .xlsm .csv .tsv</td><td>.xlsx .csv, PDF</td><td>formattazione condizionale, elenchi a discesa/convalida dati, tabelle pivot, macro, grafici insoliti</td></tr>
+<tr><td>Presentazioni</td><td>.pptx</td><td>.pptx, PDF, PNG</td><td>grafici, SmartArt, video/audio, animazioni e transizioni</td></tr>
+<tr><td>Database</td><td>.db/.sqlite (SQLite); importa .xlsx, .csv, Access .accdb/.mdb*</td><td>.db; esporta .xlsx, .csv, PDF</td><td>*L'importazione da Access richiede il driver Access gratuito di Microsoft; maschere, report e macro di Access non vengono importati (solo le tabelle)</td></tr>
+<tr><td>Foto</td><td>.psd .png .jpg .webp .bmp .gif .tif .ico .ora</td><td>.psd (livelli) .ora (livelli), tutti i formati piatti, PDF</td><td>livelli di regolazione PSD, effetti di livello, maschere, oggetti avanzati (i pixel vengono caricati)</td></tr></table>
+<div class="tip">Quando un file contiene qualcosa che un'app non può mantenere, te lo dice all'apertura e ti chiede di nuovo prima di salvare sopra l'originale. Usa <b>File → Salva con nome</b> per lasciare intatto l'originale.</div>
+<p>I vecchi formati (<code>.doc</code>, <code>.xls</code>, <code>.ppt</code>) non sono supportati — aprili nel programma che li ha creati e salvali prima nel formato moderno con la “x”.</p>
+
+@@ pdf-basics
+title: PDF: aprire, visualizzare e cercare testo
+keywords: zoom miniature pagine pannello cerca trova password
+---
+<p>Apri un PDF con <b>File → Apri</b> (<kbd>Ctrl</kbd>+<kbd>O</kbd>), trascinandolo nella finestra, oppure con clic destro → <i>Apri con Ethical PDF Editor</i>. I PDF protetti da password chiedono la password.</p>
+<h2>Muoversi</h2><ul>
+<li><b>Zoom:</b> <kbd>Ctrl</kbd>+rotellina, la casella dello zoom, <i>Adatta alla larghezza</i> (<kbd>Ctrl</kbd>+<kbd>1</kbd>), dimensioni reali (<kbd>Ctrl</kbd>+<kbd>0</kbd>).</li>
+<li><b>Pannello Pagine</b> (a sinistra): fai clic su una miniatura per saltarci. Selezionane più di una con <kbd>Ctrl</kbd>/<kbd>Maiusc</kbd> per le operazioni sulle pagine. Clic destro per il menu Pagine.</li>
+<li><b>Vai a pagina:</b> scrivi un numero nella casella Pagina.</li></ul>
+<h2>Cercare testo</h2><p>Scrivi in <b>Trova testo…</b> e premi <kbd>Invio</kbd>; <kbd>F3</kbd> / <b>Avanti</b> e <b>Prec.</b> scorrono i risultati (tutti evidenziati, quello attuale in arancione).</p>
+<h2>Copiare testo</h2><p>Con lo strumento <b>Selezione</b>, trascina sul testo, poi <kbd>Ctrl</kbd>+<kbd>C</kbd>.</p>
+
+@@ pdf-edit-text
+title: PDF: modificare il testo esistente e aggiungere testo
+keywords: modifica testo cambiare parole carattere refuso aggiungi testo
+---
+<h2>Cambiare testo già presente nel PDF</h2><ol>
+<li>Scegli lo strumento <b>Modifica testo</b>.</li><li>Fai clic sulla riga da cambiare.</li>
+<li>Una finestra mostra il testo della riga, il carattere, la dimensione, grassetto/corsivo e il colore — cambia ciò che vuoi e premi OK.</li></ol>
+<p>L'app riconosce il carattere del PDF e sceglie quello corrispondente installato sul PC (es. Calibri, Times New Roman). Se non è installato, ne usa uno simile.</p>
+<div class="warn">La modifica funziona una riga alla volta. Il testo ruotato o verticale non si può modificare.</div>
+<h2>Aggiungere testo nuovo</h2><p>Scegli <b>Aggiungi testo</b>, fai clic dove deve andare, scrivi e scegli qualsiasi carattere installato. Diventa vero testo della pagina — più tardi puoi cambiarlo con <b>Modifica testo</b>.</p>
+
+@@ pdf-annotate
+title: PDF: evidenziazione, note, disegno e forme
+keywords: annotare evidenziare sottolineare barrare nota disegnare penna rettangolo ellisse freccia linea immagine colore
+---
+<table><tr><th>Strumento</th><th>Come</th></tr>
+<tr><td>Evidenzia / Sottolineato / Barrato</td><td>Trascina sul testo. Evidenzia usa il colore dell'<b>Evidenziatore</b>; gli altri il pulsante <b>Colore</b>.</td></tr>
+<tr><td>Nota</td><td>Fai clic per inserire una nota adesiva e scrivila.</td></tr>
+<tr><td>Disegna</td><td>Penna a mano libera (colore e spessore dalla barra degli strumenti).</td></tr>
+<tr><td>Rettangolo / Ellisse / Linea / Freccia</td><td>Trascina per disegnare.</td></tr>
+<tr><td>Immagine</td><td>Fai clic (o trascina un riquadro) e scegli un'immagine.</td></tr></table>
+<h2>Modificare le annotazioni in seguito</h2><p>Passa a <b>Selezione</b>, poi:</p><ul>
+<li>trascina un'annotazione per spostarla; premi <kbd>Canc</kbd> per toglierla;</li>
+<li>fai doppio clic su una casella di testo o una nota per modificarne il testo;</li>
+<li>clic destro per <i>Cambia colore</i> / <i>Elimina</i>.</li></ul>
+<p>Ogni modifica si può annullare con <kbd>Ctrl</kbd>+<kbd>Z</kbd>.</p>
+
+@@ pdf-forms-sign
+title: PDF: compilare moduli e firmare
+keywords: modulo campo casella di controllo compilare firmare firma disegnare
+---
+<h2>Moduli</h2><p>I campi dei moduli sono colorati di azzurro (disattivalo con <i>Visualizza → Evidenzia i campi del modulo</i>). Con lo strumento <b>Selezione</b> fai clic su un campo: i campi di testo chiedono il testo, le caselle si spuntano e si tolgono, gli elenchi a discesa mostrano le scelte.</p>
+<h2>Firme</h2><ol><li>Scegli lo strumento <b>Firma</b> (o <i>Modifica → Crea firma</i>).</li>
+<li><b>Disegna</b> la firma con il mouse, oppure usa un'immagine (scheda <b>Immagine</b> — meglio un PNG con sfondo trasparente).</li>
+<li>Fai clic sulla pagina per inserirla. Fai clic di nuovo per altre copie. Spostala in seguito con <b>Selezione</b>.</li></ol>
+
+@@ pdf-pages
+title: PDF: pagine, unire e dividere
+keywords: ruotare eliminare riordinare spostare inserire vuota unire combinare dividere estrarre pagine immagini
+---
+<p>Tutti i comandi delle pagine sono nel menu <b>Pagine</b> (anche con clic destro nel pannello Pagine). Agiscono sulle miniature selezionate, o sulla pagina attuale.</p>
+<table><tr><th>Per</th><th>Usa</th></tr>
+<tr><td>Ruotare</td><td>Ruota a destra <kbd>Ctrl</kbd>+<kbd>R</kbd> / a sinistra <kbd>Ctrl</kbd>+<kbd>Maiusc</kbd>+<kbd>R</kbd></td></tr>
+<tr><td>Riordinare</td><td>Sposta pagina su / giù</td></tr>
+<tr><td>Aggiungere pagine</td><td>Inserisci pagina vuota, Inserisci pagine da file (un altro PDF), Inserisci immagine come pagina</td></tr>
+<tr><td>Togliere pagine</td><td>Estrai le pagine selezionate (le salva in un nuovo PDF)</td></tr>
+<tr><td>Un file per pagina</td><td>Dividi in pagine singole</td></tr>
+<tr><td>Eliminare</td><td>Elimina le pagine selezionate</td></tr></table>
+<h2>Unire più file</h2><p><b>File → Unisci file in un PDF</b>: scegli PDF e immagini in ordine; diventano un nuovo PDF. <b>File → Nuovo PDF da immagini</b> trasforma foto o scansioni in un PDF.</p>
+<div class="tip">Il <a href="#conv-combine">Convertitore</a> può anche unire immagini e PDF in blocco.</div>
+
+@@ pdf-redact
+title: PDF: coprire di bianco o oscurare (nascondere informazioni)
+keywords: oscurare riquadro nero nascondere rimuovere riservato coprire di bianco privacy sicurezza
+---
+<table><tr><th>Strumento</th><th>Cosa fa</th><th>Sicuro per i segreti?</th></tr>
+<tr><td><b>Copri di bianco</b></td><td>Dipinge un riquadro bianco sull'area.</td><td>❌ Il testo sotto resta nel file e si può copiare.</td></tr>
+<tr><td><b>Oscura</b></td><td>Cancella per sempre il testo, le immagini e i disegni sotto il riquadro e lo riempie di nero.</td><td>✅ Sì — il contenuto sparisce.</td></tr></table>
+<div class="warn">Usa sempre <b>Oscura</b> per password, numeri di conto, indirizzi e simili. Salva il risultato come nuovo file e conserva l'originale al sicuro.</div>
+
+@@ pdf-export
+title: PDF: salvare, esportare e stampare
+keywords: salvare esportare word docx immagini png jpg testo stampare
+---
+<ul><li><b>Salva</b> (<kbd>Ctrl</kbd>+<kbd>S</kbd>) / <b>Salva con nome</b>. Il salvataggio mantiene solo le lettere usate dei caratteri incorporati, quindi i file restano piccoli.</li>
+<li><b>File → Esporta</b>: pagine come immagini PNG/JPG (scegli i DPI), come documento Word (.docx — testo, stili e immagini; non l'impaginazione esatta) o come testo semplice.</li>
+<li><b>File → Stampa</b> (<kbd>Ctrl</kbd>+<kbd>P</kbd>).</li></ul>
+
+@@ write-basics
+title: Documenti: le basi
+keywords: elaboratore di testi documento vista pagina scrivere stili titoli normale caratteri
+---
+<p>Ethical Document Editor mostra il documento come vere pagine — fogli bianchi con margini, esattamente come verranno stampati. La barra di stato mostra la pagina in cui ti trovi e il numero di parole.</p>
+<h2>Stili</h2><p>La prima casella della barra di formattazione imposta lo stile del paragrafo: <b>Normale, Titolo, Titolo 1–4</b>. Premendo <kbd>Invio</kbd> dopo un titolo si torna a Normale, come in Word. I titoli vengono salvati come veri titoli di Word.</p>
+<h2>Caratteri</h2><p>Sono disponibili tutti i caratteri installati sul PC. I nuovi documenti usano Calibri 11 (o Arial se Calibri non è installato).</p>
+<h2>Tasti utili</h2><table>
+<tr><td>Grassetto / Corsivo / Sottolineato</td><td>${K("Ctrl B")} ${K("Ctrl I")} ${K("Ctrl U")}</td></tr>
+<tr><td>Testo più grande / più piccolo</td><td>${K("Ctrl ]")} ${K("Ctrl [")}</td></tr>
+<tr><td>Allinea a sinistra / centra / a destra / giustifica</td><td>${K("Ctrl L")} ${K("Ctrl E")} ${K("Ctrl R")} ${K("Ctrl J")}</td></tr>
+<tr><td>Trova e sostituisci</td><td>${K("Ctrl F")} / ${K("Ctrl H")}</td></tr>
+<tr><td>Interruzione di pagina</td><td>${K("Ctrl Enter")}</td></tr>
+<tr><td>Cancella formattazione</td><td>${K("Ctrl Space")}</td></tr>
+<tr><td>Incolla senza formattazione</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>Conteggio parole</td><td>${K("Ctrl Shift G")}</td></tr></table>
+
+@@ write-format
+title: Documenti: formattare testo, paragrafi ed elenchi
+keywords: grassetto colore evidenziatore apice pedice interlinea rientro elenchi puntati numerazione elenco tabulazione
+---
+<h2>Testo</h2><p>Carattere, dimensione, <b>B</b> <i>I</i> <u>U</u> <s>S</s>, apice x², pedice x₂, colore del testo (scegli dal campione, applica con <b>A</b>), evidenziatore, <i>Formato → Maiuscole/minuscole</i>, <i>Cancella formattazione</i>.</p>
+<h2>Paragrafi</h2><p>Allineamento, <i>Paragrafo → Interlinea</i> (1.0–3.0), spazio prima/dopo, aumenta/riduci rientro (<kbd>Ctrl</kbd>+<kbd>M</kbd> / <kbd>Ctrl</kbd>+<kbd>Maiusc</kbd>+<kbd>M</kbd>).</p>
+<h2>Elenchi</h2><ul>
+<li><b>• Elenco</b> / <b>1. Elenco</b> avviano punti elenco o numerazione; <i>Paragrafo → Stile elenco</i> ha 8 stili (•, ○, ▪, 1., a., A., i., I.).</li>
+<li><kbd>Tab</kbd> all'inizio di una voce la rende una sottovoce; <kbd>Maiusc</kbd>+<kbd>Tab</kbd> la riporta indietro.</li>
+<li><kbd>Invio</kbd> su una voce vuota termina l'elenco; <kbd>Backspace</kbd> all'inizio toglie il punto elenco.</li></ul>
+
+@@ write-insert
+title: Documenti: immagini, tabelle e link
+keywords: inserire immagine ridimensionare tabella righe colonne unire sfondo link collegamento data linea orizzontale
+---
+<h2>Immagini</h2><p><i>Inserisci → Immagine</i>, incolla con <kbd>Ctrl</kbd>+<kbd>V</kbd>, o trascina un file immagine. Clic destro su un'immagine → <b>Ridimensiona immagine</b> per impostarne la dimensione in %.</p>
+<h2>Tabelle</h2><p><i>Inserisci → Tabella</i> (scegli righe/colonne e, se vuoi, un'intestazione ombreggiata). Dentro una tabella, il menu <b>Tabella</b> o il clic destro permettono di inserire/eliminare righe e colonne, unire le celle selezionate, dividere celle, aggiungere uno sfondo o eliminare la tabella.</p>
+<h2>Link</h2><p>Seleziona il testo e premi <kbd>Ctrl</kbd>+<kbd>K</kbd>. <kbd>Ctrl</kbd>+clic su un link per aprirlo. Clic destro → Rimuovi link.</p>
+<h2>Altro</h2><p>Interruzione di pagina (<kbd>Ctrl</kbd>+<kbd>Invio</kbd>), data e ora, linea orizzontale.</p>
+
+@@ write-pagesetup
+title: Documenti: impostazione pagina, intestazioni, piè di pagina e numeri di pagina
+keywords: margini formato carta a4 letter orizzontale intestazione piè di pagina numeri di pagina
+---
+<p><b>File → Imposta pagina</b>:</p><ul>
+<li>Carta: Letter, Legal, A4, A5 o formato personalizzato; <b>Orizzontale</b>.</li>
+<li>Margini (superiore, inferiore, sinistro, destro) in pollici.</li>
+<li>Testo dell'<b>intestazione</b> (centrato in alto su ogni pagina), del <b>piè di pagina</b> (in basso a sinistra), <b>numeri di pagina</b> (in basso a destra).</li></ul>
+<p>Vengono salvati nel .docx, quindi Word li mostra anche lui.</p>
+
+@@ write-files
+title: Documenti: file, compatibilità con Word, PDF e stampa
+keywords: docx salvare aprire odt html markdown txt pdf esportare stampare anteprima compatibilità
+---
+<p><b>Apre:</b> .docx, .html, .md, .txt. <b>Salva:</b> .docx (predefinito), .odt, .html, .md, .txt. <b>Esporta come PDF</b> mantiene testo vero e selezionabile. <b>Stampa</b> e <b>Anteprima di stampa</b> corrispondono alla vista pagina.</p>
+<h2>Cosa passa da/verso Word</h2><p>Titoli e Titolo, caratteri (anche quelli del tema), dimensioni, grassetto/corsivo/sottolineato/barrato, colori, evidenziatore, allineamento, rientri, spaziature, interruzioni di pagina, elenchi puntati e numerati (annidati), tabelle (celle unite, larghezze, sfondi), immagini, link, formato della pagina e margini, testo di intestazione/piè di pagina e numeri di pagina.</p>
+<p><b>Non ancora:</b> note a piè di pagina, commenti, revisioni, caselle di testo, immagini mobili (con testo intorno), colonne, più sezioni. Non ci sono ancora né zoom né controllo ortografico.</p>
+
+@@ sheets-basics
+title: Fogli di calcolo: le basi
+keywords: foglio di calcolo cella scrivere invio tab spostarsi barra della formula casella nome schede fogli stato somma
+---
+<h2>La finestra</h2><ul>
+<li><b>Casella nome</b> (in alto a sinistra): mostra la cella attuale; scrivi <code>B12</code>, <code>A1:C20</code>, <code>Sheet2!A1</code> o un intervallo denominato e premi Invio per andarci (<kbd>Ctrl</kbd>+<kbd>G</kbd>).</li>
+<li><b>fx / barra della formula</b>: mostra e modifica ciò che c'è davvero nella cella (es. la formula).</li>
+<li><b>Schede dei fogli</b> (in basso): <b>+</b> aggiunge un foglio; doppio clic per rinominare; clic destro per duplicare/eliminare; trascina per riordinare.</li>
+<li><b>Barra di stato</b>: seleziona alcuni numeri per vederne somma, media e conteggio.</li></ul>
+<h2>Scrivere valori</h2><table><tr><th>Scrivi</th><th>Ottieni</th></tr>
+<tr><td><code>1234.5</code> / <code>1,234</code></td><td>numero (con formato delle migliaia)</td></tr>
+<tr><td><code>$5</code> / <code>25%</code></td><td>valuta / percentuale</td></tr>
+<tr><td><code>2026-10-11</code>, <code>10/11/2026</code>, <code>Oct 11, 2026</code></td><td>data</td></tr>
+<tr><td><code>9:30</code>, <code>9:30 PM</code></td><td>ora</td></tr>
+<tr><td><code>TRUE</code> / <code>FALSE</code></td><td>valore vero/falso</td></tr>
+<tr><td><code>'007</code></td><td>testo esattamente come scritto (il ' è nascosto)</td></tr>
+<tr><td><code>=A1*2</code></td><td>una formula</td></tr></table>
+<h2>Spostarsi</h2><table>
+<tr><td>${K("Enter")} / ${K("Shift Enter")}</td><td>giù / su</td></tr><tr><td>${K("Tab")} / ${K("Shift Tab")}</td><td>destra / sinistra</td></tr>
+<tr><td>${K("Ctrl Arrow")}</td><td>salta al bordo dei dati</td></tr><tr><td>${K("Ctrl Shift Arrow")}</td><td>seleziona fino al bordo</td></tr>
+<tr><td>${K("F2")} o doppio clic</td><td>modifica la cella</td></tr><tr><td>${K("Delete")}</td><td>cancella il contenuto</td></tr></table>
+
+@@ sheets-formulas
+title: Fogli di calcolo: formule e riferimenti
+keywords: formula riferimento assoluto relativo $ dollaro altro foglio intervallo denominato errore div/0 rif nome n/d circolare somma automatica
+---
+<p>Una formula comincia con <code>=</code>: <code>=B2*C2</code>, <code>=SUM(D2:D20)</code>, <code>=IF(A1&gt;10,"big","small")</code>.</p>
+<h2>Operatori</h2><p><code>+ - * /</code>, <code>^</code> (potenza), <code>%</code> (percentuale), <code>&amp;</code> (unisci testo), <code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code>.</p>
+<h2>Riferimenti</h2><table>
+<tr><td><code>A1</code></td><td>una cella — si adatta quando la copi</td></tr>
+<tr><td><code>$A$1</code> / <code>A$1</code> / <code>$A1</code></td><td>colonna e/o riga assoluta (fissa) — non cambia quando copi</td></tr>
+<tr><td><code>A1:C10</code></td><td>un blocco di celle</td></tr><tr><td><code>B:B</code></td><td>un'intera colonna</td></tr>
+<tr><td><code>'My Sheet'!A1</code></td><td>una cella di un altro foglio</td></tr>
+<tr><td><code>Prices</code></td><td>un intervallo denominato (<i>Dati → Definisci nome</i>)</td></tr>
+<tr><td><code>{1,2;3,4}</code></td><td>una costante matrice</td></tr></table>
+<p>Copia/incolla, riempi in basso (<kbd>Ctrl</kbd>+<kbd>D</kbd>) e riempi a destra (<kbd>Ctrl</kbd>+<kbd>R</kbd>) adattano i riferimenti come Excel. Inserire o eliminare righe/colonne aggiorna tutte le formule; i riferimenti a celle eliminate diventano <code>#REF!</code>.</p>
+<h2>Scorciatoie</h2><ul><li><b>Somma automatica</b> (<kbd>Alt</kbd>+<kbd>=</kbd>) scrive <code>=SUM(…)</code> per i numeri sopra o a sinistra.</li>
+<li><b>Funzione…</b> (<kbd>Maiusc</kbd>+<kbd>F3</kbd>) inserisce il nome di una funzione; <i>Guida → Elenco funzioni</i> le mostra tutte.</li></ul>
+<h2>Errori</h2><table>
+<tr><td><code>#DIV/0!</code></td><td>divisione per zero</td></tr><tr><td><code>#VALUE!</code></td><td>tipo sbagliato (es. testo in un calcolo)</td></tr>
+<tr><td><code>#REF!</code></td><td>la cella a cui puntava è stata eliminata</td></tr><tr><td><code>#NAME?</code></td><td>funzione o nome sconosciuto</td></tr>
+<tr><td><code>#N/A</code></td><td>la ricerca non ha trovato nulla</td></tr><tr><td><code>#NUM!</code></td><td>numero impossibile</td></tr>
+<tr><td><code>#CIRC!</code></td><td>riferimento circolare — la formula dipende da se stessa</td></tr></table>
+<div class="tip">Se una cartella di lavoro di Excel usa una funzione che Ethical Spreadsheet Editor non conosce ancora, mostra l'ultimo valore calcolato da Excel invece di un errore.</div>
+<p>Le funzioni si scrivono con il nome inglese (SUM, IF, VLOOKUP…), come dentro i file di Excel.</p>
+
+@@ sheets-functions
+title: Fogli di calcolo: elenco delle funzioni (143 funzioni)
+keywords: funzioni elenco somma media conta se cerca.vert xlookup indice confronta somma.se conta.se testo data arrotonda rata
+---
+<table><tr><th>Gruppo</th><th>Funzioni</th></tr>
+<tr><td>Totali e statistica</td><td>SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, COUNTBLANK, PRODUCT, MEDIAN, MODE, STDEV(.S/.P), VAR(.S/.P), LARGE, SMALL, RANK, SUMPRODUCT</td></tr>
+<tr><td>Condizionali</td><td>SUMIF, SUMIFS, COUNTIF, COUNTIFS, AVERAGEIF, AVERAGEIFS, MAXIFS, MINIFS</td></tr>
+<tr><td>Logiche</td><td>IF, IFS, IFERROR, IFNA, SWITCH, CHOOSE, AND, OR, NOT, XOR, TRUE, FALSE</td></tr>
+<tr><td>Ricerca</td><td>VLOOKUP, HLOOKUP, XLOOKUP, INDEX, MATCH, ROW, COLUMN, ROWS, COLUMNS</td></tr>
+<tr><td>Matematica</td><td>ROUND, ROUNDUP, ROUNDDOWN, TRUNC, INT, ABS, SQRT, POWER, MOD, EXP, LN, LOG, LOG10, SIGN, PI, RAND, RANDBETWEEN, CEILING, FLOOR, EVEN, ODD, FACT, DEGREES, RADIANS, SIN, COS, TAN, ASIN, ACOS, ATAN, ATAN2</td></tr>
+<tr><td>Testo</td><td>CONCATENATE, CONCAT, TEXTJOIN, LEFT, RIGHT, MID, LEN, UPPER, LOWER, PROPER, TRIM, CLEAN, FIND, SEARCH, SUBSTITUTE, REPLACE, REPT, EXACT, CHAR, CODE, VALUE, TEXT, FIXED, DOLLAR, T, N</td></tr>
+<tr><td>Date e ore</td><td>TODAY, NOW, DATE, TIME, YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, WEEKDAY, DAYS, DATEDIF, EDATE, EOMONTH, DATEVALUE</td></tr>
+<tr><td>Verifiche</td><td>ISBLANK, ISNUMBER, ISTEXT, ISNONTEXT, ISLOGICAL, ISERROR, ISERR, ISNA, ISEVEN, ISODD, NA</td></tr>
+<tr><td>Finanza</td><td>PMT, FV, PV, NPV</td></tr></table>
+<h2>Esempi</h2><table>
+<tr><td><code>=VLOOKUP("Apples",A2:C50,3,FALSE)</code></td><td>trova “Apples” nella colonna A e restituisce la colonna C</td></tr>
+<tr><td><code>=XLOOKUP(F2,A:A,C:C,"not found")</code></td><td>ricerca moderna con un valore di riserva</td></tr>
+<tr><td><code>=INDEX(B2:B50,MATCH(F2,A2:A50,0))</code></td><td>ricerca in qualsiasi direzione</td></tr>
+<tr><td><code>=SUMIF(B:B,"&gt;100",C:C)</code></td><td>somma C dove B supera 100</td></tr>
+<tr><td><code>=COUNTIF(A:A,"app*")</code></td><td>conta le celle che iniziano con “app”</td></tr>
+<tr><td><code>=TEXT(TODAY(),"dddd, mmmm d")</code></td><td>oggi come testo, es. “Sunday, October 11”</td></tr>
+<tr><td><code>=PMT(5%/12,360,-200000)</code></td><td>rata mensile di un mutuo di 30 anni</td></tr>
+<tr><td><code>=IFERROR(A1/B1,0)</code></td><td>0 invece di un errore</td></tr></table>
+
+@@ sheets-format
+title: Fogli di calcolo: formattazione e formati numerici
+keywords: formato numero valuta percentuale data decimali codice personalizzato grassetto riempimento colore bordo unire testo a capo allineare larghezza colonna altezza riga nascondere
+---
+<h2>Stili delle celle</h2><p>Carattere, dimensione, <b>B I U S</b>, colore carattere, colore di <b>riempimento</b> (e <b>Nessun riempimento</b>), allineamento (sinistra/centro/destra, alto/centro/basso), testo <b>a capo</b>, <b>Unisci e centra</b>, <b>Bordi</b> (tutti, esterni, spessi, in basso, sopra e sotto, nessuno).</p>
+<h2>Formati numerici</h2><p>Barra degli strumenti: <b>$</b> valuta, <b>%</b>, <b>,</b> migliaia, <b>.0+ / .0-</b> decimali, o l'elenco dei formati (Generale, Numero, Valuta, Contabilità, Percentuale, date, ora, Scientifico, Testo). <i>Formato → Formato numero → Personalizzato…</i> accetta i codici di formato di Excel:</p>
+<table><tr><th>Codice</th><th>12345.678 appare come</th></tr>
+<tr><td><code>#,##0.00</code></td><td>12,345.68</td></tr><tr><td><code>$#,##0</code></td><td>$12,346</td></tr>
+<tr><td><code>0.0%</code></td><td>1234567.8% (moltiplica per 100)</td></tr><tr><td><code>0.00E+00</code></td><td>1.23E+04</td></tr>
+<tr><td><code>000000</code></td><td>012346</td></tr><tr><td><code>#,##0;(#,##0)</code></td><td>negativi tra parentesi</td></tr>
+<tr><td><code>0.0 "kg"</code></td><td>12345.7 kg</td></tr>
+<tr><td><code>yyyy-mm-dd</code>, <code>mmm d, yyyy</code>, <code>dddd</code></td><td>stili di data</td></tr>
+<tr><td><code>h:mm AM/PM</code></td><td>ora</td></tr></table>
+<p><code>########</code> in una cella significa che il numero non ci sta — allarga la colonna.</p>
+<h2>Colonne e righe</h2><p>Trascina i bordi delle intestazioni, oppure <i>Formato → Larghezza colonna / Altezza riga / Adatta larghezza colonna / Nascondi / Scopri tutto</i>.</p>
+
+@@ sheets-data
+title: Fogli di calcolo: ordinare, riempire, copiare e modificare i dati
+keywords: ordinare crescente decrescente rimuovi duplicati riempi serie copia incolla valori taglia inserisci elimina righe colonne trova sostituisci commento
+---
+<h2>Ordinare</h2><p><b>Ordina A→Z / Z→A</b> ordina i dati in base alla colonna attuale (le intestazioni vengono riconosciute). <i>Dati → Ordina…</i> ordina per un massimo di 3 colonne. Le celle vuote vanno sempre in fondo.</p>
+<h2>Riempire</h2><ul><li><kbd>Ctrl</kbd>+<kbd>D</kbd> riempi in basso / <kbd>Ctrl</kbd>+<kbd>R</kbd> riempi a destra — copia la prima cella (le formule si adattano).</li>
+<li><i>Modifica → Riempi serie</i>: scrivi 1 e 2 (o 5 e 10, o una data) nelle prime celle, seleziona l'intervallo e la sequenza continua.</li></ul>
+<h2>Copia e incolla</h2><p>Le formule si adattano quando le incolli. <b>Incolla solo valori</b> (<kbd>Ctrl</kbd>+<kbd>Maiusc</kbd>+<kbd>V</kbd>) incolla i risultati invece delle formule. Copiare una cella su un blocco selezionato riempie tutto il blocco. Il testo copiato da altri programmi (separato da tabulazioni) viene diviso in celle.</p>
+<h2>Altro</h2><ul><li>Inserisci / elimina righe e colonne (menu o clic destro).</li>
+<li><i>Dati → Rimuovi duplicati</i>.</li><li>Trova e sostituisci (<kbd>Ctrl</kbd>+<kbd>F</kbd>), anche in tutti i fogli.</li>
+<li>Commenti (<kbd>Maiusc</kbd>+<kbd>F2</kbd>) — segnalati da un angolo rosso; passa il mouse per leggerli.</li></ul>
+
+@@ sheets-charts
+title: Fogli di calcolo: grafici e immagini
+keywords: grafico istogramma barre linee torta immagine inserire spostare
+---
+<ol><li>Seleziona i dati <b>compresa</b> una riga di intestazione e una colonna di etichette — es. i mesi nella colonna A, le vendite in B e C.</li>
+<li><b>Inserisci → Grafico…</b> (o il pulsante <b>Grafico</b>): scegli Colonne, Barre, Linee o Torta e un titolo.</li></ol>
+<p>I grafici si aggiornano quando cambiano i numeri. Trascina per spostarli; clic destro → Modifica grafico / Elimina grafico.</p>
+<p><b>Inserisci → Immagine…</b> aggiunge un'immagine; trascina per spostarla; clic destro → Ridimensiona / Elimina.</p>
+<p>Grafici e immagini vengono salvati nel .xlsx e si aprono in Excel.</p>
+
+@@ sheets-files
+title: Fogli di calcolo: file, compatibilità con Excel, PDF e stampa
+keywords: xlsx xlsm csv tsv salvare aprire excel compatibilità avviso stampare pdf
+---
+<p><b>Apre:</b> .xlsx, .xlsm (salvato come .xlsx senza macro), .csv/.tsv. <b>Salva:</b> .xlsx, o .csv (solo il foglio attuale).</p>
+<p><b>Mantenuto:</b> valori, formule, caratteri, colori, riempimenti, bordi, formati numerici, allineamento, testo a capo, celle unite, larghezze delle colonne, altezze delle righe, righe/colonne nascoste, commenti, intervalli denominati, più fogli, grafici (colonne/barre/linee/torta), immagini.</p>
+<p><b>Non ancora mantenuto</b> (ti avvisa all'apertura e prima di sovrascrivere): formattazione condizionale, convalida dati/elenchi a discesa, tabelle pivot, macro, tipi di grafico insoliti. I riquadri bloccati restano nel file ma non vengono mostrati a schermo.</p>
+<p><b>Esporta come PDF / Stampa</b> adattano tutte le colonne alla larghezza della pagina.</p>
+<div class="tip">Le cartelle di lavoro molto grandi (oltre 100.000 formule) risulteranno lente — ogni formula viene ricalcolata dopo ogni modifica.</div>
+
+@@ slides-basics
+title: Presentazioni: le basi
+keywords: presentazione diapositiva pannello layout nuova diapositiva segnaposto note duplicare nascondere riordinare
+---
+<ul><li><b>A sinistra:</b> le miniature delle diapositive — clic per aprire, trascina per riordinare, clic destro per duplicare, eliminare, nascondere o spostare.</li>
+<li><b>Al centro:</b> la diapositiva. <kbd>Ctrl</kbd>+rotellina fa lo zoom.</li><li><b>In basso:</b> le note del relatore per la diapositiva attuale.</li></ul>
+<h2>Aggiungere diapositive</h2><p><b>Nuova diapositiva</b> (<kbd>Ctrl</kbd>+<kbd>M</kbd>) aggiunge una diapositiva dopo quella attuale; la freccia accanto sceglie un layout:
+Diapositiva titolo, Titolo e contenuto, Intestazione sezione, Due contenuti, Solo titolo, Vuota. Le presentazioni aperte da PowerPoint offrono i propri layout.</p>
+<p>I riquadri grigi tratteggiati con “Fai clic per aggiungere un titolo/testo” sono segnaposto — fai clic e scrivi. Se vuoti, non compaiono né nella presentazione né nel PDF.</p>
+<p>Le diapositive <b>nascoste</b> (Diapositiva → Nascondi / mostra) vengono saltate durante la presentazione e l'esportazione.</p>
+
+@@ slides-objects
+title: Presentazioni: testo, forme, immagini e tabelle
+keywords: casella di testo forma immagine tabella spostare ridimensionare ruotare capovolgere disporre avanti indietro allineare elenchi riempimento contorno
+---
+<h2>Inserire</h2><p><b>Casella di testo</b>, <b>Immagine</b> (o incolla / trascina un'immagine), <b>Forme</b> (19 forme, linea, freccia), <b>Tabella</b>.</p>
+<h2>Lavorare con gli oggetti</h2><table>
+<tr><td>Selezionare</td><td>clic (trascina un riquadro in uno spazio vuoto per selezionarne più di uno)</td></tr>
+<tr><td>Spostare</td><td>trascina, o usa le frecce (${K("Shift Arrow")} = 10 px)</td></tr>
+<tr><td>Ridimensionare</td><td>trascina le maniglie bianche (le immagini mantengono le proporzioni; tieni premuto ${K("Shift")} per cambiarle)</td></tr>
+<tr><td>Modificare il testo</td><td>doppio clic, premi ${K("F2")}/${K("Enter")} o inizia semplicemente a scrivere; ${K("Esc")} per finire</td></tr>
+<tr><td>Eliminare / duplicare</td><td>${K("Delete")} / ${K("Ctrl D")}</td></tr>
+<tr><td>Avanti / indietro</td><td>menu Disponi o i pulsanti Davanti/Indietro</td></tr>
+<tr><td>Allineare nella diapositiva, ruotare, capovolgere</td><td>menu Disponi</td></tr></table>
+<h2>Formattazione</h2><p>Testo: carattere, dimensione, A+/A−, B/I/U, colore, allineamento, allineamento verticale (menu Formato), elenchi puntati e numerati. Forme: colori di <b>riempimento</b> e <b>contorno</b>, spessore del contorno, nessun riempimento / nessun contorno.</p>
+
+@@ slides-design
+title: Presentazioni: temi, sfondi e dimensioni della diapositiva
+keywords: tema progettazione sfondo colore immagine dimensioni diapositiva widescreen 4:3
+---
+<p><b>Progettazione → Tema</b> applica uno degli 8 temi (Office, Mezzanotte, Ardesia, Foresta, Tramonto, Oceano, Carbone, Cipria) a tutte le diapositive: sfondo, colori e caratteri del titolo e del testo.</p>
+<p><b>Progettazione → Colore di sfondo diapositiva</b> (questa diapositiva), <b>Colore di sfondo per tutte le diapositive</b>, <b>Immagine di sfondo</b>.</p>
+<p><b>File → Dimensione diapositiva</b>: Widescreen 16:9, Standard 4:3, A4, Quadrato — il contenuto viene ridimensionato per starci.</p>
+<p><b>File → Nuovo</b> permette di scegliere un tema per una nuova presentazione.</p>
+
+@@ slides-present
+title: Presentazioni: fare una presentazione
+keywords: presentare presentazione f5 schermo intero tasti schermo nero avanti indietro
+---
+<p><b>F5</b> parte dalla prima diapositiva, <b>Maiusc+F5</b> da quella attuale (o il pulsante <b>▶ Presenta</b>).</p>
+<table><tr><th>Per</th><th>Tasti</th></tr>
+<tr><td>Diapositiva successiva</td><td>${K("Space")} ${K("→")} ${K("↓")} ${K("Page_Down")} ${K("Enter")}, clic sinistro, rotellina</td></tr>
+<tr><td>Diapositiva precedente</td><td>${K("←")} ${K("↑")} ${K("Page_Up")} ${K("Backspace")}, clic destro</td></tr>
+<tr><td>Prima / ultima</td><td>${K("Home")} / ${K("End")}</td></tr>
+<tr><td>Schermo nero / bianco</td><td>${K("B")} / ${K("W")}</td></tr>
+<tr><td>Uscire</td><td>${K("Esc")}</td></tr></table>
+
+@@ slides-files
+title: Presentazioni: file, compatibilità con PowerPoint ed esportazione
+keywords: pptx powerpoint salvare aprire esportare pdf png immagini stampare schema layout
+---
+<p><b>Apre e salva .pptx.</b> Le presentazioni importate appaiono come in PowerPoint: l'app legge gli schemi e i layout della presentazione (colori del tema, caratteri, sfondi, loghi, stili degli elenchi). Al salvataggio vengono mantenuti gli schemi, i layout e il tema originali, quindi in PowerPoint continua a vedersi bene.</p>
+<p><b>Esporta:</b> PDF (nitido, con testo selezionabile), immagini PNG (1920 px di larghezza), Stampa.</p>
+<p><b>Non ancora mantenuto:</b> grafici, SmartArt, video/audio, animazioni e transizioni (ti avvisa). I riempimenti sfumati appaiono di un solo colore. Non ci sono ancora la visualizzazione relatore né il controllo ortografico.</p>

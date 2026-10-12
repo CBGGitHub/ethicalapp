@@ -9,8 +9,10 @@ from PySide6.QtWidgets import (QCheckBox, QComboBox, QDoubleSpinBox, QFileDialog
 from PySide6.QtCore import QUrl
 
 import convert_core as cc
+from i18n import tr
 
-VIDEO_FILTER = "Videos (*.mp4 *.mov *.mkv *.avi *.webm *.wmv *.m4v *.mts *.m2ts *.3gp *.flv *.mpg *.mpeg);;All files (*)"
+VIDEO_FILTER = (tr("Videos") + " (*.mp4 *.mov *.mkv *.avi *.webm *.wmv *.m4v *.mts *.m2ts *.3gp *.flv *.mpg *.mpeg);;"
+                + tr("All files") + " (*)")
 
 
 def clock(t):
@@ -42,14 +44,14 @@ class TrimTab(QWidget):
         lay = QHBoxLayout(self)
         left = QVBoxLayout()
         top = QHBoxLayout()
-        self.open_btn = QPushButton("📂  Open a video…")
+        self.open_btn = QPushButton(tr("📂  Open a video…"))
         self.open_btn.clicked.connect(self.open_dialog)
         top.addWidget(self.open_btn)
-        self.name = QLabel("…or drop a video here.")
+        self.name = QLabel(tr("…or drop a video here."))
         self.name.setWordWrap(True)
         top.addWidget(self.name, 1)
         left.addLayout(top)
-        self.preview = QLabel("No video yet")
+        self.preview = QLabel(tr("No video yet"))
         self.preview.setAlignment(Qt.AlignCenter)
         self.preview.setMinimumSize(420, 236)
         self.preview.setStyleSheet("background: #1e1f22; color: #aaa; border-radius: 6px;")
@@ -74,40 +76,40 @@ class TrimTab(QWidget):
             sb.setSingleStep(0.5)
             sb.setEnabled(False)
             sb.valueChanged.connect(self._range_changed)
-        set_start = QPushButton("⇤ Start here")
-        set_start.setToolTip("Use the frame on the slider as the start")
+        set_start = QPushButton(tr("⇤ Start here"))
+        set_start.setToolTip(tr("Use the frame on the slider as the start"))
         set_start.clicked.connect(lambda: self.start.setValue(self.slider.value() / 10))
-        set_end = QPushButton("End here ⇥")
-        set_end.setToolTip("Use the frame on the slider as the end")
+        set_end = QPushButton(tr("End here ⇥"))
+        set_end.setToolTip(tr("Use the frame on the slider as the end"))
         set_end.clicked.connect(lambda: self.end.setValue(self.slider.value() / 10))
         self.set_buttons = [set_start, set_end]
-        right.addWidget(QLabel("Start"), 0, 0)
+        right.addWidget(QLabel(tr("Start")), 0, 0)
         right.addWidget(self.start, 0, 1)
         right.addWidget(set_start, 0, 2)
-        right.addWidget(QLabel("End"), 1, 0)
+        right.addWidget(QLabel(tr("End")), 1, 0)
         right.addWidget(self.end, 1, 1)
         right.addWidget(set_end, 1, 2)
         self.keep = QLabel("")
         self.keep.setStyleSheet("font-weight: 600;")
         right.addWidget(self.keep, 2, 0, 1, 3)
         self.mode = QComboBox()
-        self.mode.addItem("Fast – no quality loss (cuts at the nearest keyframe)", False)
-        self.mode.addItem("Exact – cuts on the exact frame (slower)", True)
-        right.addWidget(QLabel("Cut"), 3, 0)
+        self.mode.addItem(tr("Fast – no quality loss (cuts at the nearest keyframe)"), False)
+        self.mode.addItem(tr("Exact – cuts on the exact frame (slower)"), True)
+        right.addWidget(QLabel(tr("Cut")), 3, 0)
         right.addWidget(self.mode, 3, 1, 1, 2)
         self.size = QComboBox()
-        for label, h in (("Keep the size", 0), ("1080p", 1080), ("720p", 720), ("480p", 480)):
+        for label, h in ((tr("Keep the size"), 0), ("1080p", 1080), ("720p", 720), ("480p", 480)):
             self.size.addItem(label, h)
-        right.addWidget(QLabel("Size"), 4, 0)
+        right.addWidget(QLabel(tr("Size")), 4, 0)
         right.addWidget(self.size, 4, 1, 1, 2)
         self.rotate = QComboBox()
-        for label, deg in (("Don't rotate", 0), ("90° right", 90), ("90° left", 270), ("180°", 180)):
+        for label, deg in ((tr("Don't rotate"), 0), (tr("90° right"), 90), (tr("90° left"), 270), ("180°", 180)):
             self.rotate.addItem(label, deg)
-        right.addWidget(QLabel("Rotate"), 5, 0)
+        right.addWidget(QLabel(tr("Rotate")), 5, 0)
         right.addWidget(self.rotate, 5, 1, 1, 2)
-        self.mute = QCheckBox("Remove the sound")
+        self.mute = QCheckBox(tr("Remove the sound"))
         right.addWidget(self.mute, 6, 1, 1, 2)
-        self.note = QLabel("Changing the size or rotating always uses Exact.")
+        self.note = QLabel(tr("Changing the size or rotating always uses Exact."))
         self.note.setStyleSheet("color: palette(placeholder-text); font-size: 11px;")
         self.note.setWordWrap(True)
         right.addWidget(self.note, 7, 0, 1, 3)
@@ -115,10 +117,10 @@ class TrimTab(QWidget):
         self.bar.setValue(0)
         right.addWidget(self.bar, 8, 0, 1, 3)
         brow = QHBoxLayout()
-        self.cancel_btn = QPushButton("Cancel")
+        self.cancel_btn = QPushButton(tr("Cancel"))
         self.cancel_btn.setEnabled(False)
         self.cancel_btn.clicked.connect(self.cancel.set)
-        self.save_btn = QPushButton("✂  Save trimmed video")
+        self.save_btn = QPushButton(tr("✂  Save trimmed video"))
         self.save_btn.setEnabled(False)
         self.save_btn.setMinimumHeight(36)
         self.save_btn.setStyleSheet("QPushButton { background: #2e7d32; color: white; font-weight: bold; border-radius: 5px;"
@@ -132,17 +134,17 @@ class TrimTab(QWidget):
 
     # ---- loading
     def open_dialog(self):
-        p, _ = QFileDialog.getOpenFileName(self, "Open a video", os.path.expanduser("~"), VIDEO_FILTER)
+        p, _ = QFileDialog.getOpenFileName(self, tr("Open a video"), os.path.expanduser("~"), VIDEO_FILTER)
         if p:
             self.load(p)
 
     def load(self, path):
         info = cc.probe(path)
         if not info.get("video") or info.get("duration", 0) <= 0:
-            QMessageBox.warning(self, "Trim video", f"{os.path.basename(path)} doesn't look like a video.")
+            QMessageBox.warning(self, tr("Trim video"), tr("{v} doesn't look like a video.").format(v=os.path.basename(path)))
             return
         self.path, self.duration = path, info["duration"]
-        self.name.setText(f"<b>{os.path.basename(path)}</b><br>{clock(self.duration)} · {info['width']}×{info['height']}")
+        self.name.setText(tr("<b>{v}</b><br>{v2} · {v3}×{v4}").format(v=os.path.basename(path), v2=clock(self.duration), v3=info['width'], v4=info['height']))
         for sb in (self.start, self.end):
             sb.blockSignals(True)
             sb.setRange(0, round(self.duration, 1))
@@ -197,10 +199,10 @@ class TrimTab(QWidget):
     def _range_changed(self):
         s, e = self.start.value(), self.end.value()
         if e <= s:
-            self.keep.setText("⚠ The end must be after the start.")
+            self.keep.setText(tr("⚠ The end must be after the start."))
             self.save_btn.setEnabled(False)
         else:
-            self.keep.setText(f"Keeping {clock(s)} → {clock(e)}  ({clock(e - s)})")
+            self.keep.setText(tr("Keeping {v} → {v2}  ({v3})").format(v=clock(s), v2=clock(e), v3=clock(e - s)))
             self.save_btn.setEnabled(bool(self.path) and not self.busy)
         sender = self.sender()
         if sender in (self.start, self.end):
@@ -245,12 +247,12 @@ class TrimTab(QWidget):
         if ok:
             self.bar.setValue(100)
             size = os.path.getsize(msg)
-            self.keep.setText(f"✓ Saved {os.path.basename(msg)} ({cc.human(size)})")
+            self.keep.setText(tr("✓ Saved {v} ({v2})").format(v=os.path.basename(msg), v2=cc.human(size)))
             if self.win.open_when_done.isChecked():
                 QDesktopServices.openUrl(QUrl.fromLocalFile(os.path.dirname(msg)))
         else:
             self.bar.setValue(0)
             if msg != "Cancelled.":
-                QMessageBox.warning(self, "Trim video", msg)
+                QMessageBox.warning(self, tr("Trim video"), msg)
             else:
-                self.keep.setText("Cancelled.")
+                self.keep.setText(tr("Cancelled."))

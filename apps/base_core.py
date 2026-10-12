@@ -13,9 +13,10 @@ import os
 import re
 import sqlite3
 from dataclasses import dataclass, field
+from i18n import N_
 
-FIELD_TYPES = ["AutoNumber", "Short Text", "Long Text", "Whole Number", "Decimal Number", "Currency",
-               "Date", "Date & Time", "Yes/No"]
+FIELD_TYPES = [N_("AutoNumber"), N_("Short Text"), N_("Long Text"), N_("Whole Number"), N_("Decimal Number"), N_("Currency"),
+               N_("Date"), N_("Date & Time"), N_("Yes/No")]
 TYPE_SQL = {"Short Text": "TEXT", "Long Text": "LONGTEXT", "Whole Number": "INTEGER", "Decimal Number": "DECIMAL",
             "Currency": "CURRENCY", "Date": "DATE", "Date & Time": "DATETIME", "Yes/No": "BOOLEAN",
             "AutoNumber": "INTEGER"}

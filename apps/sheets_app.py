@@ -27,17 +27,18 @@ from suite_common import SETTINGS_ORG, SUITE_NAME, ColorButton, make_app  # noqa
 from suite_common import add_guide_action  # noqa: E402
 from xlsx_io import (DEFAULT_COL_PX, DEFAULT_FONT, DEFAULT_ROW_PX, DEFAULT_SIZE,  # noqa: E402
                      load_csv, load_xlsx, save_csv, save_xlsx)
+from i18n import tr  # noqa: E402
 
 APP_NAME = "Ethical Spreadsheet Editor"
-OPEN_FILTER = ("Spreadsheets (*.xlsx *.xlsm *.csv *.tsv);;Excel workbook (*.xlsx *.xlsm);;"
-               "CSV (*.csv *.tsv);;All files (*)")
-SAVE_FILTER = "Excel workbook (*.xlsx);;CSV - current sheet only (*.csv)"
+OPEN_FILTER = ";;".join([tr("Spreadsheets") + " (*.xlsx *.xlsm *.csv *.tsv)", tr("Excel workbook") + " (*.xlsx *.xlsm)",
+                         "CSV (*.csv *.tsv)", tr("All files") + " (*)"])
+SAVE_FILTER = ";;".join([tr("Excel workbook") + " (*.xlsx)", tr("CSV - current sheet only") + " (*.csv)"])
 ACCENT = QColor("#217346")
-NUMBER_FORMATS = [("General", "General"), ("Number", "#,##0.00"), ("Currency", "$#,##0.00"),
-                  ("Accounting", '_($* #,##0.00_);_($* (#,##0.00);_($* "-"??_);_(@_)'),
-                  ("Percent", "0%"), ("Percent 0.00", "0.00%"), ("Short date", "m/d/yyyy"),
-                  ("Long date", "dddd, mmmm d, yyyy"), ("ISO date", "yyyy-mm-dd"), ("Time", "h:mm AM/PM"),
-                  ("Scientific", "0.00E+00"), ("Text", "@"), ("Whole number", "0")]
+NUMBER_FORMATS = [(tr("General"), "General"), (tr("Number"), "#,##0.00"), (tr("Currency"), "$#,##0.00"),
+                  (tr("Accounting"), '_($* #,##0.00_);_($* (#,##0.00);_($* "-"??_);_(@_)'),
+                  (tr("Percent"), "0%"), (tr("Percent 0.00"), "0.00%"), (tr("Short date"), "m/d/yyyy"),
+                  (tr("Long date"), "dddd, mmmm d, yyyy"), (tr("ISO date"), "yyyy-mm-dd"), (tr("Time"), "h:mm AM/PM"),
+                  (tr("Scientific"), "0.00E+00"), (tr("Text"), "@"), (tr("Whole number"), "0")]   # (label, Excel code)
 CLIP_MARK = "⁣"  # invisible marker so we recognise our own clipboard text
 
 
@@ -475,8 +476,8 @@ class ChartBox(QChartView):
 
     def contextMenuEvent(self, e):
         m = QMenu(self)
-        m.addAction("Edit Chart...", lambda: self.win.edit_chart(self))
-        m.addAction("Delete Chart", lambda: self.win.delete_chart(self))
+        m.addAction(tr("Edit Chart..."), lambda: self.win.edit_chart(self))
+        m.addAction(tr("Delete Chart"), lambda: self.win.delete_chart(self))
         m.exec(e.globalPos())
 
 
@@ -513,18 +514,19 @@ class ImageBox(QLabel):
 
     def contextMenuEvent(self, e):
         m = QMenu(self)
-        m.addAction("Resize Picture...", lambda: self.win.resize_picture(self))
-        m.addAction("Delete Picture", lambda: self.win.delete_chart(self))
+        m.addAction(tr("Resize Picture..."), lambda: self.win.resize_picture(self))
+        m.addAction(tr("Delete Picture"), lambda: self.win.delete_chart(self))
         m.exec(e.globalPos())
 
 
 class ChartDialog(QDialog):
     def __init__(self, parent, spec):
         super().__init__(parent)
-        self.setWindowTitle("Chart")
+        self.setWindowTitle(tr("Chart"))
         self.kind = QComboBox()
-        self.kind.addItems(["Column", "Bar", "Line", "Pie"])
-        self.kind.setCurrentText(spec.get("type", "column").title())
+        for label, kind in ((tr("Column"), "column"), (tr("Bar"), "bar"), (tr("Line"), "line"), (tr("Pie"), "pie")):
+            self.kind.addItem(label, kind)
+        self.kind.setCurrentIndex(max(0, self.kind.findData(spec.get("type", "column"))))
         self.title = QLineEdit(spec.get("title", ""))
         self.ref = QLineEdit(":".join([cell_name(spec["ref"][0], spec["ref"][1]),
                                        cell_name(spec["ref"][2], spec["ref"][3])]))
@@ -532,14 +534,14 @@ class ChartDialog(QDialog):
         for s, v in ((self.w, spec.get("w", 480)), (self.h, spec.get("h", 288))):
             s.setRange(150, 2000)
             s.setValue(v)
-            s.setSuffix(" px")
+            s.setSuffix(tr(" px"))
         form = QFormLayout(self)
-        form.addRow("Type:", self.kind)
-        form.addRow("Title:", self.title)
-        form.addRow("Data range:", self.ref)
-        form.addRow(QLabel("First row = series names, first column = categories."))
-        form.addRow("Width:", self.w)
-        form.addRow("Height:", self.h)
+        form.addRow(tr("Type:"), self.kind)
+        form.addRow(tr("Title:"), self.title)
+        form.addRow(tr("Data range:"), self.ref)
+        form.addRow(QLabel(tr("First row = series names, first column = categories.")))
+        form.addRow(tr("Width:"), self.w)
+        form.addRow(tr("Height:"), self.h)
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(self.accept)
         bb.rejected.connect(self.reject)
@@ -549,7 +551,7 @@ class ChartDialog(QDialog):
         rng = parse_range(self.ref.text())
         if rng:
             spec["ref"] = rng
-        spec.update(type=self.kind.currentText().lower(), title=self.title.text(),
+        spec.update(type=self.kind.currentData(), title=self.title.text(),
                     w=self.w.value(), h=self.h.value())
 
 
@@ -559,20 +561,20 @@ class FindDialog(QDialog):
     def __init__(self, win):
         super().__init__(win)
         self.win = win
-        self.setWindowTitle("Find and Replace")
+        self.setWindowTitle(tr("Find and Replace"))
         self.find, self.repl = QLineEdit(), QLineEdit()
-        self.case = QCheckBox("Match case")
-        self.whole = QCheckBox("Match entire cell")
-        self.all_sheets = QCheckBox("Search all sheets")
+        self.case = QCheckBox(tr("Match case"))
+        self.whole = QCheckBox(tr("Match entire cell"))
+        self.all_sheets = QCheckBox(tr("Search all sheets"))
         form = QFormLayout()
-        form.addRow("Find:", self.find)
-        form.addRow("Replace:", self.repl)
+        form.addRow(tr("Find:"), self.find)
+        form.addRow(tr("Replace:"), self.repl)
         for cb in (self.case, self.whole, self.all_sheets):
             form.addRow("", cb)
         self.info = QLabel()
         row = QHBoxLayout()
-        for t, s in (("Find Next", self.find_next), ("Replace", self.replace), ("Replace All", self.replace_all),
-                     ("Close", self.close)):
+        for t, s in ((tr("Find Next"), self.find_next), (tr("Replace"), self.replace),
+                     (tr("Replace All"), self.replace_all), (tr("Close"), self.close)):
             b = QPushButton(t)
             b.clicked.connect(s)
             row.addWidget(b)
@@ -614,7 +616,7 @@ class FindDialog(QDialog):
                     self.win.select_cell(*k)
                     self.info.setText("")
                     return True
-        self.info.setText("Not found.")
+        self.info.setText(tr("Not found."))
         return False
 
     def replace(self):
@@ -640,7 +642,7 @@ class FindDialog(QDialog):
                 self._replace_cell(*k)
                 n += 1
         self.win.changed()
-        self.info.setText(f"Replaced {n} cell(s).")
+        self.info.setText(tr("Replaced {n} cell(s).").format(n=n))
 
 
 # ====================================================================== main window
@@ -679,11 +681,11 @@ class SheetsWindow(QMainWindow):
         self.name_box.setFixedWidth(100)
         self.name_box.returnPressed.connect(self._goto_name_box)
         self.formula_edit = QLineEdit()
-        self.formula_edit.setPlaceholderText("Type a value or a formula like =SUM(A1:A10)")
+        self.formula_edit.setPlaceholderText(tr("Type a value or a formula like =SUM(A1:A10)"))
         self.formula_edit.returnPressed.connect(self._commit_formula_bar)
         fx = QPushButton("fx")
         fx.setFixedWidth(34)
-        fx.setToolTip("Insert function")
+        fx.setToolTip(tr("Insert function"))
         fx.clicked.connect(self.insert_function)
         bar = QWidget()
         bl = QHBoxLayout(bar)
@@ -704,7 +706,7 @@ class SheetsWindow(QMainWindow):
         self.tabs.customContextMenuRequested.connect(self._tab_menu)
         add = QToolButton()
         add.setText("+")
-        add.setToolTip("New sheet")
+        add.setToolTip(tr("New sheet"))
         add.clicked.connect(self.add_sheet)
         tabrow = QWidget()
         tl = QHBoxLayout(tabrow)
@@ -745,120 +747,120 @@ class SheetsWindow(QMainWindow):
 
     def _build_actions(self):
         mb = self.menuBar()
-        f = mb.addMenu("&File")
-        a_new = self.act("&New", self.new_file, "Ctrl+N", f)
-        a_open = self.act("&Open...", self.open_dialog, "Ctrl+O", f)
-        self.recent_menu = f.addMenu("Open &Recent")
+        f = mb.addMenu(tr("&File"))
+        a_new = self.act(tr("&New"), self.new_file, "Ctrl+N", f)
+        a_open = self.act(tr("&Open..."), self.open_dialog, "Ctrl+O", f)
+        self.recent_menu = f.addMenu(tr("Open &Recent"))
         self._refresh_recent()
         f.addSeparator()
-        a_save = self.act("&Save", self.save, "Ctrl+S", f)
-        self.act("Save &As...", self.save_as, "Ctrl+Shift+S", f)
-        a_pdf = self.act("Export as &PDF...", self.export_pdf, None, f)
-        a_print = self.act("&Print...", self.print_sheet, "Ctrl+P", f)
+        a_save = self.act(tr("&Save"), self.save, "Ctrl+S", f)
+        self.act(tr("Save &As..."), self.save_as, "Ctrl+Shift+S", f)
+        a_pdf = self.act(tr("Export as &PDF..."), self.export_pdf, None, f)
+        a_print = self.act(tr("&Print..."), self.print_sheet, "Ctrl+P", f)
         f.addSeparator()
-        self.act("E&xit", self.close, None, f)
+        self.act(tr("E&xit"), self.close, None, f)
 
-        e = mb.addMenu("&Edit")
-        a_undo = self.act("&Undo", self.undo, "Ctrl+Z", e)
-        a_redo = self.act("&Redo", self.redo, "Ctrl+Y", e)
+        e = mb.addMenu(tr("&Edit"))
+        a_undo = self.act(tr("&Undo"), self.undo, "Ctrl+Z", e)
+        a_redo = self.act(tr("&Redo"), self.redo, "Ctrl+Y", e)
         e.addSeparator()
-        self.act("Cu&t", self.cut, "Ctrl+X", e)
-        self.act("&Copy", self.copy, "Ctrl+C", e)
-        self.act("&Paste", self.paste, "Ctrl+V", e)
-        self.act("Paste &Values Only", lambda: self.paste(values_only=True), "Ctrl+Shift+V", e)
+        self.act(tr("Cu&t"), self.cut, "Ctrl+X", e)
+        self.act(tr("&Copy"), self.copy, "Ctrl+C", e)
+        self.act(tr("&Paste"), self.paste, "Ctrl+V", e)
+        self.act(tr("Paste &Values Only"), lambda: self.paste(values_only=True), "Ctrl+Shift+V", e)
         e.addSeparator()
-        self.act("Clear &Contents", self.clear_contents, None, e)
-        self.act("Clear &Formats", self.clear_formats, None, e)
-        self.act("Clear &All", lambda: self.clear_contents(everything=True), None, e)
+        self.act(tr("Clear &Contents"), self.clear_contents, None, e)
+        self.act(tr("Clear &Formats"), self.clear_formats, None, e)
+        self.act(tr("Clear &All"), lambda: self.clear_contents(everything=True), None, e)
         e.addSeparator()
-        self.act("Fill &Down", lambda: self.fill("down"), "Ctrl+D", e)
-        self.act("Fill &Right", lambda: self.fill("right"), "Ctrl+R", e)
-        self.act("Fill &Series", self.fill_series, None, e)
+        self.act(tr("Fill &Down"), lambda: self.fill("down"), "Ctrl+D", e)
+        self.act(tr("Fill &Right"), lambda: self.fill("right"), "Ctrl+R", e)
+        self.act(tr("Fill &Series"), self.fill_series, None, e)
         e.addSeparator()
-        self.act("&Find and Replace...", self.show_find, "Ctrl+F", e)
-        self.act("Rep&lace...", self.show_find, "Ctrl+H", e)
-        self.act("&Go To...", lambda: (self.name_box.setFocus(), self.name_box.selectAll()), "Ctrl+G", e)
+        self.act(tr("&Find and Replace..."), self.show_find, "Ctrl+F", e)
+        self.act(tr("Rep&lace..."), self.show_find, "Ctrl+H", e)
+        self.act(tr("&Go To..."), lambda: (self.name_box.setFocus(), self.name_box.selectAll()), "Ctrl+G", e)
 
-        ins = mb.addMenu("&Insert")
+        ins = mb.addMenu(tr("&Insert"))
         self.insert_menu = ins
-        self.act("Rows &Above", lambda: self.insert_rows(above=True), "Ctrl+Shift+=", ins)
-        self.act("Rows &Below", lambda: self.insert_rows(above=False), None, ins)
-        self.act("Columns &Left", lambda: self.insert_cols(left=True), None, ins)
-        self.act("Columns &Right", lambda: self.insert_cols(left=False), None, ins)
+        self.act(tr("Rows &Above"), lambda: self.insert_rows(above=True), "Ctrl+Shift+=", ins)
+        self.act(tr("Rows &Below"), lambda: self.insert_rows(above=False), None, ins)
+        self.act(tr("Columns &Left"), lambda: self.insert_cols(left=True), None, ins)
+        self.act(tr("Columns &Right"), lambda: self.insert_cols(left=False), None, ins)
         ins.addSeparator()
-        self.act("&Sheet", self.add_sheet, "Shift+F11", ins)
-        a_chart = self.act("&Chart...", self.insert_chart, None, ins)
-        self.act("&Picture...", self.insert_picture, None, ins)
-        a_fn = self.act("&Function...", self.insert_function, "Shift+F3", ins)
-        self.act("C&omment...", self.edit_comment, "Shift+F2", ins)
+        self.act(tr("&Sheet"), self.add_sheet, "Shift+F11", ins)
+        a_chart = self.act(tr("&Chart..."), self.insert_chart, None, ins)
+        self.act(tr("&Picture..."), self.insert_picture, None, ins)
+        a_fn = self.act(tr("&Function..."), self.insert_function, "Shift+F3", ins)
+        self.act(tr("C&omment..."), self.edit_comment, "Shift+F2", ins)
 
-        dm = mb.addMenu("&Delete")
+        dm = mb.addMenu(tr("&Delete"))
         self.delete_menu = dm
-        self.act("&Rows", self.delete_rows, "Ctrl+-", dm)
-        self.act("&Columns", self.delete_cols, None, dm)
-        self.act("&Sheet", self.delete_sheet, None, dm)
+        self.act(tr("&Rows"), self.delete_rows, "Ctrl+-", dm)
+        self.act(tr("&Columns"), self.delete_cols, None, dm)
+        self.act(tr("&Sheet"), self.delete_sheet, None, dm)
 
-        fm = mb.addMenu("F&ormat")
-        self.a_bold = self.act("&Bold", lambda: self.toggle_style("bold"), "Ctrl+B", fm, checkable=True)
-        self.a_italic = self.act("&Italic", lambda: self.toggle_style("italic"), "Ctrl+I", fm, checkable=True)
-        self.a_under = self.act("&Underline", lambda: self.toggle_style("underline"), "Ctrl+U", fm, checkable=True)
-        self.a_strike = self.act("&Strikethrough", lambda: self.toggle_style("strike"), "Ctrl+5", fm, checkable=True)
+        fm = mb.addMenu(tr("F&ormat"))
+        self.a_bold = self.act(tr("&Bold"), lambda: self.toggle_style("bold"), "Ctrl+B", fm, checkable=True)
+        self.a_italic = self.act(tr("&Italic"), lambda: self.toggle_style("italic"), "Ctrl+I", fm, checkable=True)
+        self.a_under = self.act(tr("&Underline"), lambda: self.toggle_style("underline"), "Ctrl+U", fm, checkable=True)
+        self.a_strike = self.act(tr("&Strikethrough"), lambda: self.toggle_style("strike"), "Ctrl+5", fm, checkable=True)
         fm.addSeparator()
-        nf = fm.addMenu("&Number Format")
+        nf = fm.addMenu(tr("&Number Format"))
         for label, code in NUMBER_FORMATS:
             self.act(label, lambda _=False, code=code: self.set_style("numfmt", None if code == "General" else code),
                      None, nf)
         nf.addSeparator()
-        self.act("Custom...", self.custom_format, None, nf)
-        self.act("Increase &Decimals", lambda: self.decimals(1), None, fm)
-        self.act("Decrease D&ecimals", lambda: self.decimals(-1), None, fm)
+        self.act(tr("Custom..."), self.custom_format, None, nf)
+        self.act(tr("Increase &Decimals"), lambda: self.decimals(1), None, fm)
+        self.act(tr("Decrease D&ecimals"), lambda: self.decimals(-1), None, fm)
         fm.addSeparator()
-        al = fm.addMenu("&Alignment")
-        for t, v in (("Left", "left"), ("Centre", "center"), ("Right", "right")):
+        al = fm.addMenu(tr("&Alignment"))
+        for t, v in ((tr("Left"), "left"), (tr("Centre"), "center"), (tr("Right"), "right")):
             self.act(t, lambda _=False, v=v: self.set_style("halign", v), None, al)
         al.addSeparator()
-        for t, v in (("Top", "top"), ("Middle", "center"), ("Bottom", None)):
+        for t, v in ((tr("Top"), "top"), (tr("Middle"), "center"), (tr("Bottom"), None)):
             self.act(t, lambda _=False, v=v: self.set_style("valign", v), None, al)
-        self.a_wrap = self.act("&Wrap Text", lambda: self.toggle_style("wrap"), None, fm, checkable=True)
-        self.act("&Merge && Centre", self.merge_cells, None, fm)
-        self.act("U&nmerge", self.unmerge_cells, None, fm)
-        bm = fm.addMenu("&Borders")
-        for t, kind in (("All Borders", "all"), ("Outside Borders", "outside"), ("Thick Outside", "thick"),
-                        ("Bottom Border", "bottom"), ("Top and Bottom", "topbottom"), ("No Border", "none")):
+        self.a_wrap = self.act(tr("&Wrap Text"), lambda: self.toggle_style("wrap"), None, fm, checkable=True)
+        self.act(tr("&Merge && Centre"), self.merge_cells, None, fm)
+        self.act(tr("U&nmerge"), self.unmerge_cells, None, fm)
+        bm = fm.addMenu(tr("&Borders"))
+        for t, kind in ((tr("All Borders"), "all"), (tr("Outside Borders"), "outside"), (tr("Thick Outside"), "thick"),
+                        (tr("Bottom Border"), "bottom"), (tr("Top and Bottom"), "topbottom"), (tr("No Border"), "none")):
             self.act(t, lambda _=False, k=kind: self.set_borders(k), None, bm)
         fm.addSeparator()
-        self.act("Column &Width...", self.set_col_width, None, fm)
-        self.act("&Row Height...", self.set_row_height, None, fm)
-        self.act("AutoFit Column &Width", self.autofit_cols, None, fm)
-        self.act("&Hide Columns", lambda: self.hide("col"), None, fm)
-        self.act("Hide R&ows", lambda: self.hide("row"), None, fm)
-        self.act("Unhide &All", self.unhide_all, None, fm)
+        self.act(tr("Column &Width..."), self.set_col_width, None, fm)
+        self.act(tr("&Row Height..."), self.set_row_height, None, fm)
+        self.act(tr("AutoFit Column &Width"), self.autofit_cols, None, fm)
+        self.act(tr("&Hide Columns"), lambda: self.hide("col"), None, fm)
+        self.act(tr("Hide R&ows"), lambda: self.hide("row"), None, fm)
+        self.act(tr("Unhide &All"), self.unhide_all, None, fm)
 
-        da = mb.addMenu("&Data")
-        a_az = self.act("Sort A → Z", lambda: self.quick_sort(False), None, da)
-        a_za = self.act("Sort Z → A", lambda: self.quick_sort(True), None, da)
-        self.act("&Sort...", self.sort_dialog, None, da)
-        self.act("Remove &Duplicates", self.remove_duplicates, None, da)
+        da = mb.addMenu(tr("&Data"))
+        a_az = self.act(tr("Sort A → Z"), lambda: self.quick_sort(False), None, da)
+        a_za = self.act(tr("Sort Z → A"), lambda: self.quick_sort(True), None, da)
+        self.act(tr("&Sort..."), self.sort_dialog, None, da)
+        self.act(tr("Remove &Duplicates"), self.remove_duplicates, None, da)
         da.addSeparator()
-        self.act("&Define Name...", self.define_name, None, da)
+        self.act(tr("&Define Name..."), self.define_name, None, da)
 
-        vm = mb.addMenu("&View")
-        self.a_grid = self.act("&Gridlines", lambda on: self.view.setShowGrid(on), None, vm, checkable=True)
+        vm = mb.addMenu(tr("&View"))
+        self.a_grid = self.act(tr("&Gridlines"), lambda on: self.view.setShowGrid(on), None, vm, checkable=True)
         self.a_grid.setChecked(True)
-        zm = vm.addMenu("&Zoom")
+        zm = vm.addMenu(tr("&Zoom"))
         for z in (50, 75, 90, 100, 125, 150, 200):
             self.act(f"{z}%", lambda _=False, z=z: self.set_zoom(z / 100), None, zm)
-        self.act("Zoom &In", lambda: self.set_zoom(self.zoom * 1.1), "Ctrl+=", vm)
-        self.act("Zoom &Out", lambda: self.set_zoom(self.zoom / 1.1), "Ctrl+Shift+-", vm)
+        self.act(tr("Zoom &In"), lambda: self.set_zoom(self.zoom * 1.1), "Ctrl+=", vm)
+        self.act(tr("Zoom &Out"), lambda: self.set_zoom(self.zoom / 1.1), "Ctrl+Shift+-", vm)
 
-        h = mb.addMenu("&Help")
+        h = mb.addMenu(tr("&Help"))
 
         add_guide_action(self, h, "sheets-basics")
-        self.act("&Functions List", self.show_functions, None, h)
-        self.act("&About", lambda: QMessageBox.about(
-            self, APP_NAME, f"<b>{APP_NAME}</b><br>Part of {SUITE_NAME}."), None, h)
+        self.act(tr("&Functions List"), self.show_functions, None, h)
+        self.act(tr("&About"), lambda: QMessageBox.about(
+            self, APP_NAME, tr("<b>{APP_NAME}</b><br>Part of {SUITE_NAME}.").format(APP_NAME=APP_NAME, SUITE_NAME=SUITE_NAME)), None, h)
 
-        tb = QToolBar("Main")
+        tb = QToolBar(tr("Main"))
         tb.setObjectName("main")
         self.addToolBar(tb)
         for a in (a_new, a_open, a_save, a_print, a_pdf):
@@ -867,14 +869,14 @@ class SheetsWindow(QMainWindow):
         tb.addAction(a_undo)
         tb.addAction(a_redo)
         tb.addSeparator()
-        tb.addAction(self.act("AutoSum", self.autosum, "Alt+=", tip="Sum the numbers above or to the left"))
+        tb.addAction(self.act(tr("AutoSum"), self.autosum, "Alt+=", tip=tr("Sum the numbers above or to the left")))
         tb.addAction(a_fn)
         tb.addAction(a_az)
         tb.addAction(a_za)
         tb.addAction(a_chart)
 
         self.addToolBarBreak()
-        ft = QToolBar("Formatting")
+        ft = QToolBar(tr("Formatting"))
         ft.setObjectName("format")
         self.addToolBar(ft)
         self.font_box = QFontComboBox()
@@ -899,29 +901,29 @@ class SheetsWindow(QMainWindow):
             a.setFont(fnt)
             ft.addAction(a)
         ft.addSeparator()
-        self.text_color = ColorButton(QColor("#C00000"), "Font colour")
+        self.text_color = ColorButton(QColor("#C00000"), tr("Font colour"))
         self.text_color.colorChanged.connect(lambda c: self.set_style("color", c.name().upper()))
         ft.addAction(self.act("A", lambda: self.set_style("color", self.text_color.color().name().upper()),
-                              tip="Apply font colour"))
+                              tip=tr("Apply font colour")))
         ft.addWidget(self.text_color)
-        self.fill_color = ColorButton(QColor("#FFFF00"), "Fill colour")
+        self.fill_color = ColorButton(QColor("#FFFF00"), tr("Fill colour"))
         self.fill_color.colorChanged.connect(lambda c: self.set_style("fill", c.name().upper()))
-        ft.addAction(self.act("Fill", lambda: self.set_style("fill", self.fill_color.color().name().upper()),
-                              tip="Apply fill colour"))
+        ft.addAction(self.act(tr("Fill"), lambda: self.set_style("fill", self.fill_color.color().name().upper()),
+                              tip=tr("Apply fill colour")))
         ft.addWidget(self.fill_color)
-        ft.addAction(self.act("No Fill", lambda: self.set_style("fill", None)))
+        ft.addAction(self.act(tr("No Fill"), lambda: self.set_style("fill", None)))
         ft.addSeparator()
-        for t, v in (("Left", "left"), ("Centre", "center"), ("Right", "right")):
+        for t, v in ((tr("Left"), "left"), (tr("Centre"), "center"), (tr("Right"), "right")):
             ft.addAction(self.act(t, lambda _=False, v=v: self.set_style("halign", v)))
         ft.addAction(self.a_wrap)
-        self.a_wrap.setIconText("Wrap")
-        ft.addAction(self.act("Merge", self.merge_cells, tip="Merge & Centre"))
+        self.a_wrap.setIconText(tr("Wrap"))
+        ft.addAction(self.act(tr("Merge"), self.merge_cells, tip=tr("Merge & Centre")))
         ft.addSeparator()
-        ft.addAction(self.act("$", lambda: self.set_style("numfmt", "$#,##0.00"), tip="Currency"))
-        ft.addAction(self.act("%", lambda: self.set_style("numfmt", "0%"), tip="Percent"))
-        ft.addAction(self.act(",", lambda: self.set_style("numfmt", "#,##0.00"), tip="Thousands separator"))
-        ft.addAction(self.act(".0+", lambda: self.decimals(1), tip="Increase decimals"))
-        ft.addAction(self.act(".0-", lambda: self.decimals(-1), tip="Decrease decimals"))
+        ft.addAction(self.act("$", lambda: self.set_style("numfmt", "$#,##0.00"), tip=tr("Currency")))
+        ft.addAction(self.act("%", lambda: self.set_style("numfmt", "0%"), tip=tr("Percent")))
+        ft.addAction(self.act(",", lambda: self.set_style("numfmt", "#,##0.00"), tip=tr("Thousands separator")))
+        ft.addAction(self.act(".0+", lambda: self.decimals(1), tip=tr("Increase decimals")))
+        ft.addAction(self.act(".0-", lambda: self.decimals(-1), tip=tr("Decrease decimals")))
         self.fmt_box = QComboBox()
         self.fmt_box.addItems([l for l, _ in NUMBER_FORMATS])
         self.fmt_box.activated.connect(lambda i: self.set_style(
@@ -929,7 +931,7 @@ class SheetsWindow(QMainWindow):
         ft.addWidget(self.fmt_box)
         ft.addSeparator()
         borders = QToolButton()
-        borders.setText("Borders")
+        borders.setText(tr("Borders"))
         borders.setPopupMode(QToolButton.InstantPopup)
         borders.setMenu(bm)
         ft.addWidget(borders)
@@ -1000,7 +1002,7 @@ class SheetsWindow(QMainWindow):
     def maybe_save(self):
         if not self.modified:
             return True
-        r = QMessageBox.question(self, APP_NAME, "Save changes to this workbook?",
+        r = QMessageBox.question(self, APP_NAME, tr("Save changes to this workbook?"),
                                  QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
         if r == QMessageBox.Save:
             return self.save()
@@ -1018,7 +1020,7 @@ class SheetsWindow(QMainWindow):
             self.load_workbook(Workbook(), None)
 
     def open_dialog(self):
-        f, _ = QFileDialog.getOpenFileName(self, "Open", self.settings.value("last_dir", ""), OPEN_FILTER)
+        f, _ = QFileDialog.getOpenFileName(self, tr("Open"), self.settings.value("last_dir", ""), OPEN_FILTER)
         if f:
             self.open_path(f)
 
@@ -1033,12 +1035,12 @@ class SheetsWindow(QMainWindow):
             elif ext in (".csv", ".tsv", ".txt"):
                 wb, warnings = load_csv(path), []
             elif ext == ".xls":
-                raise ValueError("The old .xls format isn't supported yet. Please save it as .xlsx first.")
+                raise ValueError(tr("The old .xls format isn't supported yet. Please save it as .xlsx first."))
             else:
-                raise ValueError(f"Unsupported file type: {ext}")
+                raise ValueError(tr("Unsupported file type: {ext}").format(ext=ext))
         except Exception as ex:
             QGuiApplication.restoreOverrideCursor()
-            QMessageBox.critical(self, APP_NAME, f"Could not open the file:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Could not open the file:\n{ex}").format(ex=ex))
             return
         QGuiApplication.restoreOverrideCursor()
         self.lossy = warnings + (["macros"] if ext == ".xlsm" and "macros" not in warnings else [])
@@ -1047,17 +1049,18 @@ class SheetsWindow(QMainWindow):
         if self.lossy:
             QMessageBox.information(
                 self, APP_NAME,
-                "This workbook contains " + ", ".join(self.lossy) + ".\n\n"
-                f"{APP_NAME} can't keep these yet - they will be missing if you save over the "
-                "original file. Use File > Save As to save a separate copy.")
+                tr("This workbook contains ") + ", ".join(self.lossy) + tr(".\n\n{APP_NAME} can't keep these yet - "
+                                                                       "they will be missing if you save over the "
+                                                                       "original file. Use File > Save As to save "
+                                                                       "a separate copy.").format(APP_NAME=APP_NAME))
 
     def save(self):
         if not self.path:
             return self.save_as()
         if self.lossy and self.path.lower().endswith(".xlsx"):
             r = QMessageBox.question(
-                self, APP_NAME, "Saving over the original will remove: " + ", ".join(self.lossy) +
-                ".\nSave anyway? (Choose No to use Save As instead.)",
+                self, APP_NAME, tr("Saving over the original will remove: ") + ", ".join(self.lossy) +
+                tr(".\nSave anyway? (Choose No to use Save As instead.)"),
                 QMessageBox.Yes | QMessageBox.No | QMessageBox.Cancel)
             if r == QMessageBox.No:
                 return self.save_as()
@@ -1068,11 +1071,11 @@ class SheetsWindow(QMainWindow):
     def save_as(self):
         start = os.path.splitext(self.path)[0] + ".xlsx" if self.path else os.path.join(
             self.settings.value("last_dir", ""), "Book1.xlsx")
-        f, flt = QFileDialog.getSaveFileName(self, "Save As", start, SAVE_FILTER)
+        f, flt = QFileDialog.getSaveFileName(self, tr("Save As"), start, SAVE_FILTER)
         if not f:
             return False
         if not os.path.splitext(f)[1]:
-            f += ".csv" if flt.startswith("CSV") else ".xlsx"
+            f += ".csv" if "*.csv" in flt else ".xlsx"
         ok = self.write(f)
         if ok and f.lower().endswith(".xlsx"):
             self.lossy = []
@@ -1085,17 +1088,17 @@ class SheetsWindow(QMainWindow):
             else:
                 save_xlsx(self.wb, path)
         except PermissionError:
-            QMessageBox.critical(self, APP_NAME, "Could not save - the file may be open in another program.")
+            QMessageBox.critical(self, APP_NAME, tr("Could not save - the file may be open in another program."))
             return False
         except Exception as ex:
-            QMessageBox.critical(self, APP_NAME, f"Could not save:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Could not save:\n{ex}").format(ex=ex))
             return False
         if path.lower().endswith(".xlsx"):
             self.path = path
             self.modified = False
         self.update_title()
         self._add_recent(path)
-        self.statusBar().showMessage(f"Saved {path}", 4000)
+        self.statusBar().showMessage(tr("Saved {path}").format(path=path), 4000)
         return True
 
     def _add_recent(self, path):
@@ -1171,7 +1174,7 @@ class SheetsWindow(QMainWindow):
         self._sync_current()
         self._sync_selection()
         if self.wb.has_circular:
-            self.statusBar().showMessage("Warning: circular reference - a formula refers to itself.", 5000)
+            self.statusBar().showMessage(tr("Warning: circular reference - a formula refers to itself."), 5000)
 
     # ------------------------------------------------------------ cell editing
     def set_cell_input(self, r, c, text, record=True):
@@ -1282,7 +1285,7 @@ class SheetsWindow(QMainWindow):
         self.a_wrap.setChecked(bool(st.get("wrap")))
         fmt = st.get("numfmt", "General")
         label = next((l for l, code in NUMBER_FORMATS if code == fmt), None)
-        self.fmt_box.setCurrentText(label or "General")
+        self.fmt_box.setCurrentText(label or NUMBER_FORMATS[0][0])
         self._syncing = False
 
     def _sync_selection(self):
@@ -1309,9 +1312,10 @@ class SheetsWindow(QMainWindow):
                     if _is_number(v):
                         nums.append(v)
         if count > 1:
-            parts = [f"Count: {count}"]
+            parts = [tr("Count: {count}").format(count=count)]
             if nums:
-                parts = [f"Average: {general(sum(nums) / len(nums))}", parts[0], f"Sum: {general(sum(nums))}"]
+                parts = [tr("Average: {average}").format(average=general(sum(nums) / len(nums))), parts[0],
+                         tr("Sum: {sum}").format(sum=general(sum(nums)))]
             self.stats_label.setText("   ".join(parts) + "   ")
         else:
             self.stats_label.setText("")
@@ -1336,7 +1340,7 @@ class SheetsWindow(QMainWindow):
                 sheet_name = sheet_name.strip("'")
             rng = parse_range(target.replace("$", ""))
         if rng is None:
-            QMessageBox.information(self, APP_NAME, f"'{self.name_box.text()}' isn't a valid cell reference.")
+            QMessageBox.information(self, APP_NAME, tr("'{v}' isn't a valid cell reference.").format(v=self.name_box.text()))
             return
         if sheet_name:
             s = self.wb.sheet(sheet_name)
@@ -1422,8 +1426,8 @@ class SheetsWindow(QMainWindow):
         idx = self.view.currentIndex()
         cell = self.sheet.cells.get((idx.row(), idx.column()))
         cur = cell.style.get("numfmt", "General") if cell else "General"
-        text, ok = QInputDialog.getText(self, "Custom Number Format",
-                                        "Format code (e.g. #,##0.00, 0.0%, yyyy-mm-dd, \"$\"0.00):",
+        text, ok = QInputDialog.getText(self, tr("Custom Number Format"),
+                                        tr('Format code (e.g. #,##0.00, 0.0%, yyyy-mm-dd, "$"0.00):'),
                                         QLineEdit.Normal, cur)
         if ok and text.strip():
             self.set_style("numfmt", None if text.strip() == "General" else text.strip())
@@ -1493,7 +1497,7 @@ class SheetsWindow(QMainWindow):
         others = [rc for rc in self.selected_cells(used_only=True)
                   if rc != (r1, c1) and self.sheet.cells[rc].value is not None]
         if others and QMessageBox.question(
-                self, APP_NAME, "Merging keeps only the top-left value. Continue?") != QMessageBox.Yes:
+                self, APP_NAME, tr("Merging keeps only the top-left value. Continue?")) != QMessageBox.Yes:
             return
         self.push_undo()
         for rc in others:
@@ -1531,7 +1535,7 @@ class SheetsWindow(QMainWindow):
     def set_col_width(self):
         idx = self.view.currentIndex()
         cur = self.sheet.col_widths.get(idx.column(), DEFAULT_COL_PX)
-        w, ok = QInputDialog.getInt(self, "Column Width", "Width (pixels):", cur, 0, 2000)
+        w, ok = QInputDialog.getInt(self, tr("Column Width"), tr("Width (pixels):"), cur, 0, 2000)
         if ok:
             self.push_undo()
             cols = {c for r1, c1, r2, c2 in self.selected_rects() for c in range(c1, c2 + 1)}
@@ -1542,7 +1546,7 @@ class SheetsWindow(QMainWindow):
     def set_row_height(self):
         idx = self.view.currentIndex()
         cur = self.sheet.row_heights.get(idx.row(), DEFAULT_ROW_PX)
-        h, ok = QInputDialog.getInt(self, "Row Height", "Height (pixels):", cur, 0, 800)
+        h, ok = QInputDialog.getInt(self, tr("Row Height"), tr("Height (pixels):"), cur, 0, 800)
         if ok:
             self.push_undo()
             rows = {r for r1, c1, r2, c2 in self.selected_rects() for r in range(r1, r2 + 1)}
@@ -1590,7 +1594,7 @@ class SheetsWindow(QMainWindow):
         self.apply_geometry()
         self.model.refresh()
         self._place_charts()
-        self.statusBar().showMessage(f"Zoom {round(self.zoom * 100)}%", 2000)
+        self.statusBar().showMessage(tr("Zoom {v}%").format(v=round(self.zoom * 100)), 2000)
 
     def _scrolled(self):
         sb = self.view.verticalScrollBar()
@@ -1706,7 +1710,7 @@ class SheetsWindow(QMainWindow):
         self.clip = {"origin": (r1, c1), "size": (r2 - r1 + 1, c2 - c1 + 1), "cells": cells, "cut": cut,
                      "sheet": self.sheet, "text": text + CLIP_MARK}
         QGuiApplication.clipboard().setText(text + CLIP_MARK)
-        self.statusBar().showMessage("Cut - select where to paste" if cut else "Copied", 3000)
+        self.statusBar().showMessage(tr("Cut - select where to paste") if cut else tr("Copied"), 3000)
 
     def cut(self):
         self.copy(cut=True)
@@ -1826,12 +1830,12 @@ class SheetsWindow(QMainWindow):
     def sort_dialog(self):
         r1, c1, r2, c2 = self._data_region()
         dlg = QDialog(self)
-        dlg.setWindowTitle("Sort")
-        header = QCheckBox("My data has headers")
+        dlg.setWindowTitle(tr("Sort"))
+        header = QCheckBox(tr("My data has headers"))
         header.setChecked(self._guess_header(r1, c1, c2))
         rows = []
         form = QFormLayout(dlg)
-        form.addRow(QLabel(f"Range: {cell_name(r1, c1)}:{cell_name(r2, c2)}"))
+        form.addRow(QLabel(tr("Range: {v}:{v2}").format(v=cell_name(r1, c1), v2=cell_name(r2, c2))))
         form.addRow(header)
         for i in range(3):
             col = QComboBox()
@@ -1840,16 +1844,16 @@ class SheetsWindow(QMainWindow):
                 col.clear()
             for c in range(c1, c2 + 1):
                 title = format_value(self.wb.value(self.sheet, r1, c))
-                col.addItem(f"Column {col_name(c)}" + (f" ({title})" if title else ""), c)
+                col.addItem(tr("Column {name}").format(name=col_name(c)) + (f" ({title})" if title else ""), c)
             if i:
-                col.insertItem(0, "(none)", None)
+                col.insertItem(0, tr("(none)"), None)
                 col.setCurrentIndex(0)
             order = QComboBox()
-            order.addItems(["A → Z / smallest first", "Z → A / largest first"])
+            order.addItems([tr("A → Z / smallest first"), tr("Z → A / largest first")])
             row = QHBoxLayout()
             row.addWidget(col, 1)
             row.addWidget(order)
-            form.addRow("Sort by:" if i == 0 else "Then by:", row)
+            form.addRow(tr("Sort by:") if i == 0 else tr("Then by:"), row)
             rows.append((col, order))
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(dlg.accept)
@@ -1910,7 +1914,7 @@ class SheetsWindow(QMainWindow):
                 keep.append(r)
         removed = (r2 - r1 + 1) - len(keep)
         if not removed:
-            QMessageBox.information(self, APP_NAME, "No duplicate rows found.")
+            QMessageBox.information(self, APP_NAME, tr("No duplicate rows found."))
             return
         self.push_undo()
         old = {(r, c): self.sheet.cells.get((r, c)) for r in range(r1, r2 + 1) for c in range(c1, c2 + 1)}
@@ -1922,7 +1926,7 @@ class SheetsWindow(QMainWindow):
                 if old[(src, c)] is not None:
                     self.sheet.cells[(r1 + i, c)] = old[(src, c)]
         self.changed()
-        QMessageBox.information(self, APP_NAME, f"Removed {removed} duplicate row(s).")
+        QMessageBox.information(self, APP_NAME, tr("Removed {removed} duplicate row(s).").format(removed=removed))
 
     # ------------------------------------------------------------ formulas helpers
     def autosum(self):
@@ -1949,7 +1953,7 @@ class SheetsWindow(QMainWindow):
 
     def insert_function(self):
         names = sorted(n for n in FUNCTIONS if "." not in n or n.count(".") == 1)
-        name, ok = QInputDialog.getItem(self, "Insert Function", "Function:", names, names.index("SUM"), False)
+        name, ok = QInputDialog.getItem(self, tr("Insert Function"), tr("Function:"), names, names.index("SUM"), False)
         if ok:
             cur = self.formula_edit.text()
             self.formula_edit.setText((cur if cur.startswith("=") else "=") + name + "()")
@@ -1959,7 +1963,7 @@ class SheetsWindow(QMainWindow):
     def show_functions(self):
         names = sorted(FUNCTIONS)
         dlg = QDialog(self)
-        dlg.setWindowTitle(f"{len(names)} supported functions")
+        dlg.setWindowTitle(tr("{v} supported functions").format(v=len(names)))
         lw = QListWidget()
         lw.addItems(names)
         QVBoxLayout(dlg).addWidget(lw)
@@ -1971,7 +1975,7 @@ class SheetsWindow(QMainWindow):
         ref = f"{cell_name(r1, c1)}" + (f":{cell_name(r2, c2)}" if (r1, c1) != (r2, c2) else "")
         ref = re.sub(r"([A-Z]+)(\d+)", r"$\1$\2", ref)
         from sheet_engine import quote_sheet
-        name, ok = QInputDialog.getText(self, "Define Name", f"Name for {ref}:")
+        name, ok = QInputDialog.getText(self, tr("Define Name"), tr("Name for {ref}:").format(ref=ref))
         if ok and re.fullmatch(r"[A-Za-z_][A-Za-z0-9_.]*", name.strip()):
             self.push_undo()
             self.wb.names[name.strip().upper()] = f"{quote_sheet(self.sheet.name)}!{ref}"
@@ -1980,7 +1984,7 @@ class SheetsWindow(QMainWindow):
     def edit_comment(self):
         idx = self.view.currentIndex()
         cell = self.sheet.cells.get((idx.row(), idx.column()))
-        text, ok = QInputDialog.getMultiLineText(self, "Comment", "Comment (leave empty to delete):",
+        text, ok = QInputDialog.getMultiLineText(self, tr("Comment"), tr("Comment (leave empty to delete):"),
                                                  cell.comment if cell else "")
         if ok:
             self.push_undo()
@@ -1997,9 +2001,9 @@ class SheetsWindow(QMainWindow):
         if i >= 0:
             self.switch_sheet(i)
         m = QMenu(self)
-        m.addAction("Insert Sheet", self.add_sheet)
-        m.addAction("Rename...", lambda: self.rename_sheet(self.tabs.currentIndex()))
-        m.addAction("Duplicate", self.duplicate_sheet)
+        m.addAction(tr("Insert Sheet"), self.add_sheet)
+        m.addAction(tr("Rename..."), lambda: self.rename_sheet(self.tabs.currentIndex()))
+        m.addAction(tr("Duplicate"), self.duplicate_sheet)
         m.addAction("Delete", self.delete_sheet)
         m.exec(self.tabs.mapToGlobal(pos))
 
@@ -2033,15 +2037,15 @@ class SheetsWindow(QMainWindow):
         if i < 0:
             return
         old = self.wb.sheets[i].name
-        name, ok = QInputDialog.getText(self, "Rename Sheet", "Sheet name:", QLineEdit.Normal, old)
+        name, ok = QInputDialog.getText(self, tr("Rename Sheet"), tr("Sheet name:"), QLineEdit.Normal, old)
         name = name.strip()
         if not ok or not name or name == old:
             return
         if any(ch in name for ch in "[]:*?/\\") or len(name) > 31:
-            QMessageBox.warning(self, APP_NAME, "Sheet names can't contain [ ] : * ? / \\ and max 31 characters.")
+            QMessageBox.warning(self, APP_NAME, tr("Sheet names can't contain [ ] : * ? / \\ and max 31 characters."))
             return
         if self.wb.sheet(name):
-            QMessageBox.warning(self, APP_NAME, "There's already a sheet with that name.")
+            QMessageBox.warning(self, APP_NAME, tr("There's already a sheet with that name."))
             return
         self.push_undo()
         from sheet_engine import join_ref, rewrite_refs
@@ -2056,9 +2060,9 @@ class SheetsWindow(QMainWindow):
 
     def delete_sheet(self):
         if len(self.wb.sheets) == 1:
-            QMessageBox.information(self, APP_NAME, "A workbook needs at least one sheet.")
+            QMessageBox.information(self, APP_NAME, tr("A workbook needs at least one sheet."))
             return
-        if QMessageBox.question(self, APP_NAME, f"Delete sheet '{self.sheet.name}'?") != QMessageBox.Yes:
+        if QMessageBox.question(self, APP_NAME, tr("Delete sheet '{name}'?").format(name=self.sheet.name)) != QMessageBox.Yes:
             return
         self.push_undo()
         i = self.tabs.currentIndex()
@@ -2102,8 +2106,8 @@ class SheetsWindow(QMainWindow):
     def insert_chart(self):
         r1, c1, r2, c2 = self._block()
         if r2 - r1 < 1 or c2 - c1 < 1:
-            QMessageBox.information(self, APP_NAME, "Select the data first, including a header row and a "
-                                    "label column (e.g. A1:C6), then choose Insert > Chart.")
+            QMessageBox.information(self, APP_NAME, tr("Select the data first, including a header row and a label "
+                                                       "column (e.g. A1:C6), then choose Insert > Chart."))
             return
         spec = {"type": "column", "ref": (r1, c1, r2, c2), "title": "", "row": r1, "col": c2 + 2,
                 "w": 480, "h": 288}
@@ -2130,14 +2134,14 @@ class SheetsWindow(QMainWindow):
         self._rebuild_charts()
 
     def insert_picture(self):
-        f, _ = QFileDialog.getOpenFileName(self, "Insert Picture", self.settings.value("last_dir", ""),
-                                           "Images (*.png *.jpg *.jpeg *.gif *.bmp)")
+        f, _ = QFileDialog.getOpenFileName(self, tr("Insert Picture"), self.settings.value("last_dir", ""),
+                                           tr("Images (*.png *.jpg *.jpeg *.gif *.bmp)"))
         if not f:
             return
         from PySide6.QtGui import QImage
         img = QImage(f)
         if img.isNull():
-            QMessageBox.warning(self, APP_NAME, "Couldn't read that image.")
+            QMessageBox.warning(self, APP_NAME, tr("Couldn't read that image."))
             return
         with open(f, "rb") as fh:
             data = fh.read()
@@ -2158,7 +2162,7 @@ class SheetsWindow(QMainWindow):
         self._rebuild_charts()
 
     def resize_picture(self, box):
-        pct, ok = QInputDialog.getInt(self, "Resize Picture", "Size (% of current):", 100, 5, 1000)
+        pct, ok = QInputDialog.getInt(self, tr("Resize Picture"), tr("Size (% of current):"), 100, 5, 1000)
         if ok and pct != 100:
             self.push_undo()
             box.spec["w"] = max(5, int(box.spec["w"] * pct / 100))
@@ -2298,7 +2302,7 @@ class SheetsWindow(QMainWindow):
 
     def export_pdf(self):
         start = os.path.splitext(self.path)[0] + ".pdf" if self.path else "Book1.pdf"
-        f, _ = QFileDialog.getSaveFileName(self, "Export Sheet as PDF", start, "PDF files (*.pdf)")
+        f, _ = QFileDialog.getSaveFileName(self, tr("Export Sheet as PDF"), start, tr("PDF files (*.pdf)"))
         if not f:
             return
         if not f.lower().endswith(".pdf"):
@@ -2308,7 +2312,7 @@ class SheetsWindow(QMainWindow):
         w.setPageLayout(self._page_layout())
         w.setCreator(f"{SUITE_NAME} {APP_NAME}")
         self.render_pages(w)
-        self.statusBar().showMessage(f"Exported {f}", 5000)
+        self.statusBar().showMessage(tr("Exported {f}").format(f=f), 5000)
 
     def print_sheet(self):
         p = QPrinter(QPrinter.HighResolution)
@@ -2326,20 +2330,20 @@ class SheetsWindow(QMainWindow):
 
     def cell_context_menu(self, pos):
         m = QMenu(self)
-        m.addAction("Cut", self.cut)
-        m.addAction("Copy", self.copy)
-        m.addAction("Paste", self.paste)
-        m.addAction("Paste Values Only", lambda: self.paste(values_only=True))
+        m.addAction(tr("Cut"), self.cut)
+        m.addAction(tr("Copy"), self.copy)
+        m.addAction(tr("Paste"), self.paste)
+        m.addAction(tr("Paste Values Only"), lambda: self.paste(values_only=True))
         m.addSeparator()
         m.addMenu(self.insert_menu)
         m.addMenu(self.delete_menu)
-        m.addAction("Clear Contents", self.clear_contents)
+        m.addAction(tr("Clear Contents"), self.clear_contents)
         m.addSeparator()
-        m.addAction("Sort A → Z", lambda: self.quick_sort(False))
-        m.addAction("Sort Z → A", lambda: self.quick_sort(True))
+        m.addAction(tr("Sort A → Z"), lambda: self.quick_sort(False))
+        m.addAction(tr("Sort Z → A"), lambda: self.quick_sort(True))
         m.addSeparator()
-        m.addAction("Insert/Edit Comment...", self.edit_comment)
-        m.addAction("Format: Custom Number Format...", self.custom_format)
+        m.addAction(tr("Insert/Edit Comment..."), self.edit_comment)
+        m.addAction(tr("Format: Custom Number Format..."), self.custom_format)
         m.exec(pos)
 
 

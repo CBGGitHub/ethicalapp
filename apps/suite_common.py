@@ -7,6 +7,9 @@ from PySide6.QtCore import Signal
 from PySide6.QtGui import QColor, QPalette
 from PySide6.QtWidgets import QApplication, QColorDialog, QToolButton
 
+import i18n
+from i18n import tr
+
 SUITE_NAME = "EthicalApp"          # the name people see (was "Ethical Suite" until 2026-10-11)
 # Internal names that must NOT change - existing installs keep their settings, notes, reminders, taskbar pins and
 # right-click entries: QSettings organisation / data folder name, and the Windows ID prefix.
@@ -45,6 +48,7 @@ def make_app(app_name, argv):
     if os.path.exists(icon_path(app_name)):
         app.setWindowIcon(QIcon(icon_path(app_name)))
     app.setOrganizationName(SETTINGS_ORG)
+    i18n.install_qt(app)
     app.setStyle("Fusion")
     pal = app.palette()
     pal.setColor(QPalette.Highlight, QColor(46, 117, 214))
@@ -167,18 +171,20 @@ def open_guide(topic=""):
     from PySide6.QtCore import QUrl
     from PySide6.QtGui import QDesktopServices
     target = QUrl.fromLocalFile(GUIDE)
+    if i18n.language() != "en":
+        target.setQuery("lang=" + i18n.language())          # the guide loads guide/i18n/<lang>.js
     if topic:
         target.setFragment(topic)
     redirect = os.path.join(tempfile.gettempdir(), "ethical_guide_open.html")
     with open(redirect, "w", encoding="utf-8") as fh:
         fh.write(f'<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url={target.toString()}">'
-                 f'<a href="{target.toString()}">Open the guide</a>')
+                 f'<a href="{target.toString()}">{tr("Open the guide")}</a>')
     QDesktopServices.openUrl(QUrl.fromLocalFile(redirect))
 
 
 def add_guide_action(window, menu, topic):
     from PySide6.QtGui import QAction, QKeySequence
-    a = QAction("User &Guide", window)
+    a = QAction(tr("User &Guide"), window)
     a.setShortcut(QKeySequence("F1"))
     a.triggered.connect(lambda: open_guide(topic))
     menu.insertAction(menu.actions()[0] if menu.actions() else None, a)

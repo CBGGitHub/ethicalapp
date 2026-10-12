@@ -1,0 +1,442 @@
+@ui
+guide_title: EthicalApp 使用指南
+search: 搜索指南…（按 / 键）
+theme: 浅色 / 深色
+footer: EthicalApp 使用指南 · 离线可用
+result_one: “{q}”的搜索结果：1 条
+result_many: “{q}”的搜索结果：{n} 条
+nothing: 没有找到。请试试更少或不同的词语 — 例如“合并 pdf”“求和”“图层”。
+english_only: 本文暂时只有英文版。
+
+@sections
+start: 入门
+pdf: Ethical PDF Editor
+write: Ethical Document Editor
+sheets: Ethical Spreadsheet Editor
+slides: Ethical Presentation Editor
+photo: Ethical Photo Editor
+conv: Ethical Converter
+base: Ethical Database
+sticky: Ethical Sticky Notes
+snip: Ethical Snip
+planner: Ethical Planner
+help: 帮助与参考
+
+@@ welcome
+title: 欢迎使用 EthicalApp
+keywords: 概览 应用 介绍 开始
+---
+<p>EthicalApp 是一套免费的、自己动手做的 Windows 桌面应用 — 我们自己重做的、人人每天都在用的工具。
+它们能打开和保存<b>真正的文件格式</b>（Word、Excel、PowerPoint、PDF、Photoshop），
+所以你可以和任何人互传文件。</p>
+<div class="cards">
+<a class="card" href="#pdf-basics"><img src="../branding/icons/png/pdf_64.png" alt=""><b>Ethical PDF Editor</b><span>查看 PDF、编辑文字、批注、填写表单、签名、合并和拆分</span></a>
+<a class="card" href="#write-basics"><img src="../branding/icons/png/document_64.png" alt=""><b>Ethical Document Editor</b><span>文档 — 打开和保存 Word .docx</span></a>
+<a class="card" href="#sheets-basics"><img src="../branding/icons/png/spreadsheet_64.png" alt=""><b>Ethical Spreadsheet Editor</b><span>带 143 个函数和图表的电子表格 — Excel .xlsx</span></a>
+<a class="card" href="#slides-basics"><img src="../branding/icons/png/presentation_64.png" alt=""><b>Ethical Presentation Editor</b><span>演示文稿和幻灯片 — PowerPoint .pptx</span></a>
+<a class="card" href="#photo-basics"><img src="../branding/icons/png/photo_64.png" alt=""><b>Ethical Photo Editor</b><span>支持图层的照片编辑器 — Photoshop .psd、PNG、JPG…</span></a>
+<a class="card" href="#conv-basics"><img src="../branding/icons/png/converter_64.png" alt=""><b>Ethical Converter</b><span>转换和压缩音频、视频、图片、文档；压缩/解压 zip</span></a>
+<a class="card" href="#base-basics"><img src="../branding/icons/png/database_64.png" alt=""><b>Ethical Database</b><span>数据库：表、窗体、查询、关系、报表</span></a>
+<a class="card" href="#stickies"><img src="../branding/icons/png/stickynotes_64.png" alt=""><b>Ethical Sticky Notes</b><span>留在桌面上的便笺和待办清单</span></a>
+<a class="card" href="#snip"><img src="../branding/icons/png/snip_64.png" alt=""><b>Ethical Snip</b><span>可以标注的截图 — Ctrl+PrtScn</span></a>
+<a class="card" href="#planner"><img src="../branding/icons/png/planner_64.png" alt=""><b>Ethical Planner</b><span>准时提醒你的提醒事项和日历</span></a>
+</div>
+<h2>快速上手</h2>
+<ol><li>第一次使用？请看<a href="#setup">安装和启动应用</a>。</li>
+<li>从开始菜单或桌面打开 <b>EthicalApp</b>：所有应用都在一个窗口里。点击一个应用，或把文件拖放到它上面。
+也可以<b>右键单击文件 → 用 Ethical … 打开</b>（见<a href="#right-click">右键菜单</a>）。</li>
+<li>在任何应用中按 <kbd>F1</kbd>，就会在该应用的页面打开本指南。</li>
+<li>想用其他语言？点击 EthicalApp 窗口底部的 <b>🌐</b>（见<a href="#language">更改语言</a>）。</li>
+<li>想让 AI 助手替你干活？请看<a href="#ai-claude">通过 AI（Claude）使用应用</a>。</li></ol>
+<div class="tip">用顶部的搜索框（或按 <kbd>/</kbd>）查找任何内容 — 例如“涂黑”“VLOOKUP”“混合模式”“压缩视频”。</div>
+
+@@ setup
+title: 安装和启动应用
+keywords: 安装 安装程序 下载 更新 卸载 开始菜单 第一次
+---
+<h2>安装</h2>
+<ol><li>从 <a href="https://ethicalapp.org">ethicalapp.org</a> 下载安装程序并运行。不需要管理员密码。</li>
+<li>如果 Windows 提示“Windows 已保护你的电脑”，请点击<b>更多信息 → 仍要运行</b>。这是新程序还不太出名时会出现的提示；你可以用网站上的 SHA-256 指纹确认下载的文件是真的。</li>
+<li>选择<b>全部</b>、<b>仅办公应用</b>，或只勾选你想要的应用。</li>
+<li>选项：桌面快捷方式、右键菜单中的“用 Ethical … 打开”、随 Windows 启动 Sticky Notes / Snip / Planner，以及<b>将所选应用连接到 Claude</b>（见<a href="#ai-claude">通过 AI 使用应用</a>）。</li>
+<li><b>帮我把 EthicalApp 固定到任务栏 / 开始</b>：Windows 不允许程序自己固定，所以启动器会告诉你需要的两次点击（右键单击任务栏上的图标 → <b>固定到任务栏</b>；或在开始菜单中右键单击 <b>EthicalApp</b> → <b>固定到“开始”屏幕</b>）。启动器里的<b>固定到任务栏或开始…</b>链接可以随时再显示一次。</li></ol>
+<h2>启动</h2>
+<p>打开 <b>EthicalApp</b>（开始菜单或桌面），所有已安装的应用都在一个窗口里：点击磁贴、使用<b>打开文件…</b>（<kbd>Ctrl</kbd>+<kbd>O</kbd>），或把文件拖放进去，每个文件都会在合适的应用中打开。每个应用也都在<b>开始 → EthicalApp</b> 里。</p>
+<h2>更新和卸载</h2>
+<p>要更新，运行更新的安装程序即可：它会替换旧版本，并保留你的设置、便笺和提醒。要全部删除：<b>设置 → 应用 → EthicalApp → 卸载</b>（便笺和提醒会留在电脑上，以备重新安装）。</p>
+<h2>从源代码运行（开发者）</h2>
+<p>所有源代码都是公开的 — 见<a href="#sharing">源代码与自行构建</a>。</p>
+
+@@ language
+title: 更改语言
+keywords: 语言 翻译 中文 英文 language
+---
+<p>EthicalApp 提供以下语言：English、Español、Português (Brasil)、Français、Deutsch、Italiano、Nederlands、Polski、Türkçe、Русский、Bahasa Indonesia、日本語、한국어和简体中文。</p>
+<ol><li>打开 <b>EthicalApp</b> 窗口（开始菜单）。</li>
+<li>点击底部的 <b>🌐</b> 并选择语言。<b>与 Windows 相同</b>会跟随 Windows 的显示语言 — 这是默认设置。</li>
+<li>同意重新启动 EthicalApp。已经打开的应用会在下次启动时切换语言。</li></ol>
+<p>所选语言适用于所有 Ethical 应用、本指南和对话框（打开/保存、颜色）。日期也会按你的语言显示。</p>
+<div class="tip">你的文件不会改变：文档保持你写它时的语言。只有按钮和菜单会被翻译。</div>
+
+@@ right-click
+title: 右键菜单和默认应用
+keywords: 打开方式 上下文菜单 默认程序 windows 11 显示更多选项 删除
+---
+<p>如果你在安装程序中勾选了右键菜单选项，Windows 右键菜单会出现这些项目（仅限你的帐户 — 不需要管理员权限）：</p>
+<table><tr><th>右键单击…</th><th>出现的项目</th></tr>
+<tr><td>.pdf</td><td>用 Ethical PDF Editor 打开</td></tr>
+<tr><td>.docx</td><td>用 Ethical Document Editor 打开</td></tr>
+<tr><td>.xlsx, .csv</td><td>用 Ethical Spreadsheet Editor 打开</td></tr>
+<tr><td>.pptx</td><td>用 Ethical Presentation Editor 打开</td></tr>
+<tr><td>.psd .png .jpg .webp .bmp .gif .tif .ora</td><td>用 Ethical Photo Editor 打开</td></tr>
+<tr><td>.db .sqlite .accdb .mdb</td><td>用 Ethical Database 打开</td></tr>
+<tr><td>任何文件或文件夹</td><td>用 Ethical Converter 转换 / 压缩</td></tr></table>
+<p>选中多个文件，右键单击并选择转换器项目：它们都会进入<b>同一个</b>转换器窗口。</p>
+<h2>把应用设为默认</h2>
+<p>右键单击文件 → <b>打开方式 → 选择其他应用</b> → 选择 Ethical 应用 → 勾选<b>始终使用此应用打开</b>。</p>
+<h2>Windows 11</h2><p>这些项目在<b>显示更多选项</b>里（或右键单击时按住 <kbd>Shift</kbd>）。</p>
+<h2>删除这些项目</h2>
+<p>再次运行安装程序并取消勾选右键菜单选项，或卸载 EthicalApp — 这些项目会一起删除。</p>
+
+@@ sharing
+title: 源代码与自行构建
+keywords: 源代码 github 开源 构建 开发者 修改 agpl 分享
+---
+<p>EthicalApp 是开源软件（AGPL-3.0）。所有源代码都在 GitHub 上：<a href="https://github.com/CBGGitHub/ethicalapp">github.com/CBGGitHub/ethicalapp</a>，每个安装程序的源代码压缩包也在 <a href="https://ethicalapp.org">ethicalapp.org</a> 上。</p>
+<h2>分享给朋友</h2>
+<p>把 <a href="https://ethicalapp.org">ethicalapp.org</a> 的链接发给他们 — 那里始终是最新、安全的版本。</p>
+<h2>从源代码构建安装程序</h2>
+<ol><li>安装 <b>Python 3.14</b> 和 <b>Inno Setup 6</b>。</li>
+<li>在源代码文件夹中运行 <code>python -m venv .venv</code>，然后运行 <code>.venv\\Scripts\\python -m pip install -r requirements.txt</code>。</li>
+<li>直接运行应用（例如 <code>.venv\\Scripts\\python apps\\suite_launcher.py</code>），或用 <code>.venv\\Scripts\\python installer\\build.py</code> 构建安装程序。</li></ol>
+<h2>源代码里有什么</h2>
+<table><tr><th>文件夹</th><th>用途</th></tr>
+<tr><td><code>apps/</code></td><td>每个应用的代码</td></tr>
+<tr><td><code>apps/locales/</code></td><td>翻译（每种语言一个文件）</td></tr>
+<tr><td><code>guide/</code></td><td>本指南（翻译在 <code>guide/i18n/</code>）</td></tr>
+<tr><td><code>branding/</code></td><td>图标和声音</td></tr>
+<tr><td><code>installer/</code></td><td>构建 Windows 安装程序</td></tr>
+<tr><td><code>licenses/</code></td><td>开源组件的许可证</td></tr></table>
+<p>如果你修改后分发自己的版本，AGPL 要求你也公开你的源代码。</p>
+
+@@ compat
+title: 文件兼容性一览
+keywords: 格式 docx xlsx pptx psd pdf 兼容 丢失 警告 保留
+---
+<table><tr><th>应用</th><th>可打开</th><th>可保存</th><th>暂不保留（会提醒你）</th></tr>
+<tr><td>PDF</td><td>.pdf（包括有密码的）</td><td>.pdf，导出 .docx/.txt/图片</td><td>—</td></tr>
+<tr><td>文档</td><td>.docx .html .md .txt</td><td>.docx .odt .html .md .txt、PDF</td><td>脚注、批注、修订、文本框、浮动图片、分栏</td></tr>
+<tr><td>电子表格</td><td>.xlsx .xlsm .csv .tsv</td><td>.xlsx .csv、PDF</td><td>条件格式、下拉列表/数据验证、数据透视表、宏、少见的图表</td></tr>
+<tr><td>演示文稿</td><td>.pptx</td><td>.pptx、PDF、PNG</td><td>图表、SmartArt、视频/音频、动画和切换效果</td></tr>
+<tr><td>数据库</td><td>.db/.sqlite（SQLite）；导入 .xlsx、.csv、Access .accdb/.mdb*</td><td>.db；导出 .xlsx、.csv、PDF</td><td>*导入 Access 需要微软免费的 Access 驱动程序；Access 的窗体、报表和宏不会导入（只导入表）</td></tr>
+<tr><td>照片</td><td>.psd .png .jpg .webp .bmp .gif .tif .ico .ora</td><td>.psd（图层）.ora（图层）、所有单层格式、PDF</td><td>PSD 调整图层、图层效果、蒙版、智能对象（会载入像素）</td></tr></table>
+<div class="tip">如果文件里有应用无法保留的内容，打开时会告诉你，并在覆盖原文件前再问一次。使用<b>文件 → 另存为</b>可以不动原文件。</div>
+<p>不支持旧格式（<code>.doc</code>、<code>.xls</code>、<code>.ppt</code>）— 请先在创建它们的程序中打开，另存为带“x”的新格式。</p>
+
+@@ pdf-basics
+title: PDF：打开、查看和搜索文字
+keywords: 缩放 缩略图 页面 面板 搜索 查找 密码
+---
+<p>用<b>文件 → 打开</b>（<kbd>Ctrl</kbd>+<kbd>O</kbd>）、拖到窗口中，或右键单击 → <i>用 Ethical PDF Editor 打开</i>来打开 PDF。有密码的 PDF 会要求输入密码。</p>
+<h2>浏览</h2><ul>
+<li><b>缩放：</b><kbd>Ctrl</kbd>+鼠标滚轮、缩放框、<i>适合宽度</i>（<kbd>Ctrl</kbd>+<kbd>1</kbd>）、实际大小（<kbd>Ctrl</kbd>+<kbd>0</kbd>）。</li>
+<li><b>页面面板</b>（左侧）：点击缩略图跳到该页。用 <kbd>Ctrl</kbd>/<kbd>Shift</kbd> 选择多页来进行页面操作。右键单击打开页面菜单。</li>
+<li><b>转到页面：</b>在页码框中输入页码。</li></ul>
+<h2>搜索文字</h2><p>在<b>查找文字…</b>中输入并按 <kbd>Enter</kbd>；用 <kbd>F3</kbd> / <b>下一个</b>和<b>上一个</b>在结果间移动（全部高亮，当前结果为橙色）。</p>
+<h2>复制文字</h2><p>用<b>选择</b>工具拖过文字，然后按 <kbd>Ctrl</kbd>+<kbd>C</kbd>。</p>
+
+@@ pdf-edit-text
+title: PDF：编辑现有文字和添加文字
+keywords: 编辑文字 修改文字 字体 错别字 添加文字
+---
+<h2>修改 PDF 中已有的文字</h2><ol>
+<li>选择<b>编辑文字</b>工具。</li><li>点击要修改的那一行。</li>
+<li>对话框会显示这一行的文字、字体、字号、粗体/斜体和颜色 — 改好后点击确定。</li></ol>
+<p>应用会识别 PDF 的字体，并选用电脑上已安装的对应字体（例如 Calibri、Times New Roman）。如果没有安装，就用相似的字体。</p>
+<div class="warn">一次只能编辑一行。旋转的或竖排的文字无法编辑。</div>
+<h2>添加新文字</h2><p>选择<b>添加文字</b>，点击要放的位置，输入文字，并选择任意已安装的字体。它会成为真正的页面文字 — 以后可以用<b>编辑文字</b>修改。</p>
+
+@@ pdf-annotate
+title: PDF：高亮、注释、绘图和形状
+keywords: 批注 高亮 下划线 删除线 注释 绘图 画笔 矩形 椭圆 箭头 直线 图片 颜色
+---
+<table><tr><th>工具</th><th>用法</th></tr>
+<tr><td>高亮 / 下划线 / 删除线</td><td>在文字上拖动。高亮使用<b>荧光笔</b>颜色；其他使用<b>颜色</b>按钮的颜色。</td></tr>
+<tr><td>注释</td><td>点击放置一张便笺注释，然后输入内容。</td></tr>
+<tr><td>绘图</td><td>手绘画笔（颜色和粗细在工具栏中设置）。</td></tr>
+<tr><td>矩形 / 椭圆 / 直线 / 箭头</td><td>拖动来绘制。</td></tr>
+<tr><td>图片</td><td>点击（或拖出一个框）并选择图片。</td></tr></table>
+<h2>之后再编辑批注</h2><p>切换到<b>选择</b>，然后：</p><ul>
+<li>拖动批注来移动它；按 <kbd>Delete</kbd> 删除它；</li>
+<li>双击文本框或注释来编辑文字；</li>
+<li>右键单击可选择<i>更改颜色</i> / <i>删除</i>。</li></ul>
+<p>每次修改都可以用 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 撤消。</p>
+
+@@ pdf-forms-sign
+title: PDF：填写表单和签名
+keywords: 表单 字段 复选框 填写 签名 签字 手绘
+---
+<h2>表单</h2><p>表单字段以浅蓝色显示（可通过<i>视图 → 突出显示表单字段</i>关闭）。用<b>选择</b>工具点击字段：文本字段会要求输入文字，复选框可勾选/取消，下拉列表会显示选项。</p>
+<h2>签名</h2><ol><li>选择<b>签名</b>工具（或<i>编辑 → 创建签名</i>）。</li>
+<li>用鼠标<b>手绘</b>签名，或使用图片（<b>图片</b>选项卡 — 最好是透明背景的 PNG）。</li>
+<li>点击页面放置签名。再点击可放置更多副本。之后用<b>选择</b>移动。</li></ol>
+
+@@ pdf-pages
+title: PDF：页面、合并和拆分
+keywords: 旋转 删除 排序 移动 插入 空白 合并 组合 拆分 提取 页面 图片
+---
+<p>所有页面命令都在<b>页面</b>菜单中（也可以在页面面板中右键单击）。它们作用于选中的缩略图，或当前页面。</p>
+<table><tr><th>要</th><th>使用</th></tr>
+<tr><td>旋转</td><td>向右旋转 <kbd>Ctrl</kbd>+<kbd>R</kbd> / 向左 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd></td></tr>
+<tr><td>调整顺序</td><td>页面上移 / 下移</td></tr>
+<tr><td>添加页面</td><td>插入空白页、从文件插入页面（另一个 PDF）、将图片作为页面插入</td></tr>
+<tr><td>取出页面</td><td>提取所选页面（另存为新 PDF）</td></tr>
+<tr><td>每页一个文件</td><td>拆分为单页</td></tr>
+<tr><td>删除</td><td>删除所选页面</td></tr></table>
+<h2>合并多个文件</h2><p><b>文件 → 将文件合并为一个 PDF</b>：按顺序选择 PDF 和图片，它们会合成一个新 PDF。<b>文件 → 从图片新建 PDF</b> 可把照片或扫描件做成 PDF。</p>
+<div class="tip"><a href="#conv-combine">转换器</a>也可以批量合并图片和 PDF。</div>
+
+@@ pdf-redact
+title: PDF：白色覆盖与涂黑（隐藏信息）
+keywords: 涂黑 黑框 隐藏 删除 机密 白色覆盖 隐私 安全
+---
+<table><tr><th>工具</th><th>作用</th><th>能保护机密吗？</th></tr>
+<tr><td><b>白色覆盖</b></td><td>在区域上画一个白色方框。</td><td>❌ 下面的文字仍在文件中，可以被复制。</td></tr>
+<tr><td><b>涂黑</b></td><td>永久删除方框下的文字、图片和图形，并填成黑色。</td><td>✅ 能 — 内容彻底消失。</td></tr></table>
+<div class="warn">密码、账号、地址等信息请务必使用<b>涂黑</b>。把结果另存为新文件，并把原文件放在安全的地方。</div>
+
+@@ pdf-export
+title: PDF：保存、导出和打印
+keywords: 保存 导出 word docx 图片 png jpg 文本 打印
+---
+<ul><li><b>保存</b>（<kbd>Ctrl</kbd>+<kbd>S</kbd>）/ <b>另存为</b>。保存时只保留嵌入字体中用到的字符，所以文件很小。</li>
+<li><b>文件 → 导出</b>：把页面导出为 PNG/JPG 图片（可选 DPI）、Word 文档（.docx — 文字、样式和图片；不是精确版式）或纯文本。</li>
+<li><b>文件 → 打印</b>（<kbd>Ctrl</kbd>+<kbd>P</kbd>）。</li></ul>
+
+@@ write-basics
+title: 文档：基础
+keywords: 文字处理 文档 页面视图 输入 样式 标题 正文 字体
+---
+<p>Ethical Document Editor 以真实页面显示文档 — 带页边距的白纸，和打印出来一模一样。状态栏显示你所在的页码和字数。</p>
+<h2>样式</h2><p>格式栏的第一个框用于设置段落样式：<b>正文、标题、标题 1–4</b>。在标题后按 <kbd>Enter</kbd> 会回到正文，和 Word 一样。标题会保存为真正的 Word 标题。</p>
+<h2>字体</h2><p>电脑上的所有字体都可以使用。新文档使用 Calibri 11（如果没有安装 Calibri 则使用 Arial）。</p>
+<h2>常用按键</h2><table>
+<tr><td>加粗 / 倾斜 / 下划线</td><td>${K("Ctrl B")} ${K("Ctrl I")} ${K("Ctrl U")}</td></tr>
+<tr><td>增大 / 减小字号</td><td>${K("Ctrl ]")} ${K("Ctrl [")}</td></tr>
+<tr><td>左对齐 / 居中 / 右对齐 / 两端对齐</td><td>${K("Ctrl L")} ${K("Ctrl E")} ${K("Ctrl R")} ${K("Ctrl J")}</td></tr>
+<tr><td>查找和替换</td><td>${K("Ctrl F")} / ${K("Ctrl H")}</td></tr>
+<tr><td>分页符</td><td>${K("Ctrl Enter")}</td></tr>
+<tr><td>清除格式</td><td>${K("Ctrl Space")}</td></tr>
+<tr><td>无格式粘贴</td><td>${K("Ctrl Shift V")}</td></tr>
+<tr><td>字数统计</td><td>${K("Ctrl Shift G")}</td></tr></table>
+
+@@ write-format
+title: 文档：设置文字、段落和列表格式
+keywords: 加粗 颜色 突出显示 上标 下标 行距 缩进 项目符号 编号 列表 制表符
+---
+<h2>文字</h2><p>字体、字号、<b>B</b> <i>I</i> <u>U</u> <s>S</s>、上标 x²、下标 x₂、文字颜色（从色块中选择，用 <b>A</b> 应用）、突出显示、<i>格式 → 更改大小写</i>、<i>清除格式</i>。</p>
+<h2>段落</h2><p>对齐方式、<i>段落 → 行距</i>（1.0–3.0）、段前/段后间距、增加/减少缩进（<kbd>Ctrl</kbd>+<kbd>M</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>）。</p>
+<h2>列表</h2><ul>
+<li><b>• 列表</b> / <b>1. 列表</b>开始项目符号或编号；<i>段落 → 列表样式</i>有 8 种样式（•、○、▪、1.、a.、A.、i.、I.）。</li>
+<li>在项目开头按 <kbd>Tab</kbd> 使其成为子项目；按 <kbd>Shift</kbd>+<kbd>Tab</kbd> 退回。</li>
+<li>在空项目上按 <kbd>Enter</kbd> 结束列表；在开头按 <kbd>Backspace</kbd> 去掉符号。</li></ul>
+
+@@ write-insert
+title: 文档：图片、表格和链接
+keywords: 插入 图片 调整大小 表格 行 列 合并 底纹 链接 超链接 日期 横线
+---
+<h2>图片</h2><p><i>插入 → 图片</i>、用 <kbd>Ctrl</kbd>+<kbd>V</kbd> 粘贴，或拖入图片文件。右键单击图片 → <b>调整图片大小</b>，以百分比设置大小。</p>
+<h2>表格</h2><p><i>插入 → 表格</i>（选择行数/列数，可选带底纹的标题行）。在表格内，用<b>表格</b>菜单或右键菜单可以插入/删除行和列、合并所选单元格、拆分单元格、添加底纹或删除表格。</p>
+<h2>链接</h2><p>选中文字后按 <kbd>Ctrl</kbd>+<kbd>K</kbd>。<kbd>Ctrl</kbd>+单击链接即可打开。右键单击 → 删除链接。</p>
+<h2>其他</h2><p>分页符（<kbd>Ctrl</kbd>+<kbd>Enter</kbd>）、日期和时间、横线。</p>
+
+@@ write-pagesetup
+title: 文档：页面设置、页眉、页脚和页码
+keywords: 页边距 纸张大小 a4 letter 横向 页眉 页脚 页码
+---
+<p><b>文件 → 页面设置</b>：</p><ul>
+<li>纸张：Letter、Legal、A4、A5 或自定义大小；<b>横向</b>。</li>
+<li>页边距（上、下、左、右），单位为英寸。</li>
+<li><b>页眉</b>文字（每页顶部居中）、<b>页脚</b>（左下）、<b>页码</b>（右下）。</li></ul>
+<p>它们会保存在 .docx 中，所以 Word 也会显示。</p>
+
+@@ write-files
+title: 文档：文件、Word 兼容性、PDF 和打印
+keywords: docx 保存 打开 odt html markdown txt pdf 导出 打印 打印预览 兼容性
+---
+<p><b>可打开：</b>.docx、.html、.md、.txt。<b>可保存：</b>.docx（默认）、.odt、.html、.md、.txt。<b>导出为 PDF</b> 会保留可选中的真实文字。<b>打印</b>和<b>打印预览</b>与页面视图一致。</p>
+<h2>与 Word 互通的内容</h2><p>标题和文档标题、字体（包括主题字体）、字号、加粗/倾斜/下划线/删除线、颜色、突出显示、对齐、缩进、间距、分页符、项目符号和编号（可嵌套）、表格（合并单元格、宽度、底纹）、图片、链接、页面大小和页边距、页眉/页脚文字和页码。</p>
+<p><b>暂不支持：</b>脚注、批注、修订、文本框、浮动图片（带文字环绕）、分栏、多个节。也还没有缩放和拼写检查。</p>
+
+@@ sheets-basics
+title: 电子表格：基础
+keywords: 电子表格 单元格 输入 enter tab 移动 编辑栏 名称框 工作表标签 工作表 状态 求和
+---
+<h2>窗口</h2><ul>
+<li><b>名称框</b>（左上角）：显示当前单元格；输入 <code>B12</code>、<code>A1:C20</code>、<code>Sheet2!A1</code> 或名称区域后按 Enter 即可跳转（<kbd>Ctrl</kbd>+<kbd>G</kbd>）。</li>
+<li><b>fx / 编辑栏</b>：显示并编辑单元格里实际的内容（例如公式）。</li>
+<li><b>工作表标签</b>（底部）：<b>+</b> 添加工作表；双击重命名；右键单击复制/删除；拖动调整顺序。</li>
+<li><b>状态栏</b>：选中几个数字即可看到它们的总和、平均值和计数。</li></ul>
+<h2>输入数值</h2><table><tr><th>输入</th><th>得到</th></tr>
+<tr><td><code>1234.5</code> / <code>1,234</code></td><td>数字（带千位分隔符）</td></tr>
+<tr><td><code>$5</code> / <code>25%</code></td><td>货币 / 百分比</td></tr>
+<tr><td><code>2026-10-11</code>、<code>10/11/2026</code>、<code>Oct 11, 2026</code></td><td>日期</td></tr>
+<tr><td><code>9:30</code>、<code>9:30 PM</code></td><td>时间</td></tr>
+<tr><td><code>TRUE</code> / <code>FALSE</code></td><td>逻辑值</td></tr>
+<tr><td><code>'007</code></td><td>与输入完全相同的文本（' 会隐藏）</td></tr>
+<tr><td><code>=A1*2</code></td><td>公式</td></tr></table>
+<h2>移动</h2><table>
+<tr><td>${K("Enter")} / ${K("Shift Enter")}</td><td>向下 / 向上</td></tr><tr><td>${K("Tab")} / ${K("Shift Tab")}</td><td>向右 / 向左</td></tr>
+<tr><td>${K("Ctrl Arrow")}</td><td>跳到数据边缘</td></tr><tr><td>${K("Ctrl Shift Arrow")}</td><td>选到边缘</td></tr>
+<tr><td>${K("F2")} 或双击</td><td>编辑单元格</td></tr><tr><td>${K("Delete")}</td><td>清除内容</td></tr></table>
+
+@@ sheets-formulas
+title: 电子表格：公式和引用
+keywords: 公式 引用 绝对 相对 $ 美元 其他工作表 名称区域 错误 div/0 ref name n/a 循环 自动求和
+---
+<p>公式以 <code>=</code> 开头：<code>=B2*C2</code>、<code>=SUM(D2:D20)</code>、<code>=IF(A1&gt;10,"big","small")</code>。</p>
+<h2>运算符</h2><p><code>+ - * /</code>、<code>^</code>（乘方）、<code>%</code>（百分比）、<code>&amp;</code>（连接文本）、<code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code>。</p>
+<h2>引用</h2><table>
+<tr><td><code>A1</code></td><td>一个单元格 — 复制时会自动调整</td></tr>
+<tr><td><code>$A$1</code> / <code>A$1</code> / <code>$A1</code></td><td>绝对（固定）列和/或行 — 复制时不变</td></tr>
+<tr><td><code>A1:C10</code></td><td>一块单元格区域</td></tr><tr><td><code>B:B</code></td><td>整列</td></tr>
+<tr><td><code>'My Sheet'!A1</code></td><td>另一个工作表中的单元格</td></tr>
+<tr><td><code>Prices</code></td><td>名称区域（<i>数据 → 定义名称</i>）</td></tr>
+<tr><td><code>{1,2;3,4}</code></td><td>数组常量</td></tr></table>
+<p>复制/粘贴、向下填充（<kbd>Ctrl</kbd>+<kbd>D</kbd>）和向右填充（<kbd>Ctrl</kbd>+<kbd>R</kbd>）会像 Excel 一样调整引用。插入或删除行/列会更新所有公式；指向已删除单元格的引用会变成 <code>#REF!</code>。</p>
+<h2>快捷操作</h2><ul><li><b>自动求和</b>（<kbd>Alt</kbd>+<kbd>=</kbd>）会为上方或左侧的数字写入 <code>=SUM(…)</code>。</li>
+<li><b>函数…</b>（<kbd>Shift</kbd>+<kbd>F3</kbd>）插入函数名；<i>帮助 → 函数列表</i>显示全部函数。</li></ul>
+<h2>错误</h2><table>
+<tr><td><code>#DIV/0!</code></td><td>除以零</td></tr><tr><td><code>#VALUE!</code></td><td>值的类型不对（例如计算中有文字）</td></tr>
+<tr><td><code>#REF!</code></td><td>引用的单元格被删除了</td></tr><tr><td><code>#NAME?</code></td><td>未知的函数或名称</td></tr>
+<tr><td><code>#N/A</code></td><td>查找没有找到任何内容</td></tr><tr><td><code>#NUM!</code></td><td>不可能的数字</td></tr>
+<tr><td><code>#CIRC!</code></td><td>循环引用 — 公式依赖于它自己</td></tr></table>
+<div class="tip">如果 Excel 工作簿用了 Ethical Spreadsheet Editor 还不认识的函数，它会显示 Excel 最后算出的值，而不是错误。</div>
+<p>函数要用英文名输入（SUM、IF、VLOOKUP…），和 Excel 文件内部的写法一样。</p>
+
+@@ sheets-functions
+title: 电子表格：函数列表（143 个函数）
+keywords: 函数 列表 sum average count if vlookup xlookup index match sumif countif 文本 日期 round pmt
+---
+<table><tr><th>类别</th><th>函数</th></tr>
+<tr><td>汇总与统计</td><td>SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, COUNTBLANK, PRODUCT, MEDIAN, MODE, STDEV(.S/.P), VAR(.S/.P), LARGE, SMALL, RANK, SUMPRODUCT</td></tr>
+<tr><td>条件</td><td>SUMIF, SUMIFS, COUNTIF, COUNTIFS, AVERAGEIF, AVERAGEIFS, MAXIFS, MINIFS</td></tr>
+<tr><td>逻辑</td><td>IF, IFS, IFERROR, IFNA, SWITCH, CHOOSE, AND, OR, NOT, XOR, TRUE, FALSE</td></tr>
+<tr><td>查找</td><td>VLOOKUP, HLOOKUP, XLOOKUP, INDEX, MATCH, ROW, COLUMN, ROWS, COLUMNS</td></tr>
+<tr><td>数学</td><td>ROUND, ROUNDUP, ROUNDDOWN, TRUNC, INT, ABS, SQRT, POWER, MOD, EXP, LN, LOG, LOG10, SIGN, PI, RAND, RANDBETWEEN, CEILING, FLOOR, EVEN, ODD, FACT, DEGREES, RADIANS, SIN, COS, TAN, ASIN, ACOS, ATAN, ATAN2</td></tr>
+<tr><td>文本</td><td>CONCATENATE, CONCAT, TEXTJOIN, LEFT, RIGHT, MID, LEN, UPPER, LOWER, PROPER, TRIM, CLEAN, FIND, SEARCH, SUBSTITUTE, REPLACE, REPT, EXACT, CHAR, CODE, VALUE, TEXT, FIXED, DOLLAR, T, N</td></tr>
+<tr><td>日期和时间</td><td>TODAY, NOW, DATE, TIME, YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, WEEKDAY, DAYS, DATEDIF, EDATE, EOMONTH, DATEVALUE</td></tr>
+<tr><td>信息</td><td>ISBLANK, ISNUMBER, ISTEXT, ISNONTEXT, ISLOGICAL, ISERROR, ISERR, ISNA, ISEVEN, ISODD, NA</td></tr>
+<tr><td>财务</td><td>PMT, FV, PV, NPV</td></tr></table>
+<h2>示例</h2><table>
+<tr><td><code>=VLOOKUP("Apples",A2:C50,3,FALSE)</code></td><td>在 A 列查找“Apples”并返回 C 列的值</td></tr>
+<tr><td><code>=XLOOKUP(F2,A:A,C:C,"not found")</code></td><td>带备用值的新式查找</td></tr>
+<tr><td><code>=INDEX(B2:B50,MATCH(F2,A2:A50,0))</code></td><td>任意方向的查找</td></tr>
+<tr><td><code>=SUMIF(B:B,"&gt;100",C:C)</code></td><td>对 B 大于 100 的行求 C 的和</td></tr>
+<tr><td><code>=COUNTIF(A:A,"app*")</code></td><td>统计以“app”开头的单元格</td></tr>
+<tr><td><code>=TEXT(TODAY(),"dddd, mmmm d")</code></td><td>把今天显示为文本，例如“Sunday, October 11”</td></tr>
+<tr><td><code>=PMT(5%/12,360,-200000)</code></td><td>30 年期房贷的月供</td></tr>
+<tr><td><code>=IFERROR(A1/B1,0)</code></td><td>出错时显示 0</td></tr></table>
+
+@@ sheets-format
+title: 电子表格：格式和数字格式
+keywords: 格式 数字 货币 百分比 日期 小数 自定义代码 加粗 填充 颜色 边框 合并 自动换行 对齐 列宽 行高 隐藏
+---
+<h2>单元格样式</h2><p>字体、字号、<b>B I U S</b>、字体颜色、<b>填充</b>颜色（以及<b>无填充</b>）、对齐（左/中/右，上/中/下）、<b>自动换行</b>、<b>合并后居中</b>、<b>边框</b>（所有、外侧、粗线、下边、上下、无）。</p>
+<h2>数字格式</h2><p>工具栏：<b>$</b> 货币、<b>%</b>、<b>,</b> 千位分隔、<b>.0+ / .0-</b> 小数位，或格式列表（常规、数值、货币、会计专用、百分比、日期、时间、科学记数、文本）。<i>格式 → 数字格式 → 自定义…</i>可使用 Excel 格式代码：</p>
+<table><tr><th>代码</th><th>12345.678 显示为</th></tr>
+<tr><td><code>#,##0.00</code></td><td>12,345.68</td></tr><tr><td><code>$#,##0</code></td><td>$12,346</td></tr>
+<tr><td><code>0.0%</code></td><td>1234567.8%（乘以 100）</td></tr><tr><td><code>0.00E+00</code></td><td>1.23E+04</td></tr>
+<tr><td><code>000000</code></td><td>012346</td></tr><tr><td><code>#,##0;(#,##0)</code></td><td>负数显示在括号中</td></tr>
+<tr><td><code>0.0 "kg"</code></td><td>12345.7 kg</td></tr>
+<tr><td><code>yyyy-mm-dd</code>、<code>mmm d, yyyy</code>、<code>dddd</code></td><td>日期样式</td></tr>
+<tr><td><code>h:mm AM/PM</code></td><td>时间</td></tr></table>
+<p>单元格中显示 <code>########</code> 表示数字放不下 — 把列加宽即可。</p>
+<h2>列和行</h2><p>拖动标题的边线，或使用<i>格式 → 列宽 / 行高 / 自动调整列宽 / 隐藏 / 全部取消隐藏</i>。</p>
+
+@@ sheets-data
+title: 电子表格：排序、填充、复制和编辑数据
+keywords: 排序 升序 降序 删除重复项 填充序列 复制 粘贴 值 剪切 插入 删除 行 列 查找 替换 批注
+---
+<h2>排序</h2><p><b>升序 A→Z / 降序 Z→A</b> 按当前列给数据排序（会识别标题行）。<i>数据 → 排序…</i>最多可按 3 列排序。空单元格总是排在最后。</p>
+<h2>填充</h2><ul><li><kbd>Ctrl</kbd>+<kbd>D</kbd> 向下填充 / <kbd>Ctrl</kbd>+<kbd>R</kbd> 向右填充 — 复制第一个单元格（公式会自动调整）。</li>
+<li><i>编辑 → 填充序列</i>：在前几个单元格输入 1 和 2（或 5 和 10，或一个日期），选中区域，规律就会延续下去。</li></ul>
+<h2>复制和粘贴</h2><p>公式粘贴时会自动调整。<b>只粘贴值</b>（<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>）粘贴结果而不是公式。把一个单元格复制到选中的区域会填满整个区域。从其他程序复制的（以制表符分隔的）文本会拆分到各单元格。</p>
+<h2>更多</h2><ul><li>插入 / 删除行和列（菜单或右键）。</li>
+<li><i>数据 → 删除重复项</i>。</li><li>查找和替换（<kbd>Ctrl</kbd>+<kbd>F</kbd>），也可在所有工作表中进行。</li>
+<li>批注（<kbd>Shift</kbd>+<kbd>F2</kbd>）— 以红色角标显示；鼠标悬停即可阅读。</li></ul>
+
+@@ sheets-charts
+title: 电子表格：图表和图片
+keywords: 图表 柱形图 条形图 折线图 饼图 图片 插入 移动
+---
+<ol><li>选中数据时<b>包括</b>标题行和标签列 — 例如 A 列是月份，B 列和 C 列是销售额。</li>
+<li><b>插入 → 图表…</b>（或<b>图表</b>按钮）：选择柱形图、条形图、折线图或饼图，并输入标题。</li></ol>
+<p>数字变化时图表会更新。拖动可移动；右键单击 → 编辑图表 / 删除图表。</p>
+<p><b>插入 → 图片…</b>添加图片；拖动可移动；右键单击 → 调整大小 / 删除。</p>
+<p>图表和图片会保存在 .xlsx 中，可在 Excel 中打开。</p>
+
+@@ sheets-files
+title: 电子表格：文件、Excel 兼容性、PDF 和打印
+keywords: xlsx xlsm csv tsv 保存 打开 excel 兼容性 警告 打印 pdf
+---
+<p><b>可打开：</b>.xlsx、.xlsm（保存为不含宏的 .xlsx）、.csv/.tsv。<b>可保存：</b>.xlsx，或 .csv（仅当前工作表）。</p>
+<p><b>会保留：</b>值、公式、字体、颜色、填充、边框、数字格式、对齐、自动换行、合并单元格、列宽、行高、隐藏的行/列、批注、名称区域、多个工作表、图表（柱形/条形/折线/饼图）、图片。</p>
+<p><b>暂不保留</b>（打开时和覆盖前会提醒）：条件格式、数据验证/下拉列表、数据透视表、宏、少见的图表类型。冻结窗格会留在文件里，但不会在屏幕上显示。</p>
+<p><b>导出为 PDF / 打印</b>会把所有列缩放到页面宽度。</p>
+<div class="tip">非常大的工作簿（超过 10 万个公式）会比较慢 — 每次修改后都会重新计算所有公式。</div>
+
+@@ slides-basics
+title: 演示文稿：基础
+keywords: 演示文稿 幻灯片 面板 版式 新建幻灯片 占位符 备注 复制 隐藏 排序
+---
+<ul><li><b>左侧：</b>幻灯片缩略图 — 点击打开，拖动调整顺序，右键单击可复制、删除、隐藏或移动。</li>
+<li><b>中间：</b>幻灯片。<kbd>Ctrl</kbd>+鼠标滚轮缩放。</li><li><b>底部：</b>当前幻灯片的演讲者备注。</li></ul>
+<h2>添加幻灯片</h2><p><b>新建幻灯片</b>（<kbd>Ctrl</kbd>+<kbd>M</kbd>）在当前幻灯片后添加一张；旁边的箭头可选择版式：
+标题幻灯片、标题和内容、节标题、两栏内容、仅标题、空白。从 PowerPoint 打开的演示文稿会提供它自己的版式。</p>
+<p>写着“单击此处添加标题/文本”的灰色虚线框是占位符 — 点击后输入即可。空的占位符不会出现在放映或 PDF 中。</p>
+<p><b>隐藏</b>的幻灯片（幻灯片 → 隐藏 / 显示）在放映和导出时会被跳过。</p>
+
+@@ slides-objects
+title: 演示文稿：文字、形状、图片和表格
+keywords: 文本框 形状 图片 表格 移动 调整大小 旋转 翻转 排列 置于顶层 置于底层 对齐 项目符号 填充 轮廓
+---
+<h2>插入</h2><p><b>文本框</b>、<b>图片</b>（或粘贴 / 拖入图片）、<b>形状</b>（19 种形状、直线、箭头）、<b>表格</b>。</p>
+<h2>操作对象</h2><table>
+<tr><td>选择</td><td>点击（在空白处拖出方框可选择多个）</td></tr>
+<tr><td>移动</td><td>拖动，或用方向键（${K("Shift Arrow")} = 10 px）</td></tr>
+<tr><td>调整大小</td><td>拖动白色控制点（图片会保持比例；按住 ${K("Shift")} 可改变比例）</td></tr>
+<tr><td>编辑文字</td><td>双击、按 ${K("F2")}/${K("Enter")}，或直接开始输入；按 ${K("Esc")} 结束</td></tr>
+<tr><td>删除 / 复制</td><td>${K("Delete")} / ${K("Ctrl D")}</td></tr>
+<tr><td>上移 / 下移</td><td>排列菜单或“前/后”按钮</td></tr>
+<tr><td>与幻灯片对齐、旋转、翻转</td><td>排列菜单</td></tr></table>
+<h2>格式</h2><p>文字：字体、字号、A+/A−、B/I/U、颜色、对齐、垂直对齐（格式菜单）、项目符号和编号。形状：<b>填充</b>和<b>轮廓</b>颜色、轮廓粗细、无填充 / 无轮廓。</p>
+
+@@ slides-design
+title: 演示文稿：主题、背景和幻灯片大小
+keywords: 主题 设计 背景 颜色 图片 幻灯片大小 宽屏 4:3
+---
+<p><b>设计 → 主题</b>把 8 个主题之一（Office、午夜、石板、森林、日落、海洋、炭灰、腮红）应用到所有幻灯片：背景、标题和正文的颜色与字体。</p>
+<p><b>设计 → 幻灯片背景色</b>（本张）、<b>所有幻灯片的背景色</b>、<b>背景图片</b>。</p>
+<p><b>文件 → 幻灯片大小</b>：宽屏 16:9、标准 4:3、A4、正方形 — 内容会缩放以适应。</p>
+<p><b>文件 → 新建</b>可以为新演示文稿选择主题。</p>
+
+@@ slides-present
+title: 演示文稿：放映
+keywords: 放映 演示 f5 全屏 按键 黑屏 下一张 上一张
+---
+<p><b>F5</b> 从第一张开始，<b>Shift+F5</b> 从当前幻灯片开始（或点击 <b>▶ 放映</b>按钮）。</p>
+<table><tr><th>要</th><th>按键</th></tr>
+<tr><td>下一张幻灯片</td><td>${K("Space")} ${K("→")} ${K("↓")} ${K("Page_Down")} ${K("Enter")}、左键单击、鼠标滚轮</td></tr>
+<tr><td>上一张幻灯片</td><td>${K("←")} ${K("↑")} ${K("Page_Up")} ${K("Backspace")}、右键单击</td></tr>
+<tr><td>第一张 / 最后一张</td><td>${K("Home")} / ${K("End")}</td></tr>
+<tr><td>黑屏 / 白屏</td><td>${K("B")} / ${K("W")}</td></tr>
+<tr><td>退出</td><td>${K("Esc")}</td></tr></table>
+
+@@ slides-files
+title: 演示文稿：文件、PowerPoint 兼容性和导出
+keywords: pptx powerpoint 保存 打开 导出 pdf png 图片 打印 母版 版式
+---
+<p><b>可打开和保存 .pptx。</b>导入的演示文稿看起来和在 PowerPoint 里一样：应用会读取演示文稿的幻灯片母版和版式（主题颜色、字体、背景、徽标、项目符号样式）。保存时会保留原有的母版、版式和主题，所以在 PowerPoint 中依然显示正确。</p>
+<p><b>导出：</b>PDF（清晰，文字可选中）、PNG 图片（宽 1920 px）、打印。</p>
+<p><b>暂不保留：</b>图表、SmartArt、视频/音频、动画和切换效果（会提醒你）。渐变填充显示为单色。还没有演讲者视图和拼写检查。</p>

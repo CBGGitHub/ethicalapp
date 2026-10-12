@@ -23,6 +23,7 @@ from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel, Q
 
 import stickies_core as core  # noqa: E402
 from suite_common import icon_path, launch_command, make_app, open_guide  # noqa: E402
+from i18n import tr  # noqa: E402
 
 APP_NAME = "Ethical Sticky Notes"
 SERVER_NAME = "EthicalStickyNotes-" + os.environ.get("USERNAME", "user")
@@ -317,22 +318,22 @@ class NoteWindow(QWidget):
         hl = QHBoxLayout(self.header)
         hl.setContentsMargins(4, 0, 4, 0)
         hl.setSpacing(0)
-        self.btn_new = tool_button("+", "New note (Ctrl+N)", lambda: manager.new_note(near=self), self.header)
+        self.btn_new = tool_button("+", tr("New note (Ctrl+N)"), lambda: manager.new_note(near=self), self.header)
         hl.addWidget(self.btn_new)
         self.title = QLabel()
         self.title.setAttribute(Qt.WA_TransparentForMouseEvents)
         hl.addWidget(self.title, 1)
-        self.btn_pin = tool_button("📌", "Keep on top of other windows", self.toggle_on_top, self.header, True)
+        self.btn_pin = tool_button("📌", tr("Keep on top of other windows"), self.toggle_on_top, self.header, True)
         hl.addWidget(self.btn_pin)
-        self.btn_menu = tool_button("⋯", "Colour and more", self.show_menu, self.header)
+        self.btn_menu = tool_button("⋯", tr("Colour and more"), self.show_menu, self.header)
         hl.addWidget(self.btn_menu)
-        self.btn_close = tool_button("✕", "Close note (it's kept - reopen it from the tray icon or All notes)",
+        self.btn_close = tool_button("✕", tr("Close note (it's kept - reopen it from the tray icon or All notes)"),
                                      self.close_note, self.header)
         hl.addWidget(self.btn_close)
         root.addWidget(self.header)
 
         self.edit = NoteEdit(self)
-        self.edit.setPlaceholderText("Take a note…\n\nTip: type [] and a space for a to-do checkbox")
+        self.edit.setPlaceholderText(tr("Take a note…\n\nTip: type [] and a space for a to-do checkbox"))
         root.addWidget(self.edit, 1)
 
         self.footer = QWidget(self)
@@ -341,18 +342,18 @@ class NoteWindow(QWidget):
         fl.setSpacing(0)
         self.fmt_buttons = []
         for text, tip, fn, style in (
-                ("B", "Bold (Ctrl+B)", self.bold, "font-weight:bold"),
-                ("I", "Italic (Ctrl+I)", self.italic, "font-style:italic"),
-                ("U", "Underline (Ctrl+U)", self.underline, "text-decoration:underline"),
-                ("S", "Strikethrough (Ctrl+T)", self.strike, "text-decoration:line-through"),
-                ("•", "Bullet list (Ctrl+Shift+L)", lambda: toggle_list(self.edit, False), ""),
-                ("☑", "To-do checkboxes (Ctrl+Shift+C)", lambda: toggle_list(self.edit, True), "")):
+                ("B", tr("Bold (Ctrl+B)"), self.bold, "font-weight:bold"),
+                ("I", tr("Italic (Ctrl+I)"), self.italic, "font-style:italic"),
+                ("U", tr("Underline (Ctrl+U)"), self.underline, "text-decoration:underline"),
+                ("S", tr("Strikethrough (Ctrl+T)"), self.strike, "text-decoration:line-through"),
+                ("•", tr("Bullet list (Ctrl+Shift+L)"), lambda: toggle_list(self.edit, False), ""),
+                ("☑", tr("To-do checkboxes (Ctrl+Shift+C)"), lambda: toggle_list(self.edit, True), "")):
             b = tool_button(text, tip, fn, self.footer)
             b.setStyleSheet(f"QToolButton {{ {style}; font-size:14px; min-width:24px; }}")
             fl.addWidget(b)
             self.fmt_buttons.append(b)
         fl.addStretch(1)
-        self.btn_delete = tool_button("🗑", "Delete note (Ctrl+D)", self.delete_note, self.footer)
+        self.btn_delete = tool_button("🗑", tr("Delete note (Ctrl+D)"), self.delete_note, self.footer)
         fl.addWidget(self.btn_delete)
         root.addWidget(self.footer)
         self.footer.hide()
@@ -471,7 +472,7 @@ class NoteWindow(QWidget):
 
     def update_title(self):
         t = core.title_of({"text": self.edit.toPlainText()}, 40) if self.data.get("collapsed") else ""
-        self.title.setText(t if t != "(empty note)" else "")
+        self.title.setText(t if t != "(empty note)" else "")       # (core's English placeholder = no title)
 
     def set_color(self, name):
         self.data["color"] = name
@@ -566,13 +567,13 @@ class NoteWindow(QWidget):
         wa.setDefaultWidget(swatches)
         m.addAction(wa)
         m.addSeparator()
-        a = m.addAction("Keep on top of other windows")
+        a = m.addAction(tr("Keep on top of other windows"))
         a.setCheckable(True)
         a.setChecked(bool(self.data.get("on_top")))
         a.triggered.connect(lambda on: self.set_on_top(on))
-        a = m.addAction("Fold to title" if not self.data.get("collapsed") else "Unfold")
+        a = m.addAction(tr("Fold to title") if not self.data.get("collapsed") else tr("Unfold"))
         a.triggered.connect(self.toggle_collapsed)
-        sizes = m.addMenu("Text size")
+        sizes = m.addMenu(tr("Text size"))
         grp = QActionGroup(sizes)
         for name in core.FONT_SIZES:
             sa = sizes.addAction(name.title())
@@ -581,11 +582,11 @@ class NoteWindow(QWidget):
             grp.addAction(sa)
             sa.triggered.connect(lambda _=False, n=name: self.set_font_size(n))
         m.addSeparator()
-        m.addAction("New note\tCtrl+N", lambda: self.manager.new_note(near=self))
-        m.addAction("All notes…", self.manager.show_list)
-        m.addAction("Delete note\tCtrl+D", self.delete_note)
+        m.addAction(tr("New note\tCtrl+N"), lambda: self.manager.new_note(near=self))
+        m.addAction(tr("All notes…"), self.manager.show_list)
+        m.addAction(tr("Delete note\tCtrl+D"), self.delete_note)
         m.addSeparator()
-        m.addAction("Help\tF1", lambda: open_guide("stickies"))
+        m.addAction(tr("Help\tF1"), lambda: open_guide("stickies"))
         m.exec(self.btn_menu.mapToGlobal(QPoint(0, self.btn_menu.height())))
 
     # ---------------------------------------------------------------- close / delete
@@ -598,7 +599,7 @@ class NoteWindow(QWidget):
         if self.edit.toPlainText().strip():
             box = QMessageBox(QMessageBox.Question, APP_NAME, "Delete this note?",
                               QMessageBox.Yes | QMessageBox.No, self)
-            box.setInformativeText("You can get it back with “Restore deleted note” in the tray icon menu.")
+            box.setInformativeText(tr("You can get it back with “Restore deleted note” in the tray icon menu."))
             box.setDefaultButton(QMessageBox.No)
             if box.exec() != QMessageBox.Yes:
                 return
@@ -645,21 +646,21 @@ class NotesList(QWidget):
     def __init__(self, manager):
         super().__init__()
         self.manager = manager
-        self.setWindowTitle(f"{APP_NAME} – all notes")
+        self.setWindowTitle(tr("{APP_NAME} – all notes").format(APP_NAME=APP_NAME))
         self.setWindowIcon(QIcon(icon_path("stickynotes")))
         self.resize(380, 520)
         lay = QVBoxLayout(self)
         top = QHBoxLayout()
-        new = QPushButton("+  New note")
+        new = QPushButton(tr("+  New note"))
         new.clicked.connect(lambda: manager.new_note())
         top.addWidget(new)
         top.addStretch(1)
-        show = QPushButton("Show all notes")
+        show = QPushButton(tr("Show all notes"))
         show.clicked.connect(manager.show_all)
         top.addWidget(show)
         lay.addLayout(top)
         self.search = QLineEdit()
-        self.search.setPlaceholderText("Search notes…")
+        self.search.setPlaceholderText(tr("Search notes…"))
         self.search.setClearButtonEnabled(True)
         self.search.textChanged.connect(self.refresh)
         lay.addWidget(self.search)
@@ -669,12 +670,13 @@ class NotesList(QWidget):
         self.list.itemDoubleClicked.connect(lambda it: manager.open_note(it.data(Qt.UserRole)))
         lay.addWidget(self.list, 1)
         bottom = QHBoxLayout()
-        for text, fn in (("Open", self._open), ("Delete", self._delete), ("Restore deleted note", manager.restore_deleted)):
+        for text, fn in ((tr("Open"), self._open), (tr("Delete"), self._delete),
+                         (tr("Restore deleted note"), manager.restore_deleted)):
             b = QPushButton(text)
             b.clicked.connect(fn)
             bottom.addWidget(b)
         lay.addLayout(bottom)
-        hint = QLabel("Notes are saved automatically on this PC. Double-click a note to open it.")
+        hint = QLabel(tr("Notes are saved automatically on this PC. Double-click a note to open it."))
         hint.setWordWrap(True)
         hint.setStyleSheet("color: palette(placeholder-text); font-size: 11px;")
         lay.addWidget(hint)
@@ -699,7 +701,7 @@ class NotesList(QWidget):
             it.setData(Qt.UserRole, n["id"])
             self.list.addItem(it)
         if not self.list.count():
-            it = QListWidgetItem("No notes yet – click “+ New note”." if not q else "No notes match your search.")
+            it = QListWidgetItem(tr("No notes yet – click “+ New note”.") if not q else tr("No notes match your search."))
             it.setFlags(Qt.NoItemFlags)
             self.list.addItem(it)
 
@@ -713,7 +715,8 @@ class NotesList(QWidget):
 
     def _delete(self):
         nid = self._selected()
-        if nid and QMessageBox.question(self, APP_NAME, "Delete this note?\n\nYou can get it back with “Restore deleted note”.") == QMessageBox.Yes:
+        if nid and QMessageBox.question(self, APP_NAME, tr("Delete this note?\n\nYou can get it back with “Restore "
+                                                           "deleted note”.")) == QMessageBox.Yes:
             self.manager.delete_note(nid)
 
 
@@ -766,7 +769,7 @@ class Manager:
         try:
             core.apply(changed=changed)
         except OSError as ex:
-            self.tray.showMessage(APP_NAME, f"Couldn't save notes: {ex}", QSystemTrayIcon.Warning)
+            self.tray.showMessage(APP_NAME, tr("Couldn't save notes: {ex}").format(ex=ex), QSystemTrayIcon.Warning)
             return
         self.last_mtime = core.file_mtime()
 
@@ -842,7 +845,7 @@ class Manager:
         n = core.restore_last()
         self.last_mtime = core.file_mtime()
         if not n:
-            QMessageBox.information(None, APP_NAME, "There are no deleted notes to restore.")
+            QMessageBox.information(None, APP_NAME, tr("There are no deleted notes to restore."))
             return
         self.trash_count -= 1
         w = self._make_window(n)
@@ -887,19 +890,19 @@ class Manager:
         self.tray = QSystemTrayIcon(QIcon(icon_path("stickynotes")), self.app)
         self.tray.setToolTip(APP_NAME)
         m = QMenu()
-        m.addAction("New note", lambda: self.new_note())
-        m.addAction("Show all notes", self.show_all)
-        m.addAction("Hide all notes", self.hide_all)
-        m.addAction("All notes…", self.show_list)
-        m.addAction("Restore deleted note", self.restore_deleted)
+        m.addAction(tr("New note"), lambda: self.new_note())
+        m.addAction(tr("Show all notes"), self.show_all)
+        m.addAction(tr("Hide all notes"), self.hide_all)
+        m.addAction(tr("All notes…"), self.show_list)
+        m.addAction(tr("Restore deleted note"), self.restore_deleted)
         m.addSeparator()
-        self.autostart_action = m.addAction("Start when Windows starts")
+        self.autostart_action = m.addAction(tr("Start when Windows starts"))
         self.autostart_action.setCheckable(True)
         self.autostart_action.setChecked(autostart_enabled())
         self.autostart_action.triggered.connect(set_autostart)
-        m.addAction("Help", lambda: open_guide("stickies"))
+        m.addAction(tr("Help"), lambda: open_guide("stickies"))
         m.addSeparator()
-        m.addAction("Quit Sticky Notes", self.quit)
+        m.addAction(tr("Quit Sticky Notes"), self.quit)
         self.tray_menu = m
         self.tray.setContextMenu(m)
         self.tray.activated.connect(lambda r: self.show_all() if r == QSystemTrayIcon.Trigger else None)

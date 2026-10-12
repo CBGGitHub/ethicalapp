@@ -14,13 +14,16 @@ import shutil
 import subprocess
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import setup_i18n   # setup wizard texts in every language
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 APPS_DIR = os.path.join(ROOT, "apps")
 BUILD = os.path.join(ROOT, "build")
 DIST = os.path.join(ROOT, "dist")
 OUT = os.path.join(DIST, "EthicalSuite")
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 # Public builds leave out the video link downloader (yt-dlp + Deno): downloading from YouTube etc. breaks
 # those sites' terms. `build.py --with-downloader` = personal build with it.
 WITH_DOWNLOADER = "--with-downloader" in sys.argv
@@ -34,7 +37,7 @@ APPS = [
     ("presentation", "Ethical Presentation Editor", "Slide decks and slideshows - PowerPoint (.pptx) files", "Slides", "PowerPoint Presentation", [".pptx"]),
     ("photo", "Ethical Photo Editor", "Layered photo editor - Photoshop (.psd), PNG, JPG and more", "Photo", "Image",
      [".psd", ".png", ".jpg", ".jpeg", ".webp", ".bmp", ".gif", ".tif", ".tiff", ".ora"]),
-    ("converter", "Ethical Converter", "Convert and compress audio, video, pictures and documents; zip/unzip; download from links", "Converter", "", ["*", "Directory"]),
+    ("converter", "Ethical Converter", "Convert and compress audio, video, pictures and documents; zip/unzip", "Converter", "", ["*", "Directory"]),
     ("database", "Ethical Database", "Databases: tables, forms, queries, relationships and reports", "Base", "Database", [".db", ".sqlite", ".sqlite3", ".accdb", ".mdb"]),
     ("stickynotes", "Ethical Sticky Notes", "Notes and to-do lists that stay on your desktop", "StickyNotes", "", []),
     ("snip", "Ethical Snip", "Screenshots of your screen that you can mark up (keyboard shortcut of your choice)", "Snip", "", []),
@@ -60,6 +63,7 @@ for pkg in ("docx", "pptx", "openpyxl", "psd_tools", "py7zr", "pyppmd", "pybcj",
         datas += d; binaries += b; hidden += h
     except Exception:
         pass
+datas += [(r"APPS_DIR\locales\*.json", "locales")]   # app translations (i18n.py)
 excludes_dl = []
 if WITH_DOWNLOADER:
     d, b, h = collect_all("yt_dlp_ejs"); datas += d; binaries += b; hidden += h
@@ -128,11 +132,12 @@ def copy_extras():
     for sub in ("guide", os.path.join("branding", "icons"), os.path.join("branding", "sounds")):
         dst = os.path.join(OUT, sub)
         shutil.rmtree(dst, ignore_errors=True)
-        shutil.copytree(os.path.join(ROOT, sub), dst)
+        shutil.copytree(os.path.join(ROOT, sub), dst, ignore=shutil.ignore_patterns("*.txt", "*.py", "__pycache__"))
     # source code (the suite is open source; licences of PyMuPDF/FFmpeg require offering it)
     src = os.path.join(OUT, "source")
     shutil.rmtree(src, ignore_errors=True)
-    shutil.copytree(APPS_DIR, os.path.join(src, "apps"), ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+    shutil.copytree(APPS_DIR, os.path.join(src, "apps"), ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "*.missing.txt"))
+    shutil.copytree(os.path.join(ROOT, "guide"), os.path.join(src, "guide"), ignore=shutil.ignore_patterns("__pycache__"))
     shutil.copytree(os.path.join(ROOT, "installer"), os.path.join(src, "installer"),
                     ignore=shutil.ignore_patterns("__pycache__", "*.bmp", "EthicalSuite.iss"))   # .iss is generated (has local paths)
     os.makedirs(os.path.join(src, "branding"), exist_ok=True)
@@ -273,29 +278,30 @@ Compression=lzma2/max
 SolidCompression=yes
 ChangesAssociations=yes
 CloseApplications=yes
-InfoBeforeFile={HERE}\\welcome.txt
 LicenseFile={HERE}\\license.txt
+ShowLanguageDialog=yes
 
+{{LANGUAGES}}
 [Types]
-Name: "full"; Description: "Everything (recommended)"
-Name: "office"; Description: "Office apps only (PDF, Document, Spreadsheet, Presentation)"
-Name: "custom"; Description: "Let me choose"; Flags: iscustom
+Name: "full"; Description: "{{cm:TypeFull}}"
+Name: "office"; Description: "{{cm:TypeOffice}}"
+Name: "custom"; Description: "{{cm:TypeCustom}}"; Flags: iscustom
 
 [Components]
-Name: "core"; Description: "EthicalApp core (shared files, user guide)"; Types: full office custom; Flags: fixed
+Name: "core"; Description: "{{cm:Core}}"; Types: full office custom; Flags: fixed
 ''']
     for key, name, desc, *_ in APPS:
         types = "full office" if key in ("pdf", "document", "spreadsheet", "presentation") else "full"
-        out.append(f'Name: "{key}"; Description: "{name} — {desc}"; Types: {types}\n')
+        out.append(f'Name: "{key}"; Description: "{name} — {{cm:Desc_{key}}}"; Types: {types}\n')
     out.append('''
 [Tasks]
-Name: "desktopicons"; Description: "Create desktop shortcuts for the chosen apps"; GroupDescription: "Shortcuts:"; Flags: unchecked
-Name: "pinhelp"; Description: "Help me pin EthicalApp to the taskbar / Start (shows you how after setup - Windows only lets you pin it yourself)"; GroupDescription: "Shortcuts:"
-Name: "rightclick"; Description: "Add right-click ""Open with Ethical …"" menu entries"; GroupDescription: "Windows integration:"
-Name: "stickystart"; Description: "Start Ethical Sticky Notes when Windows starts (so your notes are always there)"; GroupDescription: "Windows integration:"; Components: stickynotes
-Name: "plannerstart"; Description: "Start Ethical Planner when Windows starts, so reminders always pop up (recommended)"; GroupDescription: "Windows integration:"; Components: planner
-Name: "snipstart"; Description: "Keep Ethical Snip ready when Windows starts, so your snip shortcut always works"; GroupDescription: "Windows integration:"; Components: snip
-Name: "claude"; Description: "Connect the chosen apps to Claude (AI assistant) — works with Claude Code and Claude Desktop"; GroupDescription: "AI:"; Flags: unchecked
+Name: "desktopicons"; Description: "{cm:TaskDesktop}"; GroupDescription: "{cm:GroupShortcuts}"; Flags: unchecked
+Name: "pinhelp"; Description: "{cm:TaskPin}"; GroupDescription: "{cm:GroupShortcuts}"
+Name: "rightclick"; Description: "{cm:TaskRightClick}"; GroupDescription: "{cm:GroupWindows}"
+Name: "stickystart"; Description: "{cm:TaskSticky}"; GroupDescription: "{cm:GroupWindows}"; Components: stickynotes
+Name: "plannerstart"; Description: "{cm:TaskPlanner}"; GroupDescription: "{cm:GroupWindows}"; Components: planner
+Name: "snipstart"; Description: "{cm:TaskSnip}"; GroupDescription: "{cm:GroupWindows}"; Components: snip
+Name: "claude"; Description: "{cm:TaskClaude}"; GroupDescription: "{cm:GroupAI}"; Flags: unchecked
 
 [Files]
 ''')
@@ -331,7 +337,7 @@ Name: "claude"; Description: "Connect the chosen apps to Claude (AI assistant) �
             else:
                 out.append(f'Root: HKCU; Subkey: "Software\\Classes\\{ext}\\OpenWithProgids"; ValueType: string; ValueName: "{progid}"; ValueData: ""; Flags: uninsdeletevalue; {cond}\n')
                 verb = f"Software\\Classes\\SystemFileAssociations\\{ext}\\shell\\{progid}"
-            label = "Convert / compress with Ethical Converter" if key == "converter" else f"Open with {name}"
+            label = "{cm:ConvertWith}" if key == "converter" else f"{{cm:OpenWith,{name}}}"
             out.append(f'Root: HKCU; Subkey: "{verb}"; ValueType: string; ValueData: "{label}"; Flags: uninsdeletekey; {cond}\n')
             out.append(f'Root: HKCU; Subkey: "{verb}"; ValueType: string; ValueName: "Icon"; ValueData: {icon}; {cond}\n')
             out.append(f'Root: HKCU; Subkey: "{verb}\\command"; ValueType: string; ValueData: {cmd}; {cond}\n')
@@ -344,6 +350,9 @@ Name: "claude"; Description: "Connect the chosen apps to Claude (AI assistant) �
     out.append('Root: HKCU; Subkey: "Software\\Microsoft\\Windows\\CurrentVersion\\Run"; ValueType: string; '
                'ValueName: "EthicalSuite.Planner"; ValueData: """{app}\\EthicalSuite.exe"" planner --startup"; '
                'Flags: uninsdeletevalue; Tasks: plannerstart\n')
+    for code, _ in setup_i18n.LANGS:
+        out.append(f'Root: HKCU; Subkey: "Software\\Ethical Suite\\Suite"; ValueType: string; ValueName: "language"; '
+                   f'ValueData: "{code}"; Flags: createvalueifdoesntexist; Languages: {setup_i18n.inno_name(code)}\n')
     out.append('\n[INI]\n')
     for key, *_ in APPS:   # which apps were chosen - read by the launcher (suite_common.installed_apps)
         out.append(f'Filename: "{{app}}\\suite.ini"; Section: "apps"; Key: "{key}"; String: "1"; Components: {key}\n')
@@ -363,10 +372,10 @@ Type: filesandordirs; Name: "{app}\\source"
 Type: filesandordirs; Name: "{app}\\licenses"
 
 [Run]
-Filename: "{app}\\EthicalSuiteCLI.exe"; Parameters: "install-mcp --yes --apps {code:McpApps}"; StatusMsg: "Connecting the apps to Claude..."; Flags: runhidden waituntilterminated; Tasks: claude
-Filename: "{app}\\EthicalSuite.exe"; Description: "Open EthicalApp"; Flags: postinstall nowait skipifsilent; Tasks: not pinhelp
-Filename: "{app}\\EthicalSuite.exe"; Parameters: "launcher --pin-help"; Description: "Open EthicalApp and show how to pin it to the taskbar"; Flags: postinstall nowait skipifsilent; Tasks: pinhelp
-Filename: "{app}\\EthicalSuite.exe"; Parameters: "guide"; Description: "Read the user guide"; Flags: postinstall nowait skipifsilent unchecked
+Filename: "{app}\\EthicalSuiteCLI.exe"; Parameters: "install-mcp --yes --apps {code:McpApps}"; StatusMsg: "{cm:RunClaude}"; Flags: runhidden waituntilterminated; Tasks: claude
+Filename: "{app}\\EthicalSuite.exe"; Description: "{cm:RunOpen}"; Flags: postinstall nowait skipifsilent; Tasks: not pinhelp
+Filename: "{app}\\EthicalSuite.exe"; Parameters: "launcher --pin-help"; Description: "{cm:RunOpenPin}"; Flags: postinstall nowait skipifsilent; Tasks: pinhelp
+Filename: "{app}\\EthicalSuite.exe"; Parameters: "guide"; Description: "{cm:RunGuide}"; Flags: postinstall nowait skipifsilent unchecked
 
 [UninstallRun]
 Filename: "{app}\\EthicalSuiteCLI.exe"; Parameters: "install-mcp --remove"; Flags: runhidden waituntilterminated; RunOnceId: "RemoveClaude"
@@ -403,11 +412,36 @@ begin
   end;
 end;
 ''')
+    out.append(custom_messages())
     keys = ", ".join(f"'{k}'" for k, *_ in APPS)
-    return "".join(out).replace("{KEYS}", keys)
+    return "".join(out).replace("{KEYS}", keys).replace("{LANGUAGES}", languages_section())
+
+
+def languages_section():
+    """[Languages]: Inno's own translation + our welcome page per language (English = welcome.txt)."""
+    lines = ["[Languages]"]
+    for code, isl in setup_i18n.LANGS:
+        if not isl.startswith("compiler:"):
+            isl = os.path.join(HERE, isl)
+        welcome = os.path.join(HERE, "welcome.txt")
+        if code in setup_i18n.WELCOME:
+            welcome = os.path.join(BUILD, f"welcome-{code}.txt")
+            with open(welcome, "w", encoding="utf-8-sig") as fh:
+                fh.write(setup_i18n.WELCOME[code])
+        lines.append(f'Name: "{setup_i18n.inno_name(code)}"; MessagesFile: "{isl}"; InfoBeforeFile: "{welcome}"')
+    return "\n".join(lines) + "\n\n"
+
+
+def custom_messages():
+    lines = ["\n[CustomMessages]"]
+    for key, texts in setup_i18n.MSG.items():
+        for code, _ in setup_i18n.LANGS:
+            lines.append(f"{setup_i18n.inno_name(code)}.{key}={texts.get(code) or texts['en']}")
+    return "\n".join(lines) + "\n"
 
 
 def compile_installer():
+    os.makedirs(BUILD, exist_ok=True)
     with open(os.path.join(HERE, "EthicalSuite.iss"), "w", encoding="utf-8-sig") as fh:
         fh.write(iss_text())
     iscc = next((p for p in (os.path.expandvars(r"%LOCALAPPDATA%\Programs\Inno Setup 6\ISCC.exe"),

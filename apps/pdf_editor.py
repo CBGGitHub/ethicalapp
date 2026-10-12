@@ -19,6 +19,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from suite_common import (SUITE_NAME, ColorButton, font_families, font_file,  # noqa: E402
                           make_app, match_family)
 from suite_common import add_guide_action  # noqa: E402
+from i18n import tr  # noqa: E402
 
 APP_NAME = "Ethical PDF Editor"
 
@@ -31,22 +32,22 @@ FONTS = {
 FREETEXT_FONT = {v[2]: k for k, v in FONTS.items()}
 
 TOOLS = [  # (key, label, tooltip)
-    ("select", "Select", "Select / move annotations, select text, fill form fields"),
-    ("edittext", "Edit Text", "Click a line of existing text to change it"),
-    ("addtext", "Add Text", "Click to place a text box"),
-    ("highlight", "Highlight", "Drag over text to highlight it"),
-    ("underline", "Underline", "Drag over text to underline it"),
-    ("strike", "Strikeout", "Drag over text to strike it out"),
-    ("note", "Note", "Click to add a sticky note"),
-    ("ink", "Draw", "Freehand drawing"),
-    ("rect", "Rectangle", "Drag to draw a rectangle"),
-    ("ellipse", "Ellipse", "Drag to draw an ellipse"),
-    ("line", "Line", "Drag to draw a line"),
-    ("arrow", "Arrow", "Drag to draw an arrow"),
-    ("whiteout", "Whiteout", "Drag to paint over content with white"),
-    ("redact", "Redact", "Drag to permanently remove content (black box)"),
-    ("image", "Image", "Click or drag to insert an image"),
-    ("signature", "Sign", "Click to place your signature"),
+    ("select", tr("Select"), tr("Select / move annotations, select text, fill form fields")),
+    ("edittext", tr("Edit Text"), tr("Click a line of existing text to change it")),
+    ("addtext", tr("Add Text"), tr("Click to place a text box")),
+    ("highlight", tr("Highlight"), tr("Drag over text to highlight it")),
+    ("underline", tr("Underline"), tr("Drag over text to underline it")),
+    ("strike", tr("Strikeout"), tr("Drag over text to strike it out")),
+    ("note", tr("Note"), tr("Click to add a sticky note")),
+    ("ink", tr("Draw"), tr("Freehand drawing")),
+    ("rect", tr("Rectangle"), tr("Drag to draw a rectangle")),
+    ("ellipse", tr("Ellipse"), tr("Drag to draw an ellipse")),
+    ("line", tr("Line"), tr("Drag to draw a line")),
+    ("arrow", tr("Arrow"), tr("Drag to draw an arrow")),
+    ("whiteout", tr("Whiteout"), tr("Drag to paint over content with white")),
+    ("redact", tr("Redact"), tr("Drag to permanently remove content (black box)")),
+    ("image", tr("Image"), tr("Click or drag to insert an image")),
+    ("signature", tr("Sign"), tr("Click to place your signature")),
 ]
 TEXT_TOOLS = ("highlight", "underline", "strike")
 DRAG_TOOLS = ("rect", "ellipse", "line", "arrow", "whiteout", "redact")
@@ -127,26 +128,26 @@ class TextDialog(QDialog):
         self.size = QSpinBox()
         self.size.setRange(4, 144)
         self.size.setValue(int(round(size)))
-        self.color = ColorButton(color, "Text colour")
-        self.bold = QCheckBox("Bold")
+        self.color = ColorButton(color, tr("Text colour"))
+        self.bold = QCheckBox(tr("Bold"))
         self.bold.setChecked(bold)
-        self.italic = QCheckBox("Italic")
+        self.italic = QCheckBox(tr("Italic"))
         self.italic.setChecked(italic)
         for cb in (self.bold, self.italic):
             cb.toggled.connect(self._preview_font)
         form = QFormLayout()
-        form.addRow("Font:", self.family)
-        form.addRow("Size:", self.size)
+        form.addRow(tr("Font:"), self.family)
+        form.addRow(tr("Size:"), self.size)
         if styles:
             row = QHBoxLayout()
             row.addWidget(self.bold)
             row.addWidget(self.italic)
             row.addStretch()
-            form.addRow("Style:", row)
+            form.addRow(tr("Style:"), row)
         else:
             self.bold.setChecked(False)
             self.italic.setChecked(False)
-        form.addRow("Colour:", self.color)
+        form.addRow(tr("Colour:"), self.color)
         self._preview_font()
         buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         buttons.accepted.connect(self.accept)
@@ -203,29 +204,29 @@ class SignatureCanvas(QWidget):
 class SignatureDialog(QDialog):
     def __init__(self, parent):
         super().__init__(parent)
-        self.setWindowTitle("Create Signature")
+        self.setWindowTitle(tr("Create Signature"))
         self.result_sig = None
         self.tabs = QTabWidget()
         draw = QWidget()
         self.canvas = SignatureCanvas()
-        clear = QPushButton("Clear")
+        clear = QPushButton(tr("Clear"))
         clear.clicked.connect(self.canvas.clear)
         dl = QVBoxLayout(draw)
-        dl.addWidget(QLabel("Draw your signature with the mouse:"))
+        dl.addWidget(QLabel(tr("Draw your signature with the mouse:")))
         dl.addWidget(self.canvas)
         dl.addWidget(clear, alignment=Qt.AlignLeft)
-        self.tabs.addTab(draw, "Draw")
+        self.tabs.addTab(draw, tr("Draw"))
         img = QWidget()
         il = QVBoxLayout(img)
         self.img_path = QLineEdit()
         self.img_path.setReadOnly(True)
-        browse = QPushButton("Choose image...")
+        browse = QPushButton(tr("Choose image..."))
         browse.clicked.connect(self._browse)
-        il.addWidget(QLabel("Use a picture of your signature (PNG with transparency works best):"))
+        il.addWidget(QLabel(tr("Use a picture of your signature (PNG with transparency works best):")))
         il.addWidget(self.img_path)
         il.addWidget(browse, alignment=Qt.AlignLeft)
         il.addStretch()
-        self.tabs.addTab(img, "Image")
+        self.tabs.addTab(img, tr("Image"))
         buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         buttons.accepted.connect(self._ok)
         buttons.rejected.connect(self.reject)
@@ -234,8 +235,8 @@ class SignatureDialog(QDialog):
         lay.addWidget(buttons)
 
     def _browse(self):
-        f, _ = QFileDialog.getOpenFileName(self, "Signature image", "",
-                                           "Images (*.png *.jpg *.jpeg *.bmp)")
+        f, _ = QFileDialog.getOpenFileName(self, tr("Signature image"), "",
+                                           tr("Images (*.png *.jpg *.jpeg *.bmp)"))
         if f:
             self.img_path.setText(f)
 
@@ -360,7 +361,7 @@ class PdfEditor(QMainWindow):
         self.thumbs.setContextMenuPolicy(Qt.CustomContextMenu)
         self.thumbs.customContextMenuRequested.connect(
             lambda pos: self.pages_menu.exec(self.thumbs.mapToGlobal(pos)))
-        dock = QDockWidget("Pages", self)
+        dock = QDockWidget(tr("Pages"), self)
         dock.setObjectName("pages")
         dock.setWidget(self.thumbs)
         dock.setFeatures(QDockWidget.DockWidgetMovable | QDockWidget.DockWidgetClosable)
@@ -386,69 +387,69 @@ class PdfEditor(QMainWindow):
 
     def _build_actions(self):
         mb = self.menuBar()
-        f = mb.addMenu("&File")
-        a_new = self.act("&New Blank PDF", self.new_blank, "Ctrl+N", f)
-        self.act("New PDF from &Images...", self.new_from_images, None, f)
-        a_open = self.act("&Open...", self.open_dialog, "Ctrl+O", f)
-        self.act("&Combine Files into PDF...", self.combine_files, None, f)
+        f = mb.addMenu(tr("&File"))
+        a_new = self.act(tr("&New Blank PDF"), self.new_blank, "Ctrl+N", f)
+        self.act(tr("New PDF from &Images..."), self.new_from_images, None, f)
+        a_open = self.act(tr("&Open..."), self.open_dialog, "Ctrl+O", f)
+        self.act(tr("&Combine Files into PDF..."), self.combine_files, None, f)
         f.addSeparator()
-        a_save = self.act("&Save", self.save, "Ctrl+S", f)
-        self.act("Save &As...", self.save_as, "Ctrl+Shift+S", f)
-        ex = f.addMenu("&Export")
-        self.act("Pages as &Images (PNG/JPG)...", self.export_images, None, ex)
-        self.act("As &Word Document (.docx)...", self.export_docx, None, ex)
-        self.act("As Plain &Text (.txt)...", self.export_text, None, ex)
+        a_save = self.act(tr("&Save"), self.save, "Ctrl+S", f)
+        self.act(tr("Save &As..."), self.save_as, "Ctrl+Shift+S", f)
+        ex = f.addMenu(tr("&Export"))
+        self.act(tr("Pages as &Images (PNG/JPG)..."), self.export_images, None, ex)
+        self.act(tr("As &Word Document (.docx)..."), self.export_docx, None, ex)
+        self.act(tr("As Plain &Text (.txt)..."), self.export_text, None, ex)
         f.addSeparator()
-        a_print = self.act("&Print...", self.print_doc, "Ctrl+P", f)
+        a_print = self.act(tr("&Print..."), self.print_doc, "Ctrl+P", f)
         f.addSeparator()
-        self.act("E&xit", self.close, "Alt+F4", f)
+        self.act(tr("E&xit"), self.close, "Alt+F4", f)
 
-        e = mb.addMenu("&Edit")
-        a_undo = self.act("&Undo", self.undo, "Ctrl+Z", e)
-        a_redo = self.act("&Redo", self.redo, "Ctrl+Y", e)
+        e = mb.addMenu(tr("&Edit"))
+        a_undo = self.act(tr("&Undo"), self.undo, "Ctrl+Z", e)
+        a_redo = self.act(tr("&Redo"), self.redo, "Ctrl+Y", e)
         e.addSeparator()
-        self.act("&Copy Selected Text", self.copy_text, "Ctrl+C", e)
-        self.act("&Delete Selected Annotation", self.delete_selected_annot, "Delete", e)
+        self.act(tr("&Copy Selected Text"), self.copy_text, "Ctrl+C", e)
+        self.act(tr("&Delete Selected Annotation"), self.delete_selected_annot, "Delete", e)
         e.addSeparator()
-        self.act("&Find...", lambda: (self.search_box.setFocus(), self.search_box.selectAll()),
+        self.act(tr("&Find..."), lambda: (self.search_box.setFocus(), self.search_box.selectAll()),
                  "Ctrl+F", e)
-        self.act("Create &Signature...", self.create_signature, None, e)
+        self.act(tr("Create &Signature..."), self.create_signature, None, e)
 
-        v = mb.addMenu("&View")
-        a_zin = self.act("Zoom &In", lambda: self.set_zoom(self.zoom * 1.2), "Ctrl+=", v)
-        a_zout = self.act("Zoom &Out", lambda: self.set_zoom(self.zoom / 1.2), "Ctrl+-", v)
-        self.act("&Actual Size", lambda: self.set_zoom(1.0), "Ctrl+0", v)
-        a_fit = self.act("Fit &Width", self.fit_width, "Ctrl+1", v)
+        v = mb.addMenu(tr("&View"))
+        a_zin = self.act(tr("Zoom &In"), lambda: self.set_zoom(self.zoom * 1.2), "Ctrl+=", v)
+        a_zout = self.act(tr("Zoom &Out"), lambda: self.set_zoom(self.zoom / 1.2), "Ctrl+-", v)
+        self.act(tr("&Actual Size"), lambda: self.set_zoom(1.0), "Ctrl+0", v)
+        a_fit = self.act(tr("Fit &Width"), self.fit_width, "Ctrl+1", v)
         v.addSeparator()
-        hf = self.act("Highlight Form &Fields", self.toggle_fields, None, v)
+        hf = self.act(tr("Highlight Form &Fields"), self.toggle_fields, None, v)
         hf.setCheckable(True)
         hf.setChecked(True)
         v.addAction(self.thumb_dock.toggleViewAction())
 
-        pm = mb.addMenu("&Pages")
+        pm = mb.addMenu(tr("&Pages"))
         self.pages_menu = pm
-        self.act("Rotate &Right", lambda: self.rotate_pages(90), "Ctrl+R", pm)
-        self.act("Rotate &Left", lambda: self.rotate_pages(-90), "Ctrl+Shift+R", pm)
+        self.act(tr("Rotate &Right"), lambda: self.rotate_pages(90), "Ctrl+R", pm)
+        self.act(tr("Rotate &Left"), lambda: self.rotate_pages(-90), "Ctrl+Shift+R", pm)
         pm.addSeparator()
-        self.act("Move Page &Up", lambda: self.move_page(-1), None, pm)
-        self.act("Move Page &Down", lambda: self.move_page(1), None, pm)
+        self.act(tr("Move Page &Up"), lambda: self.move_page(-1), None, pm)
+        self.act(tr("Move Page &Down"), lambda: self.move_page(1), None, pm)
         pm.addSeparator()
-        self.act("Insert &Blank Page", self.insert_blank, None, pm)
-        self.act("Insert Pages from &File...", self.insert_from_file, None, pm)
-        self.act("Insert &Image as Page...", self.insert_image_pages, None, pm)
+        self.act(tr("Insert &Blank Page"), self.insert_blank, None, pm)
+        self.act(tr("Insert Pages from &File..."), self.insert_from_file, None, pm)
+        self.act(tr("Insert &Image as Page..."), self.insert_image_pages, None, pm)
         pm.addSeparator()
-        self.act("&Extract Selected Pages...", self.extract_pages, None, pm)
-        self.act("&Split into Single Pages...", self.split_pages, None, pm)
+        self.act(tr("&Extract Selected Pages..."), self.extract_pages, None, pm)
+        self.act(tr("&Split into Single Pages..."), self.split_pages, None, pm)
         pm.addSeparator()
-        self.act("De&lete Selected Pages", self.delete_pages, None, pm)
+        self.act(tr("De&lete Selected Pages"), self.delete_pages, None, pm)
 
-        h = mb.addMenu("&Help")
+        h = mb.addMenu(tr("&Help"))
 
         add_guide_action(self, h, "pdf-basics")
-        self.act("&About", lambda: QMessageBox.about(
-            self, APP_NAME, f"<b>{APP_NAME}</b><br>Part of {SUITE_NAME}."), None, h)
+        self.act(tr("&About"), lambda: QMessageBox.about(
+            self, APP_NAME, tr("<b>{APP_NAME}</b><br>Part of {SUITE_NAME}.").format(APP_NAME=APP_NAME, SUITE_NAME=SUITE_NAME)), None, h)
 
-        tb = QToolBar("Main")
+        tb = QToolBar(tr("Main"))
         tb.setObjectName("main")
         tb.setToolButtonStyle(Qt.ToolButtonTextOnly)
         self.addToolBar(tb)
@@ -469,7 +470,7 @@ class PdfEditor(QMainWindow):
         tb.addAction(a_zin)
         tb.addAction(a_fit)
         tb.addSeparator()
-        tb.addWidget(QLabel(" Page "))
+        tb.addWidget(QLabel(tr(" Page ")))
         self.page_spin = QSpinBox()
         self.page_spin.setMinimum(1)
         self.page_spin.editingFinished.connect(lambda: self.goto_page(self.page_spin.value() - 1))
@@ -478,16 +479,16 @@ class PdfEditor(QMainWindow):
         tb.addWidget(self.page_count_label)
         tb.addSeparator()
         self.search_box = QLineEdit()
-        self.search_box.setPlaceholderText("Find text...")
+        self.search_box.setPlaceholderText(tr("Find text..."))
         self.search_box.setFixedWidth(200)
         self.search_box.returnPressed.connect(lambda: self.find(1))
         tb.addWidget(self.search_box)
-        self.act("Previous", lambda: self.find(-1), "Shift+F3", None)
-        tb.addAction(self.act("Prev", lambda: self.find(-1)))
-        tb.addAction(self.act("Next", lambda: self.find(1), "F3"))
+        self.act(tr("Previous"), lambda: self.find(-1), "Shift+F3", None)
+        tb.addAction(self.act(tr("Prev"), lambda: self.find(-1)))
+        tb.addAction(self.act(tr("Next"), lambda: self.find(1), "F3"))
 
         self.addToolBarBreak()
-        tt = QToolBar("Tools")
+        tt = QToolBar(tr("Tools"))
         tt.setObjectName("tools")
         tt.setToolButtonStyle(Qt.ToolButtonTextOnly)
         self.addToolBar(tt)
@@ -503,18 +504,18 @@ class PdfEditor(QMainWindow):
             self.tool_actions[key] = a
         self.tool_actions["select"].setChecked(True)
         tt.addSeparator()
-        tt.addWidget(QLabel(" Colour "))
-        self.color_btn = ColorButton(QColor(220, 30, 30), "Pen / text colour")
+        tt.addWidget(QLabel(tr(" Colour ")))
+        self.color_btn = ColorButton(QColor(220, 30, 30), tr("Pen / text colour"))
         tt.addWidget(self.color_btn)
-        tt.addWidget(QLabel(" Highlight "))
-        self.hl_btn = ColorButton(QColor(255, 230, 0), "Highlight colour")
+        tt.addWidget(QLabel(tr(" Highlight ")))
+        self.hl_btn = ColorButton(QColor(255, 230, 0), tr("Highlight colour"))
         tt.addWidget(self.hl_btn)
-        tt.addWidget(QLabel(" Width "))
+        tt.addWidget(QLabel(tr(" Width ")))
         self.width_spin = QSpinBox()
         self.width_spin.setRange(1, 20)
         self.width_spin.setValue(2)
         tt.addWidget(self.width_spin)
-        tt.addWidget(QLabel(" Font size "))
+        tt.addWidget(QLabel(tr(" Font size ")))
         self.font_spin = QSpinBox()
         self.font_spin.setRange(4, 144)
         self.font_spin.setValue(12)
@@ -536,7 +537,7 @@ class PdfEditor(QMainWindow):
     def maybe_save(self):
         if not self.dirty:
             return True
-        r = QMessageBox.question(self, APP_NAME, "Save changes to this document?",
+        r = QMessageBox.question(self, APP_NAME, tr("Save changes to this document?"),
                                  QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
         if r == QMessageBox.Save:
             return self.save()
@@ -562,7 +563,7 @@ class PdfEditor(QMainWindow):
         self.set_document(doc, None)
 
     def open_dialog(self):
-        f, _ = QFileDialog.getOpenFileName(self, "Open PDF", "", "PDF files (*.pdf);;All files (*)")
+        f, _ = QFileDialog.getOpenFileName(self, tr("Open PDF"), "", tr("PDF files (*.pdf);;All files (*)"))
         if f:
             self.open_path(f)
 
@@ -574,13 +575,12 @@ class PdfEditor(QMainWindow):
                 data = fh.read()
             doc = pymupdf.open(stream=data, filetype="pdf")
         except Exception as ex:
-            QMessageBox.critical(self, APP_NAME, f"Could not open file:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Could not open file:\n{ex}").format(ex=ex))
             return
         self.password = None
         if doc.needs_pass:
             while True:
-                pw, ok = QInputDialog.getText(self, APP_NAME, "This PDF is password protected.\n"
-                                              "Password:", QLineEdit.Password)
+                pw, ok = QInputDialog.getText(self, APP_NAME, tr("This PDF is password protected.\nPassword:"), QLineEdit.Password)
                 if not ok:
                     return
                 if doc.authenticate(pw):
@@ -603,7 +603,7 @@ class PdfEditor(QMainWindow):
 
     def save_as(self):
         start = self.path or "Untitled.pdf"
-        f, _ = QFileDialog.getSaveFileName(self, "Save PDF As", start, "PDF files (*.pdf)")
+        f, _ = QFileDialog.getSaveFileName(self, tr("Save PDF As"), start, tr("PDF files (*.pdf)"))
         if not f:
             return False
         if not f.lower().endswith(".pdf"):
@@ -624,12 +624,12 @@ class PdfEditor(QMainWindow):
             with open(path, "wb") as fh:
                 fh.write(data)
         except Exception as ex:
-            QMessageBox.critical(self, APP_NAME, f"Could not save:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Could not save:\n{ex}").format(ex=ex))
             return False
         self.path = path
         self.dirty = False
         self.update_title()
-        self.status.showMessage(f"Saved {path}", 4000)
+        self.status.showMessage(tr("Saved {path}").format(path=path), 4000)
         return True
 
     def closeEvent(self, e):
@@ -650,7 +650,7 @@ class PdfEditor(QMainWindow):
                 return
 
     def update_title(self):
-        name = os.path.basename(self.path) if self.path else "Untitled"
+        name = os.path.basename(self.path) if self.path else tr("Untitled")
         self.setWindowTitle(f"{'*' if self.dirty else ''}{name} - {APP_NAME}")
 
     # ------------------------------------------------------------ change tracking / undo
@@ -943,7 +943,7 @@ class PdfEditor(QMainWindow):
                 if not moved:
                     self.sel_words = None
                 elif self.sel_words:
-                    self.status.showMessage("Text selected - press Ctrl+C to copy", 3000)
+                    self.status.showMessage(tr("Text selected - press Ctrl+C to copy"), 3000)
             elif mode in TEXT_TOOLS:
                 if moved and self.sel_words:
                     self.add_markup(idx, mode, self.sel_words[1])
@@ -965,7 +965,7 @@ class PdfEditor(QMainWindow):
             elif mode == "signature":
                 self.place_signature(idx, d["cur"])
         except Exception as ex:
-            QMessageBox.warning(self, APP_NAME, f"That didn't work:\n{ex}")
+            QMessageBox.warning(self, APP_NAME, tr("That didn't work:\n{ex}").format(ex=ex))
         pw.update()
 
     def on_double_click(self, pw, e):
@@ -983,12 +983,12 @@ class PdfEditor(QMainWindow):
         if a:
             self.select_annot(pw.idx, a)
             if a.type[0] in (pymupdf.PDF_ANNOT_FREE_TEXT, pymupdf.PDF_ANNOT_TEXT):
-                m.addAction("Edit Text...", self.edit_annot_text)
-            m.addAction("Change Colour...", self.recolor_annot)
+                m.addAction(tr("Edit Text..."), self.edit_annot_text)
+            m.addAction(tr("Change Colour..."), self.recolor_annot)
             m.addAction("Delete", self.delete_selected_annot)
         else:
             if self.sel_words:
-                m.addAction("Copy", self.copy_text)
+                m.addAction(tr("Copy"), self.copy_text)
             m.addMenu(self.pages_menu)
         m.exec(e.globalPos())
 
@@ -1071,7 +1071,7 @@ class PdfEditor(QMainWindow):
         tw.write_text(page, color=rgb(color))
 
     def add_text(self, idx, pt):
-        dlg = TextDialog(self, "Add Text", size=self.font_spin.value(), color=self.color_btn.color())
+        dlg = TextDialog(self, tr("Add Text"), size=self.font_spin.value(), color=self.color_btn.color())
         if not dlg.exec():
             return
         text, size, family, color, bold, italic = dlg.values()
@@ -1087,7 +1087,7 @@ class PdfEditor(QMainWindow):
         if not a:
             return
         if a.type[0] == pymupdf.PDF_ANNOT_TEXT:
-            text, ok = QInputDialog.getMultiLineText(self, "Edit Note", "Note:", a.info["content"])
+            text, ok = QInputDialog.getMultiLineText(self, tr("Edit Note"), tr("Note:"), a.info["content"])
             if ok:
                 self.begin_change()
                 a.set_info(content=text)
@@ -1105,7 +1105,7 @@ class PdfEditor(QMainWindow):
         m = re.search(r"([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+rg", da)
         if m:
             color = QColor.fromRgbF(*(float(x) for x in m.groups()))
-        dlg = TextDialog(self, "Edit Text Box", a.info["content"], size, family, color, styles=False)
+        dlg = TextDialog(self, tr("Edit Text Box"), a.info["content"], size, family, color, styles=False)
         if not dlg.exec():
             return
         text, size, family, color, _, _ = dlg.values()
@@ -1122,7 +1122,7 @@ class PdfEditor(QMainWindow):
         if not a:
             return
         from PySide6.QtWidgets import QColorDialog
-        c = QColorDialog.getColor(self.color_btn.color(), self, "Annotation colour")
+        c = QColorDialog.getColor(self.color_btn.color(), self, tr("Annotation colour"))
         if not c.isValid():
             return
         idx = self.sel_annot[0]
@@ -1174,7 +1174,7 @@ class PdfEditor(QMainWindow):
         self.select_annot(idx, page.load_annot(new.xref))
 
     def add_note(self, idx, pt):
-        text, ok = QInputDialog.getMultiLineText(self, "Sticky Note", "Note:")
+        text, ok = QInputDialog.getMultiLineText(self, tr("Sticky Note"), tr("Note:"))
         if ok and text.strip():
             self.begin_change()
             a = self.doc[idx].add_text_annot(pt, text)
@@ -1183,14 +1183,14 @@ class PdfEditor(QMainWindow):
             self.end_change([idx])
 
     def add_image(self, idx, rect, pt):
-        f, _ = QFileDialog.getOpenFileName(self, "Insert Image", "",
-                                           "Images (*.png *.jpg *.jpeg *.bmp *.gif *.tif *.tiff)")
+        f, _ = QFileDialog.getOpenFileName(self, tr("Insert Image"), "",
+                                           tr("Images (*.png *.jpg *.jpeg *.bmp *.gif *.tif *.tiff)"))
         if not f:
             return
         if rect is None:
             img = QImage(f)
             if img.isNull():
-                raise ValueError("Unsupported image")
+                raise ValueError(tr("Unsupported image"))
             w = 200
             rect = pymupdf.Rect(pt.x, pt.y, pt.x + w, pt.y + w * img.height() / img.width())
         self.begin_change()
@@ -1210,7 +1210,7 @@ class PdfEditor(QMainWindow):
             if found:
                 break
         if not found:
-            self.status.showMessage("No text there - click directly on a line of text", 4000)
+            self.status.showMessage(tr("No text there - click directly on a line of text"), 4000)
             return
         spans = [s for s in found["spans"] if s["text"].strip()] or found["spans"]
         s0 = spans[0]
@@ -1226,7 +1226,7 @@ class PdfEditor(QMainWindow):
                 family = "Arial"
         bold = bool(s0["flags"] & 16) or "bold" in name
         italic = bool(s0["flags"] & 2) or "italic" in name or "oblique" in name
-        dlg = TextDialog(self, "Edit Text", text, s0["size"], family, int_to_qcolor(s0["color"]),
+        dlg = TextDialog(self, tr("Edit Text"), text, s0["size"], family, int_to_qcolor(s0["color"]),
                          bold, italic)
         if not dlg.exec():
             return
@@ -1249,7 +1249,7 @@ class PdfEditor(QMainWindow):
         if dlg.exec() and dlg.result_sig:
             self.signature = dlg.result_sig
             self.set_tool("signature")
-            self.status.showMessage("Signature ready - click on a page to place it", 5000)
+            self.status.showMessage(tr("Signature ready - click on a page to place it"), 5000)
             return True
         if self.tool == "signature" and not self.signature:
             self.set_tool("select")
@@ -1273,7 +1273,7 @@ class PdfEditor(QMainWindow):
         else:
             img = QImage(data)
             if img.isNull():
-                raise ValueError("Could not read signature image")
+                raise ValueError(tr("Could not read signature image"))
             h = width * img.height() / img.width()
             r = pymupdf.Rect(self.to_pdf(idx, screen_pt - QPointF(width / 2, h / 2)),
                              self.to_pdf(idx, screen_pt + QPointF(width / 2, h / 2))).normalize()
@@ -1283,7 +1283,7 @@ class PdfEditor(QMainWindow):
 
     def fill_field(self, idx, w):
         ft = w.field_type
-        label = w.field_label or w.field_name or "Field"
+        label = w.field_label or w.field_name or tr("Field")
         if ft in (pymupdf.PDF_WIDGET_TYPE_CHECKBOX, pymupdf.PDF_WIDGET_TYPE_RADIOBUTTON):
             checked = w.field_value not in (False, "Off", "", None)
             value = True if ft == pymupdf.PDF_WIDGET_TYPE_RADIOBUTTON else not checked
@@ -1292,15 +1292,15 @@ class PdfEditor(QMainWindow):
             if not choices:
                 return
             cur = choices.index(w.field_value) if w.field_value in choices else 0
-            value, ok = QInputDialog.getItem(self, "Fill Field", label, choices, cur, False)
+            value, ok = QInputDialog.getItem(self, tr("Fill Field"), label, choices, cur, False)
             if not ok:
                 return
         elif ft == pymupdf.PDF_WIDGET_TYPE_TEXT:
             cur = w.field_value or ""
             if w.field_flags & pymupdf.PDF_TX_FIELD_IS_MULTILINE:
-                value, ok = QInputDialog.getMultiLineText(self, "Fill Field", label, cur)
+                value, ok = QInputDialog.getMultiLineText(self, tr("Fill Field"), label, cur)
             else:
-                value, ok = QInputDialog.getText(self, "Fill Field", label, QLineEdit.Normal, cur)
+                value, ok = QInputDialog.getText(self, tr("Fill Field"), label, QLineEdit.Normal, cur)
             if not ok:
                 return
         else:
@@ -1313,7 +1313,7 @@ class PdfEditor(QMainWindow):
     def copy_text(self):
         if self.sel_words:
             QGuiApplication.clipboard().setText(words_text(self.sel_words[1]))
-            self.status.showMessage("Copied", 2000)
+            self.status.showMessage(tr("Copied"), 2000)
 
     # ------------------------------------------------------------ search
     def find(self, direction):
@@ -1332,7 +1332,7 @@ class PdfEditor(QMainWindow):
             for w in self.page_widgets:
                 w.update()
         if not self.search_hits:
-            self.status.showMessage(f'"{q}" not found', 3000)
+            self.status.showMessage(tr('"{q}" not found').format(q=q), 3000)
             return
         old = self.search_hits[self.search_pos][0] if 0 <= self.search_pos < len(self.search_hits) else None
         self.search_pos = (self.search_pos + direction) % len(self.search_hits)
@@ -1342,7 +1342,7 @@ class PdfEditor(QMainWindow):
         sr = self.to_screen(idx, r)
         self.scroll.ensureVisible(int(sr.center().x() + self.page_widgets[idx].x()),
                                   int(sr.center().y() + self.page_widgets[idx].y()), 50, 150)
-        self.status.showMessage(f"Match {self.search_pos + 1} of {len(self.search_hits)}", 3000)
+        self.status.showMessage(tr("Match {v} of {v2}").format(v=self.search_pos + 1, v2=len(self.search_hits)), 3000)
 
     # ------------------------------------------------------------ page operations
     def selected_pages(self):
@@ -1360,9 +1360,9 @@ class PdfEditor(QMainWindow):
     def delete_pages(self):
         pages = self.selected_pages()
         if len(pages) >= self.doc.page_count:
-            QMessageBox.information(self, APP_NAME, "A PDF needs at least one page.")
+            QMessageBox.information(self, APP_NAME, tr("A PDF needs at least one page."))
             return
-        if QMessageBox.question(self, APP_NAME, f"Delete {len(pages)} page(s)?") != QMessageBox.Yes:
+        if QMessageBox.question(self, APP_NAME, tr("Delete {v} page(s)?").format(v=len(pages))) != QMessageBox.Yes:
             return
         self.begin_change()
         self.doc.delete_pages(pages)
@@ -1388,7 +1388,7 @@ class PdfEditor(QMainWindow):
         QTimer.singleShot(0, lambda: self.goto_page(i + 1))
 
     def insert_from_file(self):
-        files, _ = QFileDialog.getOpenFileNames(self, "Insert Pages From", "", "PDF files (*.pdf)")
+        files, _ = QFileDialog.getOpenFileNames(self, tr("Insert Pages From"), "", tr("PDF files (*.pdf)"))
         if not files:
             return
         at = self.current_page() + 1
@@ -1412,16 +1412,16 @@ class PdfEditor(QMainWindow):
             pdf.close()
 
     def insert_image_pages(self):
-        files, _ = QFileDialog.getOpenFileNames(self, "Insert Images as Pages", "",
-                                                "Images (*.png *.jpg *.jpeg *.bmp *.gif *.tif *.tiff)")
+        files, _ = QFileDialog.getOpenFileNames(self, tr("Insert Images as Pages"), "",
+                                                tr("Images (*.png *.jpg *.jpeg *.bmp *.gif *.tif *.tiff)"))
         if files:
             self.begin_change()
             self._images_to_pdf(files, self.doc, self.current_page() + 1)
             self.end_change(structure=True)
 
     def new_from_images(self):
-        files, _ = QFileDialog.getOpenFileNames(self, "Create PDF from Images", "",
-                                                "Images (*.png *.jpg *.jpeg *.bmp *.gif *.tif *.tiff)")
+        files, _ = QFileDialog.getOpenFileNames(self, tr("Create PDF from Images"), "",
+                                                tr("Images (*.png *.jpg *.jpeg *.bmp *.gif *.tif *.tiff)"))
         if not files or not self.maybe_save():
             return
         doc = pymupdf.open()
@@ -1432,8 +1432,8 @@ class PdfEditor(QMainWindow):
 
     def combine_files(self):
         files, _ = QFileDialog.getOpenFileNames(
-            self, "Choose files to combine (in order)", "",
-            "PDFs and images (*.pdf *.png *.jpg *.jpeg *.bmp *.tif *.tiff)")
+            self, tr("Choose files to combine (in order)"), "",
+            tr("PDFs and images (*.pdf *.png *.jpg *.jpeg *.bmp *.tif *.tiff)"))
         if not files or not self.maybe_save():
             return
         doc = pymupdf.open()
@@ -1450,8 +1450,8 @@ class PdfEditor(QMainWindow):
 
     def extract_pages(self):
         pages = self.selected_pages()
-        f, _ = QFileDialog.getSaveFileName(self, "Save Extracted Pages", "extracted.pdf",
-                                           "PDF files (*.pdf)")
+        f, _ = QFileDialog.getSaveFileName(self, tr("Save Extracted Pages"), "extracted.pdf",
+                                           tr("PDF files (*.pdf)"))
         if not f:
             return
         out = pymupdf.open()
@@ -1459,10 +1459,10 @@ class PdfEditor(QMainWindow):
             out.insert_pdf(self.doc, from_page=i, to_page=i)
         out.save(f, garbage=3, deflate=True)
         out.close()
-        self.status.showMessage(f"Saved {len(pages)} page(s) to {f}", 5000)
+        self.status.showMessage(tr("Saved {v} page(s) to {f}").format(v=len(pages), f=f), 5000)
 
     def split_pages(self):
-        folder = QFileDialog.getExistingDirectory(self, "Folder for the single pages")
+        folder = QFileDialog.getExistingDirectory(self, tr("Folder for the single pages"))
         if not folder:
             return
         base = os.path.splitext(os.path.basename(self.path or "document.pdf"))[0]
@@ -1471,27 +1471,27 @@ class PdfEditor(QMainWindow):
             out.insert_pdf(self.doc, from_page=i, to_page=i)
             out.save(os.path.join(folder, f"{base}_page{i + 1}.pdf"), garbage=3, deflate=True)
             out.close()
-        self.status.showMessage(f"Saved {self.doc.page_count} files to {folder}", 5000)
+        self.status.showMessage(tr("Saved {page_count} files to {folder}").format(page_count=self.doc.page_count, folder=folder), 5000)
 
     # ------------------------------------------------------------ export / print
     def export_images(self):
-        folder = QFileDialog.getExistingDirectory(self, "Folder for the page images")
+        folder = QFileDialog.getExistingDirectory(self, tr("Folder for the page images"))
         if not folder:
             return
-        fmt, ok = QInputDialog.getItem(self, "Export Images", "Format:", ["PNG", "JPG"], 0, False)
+        fmt, ok = QInputDialog.getItem(self, tr("Export Images"), tr("Format:"), ["PNG", "JPG"], 0, False)
         if not ok:
             return
-        dpi, ok = QInputDialog.getInt(self, "Export Images", "Resolution (DPI):", 150, 50, 600)
+        dpi, ok = QInputDialog.getInt(self, tr("Export Images"), tr("Resolution (DPI):"), 150, 50, 600)
         if not ok:
             return
         base = os.path.splitext(os.path.basename(self.path or "document.pdf"))[0]
         for i, page in enumerate(self.doc):
             page.get_pixmap(dpi=dpi, annots=True).save(
                 os.path.join(folder, f"{base}_page{i + 1}.{fmt.lower()}"))
-        self.status.showMessage(f"Exported {self.doc.page_count} images to {folder}", 5000)
+        self.status.showMessage(tr("Exported {page_count} images to {folder}").format(page_count=self.doc.page_count, folder=folder), 5000)
 
     def export_text(self):
-        f, _ = QFileDialog.getSaveFileName(self, "Export Text", "document.txt", "Text files (*.txt)")
+        f, _ = QFileDialog.getSaveFileName(self, tr("Export Text"), "document.txt", tr("Text files (*.txt)"))
         if f:
             with open(f, "w", encoding="utf-8") as fh:
                 fh.write("\n\f".join(page.get_text() for page in self.doc))
@@ -1500,7 +1500,7 @@ class PdfEditor(QMainWindow):
         import docx
         from docx.shared import Pt, RGBColor, Inches
         start = os.path.splitext(self.path or "document.pdf")[0] + ".docx"
-        f, _ = QFileDialog.getSaveFileName(self, "Export to Word", start, "Word documents (*.docx)")
+        f, _ = QFileDialog.getSaveFileName(self, tr("Export to Word"), start, tr("Word documents (*.docx)"))
         if not f:
             return
         QGuiApplication.setOverrideCursor(Qt.WaitCursor)
@@ -1530,11 +1530,11 @@ class PdfEditor(QMainWindow):
                             para.add_run(" ")
             out.save(f)
         except Exception as ex:
-            QMessageBox.critical(self, APP_NAME, f"Export failed:\n{ex}")
+            QMessageBox.critical(self, APP_NAME, tr("Export failed:\n{ex}").format(ex=ex))
             return
         finally:
             QGuiApplication.restoreOverrideCursor()
-        self.status.showMessage(f"Exported to {f}", 5000)
+        self.status.showMessage(tr("Exported to {f}").format(f=f), 5000)
 
     def print_doc(self):
         printer = QPrinter(QPrinter.HighResolution)
